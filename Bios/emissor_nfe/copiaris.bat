@@ -1,0 +1,1 @@
+del SAINFE.TXT
