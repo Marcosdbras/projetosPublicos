@@ -1,0 +1,776 @@
+Pedido 27/10/2008 13:43:22:Access violation at address 018A9253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+Pedido 28/10/2008 12:23:09:I/O error 103
+----------------------------------------------------------------------
+Pedido 28/10/2008 12:26:15:I/O error 103
+----------------------------------------------------------------------
+Pedido 28/10/2008 12:28:56:I/O error 103
+----------------------------------------------------------------------
+Pedido 28/10/2008 12:30:52:I/O error 103
+----------------------------------------------------------------------
+Pedido 29/10/2008 13:24:12:Dbx_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+Pedido 29/10/2008 13:50:51:Cds_Vendab: Field 'descricao' not found
+----------------------------------------------------------------------
+Pedido 30/10/2008 16:56:58:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+Pedido 30/10/2008 17:06:22:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+31/10/2008 11:12:13:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+31/10/2008 11:13:02:'17.363,38' is not a valid floating point value
+----------------------------------------------------------------------
+31/10/2008 11:13:29:'17.363,38' is not a valid floating point value
+----------------------------------------------------------------------
+31/10/2008 16:09:15:'0,00' is not a valid integer value
+----------------------------------------------------------------------
+31/10/2008 16:09:53:'0,00' is not a valid integer value
+----------------------------------------------------------------------
+31/10/2008 16:11:32:'0,00' is not a valid integer value
+----------------------------------------------------------------------
+3/11/2008 11:26:40:Dbx_Vencto: Field 'C_TIPO_PGTO' not found
+----------------------------------------------------------------------
+3/11/2008 12:03:37:Dbx_Vencto: Field 'C_TIPO_PGTO' not found
+----------------------------------------------------------------------
+3/11/2008 12:04:52:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+CONTROLE
+At line 1, column 33
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+3/11/2008 14:38:26:Cds_Vendab: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+3/11/2008 14:39:16:Cds_Vendab: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+3/11/2008 14:40:59:Cds_Vendab: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+4/11/2008 09:13:12:Field 'EHVENDA' must have a value
+----------------------------------------------------------------------
+04/11/2008 11:37:38:Cds_Vendab: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+04/11/2008 11:40:27:Cds_Vencto: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+04/11/2008 11:49:07:Cds_Vencto: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+04/11/2008 11:57:29:Cds_Vencto: Must apply updates before refreshing data
+----------------------------------------------------------------------
+04/11/2008 12:01:38:Cds_Vencto: Must apply updates before refreshing data
+----------------------------------------------------------------------
+05/11/2008 11:28:56:Cds_Clientes: Field 'enderecoent' not found
+----------------------------------------------------------------------
+05/11/2008 11:51:08:'' is not a valid integer value
+----------------------------------------------------------------------
+05/11/2008 17:26:15:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+05/11/2008 17:30:59:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+05/11/2008 17:35:52:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+05/11/2008 21:28:29:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+05/11/2008 22:06:13:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+06/11/2008 14:33:16:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+07/11/2008 09:08:15:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+07/11/2008 10:06:07:Cds_Clientes: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+07/11/2008 10:07:29:Cds_Clientes: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+07/11/2008 10:08:26:Cds_Clientes: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+07/11/2008 10:09:13:Cds_Clientes: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+07/11/2008 10:10:00:Cds_Clientes: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+07/11/2008 10:12:01:Cds_Clientes: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+07/11/2008 10:12:54:Cds_Clientes: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+07/11/2008 11:34:54:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 6, column 1
+)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+07/11/2008 11:37:02:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 6, column 1
+)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+07/11/2008 11:44:02:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+RG
+At line 12, column 1
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+07/11/2008 11:47:44:Dbx_Clientes: Cursor not returned from Query
+----------------------------------------------------------------------
+07/11/2008 15:33:28:Cds_Clientes: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+07/11/2008 15:35:20:Cds_Clientes: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+07/11/2008 15:36:47:Cds_Clientes: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+07/11/2008 15:54:12:Cds_Clientes: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+07/11/2008 16:06:21:Dbx_Exec: Operation not allowed on a unidirectional dataset
+----------------------------------------------------------------------
+07/11/2008 17:46:39:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 2, column 1
+Update
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+07/11/2008 17:48:48:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 2, column 1
+Update
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+07/11/2008 17:50:08:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 2, column 1
+Update
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+07/11/2008 17:52:02:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 2, column 1
+Update
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+07/11/2008 23:33:00:Cds_Vendab: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+09/11/2008 10:23:51:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+09/11/2008 14:34:49:Dbx_MovReg: Cursor not returned from Query
+----------------------------------------------------------------------
+09/11/2008 14:35:34:Cds_Vendab: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+09/11/2008 14:36:53:Dbx_MovReg: Cursor not returned from Query
+----------------------------------------------------------------------
+09/11/2008 14:38:27:Cds_Vendab: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+09/11/2008 14:39:27:Cds_Vendab: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+09/11/2008 14:45:11:Cds_Vendab: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+09/11/2008 14:48:37:Cds_Vendab: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+09/11/2008 14:52:13:Cds_Vendab: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+09/11/2008 14:57:29:Cds_Vendab: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+09/11/2008 15:03:29:Cds_Vendab: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+09/11/2008 16:39:53:File not found
+----------------------------------------------------------------------
+09/11/2008 16:43:46:File not found
+----------------------------------------------------------------------
+09/11/2008 16:57:04:File not found
+----------------------------------------------------------------------
+09/11/2008 17:00:13:I/O error 53
+----------------------------------------------------------------------
+09/11/2008 17:03:26:I/O error 105
+----------------------------------------------------------------------
+09/11/2008 19:16:01:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 27, column 1
+0
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+09/11/2008 19:18:08:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 27, column 1
+0
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+09/11/2008 21:57:35:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 3, column 27
+5.00
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+09/11/2008 22:00:52:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 3, column 27
+5.00
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+10/11/2008 02:00:14:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 3, column 42
+1
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+10/11/2008 02:04:00:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 3, column 42
+1
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+10/11/2008 03:04:48:violation of FOREIGN KEY constraint "FK_MOVREG_CUSU" on table "MOVREG"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/11/2008 12:55:57:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 32
+like
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+11/11/2008 12:58:53:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 32
+like
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+11/11/2008 13:01:47:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 32
+like
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+11/11/2008 13:04:09:violation of FOREIGN KEY constraint "FK_MOVREG_CUSU" on table "MOVREG"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/11/2008 13:04:50:violation of FOREIGN KEY constraint "FK_MOVREG_CUSU" on table "MOVREG"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/11/2008 13:08:09:violation of FOREIGN KEY constraint "FK_MOVREG_CUSU" on table "MOVREG"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/11/2008 13:08:25:violation of FOREIGN KEY constraint "FK_MOVREG_CUSU" on table "MOVREG"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/11/2008 13:09:43:violation of FOREIGN KEY constraint "FK_MOVREG_CUSU" on table "MOVREG"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/11/2008 13:13:01:violation of FOREIGN KEY constraint "FK_MOVREG_CUSU" on table "MOVREG"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/11/2008 13:16:11:violation of FOREIGN KEY constraint "FK_MOVREG_CUSU" on table "MOVREG"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/11/2008 13:18:16:violation of FOREIGN KEY constraint "FK_MOVREG_CUSU" on table "MOVREG"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/11/2008 13:19:49:violation of FOREIGN KEY constraint "FK_MOVREG_CUSU" on table "MOVREG"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/11/2008 13:22:14:violation of FOREIGN KEY constraint "FK_MOVREG_CUSU" on table "MOVREG"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/11/2008 13:23:34:violation of FOREIGN KEY constraint "FK_MOVREG_CUSU" on table "MOVREG"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+12/11/2008 11:55:32:File not found
+----------------------------------------------------------------------
+13/11/2008 14:31:49:File not found
+----------------------------------------------------------------------
+13/11/2008 14:32:54:File not found
+----------------------------------------------------------------------
+14/11/2008 22:58:03:File not found
+----------------------------------------------------------------------
+15/11/2008 00:29:06:File not found
+----------------------------------------------------------------------
+15/11/2008 01:16:37:Dbx_vProdutos: Field 'qtde' not found
+----------------------------------------------------------------------
+15/11/2008 01:51:18:BCD overflow
+----------------------------------------------------------------------
+15/11/2008 01:58:44:Dbx_Exec: Field 'qtde' not found
+----------------------------------------------------------------------
+15/11/2008 02:18:05:Cds_Exec: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/11/2008 16:10:38:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+26/11/2008 16:31:43:Cds_Vencto: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+26/11/2008 16:33:18:Cds_Vencto: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+26/11/2008 16:44:41:Cds_Vencto: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+27/11/2008 06:51:09:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+03/12/2008 17:42:30:File not found
+----------------------------------------------------------------------
+22/12/08 11:31:17:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+31/12/2008 03:11:54:File not found
+----------------------------------------------------------------------
+31/12/2008 03:13:26:File not found
+----------------------------------------------------------------------
+31/12/2008 03:16:17:File not found
+----------------------------------------------------------------------
+31/12/2008 03:20:14:File not found
+----------------------------------------------------------------------
+31/12/2008 03:25:55:File not found
+----------------------------------------------------------------------
+31/12/2008 03:43:37:File not found
+----------------------------------------------------------------------
+24/01/2009 15:59:40:File not found
+----------------------------------------------------------------------
+04/02/2009 10:44:00:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+04/02/2009 10:46:40:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+04/02/2009 11:05:11:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+04/02/2009 11:12:45:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+04/02/2009 11:19:25:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+04/02/2009 11:25:47:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+04/02/2009 11:37:54:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+04/02/2009 11:41:50:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+04/02/2009 11:50:10:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+04/02/2009 11:54:01:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+06/02/2009 16:48:05:Dynamic SQL Error
+SQL error code = -804
+Count of read-write columns does not equal count of values
+An error was found in the application program input parameters for the SQL statement.
+Error Code: 249
+----------------------------------------------------------------------
+09/02/2009 12:16:51:Invalid floating point operation
+----------------------------------------------------------------------
+09/02/2009 12:20:39:Floating point division by zero
+----------------------------------------------------------------------
+09/02/2009 15:54:41:Invalid floating point operation
+----------------------------------------------------------------------
+09/02/2009 16:37:34:Invalid floating point operation
+----------------------------------------------------------------------
+09/02/2009 18:21:05:Floating point division by zero
+----------------------------------------------------------------------
+10/02/2009 12:16:02:'PRAZO' is not a valid integer value
+----------------------------------------------------------------------
+10/02/2009 13:25:11:Floating point division by zero
+----------------------------------------------------------------------
+10/02/2009 14:24:07:Floating point division by zero
+----------------------------------------------------------------------
+10/02/2009 14:33:44:Cds_Vencto: Must apply updates before refreshing data
+----------------------------------------------------------------------
+11/02/2009 13:37:58:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+11/02/2009 13:38:52:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+11/02/2009 13:43:03:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+11/02/2009 13:47:59:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+11/02/2009 14:13:36:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+11/02/2009 14:23:03:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+11/02/2009 14:32:18:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+27/02/2009 09:47:39:File not found
+----------------------------------------------------------------------
+05/03/2009 14:15:47:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+05/03/2009 14:18:20:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+19/03/09 12:20:38:I/O error for file "C:\MARCOS\DESENVOLVIMENTO\SISTEMAS\RB\FBDADOS.FDB"
+Error while trying to open file
+O sistema não pode encontrar o arquivo especificado. 
+Unsuccessful execution caused by a system error that precludes
+successful execution of subsequent statements
+Error Code: 24
+----------------------------------------------------------------------
+19/03/09 12:20:51:I/O error for file "C:\MARCOS\DESENVOLVIMENTO\SISTEMAS\RB\FBDADOS.FDB"
+Error while trying to open file
+O sistema não pode encontrar o arquivo especificado. 
+Unsuccessful execution caused by a system error that precludes
+successful execution of subsequent statements
+Error Code: 24
+----------------------------------------------------------------------
+01/04/09 15:33:10:File not found
+----------------------------------------------------------------------
+20/04/09 10:40:31:RichEdit line insertion error
+----------------------------------------------------------------------
+20/04/09 10:41:20:RichEdit line insertion error
+----------------------------------------------------------------------
+20/04/09 10:43:26:RichEdit line insertion error
+----------------------------------------------------------------------
+24/04/09 09:40:38:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+EHVENDA
+At line 1, column 89
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+24/04/09 09:43:51:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 121
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+24/04/09 09:45:21:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 121
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+24/04/09 10:41:16:cds_Tipo_Pgto: Field 'nome' not found
+----------------------------------------------------------------------
+24/04/09 10:43:23:Access violation at address 005B957A in module 'pfrente.exe'. Read of address 00000010
+----------------------------------------------------------------------
+24/04/09 14:41:16:Dbx_Vencto: Field 'CODIGO' not found
+----------------------------------------------------------------------
+24/04/09 14:42:41:SQL Error: Error mapping failed
+----------------------------------------------------------------------
+24/04/09 14:43:16:SQL Error: Error mapping failed
+----------------------------------------------------------------------
+24/04/09 15:09:53:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+24/04/09 15:12:09:conversion error from string "24/04/09"
+Overflow occurred during data type conversion.
+Error Code: 14
+----------------------------------------------------------------------
+24/04/09 15:21:06:conversion error from string "24/04/09"
+Overflow occurred during data type conversion.
+Error Code: 14
+----------------------------------------------------------------------
+24/04/09 15:33:27:conversion error from string "24/04/09"
+Overflow occurred during data type conversion.
+Error Code: 14
+----------------------------------------------------------------------
+27/04/09 09:51:03:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 1
+Delele
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+27/04/09 15:52:43:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+27/04/09 15:53:43:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+27/04/09 15:58:56:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+27/04/09 16:04:33:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+27/04/09 16:12:37:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+27/04/09 16:16:14:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+27/04/09 16:18:47:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+27/04/09 16:26:05:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+27/04/09 16:50:42:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+27/04/09 17:21:15:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+27/04/09 17:28:53:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+27/04/09 17:38:49:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+23/06/09 11:24:38:Dbx_Exec: Field 'codigo' not found
+----------------------------------------------------------------------
+23/06/09 15:12:05:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+CODSVENDA
+At line 1, column 24
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+23/06/09 15:15:02:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+CODSVENDA
+At line 1, column 24
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+24/06/09 17:27:57:'editotpagar' is not a valid floating point value
+----------------------------------------------------------------------
+24/06/09 17:30:48:'editotpagar' is not a valid floating point value
+----------------------------------------------------------------------
+25/06/09 17:11:51:'0,00' is not a valid integer value
+----------------------------------------------------------------------
+25/06/09 17:23:21:'35,76' is not a valid integer value
+----------------------------------------------------------------------
+25/06/09 17:43:04:'12.50' is not a valid integer value
+----------------------------------------------------------------------
+25/06/09 17:56:35:Access violation at address 00401D81 in module 'pfrente.exe'. Write of address 400828F4
+----------------------------------------------------------------------
+25/06/09 17:56:45:Access violation at address 00401FDF in module 'pfrente.exe'. Read of address 400828F4
+----------------------------------------------------------------------
+25/06/09 17:56:47:Access violation at address 00402304 in module 'pfrente.exe'. Write of address 40082900
+----------------------------------------------------------------------
+25/06/09 18:03:49:Access violation at address 00401D81 in module 'pfrente.exe'. Write of address 400828F4
+----------------------------------------------------------------------
+25/06/09 18:04:15:Access violation at address 00401D81 in module 'pfrente.exe'. Write of address 400828F4
+----------------------------------------------------------------------
+25/06/09 18:04:19:Access violation at address 00401FDF in module 'pfrente.exe'. Read of address 400828F4
+----------------------------------------------------------------------
+25/06/09 18:04:21:Access violation at address 00402304 in module 'pfrente.exe'. Write of address 40082900
+---------------------25/06/09 18:06:34:Access violation at address 00401FDF in module 'pfrente.exe'. Read of address 400828F5
+----------------------------------------------------------------------
+25/06/09 18:06:43:Access violation at address 00401FDF in module 'pfrente.exe'. Read of address 400828F5
+----------------------25/06/09 18:07:15:Invalid pointer operation
+----------------------------------------------------------------------
+25/06/09 18:08:24:Invalid pointer operation
+----------------------------------------------------------------------
+25/06/09 18:09:13:Access violation at address 00401D81 in module 'pfrente.exe'. Write of address 400828F4
+----------------------------------------------------------------------
+25/06/09 18:13:26:Access violation at address 00401D81 in module 'pfrente.exe'. Write of address 400828F4
+----------------------------------------------------------------------
+25/06/09 18:14:53:Access violation at address 00401FDF in module 'pfrente.exe'. Read of address 400828F5
+----------------------------------------------------------------------
+25/06/09 18:18:52:Invalid pointer operation
+----------------------------------------------------------------------
+25/06/09 18:20:08:Access violation at address 00401FDF in module 'pfrente.exe'. Read of address 400828F4
+----------------------25/06/09 18:21:06:Access violation at address 00401D8A in module 'pfrente.exe'. Write of address 400828F5
+----------------------------------------------------------------------
+25/06/09 18:23:59:Invalid pointer operation
+----------------------------------------------------------------------
+25/06/09 18:26:22:Access violation at address 00401D8A in module 'pfrente.exe'. Write of address 400828F5
+---------------------25/06/09 18:29:20:Access violation at address 00401D81 in module 'pfrente.exe'. Write of address 400828F4
+----------------------------------------------------------------------
+25/06/09 18:33:31:Access violation at address 00401D8A in module 'pfrente.exe'. Write of address 400828F5
+----------------------------------------------------------------------
+25/06/09 18:41:17:Access violation at address 00401D81 in module 'pfrente.exe'. Write of address 400828F4
+----------------------------------------------------------------------
+25/06/09 18:42:58:Access violation at address 00401D81 in module 'pfrente.exe'. Write of address 400828F4
+----------------------------------------------------------------------
+25/06/09 18:43:05:Access violation at address 00401FDF in module 'pfrente.exe'. Read of address 400828F4
+----------------------------------------------------------------------
+25/06/09 18:43:10:Access violation at address 00401FDF in module 'pfrente.exe'. Read of address 400828F4
+----------------------------------------------------------------------
+25/06/09 18:47:19:Invalid pointer operation
+----------------------------------------------------------------------
+25/06/09 18:49:18:Access violation at address 00401D8A in module 'pfrente.exe'. Write of address 400828F5
+----------------------------------------------------------------------
+25/06/09 18:51:06:Invalid pointer operation
+----------------------------------------------------------------------
+25/06/09 18:51:52:Access violation at address 00401D81 in module 'pfrente.exe'. Write of address 400828F4
+----------------------------------------------------------------------
+25/06/09 18:52:04:Access violation at address 00401FDF in module 'pfrente.exe'. Read of address 400828F4
+----------------------------------------------------------------------
+25/06/09 18:52:10:Access violation at address 00401FDF in module 'pfrente.exe'. Read of address 400828F4
+----------------------------------------------------------------------
+25/06/09 18:52:13:Access violation at address 00401FDF in module 'pfrente.exe'. Read of address 400828F4
+----------------------------------------------------------------------
+25/06/09 18:54:23:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+25/06/09 18:56:15:Invalid pointer operation
+----------------------------------------------------------------------
+25/06/09 19:01:27:Access violation at address 00401D8A in module 'pfrente.exe'. Write of address 400828F5
+----------------------------------------------------------------------
+25/06/09 19:14:03:Access violation at address 00401D8A in module 'pfrente.exe'. Write of address 400828F5
+----------------------------------------------------------------------
+25/06/09 19:15:40:Access violation at address 00401D8A in module 'pfrente.exe'. Write of address 400828F5
+----------------------------------------------------------------------
+25/06/09 19:16:26:Access violation at address 00401D8A in module 'pfrente.exe'. Write of address 400828F5
+----------------------------------------------------------------------
+25/06/09 19:20:53:Access violation at address 00401D8A in module 'pfrente.exe'. Write of address 400828F5
+----------------------------------------------------------------------
+25/06/09 19:25:58:Access violation at address 00401D8A in module 'pfrente.exe'. Write of address 400828F5
+----------------------------------------------------------------------
+25/06/09 19:34:16:Access violation at address 00401D8A in module 'pfrente.exe'. Write of address 400828F5
+----------------------------------------------------------------------
+25/06/09 19:59:32:Invalid pointer operation
+----------------------------------------------------------------------
+25/06/09 20:14:14:Invalid pointer operation
+----------------------------------------------------------------------
+25/06/09 20:18:12:Invalid pointer operation
+----------------------------------------------------------------------
+25/06/09 20:18:18:Invalid pointer operation
+----------------------------------------------------------------------
+25/06/09 20:20:04:Invalid pointer operation
+----------------------------------------------------------------------
+25/06/09 20:23:25:Invalid pointer operation
+----------------------------------------------------------------------
+25/06/09 21:44:44:Access violation at address 71615978 in module 'IMFNT5.DLL'. Read of address 0000006C
+----------------------------------------------------------------------
+21/07/09 12:44:08:File not found
+----------------------------------------------------------------------
+21/07/09 15:23:57:Access violation at address 005E8FBA in module 'pfrente.exe'. Read of address 00000328
+----------------------------------------------------------------------
+21/07/09 15:25:09:Access violation at address 005E8FBA in module 'pfrente.exe'. Read of address 00000328
+----------------------------------------------------------------------
+21/07/09 15:27:01:Access violation at address 005E8FBA in module 'pfrente.exe'. Read of address 00000328
+----------------------------------------------------------------------
+21/07/09 15:36:13:Access violation at address 005E2D0A in module 'pfrente.exe'. Read of address 00000328
+----------------------------------------------------------------------
+21/07/09 15:40:03:Access violation at address 00000000. Read of address 00000000
+----------------------------------------------------------------------
+21/07/09 15:43:37:Access violation at address 00000000. Read of address 00000000
+----------------------------------------------------------------------
+21/07/09 16:29:48:Access violation at address 005E2D42 in module 'pfrente.exe'. Read of address 00000328
+----------------------------------------------------------------------
+21/07/09 16:33:04:Access violation at address 005E2D42 in module 'pfrente.exe'. Read of address 00000328
+----------------------------------------------------------------------
+22/07/09 14:29:36:Access violation at address 005E366E in module 'pfrente.exe'. Read of address 00000000
+----------------------------------------------------------------------
+22/07/09 14:52:10:File not found
+----------------------------------------------------------------------
+22/07/09 16:44:04:File not found
+----------------------------------------------------------------------
+22/07/09 16:46:40:File not found
+----------------------------------------------------------------------
+22/07/09 17:20:22:Thread Error: Identificador inválido (6)
+----------------------------------------------------------------------
+24/07/09 10:59:05:File not found
+----------------------------------------------------------------------
+28/07/09 11:37:16:File not found
+----------------------------------------------------------------------
+29/07/09 16:08:29:Cds_SangriaDATA: Preparation of default expression failed with error "Type mismatch in expression"
+----------------------------------------------------------------------
+29/07/09 16:10:03:Cds_SangriaDATA: Preparation of default expression failed with error "Type mismatch in expression"
+----------------------------------------------------------------------
+29/07/09 16:13:26:Cds_SangriaDATA: Preparation of default expression failed with error "Invalid filter expression character: '.'"
+----------------------------------------------------------------------
+29/07/09 16:14:27:File not found
+----------------------------------------------------------------------
+02/09/2009 12:09:44:'' is not a valid integer value
+----------------------------------------------------------------------
+02/09/2009 13:54:31:'' is not a valid integer value
+----------------------------------------------------------------------
+02/09/2009 14:08:25:'' is not a valid integer value
+----------------------------------------------------------------------
+02/09/2009 14:11:46:'' is not a valid integer value
+----------------------------------------------------------------------
+02/09/2009 14:15:33:'' is not a valid integer value
+----------------------------------------------------------------------
+02/09/2009 14:18:32:'' is not a valid integer value
+----------------------------------------------------------------------
+02/09/2009 14:37:00:'' is not a valid integer value
+----------------------------------------------------------------------
+02/09/2009 14:42:38:'' is not a valid integer value
+----------------------------------------------------------------------
+02/09/2009 14:47:46:'' is not a valid integer value
+----------------------------------------------------------------------
+02/09/2009 14:54:08:'' is not a valid integer value
+----------------------------------------------------------------------
+02/10/2009 09:26:13:Sql_Dados: There is no active transaction
+----------------------------------------------------------------------
+02/10/2009 09:35:21:Sql_Dados: There is no active transaction
+----------------------------------------------------------------------
+02/10/2009 09:37:56:Sql_Dados: There is no active transaction
+----------------------------------------------------------------------
+27/10/2009 17:28:39:'' is not a valid integer value
+----------------------------------------------------------------------
+27/10/2009 17:30:07:'' is not a valid integer value
+----------------------------------------------------------------------
+27/10/2009 17:33:08:'' is not a valid integer value
+----------------------------------------------------------------------
+27/10/2009 17:45:47:'' is not a valid integer value
+----------------------------------------------------------------------
+27/10/2009 20:00:59:'' is not a valid integer value
+----------------------------------------------------------------------
+28/10/2009 09:43:50:'' is not a valid integer value
+----------------------------------------------------------------------
+28/10/2009 09:47:53:'' is not a valid integer value
+----------------------------------------------------------------------
+28/10/2009 09:48:36:'' is not a valid integer value
+----------------------------------------------------------------------
+28/10/2009 10:48:56:'' is not a valid integer value
+----------------------------------------------------------------------
+28/10/2009 10:55:41:'' is not a valid integer value
+----------------------------------------------------------------------
+24/11/2009 10:38:41:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+NCO
+At line 1, column 36
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+24/11/2009 11:17:56:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+CONTROLE
+At line 1, column 41
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+04/02/2010 17:09:28:Sql_Dados: There is no active transaction
+----------------------------------------------------------------------
+6/9/2010 11:33:09:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+6/9/2010 11:35:23:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+6/9/2010 11:38:12:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+6/9/2010 11:42:30:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+6/9/2010 11:46:24:Cds_Vendab: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+17/1/2011 13:45:15:I/O error for file "D:\MARCOS\DESENVOLVIMENTO\SISTEMAS\SYSTCOM11\FBDADOS.FDB"
+Error while trying to write to file
+O dispositivo não está pronto. 
+Unsuccessful execution caused by a system error that precludes
+successful execution of subsequent statements
+Error Code: 24
+----------------------------------------------------------------------
+21/03/2011 12:50:37:Cds_Vendab: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+21/03/2011 13:26:46:Cds_Temp: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+05/04/2011 13:43:36:Sqp_dados: Parameter 'VARNOME' not found
+----------------------------------------------------------------------
+05/04/2011 13:43:45:Unable to complete network request to host "f".
+Failed to locate host machine.
+The specified name was not found in the hosts file or Domain Name Services.
+Unsuccessful execution caused by a system error that precludes
+successful execution of subsequent statements
+Error Code: 401
+----------------------------------------------------------------------

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enviNFe xmlns="http://www.oobj.com.br/nfe"><idLote>1861</idLote><NFe><infNFe>
+<ide><indPag>1</indPag><nNF>186</nNF><dEmi>2011-03-23</dEmi><dSaiEnt>2011-03-23</dSaiEnt><tpNF>0</tpNF></ide>
+<emit><xNome>Espazio Felicitá</xNome><xFant>Espázio Felicitá</xFant><enderEmit><xLgr>Rua:Olavo Egidio de Souza Aranha nº2041</xLgr></enderEmit></emit>
+<dest><CNPJ>13177765855</CNPJ><xNome>ACADEMIA MORI FITNESS</xNome><enderDest><xLgr>FFFFFF</xLgr><nro>321</nro><xBairro>FURNAS</xBairro><CEP>03808050</CEP><fone>1125439698</fone></enderDest><IE>224499930</IE></dest>
+<det nItem='1'><prod><cProd>03792</cProd><cEAN/><xProd>ABAJUR PALMEIRAS</xProd><uCom>PC</uCom><qCom>1.00</qCom><vUnCom>70.00</vUnCom><vProd>70.00</vProd><cEANTrib/><uTrib>PC</uTrib><qTrib>1.00</qTrib><vUnTrib>70.00</vUnTrib></prod><imposto><ICMS><ICMS></ICMS></ICMS></imposto></det>
+<total><ICMSTot><vBC>0.00</vBC><vICMS>0.00</vICMS><vBCST>0.00</vBCST><vST>0.00</vST><vProd>70.00</vProd><vFrete>0.00</vFrete><vSeg>0.00</vSeg><vDesc>0.00</vDesc><vII>0.00</vII><vIPI>0.00</vIPI><vPIS>0.00</vPIS><vCOFINS>0.00</vCOFINS><vOutro>0.00</vOutro><vNF>70.00</vNF></ICMSTot></total>
+<transp><modFrete>0</modFrete></transp>
+<cobr><dup><nDup>186-</nDup><dVenc>2011-04-22</dVenc><vDup>70.00</vDup></dup></cobr>
+<infAdic><infCpl></infCpl></infAdic>
+</infNFe>
+</NFe>
+</enviNFe>

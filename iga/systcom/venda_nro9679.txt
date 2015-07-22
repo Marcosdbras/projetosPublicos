@@ -1,0 +1,19 @@
+[cliente00528]
+CNPJ=
+IE=
+NomeRazao=ACADEMIA MORI FITNESS
+Fantasia=
+Fone=
+CEP=         
+Logradouro=
+Numero=
+Complemento=
+Bairro=
+[produto00009]
+CPRO=5288
+NPRO=ABAJUR LUZ NOTURNA URSO LED
+QTDE=1
+PRVE=6
+SUBTOTAL=6
+NCM=09876543
+ICMS=F1

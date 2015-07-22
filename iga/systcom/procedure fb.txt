@@ -1,0 +1,85 @@
+
+SET TERM ^ ;
+
+CREATE PROCEDURE RES_CLA_CONTA (
+    varanoi integer,
+    varanof integer,
+    varcf integer)
+returns (
+    ano integer,
+    cod_clap integer,
+    cod_subgru integer,
+    jan numeric(10,2),
+    fev numeric(10,2),
+    mar numeric(10,2),
+    abr numeric(10,2),
+    mai numeric(10,2),
+    jun numeric(10,2),
+    jul numeric(10,2),
+    ago numeric(10,2),
+    sete numeric(10,2),
+    out numeric(10,2),
+    nov numeric(10,2),
+    dez numeric(10,2))
+as
+declare variable imes integer;
+declare variable ianoi integer;
+declare variable ianof integer;
+declare variable iano integer;
+declare variable fjan numeric(10,2);
+declare variable ffev numeric(10,2);
+declare variable fmar numeric(10,2);
+declare variable fabr numeric(10,2);
+declare variable fmai numeric(10,2);
+declare variable fjun numeric(10,2);
+declare variable fjul numeric(10,2);
+declare variable fago numeric(10,2);
+declare variable fsete numeric(10,2);
+declare variable fout numeric(10,2);
+declare variable fnov numeric(10,2);
+declare variable fdez numeric(10,2);
+declare variable iclap integer;
+declare variable isubgru integer;
+declare variable icodcla integer;
+begin
+ ianoi = :varanoi;
+ ianof = :varanof;
+
+ for select extract (month from pg.dtl) as mes, extract (year from pg.dtl) as ano from pagar pg where (pg.dtl between :varanoi and :varanof)  group by ano, mes into :iano, :imes do begin
+
+ end
+
+end
+^
+
+SET TERM ; ^
+
+
+
+
+
+
+
+
+ for select cp.codigo from classe cp into :icodcla do begin 
+
+    while (ianoi <= ianof) do begin
+          imes = 1;
+          while (imes <= 12) do begin
+
+             for select pg.codigo from pagar pg where (:varcf = )
+
+
+
+
+
+             imes = imes + 1;
+          end
+
+
+
+      ianoi = ianoi + 1;
+     end
+
+
+ end

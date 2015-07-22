@@ -1,0 +1,70 @@
+                if not bavista then
+                   begin
+                     if iItens = 0 then
+                       begin
+                         sNumDup1 := cds_vencto_NF.fieldbyname('doc').asString;
+                         sVlrDup1 := cds_vencto_nf.fieldbyname('valor').asString;
+                         sVctDup1 := cds_vencto_NF.fieldbyname('dtv').asString;
+                       end;
+                     //endi
+                     if iItens = 1 then
+                       begin
+                         sNumDup2 := cds_vencto_NF.fieldbyname('doc').asString;
+                         sVlrDup2 := cds_vencto_nf.fieldbyname('valor').asString;
+                         sVctDup2 := cds_vencto_NF.fieldbyname('dtv').asString;
+                       end;
+                     //endi
+                     if iItens = 2 then
+                       begin
+                         sNumDup3 := cds_vencto_NF.fieldbyname('doc').asString;
+                         sVlrDup3 := cds_vencto_nf.fieldbyname('valor').asString;
+                         sVctDup3 := cds_vencto_NF.fieldbyname('dtv').asString;
+                       end;
+                     //endi
+                     if iItens = 3 then
+                       begin
+                         sNumDup4 := cds_vencto_NF.fieldbyname('doc').asString;
+                         sVlrDup4 := cds_vencto_nf.fieldbyname('valor').asString;
+                         sVctDup4 := cds_vencto_NF.fieldbyname('dtv').asString;
+                       end;
+                     //endi
+                   end
+                else
+                   begin
+
+                     if iItens = 0 then
+                       begin
+                         sNumDup1 := 'À VISTA';
+                         if Cds_sVenda.fieldbyname('din').asfloat >= Cds_sVenda.fieldbyname('liquido').asfloat then
+                            sVlrDup1 := Cds_sVenda.fieldbyname('liquido').asString
+                         else
+                            sVlrDup1 := Cds_sVenda.fieldbyname('din').asString;
+                         //endi
+                         sVctDup1 := '';
+                       end;
+                     //endi
+                     if iItens = 1 then
+                       begin
+                         sNumDup2 := cds_vencto_NF.fieldbyname('doc').asString;
+                         sVlrDup2 := cds_vencto_nf.fieldbyname('valor').asString;
+                         sVctDup2 := cds_vencto_NF.fieldbyname('dtv').asString;
+                       end;
+                     //endi
+                     if iItens = 2 then
+                       begin
+                         sNumDup3 := cds_vencto_NF.fieldbyname('doc').asString;
+                         sVlrDup3 := cds_vencto_nf.fieldbyname('valor').asString;
+                         sVctDup3 := cds_vencto_NF.fieldbyname('dtv').asString;
+                       end;
+                     //endi
+                     if iItens = 3 then
+                       begin
+                         sNumDup4 := cds_vencto_NF.fieldbyname('doc').asString;
+                         sVlrDup4 := cds_vencto_nf.fieldbyname('valor').asString;
+                         sVctDup4 := cds_vencto_NF.fieldbyname('dtv').asString;
+                       end;
+                     //endi
+
+
+                   end;
+                //endi

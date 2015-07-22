@@ -1,0 +1,3217 @@
+SYSBRAS 27/10/2008 16:19:52:'Sim' is not a valid integer value for field 'EHORC'
+----------------------------------------------------------------------
+SYSBRAS 28/10/2008 10:25:21:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+SYSBRAS 28/10/2008 10:31:29:Field 'CAMPO13' must have a value
+----------------------------------------------------------------------
+SYSBRAS 3/11/2008 09:59:34:Cds_Indice: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+12/11/2008 10:28:50:Error creating cursor handle
+----------------------------------------------------------------------
+12/11/2008 10:31:03:Error creating cursor handle
+----------------------------------------------------------------------
+12/11/2008 10:32:10:Error creating cursor handle
+----------------------------------------------------------------------
+12/11/2008 10:33:57:Error creating cursor handle
+----------------------------------------------------------------------
+12/11/2008 10:35:26:Error creating cursor handle
+----------------------------------------------------------------------
+12/11/2008 10:38:23:Error creating cursor handle
+----------------------------------------------------------------------
+12/11/2008 10:39:57:Error creating cursor handle
+----------------------------------------------------------------------
+12/11/2008 10:45:56:Error creating cursor handle
+----------------------------------------------------------------------
+12/11/2008 10:47:16:Error creating cursor handle
+----------------------------------------------------------------------
+12/11/2008 10:51:02:Error creating cursor handle
+----------------------------------------------------------------------
+12/11/2008 10:52:47:Error creating cursor handle
+----------------------------------------------------------------------
+12/11/2008 10:53:44:Error creating cursor handle
+----------------------------------------------------------------------
+12/11/2008 11:00:26:Error creating cursor handle
+----------------------------------------------------------------------
+13/11/2008 16:31:03:Access violation at address 005ACFBE in module 'sysbras.exe'. Write of address 0000075C
+----------------------------------------------------------------------
+13/11/2008 16:33:09:Access violation at address 005ACFBE in module 'sysbras.exe'. Write of address 0000075C
+----------------------------------------------------------------------
+13/11/2008 16:34:16:Access violation at address 005ACFBE in module 'sysbras.exe'. Write of address 0000075C
+----------------------------------------------------------------------
+13/11/2008 16:39:53:invalid request BLR at offset 76
+generator GEN_VPRODUTOS_ID is not defined
+Invalid token
+Error Code: 23
+----------------------------------------------------------------------
+13/11/2008 16:42:10:invalid request BLR at offset 76
+generator GEN_VPRODUTOS_ID is not defined
+Invalid token
+Error Code: 23
+----------------------------------------------------------------------
+13/11/2008 16:46:30:invalid request BLR at offset 76
+generator GEN_VPRODUTOS_ID is not defined
+Invalid token
+Error Code: 23
+----------------------------------------------------------------------
+13/11/2008 16:50:43:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+13/11/2008 16:50:49:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+13/11/2008 16:55:48:invalid request BLR at offset 76
+generator GEN_VPRODUTOS_ID is not defined
+Invalid token
+Error Code: 23
+----------------------------------------------------------------------
+14/11/2008 02:54:21:Access violation at address 0059AB80 in module 'sysbras.exe'. Read of address 00000390
+----------------------------------------------------------------------
+14/11/2008 02:58:43:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+14/11/2008 03:11:56:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+P.CDESCPROD
+At line 1, column 95
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+14/11/2008 03:13:56:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+P.CDESCPROD
+At line 1, column 95
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+14/11/2008 03:46:16:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 24
+d
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+18/11/2008 17:21:17:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 2, column 98
+1
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+19/11/2008 11:13:03:Cds_dVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+19/11/2008 11:35:30:Cds_dVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+19/11/2008 14:36:40:Dynamic SQL Error
+SQL error code = -104
+Invalid expression in the select list (not contained in either an aggregate function or the GROUP BY clause)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+21/11/2008 10:07:15:Dbx_vDvendas: Field 'CUNI' not found
+----------------------------------------------------------------------
+21/11/2008 10:27:00:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+SUBTOTCT
+At line 1, column 55
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+21/11/2008 10:44:03:Dynamic SQL Error
+SQL error code = -104
+Invalid expression in the select list (not contained in either an aggregate function or the GROUP BY clause)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+21/11/2008 11:22:36:Dynamic SQL Error
+SQL error code = -104
+Invalid expression in the select list (not contained in either an aggregate function or the GROUP BY clause)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+21/11/2008 11:26:28:Dynamic SQL Error
+SQL error code = -104
+Invalid expression in the select list (not contained in either an aggregate function or the GROUP BY clause)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+21/11/2008 11:34:01:Dynamic SQL Error
+SQL error code = -104
+Invalid expression in the select list (not contained in either an aggregate function or the GROUP BY clause)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+21/11/2008 14:50:16:Dynamic SQL Error
+SQL error code = -104
+Invalid expression in the select list (not contained in either an aggregate function or the GROUP BY clause)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+21/11/2008 14:51:43:Dynamic SQL Error
+SQL error code = -104
+Invalid expression in the select list (not contained in either an aggregate function or the GROUP BY clause)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+24/11/2008 09:57:42:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 24
+d
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+28/11/2008 11:55:01:arithmetic exception, numeric overflow, or string truncation
+Arithmetic overflow or division by zero has occurred.
+Error Code: 1
+----------------------------------------------------------------------
+28/11/2008 16:41:45:Access violation at address 00587201 in module 'sysbras.exe'. Read of address 000003F4
+----------------------------------------------------------------------
+29/11/2008 09:12:41:Dbx_vProdutos: Field 'PRCU' not found
+----------------------------------------------------------------------
+29/11/2008 09:13:37:Dbx_vProdutos: Field 'PRCU' not found
+----------------------------------------------------------------------
+29/11/2008 09:16:36:Dbx_vProdutos: Field 'PRCU' not found
+----------------------------------------------------------------------
+29/11/2008 09:21:53:Dbx_vProdutos: Field 'PRCU' not found
+----------------------------------------------------------------------
+29/11/2008 09:24:24:Dbx_vProdutos: Field 'PRCU' not found
+----------------------------------------------------------------------
+29/11/2008 09:29:54:Cds_vProdutos: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+01/12/2008 11:12:04:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 3, column 1
+group
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+02/12/2008 09:02:55:Sqp_dados: Parameter 'codigo' not found
+----------------------------------------------------------------------
+02/12/2008 10:52:40:Sqp_dados: Parameter 'codigo' not found
+----------------------------------------------------------------------
+03/12/2008 16:53:50:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+SUBTOTALC
+At line 1, column 37
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+03/12/2008 17:39:56:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+SUBTOTALC
+At line 1, column 37
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+04/12/2008 08:54:45:Cds_vProdutos: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+04/12/2008 09:02:11:Cds_vProdutos: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+04/12/2008 09:16:15:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+04/12/2008 09:59:31:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+SUBTOTALC
+At line 1, column 37
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+04/12/2008 13:56:12:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+04/12/2008 14:54:18:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+04/12/2008 15:11:24:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+04/12/2008 15:19:41:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+04/12/2008 15:23:57:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+04/12/2008 15:26:42:Dbx_Exec: Field 'totalv' not found
+----------------------------------------------------------------------
+04/12/2008 16:04:45:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+04/12/2008 16:06:57:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+04/12/2008 16:39:14:Cds_dProdutos: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+04/12/2008 16:41:32:Cds_dProdutos: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+05/12/2008 09:17:12:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+05/12/2008 13:32:01:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+09/12/2008 08:48:18:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+09/12/2008 09:46:45:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+09/12/2008 14:48:07:'        1 1,000' is not a valid floating point value
+----------------------------------------------------------------------
+09/12/2008 15:02:27:'' is not a valid floating point value
+----------------------------------------------------------------------
+09/12/2008 17:03:52:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+10/12/2008 09:36:13:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+10/12/2008 13:58:53:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+10/12/2008 15:22:50:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+10/12/2008 15:25:00:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+10/12/2008 17:26:28:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+10/12/2008 17:27:28:Cds_dVenda: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+10/12/2008 17:46:33:Transaction ID not found.
+----------------------------------------------------------------------
+10/12/2008 17:48:12:Transaction ID not found.
+----------------------------------------------------------------------
+11/12/2008 15:29:35:Field 'ACTDESC' must have a value
+----------------------------------------------------------------------
+11/12/2008 15:35:07:violation of FOREIGN KEY constraint "FK_DVENDA_CODSVENDA" on table "DVENDA"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/12/2008 15:44:19:violation of FOREIGN KEY constraint "FK_DVENDA_CODSVENDA" on table "DVENDA"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/12/2008 15:46:28:violation of FOREIGN KEY constraint "FK_DVENDA_CODSVENDA" on table "DVENDA"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/12/2008 15:47:13:violation of FOREIGN KEY constraint "FK_DVENDA_CODSVENDA" on table "DVENDA"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+11/12/2008 15:47:54:violation of FOREIGN KEY constraint "FK_DVENDA_CODSVENDA" on table "DVENDA"
+Foreign key reference target does not exist
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+12/12/2008 10:37:32:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+12/12/2008 10:40:08:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+12/12/2008 10:42:19:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+12/12/2008 11:20:21:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+12/12/2008 11:45:45:Sqp_dados: Parameter 'VARNOME' not found
+----------------------------------------------------------------------
+12/12/2008 12:04:06:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+12/12/2008 12:06:21:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+12/12/2008 13:21:03:Cds_dVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+12/12/2008 13:47:07:Cds_dVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+12/12/2008 13:49:13:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+12/12/2008 14:02:11:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+12/12/2008 14:15:38:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+12/12/2008 14:43:44:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+12/12/2008 15:01:15:Dbx_Exec: Field 'tqtde' not found
+----------------------------------------------------------------------
+12/12/2008 15:27:30:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+12/12/2008 15:29:15:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+12/12/2008 15:31:37:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+12/12/2008 16:27:35:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+12/12/2008 16:49:25:arithmetic exception, numeric overflow, or string truncation
+Arithmetic overflow or division by zero has occurred.
+Error Code: 1
+----------------------------------------------------------------------
+12/12/2008 17:20:24:Access violation at address 01279253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+14/12/2008 14:52:49:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 45
+00
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+14/12/2008 14:54:19:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 45
+00
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+14/12/2008 14:56:52:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 37
+00
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+14/12/2008 17:39:43:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+14/12/2008 17:40:45:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+14/12/2008 18:07:18:Cds_Funcionarios: Field 'cfun' not found
+----------------------------------------------------------------------
+14/12/2008 19:49:52:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+14/12/2008 23:42:53:Erro no arredondamento
+----------------------------------------------------------------------
+14/12/2008 23:45:01:'lbltotal' is not a valid floating point value
+----------------------------------------------------------------------
+14/12/2008 23:46:04:Erro no arredondamento
+----------------------------------------------------------------------
+14/12/2008 23:48:44:'lbltotal' is not a valid floating point value
+----------------------------------------------------------------------
+14/12/2008 23:49:48:Erro no arredondamento
+----------------------------------------------------------------------
+15/12/2008 00:15:01:Sql_Dados: There is no active transaction
+----------------------------------------------------------------------
+15/12/2008 00:15:36:Sql_Dados: There is no active transaction
+----------------------------------------------------------------------
+15/12/2008 00:16:35:Sql_Dados: There is no active transaction
+----------------------------------------------------------------------
+15/12/2008 00:18:45:Transaction ID not found.
+----------------------------------------------------------------------
+15/12/2008 00:23:30:'lbltotal' is not a valid floating point value
+----------------------------------------------------------------------
+15/12/2008 00:32:05:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+15/12/2008 00:51:18:Erro no arredondamento
+----------------------------------------------------------------------
+15/12/2008 16:37:42:'lbltotal' is not a valid floating point value
+----------------------------------------------------------------------
+15/12/2008 16:59:59:Erro no arredondamento
+----------------------------------------------------------------------
+15/12/2008 17:05:40:'lbltotal' is not a valid floating point value
+----------------------------------------------------------------------
+15/12/2008 17:28:50:'lbltotal' is not a valid floating point value
+----------------------------------------------------------------------
+15/12/2008 17:49:00:'lbltotal' is not a valid floating point value
+----------------------------------------------------------------------
+15/12/2008 21:02:47:Cds_dVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+17/12/2008 16:56:51:Access violation at address 00441FE3 in module 'sysbras.exe'. Read of address 0000016C
+----------------------------------------------------------------------
+17/12/2008 16:57:59:Access violation at address 00441FE3 in module 'sysbras.exe'. Read of address 0000016C
+----------------------------------------------------------------------
+18/12/2008 13:55:26:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+18/12/2008 13:57:10:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+18/12/2008 14:01:02:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+18/12/2008 15:55:53:Cds_Clientes: Field 'S' not found
+----------------------------------------------------------------------
+18/12/2008 15:57:03:Cds_Clientes: Field 'S' not found
+----------------------------------------------------------------------
+18/12/2008 15:58:39:'S' is not a valid integer value
+----------------------------------------------------------------------
+18/12/2008 16:48:42:Access violation at address 005B0019 in module 'sysbras.exe'. Read of address 00000000
+----------------------------------------------------------------------
+21/12/2008 21:38:11:'12342344444' is not a valid integer value
+----------------------------------------------------------------------
+21/12/2008 21:39:03:'9999999999' is not a valid integer value
+----------------------------------------------------------------------
+21/12/2008 21:46:43:'12344444444' is not a valid integer value
+----------------------------------------------------------------------
+21/12/2008 21:51:26:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+21/12/2008 21:55:45:'5555555555' is not a valid integer value
+----------------------------------------------------------------------
+21/12/2008 21:56:57:'2222222222' is not a valid integer value
+----------------------------------------------------------------------
+21/12/2008 22:02:03:'7777777777' is not a valid integer value
+----------------------------------------------------------------------
+24/12/2008 10:52:41:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+05/01/2009 17:18:19:Cds_Clientes: Field 'F' not found
+----------------------------------------------------------------------
+05/01/2009 17:19:35:Cds_Clientes: Field 'S' not found
+----------------------------------------------------------------------
+05/01/2009 18:15:11:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+06/01/2009 14:48:54:Cds_Clientes: Field 'S1' not found
+----------------------------------------------------------------------
+08/01/2009 18:15:55:Cds_Conf_NF: Field 'Imp' not found
+----------------------------------------------------------------------
+08/01/2009 18:22:26:Cds_NatOp: Field '' not found
+----------------------------------------------------------------------
+08/01/2009 22:55:30:Cds_Clientes: Field 'rg' not found
+----------------------------------------------------------------------
+09/01/2009 11:16:24:Cds_Clientes: Field 'cnpj' not found
+----------------------------------------------------------------------
+09/01/2009 16:07:21:Cds_dVenda: Field 'nUni' not found
+----------------------------------------------------------------------
+09/01/2009 17:12:17:Cds_dVenda: Field 'nUni' not found
+----------------------------------------------------------------------
+09/01/2009 17:45:29:Cds_dVenda: Field 'nUni' not found
+----------------------------------------------------------------------
+09/01/2009 18:45:36:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 10
+confnf
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+09/01/2009 18:50:29:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 10
+confnf
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+09/01/2009 18:51:09:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 10
+confnf
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+09/01/2009 18:52:58:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 10
+confnf
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+10/01/2009 21:28:03:I/O error 103
+----------------------------------------------------------------------
+10/01/2009 23:41:18:Cds_dVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+11/01/2009 12:52:23:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+11/01/2009 19:28:09:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+11/01/2009 21:42:50:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+11/01/2009 21:49:19:Access violation at address 01299253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+11/01/2009 21:54:12:Access violation at address 01299253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+11/01/2009 21:56:30:Access violation at address 01299253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+11/01/2009 22:02:26:Access violation at address 01289253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+11/01/2009 22:05:12:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+11/01/2009 22:07:52:Access violation at address 01299253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+11/01/2009 22:13:04:Access violation at address 01299253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+12/01/2009 01:10:28:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+12/01/2009 01:18:31:Access violation at address 01299253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+15/01/2009 17:03:40:'lbltotal' is not a valid floating point value
+----------------------------------------------------------------------
+15/01/2009 17:18:12:'lbltotal' is not a valid floating point value
+----------------------------------------------------------------------
+16/01/2009 09:03:06:'lbltotal' is not a valid floating point value
+----------------------------------------------------------------------
+16/01/2009 15:22:31:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+16/01/2009 15:23:47:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+16/01/2009 15:26:24:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+16/01/2009 16:08:55:Cds_dVenda: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+16/01/2009 16:20:06:Cds_dVenda: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+16/01/2009 16:21:50:Cds_dVenda: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+16/01/2009 16:25:29:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+18/01/2009 16:09:57:Access violation at address 012A9253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+18/01/2009 16:11:03:Access violation at address 012A9253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+19/01/2009 11:20:00:Sql_Dados: There is no active transaction
+----------------------------------------------------------------------
+19/01/2009 12:07:57:Error loading MIDAS.DLL
+----------------------------------------------------------------------
+19/01/2009 14:24:55:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+21/01/2009 11:53:09:Sql_Dados: There is no active transaction
+----------------------------------------------------------------------
+21/01/2009 13:26:27:Sql_Dados: There is no active transaction
+----------------------------------------------------------------------
+21/01/2009 13:29:39:Sql_Dados: There is no active transaction
+----------------------------------------------------------------------
+21/01/2009 13:30:51:Sql_Dados: There is no active transaction
+----------------------------------------------------------------------
+21/01/2009 16:58:19:Field 'IMPDESTQCONT' must have a value
+----------------------------------------------------------------------
+21/01/2009 16:59:21:Field 'IMPDESTQCONT' must have a value
+----------------------------------------------------------------------
+22/01/2009 09:39:07:Field 'IMPDESTQCONT' must have a value
+----------------------------------------------------------------------
+22/01/2009 09:53:50:'000001-1' is not a valid integer value for field 'NUMDUP1'
+----------------------------------------------------------------------
+22/01/2009 13:50:46:Cds_sVenda: Field 'tiponf' not found
+----------------------------------------------------------------------
+22/01/2009 13:53:12:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+22/01/2009 13:54:12:Cds_sVenda: Field 'vlricms' not found
+----------------------------------------------------------------------
+22/01/2009 13:59:43:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+22/01/2009 16:21:38:Cannot access field 'PRAZO1' as type DateTime
+----------------------------------------------------------------------
+22/01/2009 17:34:47:Access violation at address 005B6890 in module 'sysbras.exe'. Read of address 00000000
+----------------------------------------------------------------------
+23/01/2009 10:07:43:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+23/01/2009 10:11:45:Invalid input value.  Use escape key to abandon changes
+----------------------------------------------------------------------
+23/01/2009 10:16:54:Cds_vProdutos: Must apply updates before refreshing data
+----------------------------------------------------------------------
+23/01/2009 15:13:22:Cds_Indice: Field 'baixarqdoorcped' not found
+----------------------------------------------------------------------
+23/01/2009 15:46:09:conversion error from string "0"
+Overflow occurred during data type conversion.
+Error Code: 14
+----------------------------------------------------------------------
+23/01/2009 15:53:37:conversion error from string "0"
+Overflow occurred during data type conversion.
+Error Code: 14
+----------------------------------------------------------------------
+26/01/2009 15:44:32:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 10
+ImpRecAnt
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+26/01/2009 16:40:39:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 37
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+26/01/2009 16:43:10:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 37
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+26/01/2009 16:44:29:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 37
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+27/01/2009 12:01:47:Cds_dVenda: Field 'nUni' not found
+----------------------------------------------------------------------
+27/01/2009 17:23:49:Path not found.
+File: f:\edson\material.dbf
+----------------------------------------------------------------------
+27/01/2009 18:44:29:Path not found.
+File: f:\edson\material.dbfmaterial.dbf
+----------------------------------------------------------------------
+27/01/2009 18:45:44:Path not found.
+File: f:\edson\material.dbf
+----------------------------------------------------------------------
+29/01/2009 10:20:30:',,,' is not a valid floating point value
+----------------------------------------------------------------------
+29/01/2009 10:27:06:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+29/01/2009 10:44:28:Access violation at address 4DB10D54 in module 'midas.dll'. Read of address 00000008
+----------------------------------------------------------------------
+29/01/2009 10:44:42:I/O error 32
+----------------------------------------------------------------------
+29/01/2009 10:47:08:Access violation at address 4DB10D54 in module 'midas.dll'. Read of address 00000008
+----------------------29/01/2009 10:49:03:Access violation at address 4DB10D54 in module 'midas.dll'. Read of address 00000008
+----------------------29/01/2009 10:50:51:Access violation at address 4DB10D54 in module 'midas.dll'. Read of address 00000008
+----------------------29/01/2009 11:24:29:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+29/01/2009 13:14:42:Cds_Vencto: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+29/01/2009 13:22:44:Cds_dVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+29/01/2009 13:43:09:'00006-A' is not a valid integer value
+----------------------------------------------------------------------
+29/01/2009 15:01:53:Cds_Vencto: Field 'c_venda' not found
+----------------------------------------------------------------------
+29/01/2009 15:24:32:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+29/01/2009 15:50:30:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+29/01/2009 15:53:03:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+29/01/2009 15:55:33:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+30/01/2009 16:43:11:Invalid floating point operation
+----------------------------------------------------------------------
+31/01/2009 11:18:12:Field 'ACTDESC' must have a value
+----------------------------------------------------------------------
+31/01/2009 11:18:23:Field 'ACTDESC' must have a value
+----------------------------------------------------------------------
+31/01/2009 11:34:23:Cds_vProdutos: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+31/01/2009 11:34:33:Missing query, table name or procedure name
+----------------------------------------------------------------------
+31/01/2009 11:39:57:'31/21/2009' is not a valid date
+----------------------------------------------------------------------
+31/01/2009 11:40:03:'31/21/2009' is not a valid date
+----------------------------------------------------------------------
+01/02/2009 21:04:47:Cds_vProdutos: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+01/02/2009 23:42:36:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+01/02/2009 23:42:48:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+02/02/2009 00:06:22:Access violation at address 005C1FAA in module 'sysbras.exe'. Read of address 00000364
+----------------------------------------------------------------------
+02/02/2009 00:08:06:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+02/02/2009 00:08:22:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+02/02/2009 00:13:08:Access violation at address 012B9253 in module 'dbexpUIBfire15.dll'. Read of address 00000000
+----------------------------------------------------------------------
+02/02/2009 00:14:01:Cds_vProdutos: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+02/02/2009 00:14:09:Missing query, table name or procedure name
+----------------------------------------------------------------------
+02/02/2009 00:14:55:'31/21/2009' is not a valid date
+----------------------------------------------------------------------
+02/02/2009 00:16:24:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+02/02/2009 00:19:59:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+02/02/2009 00:20:06:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+02/02/2009 00:24:35:Access violation at address 005C3325 in module 'sysbras.exe'. Read of address 00000364
+----------------------------------------------------------------------
+02/02/2009 00:24:45:Access violation at address 005C3325 in module 'sysbras.exe'. Read of address 00000364
+----------------------------------------------------------------------
+02/02/2009 00:26:07:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+02/02/2009 00:26:15:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+02/02/2009 00:27:45:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+02/02/2009 00:40:17:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+02/02/2009 00:40:23:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+02/02/2009 12:26:36:Cds_vProdutos: Must apply updates before refreshing data
+----------------------------------------------------------------------
+02/02/2009 12:38:25:Cds_vProdutos: Must apply updates before refreshing data
+----------------------------------------------------------------------
+02/02/2009 17:49:29:Cds_vProdutos: Must apply updates before refreshing data
+----------------------------------------------------------------------
+03/02/2009 11:49:09:Cds_vProdutos: Must apply updates before refreshing data
+----------------------------------------------------------------------
+03/02/2009 11:51:27:Cds_vProdutos: Must apply updates before refreshing data
+----------------------------------------------------------------------
+03/02/2009 11:52:59:Cds_vProdutos: Must apply updates before refreshing data
+----------------------------------------------------------------------
+03/02/2009 11:57:36:Cds_vProdutos: Must apply updates before refreshing data
+----------------------------------------------------------------------
+03/02/2009 12:13:22:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+04/02/2009 16:48:49:File not found
+----------------------------------------------------------------------
+06/02/2009 10:31:16:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 43
+)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+06/02/2009 10:34:34:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+06/02/2009 10:46:30:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+06/02/2009 11:31:44:Cds_sVenda: Field 'dtv' not found
+----------------------------------------------------------------------
+06/02/2009 14:15:50:Cds_vProdutos: Field 'custo' not found
+----------------------------------------------------------------------
+12/02/2009 18:32:20:File not found
+----------------------------------------------------------------------
+12/02/2009 18:47:49:File not found
+----------------------------------------------------------------------
+13/02/2009 16:44:06:Cds_vProdutos: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+13/02/2009 16:44:13:Missing query, table name or procedure name
+----------------------------------------------------------------------
+15/02/2009 14:41:12:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 37
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+15/02/2009 18:36:28:Access violation at address 005D3D7C in module 'sysbras.exe'. Read of address 00000348
+----------------------------------------------------------------------
+15/02/2009 18:37:54:Access violation at address 005D3D7C in module 'sysbras.exe'. Read of address 00000348
+----------------------------------------------------------------------
+15/02/2009 18:41:51:Access violation at address 005D3D9B in module 'sysbras.exe'. Read of address 00000348
+----------------------------------------------------------------------
+15/02/2009 18:47:46:Access violation at address 005D3D7C in module 'sysbras.exe'. Read of address 00000348
+----------------------------------------------------------------------
+15/02/2009 18:54:46:Access violation at address 005D3D9F in module 'sysbras.exe'. Read of address 00000348
+----------------------------------------------------------------------
+15/02/2009 18:58:35:Access violation at address 005D3D7C in module 'sysbras.exe'. Read of address 00000348
+----------------------------------------------------------------------
+15/02/2009 19:40:00:Access violation at address 004D35D7 in module 'sysbras.exe'. Read of address 00000000
+----------------------------------------------------------------------
+15/02/2009 19:49:57:Access violation at address 004D35D7 in module 'sysbras.exe'. Read of address 00000000
+----------------------------------------------------------------------
+16/02/2009 11:46:02:Cds_Ent_Prod: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+16/02/2009 11:47:08:Cds_Ent_Prod: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+16/02/2009 12:05:10:Cds_Ent_Prod: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+16/02/2009 12:29:35:Cds_Ent_Prod: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+16/02/2009 12:32:42:Cds_Ent_Prod: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+16/02/2009 12:39:19:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 38
+and
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+16/02/2009 12:44:26:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 38
+and
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+16/02/2009 12:45:47:Cds_Ent_Prod: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+16/02/2009 12:53:20:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 38
+and
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+16/02/2009 12:54:01:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 38
+and
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+16/02/2009 12:58:08:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 38
+and
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+16/02/2009 16:00:46:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+16/02/2009 16:12:55:Cds_vProdutos: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+16/02/2009 16:13:04:Missing query, table name or procedure name
+----------------------------------------------------------------------
+16/02/2009 16:22:45:Cds_vProdutos: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+16/02/2009 16:22:53:Missing query, table name or procedure name
+----------------------------------------------------------------------
+16/02/2009 16:27:58:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+16/02/2009 16:29:48:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+16/02/2009 16:56:24:Cds_vProdutos: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+16/02/2009 16:56:32:Missing query, table name or procedure name
+----------------------------------------------------------------------
+20/02/2009 12:06:57:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+20/02/2009 16:07:59:Access violation at address 00000000. Read of address 00000000
+----------------------------------------------------------------------
+25/02/2009 14:51:20:Access violation at address 005E6E89 in module 'sysbras.exe'. Read of address 00000314
+----------------------------------------------------------------------
+25/02/2009 14:52:51:Access violation at address 00599011 in module 'sysbras.exe'. Read of address 00000314
+----------------------------------------------------------------------
+25/02/2009 14:55:23:Access violation at address 005E6EA1 in module 'sysbras.exe'. Read of address 00000314
+----------------------------------------------------------------------
+25/02/2009 15:14:16:Access violation at address 005E6E89 in module 'sysbras.exe'. Read of address 00000314
+----------------------------------------------------------------------
+25/02/2009 15:17:11:Sqp_dados: Parameter 'VARANOI' not found
+----------------------------------------------------------------------
+25/02/2009 15:18:36:value exceeds the range for valid dates
+expression evaluation not supported
+Error Code: 490
+----------------------------------------------------------------------
+25/02/2009 15:20:53:value exceeds the range for valid dates
+expression evaluation not supported
+Error Code: 490
+----------------------------------------------------------------------
+25/02/2009 15:21:56:value exceeds the range for valid dates
+expression evaluation not supported
+Error Code: 490
+----------------------------------------------------------------------
+25/02/2009 15:33:52:value exceeds the range for valid dates
+expression evaluation not supported
+Error Code: 490
+----------------------------------------------------------------------
+25/02/2009 15:37:35:value exceeds the range for valid dates
+expression evaluation not supported
+Error Code: 490
+----------------------------------------------------------------------
+25/02/2009 15:39:00:value exceeds the range for valid dates
+expression evaluation not supported
+Error Code: 490
+----------------------------------------------------------------------
+25/02/2009 15:42:14:value exceeds the range for valid dates
+expression evaluation not supported
+Error Code: 490
+----------------------------------------------------------------------
+25/02/2009 15:46:52:value exceeds the range for valid dates
+expression evaluation not supported
+Error Code: 490
+----------------------------------------------------------------------
+25/02/2009 15:47:55:value exceeds the range for valid dates
+expression evaluation not supported
+Error Code: 490
+----------------------------------------------------------------------
+25/02/2009 15:49:35:'25.02.2009' is not a valid date
+----------------------------------------------------------------------
+25/02/2009 15:51:29:value exceeds the range for valid dates
+expression evaluation not supported
+Error Code: 490
+----------------------------------------------------------------------
+25/02/2009 15:52:12:value exceeds the range for valid dates
+expression evaluation not supported
+Error Code: 490
+----------------------------------------------------------------------
+25/02/2009 16:01:39:Access violation at address 005E6EB2 in module 'sysbras.exe'. Read of address 00000314
+----------------------------------------------------------------------
+25/02/2009 16:04:04:Sqp_dados: Parameter 'VARANOI' not found
+----------------------------------------------------------------------
+26/02/2009 11:11:34:Access violation at address 005990B9 in module 'sysbras.exe'. Read of address 00000440
+----------------------------------------------------------------------
+26/02/2009 16:06:53:Access violation at address 00000000. Read of address 00000000
+----------------------------------------------------------------------
+26/02/2009 17:13:08:Cds_vProdutos: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/02/2009 17:13:20:Missing query, table name or procedure name
+----------------------------------------------------------------------
+26/02/2009 17:18:44:Cds_vProdutos: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/02/2009 17:18:54:Missing query, table name or procedure name
+----------------------------------------------------------------------
+26/02/2009 17:20:04:Cds_vProdutos: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/02/2009 17:20:14:Missing query, table name or procedure name
+----------------------------------------------------------------------
+27/02/2009 09:49:08:Field 'ATIVO' must have a value
+----------------------------------------------------------------------
+27/02/2009 09:50:50:Field 'ATIVO' must have a value
+----------------------------------------------------------------------
+01/03/2009 16:06:43:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+EHENTRAGA
+At line 1, column 110
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+01/03/2009 16:08:56:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 124
+order
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+01/03/2009 16:19:21:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+01/03/2009 16:20:28:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+01/03/2009 16:21:36:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+01/03/2009 17:14:49:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+01/03/2009 17:22:47:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+01/03/2009 17:24:24:Field 'CODIGO' must have a value
+----------------------------------------------------------------------
+02/03/2009 00:37:35:Dbx_vDvendas: Field 'NCO' not found
+----------------------------------------------------------------------
+02/03/2009 14:08:31:Invalid floating point operation
+----------------------------------------------------------------------
+02/03/2009 14:09:43:Invalid floating point operation
+----------------------------------------------------------------------
+02/03/2009 15:16:57:Invalid floating point operation
+----------------------------------------------------------------------
+02/03/2009 15:19:39:Invalid floating point operation
+----------------------------------------------------------------------
+02/03/2009 15:58:17:Dbx_vDvendas: Field 'NCO' not found
+----------------------------------------------------------------------
+03/03/2009 17:31:02:Cds_dVenda: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+03/03/2009 17:34:28:Cds_dVenda: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+03/03/2009 17:53:51:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+03/03/2009 17:54:59:Cds_dVenda: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+03/03/2009 17:59:34:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+03/03/2009 18:10:26:Cds_dVenda: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+10/03/2009 13:40:30:Access violation at address 00000000. Read of address 00000000
+----------------------------------------------------------------------
+11/03/2009 09:52:41:Cds_Vencto: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+11/03/2009 10:22:46:File not found
+----------------------------------------------------------------------
+11/03/2009 10:27:20:Floating point division by zero
+----------------------------------------------------------------------
+13/03/2009 11:32:00:'6,37216616774402E-314' is not a valid integer value
+----------------------------------------------------------------------
+13/03/2009 11:34:20:'6,37216616774402E-314' is not a valid integer value
+----------------------------------------------------------------------
+13/03/2009 11:35:32:'22/03/12416' is not a valid date
+----------------------------------------------------------------------
+16/03/2009 11:09:28:Access violation at address 004A32BD in module 'sysbras.exe'. Read of address 000000D2
+----------------------------------------------------------------------
+16/03/2009 11:11:43:Access violation at address 004A32BD in module 'sysbras.exe'. Read of address 000000D2
+----------------------------------------------------------------------
+16/03/2009 11:36:53:'30/  /    ' is not a valid date
+----------------------------------------------------------------------
+16/03/2009 17:45:25:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 42
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+17/03/2009 09:26:09:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 42
+)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+17/03/2009 09:36:20:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 42
+)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+17/03/2009 09:37:51:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 42
+)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+17/03/2009 09:38:44:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 42
+)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+17/03/2009 15:16:31:cds_Tipo_Pgto: Field 'c' not found
+----------------------------------------------------------------------
+17/03/2009 15:24:21:Erro no arredondamento
+----------------------------------------------------------------------
+17/03/2009 15:56:22:cds_Tipo_Pgto: Field 'a' not found
+----------------------------------------------------------------------
+17/03/2009 15:58:01:cds_Tipo_Pgto: Field '1' not found
+----------------------------------------------------------------------
+17/03/2009 17:30:11:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+C_VENDA
+At line 1, column 44
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+17/03/2009 17:42:48:Cds_sVenda: Field 'originado' not found
+----------------------------------------------------------------------
+18/03/2009 09:18:01:Field 'LANCADO' must have a value
+----------------------------------------------------------------------
+18/03/2009 17:33:05:Field 'PRIPARC_P' must have a value
+----------------------------------------------------------------------
+18/03/2009 17:53:45:'lbltotal' is not a valid floating point value
+----------------------------------------------------------------------
+23/03/09 11:27:23:Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+23/03/09 11:33:23:'' is not a valid integer value
+----------------------------------------------------------------------
+23/03/09 11:35:57:Cds_Vencto: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+23/03/09 13:49:05:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+23/03/09 13:57:27:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+23/03/09 13:59:09:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+23/03/09 14:04:45:Field 'EHVENDA' must have a value
+----------------------------------------------------------------------
+23/03/09 14:13:19:Field 'EHVENDA' must have a value
+----------------------------------------------------------------------
+23/03/09 15:30:16:Floating point division by zero
+----------------------------------------------------------------------
+23/03/09 15:56:45:Cds_Vencto: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+23/03/09 16:26:42:Cds_Vencto: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+24/03/09 10:32:43:Cds_Vencto: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+24/03/09 10:53:02:Access violation at address 005C41E6 in module 'sysbras.exe'. Read of address 00000038
+----------------------------------------------------------------------
+24/03/09 10:54:16:Access violation at address 005C41E6 in module 'sysbras.exe'. Read of address 00000038
+----------------------------------------------------------------------
+24/03/09 10:58:19:Access violation at address 005C41E6 in module 'sysbras.exe'. Read of address 00000038
+----------------------------------------------------------------------
+24/03/09 11:13:15:Cds_Vencto: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+24/03/09 11:20:28:Cds_Vencto: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+24/03/09 11:24:22:Cds_Vencto: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+24/03/09 11:37:11:Cds_Vencto: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+24/03/09 11:43:02:Cds_Vencto: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+24/03/09 14:24:54:Cds_Vencto: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+24/03/09 15:42:01:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+25/03/09 16:40:08:'' is not a valid floating point value
+----------------------------------------------------------------------
+25/03/09 16:42:06:'' is not a valid floating point value
+----------------------------------------------------------------------
+25/03/09 16:49:00:-39897 is not a valid value for field 'PRAZO1'. The allowed range is -32768 to 32767
+----------------------------------------------------------------------
+25/03/09 16:49:56:'' is not a valid floating point value
+----------------------------------------------------------------------
+25/03/09 16:55:33:'' is not a valid floating point value
+----------------------------------------------------------------------
+25/03/09 17:06:45:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+25/03/09 17:22:59:Dynamic SQL Error
+SQL error code = -206
+Column unknown
+CODSVENDA
+At line 1, column 37
+Column does not belong to referenced table
+Error Code: 249
+----------------------------------------------------------------------
+25/03/09 18:09:29:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+25/03/09 18:12:54:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+25/03/09 18:14:50:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+25/03/09 18:22:25:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+25/03/09 18:26:00:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+25/03/09 18:32:14:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+25/03/09 18:35:18:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+25/03/09 18:47:40:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 09:22:19:'' is not a valid floating point value
+----------------------------------------------------------------------
+26/03/09 09:26:37:'' is not a valid floating point value
+----------------------------------------------------------------------
+26/03/09 09:28:49:'' is not a valid floating point value
+----------------------------------------------------------------------
+26/03/09 11:25:22:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+26/03/09 11:37:56:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+26/03/09 11:41:26:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+26/03/09 11:45:43:Access violation at address 005E71AF in module 'sysbras.exe'. Read of address 00000328
+----------------------------------------------------------------------
+26/03/09 11:46:58:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 11:48:36:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 11:51:36:Access violation at address 7361766E. Read of address 7361766E
+----------------------------------------------------------------------
+26/03/09 11:54:03:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 11:57:57:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 12:05:24:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 12:08:47:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 12:19:10:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 12:23:16:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 12:28:28:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 12:29:45:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 12:34:36:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 12:39:17:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 12:40:50:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 12:43:02:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+26/03/09 15:33:11:Cds_Vencto: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+27/03/09 15:55:50:Access violation at address 004051F0 in module 'sysbras.exe'. Read of address 0000000E
+----------------------------------------------------------------------
+27/03/09 16:13:37:Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+27/03/09 18:53:18:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+28/03/09 12:07:19:'' is not a valid floating point value
+----------------------------------------------------------------------
+28/03/09 12:20:23:Access violation at address 0040515F in module 'sysbras.exe'. Read of address 0000000C
+----------------------------------------------------------------------
+28/03/09 12:31:49:Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 90
+)
+Invalid token
+Error Code: 249
+----------------------------------------------------------------------
+28/03/09 13:09:11:Cds_VenctoDTE: Preparation of default expression failed with error "Type mismatch in expression"
+----------------------------------------------------------------------
+28/03/09 13:58:05:Access violation at address 0040515F in module 'sysbras.exe'. Read of address 00000464
+----------------------------------------------------------------------
+28/03/09 14:07:24:Access violation at address 0040515F in module 'sysbras.exe'. Read of address 0000049C
+----------------------------------------------------------------------
+29/03/09 00:35:00:Cds_Vencto: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+29/03/09 00:48:59:Access violation at address 0040515F in module 'sysbras.exe'. Read of address 0000000C
+----------------------------------------------------------------------
+30/03/09 09:14:22:'' is not a valid floating point value
+----------------------------------------------------------------------
+30/03/09 11:09:28:File not found
+----------------------------------------------------------------------
+30/03/09 11:15:24:File not found
+----------------------------------------------------------------------
+30/03/09 16:58:40:File not found
+----------------------------------------------------------------------
+30/03/09 17:00:25:Access violation at address 0040515F in module 'sysbras.exe'. Read of address 6974705D
+----------------------------------------------------------------------
+30/03/09 17:01:13:File not found
+----------------------------------------------------------------------
+30/03/09 17:02:29:File not found
+----------------------------------------------------------------------
+31/03/09 11:23:25:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+31/03/09 11:25:27:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+31/03/09 11:28:30:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+31/03/09 11:34:52:Cds_sVenda: Dataset not in edit or insert mode
+----------------------------------------------------------------------
+31/03/09 11:53:01:deadlock
+deadlock
+update conflicts with concurrent update
+concurrent transaction number is 333815
+deadlock
+Error Code: 16
+----------------------------------------------------------------------
+31/03/09 14:32:59:Cannot focus a disabled or invisible window
+----------------------------------------------------------------------
+01/04/09 12:46:24:violation of FOREIGN KEY constraint "FK_ENT_PROD_CFOR" on table "ENT_PROD"
+Foreign key references are present for the record
+violation of FOREIGN KEY constraint ""
+Error Code: 146
+----------------------------------------------------------------------
+03/04/09 10:23:06:File not found
+----------------------------------------------------------------------
+06/04/09 10:49:05:Cds_Vencto: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+06/04/09 10:50:44:Cds_Vencto: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+06/04/09 10:56:50:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+06/04/09 11:08:01:Cds_Vencto: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+06/04/09 11:10:04:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+06/04/09 11:11:17:Cds_Vencto_NF: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+06/04/09 11:12:43:Cds_Vencto: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+06/04/09 11:23:17:Cds_Vencto: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+06/04/09 11:27:57:Cds_Vencto: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+06/04/09 11:31:44:Cds_Vencto: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+06/04/09 11:37:33:Cds_Vencto: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+06/04/09 11:49:23:Cds_Vencto: Cannot perform this operation on a closed dataset
+----------------------------------------------------------------------
+06/04/09 13:56:35:Expression expected but nothing found
+----------------------------------------------------------------------
+07/04/09 15:56:54 : Cds_sVenda: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+07/04/09 15:57:47 : Cds_sVenda: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+09/04/09 16:11:53 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 27
+by
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+13/04/09 11:52:47 : arithmetic exception, numeric overflow, or string truncation
+Arithmetic overflow or division by zero has occurred.
+Error Code: 1 : 
+----------------------------------------------------------------------
+13/04/09 14:22:51 : Key violation. : 
+----------------------------------------------------------------------
+13/04/09 14:33:24 : Key violation. : 
+----------------------------------------------------------------------
+13/04/09 14:48:58 : Key violation. : 
+----------------------------------------------------------------------
+13/04/09 14:59:35 : Key violation. : 
+----------------------------------------------------------------------
+13/04/09 15:02:55 : Key violation. : 
+----------------------------------------------------------------------
+13/04/09 15:04:57 : Key violation. : 
+----------------------------------------------------------------------
+13/04/09 15:10:14 : Key violation. : 
+----------------------------------------------------------------------
+13/04/09 15:15:34 : Key violation. : 
+----------------------------------------------------------------------
+13/04/09 15:24:00 : Key violation. : 
+----------------------------------------------------------------------
+13/04/09 15:28:04 : Key violation. : 
+----------------------------------------------------------------------
+13/04/09 15:38:24 : Key violation. : 
+----------------------------------------------------------------------
+13/04/09 15:53:43 : Cds_vProdutos: Must apply updates before refreshing data : 
+----------------------------------------------------------------------
+13/04/09 16:15:29 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 12, column 1
+ultcont
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+13/04/09 16:17:24 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 12, column 1
+ULTCONT
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+13/04/09 16:21:32 : Dynamic SQL Error
+SQL error code = -206
+Column DPRODUTOS.PRCUBS cannot be repeated in INSERT statement
+At line 10, column 1
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+13/04/09 16:25:55 : Dynamic SQL Error
+SQL error code = -206
+Column DPRODUTOS.PRCUBS cannot be repeated in INSERT statement
+At line 10, column 1
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+13/04/09 16:40:20 : Dynamic SQL Error
+SQL error code = -206
+Column DPRODUTOS.PER cannot be repeated in INSERT statement
+At line 8, column 1
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+13/04/09 16:42:52 : Dynamic SQL Error
+SQL error code = -206
+Column DPRODUTOS.PRCU cannot be repeated in INSERT statement
+At line 8, column 1
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+13/04/09 16:46:09 : conversion error from string "13/04/09"
+Overflow occurred during data type conversion.
+Error Code: 14 : 
+----------------------------------------------------------------------
+13/04/09 16:53:46 : arithmetic exception, numeric overflow, or string truncation
+Arithmetic overflow or division by zero has occurred.
+Error Code: 1 : 
+----------------------------------------------------------------------
+13/04/09 17:11:53 : arithmetic exception, numeric overflow, or string truncation
+Arithmetic overflow or division by zero has occurred.
+Error Code: 1 : 
+----------------------------------------------------------------------
+13/04/09 17:29:06 : arithmetic exception, numeric overflow, or string truncation
+Arithmetic overflow or division by zero has occurred.
+Error Code: 1 : 
+----------------------------------------------------------------------
+13/04/09 17:55:14 : arithmetic exception, numeric overflow, or string truncation
+Arithmetic overflow or division by zero has occurred.
+Error Code: 1 : 
+----------------------------------------------------------------------
+13/04/09 18:03:26 : arithmetic exception, numeric overflow, or string truncation
+Arithmetic overflow or division by zero has occurred.
+Error Code: 1 : 
+----------------------------------------------------------------------
+16/04/09 14:36:43 : SQL Error: Error mapping failed : 
+----------------------------------------------------------------------
+16/04/09 15:21:31 : Cds_Exec: Field 'total' not found : 
+----------------------------------------------------------------------
+16/04/09 15:47:42 : SQL Error: Error mapping failed : 
+----------------------------------------------------------------------
+16/04/09 15:49:57 : SQL Error: Error mapping failed : 
+----------------------------------------------------------------------
+16/04/09 16:28:09 : SQL Error: Error mapping failed : 
+----------------------------------------------------------------------
+23/04/09 10:34:30 : Cds_Vencto: Field 'nSitrec' not found : 
+----------------------------------------------------------------------
+11/05/09 11:59:43 : Cds_dVenda: Field 'referente' not found : Voltando para Inicio
+----------------------------------------------------------------------
+13/05/09 11:44:35 : Cds_sVenda: Field 'S' not found : 
+----------------------------------------------------------------------
+13/05/09 16:16:56 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+13/05/09 16:19:06 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+13/05/09 16:21:25 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+19/05/09 12:40:14 : Cds_dVenda: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+20/05/09 16:58:06 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+20/05/09 16:59:26 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+20/05/09 17:04:32 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+20/05/09 17:29:16 : Cds_dVenda: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 09:34:30 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 09:36:32 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 09:37:36 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 09:42:29 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 09:43:25 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 09:46:20 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 10:20:49 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 10:21:43 : Cds_vProdutos: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+21/05/09 10:21:56 : Missing query, table name or procedure name : 
+----------------------------------------------------------------------
+21/05/09 10:26:24 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 10:33:10 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 10:34:17 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 10:34:49 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 10:35:30 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 10:40:00 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 10:41:06 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 10:43:24 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 11:18:09 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 16:31:57 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 16:38:48 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 16:42:39 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 16:44:57 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 16:48:46 : Cds_vProdutos: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+21/05/09 16:49:18 : Missing query, table name or procedure name : 
+----------------------------------------------------------------------
+21/05/09 16:58:40 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 17:22:06 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 17:29:21 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+21/05/09 17:30:58 : Cds_Ent_Prod: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+22/05/09 09:36:49 : Sqp_dados: Parameter 'qtdetot' not found : 
+----------------------------------------------------------------------
+22/05/09 10:24:05 : Sqp_dados: Parameter 'qtdetot' not found : 
+----------------------------------------------------------------------
+22/05/09 10:28:24 : Sqp_dados: Parameter 'qtdetot' not found : 
+----------------------------------------------------------------------
+22/05/09 10:30:54 : Sqp_dados: Parameter 'qtdetot' not found : 
+----------------------------------------------------------------------
+22/05/09 10:40:20 : Cds_vProdutos: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+22/05/09 10:41:34 : Cds_vProdutos: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+22/05/09 10:55:08 : Cds_vProdutos: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+22/05/09 16:32:46 : Sqp_dados: Parameter 'qtdetot' not found : 
+----------------------------------------------------------------------
+22/05/09 16:45:21 : Sqp_dados: Parameter 'qtdetot' not found : 
+----------------------------------------------------------------------
+22/05/09 16:49:45 : Sqp_dados: Parameter 'qtdetot' not found : 
+----------------------------------------------------------------------
+22/05/09 16:57:26 : Cds_vProdutos: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+22/05/09 16:57:34 : Missing query, table name or procedure name : 
+----------------------------------------------------------------------
+22/05/09 16:59:00 : Cds_vProdutos: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+22/05/09 16:59:07 : Missing query, table name or procedure name : 
+----------------------------------------------------------------------
+25/05/09 11:38:48 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+28/05/09 14:24:44 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+28/05/09 16:20:23 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+04/06/09 17:20:55 : Invalid floating point operation : 
+----------------------------------------------------------------------
+04/06/09 17:22:22 : Invalid floating point operation : 
+----------------------------------------------------------------------
+09/06/09 14:45:28 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+15/06/09 09:45:04 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+15/06/09 09:52:34 : Invalid input value.  Use escape key to abandon changes : 
+----------------------------------------------------------------------
+15/06/09 09:52:39 : Invalid input value.  Use escape key to abandon changes : 
+----------------------------------------------------------------------
+15/06/09 10:11:23 : Invalid input value.  Use escape key to abandon changes : 
+----------------------------------------------------------------------
+15/06/09 10:11:29 : Invalid input value.  Use escape key to abandon changes : 
+----------------------------------------------------------------------
+15/06/09 10:23:09 : Invalid input value.  Use escape key to abandon changes : 
+----------------------------------------------------------------------
+15/06/09 10:33:16 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+15/06/09 10:36:37 : Invalid input value.  Use escape key to abandon changes : 
+----------------------------------------------------------------------
+15/06/09 10:36:45 : Invalid input value.  Use escape key to abandon changes : 
+----------------------------------------------------------------------
+15/06/09 10:44:33 : Cds_vProdutosULTCONT: Preparation of default expression failed with error "Type mismatch in expression" : 
+----------------------------------------------------------------------
+16/06/09 11:10:01 : Access violation at address 00000000. Read of address 00000000 : 
+----------------------------------------------------------------------
+16/06/09 16:44:23 : Access violation at address 00000000. Read of address 00000000 : 
+----------------------------------------------------------------------
+16/06/09 16:58:27 : Access violation at address 00000000. Read of address 00000000 : 
+----------------------------------------------------------------------
+16/06/09 17:00:20 : Access violation at address 00000000. Read of address 00000000 : 
+----------------------------------------------------------------------
+16/06/09 17:02:10 : Access violation at address 008E001F. Write of address 045C6234 : 
+----------------------------------------------------------------------
+16/06/09 17:17:17 : Field 'CODIGO' must have a value : 
+----------------------------------------------------------------------
+16/06/09 17:20:10 : Field 'CODIGO' must have a value : 
+----------------------------------------------------------------------
+16/06/09 17:25:03 : Field 'CODIGO' must have a value : 
+----------------------------------------------------------------------
+17/06/09 09:09:32 : Access violation at address 00000000. Read of address 00000000 : 
+----------------------------------------------------------------------
+17/06/09 16:31:33 : edicpf: Field 'CPF' not found : 
+----------------------------------------------------------------------
+17/06/09 16:34:39 : DBEdit4: Field 'FANTASIA' not found : 
+----------------------------------------------------------------------
+17/06/09 16:36:37 : editelefones: Field 'TELEFONES' not found : 
+----------------------------------------------------------------------
+18/06/09 15:35:37 : Access violation at address 00000000. Read of address 00000000 : 
+----------------------------------------------------------------------
+18/06/09 15:39:50 : invalid request BLR at offset 82
+generator GEN_TRANSPORTADORES_ID is not defined
+Invalid token
+Error Code: 23 : 
+----------------------------------------------------------------------
+18/06/09 16:06:27 : Field 'CODIGO' must have a value : 
+----------------------------------------------------------------------
+18/06/09 16:11:42 : Field 'CODIGO' must have a value : 
+----------------------------------------------------------------------
+18/06/09 17:21:02 : invalid request BLR at offset 76
+generator GEN_TIPO_PROD_ID is not defined
+Invalid token
+Error Code: 23 : 
+----------------------------------------------------------------------
+19/06/09 13:54:02 : Cds_sVenda: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+19/06/09 14:05:51 : Field 'cbxnomesitnfe' not found : 
+----------------------------------------------------------------------
+19/06/09 14:46:14 : Cds_sVenda: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+19/06/09 14:49:28 : Cds_sVenda: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+19/06/09 14:56:30 : Cds_sVenda: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+19/06/09 15:16:28 : File not found : Voltando para Inicio
+----------------------------------------------------------------------
+24/06/09 11:35:24 : Field 'cbxnomefun' not found : 
+----------------------------------------------------------------------
+24/06/09 12:01:41 : Cds_Comissao: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+24/06/09 12:11:24 : 'a' is not a valid integer value for field 'CODIGO' : 
+----------------------------------------------------------------------
+24/06/09 12:14:06 : 'a' is not a valid integer value for field 'CODIGO' : 
+----------------------------------------------------------------------
+24/06/09 12:15:05 : Key violation. : 
+----------------------------------------------------------------------
+24/06/09 12:16:35 : invalid request BLR at offset 78
+generator GEN_FUNCIONAIOS_ID is not defined
+Invalid token
+Error Code: 23 : 
+----------------------------------------------------------------------
+24/06/09 15:34:44 : Access violation at address 00000000. Read of address 00000000 : 
+----------------------------------------------------------------------
+24/06/09 15:34:48 : Access violation at address 00404021 in module 'sysbras.exe'. Read of address 0000002C : 
+----------------------------------------------------------------------
+24/06/09 15:56:45 : Access violation at address 004D5A97 in module 'sysbras.exe'. Read of address 00000000 : 
+----------------------------------------------------------------------
+26/06/09 14:16:08 : Cds_sVenda: Field 'outdesc' not found : Voltando para Inicio
+----------------------------------------------------------------------
+26/06/09 14:51:33 : Cds_sVenda: Field 'peso4b' not found : Voltando para Inicio
+-----------------------------------------------30/06/09 09:30:30 : Access violation at address 004D5BEB in module 'sysbras.exe'. Read of address 00000000 : 
+----------------------------------------------------------------------
+30/06/09 10:00:12 : Cds_sVenda: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+30/06/09 14:30:37 : Field 'CODIGO' must have a value : 
+----------------------------------------------------------------------
+01/07/09 17:42:04 : 'sssss' is not a valid date : 
+----------------------------------------------------------------------
+01/07/09 17:44:41 : Field 'PRIPARC' must have a value : 
+----------------------------------------------------------------------
+02/07/09 09:46:34 : Field 'PRIPARC' must have a value : 
+----------------------------------------------------------------------
+02/07/09 09:57:51 : Field 'IMPDESTQCONT' must have a value : 
+----------------------------------------------------------------------
+02/07/09 09:59:25 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+CODNF
+At line 1, column 28
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+02/07/09 11:56:48 : Cds_vProdutos: Must apply updates before refreshing data : 
+----------------------------------------------------------------------
+03/07/09 10:40:24 : Cds_NFP: Cannot perform this operation on a closed dataset : Voltando para Inicio
+----------------------------------------------------------------------
+03/07/09 10:52:43 : Cds_NFP: Cannot perform this operation on a closed dataset : Voltando para Inicio
+----------------------------------------------------------------------
+03/07/09 11:14:01 : Cds_NFP: Cannot perform this operation on a closed dataset : Voltando para Inicio
+----------------------------------------------------------------------
+03/07/09 12:46:26 : Cds_Vencto: Cannot perform this operation on a closed dataset : Voltando para Inicio
+----------------------------------------------------------------------
+03/07/09 13:09:03 : Cds_Vencto_NF: Field 'codnf' not found : Voltando para Inicio
+----------------------------------------------------------------------
+03/07/09 13:37:28 : Cds_Vencto: Cannot perform this operation on a closed dataset : Voltando para Inicio
+----------------------------------------------------------------------
+06/07/09 16:10:29 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 42
+)
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+06/07/09 16:13:02 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 45
+)
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+06/07/09 16:26:09 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 45
+)
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+06/07/09 16:29:58 : Cds_NF: Field 'pdesc_p' not found : 
+----------------------------------------------------------------------
+06/07/09 17:32:40 : cbxnatureza: Field 'natureza' not found : 
+----------------------------------------------------------------------
+07/07/09 11:20:13 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+07/07/09 11:23:08 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+07/07/09 11:24:23 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+07/07/09 11:25:52 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+07/07/09 11:54:16 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+07/07/09 11:58:18 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+07/07/09 15:11:44 : Property already defined by lookup field : 
+----------------------------------------------------------------------
+07/07/09 15:15:55 : Property already defined by lookup field : 
+----------------------------------------------------------------------
+08/07/09 15:24:09 : Dynamic SQL Error
+SQL error code = -204
+Table unknown
+TRANSPORTADORES
+At line 1, column 31
+Undefined name
+Error Code: 249 : 
+----------------------------------------------------------------------
+13/07/09 16:08:20 : Cds_NFE: Field 'cod_nf' not found : 
+----------------------------------------------------------------------
+14/07/09 13:26:50 : violation of FOREIGN KEY constraint "FK_NFP_CODNF" on table "NFP"
+Foreign key references are present for the record
+violation of FOREIGN KEY constraint ""
+Error Code: 146 : 
+----------------------------------------------------------------------
+14/07/09 14:30:46 : violation of FOREIGN KEY constraint "FK_NFP_CODNF" on table "NFP"
+Foreign key references are present for the record
+violation of FOREIGN KEY constraint ""
+Error Code: 146 : 
+----------------------------------------------------------------------
+14/07/09 14:32:41 : File not found : 
+----------------------------------------------------------------------
+14/07/09 14:35:16 : violation of FOREIGN KEY constraint "FK_NFP_CODNF" on table "NFP"
+Foreign key references are present for the record
+violation of FOREIGN KEY constraint ""
+Error Code: 146 : 
+----------------------------------------------------------------------
+14/07/09 14:39:31 : violation of FOREIGN KEY constraint "FK_NFP_CODNF" on table "NFP"
+Foreign key references are present for the record
+violation of FOREIGN KEY constraint ""
+Error Code: 146 : 
+----------------------------------------------------------------------
+15/07/09 11:20:44 : Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 31
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+15/07/09 11:21:44 : Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 31
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+15/07/09 11:23:41 : Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 31
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+15/07/09 11:27:18 : Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 31
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+15/07/09 11:28:41 : Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 31
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+16/07/09 17:16:05 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+IFOLHA
+At line 1, column 23
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+17/07/09 10:57:25 : File not found : 
+----------------------------------------------------------------------
+24/07/09 12:27:56 : Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 50
+Invalid token
+Error Code: 249 : Voltando para Inicio
+----------------------------------------------------------------------
+27/07/09 17:38:28 : File not found : Voltando para Inicio
+----------------------------------------------------------------------
+04/08/09 09:20:43 : Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+04/08/09 11:54:29 : File not found : 
+----------------------------------------------------------------------
+06/08/09 16:21:07 : Access violation at address 77B811F3 in module 'version.dll'. Read of address 00000004 : 
+----------------------------------------------------------------------
+06/08/09 16:22:50 : Access violation at address 77B811F3 in module 'version.dll'. Read of address 00000004 : 
+----------------------------------------------------------------------
+06/08/09 16:38:13 : Access violation at address 77B811F3 in module 'version.dll'. Read of address 00000004 : 
+----------------------------------------------------------------------
+12/08/2009 15:59:40 : Access violation at address 00005F00. Read of address 00005F00 : 
+----------------------------------------------------------------------
+12/08/2009 16:17:19 : Access violation at address 00005F00. Read of address 00005F00 : 
+----------------------------------------------------------------------
+12/08/2009 16:39:14 : cds: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+12/08/2009 16:40:52 : cds: Missing data provider or data packet : 
+----------------------------------------------------------------------
+12/08/2009 16:53:12 : cds: Field 'cpro' not found : 
+----------------------------------------------------------------------
+12/08/2009 17:11:54 : cds: Missing data provider or data packet : 
+----------------------------------------------------------------------
+12/08/2009 17:21:09 : cds: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+12/08/2009 17:41:57 : cds: Field 'qtdet' not found : 
+----------------------------------------------------------------------
+13/08/2009 09:04:11 : Access violation at address 0048B11B in module 'sysbras.exe'. Read of address 0000012C : 
+----------------------------------------------------------------------
+13/08/2009 09:05:18 : Access violation at address 0048B11B in module 'sysbras.exe'. Read of address 0000012C : 
+----------------------------------------------------------------------
+13/08/2009 09:06:01 : cds: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+13/08/2009 14:37:16 : cdsRankig: Missing data provider or data packet : 
+----------------------------------------------------------------------
+13/08/2009 14:38:01 : cdsRankig: Missing data provider or data packet : 
+----------------------------------------------------------------------
+13/08/2009 14:44:03 : cdsRanking: Missing data provider or data packet : 
+----------------------------------------------------------------------
+13/08/2009 14:49:47 : cdsRanking: Index 'qtdet' not found : 
+----------------------------------------------------------------------
+13/08/2009 14:51:57 : cdsRanking: Index 'qtdet' not found : 
+----------------------------------------------------------------------
+13/08/2009 14:57:47 : cdsRanking: Index 'qtdet' not found : 
+----------------------------------------------------------------------
+13/08/2009 15:04:17 : cdsRanking: Index 'qtdet' not found : 
+----------------------------------------------------------------------
+13/08/2009 15:37:42 : cdsRanking: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+13/08/2009 15:39:56 : cdsRanking: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+13/08/2009 15:40:35 : cdsRanking: Field 'npro' not found : 
+----------------------------------------------------------------------
+14/08/2009 11:37:56 : cdsRanking: Field 'descricao+qtdet' not found : 
+----------------------------------------------------------------------
+14/08/2009 11:54:47 : cdsRanking: Index 'qtdet' not found : 
+----------------------------------------------------------------------
+14/08/2009 11:56:22 : cdsRanking: Index 'qtdet' not found : 
+----------------------------------------------------------------------
+14/08/2009 11:57:30 : cdsRanking: Index 'nproqtdet' not found : 
+----------------------------------------------------------------------
+14/08/2009 12:07:12 : cdsRanking: Index 'nproqtdet' not found : 
+----------------------------------------------------------------------
+14/08/2009 12:10:29 : cdsRanking: Index 'nproqtdet' not found : 
+----------------------------------------------------------------------
+14/08/2009 16:02:17 : Cds_vProdutos: Must apply updates before refreshing data : 
+----------------------------------------------------------------------
+19/08/2009 17:28:13 : Cannot make a visible window modal : 
+----------------------------------------------------------------------
+19/08/2009 17:31:41 : Cannot make a visible window modal : 
+----------------------------------------------------------------------
+19/08/2009 17:32:07 : Cannot make a visible window modal : 
+----------------------------------------------------------------------
+20/08/2009 14:01:06 : List index out of bounds (3) : 
+----------------------------------------------------------------------
+20/08/2009 14:03:57 : List index out of bounds (3) : 
+----------------------------------------------------------------------
+24/08/2009 10:32:29 : Access violation at address 005CDC77 in module 'sysbras.exe'. Read of address 000003FC : 
+----------------------------------------------------------------------
+25/08/2009 12:02:42 : Field 'CONTRATO' must have a value : 
+----------------------------------------------------------------------
+26/08/2009 10:17:34 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+CEM8953
+At line 1, column 53
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+26/08/2009 10:23:04 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+CEM8953
+At line 1, column 53
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+26/08/2009 10:24:59 : Dynamic SQL Error
+SQL error code = -204
+Table unknown
+EQUICLI
+At line 1, column 13
+Undefined name
+Error Code: 249 : 
+----------------------------------------------------------------------
+26/08/2009 14:55:03 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+ESCORT
+At line 1, column 36
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+26/08/2009 17:24:44 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 28, column 1
+'CEM5389'
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+27/08/2009 09:34:00 : Transaction ID not found. : 
+----------------------------------------------------------------------
+27/08/2009 09:42:10 : Transaction ID not found. : 
+----------------------------------------------------------------------
+27/08/2009 13:29:47 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+27/08/2009 13:30:34 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+27/08/2009 13:31:43 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+27/08/2009 13:38:36 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+27/08/2009 13:42:59 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+27/08/2009 13:49:33 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+27/08/2009 14:00:06 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+27/08/2009 14:00:43 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+27/08/2009 14:07:43 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+27/08/2009 14:54:54 : Cds_sVenda: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+27/08/2009 14:58:23 : Cds_Modulo: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+28/08/2009 09:17:08 : Cds_Temp: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+28/08/2009 09:20:37 : Cds_sVenda: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+28/08/2009 09:26:35 : Access violation at address 005B2B15 in module 'sysbras.exe'. Read of address 000007C0 : 
+----------------------------------------------------------------------
+28/08/2009 10:24:08 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+DESCRICAO
+At line 1, column 38
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+28/08/2009 19:51:16 : Cds_dMobra: Field 'npro' not found : 
+-------------------------------------------------------------------28/08/2009 20:41:39 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+NPRO
+At line 1, column 20
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+28/08/2009 21:21:57 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+PRVE
+At line 1, column 85
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+28/08/2009 22:21:22 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 33
+by
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+31/08/2009 09:06:05 : Cds_dMobra: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+31/08/2009 09:08:09 : Floating point division by zero : 
+----------------------------------------------------------------------
+31/08/2009 09:13:10 : Floating point division by zero : 
+----------------------------------------------------------------------
+01/09/2009 16:19:46 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+FFF0001
+At line 1, column 36
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+01/09/2009 17:37:39 : Cds_sVenda: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+02/09/2009 16:34:38 : Table does not exist.
+File or directory does not exist.
+File: C:\estoque.dbf : 
+----------------------------------------------------------------------
+05/09/2009 00:32:13 : Cds_dVenda: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+05/09/2009 00:33:29 : Cds_Clientes: Field 'Endereco' not found : 
+----------------------------------------------------------------------
+05/09/2009 00:34:31 : Cds_Clientes: Field 'Complement' not found : 
+----------------------------------------------------------------------
+05/09/2009 00:43:02 : Cds_dVenda: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+05/09/2009 00:50:06 : Cds_Vencto: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+05/09/2009 00:53:04 : Cds_Vencto: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+05/09/2009 01:14:03 : Cds_Vencto: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+05/09/2009 01:22:55 : Cds_Vencto: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+08/09/2009 09:11:31 : Cds_dMobra: Cannot perform this operation on a closed dataset : Voltando para Inicio
+----------------------------------------------------------------------
+08/09/2009 09:13:47 : Cds_Vencto: Cannot perform this operation on a closed dataset : Voltando para Inicio
+----------------------------------------------------------------------
+08/09/2009 10:13:34 : Access violation at address 0065704C in module 'sysbras.exe'. Read of address 0000064C : 
+----------------------------------------------------------------------
+08/09/2009 10:14:14 : Access violation at address 0065704C in module 'sysbras.exe'. Read of address 0000064C : 
+----------------------------------------------------------------------
+08/09/2009 10:16:01 : Access violation at address 0065704C in module 'sysbras.exe'. Read of address 0000064C : 
+----------------------------------------------------------------------
+08/09/2009 10:17:37 : Access violation at address 0065704C in module 'sysbras.exe'. Read of address 0000064C : 
+----------------------------------------------------------------------
+08/09/2009 10:20:32 : Access violation at address 0065704C in module 'sysbras.exe'. Read of address 0000064C : 
+----------------------------------------------------------------------
+08/09/2009 10:24:58 : Access violation at address 0065704C in module 'sysbras.exe'. Read of address 0000064C : 
+----------------------------------------------------------------------
+08/09/2009 10:27:29 : Access violation at address 00657050 in module 'sysbras.exe'. Read of address 0000064C : 
+----------------------------------------------------------------------
+08/09/2009 10:28:28 : Access violation at address 00657050 in module 'sysbras.exe'. Read of address 0000064C : 
+----------------------------------------------------------------------
+08/09/2009 11:02:40 : Cds_dMobra: Cannot perform this operation on a closed dataset : Voltando para Inicio
+----------------------------------------------------------------------
+08/09/2009 11:08:17 : Cds_dMobra: Cannot perform this operation on a closed dataset : Voltando para Inicio
+----------------------------------------------------------------------
+08/09/2009 11:25:54 : Dbx_Vencto: Field 'C_TIPO_PGTO' not found : 
+----------------------------------------------------------------------
+08/09/2009 11:34:38 : Cds_dMobra: Cannot perform this operation on a closed dataset : Voltando para Inicio
+----------------------------------------------------------------------
+08/09/2009 11:40:34 : Cds_dMobra: Cannot perform this operation on a closed dataset : Voltando para Inicio
+----------------------------------------------------------------------
+08/09/2009 11:49:40 : Dbx_Vencto: Field 'C_TIPO_PGTO' not found : Voltando para Inicio
+----------------------------------------------------------------------
+08/09/2009 15:34:57 : Cds_Vencto: Cannot perform this operation on a closed dataset : Voltando para Inicio
+----------------------------------------------------------------------
+08/09/2009 15:36:18 : Cds_Vencto: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+08/09/2009 15:42:23 : Cds_Vencto: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+09/09/2009 11:16:18 : Cds_ComissaoR: Dataset not in edit or insert mode : Voltando para Inicio
+----------------------------------------------------------------------
+09/09/2009 11:18:21 : Cds_ComissaoR: Dataset not in edit or insert mode : Voltando para Inicio
+----------------------------------------------------------------------
+09/09/2009 16:35:53 : Cds_dVenda: Field 'nUni' not found : 
+----------------------------------------------------------------------
+10/09/2009 17:08:59 : Table does not exist.
+File or directory does not exist.
+File: C:\Marcos\desenvolvimento\sistemas\Systcom 11\clientes.dbf : 
+----------------------------------------------------------------------
+10/09/2009 17:10:39 : Table does not exist.
+File or directory does not exist.
+File: C:\Marcos\desenvolvimento\sistemas\Systcom 11\cliente.dbf : 
+----------------------------------------------------------------------
+10/09/2009 17:11:36 : Table does not exist.
+File or directory does not exist.
+File: C:\Marcos\desenvolvimento\sistemas\cricacliente.dbf : 
+----------------------------------------------------------------------
+10/09/2009 17:13:03 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+10/09/2009 17:15:56 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+10/09/2009 17:18:25 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+10/09/2009 17:19:51 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+10/09/2009 17:23:21 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+10/09/2009 17:31:32 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+10/09/2009 17:33:31 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+10/09/2009 17:34:54 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+10/09/2009 17:39:08 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+10/09/2009 17:40:12 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+10/09/2009 17:42:15 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+10/09/2009 17:43:45 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+10/09/2009 17:46:47 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+10/09/2009 17:56:49 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+10/09/2009 17:59:56 : Cds_Clientes: Dataset not in edit or insert mode : Erro !!!
+----------------------------------------------------------------------
+14/09/2009 11:56:20 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+FFF0001
+At line 1, column 36
+Column does not belong to referenced table
+Error Code: 249 : Voltando para Inicio
+----------------------------------------------------------------------
+14/09/2009 11:57:42 : Expression expected but nothing found : Erro !!!
+----------------------------------------------------------------------
+14/09/2009 12:00:22 : '' is not a valid integer value : Erro !!!
+----------------------------------------------------------------------
+17/09/2009 08:57:26 : Access violation at address 005B1CF0 in module 'sysbras.exe'. Read of address 000003FC : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 17:08:31 : Cannot focus a disabled or invisible window : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 18:21:27 : Key violation. : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 18:22:38 : Key violation. : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 18:24:58 : Key violation. : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 18:43:41 : Key violation. : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 20:53:22 : É obrigatório o preenchimento da(o) PLACA : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 21:01:46 : Key violation. : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 21:11:31 : Key violation. : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 21:13:41 : Key violation. : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 21:26:01 : Key violation. : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 21:31:51 : Field 'CODIGO' must have a value : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 21:34:11 : Field 'CODIGO' must have a value : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 21:35:55 : Field 'CODIGO' must have a value : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 21:37:59 : Field 'CODIGO' must have a value : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 21:42:21 : Field 'CODIGO' must have a value : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 21:44:01 : Field 'CODIGO' must have a value : Erro !!!
+----------------------------------------------------------------------
+18/09/2009 21:47:33 : Field 'CODIGO' must have a value : Erro !!!
+----------------------------------------------------------------------
+28/09/2009 16:04:58 : Cds_sVenda: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+28/09/2009 16:47:06 : invalid request BLR at offset 72
+generator GEN_PAGAS_ID is not defined
+Invalid token
+Error Code: 23 : 
+----------------------------------------------------------------------
+28/09/2009 16:48:27 : invalid request BLR at offset 72
+generator GEN_PAGAS_ID is not defined
+Invalid token
+Error Code: 23 : 
+----------------------------------------------------------------------
+29/09/2009 08:58:37 : Cds_vProdutos: Index 'CODIGO' not found : 
+----------------------------------------------------------------------
+01/10/2009 13:45:37 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 38
+order
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+20/10/2009 10:10:50 : '' is not a valid integer value : 
+----------------------------------------------------------------------
+20/10/2009 10:17:24 : '' is not a valid integer value : 
+----------------------------------------------------------------------
+27/10/2009 15:08:20 : DBRadioGroup21: Field 'IMPVLRCB' not found : 
+----------------------------------------------------------------------
+27/10/2009 15:08:51 : DBRadioGroup21: Field 'IMPVLRCB' not found : 
+----------------------------------------------------------------------
+27/10/2009 15:10:37 : DBRadioGroup21: Field 'IMPVLRCB' not found : 
+----------------------------------------------------------------------
+30/10/2009 09:49:22 : Expression expected but nothing found : 
+----------------------------------------------------------------------
+30/10/2009 17:46:39 : Cds_Clientes: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+30/10/2009 17:56:13 : Cds_TipoCli: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+30/10/2009 17:56:43 : Cds_SituCadCli: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+30/10/2009 18:02:40 : Cds_TipoCli: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+05/11/2009 16:50:34 : editelefones: Field 'FONES' not found : 
+----------------------------------------------------------------------
+05/11/2009 18:20:18 : '' is not a valid integer value : 
+----------------------------------------------------------------------
+06/11/2009 17:42:43 : Cds_dados: Field 'comprar1' not found : 
+----------------------------------------------------------------------
+16/11/2009 10:31:47 : Access violation at address 00639379 in module 'sysbras.exe'. Read of address 000007C0 : 
+----------------------------------------------------------------------
+16/11/2009 10:32:54 : Access violation at address 00639379 in module 'sysbras.exe'. Read of address 000007C0 : 
+----------------------------------------------------------------------
+16/11/2009 15:19:16 : Missing query, table name or procedure name : 
+----------------------------------------------------------------------
+16/11/2009 15:29:10 : Missing query, table name or procedure name : Voltando para Inicio
+----------------------------------------------------------------------
+17/11/2009 09:18:14 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 139
+)
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+17/11/2009 14:12:19 : Missing query, table name or procedure name : 
+----------------------------------------------------------------------
+17/11/2009 15:08:09 : Missing query, table name or procedure name : 
+----------------------------------------------------------------------
+23/11/2009 11:50:36 : Cds_vProdutos: Cannot perform this operation on an open dataset : 
+----------------------------------------------------------------------
+23/11/2009 11:53:33 : Cds_vProdutos: Field name missing : 
+----------------------------------------------------------------------
+23/11/2009 11:56:11 : Cds_vProdutos: Field name missing : 
+----------------------------------------------------------------------
+23/11/2009 11:57:15 : Cds_vProdutos: Field name missing : 
+----------------------------------------------------------------------
+24/11/2009 14:27:51 : List index out of bounds (1) : 
+----------------------------------------------------------------------
+24/11/2009 15:15:43 : List index out of bounds (1) : 
+----------------------------------------------------------------------
+24/11/2009 17:17:20 : cds_Tipo_Pgto: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+25/11/2009 15:09:49 : Expression expected but nothing found : 
+----------------------------------------------------------------------
+25/11/2009 18:00:08 : Field 'CODIGO' must have a value : 
+----------------------------------------------------------------------
+26/11/2009 08:59:27 : Cds_Vencto: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+26/11/2009 14:09:34 : Cds_VenctoDESCRICAO: Preparation of default expression failed with error "Filter expression incorrectly terminated" : 
+----------------------------------------------------------------------
+26/11/2009 16:53:40 : Cds_Vencto: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+26/11/2009 18:03:06 : Access violation at address 006C7DD4 in module 'sysbras.exe'. Read of address 00000434 : 
+----------------------------------------------------------------------
+26/11/2009 18:07:14 : Access violation at address 006C7DD5 in module 'sysbras.exe'. Read of address 00000434 : 
+----------------------------------------------------------------------
+27/11/2009 10:32:36 : Access violation at address 004D8A13 in module 'sysbras.exe'. Read of address 00000000 : 
+----------------------------------------------------------------------
+01/12/2009 17:43:24 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+01/12/2009 18:00:40 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+01/12/2009 18:03:40 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+01/12/2009 18:11:17 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 24, column 1
+0
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+01/12/2009 18:14:05 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 24, column 1
+0
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+03/12/2009 11:39:51 : 'Bobina 70 Col X 1 Linha' is not a valid integer value for field 'TPIMPVI' : 
+----------------------------------------------------------------------
+03/12/2009 11:41:35 : 'Bobina 70 Col X 1 Linha' is not a valid integer value for field 'TPIMPVI' : 
+----------------------------------------------------------------------
+03/12/2009 18:10:16 : Dbx_Exec: Field 'totarecber' not found : 
+----------------------------------------------------------------------
+03/12/2009 14:44:34 : Missing query, table name or procedure name : 
+----------------------------------------------------------------------
+03/12/2009 14:45:13 : Missing query, table name or procedure name : 
+----------------------------------------------------------------------
+03/12/2009 16:13:31 : Missing query, table name or procedure name : 
+----------------------------------------------------------------------
+03/12/2009 16:49:13 : Access violation at address 00748332 in module 'sysbras.exe'. Read of address 00000000 : 
+----------------------------------------------------------------------
+03/12/2009 16:51:10 : Access violation at address 00748341 in module 'sysbras.exe'. Read of address 00000000 : 
+----------------------------------------------------------------------
+08/12/2009 15:36:28 : cds_Tipo_Pgto: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+08/12/2009 15:40:13 : Cds_VenctoDESCRICAO: Preparation of default expression failed with error "Filter expression incorrectly terminated" : 
+----------------------------------------------------------------------
+08/12/2009 15:52:11 : Cds_VenctoDESCRICAO: Preparation of default expression failed with error "Filter expression incorrectly terminated" : 
+----------------------------------------------------------------------
+08/12/2009 15:53:54 : Cds_Vencto_NFDESCRICAO: Preparation of default expression failed with error "Filter expression incorrectly terminated" : 
+----------------------------------------------------------------------
+08/12/2009 16:09:57 : cds_Tipo_Pgto: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+08/12/2009 16:17:30 : cds_Tipo_Pgto: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+08/12/2009 16:22:21 : cds_Tipo_Pgto: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+09/12/2009 16:32:27 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+14/12/2009 16:55:53 : Cds_Vencto_NFDESCRICAO: Preparation of default expression failed with error "Filter expression incorrectly terminated" : 
+----------------------------------------------------------------------
+15/12/2009 17:23:00 : Expression expected but nothing found : Excessão quando criou parcela em branco
+----------------------------------------------------------------------
+15/12/2009 17:24:50 : Field 'EHVENDA' must have a value : Excessão quando criou parcela em branco
+----------------------------------------------------------------------
+08/01/2010 14:06:46 : Access violation at address 006C3950 in module 'sysbras.exe'. Read of address 00000348 : 
+----------------------------------------------------------------------
+08/01/2010 14:10:31 : Access violation at address 006C3950 in module 'sysbras.exe'. Read of address 00000348 : 
+----------------------------------------------------------------------
+08/01/2010 14:18:38 : Access violation at address 006C3950 in module 'sysbras.exe'. Read of address 00000348 : 
+----------------------------------------------------------------------
+08/01/2010 14:22:17 : Access violation at address 006C3961 in module 'sysbras.exe'. Read of address 00000348 : 
+----------------------------------------------------------------------
+08/01/2010 14:24:07 : Access violation at address 006C3961 in module 'sysbras.exe'. Read of address 00000348 : 
+----------------------------------------------------------------------
+08/01/2010 14:28:22 : Access violation at address 006C3961 in module 'sysbras.exe'. Read of address 00000348 : 
+----------------------------------------------------------------------
+14/01/2010 13:25:54 : '' is not a valid integer value : 
+----------------------------------------------------------------------
+14/01/2010 13:27:53 : '' is not a valid integer value : 
+----------------------------------------------------------------------
+26/01/2010 15:56:23 : Cds_Indice: Field 'ecflanca' not found : 
+----------------------------------------------------------------------
+02/02/2010 12:48:31 : Access violation at address 006BDA53 in module 'sysbras.exe'. Read of address 0000035C : 
+----------------------------------------------------------------------
+02/02/2010 14:46:29 : Access violation at address 006BE5A2 in module 'sysbras.exe'. Read of address 00000370 : 
+----------------------------------------------------------------------
+02/02/2010 14:47:39 : Access violation at address 006BE5A2 in module 'sysbras.exe'. Read of address 00000370 : 
+----------------------------------------------------------------------
+02/02/2010 14:48:35 : Access violation at address 006BE5A5 in module 'sysbras.exe'. Read of address 00000370 : 
+----------------------------------------------------------------------
+03/02/2010 14:45:29 : cbxnometransp: Field 'CTRANP' not found : 
+----------------------------------------------------------------------
+03/02/2010 14:47:56 : cbxnometransp: Field 'CTRANP' not found : 
+----------------------------------------------------------------------
+04/02/2010 15:11:59 : 'lblaprazo' is not a valid floating point value : 
+----------------------------------------------------------------------
+7/2/2010 18:45:27 : Cds_Usuarios: Field 'nivel' not found : 
+----------------------------------------------------------------------
+7/2/2010 19:08:34 : Cds_Usuarios: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+7/2/2010 19:11:24 : Key violation. : 
+----------------------------------------------------------------------
+7/2/2010 19:31:13 : Sql_Dados: There is no active transaction : 
+----------------------------------------------------------------------
+08/02/2010 10:58:09 : Cds_Usuarios: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+08/02/2010 11:08:16 : Cds_Usuarios: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+08/02/2010 11:35:46 : Cds_Usuarios: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+08/02/2010 12:16:33 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+08/02/2010 12:18:40 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+08/02/2010 12:27:11 : Field 'EHVENDA' must have a value : Excessão quando criou parcela em branco
+----------------------------------------------------------------------
+09/02/2010 10:57:52 : Access violation at address 0073F365 in module 'sysbras.exe'. Read of address 00000008 : 
+----------------------------------------------------------------------
+09/02/2010 13:09:52 : Cds_dVenda: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+09/02/2010 13:11:25 : Cds_dVenda: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+09/02/2010 13:14:24 : Field 'EHVENDA' must have a value : 
+----------------------------------------------------------------------
+09/02/2010 13:21:56 : Field 'EHVENDA' must have a value : 
+----------------------------------------------------------------------
+09/02/2010 13:25:36 : Field 'EHVENDA' must have a value : 
+----------------------------------------------------------------------
+09/02/2010 13:32:57 : Field 'EHVENDA' must have a value : 
+----------------------------------------------------------------------
+09/02/2010 13:44:33 : Field 'IMPNF' must have a value : 
+----------------------------------------------------------------------
+10/02/2010 17:42:23 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 10
+vendab
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+10/02/2010 17:43:24 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 10
+vendab
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+10/02/2010 17:45:23 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 10
+vendab
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+10/02/2010 17:48:25 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 10
+vendab
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+10/02/2010 17:52:10 : Missing query, table name or procedure name : 
+----------------------------------------------------------------------
+10/02/2010 17:53:09 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 10
+vendab
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+10/02/2010 17:54:13 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 10
+vendab
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+10/02/2010 17:58:06 : Access violation at address 00775188 in module 'sysbras.exe'. Read of address 00000000 : 
+----------------------------------------------------------------------
+10/02/2010 17:59:33 : Access violation at address 00772291 in module 'sysbras.exe'. Read of address 00000358 : 
+----------------------------------------------------------------------
+10/02/2010 18:00:32 : Access violation at address 0077233D in module 'sysbras.exe'. Read of address 000005CC : 
+----------------------------------------------------------------------
+10/02/2010 18:02:12 : Dbx_Exec: Field 'prve' not found : 
+----------------------------------------------------------------------
+10/02/2010 18:21:21 : '09.02.2010' is not a valid date : 
+----------------------------------------------------------------------
+10/02/2010 18:24:10 : '09.02.2010' is not a valid date : 
+----------------------------------------------------------------------
+10/02/2010 18:26:07 : '09.02.2010' is not a valid date : 
+----------------------------------------------------------------------
+10/02/2010 18:31:24 : '10.02.2010' is not a valid date : 
+----------------------------------------------------------------------
+10/02/2010 19:58:29 : '' is not a valid integer value : 
+----------------------------------------------------------------------
+10/02/2010 20:16:55 : violation of PRIMARY or UNIQUE KEY constraint "PK_PAGAR" on table "PAGAR"
+Invalid insert or update value(s): object columns are
+constrained - no 2 table rows can have duplicate column values
+Error Code: 345 : 
+----------------------------------------------------------------------
+10/02/2010 20:33:03 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+EHVENDA
+At line 1, column 80
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+10/02/2010 21:23:57 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+NCO
+At line 1, column 132
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+10/02/2010 21:29:01 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+NOS
+At line 1, column 132
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+17/02/2010 14:13:12 : '' is not a valid integer value : 
+----------------------------------------------------------------------
+17/02/2010 14:40:03 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+17/02/2010 14:42:23 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+17/02/2010 14:43:47 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+17/02/2010 14:54:33 : Cds_VenctoC_TIPO_PGTO: Preparation of default expression failed with error "Type mismatch in expression" : 
+----------------------------------------------------------------------
+17/02/2010 14:57:00 : Cds_Vencto: Must apply updates before refreshing data : 
+----------------------------------------------------------------------
+17/02/2010 15:00:24 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+17/02/2010 15:02:37 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+17/02/2010 15:04:27 : Cds_Classe: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+17/02/2010 15:07:28 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+17/02/2010 15:42:19 : '' is not a valid integer value : 
+----------------------------------------------------------------------
+17/02/2010 15:43:23 : Cds_Pagar: Field 'sehentrega' not found : 
+----------------------------------------------------------------------
+17/02/2010 15:45:44 : '' is not a valid integer value : 
+----------------------------------------------------------------------
+17/02/2010 15:46:44 : conversion error from string "  /  /    "
+Overflow occurred during data type conversion.
+Error Code: 14 : 
+----------------------------------------------------------------------
+18/02/2010 10:57:18 : Cds_Classe: Cannot perform this operation on a closed dataset : Voltando para Inicio
+----------------------------------------------------------------------
+18/02/2010 10:59:09 : Cds_Classe: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+18/02/2010 17:17:59 : Access violation at address 004784C2 in module 'sysbras.exe'. Read of address 00000198 : 
+----------------------------------------------------------------------
+18/02/2010 17:53:33 : Access violation at address 00773D73 in module 'sysbras.exe'. Read of address 00000000 : 
+----------------------------------------------------------------------
+18/02/2010 17:56:56 : Access violation at address 004784C2 in module 'sysbras.exe'. Read of address 00000198 : 
+----------------------------------------------------------------------
+19/02/2010 16:20:10 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 19, column 1
+,
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+22/02/2010 11:59:57 : I/O error 53 : 
+----------------------------------------------------------------------
+25/02/2010 16:25:07 : Cds_Temp: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+25/02/2010 16:26:08 : Cds_dVenda: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+25/02/2010 16:28:00 : Cds_dVenda: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+26/02/2010 18:22:37 : Cds_Munic: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+26/02/2010 19:08:08 : Cds_Config: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+26/02/2010 19:09:23 : Cds_Config: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+26/02/2010 19:54:12 : Dbx_Exec: Field 'cmnfe' not found : 
+----------------------------------------------------------------------
+01/03/2010 14:31:54 : Access violation at address 00404F18 in module 'sysbras.exe'. Read of address 00000000 : 
+----------------------------------------------------------------------
+15/03/2010 10:36:36 : '2' is not a valid date : 
+----------------------------------------------------------------------
+17/03/2010 15:44:45 : Cds_vProdutos: Must apply updates before refreshing data : 
+----------------------------------------------------------------------
+18/03/2010 14:40:18 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+24/03/2010 10:19:24 : Access violation at address 006B24E8 in module 'sysbras.exe'. Read of address 00000394 : 
+----------------------------------------------------------------------
+31/03/2010 16:00:41 : Expression expected but nothing found : 
+----------------------------------------------------------------------
+01/04/2010 11:08:13 : Expression expected but nothing found : Voltando para Inicio
+----------------------------------------------------------------------
+11/04/2010 04:15:45 : List index out of bounds (1) : 
+----------------------------------------------------------------------
+11/04/2010 04:19:27 : List index out of bounds (1) : 
+----------------------------------------------------------------------
+11/04/2010 04:21:35 : List index out of bounds (1) : 
+----------------------------------------------------------------------
+11/04/2010 04:23:42 : List index out of bounds (1) : 
+----------------------------------------------------------------------
+11/04/2010 04:25:08 : List index out of bounds (1) : 
+----------------------------------------------------------------------
+11/04/2010 04:27:27 : Access violation at address 0078E62F in module 'sysbras.exe'. Read of address 00000000 : 
+----------------------------------------------------------------------
+11/04/2010 05:10:59 : Access violation at address 00790CDC in module 'sysbras.exe'. Read of address 00000000 : 
+----------------------------------------------------------------------
+11/04/2010 05:11:09 : I/O error 32 : 
+----------------------------------------------------------------------
+11/04/2010 05:14:24 : Access violation at address 00790CE4 in module 'sysbras.exe'. Read of address 00000000 : 
+----------------------------------------------------------------------
+11/04/2010 05:14:30 : I/O error 32 : 
+----------------------------------------------------------------------
+12/04/2010 12:29:09 : Cds_Usuarios: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+12/04/2010 12:34:16 : Cds_Usuarios: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+12/04/2010 12:38:02 : Cds_Usuarios: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+13/04/2010 14:53:09 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+13/04/2010 14:53:59 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+14/04/2010 10:21:41 : Field 'CODIGO' must have a value : 
+----------------------------------------------------------------------
+14/04/2010 10:41:33 : Field 'CODIGO' must have a value : 
+----------------------------------------------------------------------
+16/04/2010 09:19:46 : Cds_NFP: Field 'ModBc' not found : Voltando para Inicio
+----------------------------------------------------------------------
+16/04/2010 09:21:33 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+SIGLAAS
+At line 1, column 16
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+16/04/2010 09:22:29 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 55
+=
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+16/04/2010 12:01:01 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 9
+as
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+19/04/2010 16:15:43 : Dynamic SQL Error
+SQL error code = -804
+Count of read-write columns does not equal count of values
+An error was found in the application program input parameters for the SQL statement.
+Error Code: 249 : 
+----------------------------------------------------------------------
+22/4/2010 15:27:49 : Cds_NFP: Field 'codBcSt' not found : erro durante tentativa de carregar uma das figuras
+------------------22/4/2010 15:47:59 : Cds_NFP: Field 'CODBCST' not found : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/04/2010 11:16:34 : Cds_vProdutos: Must apply updates before refreshing data : 
+----------------------------------------------------------------------
+23/04/2010 12:11:05 : I/O error 53 : 
+----------------------------------------------------------------------
+26/4/2010 17:53:47 : Access violation at address 006485F9 in module 'sysbras.exe'. Read of address 00000378 : erro qdo tentei carregar figura
+----------------------------------------------------------------------
+27/04/2010 11:16:40 : Access violation at address 006BACEC in module 'sysbras.exe'. Read of address 00000394 : 
+----------------------------------------------------------------------
+27/04/2010 11:38:26 : Cds_dVenda: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+11/5/2010 15:31:25 : '' is not a valid date : 
+----------------------------------------------------------------------
+11/05/2010 15:36:28 : '' is not a valid date : 
+----------------------------------------------------------------------
+11/05/2010 15:41:08 : '' is not a valid date : 
+----------------------------------------------------------------------
+11/05/2010 15:49:05 : '' is not a valid date : 
+----------------------------------------------------------------------
+11/05/2010 15:53:02 : Access violation at address 004051DC in module 'sysbras.exe'. Read of address 00000018 : 
+----------------------------------------------------------------------
+12/05/2010 10:43:35 : '2010-06-11' is not a valid date : 
+----------------------------------------------------------------------
+26/05/2010 13:51:01 : Sql_Dados: There is no active transaction : 
+----------------------------------------------------------------------
+27/05/2010 11:14:47 : Cds_SituRec: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+28/05/2010 16:41:23 : Cds_Clientes: Field 'desc1' not found : 
+----------------------------------------------------------------------
+02/06/2010 09:57:07 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+02/06/2010 10:17:00 : DBImage1: Field 'FOTO1' not found : 
+----------------------------------------------------------------------
+02/06/2010 10:18:34 : Bitmap image is not valid : 
+----------------------------------------------------------------------
+02/06/2010 10:39:34 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 13, column 1
+,
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+02/06/2010 16:58:58 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+07/06/2010 15:50:13 : Field 'cbxnpro' not found : 
+----------------------------------------------------------------------
+07/06/2010 16:52:11 : Field 'cbxnproM' not found : 
+----------------------------------------------------------------------
+07/06/2010 16:57:15 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 11, column 1
+,
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+10/06/2010 11:34:49 : Expression expected but nothing found : 
+----------------------------------------------------------------------
+11/06/2010 16:57:57 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 19, column 1
+32
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+11/06/2010 17:21:30 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 19, column 1
+32
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+11/06/2010 17:24:04 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 19, column 1
+32
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+11/06/2010 18:10:52 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 28
+where
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+11/06/2010 18:24:04 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 1, column 28
+where
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+14/06/2010 11:27:15 : A call to an OS function failed : 
+----------------------------------------------------------------------
+14/06/2010 11:53:32 : A call to an OS function failed : 
+----------------------------------------------------------------------
+15/06/2010 11:57:57 : ediresponsavelcob: Field 'RESPONSAVELCOB' not found : 
+----------------------------------------------------------------------
+17/06/2010 16:43:58 : Cds_procedimentosCSVENDA: Preparation of default expression failed with error "Type mismatch in expression" : 
+----------------------------------------------------------------------
+18/06/2010 15:50:28 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+18/06/2010 16:10:43 : '' is not a valid integer value : 
+----------------------------------------------------------------------
+18/06/2010 17:10:28 : Field 'CODIGO' must have a value : 
+----------------------------------------------------------------------
+28/6/2010 11:18:09 : Sql_Dados: There is no active transaction : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+28/6/2010 11:19:35 : Cds_NF: Must apply updates before refreshing data : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+28/6/2010 11:34:26 : Sql_Dados: There is no active transaction : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+29/6/2010 10:42:09 : violation of PRIMARY or UNIQUE KEY constraint "PK_NFP" on table "NFP"
+Invalid insert or update value(s): object columns are
+constrained - no 2 table rows can have duplicate column values
+Error Code: 345 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+29/6/2010 10:44:04 : violation of PRIMARY or UNIQUE KEY constraint "PK_NFP" on table "NFP"
+Invalid insert or update value(s): object columns are
+constrained - no 2 table rows can have duplicate column values
+Error Code: 345 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+5/7/2010 08:59:43 : Field 'CODIGO' must have a value : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+5/7/2010 14:21:29 : Field 'CODIGO' must have a value : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+5/7/2010 14:26:29 : Cds_IPI: Cannot perform this operation on an empty dataset : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+12/7/2010 10:01:43 : 'lbltotalMG' is not a valid floating point value : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+12/7/2010 10:09:37 : Field 'CODIGO' must have a value : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+12/7/2010 15:47:23 : 'lbltotg' is not a valid floating point value : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+12/7/2010 15:53:09 : 'lbltotg' is not a valid floating point value : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+12/7/2010 15:56:29 : 'lbltotg' is not a valid floating point value : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+16/7/2010 11:29:41 : Cds_sVenda: Dataset not in edit or insert mode : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+16/7/2010 15:27:58 : ''16/7/2010'' is not a valid date : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+16/7/2010 15:46:55 : Field 'CODIGO' must have a value : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+16/7/2010 15:58:07 : Field 'CODIGO' must have a value : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+16/7/2010 16:01:35 : Field 'CODIGO' must have a value : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+19/7/2010 12:21:48 : Cds_Exec: Cannot perform this operation on a closed dataset : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+19/7/2010 12:25:11 : Cds_Exec: Cannot perform this operation on a closed dataset : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+19/7/2010 12:30:11 : conversion error from string "19/7/2010"
+Overflow occurred during data type conversion.
+Error Code: 14 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+19/7/2010 12:39:55 : Unable to execute Query : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+19/7/2010 12:42:38 : Unable to execute Query : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+21/7/2010 14:23:00 : 'lbltotalMG' is not a valid floating point value : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+21/7/2010 17:20:11 : '' is not a valid floating point value : Voltando para Inicio
+----------------------------------------------------------------------
+22/7/2010 13:54:08 : '' is not a valid floating point value : Voltando para Inicio
+----------------------------------------------------------------------
+22/7/2010 14:00:54 : '' is not a valid floating point value : Voltando para Inicio
+----------------------------------------------------------------------
+22/7/2010 16:29:54 : Cannot focus a disabled or invisible window : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 19:32:55 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 19:34:38 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 19:40:29 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 19:49:03 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 19:53:18 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 19:55:26 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 19:55:59 : Access violation at address 0047D1B7 in module 'sysbras.exe'. Read of address 506262D4 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:01:52 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:04:13 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:26:37 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:27:11 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:27:14 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:27:16 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:27:19 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:27:22 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:30:25 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:30:33 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:30:36 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:30:39 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:30:43 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:30:47 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:30:50 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:30:52 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:30:55 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:30:58 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:31:02 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:31:04 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:41:23 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:41:44 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:48:05 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das22/7/2010 20:56:01 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:56:19 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:56:23 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:56:27 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:56:30 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 20:59:01 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das22/7/2010 21:32:01 : Access violation at address 6D657449. Read of address 6D657449 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 21:32:35 : Access violation at address 6D657449. Read of address 6D657449 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 21:59:14 : Access violation at address 6D657449. Read of address 6D657449 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 22:02:46 : Access violation at address 6D657449. Read of address 6D657449 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+22/7/2010 22:26:29 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das22/7/2010 22:28:09 : Access violation at address 0047D1B7 in module 'sysbras.exe'. Read of address 636901B1 : erro durante tenta23/7/2010 10:03:52 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das23/7/2010 10:07:02 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/7/2010 10:07:14 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/7/2010 10:07:17 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/7/2010 10:08:48 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das23/7/2010 10:12:54 : Access violation at address 6D657449. Read of address 6D657449 : erro durante tentativa de carregar uma das23/7/2010 10:15:46 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das23/7/2010 10:20:50 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/7/2010 10:21:43 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/7/2010 10:26:54 : Access violation at address 00000000. Read of address 00000000 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/7/2010 10:30:27 : Access violation at address 00000000. Read of address 00000000 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/7/2010 10:36:01 : Access violation at address 8CE00048. Read of address 8CE00048 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/7/2010 10:54:13 : Access violation at address 0047D1B7 in module 'sysbras.exe'. Read of address 00000181 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/7/2010 11:17:13 : Access violation at address 00000000. Read of address 00000000 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/7/2010 11:21:19 : Access violation at address 00000000. Read of address 00000000 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/7/2010 11:27:31 : Access violation at address 00000000. Read of address 00000000 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/7/2010 13:47:42 : Cannot focus a disabled or invisible window : Voltando para Inicio
+----------------------------------------------------------------------
+23/7/2010 13:48:43 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+30/7/2010 11:27:54 : Path not found.
+File: C:\Arquivos de programas\CompuFour\Aplicativos Comerciais\estoque.dbf\estoque.dbf : Erro !!!
+----------------------------------------------------------------------
+3/8/2010 15:33:41 : Cds_Temp: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+24/8/2010 16:24:35 : Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 38
+Invalid token
+Error Code: 249 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+24/8/2010 16:59:09 : Cds_dMobra: Cannot perform this operation on an empty dataset : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+24/8/2010 16:59:56 : Cds_dMobra: Cannot perform this operation on an empty dataset : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+24/8/2010 17:02:43 : Cds_dMobra: Cannot perform this operation on an empty dataset : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+26/8/2010 10:30:34 : Invalid filename : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+31/8/2010 14:55:57 : Expression expected but nothing found : 
+----------------------------------------------------------------------
+31/8/2010 14:56:28 : Expression expected but nothing found : 
+----------------------------------------------------------------------
+31/8/2010 15:00:22 : Expression expected but nothing found : 
+----------------------------------------------------------------------
+31/8/2010 15:01:07 : Expression expected but nothing found : 
+----------------------------------------------------------------------
+1/9/2010 11:38:18 : Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 34
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+2/9/2010 11:46:04 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+13/9/2010 14:25:30 : Field 'cbxnmodulo' not found : 
+----------------------------------------------------------------------
+13/9/2010 14:26:53 : '' is not a valid integer value : 
+----------------------------------------------------------------------
+14/9/2010 09:11:26 : Field 'cbxnmodulo' not found : 
+----------------------------------------------------------------------
+14/9/2010 09:12:28 : Field 'cbxnmodulo' not found : 
+----------------------------------------------------------------------
+14/9/2010 09:53:40 : Access violation at address 00675657 in module 'sysbras.exe'. Read of address 00000314 : 
+----------------------------------------------------------------------
+21/10/2010 11:05:47 : Cds_vProdutos: Index 'CODIGO' not found : 
+----------------------------------------------------------------------
+21/10/2010 11:06:33 : Cds_vProdutos: Index 'CODIGO' not found : 
+----------------------------------------------------------------------
+21/10/2010 11:07:11 : Cds_vProdutos: Index 'DESCRICAO' not found : 
+----------------------------------------------------------------------
+21/10/2010 11:08:51 : Cds_vProdutos: Index 'CODIGO' not found : 
+----------------------------------------------------------------------
+29/10/2010 09:42:58 : Cds_SituRec: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+1/12/2010 17:27:53 : conversion error from string " 1//2//010"
+Overflow occurred during data type conversion.
+Error Code: 14 : 
+----------------------------------------------------------------------
+10/1/2011 15:33:04 : Dynamic SQL Error
+SQL error code = -104
+Unexpected end of command - line 1, column 34
+Invalid token
+Error Code: 249 : 
+----------------------------------------------------------------------
+17/1/2011 10:08:53 : arithmetic exception, numeric overflow, or string truncation
+Arithmetic overflow or division by zero has occurred.
+Error Code: 1 : 
+----------------------------------------------------------------------
+17/1/2011 10:42:32 : arithmetic exception, numeric overflow, or string truncation
+Arithmetic overflow or division by zero has occurred.
+Error Code: 1 : 
+----------------------------------------------------------------------
+17/1/2011 15:16:11 : arithmetic exception, numeric overflow, or string truncation
+Arithmetic overflow or division by zero has occurred.
+Error Code: 1 : 
+----------------------------------------------------------------------
+17/1/2011 15:21:49 : arithmetic exception, numeric overflow, or string truncation
+Arithmetic overflow or division by zero has occurred.
+Error Code: 1 : 
+----------------------------------------------------------------------
+21/1/2011 13:36:18 : Cds_vProdutos: Must apply updates before refreshing data : 
+----------------------------------------------------------------------
+21/1/2011 13:36:48 : Cds_vProdutos: Must apply updates before refreshing data : 
+----------------------------------------------------------------------
+21/1/2011 13:37:49 : Cds_vProdutos: Must apply updates before refreshing data : 
+----------------------------------------------------------------------
+21/1/2011 13:38:40 : Cds_vProdutos: Must apply updates before refreshing data : 
+----------------------------------------------------------------------
+02/03/2011 16:45:27 : Dynamic SQL Error
+SQL error code = -206
+Column unknown
+A
+At line 1, column 37
+Column does not belong to referenced table
+Error Code: 249 : 
+----------------------------------------------------------------------
+17/03/2011 12:01:03 : Cds_TabPrS: Dataset not in edit or insert mode : 
+----------------------------------------------------------------------
+17/03/2011 16:43:05 : Access violation at address 0080CEA7 in module 'sysbras.exe'. Write of address 0000000C : 
+----------------------------------------------------------------------
+17/03/2011 16:46:53 : Access violation at address 0080CEA7 in module 'sysbras.exe'. Write of address 0000000C : 
+----------------------------------------------------------------------
+18/03/2011 17:22:42 : Cds_TabPrP: Field 'prcu' not found : 
+----------------------------------------------------------------------
+18/03/2011 17:29:25 : Number is out of range. : 
+----------------------------------------------------------------------
+18/03/2011 17:30:05 : Number is out of range. : 
+----------------------------------------------------------------------
+18/03/2011 17:33:50 : Number is out of range. : 
+----------------------------------------------------------------------
+21/03/2011 09:14:47 : Number is out of range. : 
+----------------------------------------------------------------------
+21/03/2011 09:15:32 : Number is out of range. : 
+----------------------------------------------------------------------
+21/03/2011 09:19:20 : Number is out of range. : 
+----------------------------------------------------------------------
+22/03/2011 16:47:13 : Field 'INDTOT' must have a value : Voltando para Inicio
+----------------------------------------------------------------------
+31/03/2011 17:27:02 : violation of PRIMARY or UNIQUE KEY constraint "PK_DVENDA" on table "DVENDA"
+Invalid insert or update value(s): object columns are
+constrained - no 2 table rows can have duplicate column values
+Error Code: 345 : 
+----------------------------------------------------------------------
+14/04/2011 14:14:16 : A component named relatorio already exists : 
+----------------------------------------------------------------------
+20/04/2011 09:30:33 : Class TPageControl not found : 
+----------------------------------------------------------------------
+20/04/2011 09:31:44 : Class TPageControl not found : 
+----------------------------------------------------------------------
+27/04/2011 11:38:35 : Cds_Representantes: Field 'SIGLA' not found : 
+----------------------------------------------------------------------
+27/04/2011 11:39:31 : SQL Error: Error mapping failed : 
+----------------------------------------------------------------------
+27/04/2011 11:41:36 : SQL Error: Error mapping failed : 
+----------------------------------------------------------------------
+27/04/2011 11:44:23 : cdsrelatorio: Field 'icampo1' not found : 
+----------------------------------------------------------------------
+27/04/2011 11:46:08 : cdsrelatorio: Field 'icampo1' not found : 
+----------------------------------------------------------------------
+27/04/2011 11:53:56 : cdsrelatorio: Field 'campo1' not found : 
+----------------------------------------------------------------------
+27/04/2011 11:54:29 : cdsrelatorio: Field 'campo1' not found : 
+----------------------------------------------------------------------
+27/04/2011 11:56:25 : cdsrelatorio: Field 'campo1' not found : 
+----------------------------------------------------------------------
+27/04/2011 11:59:02 : cdsrelatorio: Field 'campo1' not found : 
+----------------------------------------------------------------------
+27/04/2011 12:00:57 : cdsrelatorio: Field 'campo1' not found : 
+----------------------------------------------------------------------
+27/04/2011 14:08:11 : cdsrelatorio: Field 'campo1' not found : 
+----------------------------------------------------------------------
+27/04/2011 14:49:26 : Cds_RelPorGrupo: Field 'data' not found : 
+----------------------------------------------------------------------
+27/04/2011 14:55:22 : Cds_RelPorGrupo: Field 'data' not found : 
+----------------------------------------------------------------------
+02/05/2011 16:13:54 : Access violation at address 00003172. Read of address 00003172 : 
+----------------------------------------------------------------------
+03/05/2011 15:17:32 : Access violation at address 0072C3D8 in module 'sysbras.exe'. Read of address 0000038C : 
+---------------11/05/2011 14:22:09 : Field 'INDTOT' must have a value : Voltando para Inicio
+----------------------------------------------------------------------
+11/05/2011 14:26:58 : Field 'INDTOT' must have a value : Voltando para Inicio
+----------------------------------------------------------------------
+23/05/2011 10:23:02 : Table does not exist.
+File or directory does not exist.
+File: C:\estoque.dbf : 
+----------------------------------------------------------------------
+23/05/2011 16:50:44 : Index does not exist.
+File or directory does not exist.
+File: C:\Documents and Settings\marcos bras\Desktop\Sistema Comercial\clientes.MDX
+File: C:\Documents and Settings\marcos bras\Desktop\Sistema Comercial\clientes.CDX : Erro !!!
+----------------------------------------------------------------------
+23/05/2011 16:51:52 : Operação cancelada : Erro !!!
+----------------------------------------------------------------------
+02/08/2011 15:06:15 : Printer is not currently printing : 
+----------------------------------------------------------------------
+02/08/2011 15:07:35 : Printer is not currently printing : 
+----------------------------------------------------------------------
+02/08/2011 15:10:50 : Printer is not currently printing : 
+----------------------------------------------------------------------
+02/08/2011 15:23:55 : Printer is not currently printing : 
+----------------------------------------------------------------------
+02/08/2011 15:26:30 : Printer is not currently printing : 
+----------------------------------------------------------------------
+10/08/2011 17:24:15 : Cds_dVenda: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+10/08/2011 17:24:55 : Cds_dVenda: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+10/08/2011 17:25:51 : Cds_dVenda: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+17/08/2011 14:01:18 : '' is not a valid floating point value : 
+----------------------------------------------------------------------
+28/09/2011 23:31:39 : Cds_Vencto: Cannot perform this operation on a closed dataset : 
+----------------------------------------------------------------------
+01/10/2011 11:43:30 : Cds_Clientes: Field 'cep' not found : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+01/10/2011 11:45:24 : Cds_dVenda: Field 'quant' not found : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+20/10/2011 03:16:16 : Cds_Ent_Prod: Dataset not in edit or insert mode : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+20/10/2011 03:18:01 : Cds_sVenda: Dataset not in edit or insert mode : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+11/11/2011 19:55:53 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 27, column 1
+,
+Invalid token
+Error Code: 249 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+11/11/2011 19:58:00 : Cds_sVenda: Dataset not in edit or insert mode : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+11/11/2011 20:00:24 : Cds_sVenda: Dataset not in edit or insert mode : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+11/11/2011 20:06:50 : Cds_sVenda: Dataset not in edit or insert mode : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+11/11/2011 21:16:07 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 27, column 1
+,
+Invalid token
+Error Code: 249 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+11/11/2011 21:36:44 : Bitmap image is not valid : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+11/11/2011 22:25:17 : Bitmap image is not valid : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+11/11/2011 22:27:23 : Bitmap image is not valid : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+11/11/2011 22:27:54 : Bitmap image is not valid : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+12/11/2011 08:48:29 : Bitmap image is not valid : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/12/2011 09:36:32 : 'Ordem de Serviço' is not a valid integer value for field 'TIPOOP' : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+23/12/2011 12:41:36 : Cds_sVenda: Field 'norc' not found : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+29/12/2011 19:14:20 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 27, column 1
+,
+Invalid token
+Error Code: 249 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+29/12/2011 22:13:10 : Access violation at address 00000000. Read of address 00000000 : erro durante tentativa de carregar uma da22/01/2012 23:46:55 : arithmetic exception, numeric overflow, or string truncation
+string right truncation
+Arithmetic overflow or division by zero has occurred.
+Error Code: 1 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+31/01/2012 10:00:51 : Cannot focus a disabled or invisible window : 
+----------------------------------------------------------------------
+19/4/2012 11:51:06 : Cds_vProdutos: Index 'DESCRICAO' not found : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+19/8/2012 23:45:17 : Dynamic SQL Error
+SQL error code = -502
+Attempt to reopen an open cursor
+The cursor identified in an OPEN statement is already open.
+Error Code: 249 : 
+----------------------------------------------------------------------
+21/8/2012 21:32:55 : Dynamic SQL Error
+SQL error code = -104
+Token unknown - line 27, column 1
+,
+Invalid token
+Error Code: 249 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+1/9/2012 15:57:36 : Expression expected but nothing found : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+30/1/2013 20:17:23 : Cds_Temp: Dataset not in edit or insert mode : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+19/2/2013 21:50:32 : Access violation at address 00000000. Read of address 00000000 : 
+----------------------------------------------------------------------
+25/3/2013 09:46:48 : '' is not a valid integer value : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+7/6/2013 06:56:29 : '53 ' is not a valid integer value for field 'CINVSYS' : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+7/6/2013 07:09:04 : invalid request BLR at offset @1
+generator @1 is not defined
+Invalid token
+Error Code: 23 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
+7/6/2013 07:10:40 : invalid request BLR at offset @1
+generator @1 is not defined
+Invalid token
+Error Code: 23 : erro durante tentativa de carregar uma das figuras
+----------------------------------------------------------------------
