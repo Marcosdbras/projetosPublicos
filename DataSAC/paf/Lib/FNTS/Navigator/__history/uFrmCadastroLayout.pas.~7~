@@ -1,0 +1,80 @@
+unit uFrmCadastroLayout;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, DB, DBCtrls, ExtCtrls, StdCtrls, Mask;
+
+type
+  TfrmCadastroLayout = class(TForm)
+    Panel1: TPanel;
+    DBNavigator1: TDBNavigator;
+    dsLayout: TDataSource;
+    DBGrid1: TDBGrid;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    Label5: TLabel;
+    DBEdit5: TDBEdit;
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure DBEdit5Exit(Sender: TObject);
+  private
+    procedure SetDataset(pValue: TDataSet);
+    procedure DatasetNewRecord(DataSet: TDataSet);
+    procedure DatasetBeforePost(DataSet: TDataSet);
+  public
+    property Dataset: TDataSet write SetDataset;
+  end;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmCadastroLayout }
+
+procedure TfrmCadastroLayout.DatasetBeforePost(DataSet: TDataSet);
+var vIdx: Integer;
+begin
+  for vIdx:=0 to dsLayout.DataSet.FieldCount-1 do
+    if (dsLayout.DataSet.Fields[vIdx].IsNull) or (dsLayout.DataSet.Fields[vIdx].AsString=EmptyStr) then
+    begin
+      dsLayout.DataSet.Fields[vIdx].FocusControl;
+      raise Exception.Create('Campo "'+dsLayout.DataSet.Fields[vIdx].DisplayLabel+'" é obrigatório.');
+    end;
+end;
+
+procedure TfrmCadastroLayout.DatasetNewRecord(DataSet: TDataSet);
+begin
+  DBEdit1.SetFocus;
+end;
+
+procedure TfrmCadastroLayout.DBEdit5Exit(Sender: TObject);
+begin
+  if dsLayout.DataSet.State in [dsInsert, dsEdit] then
+    if Application.MessageBox('Deseja salvar este Registro?','Confirmação', mb_YesNo+mb_IconQuestion+mb_DefButton2)=idYes then
+      dsLayout.DataSet.Post;
+end;
+
+procedure TfrmCadastroLayout.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key=#13 then
+  begin
+    Key:=#0;
+    Perform(WM_NEXTDLGCTL, 0, 0);
+  end;
+end;
+
+procedure TfrmCadastroLayout.SetDataset(pValue: TDataSet);
+begin
+  dsLayout.DataSet:=pValue;
+  dsLayout.DataSet.OnNewRecord:=DatasetNewRecord;
+  dsLayout.DataSet.BeforePost:=DatasetBeforePost;
+end;
+
+end.

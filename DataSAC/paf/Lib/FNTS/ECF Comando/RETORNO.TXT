@@ -1,0 +1,133 @@
+ L G I N S / ANPJ:2122211121212                 
+    IE:11111
+------------------------------------------------
+    FITA-DETALHE
+Emissão:13/12/2008 12:05 COOi=000090 COOf=000090
+13/12/2008 11:20:50V                  COO:000090
+           LEITURA  X
+------------------ CONTADORES ------------------
+Geral de Opera‡ão Não-Fiscal:             000008
+Contador de Rein¡cio de Opera‡ão:            016
+Contador de Redu‡äes Z:                     0007
+Contador de Cupom Fiscal:                 000016
+Contador de Fita-Detalhe:                 000000
+Comprovante de Cr‚dito ou D‚bito:           0000
+Geral de Relat¢rio Gerencial:             000001
+Geral Oper. Não-Fiscal Canc.:               0000
+Cupom Fiscal Cancelado:                     0000
+---------------- TOTALIZADORES -----------------
+TOTALIZADOR GERAL:                        223,00
+VENDA BRUTA DIÁRIA:              ************,**
+CANCELAMENTO ICMS:                ***********,**
+DESCONTO ICMS:                    ***********,**
+TOTAL DE ISSQN:                   ***********,**
+CANCELAMENTO ISSQN:               ***********,**
+                                  --------------
+VENDA LIQUIDA:                   ************,**
+ACRÉSCIMO ICMS:                   ***********,**
+--------------------- ICMS ---------------------
+Totalizador   Base Calculo(  R$)   Imposto(  R$)
+T00= 7,00%                0,00              0,00
+T01=12,00%                0,00              0,00
+T02=17,00%                0,00              0,00
+T03=25,00%                0,00              0,00
+T04= 8,00%                0,00              0,00
+T05=13,00%                0,00              0,00
+T06=18,00%                0,00              0,00
+T07=26,00%                0,00              0,00
+T08= 5,45%                0,00              0,00
+T09=10,87%                0,00              0,00
+                   -----------------------------
+Total ICMS:               0,00              0,00
+Não Tributados            Valor Acumulado (  R$)
+F1=                                         0,00
+I1=                                         0,00
+N1=                                         0,00
+-------------------  ISSQN  --------------------
+Totalizador   Base Calculo(  R$)   Imposto(  R$)
+S10= 2,50%                0,00              0,00
+S11= 8,00%                0,00              0,00
+S12= 8,15%                0,00              0,00
+S13= 9,72%                0,00              0,00
+S14=10,00%                0,00              0,00
+S15=11,58%                0,00              0,00
+                   -----------------------------
+Total ISSQN:              0,00              0,00
+Não Tributados            Valor Acumulado (  R$)
+FS1=                                        0,00
+IS1=                                        0,00
+NS1=                                        0,00
+---------- TOTALIZADORES NÃO FISCAIS -----------
+N§ Opera‡ão           CON  Valor Acumulado(  R$)
+00 Recebimentos          0000               0,00
+01 Doc Cobran‡a          0000               0,00
+02 NF Entrada            0000               0,00
+03 Suprimento            0000               0,00
+04 Moedas                0000               0,00
+05 Estorno               0000               0,00
+06 Sangria               0000               0,00
+07 Emprestimo            0000               0,00
+08 Sangria Chq           0000               0,00
+09 Outras Saidas         0000               0,00
+10 Entrada 10            0000               0,00
+11 Entrada 11            0000               0,00
+12 Entrada 12            0000               0,00
+13 Saida 13              0000               0,00
+14 Saida 14              0000               0,00
+                                  --------------
+Total Oper Não-Fiscais                      0,00
+ACRE NÃO-FISC                               0,00
+DESC NÃO-FISC                               0,00
+CANC NÃO-FISC                               0,00
+------------- RELATÓRIO GERENCIAL --------------
+N§ Relat¢rio                                 CER
+00  estorno de CCD                          0000
+01  Relatorio Geral                         0000
+02  Relatorio Estoque                       0000
+03  Controle de Entrada                     0000
+04  Listagem de Cheques                     0000
+05  Relatorio de Operadores                 0000
+06  Relatorio de Vendas                     0000
+07  Relatorio Final Dia                     0000
+08  Relatorio ISSQN                         0000
+09  Controle Login                          0000
+10  Relatorio 10                            0000
+11  Relatorio 11                            0000
+12  Relatorio 12                            0000
+13  Relatorio 13                            0000
+14  Relatorio 14                            0000
+15  Relatorio 15                            0000
+16  Relatorio 16                            0000
+17  Relatorio 17                            0000
+18  Relatorio 18                            0000
+19  Relatorio 19                            0000
+-------------- MEIOS DE PAGAMENTO --------------
+N§  Meio Pagamento         Valor Acumulado(  R$)
+-2  Dinheiro                                0,00
+00  Dollar                                  0,00
+01  Cheque          (V)                     0,00
+02  Cartão          (V)                     0,00
+03  T.E.F.          (V)                     0,00
+04  Cheque Pr‚      (V)                     0,00
+05  Vale            (V)                     0,00
+06  ContraVale      (V)                     0,00
+07  Crediario       (V)                     0,00
+08  Bonus           (V)                     0,00
+09  Dollar          (V)                     0,00
+10  Meio 10         (V)                     0,00
+11  Meio 11         (V)                     0,00
+12  Meio 12         (V)                     0,00
+13  Meio 13         (V)                     0,00
+TROCO                                       0,00
+------------------------------------------------
+Comprovante Não Emitido:                    0000
+Tempo Emitindo Doc. Fiscal:              0:00:00
+Tempo Operacional:                       0:01:09
+Qtd. Redu‡äes Restantes:                    3189
+N£mero s‚rie MFD:                      999999999
+------------------------------------------------
+ZPM        Simulador V1.00      ECF-IF
+VERSÃO:03.03.00 ECF:001 LJ:001 OPR:
+AAAAAAAAAAAAACCPAA          13/12/2008 11:20:51V
+FAB:999999999                             
+ZPMCS=0F09C7EC

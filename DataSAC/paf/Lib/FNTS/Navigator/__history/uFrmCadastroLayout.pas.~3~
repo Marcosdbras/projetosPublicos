@@ -1,0 +1,58 @@
+unit uFrmCadastroLayout;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, DB, DBCtrls, ExtCtrls, StdCtrls, Mask;
+
+type
+  TfrmCadastroLayout = class(TForm)
+    Panel1: TPanel;
+    DBNavigator1: TDBNavigator;
+    dsLayout: TDataSource;
+    DBGrid1: TDBGrid;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    Label5: TLabel;
+    DBEdit5: TDBEdit;
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+  private
+    procedure SetDataset(pValue: TDataSet);
+    procedure DatasetNewRecord(DataSet: TDataSet);
+  public
+    property Dataset: TDataSet write SetDataset;
+  end;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmCadastroLayout }
+
+procedure TfrmCadastroLayout.DatasetNewRecord(DataSet: TDataSet);
+begin
+  DBEdit1.SetFocus;
+end;
+
+procedure TfrmCadastroLayout.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key=#13 then
+  begin
+    Key:=#0;
+    Perform(WM_NEXTDLGCTL, 0, 0);
+  end;
+end;
+
+procedure TfrmCadastroLayout.SetDataset(pValue: TDataSet);
+begin
+  dsLayout.DataSet:=pValue;
+end;
+
+end.

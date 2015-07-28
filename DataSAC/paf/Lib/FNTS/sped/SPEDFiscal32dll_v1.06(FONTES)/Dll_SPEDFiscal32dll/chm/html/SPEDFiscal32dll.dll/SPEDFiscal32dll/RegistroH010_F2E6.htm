@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>SPEDFiscal32dll.dll - SPED Sitema Publico de Escrituração Digital </title>
+<meta http-equiv="Content-Type" content="text/html">
+<link rel="stylesheet" href="../../_Resources/css/DelphiCodeToDoc.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF">
+
+<table width="100%" border="0" cellspacing="0" bgcolor="#99CCFF">
+  <tr>
+    <td class="Generated"><b>SPEDFiscal32dll.dll</b></td>
+    <td class="Normal">
+      <div align="center"><a href="../../_ClassHierarchy.htm">Class Tree</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="../../SPEDFiscal32dll.dll.htm">Index</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroH005_1A40.htm">Previous (RegistroH005)</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroH990_B734.htm">Next (RegistroH990)</a></div>
+    </td>
+  </tr>
+</table><br>
+
+<span class="SectionName">Name</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">RegistroH010</td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Parent</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated"><a href="../SPEDFiscal32dll.htm">SPEDFiscal32dll</a></td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Visibility</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">PUBLIC</td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Description</span><br>
+<table width="95%" border="0" cellspacing="0">
+
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td bgcolor="#FFFFCC" class="Generated"> 
+      <p>Registro H010 - INVENT&Aacute;RIO</p>
+    </td>
+  </tr>
+
+</table><br>
+
+<span class="SectionName">Source code</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">Function RegistroH010 ( COD_ITEM , UNID , QTD , VL_UNIT , VL_ITEM , IND_PROP , COD_PART , TXT_COMP , COD_CTA : String ) : Integer ; stdcall ; export </td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Parameters</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td> 
+      <table width="100%" border="1" cellspacing="0" class="IndexName">
+        <tr bgcolor="#FFFFFF"> 
+          <td class="IndexName" width="33%">Parameter</td>
+          <td class="IndexName">Description</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_ITEM : STRING</td>
+          <td class="Generated">'C&oacute;digo do item (campo 02 do Registro 0200)</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">UNID : STRING</td>
+          <td class="Generated">'Unidade do item</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">QTD : STRING</td>
+          <td class="Generated">'Quantidade do item</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_UNIT : STRING</td>
+          <td class="Generated">'Valor unit&aacute;rio do item</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_ITEM : STRING</td>
+          <td class="Generated">'Valor do item</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">IND_PROP : STRING</td>
+          <td class="Generated">'Indicador de propriedade/posse do item: 0- Item de propriedade do informante e em seu poder; 1- Item de propriedade do informante em posse de terceiros; 2- Item de propriedade de terceiros em posse do informante</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_PART : STRING</td>
+          <td class="Generated">'C&oacute;digo do participante (campo 02 do Registro 0150): propriet&aacute;rio/possuidor que n&atilde;o seja o informante do arquivo</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">TXT_COMP : STRING</td>
+          <td class="Generated">'Descri&ccedil;&atilde;o complementar.</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_CTA : STRING</td>
+          <td class="Generated">'C&oacute;digo da conta anal&iacute;tica cont&aacute;bil debitada/creditada</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table><br>
+
+<span class="SectionName">Return</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td> 
+      <table width="100%" border="1" cellspacing="0" class="IndexName">
+        <tr bgcolor="#FFFFFF"> 
+          <td class="IndexName" width="33%">Types</td>
+          <td class="IndexName">Description</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">INTEGER</td>
+          <td class="Generated">Caso nenhum erro encontrado retorna RegistroH010 devidamente formatado |H010| + COD_ITEM + UNID + QTD + VL_UNIT + VL_ITEM + IND_PROP + COD_PART + TXT_COMP + COD_CTA<BR>'Quebra de sequ&ecirc;ncia conforme L&oacute;gica de Ordena&ccedil;&atilde;o Inter-Registros.</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table><br>
+
+<table width="100%" border="0" cellspacing="0" bgcolor="#99CCFF">
+  <tr>
+    <td class="Generated"><b>SPEDFiscal32dll.dll</b></td>
+    <td class="Normal">
+      <div align="center"><a href="../../_ClassHierarchy.htm">Class Tree</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="../../SPEDFiscal32dll.dll.htm">Index</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroH005_1A40.htm">Previous (RegistroH005)</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroH990_B734.htm">Next (RegistroH990)</a></div>
+    </td>
+  </tr>
+</table><br>
+
+<hr width="100%" align="left">
+<span class="Footer">Add your copyright informations and link here.<br>
+Created with DelphiCodeToDoc. To obtain the latest revision, please visit <a href="http://dephicodetodoc.sourceforge.net/"><b>http://dephicodetodoc.sourceforge.net/</b></a><br>
+</body>
+</html>
+

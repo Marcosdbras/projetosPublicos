@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Version="4.2.3" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="4095" PreviewOptions.OutlineExpand="False" PreviewOptions.OutlineWidth="0" PreviewOptions.Zoom="1" PreviewOptions.ZoomMode="zmManyPages" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="39318,9151401505" ReportOptions.Description.Text="" ReportOptions.LastChange="39318,9357553819" ScriptLanguage="PascalScript" ScriptText.Text="&#13;&#10;begin&#13;&#10;&#13;&#10;end." PropData="044C656674020803546F7003B8010844617461736574730100095661726961626C65730100055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="190" PaperHeight="297" PaperSize="256" LeftMargin="2" RightMargin="2" TopMargin="2" BottomMargin="2" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxReportTitle Name="ReportTitle1" Height="105,82684" Left="0" Top="18,89765" Width="702,99258">
+      <TfrxShapeView Name="Shape6" Left="430,86642" Top="22,67718" Width="177,63791" Height="30,23624"/>
+      <TfrxShapeView Name="Shape4" Left="430,86642" Top="0" Width="177,63791" Height="22,67718"/>
+      <TfrxShapeView Name="Shape5" Left="608,50433" Top="0" Width="92,5984252" Height="52,91342"/>
+      <TfrxShapeView Name="Shape3" Left="0" Top="0" Width="430,86642" Height="52,91342"/>
+      <TfrxMemoView Name="Memo2" Left="3,77953" Top="7,55906" Width="260,78757" Height="18,89765" DisplayFormat.DecimalSeparator="," Font.Charset="1" Font.Color="0" Font.Height="-12" Font.Name="Courier New" Font.Style="1" ParentFont="False" Text="FORNECEDOR"/>
+      <TfrxMemoView Name="Memo1" Left="614,28386" Top="25,67718" Width="83,14966" Height="18,89765" DisplayFormat.DecimalSeparator="," Font.Charset="1" Font.Color="0" Font.Height="-16" Font.Name="Courier New" Font.Style="1" HAlign="haCenter" ParentFont="False" Text="000000"/>
+      <TfrxMemoView Name="Memo3" Left="3,77953" Top="26,45671" Width="423,30736" Height="18,89765" DisplayFormat.DecimalSeparator="," Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Courier New" Font.Style="0" ParentFont="False" Text="ENDEREÇO DO FORNECEDOR"/>
+      <TfrxMemoView Name="Memo4" Left="268,34663" Top="7,55906" Width="158,74026" Height="18,89765" DisplayFormat.DecimalSeparator="," Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Courier New" Font.Style="0" ParentFont="False" Text="TELEFONE: (00)9999-9999"/>
+      <TfrxShapeView Name="Shape1" Left="449,76407" Top="29,45671" Width="15,11812" Height="18,8976378"/>
+      <TfrxMemoView Name="Memo5" Left="434,64595" Top="3,55906" Width="49,13389" Height="18,89765" DisplayFormat.DecimalSeparator="," Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Courier New" Font.Style="0" ParentFont="False" Text="MODELO"/>
+      <TfrxMemoView Name="Memo6" Left="540,47279" Top="3,55906" Width="49,13389" Height="18,89765" DisplayFormat.DecimalSeparator="," Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Courier New" Font.Style="0" ParentFont="False" Text="SÉRIE"/>
+      <TfrxShapeView Name="Shape2" Left="525,35467" Top="29,45671" Width="15,11812" Height="18,8976378"/>
+      <TfrxMemoView Name="Memo7" Left="614,28386" Top="6,77953" Width="83,14966" Height="18,89765" DisplayFormat.DecimalSeparator="," Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Courier New" Font.Style="0" HAlign="haCenter" ParentFont="False" Text="NÚMERO"/>
+      <TfrxMemoView Name="Memo8" Left="468,66172" Top="32,12598425" Width="37,7953" Height="15,11812" DisplayFormat.DecimalSeparator="," Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Courier New" Font.Style="0" ParentFont="False" Text="SAÍDA"/>
+      <TfrxMemoView Name="Memo9" Left="525,35467" Top="29,23624" Width="15,11812" Height="18,89765" DisplayFormat.DecimalSeparator="," Font.Charset="1" Font.Color="0" Font.Height="-16" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="X"/>
+      <TfrxMemoView Name="Memo10" Left="544,25232" Top="32,12598425" Width="49,13389" Height="15,11812" DisplayFormat.DecimalSeparator="," Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Courier New" Font.Style="0" ParentFont="False" Text="ENTRADA"/>
+    </TfrxReportTitle>
+  </TfrxReportPage>
+</TfrxReport>

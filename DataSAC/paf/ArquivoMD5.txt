@@ -1,0 +1,32 @@
+N1061055180001767778569800000013900000000000MARCELO MARQUES GONÁALVES                         
+N2          DATAPDV                                           20        
+N3DataPDV.exe                                       fffae1b38ffd5d18c9d3ce594834938d
+N3DarumaFramework_Delphi.exe                        4aa30ae8e8d080b823bd1cdec00248e3
+N3DataAtd.exe                                       251ad1ee2150b30c7899e41f244bfc67
+N3DataBar.exe                                       71a0696271be4803fc90cc6fb0310b97
+N3DataConfig.exe                                    dcdae3d48fd97afc9d3d0f7ba85c1eb2
+N3DataNFE.exe                                       75aa89f0a5180817d96acd3fe35c085c
+N3DataReg.exe                                       14281ad971b0fb472adae8349ad928de
+N3DataSped.exe                                      ab04f2c71091e0fdd6bc7e697f46c2d9
+N3epNavigator.exe                                   8d9cd065c9b55e2588299a0919fe0a4c
+N3AX6R32.DLL                                        d41d8cd98f00b204e9800998ecf8427e
+N3BemaFI32.dll                                      26b872a65670f877aee3cae7b2e0c7cc
+N3BemaMFD.dll                                       dceaee4ee0df267db71bedd5d797f9e0
+N3BemaMFD2.dll                                      11a032ef4bdfab646f2d71af99245844
+N3borlndmm.dll                                      b9e3af228e5543e8e045c38550b5d124
+N3companytec.dll                                    d41d8cd98f00b204e9800998ecf8427e
+N3CONVECF.dll                                       ebe176b075fe02f28ef46b440417489d
+N3DAO350.DLL                                        d41d8cd98f00b204e9800998ecf8427e
+N3Daruma32.dll                                      ac45babbe46c6821e6f828c2aebe2a4b
+N3DataPaf.dll                                       d41d8cd98f00b204e9800998ecf8427e
+N3DLLG2.dll                                         d41d8cd98f00b204e9800998ecf8427e
+N3elgin.dll                                         46bea2856c8e188d6aa03e95b4dcaeae
+N3INPOUT32.DLL                                      d41d8cd98f00b204e9800998ecf8427e
+N3InterfaceEpson.dll                                36cc1754fec56a7eef4475283794a319
+N3libeay32.dll                                      d41d8cd98f00b204e9800998ecf8427e
+N3MSJET35.dll                                       d41d8cd98f00b204e9800998ecf8427e
+N3sign_bema.dll                                     d41d8cd98f00b204e9800998ecf8427e
+N3SPEDFiscal32dll.dll                               8d01bf04166634fe2a2d0838ed7b3ce4
+N3Swmfd.dll                                         5b6afb39d95cd4ca2a27c3472188b755
+N3Tec44Win.dll                                      56ab4f3334c20889589d9fd4c88d3fde
+N90610551800017677785698000031

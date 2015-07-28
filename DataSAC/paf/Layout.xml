@@ -1,0 +1,1 @@
+<?xml version="1.0" standalone="yes"?>  <DATAPACKET Version="2.0"><METADATA><FIELDS><FIELD attrname="Denominacao" fieldtype="string" WIDTH="3"/><FIELD attrname="Campo" fieldtype="string" WIDTH="100"/><FIELD attrname="Tamanho" fieldtype="i4"/><FIELD attrname="Inicio" fieldtype="i4"/><FIELD attrname="Fim" fieldtype="i4"/></FIELDS><PARAMS/></METADATA><ROWDATA></ROWDATA></DATAPACKET>

@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>SPEDFiscal32dll.dll - SPED Sitema Publico de Escrituração Digital </title>
+<meta http-equiv="Content-Type" content="text/html">
+<link rel="stylesheet" href="../../_Resources/css/DelphiCodeToDoc.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF">
+
+<table width="100%" border="0" cellspacing="0" bgcolor="#99CCFF">
+  <tr>
+    <td class="Generated"><b>SPEDFiscal32dll.dll</b></td>
+    <td class="Normal">
+      <div align="center"><a href="../../_ClassHierarchy.htm">Class Tree</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="../../SPEDFiscal32dll.dll.htm">Index</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroC590_5CC1.htm">Previous (RegistroC590)</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroC601_BB2B.htm">Next (RegistroC601)</a></div>
+    </td>
+  </tr>
+</table><br>
+
+<span class="SectionName">Name</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">RegistroC600</td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Parent</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated"><a href="../SPEDFiscal32dll.htm">SPEDFiscal32dll</a></td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Visibility</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">PUBLIC</td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Description</span><br>
+<table width="95%" border="0" cellspacing="0">
+
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td bgcolor="#FFFFCC" class="Generated"> 
+      <p>Registro C600 - CONSOLIDA&Ccedil;&Atilde;O DI&Aacute;RIA DE NOTAS FISCAIS/CONTAS DE   ENERGIA   EL&Eacute;TRICA   (C&Oacute;DIGO   06),   NOTA   FISCAL/CONTA   DE FORNECIMENTO   D'&Aacute;GUA  CANALIZADA  (C&Oacute;DIGO   29)   E   NOTA FISCAL/CONTA DE FORNECIMENTO DE G&Aacute;S  (C&Oacute;DIGO 28)   (EMPRESAS N&Atilde;O OBRIGADAS AO CONV&Ecirc;NIO ICMS 115/03)</p>
+    </td>
+  </tr>
+
+</table><br>
+
+<span class="SectionName">Source code</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">Function RegistroC600 ( COD_MOD , COD_MUN , SER , SUB , COD_CONS , QTD_CONS , QTD_CANC , DT_DOC , VL_DOC , VL_DESC , CONS , VL_FORN , VL_SERV_NT , VL_TERC , VL_DA , VL_BC_ICMS , VL_ICMS , VL_BC_ICMS_ST , VL_ICMS_ST , VL_PIS , VL_COFINS : String ) : Integer ; stdcall ; export </td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Parameters</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td> 
+      <table width="100%" border="1" cellspacing="0" class="IndexName">
+        <tr bgcolor="#FFFFFF"> 
+          <td class="IndexName" width="33%">Parameter</td>
+          <td class="IndexName">Description</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_MOD : STRING</td>
+          <td class="Generated">'C&oacute;digo   do   modelo   do   documento   fiscal, conforme a Tabela 4.1.1</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_MUN : STRING</td>
+          <td class="Generated">'C&oacute;digo   do munic&iacute;pio  dos  pontos   de   consumo, conforme a tabela IBGE</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">SER : STRING</td>
+          <td class="Generated">'S&eacute;rie do documento fiscal</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">SUB : STRING</td>
+          <td class="Generated">'Subs&eacute;rie do documento fiscal</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_CONS : STRING</td>
+          <td class="Generated">'C&oacute;digo de classe de consumo de energia el&eacute;trica, conforme a Tabela 4.4.5, ou C&oacute;digo de Consumo de   Fornecimento   D&acute;&aacute;gua   -   Tabela   4.4.2   ou C&oacute;digo da classe de consumo de g&aacute;s canalizado conforme Tabela 4.4.3.</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">QTD_CONS : STRING</td>
+          <td class="Generated">'Quantidade   de   documentos   consolidados   neste registro</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">QTD_CANC : STRING</td>
+          <td class="Generated">'Quantidade de documentos cancelados</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">DT_DOC : STRING</td>
+          <td class="Generated">'Data dos documentos consolidados</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_DOC : STRING</td>
+          <td class="Generated">'Valor total dos documentos</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_DESC : STRING</td>
+          <td class="Generated">'Valor acumulado dos descontos</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">CONS : STRING</td>
+          <td class="Generated">'Consumo total acumulado, em kWh (C&oacute;digo 06)</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_FORN : STRING</td>
+          <td class="Generated">'Valor acumulado do fornecimento</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_SERV_NT : STRING</td>
+          <td class="Generated">'Valor   acumulado   dos   servi&ccedil;os   n&atilde;o-tributados pelo ICMS</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_TERC : STRING</td>
+          <td class="Generated">'Valores cobrados em nome de terceiros</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_DA : STRING</td>
+          <td class="Generated">'Valor acumulado das despesas acess&oacute;rias</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_BC_ICMS : STRING</td>
+          <td class="Generated">'Valor acumulado da base de c&aacute;lculo do ICMS</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_ICMS : STRING</td>
+          <td class="Generated">'Valor acumulado do ICMS</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_BC_ICMS_ST : STRING</td>
+          <td class="Generated">'Valor   acumulado da base de  c&aacute;lculo do  ICMS substitui&ccedil;&atilde;o tribut&aacute;ria</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_ICMS_ST : STRING</td>
+          <td class="Generated">'Valor   acumulado   do   ICMS   retido   por substitui&ccedil;&atilde;o tribut&aacute;ria</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_PIS : STRING</td>
+          <td class="Generated">'Valor acumulado do PIS</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_COFINS : STRING</td>
+          <td class="Generated">'Valor acumulado COFINS</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table><br>
+
+<span class="SectionName">Return</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td> 
+      <table width="100%" border="1" cellspacing="0" class="IndexName">
+        <tr bgcolor="#FFFFFF"> 
+          <td class="IndexName" width="33%">Types</td>
+          <td class="IndexName">Description</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">INTEGER</td>
+          <td class="Generated">Caso nenhum erro encontrado retorna RegistroC600 devidamente formatado |C600| + COD_MOD + COD_MUN + SER + SUB + COD_CONS + QTD_CONS + QTD_CANC + DT_DOC + VL_DOC + VL_DESC + CONS + VL_FORN + VL_SERV_NT + VL_TERC + VL_DA + VL_BC_ICMS + VL_ICMS + VL_BC_ICMS_ST + VL_ICMS_ST + VL_PIS + VL_COFINS<BR>'Quebra de sequ&ecirc;ncia conforme L&oacute;gica de Ordena&ccedil;&atilde;o Inter-Registros.<BR>'-1   Data Inicial Inv&aacute;lida (DDMMAAAA) :: ' + DT_DOC</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table><br>
+
+<table width="100%" border="0" cellspacing="0" bgcolor="#99CCFF">
+  <tr>
+    <td class="Generated"><b>SPEDFiscal32dll.dll</b></td>
+    <td class="Normal">
+      <div align="center"><a href="../../_ClassHierarchy.htm">Class Tree</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="../../SPEDFiscal32dll.dll.htm">Index</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroC590_5CC1.htm">Previous (RegistroC590)</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroC601_BB2B.htm">Next (RegistroC601)</a></div>
+    </td>
+  </tr>
+</table><br>
+
+<hr width="100%" align="left">
+<span class="Footer">Add your copyright informations and link here.<br>
+Created with DelphiCodeToDoc. To obtain the latest revision, please visit <a href="http://dephicodetodoc.sourceforge.net/"><b>http://dephicodetodoc.sourceforge.net/</b></a><br>
+</body>
+</html>
+

@@ -1,0 +1,3 @@
+Caso encontre problemas ao tentar copiar a sintegra32dll.dll informando erro de arquivos não encontrados, arquivos estes q estejam nesta pasta, você deve adicionar esta pasta ao Library Path do Delphi
+
+Menu Principal> Tools> Environment Options> Library> Library Path> (Adicione este diretório)> Feche a janela> Tente compilar novamente

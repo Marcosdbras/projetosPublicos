@@ -1,0 +1,469 @@
+unit convenio_pgto;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Menus, StdCtrls, Buttons, ExtCtrls, Collection, Mask, rxtooledit,
+  rxcurredit, TFlatPanelUnit, DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset;
+
+type
+  Tfrmconvenio_pgto = class(TForm)
+    ViewSplit1: TViewSplit;
+    FlatPanel1: TFlatPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    rdesconto2: TRxCalcEdit;
+    rjuros: TRxCalcEdit;
+    rdesconto1: TRxCalcEdit;
+    Panel1: TPanel;
+    rliquido: TRxCalcEdit;
+    Panel2: TPanel;
+    rtotal: TRxCalcEdit;
+    PopupMenu1: TPopupMenu;
+    Cancelar1: TMenuItem;
+    Label15: TLabel;
+    rdias: TRxCalcEdit;
+    FlatPanel2: TFlatPanel;
+    ViewSplit3: TViewSplit;
+    Label10: TLabel;
+    rcaixa: TRadioButton;
+    rbanco: TRadioButton;
+    Label16: TLabel;
+    ecaixa: TShape;
+    ebanco: TShape;
+    Panel3: TPanel;
+    bgravar: TBitBtn;
+    bcancelar: TBitBtn;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    N1: TMenuItem;
+    ZerarJuros1: TMenuItem;
+    qrcontasreceber_pgto: TZQuery;
+    ViewSplit2: TViewSplit;
+    FlatPanel3: TFlatPanel;
+    Label5: TLabel;
+    comboforma: TComboBox;
+    procedure bgravarClick(Sender: TObject);
+    procedure bcancelarClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure rdesconto1Enter(Sender: TObject);
+    procedure rdesconto1Exit(Sender: TObject);
+    procedure rdesconto2Exit(Sender: TObject);
+    procedure rdesconto1KeyPress(Sender: TObject; var Key: Char);
+    procedure rjurosExit(Sender: TObject);
+    procedure rjurosKeyPress(Sender: TObject; var Key: Char);
+    procedure rboletoKeyPress(Sender: TObject; var Key: Char);
+    procedure rcaixaEnter(Sender: TObject);
+    procedure rbancoEnter(Sender: TObject);
+    procedure rcaixaKeyPress(Sender: TObject; var Key: Char);
+    procedure rbancoKeyPress(Sender: TObject; var Key: Char);
+    procedure rdiasExit(Sender: TObject);
+    procedure rcaixaExit(Sender: TObject);
+    procedure rbancoExit(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure rbancoClick(Sender: TObject);
+    procedure rcaixaClick(Sender: TObject);
+    procedure rjurosEnter(Sender: TObject);
+    procedure rdiasKeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure comboformaKeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmconvenio_pgto: Tfrmconvenio_pgto;
+  continua_banco : boolean;
+  JUROS_A_MAIS : REAL;
+  valor_anterior : real;
+  total_juros, juro_taxa : real;
+
+implementation
+
+uses convenio, modulo, principal, troco, contasreceber_banco, temp,
+  Math, contasreceber_recibo, cheque, convenio_receber;
+
+{$R *.dfm}
+
+procedure Tfrmconvenio_pgto.bgravarClick(Sender: TObject);
+var texto : pansichar;
+qtde_conta : integer;
+CREDITO, TROCO : REAL;
+nome_cliente, documento : string;
+percentual : real;
+begin
+
+  try
+    FRMMODULO.QRCONFIG.OPEN;
+    IF FRMMODULO.QRCONFIG.FieldByName('CONTASRECEBER_DESCONTO_PERMITIR').ASINTEGER = 0 THEN
+    BEGIN
+      IF RDESCONTO2.VALUE > 0 THEN
+      BEGIN
+        Application.messagebox('Não é permitido dar desconto no recebimento! Favor se informar com a gerência!','Atenção',mb_ok+MB_ICONWARNING);
+        rdesconto2.setfocus;
+        EXIT;
+      END;
+    END
+    ELSE
+    BEGIN
+      IF FRMMODULO.QRCONFIG.FieldByName('CONTASRECEBER_DESCONTO_PERMITIR').ASINTEGER = 1 THEN
+      BEGIN
+        IF RDESCONTO1.VALUE > FRMMODULO.QRCONFIG.FieldByName('CONTASRECEBER_DESCONTO_percent').ASfloat THEN
+        BEGIN
+          texto := pansichar('Desconto máximo permito:'+#13+' ---> R$ '+formatfloat('###,###,##0.00',FRMMODULO.QRCONFIG.FieldByName('CONTASRECEBER_DESCONTO_percent').ASfloat)+'%  <--- '+#13+'É necessário autorização para prosseguir! '+#13+'Deseja continuar?');
+          if application.MessageBox(texto,'Atenção',mb_yesno+MB_ICONWARNING) = idyes then
+          begin
+            if not frmPrincipal.autentica('Concessão de Desconto',4) then
+            begin
+              application.messagebox('Desculpe! Seu acesso não foi autorizado!','Aviso',mb_ok+MB_ICONERROR);
+              rdesconto1.SetFocus;
+              exit;
+            end;
+          end
+          else
+          begin
+            rdesconto1.SetFocus;
+            exit;
+          end;
+        END;
+      END;
+    END;
+
+        continua_banco := false;
+        if rbanco.Checked then
+        begin
+          continua_banco := false;
+          frmcontasreceber_banco := tfrmcontasreceber_banco.create(self);
+          frmcontasreceber_banco.dateedit1.date := frmmodulo.qrcaixa_operador.FIELDBYNAME('DATA').ASdatetime;
+          frmcontasreceber_banco.Edit1.Text :=  'Recebto. Convênio: '+frmconvenio_receber.locconvenio.Text;
+          frmcontasreceber_banco.showmodal;
+          if not continua_banco then exit;
+        end;
+
+
+
+           qrcontasreceber_pgto.close;
+           qrcontasreceber_pgto.sql.clear;
+           qrcontasreceber_pgto.sql.add('select * from c000050 where codcliente = ''xx11xx''');
+           qrcontasreceber_pgto.open;
+
+
+           with frmconvenio_receber do
+           begin
+             qrcliente.first;
+             while not qrcliente.eof do
+             begin
+               qrpgto.close;
+               qrpgto.sql.clear;
+               qrpgto.sql.add('select * from c000049');
+               qrpgto.sql.add('where');
+               qrpgto.SQL.add('tipo = ''CONVENIO''');
+               qrpgto.sql.add('and codcliente = '''+qrcliente.fieldbyname('codigo').asstring+'''');
+               qrpgto.sql.add('and situacao = 1');
+               qrpgto.sql.add('and data_emissao <= :datax');
+               qrpgto.Params.ParamByName('datax').asdatetime := frmconvenio_receber.edata.Date;
+               qrpgto.open;
+
+
+               qrpgto.first;
+               while not qrpgto.eof do
+               begin
+                 qrpgto.edit;
+                 qrpgto.FieldByName('VALOR_PAGO').ASFLOAT        := qrpgto.FieldByName('VALOR_PAGO').ASFLOAT + qrpgto.fieldbyname('valor_atual').asfloat;
+                 qrpgto.fieldbyname('data_pagamento').asdatetime := frmmodulo.qrcaixa_operador.fieldbyname('data').asdatetime;                 
+                 WITH qrcontasreceber_pgto DO
+                 BEGIN
+                   open;
+                   insert;
+                   fieldbyname('codconta').asstring := qrpgto.fieldbyname('codigo').asstring;
+                   fieldbyname('data').asstring := qrpgto.fieldbyname('data_pagamento').asstring;
+                   fieldbyname('valor_parcela').asfloat := qrpgto.fieldbyname('valor_atual').asfloat;
+                   fieldbyname('valor_juros').asfloat := 0;
+                   fieldbyname('valor_desconto').asfloat := 0;
+                   fieldbyname('valor_pago').asfloat := qrpgto.fieldbyname('valor_atual').asfloat;
+                   if comboforma.Text = 'DINHEIRO' then fieldbyname('dinheiro').asfloat := qrpgto.fieldbyname('valor_atual').asfloat;
+                   if comboforma.Text = 'CHEQUE A VISTA' then fieldbyname('chequeav').asfloat := qrpgto.fieldbyname('valor_atual').asfloat;
+                   if comboforma.Text = 'CHEQUE A PRAZO' then fieldbyname('chequeap').asfloat := qrpgto.fieldbyname('valor_atual').asfloat;
+                   if comboforma.Text = 'CARTAO' then fieldbyname('cartao').asfloat := qrpgto.fieldbyname('valor_atual').asfloat;
+                   if comboforma.Text = 'DEPOSITO' then fieldbyname('boleto').asfloat := qrpgto.fieldbyname('valor_atual').asfloat;
+                   FIELDBYNAME('CODCLIENTE').ASSTRING  := qrpgto.FIELDBYNAME('CODCLIENTE').ASSTRING;
+                   if rcaixa.Checked then
+                     FIELDBYNAME('CAIXA_BANCO').ASINTEGER := 1
+                   else
+                     FIELDBYNAME('CAIXA_BANCO').ASINTEGER := 2;
+                   post;
+                 END;
+                 qrpgto.fieldbyname('valor_atual').asfloat       := 0;
+                 qrpgto.fieldbyname('situacao').asinteger := 2;
+                 qrpgto.fieldbyname('filtro').asinteger := 0;
+                 qrpgto.Post;
+                 qrpgto.Next;
+               end;
+               qrcliente.next;
+             end;
+           end;
+
+
+
+      if rcaixa.Checked then
+      begin
+          frmmodulo.qrcaixa_mov.OPEN;
+          frmmodulo.qrcaixa_mov.insert;
+          frmmodulo.qrcaixa_mov.FieldByName('codigo').asstring      := frmprincipal.codifica('000044');
+          frmmodulo.qrcaixa_mov.fieldbyname('codoperador').asstring := frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring;
+          frmmodulo.qrcaixa_mov.fieldbyname('data').asstring        := frmmodulo.qrcaixa_operador.FIELDBYNAME('DATA').ASSTRING;
+          frmmodulo.qrcaixa_mov.fieldbyname('valor').asfloat        := RTOTAL.VALUE;
+          if comboforma.Text = 'DINHEIRO' then
+          begin
+            frmmodulo.qrcaixa_mov.fieldbyname('entrada').asfloat :=  RTOTAL.VALUE;
+            frmmodulo.qrcaixa_mov.fieldbyname('movimento').asINTEGER  := 9;
+          end;
+          if comboforma.Text = 'CHEQUE A VISTA' then
+          begin
+            frmmodulo.qrcaixa_mov.fieldbyname('entrada').asfloat :=  0;
+            frmmodulo.qrcaixa_mov.fieldbyname('movimento').asINTEGER  := 10;
+          end;
+          if comboforma.Text = 'CHEQUE A PRAZO' then
+          begin
+            frmmodulo.qrcaixa_mov.fieldbyname('entrada').asfloat :=  0;
+            frmmodulo.qrcaixa_mov.fieldbyname('movimento').asINTEGER  := 11;
+          end;
+          if comboforma.Text = 'CARTAO' then
+          begin
+            frmmodulo.qrcaixa_mov.fieldbyname('entrada').asfloat :=  0;
+            frmmodulo.qrcaixa_mov.fieldbyname('movimento').asINTEGER  := 12;
+          end;
+          if comboforma.Text = 'DEPOSITO' then
+          begin
+            frmmodulo.qrcaixa_mov.fieldbyname('entrada').asfloat :=  0;
+            frmmodulo.qrcaixa_mov.fieldbyname('movimento').asINTEGER  := 15;
+          end;
+          frmmodulo.qrcaixa_mov.fieldbyname('historico').asstring   := 'Recebto.Convenio: '+frmconvenio_receber.locconvenio.text;
+          frmmodulo.qrcaixa_mov.post;
+      END;
+      if rbanco.Checked then
+      begin
+          frmmodulo.qrcaixa_mov.OPEN;
+          frmmodulo.qrcaixa_mov.insert;
+          frmmodulo.qrcaixa_mov.FieldByName('codigo').asstring      := frmprincipal.codifica('000044');
+          frmmodulo.qrcaixa_mov.fieldbyname('codoperador').asstring := frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring;
+          frmmodulo.qrcaixa_mov.fieldbyname('data').asstring        := frmmodulo.qrcaixa_operador.FIELDBYNAME('DATA').ASSTRING;
+          frmmodulo.qrcaixa_mov.fieldbyname('valor').asfloat        := RTOTAL.VALUE;
+          frmmodulo.qrcaixa_mov.fieldbyname('entrada').asfloat :=  0;
+          frmmodulo.qrcaixa_mov.fieldbyname('movimento').asINTEGER  := 15;
+          frmmodulo.qrcaixa_mov.fieldbyname('historico').asstring   := 'Recebto.Convenio: '+frmconvenio_receber.locconvenio.text;
+          frmmodulo.qrcaixa_mov.post;
+      end;
+
+      FRMMODULO.Conexao.Commit;
+      FRMCONVENIO_RECEBER.qrcliente.ReFRESH;
+      frmconvenio_RECEBER.qrproduto.Refresh;
+      FRMCONVENIO_RECEBER.qrproduto2.Refresh;
+      FRMCONVENIO_RECEBER.qrproduto3.Refresh;
+      frmconvenio_receber.qrreceber.Refresh;
+
+{      try
+       if application.messagebox('Deseja imprimir o recibo?','Aviso',mb_yesno+MB_ICONQUESTION) = idyes then
+       begin
+          BitBtn1.OnClick(frmconvenio_receber);
+       end;
+      except
+      end;
+}
+  except
+    showmessage('Houve erro no processamento!');
+    frmmodulo.Conexao.Rollback;
+  end;
+  close;
+end;
+
+procedure Tfrmconvenio_pgto.bcancelarClick(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmconvenio_pgto.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action := cafree;
+end;
+
+procedure Tfrmconvenio_pgto.rdesconto1Enter(Sender: TObject);
+begin
+  tedit(sender).Color := $00A0FAF8;
+end;
+
+procedure Tfrmconvenio_pgto.rdesconto1Exit(Sender: TObject);
+begin
+  tedit(sender).color := clwindow;
+  if rdesconto1.value <> 0 then
+  begin
+    rdesconto2.Value := rliquido.value * (rdesconto1.Value / 100);
+  end;
+  rtotal.value    := rliquido.value - rdesconto2.value + rjuros.Value;
+end;
+
+procedure Tfrmconvenio_pgto.rdesconto2Exit(Sender: TObject);
+begin
+  tedit(sender).color := clwindow;
+  if rliquido.value <> 0 then
+  begin
+    rdesconto1.Value := (rdesconto2.Value * 100)/rliquido.value;
+  end;
+  rtotal.value    := rliquido.value - rdesconto2.value + rjuros.value;
+end;
+
+procedure Tfrmconvenio_pgto.rdesconto1KeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if key = #13 then perform(wm_nextdlgctl,0,0);
+end;
+
+procedure Tfrmconvenio_pgto.rjurosExit(Sender: TObject);
+var vj : real;
+begin
+
+  tedit(sender).color := clwindow;
+
+  if valor_anterior <> rjuros.value then
+  begin
+    if rjuros.value <> 0 then
+    begin
+      vj := rjuros.Value - total_juros;
+      vj := vj*100/rliquido.value;
+      JUROS_A_MAIS := vj/100;
+    end;
+  end;
+  rtotal.value    := rliquido.value - rdesconto2.value + rjuros.value;
+end;
+
+procedure Tfrmconvenio_pgto.rjurosKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if key = #13 then rcaixa.setfocus;
+end;
+
+procedure Tfrmconvenio_pgto.rboletoKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if key = #13 then bgravar.setfocus;
+end;
+
+procedure Tfrmconvenio_pgto.rcaixaEnter(Sender: TObject);
+begin
+  ecaixa.visible := true;
+  ebanco.visible := false;
+end;
+
+procedure Tfrmconvenio_pgto.rbancoEnter(Sender: TObject);
+begin
+  ecaixa.visible := false;
+  ebanco.visible := true;
+end;
+
+procedure Tfrmconvenio_pgto.rcaixaKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if key = #13 then comboforma.setfocus;
+end;
+
+procedure Tfrmconvenio_pgto.rbancoKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if key = #13 then bgravar.setfocus;
+end;
+
+procedure Tfrmconvenio_pgto.rdiasExit(Sender: TObject);
+begin
+  tedit(sender).color := clwindow;
+
+  // calculo de juros
+  rjuros.value := total_juros;
+
+  if rdias.value <> 0 then
+  begin
+    if juro_taxa <> 0 then
+    begin
+      JUROS_A_MAIS := (rdias.Value * (juro_taxa/100));
+      RJUROS.VALUE := rliquido.value * (rdias.Value * (juro_taxa/100));
+      rjuros.value := total_juros + RJUROS.VALUE;
+    end;
+  end;
+  //
+  rtotal.value := rliquido.value + rjuros.value - rdesconto2.Value;
+
+
+
+end;
+
+procedure Tfrmconvenio_pgto.rcaixaExit(Sender: TObject);
+begin
+  ecaixa.Visible := false;
+end;
+
+procedure Tfrmconvenio_pgto.rbancoExit(Sender: TObject);
+begin
+  ebanco.visible := false;
+end;
+
+procedure Tfrmconvenio_pgto.FormShow(Sender: TObject);
+begin
+  total_juros := 0;
+  juro_taxa := 0;
+end;
+
+procedure Tfrmconvenio_pgto.rbancoClick(Sender: TObject);
+begin
+  Height := 249;
+end;
+
+procedure Tfrmconvenio_pgto.rcaixaClick(Sender: TObject);
+begin
+  Height := 460;
+end;
+
+procedure Tfrmconvenio_pgto.rjurosEnter(Sender: TObject);
+begin
+  tedit(sender).Color := $00A0FAF8;
+  valor_anterior := rjuros.value;
+end;
+
+procedure Tfrmconvenio_pgto.rdiasKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if key = #13 then rcaixa.setfocus;
+end;
+
+procedure Tfrmconvenio_pgto.BitBtn1Click(Sender: TObject);
+begin
+  frmcontasreceber_recibo := tfrmcontasreceber_recibo.create(self);
+  frmcontasreceber_recibo.showmodal;
+end;
+
+procedure Tfrmconvenio_pgto.BitBtn2Click(Sender: TObject);
+begin
+  If not frmPrincipal.autentica('Zerar Juros',4) then
+  begin
+    Application.MessageBox('Não autorizado!','Atenção!',mb_ok+MB_ICONERROR);
+    exit;
+  end;
+
+  rjuros.value := 0;
+  rtotal.value    := rliquido.value - rdesconto2.value + rjuros.value;
+end;
+
+procedure Tfrmconvenio_pgto.comboformaKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  IF KEY = #13 THEN BGRAVAR.SETFOCUS;
+end;
+
+end.
+

@@ -1,0 +1,1341 @@
+KL201ALM      BOLSA MASC KL201ALM                                         
+KP061ASU      BERMUDA FEM KP061ASU                                        
+0111N0A00S    CAMISETA REGATA MASC 0111N0A00S                             
+KP26HJESY     SHORT FEM KP26HJESY                                         
+KP332AOM      VESTIDO FEM KP332AOM                                        
+KP33XJHOM     VESTIDO FEM KP33XJHOM                                       
+KR801BLM      BOLSA MASC KR801BLM                                         
+0111N1007S    CAMISETA REGATA MASC 0111N1007S                             
+0111RXP07S    CAMETA REGATA MASC 0111RXP07S                               
+01AEA7307S    CAMISETA REGATA FEM 01AEA7307S                              
+01AEHJK07S    CAMISETA REGATA FEM 01AEHJK07S                              
+01AEN0A00S    CAMISETA REGATA FEM 01AEN0A00S                              
+01AEW8V07S    CAMISETA REGATA FEM 01AEW8V07S                              
+01FNN0A00S    CAMISETA REGATA FEM 01FNN0A00S                              
+01FNN1007S    CAMISETA REGATA FEM 01FNN1007S                              
+01NUN0A00S    CAMISETA REGATA FEM 01NUN0A00S                              
+01TEA7307S    CAMISETA REGATA FEM 01TEA7307S                              
+01TEKGH07S    CAMISETA REGATA FEM 01TEKGH07S                              
+01TEN0A00S    CAMISETA REGATA FEM 01TEN0A00S                              
+01TEW8V07S    CAMISETA REGATA FEM 01TEW8V07S                              
+01TFN1007S    CAMISETA REGATA FEM 01TFN1007S                              
+01UWN0A00S    CAMISETA REGATA FEM 01UWN0A00S                              
+01UWNFV07S    CAMISETA REGATA FEM 01UWNFV07S                              
+0201AR207S    CAMISETA MM MASC 0201AR207S                                 
+0201KKM07S    CAMISETA MM MASC 0201KKM07S                                 
+0201RXP07S    CAMISETA MM MASC 0201RXP07S                                 
+0201W8Z07S    CAMISETA MM MASC 0201W8Z07S                                 
+0241N0A00S    CAMISETA MM FEM 0241N0A00S                                  
+01AEXJM07S    CAMISETA REGATA FEM 01AEXJM07S                              
+H23BNU2GHW    CAMISA MM MASC H23BNU2GHW                                   
+H6QK7LG3J     SHORT FEM H6QK7LG3J                                         
+0111AR107S    CAMISETA REGATA MASC 0111AR107S                             
+H6RHLP1GWE    BERMUDA FEM H6RHLP1GWE                                      
+H6RV3B2GWE    VESTIDO SM FEM H6RV3B2GWE                                   
+01841A10S     BATA SM FEM 01841A10S                                       
+01841B10S     BATA SM FEM 01841B10S                                       
+018D1A00S     BATA SM FEM 018D1A00S                                       
+018D1B00S     BATA SM FEM 018D1B00S                                       
+018D1C00S     BATA SM FEM 018D1C00S                                       
+098ZW8R07S    VESTIDO MM FEM 098ZW8R07S                                   
+09941A00S     VESTIDO MM FEM 09941A00S                                    
+09941B00S     VESTIDO MM FEM 09941B00S                                    
+42N3KCC10S    CAMISETA MM MASC 42N3KCC10S                                 
+42NHRXH10S    BLUSA MM FEM 42NHRXH10S                                     
+42NHXJH10S    BLUSA MM FEM 42NHXJH10S                                     
+42NJW8R07S    BATA MM FEM 42NJW8R07S                                      
+42NJXJJ07S    BATA MM FEM 42NJXJJ07S                                      
+42NLXJJ10S    BLUSA MM FEM 42NLXJJ10S                                     
+42NPK4610S    BLUSA MM FEM 42NPK4610S                                     
+02TB1A00S     CAMISETA MM MASC 02TB1A00S                                  
+02TB1B07S     CAMISETA MM MASC 02TB1B07S                                  
+02TBAR107S    CAMISETA MM MASC 02TBAR107S                                 
+03CA2A00S     CAMISA POLO MM FEM 03CA2A00S                                
+03CAA7310S    CAMISA POLO MM FEM 03CAA7310S                               
+03EWAR110S    CAMISA POLO MM MASC 03EWAR110S                              
+03EZ1B10S     CAMISA POLO MM MASC 03EZ1B10S                               
+03F11A00S     CAMISA POLO MM MASC 03F11A00S                               
+03F11B00S     CAMISA POLO MM MASC 03F11B00S                               
+03F11C00S     CAMISA POLO MM MASC 03F11C00S                               
+03F11D00S     CAMISA POLO MM MASC 03F11D00S                               
+03F11E00S     CAMISA POLO MM MASC 03F11E00S                               
+03F4A7310S    CAMISA POLO MM FEM 03F4A7310S                               
+03F4KGH10S    CAMISA POLO MM FEM 03F4KGH10S                               
+099M1A00S     VESTIDO MM FEM 099M1A00S                                    
+099M1B00S     VESTIDO MM FEM 099M1B00S                                    
+099N1A00S     VESTIDO MM FEM 099N1A00S                                    
+099N1B00S     VESTIDO MM FEM 099N1B00S                                    
+4129A7307S    CAMISETA REGATA FEM 4129A7307S                              
+41361A00S     CAMISETA REGATA FEM 41361A00S                               
+4136NFV10S    CAMISETA REGATA FEM 4136NFV10S                              
+42TB1A10S     CAMISETA MM MASC 42TB1A10S                                  
+42TLNFV10S    BLUSA MM FEM 42TLNFV10S                                     
+42TUNFV10S    BLUSA MM FEM 42TUNFV10S                                     
+61GMN0A07     CAMISETA REGATA FEM 61GMN0A07                               
+61GMN1007     CAMISETA REGATA FEM 61GMN1007                               
+61GMXHE07     CAMISETA REGATA FEM 61GMXHE07                               
+62HZKKMH1     CAMISETA MM MASC 62HZKKMH1                                  
+62HZN0AH1     CAMISETA MM MASC 62HZN0AH1                                  
+62HZN10H1     CAMISETA MM MASC 62HZN10H1                                  
+6B47N0AH2     CAMISETA MM MASC 6B47N0AH2                                  
+6B47W8YH2     CAMISETA MM MASC 6B47W8YH2                                  
+6H7CKNS01     CAMISETA REGATA FEM 6H7CKNS01                               
+6H7CW8V01     CAMISETA REGATA FEM 6H7CW8V01                               
+6J1AN0A07     BLUSA MM FEM 6J1AN0A07                                      
+6J1AN1007     BLUSA MM FEM 6J1AN1007                                      
+6J1AW8V07     BLUSA MM FEM 6J1AW8V07                                      
+6J71KGH07     BLUSA MM FEM 6J71KGH07                                      
+6J71W9A07     BLUSA MM FEM 6J71W9A07                                      
+K384N10BO     PACK C/ 3 PARES DE MEIA K384N10BO                           
+Z1GCSC192Z    CAL€A MASC Z1GCSC192Z                                       
+Z1GDSC193Z    CAL€A MASC Z1GDSC193Z                                       
+KD13W8WSY     BONE UNISEX KD13W8WSY                                       
+KO721CSO      BERMUDA MASCULINA KO721CSO                                  
+KO721DSO      BERMUDA MASC KO721DSO                                       
+KQ431ASO      BERMUDA MASC KQ431ASO                                       
+KQ431BSO      BERMUDA MASC KQ431BSO                                       
+KS261CSO      CINTO FEM KS261CSO                                          
+KS261DSO      CINTO FEM                                                   
+KS321ESO      CINTO MASC                                                  
+KS321FSO      CINTO MASC KS321FSO                                         
+KS50W9ASO     CAMISETA REGATA FEM KS50W9ASO                               
+KS50XJMSO     CAMISETA REGATA FEM KS50XJMSO                               
+KS51A73SO     CAMISETA REGATA FEM KS51A73SO                               
+K838N0ABO     MEIA MASC K838N0ABO                                         
+KD13N10SY     BONE UNISEX KD13N10SY                                       
+KP442ASO      BERMUDA FEM KP442ASO                                        
+KP47A73SO     BERMUDA FEM KP47A73SO                                       
+KP47NFVSO     BERMUDA FEM KP47NFVSO                                       
+KP50N10SO     BLUSA FEM KP50N10SO                                         
+KP50NFVSO     BLUSA FEM KP50NFVSO                                         
+KQ511DSO      CAMISA POLO MM MASC KQ511DSO                                
+KU191ASO      CAMISA POLO MM FEM KU191ASO                                 
+KU191BSO      CAMISA POLO MM FEM KU191BSO                                 
+KU191CSO      CAMISA POLO MM FEM KU191CSO                                 
+KU201ASO      CAMISA POLO MM FEM KU201ASO                                 
+KU201BSO      CAMISA POLO MM FEM KU201BSO                                 
+KU201CSO      CAMISA POLO MM FEM KU201CSO                                 
+01FNXJM07S    CAMISETA REGATA FEM 01FNXJM07S                              
+01FNYCS07S    CAMISETA REGATA FEM 01FNYCS07S                              
+621           RIBBON PRETO CERA                                           
+01J2A7307S    TOP FEM 01J2A7307S                                          
+01J2N0A00S    TOP FEM 01J2N0A00S                                          
+01J2N1007S    TOP FEM 01J2N1007S                                          
+01J2XJM07S    TOP FEM 01J2XJM07S                                          
+01NUXJM07S    CAMISETA REGATA FEM 01NUXJM07S                              
+01NUYCS07S    CAMISETA REGATA FEM 01NUYCS07S                              
+01TEAR107S    CAMISETA REGATA FEM 01TEAR107S                              
+01TERX907S    CAMISETA REGATA FEM 01TERX907S                              
+01TEXJM07S    CAMISETA REGATA FEM 01TEXJM07S                              
+01TEYCS07S    CAMISETA REGATA FEM 01TEYCS07S                              
+01TEW9A07S    CAMISETA REGATA FEM 01TEW9A07S                              
+01UWN1007S    CAMISETA REGATA FEM 01UWN1007S                              
+0111AR207S    CAMISETA REGATA MASC 0111AR207S                             
+0111NJG07S    CAMISETA REGATA MASC 0111NJG07S                             
+0111W8V07S    CAMISETA REGATA MASC 0111W8V07S                             
+0111W8W07S    CAMISETA REGATA MASC 0111W8W07S                             
+02CEN1007S    CAMISETA MM FEM 02CEN1007S                                  
+02CEW8V07S    CAMISETA MM FEM 02CEW8V07S                                  
+02TQN1007S    BLUSA MM FEM 02CEW8V07S                                     
+02TQXJM07S    BLUSA MM FEM 02TQXJM07S                                     
+0201N0A00S    CAMISETA MM MASC 0201N0A00S                                 
+0201AR107S    CAMISETA MM MASC 0201AR107S                                 
+0201AZG07S    CAMISETA MM MASC 0201AZG07S                                 
+0201N1007S    CAMISETA MM MASC 0201N1007S                                 
+0201W8V07S    CAMISETA MM MASC 0201W8V07S                                 
+022BN0A00S    CAMISETA MM MASC 022BN0A00S                                 
+022BRXP07S    CAMISETA MM MASC 022BRXP07S                                 
+01AEAR107S    CAMISETA REGATA FEM 01AEAR107S                              
+01AEN1007S    CAMISETA REGATA FEM 01AEN1007S                              
+01AEW9A07S    CAMISETA REGATA FEM 01AEW9A07S                              
+5111AR207     CAMISETA REGATA MASC 5111AR207                              
+5111N0A00     CAMISETA REGATA MASC 5111N0A00                              
+5111RXP07     CAMISETA REGATA MASC 5111RXP07                              
+01NUN1007S    CAMISETA REGATA FEM 01NUN1007S                              
+01TERXP07S    CAMISETA REGATA FEM 01TERXP07S                              
+01TFW9A07S    CAMISETA REGATA FEM 01TFW9A07S                              
+022BRXP07S    CAMISETA MM MASC 022BRXP07S                                 
+022BW8V07S    CAMISETA MM MASC 022BW8V07S                                 
+0241N1007S    CAMISETA MM FEM 0241N1007S                                  
+02CERXP07S    CAMISETA MM FEM 02CERXP07S                                  
+09A6NFV10S    VESTIDO SM FEM 09A6NFV10S                                   
+411V1F00S     CAMISETA REGATA FEM 411V1F00S                               
+411V1G00S     CAMISETA REGATA FEM 411V1G00S                               
+4128AR110S    CAMISETA REGATA MASC 4128AR110S                             
+4128NJG10S    CAMISETA REGATA MASC 4128NJG10S                             
+412L1C00S     CAMISETA REGATA FEM 412L1C00S                               
+412Q1A00S     CAMISETA REGATA FEM 412Q1A00S                               
+412Q1B00S     CAMISETA REGATA FEM 412Q1B00S                               
+412Q1C00S     CAMISETA REGATA FEM 412Q1C00S                               
+42MM1B10S     CAMISETA ML MASC 42MM1B10S                                  
+42MNYCS10S    CAMISETA MM MASC 42MNYCS10S                                 
+42MUNJZ10S    CAMISETA MM MASC 42MUNJZ10S                                 
+42NBAP410S    CAMISETA ML MASC 42NBAP410S                                 
+42NBNJZ10S    CAMSETA ML MASC 42NBNJZ10S                                  
+42RVW8W10S    CAMISETA MM MASC 42RVW8W10S                                 
+42RZAR110S    CAMISETA MM MASC 42RZAR110S                                 
+42T2NJZ10S    CAMISETA MM MASC 42T2NJZ10S                                 
+42T2W8V10S    CAMISETA MM MASC 42T2W8V10S                                 
+42T3AZG10S    CAMISTA MM MASC 42T3AZG10S                                  
+42T3KKM10S    CAMISETA MM MASC 42T3KKM10S                                 
+42T3NJZ10S    CAMISETA MM MAC 42T3NJZ10S                                  
+42T3W8V10S    CAMISETA MM MASC 42T3W8V10S                                 
+42T9AR210S    CAMISETA MM MASC 42T9AR210S                                 
+42T9NJT10S    CAMISETA MM MASC 42T9NJT10S                                 
+42T9RXP10S    CAMISETA MM MASC 42T9RXP10S                                 
+42T9W8W10S    CAMISETA MM MASC 42T9W8W10S                                 
+42TA1B00S     CAMISETA MM MASC 42TA1B00S                                  
+42TA1C00S     CAMISETA MM MASC 42TA1C00S                                  
+42TA1D00S     CAMISETA MM MASC 42TA1D00S                                  
+42TA1F00S     CAMISETA MM MASC 42TA1F00S                                  
+42TWNFV10S    BLUSA MM FEM 42TWNFV10S                                     
+02TBRXP07S    CAMISETA MM MASC 02TBRXP07S                                 
+5118KNR07     CAMISETA REGATA FEM 5118KNR07                               
+22JM1102W     CAMISETA MM MASC 22JM1102W                                  
+22JP1300      CAMISETA MM MASC 22JP1300                                   
+22JXN0A02     CAMISETA MM MASC 22JXN0A02                                  
+233W1200      CAMISA POLO MM MASC 233W1200                                
+233W1300      CAMISA POLO MM MASC 233W1300                                
+234K1301W     CAMISA POLO MM MASC 234K1301W                               
+2AFX1101      CONJUNTO SM FEM 2AFX1101                                    
+2AFZ1100R     BATA MM FEM 2AFZ1100R                                       
+5118N0A00     CAMISETA REGATA FEM 5118N0A00                               
+526MN0A00     CAMISETA MM FEM 526MN0A00                                   
+527XN1007     CAMISETA MM MASC 527XN1007                                  
+234K1201W     CAMISA POLO MM MASC 234K1201W                               
+527XN0A00     CAMISETA MM MASC 527XN0A00                                  
+52K81C07      CAMISETA MM MASC 52K81C07                                   
+52K8RXP07     CAMISETA MM MASC 52K8RXP07                                  
+52K8W8V07     CAMISETA MM MASC 52K8W8V07                                  
+519B1M00      CAMISETA REGATA MASC 519B1M00                               
+519C1H00      CAMISETA REGATA FEM 519C1H00                                
+52L42A00      CAMISETA MM MASC 52L42A00                                   
+532M1A10      CAMISA POLO MM MASC 532M1A10                                
+532M1B10      CAMISA POLO MM MASC 532M1B10                                
+52NF1A00      BLUSA MM FEM 52NF1A00                                       
+52NF1B00      BLUSA MM FEM 52NF1B00                                       
+59H61B00      CONJUNTO MM FEM 59H61B00                                    
+59H7NFV10     CONJUNTO SM FEM 59H7NFV10                                   
+59H7XJM10     CONJUNTO SM FEM 59H7XJM10                                   
+59GT1A00      VESTIDO SM FEM 59GT1A00                                     
+59GT1C00      VESTIDO SM FEM 59GT1C00                                     
+59GU1C00      CONJUNTO MM FEM 59GU1C00                                    
+59G11D00      CONJUNTO MM FEM 59G11D00                                    
+52PCAQ910     CAMISETA MM MASC 52PCAQ910                                  
+52PCW9A10     CAMISETA MM MASC 52PCW9A10                                  
+51B1KNN10     CAMISETA REGATA FEM 51B1KNN10                               
+51B1N0A10     CAMISETA REGATA FEM 51B1N0A10                               
+5111W8V07     CAMISETA REGATA MASC 5111W8V07                              
+036XKNN07S    CAMISA POLO MM FEM 036XKNN07S                               
+036XRXP07S    CAMISA POLO MM FEM 036XRXP07S                               
+036XW9A07S    CAMISA POLO MM FEM 036XW9A07S                               
+59GU1D00      CONJUNTO MM FEM 59GU1D00                                    
+036XXJM07S    CAMISA POLO MM FEM 036XXJM07S                               
+03CANFV10S    CAMISA POLO MM FEM 03CANFV10S                               
+KR36NJGSO     CAL€A MASC KR36NJGSO                                        
+KR43HJJSO     BERMUDA MASC KR43HJJSO                                      
+KR501ASO      SHORT FEM KR501ASO                                          
+KR54KNPSO     SHORT FEM KR54KNPSO                                         
+KR54W9ASO     SHORT FEM KR54W9ASO                                         
+03CAXJH10S    CAMISA POLO MM FEM 03CAXJH10S                               
+03FD1B00S     CAMISA POLO MM MASC 03FD1B00S                               
+03FD1G00S     CAMISA POLO MM MASC 03FD1G00S                               
+03FD1H00S     CAMISAO POLO MM MASC 03FD1H00S                              
+ZK733SO       CAL€A FEM ZK733SO                                           
+ZK863ASO      CAL€A MASC ZK863ASO                                         
+KP58N10SO     MACAQUINHO KP58N10SO                                        
+KP692ASO      SHORT FEM KP692ASO                                          
+KQ34NFVSO     BERMUDA MASC KQ34NFVSO                                      
+KQ35AR1SO     BERMUDA MASC KQ35AR1SO                                      
+KQ35W8WSO     BERMUDA MASC KQ35W8WSO                                      
+059CN1007S    CAL€A FEM 059CN1007S                                        
+09AD1B00S     VESTIDO SM FEM 09AD1B00S                                    
+09AEW9A07S    VESTIDO MM FEM 09AEW9A07S                                   
+09AEXJM07S    VESTIDO MM FEM 09AEXJM07S                                   
+09AG1C00S     VESTIDO SM FEM 09AG1C00S                                    
+09AHN1007S    VESTIDO SM FEM 09AHN1007S                                   
+09AHNFV07S    VESTIDO SM FEM 09AHNFV07S                                   
+09AHW9A07S    VESTIDO SM FEM 09AHW9A07S                                   
+09AHXJM07S    VESTIDO SM FEM 09AHXJM07S                                   
+09AL1A00S     VESTIDO SM FEM 09AL1A00S                                    
+09AL1B00S     VESTIDO SM FEM 09AL1B00S                                    
+09AMNFV07S    VESTIDO SM FEM 09AMNFV07S                                   
+09AN1A00S     VESTIDO MM FEM 09AN1A00S                                    
+09AN1C00S     VESTIDO MM FEM 09AN1C00S                                    
+413MNFV07S    REGATA FEM 413MNFV07S                                       
+413MW9A07S    REGATA FEM 413MW9A07S                                       
+413MXJM07S    REGATA FEM 413MXJM07S                                       
+413NNFV10S    CAMISETA REGATA FEM 413NNFV10S                              
+413ZA7310S    CAMISETA REGATA FEM 413ZA7310S                              
+413ZKGH10S    CAMISETA REGATA FEM 413ZKGH10S                              
+413ZNFV10S    CAMISETA REGATA FEM 413ZNFV10S                              
+41411A00S     CAMISETA REGATA FEM 41411A00S                               
+41411B00S     CAMISETA REGATA FEM 41411B00S                               
+42UW1A00S     BLUSA MM FEM 42UW1A00S                                      
+42UW1C00S     BLUSA MM FEM 42UW1C00S                                      
+42V9LGW10S    BLUSA MM FEM 42V9LGW10S                                     
+42V9NFV10S    BLUSA MM FEM 42V9NFV10S                                     
+42VG1A00S     BLUSA MM FEM 42VG1A00S                                      
+42XPW9A10S    BLUSA MM FEM 42XPW9A10S                                     
+413WAR107S    CAMISETA REGATA FEM 413WAR107S                              
+413WN1007S    CAMISETA REGATA FEM 413WN1007S                              
+413WNJG07S    CAMISETA REGATA FEM 413WNJG07S                              
+42UNAR210S    CAMISETA MM MASC 42UNAR210S                                 
+42UNKKM10S    CAMISETA MM MASC 42UNKKM10S                                 
+42UNNJT10S    CAMISETA MM MASC 42UNNJT10S                                 
+42UNW9A10S    CAMISETA MM MASC 42UNW9A10S                                 
+UQ83NFVSO     BERMUDA MASC UQ83NFVSO                                      
+01AEKGH07S    CAMISETA REGATA FEM 01AEKGH07S                              
+UQ88W8WSO     BERMUDA MASC UQ88W8WSO                                      
+01J21X00S     TOP FEM 01J21X00S                                           
+UQ95N0ASO     SHORT FEM UQ95N0ASO                                         
+KR37W8WSO     CAL€A MASC KR37W8WSO                                        
+C62KHZ2GWE    SHORT FEM C62KHZ2GWE                                        
+KR431ASO      BERMUDA MASC KR431ASO                                       
+KR43W8WSO     BERMUDA MASC KR43W8WSO                                      
+KR54KNRSO     SHORT FEM KR54KNRSO                                         
+77321J0F      KIT C/3 CALCINHAS FEM 77321J0F                              
+773P2M0F      KIT C/ 3 CALCINHS FEM 773P2M0F                              
+774SAP407     CUECA SAMBA CAN€AO MASC 774SAP407                           
+774SNJM07     CUECA SAMBA CAN€AO MASC 774SNJM07                           
+77AQ1A0F      KIT C/3 CALCINHAS FEM 77AQ1A0F                              
+Q8043B1GWE    SAMBA CAN€AO MASC Q8043B1GWE                                
+C91YHZSE01    CONJUNTO MM MASC C91YHZSE01                                 
+774M1JOV      KIT C/2 CUECAS BOXER 774M1JOV                               
+774M1WOV      KIT C/2 CUECAS BOXER 774M1WOV                               
+KM821CHAF     KIT C/2 CALCINHAS FEM KM821CHAF                             
+KM821DHAF     KIT C/2 CALCINHAS FEM KM821DHAF                             
+KM831DHAF     KIT C/2 CALCINHAS FEM KM831DHAF                             
+KM851AHAF     KIT C/2 CUECAS BOXER KM851AHAF                              
+774M1ZOV      KIT C/2 CUECAS BOXER 774M1ZOV                               
+C91YHZSE02    CONJUNTO MM MASC C91YHZSE02                                 
+C92K5ZAP4     CONJUNTO MM MASC C92K5ZAP4                                  
+C92K5ZNJG     CONJUNTO MM MASC C92K5ZNJG                                  
+C92WHZSE02    CONJUNTO SM MASC C92WHZSE02                                 
+U58JHZ1GWE    BERMUDA MASC U58JHZ1GWE                                     
+U58KHZ2GWE    BERMUDA MASC U58KHZ2GWE                                     
+U58LD9NFV     BERMUDA MASC U58LD9NFV                                      
+U7BRD9YRB     VESTIDO SM FEM U7BRD9YRB                                    
+U941UTAZG     CONJUNTO MM MASC U941UTAZG                                  
+U943BSYSW     CONJUNTO SM FEM U943BSYSW                                   
+22JP1100      CAMISETA MM MASC 22JP1100                                   
+2AHZ1400      VESTIDO MM FEM 2AHZ1400                                     
+22JU1102W     CAMISETA MM MASC 22JU1102W                                  
+24QZ1100      VESTIDO SM FEM + CALCINHA 24QZ1100                          
+2AHZ1100      VESTIDO MM FEM 2AHZ1100                                     
+2AHZ1200      VESTIDO MM FEM 2AHZ1200                                     
+U944D9YCS     CONJUNTO MM MASC                                            
+KS171CSO      BOLSA FEM KS171CSO                                          
+KS51KGHSO     CAMISETA REGATA FEM KS51KGHSO                               
+K384N0ASO     PACK C/3 PARES DE MEIA MASC K384N0ASO                       
+KP58HJJSO     MACAQUINHO FEM KP58HJJSO                                    
+KP681CSO      SHORT FEM KP681CSO                                          
+KP69N10SO     SHORT FEM KP69N10SO                                         
+KP69NFVSO     SHORT FEM KP69NFVSO                                         
+KQ521CSO      CAMISA POLO MM MASC KQ521CSO                                
+214R1200      CAMISETA REGATA MASC 214R1200                               
+22JQ1201W     CAMISETA REGATA MASC 22JQ1201W                              
+24Q41401      MACAQUINHO MM MASC 24Q41401                                 
+24Q41601      MACAQUINHO MM MASC 24Q41601                                 
+24QV1101      CAMISETA MM MASC 24QV1101                                   
+24QV1201      CAMISETA MM MASC 24QV1201                                   
+24QX1100      BODY MM FEM 24QX1100                                        
+24QX1200      BODY MM FEM 24QX1200                                        
+24QY1201      CONJUNTO SM C/ BERM FEM 24QY1201                            
+24R21200R     CONJUNTO SM FEM 24R21200R                                   
+24TD1100      CAMISETA REGATA MASC 24TD1100                               
+24TD1200      CAMISETA REGATA MASC 24TD1200                               
+24TD1300      CAMISETA REGATA MASC 24TD1300                               
+2AGA1300      VESTIDO SM 2AGA1300                                         
+2AGD1100R     VESTIDO MM FEM 2AGD1100R                                    
+2AGD1200R     VESTIDO MM FEM 2AGD1200R                                    
+2AHZ1300      VESTIDO MM FEM 2AHZ1300                                     
+ZARZ1400      VESTIDO MM FEM ZARZ1400                                     
+U942HZ1GWE    CONJUNTO MM MASC U942HZ1GWE                                 
+U944D9NJG     CONJUNTO MM MASC U944D9NJG                                  
+U9FFD9YCS     CONJUNTO MM MASC U9FFD9YCS                                  
+U945A3YSW     CONJUNTO MM FEM U945A3YSW                                   
+01J21Z00S     TOP FEM 01J21Z00S                                           
+01J22A00S     TOP FEM 01J22A00S                                           
+01J22B00S     TOP FEM 01J22B00S                                           
+0241XJM07S    CAMISETA MM FEM 0241XJM07S                                  
+02CEN0A00S    CAMISETA MM FEM 02CEN0A00S                                  
+02TQN0A00S    BLUSA MM FEM 02TQN0A00S                                     
+KR382ASO      CAMISA MASC KR382ASO                                        
+KR691JSO      BONE FEM UNI KR691JSO                                       
+41321C00S     TOP FEM 41321C00S                                           
+41321D00S     TOP FEM 41321D00S                                           
+KR771ESO      BONE MASC UNI KR771ESO                                      
+413A1A00S     CAMISETA REGATA FEM 413A1A00S                               
+KV031ASO      SHORT FEM KV031ASO                                          
+KV031BSO      SHORT FEM KV031BSO                                          
+KL621CSO      CHINELO FEM DE PVC KL621CSO                                 
+KV071BSO      SHORT FEM KV071BSO                                          
+413A1B00S     CAMISETA REGATA FEM 413A1B00S                               
+413R1A00S     CAMISETA REGATA FEM 413R1A00S                               
+413T1A00S     CAMISETA REGATA FEM 413T1A00S                               
+413T1B00S     CAMISETA REGATA FEM 413T1B00S                               
+413T1C00S     CAMISETA REGATA FEM 413T1C00S                               
+413X1A00S     CAMISETA REGATA FEM 413X1A00S                               
+413X1B00S     CAMISETA REGATA FEM 413X1B00S                               
+413X1C00S     CAMISETA REGATA FEM 413X1C00S                               
+413YNJG10S    CAMISETA REGATA FEM 413YNJG10S                              
+413YW8V10S    CAMISETA REGATA FEM 413YW8V10S                              
+414ANFV10S    CAMISETA REGATA FEM 414ANFV10S                              
+414DNFV07S    CAMISETA REGATA FEM 414DNFV07S                              
+42U8AZG10S    CAMISETA MM MASC 42U8AZG10S                                 
+42U8NJT10S    CAMISETA MM MASC 42U8NJT10S                                 
+42U8RXP10S    CAMISETA MM MASC 42U8RXP10S                                 
+42U8W8V10S    CAMISETA MM MASC 42U8W8V10S                                 
+42U9AR110S    CAMISETA MM MASC 42U9AR110S                                 
+42U9NFV10S    CAMISETA MM MASC 42U9NFV10S                                 
+42UG1A00S     CAMISETA MM MASC 42UG1A00S                                  
+42UG1B00S     CAMISETA MM MASC 42UG1B00S                                  
+42UG1G00S     CAMISETA MM MASC 42UG1G00S                                  
+42UM1B10S     CAMISETA MM MASC 42UM1B10S                                  
+42UM1C10S     CAMISETA MM MASC 42UM1C10S                                  
+42UP1C10S     CAMISETA MM MASC 42UP1C10S                                  
+42V81B10S     CAMISETA MM MASC 42V81B10S                                  
+42VAW8V07S    BLUSA MM FEM 42VAW8V07S                                     
+42VBAR110S    BLUSA MM FEM 42VBAR110S                                     
+42VBNJG10S    BLUSA MM FEM 42VBNJG10S                                     
+H71KA32GWE    BLUSA FEM H71KA32GWE                                        
+6B5MA73H3W    CAMISETA MM MASC 6B5MA73H3W                                 
+KV11N0ASO     BERMUDA MASC KV11N0ASO                                      
+6B5MN0AH2W    CAMISETA MM MASC 6B5MN0AH2W                                 
+76PYK5607     PIJAMA SM FEM 76PYK5607                                     
+76PYW8Y07     PIJAMA SM FEM 76PYW8Y07                                     
+76Q11A00      PIJAMA SM FEM 76Q11A00                                      
+76Q11C00      PIJAMA SEM FEM 76Q11C00                                     
+76QMW8Y07     PIJAMA SM FEM 76QMW8Y07                                     
+76QNM2H10     PIJAMA MM FEM 76QNM2H10                                     
+76QNXJM10     PIJAMA MM FEM 76QNXJM10                                     
+76QV1A00      PIJAMA SM FEM 76QV1A00                                      
+6B6HRXPH3W    CAMISETA MM MASC 6B6HRXPH3W                                 
+76R11A00      CAMISOLA MM FEM 76R11A00                                    
+77441P0F      KIT C/2 CUECAS SAMBA 77441P0F                               
+77C71A0F      KIT C/2 CALCINHAS FEM 77C71A0F                              
+77C71B0F      KIT C/2 CALCINHAS FEM 77C71B0F                              
+77CD1A0F      KIT C/3 CALCINHAS FEM 77CD1A0F                              
+77CD1B0F      KIT C/ 3 CALCINHAS FEM 77CD1B0F                             
+77CD1C0F      KIT C/3 CALCINHAS FEM 77CD1C0F                              
+77CE1A0F      KIT C/ 2 CALCINHAS FEM 77CE1A0F                             
+77CE1B0F      KIT C/2 CALCINHAS FEM 77CE1B0F                              
+6B6P11H2R     CAMISA POLO MM MASC 6B6P11H2R                               
+6B6P12H2R     CAMISA POLO MM MASC 6B6P12H2R                               
+6B6P13H2R     CAMISA POLO MM MASC 6B6P13H2R                               
+6B6TRXPH3W    CAMISA POLO MM MASC 6B6TRXPH3W                              
+6H74N0A03R    CAMISETA REGATA FEM 6H74N0A03R                              
+6H751202W     CAMISETA REGATA FEM 6H751202W                               
+519B1N00      CAMISETA REGATA MASC 519B1N00                               
+6J7T1201      CAMISA POLO MM FEM 6J7T1201                                 
+6J7W1102W     CAMISA POLO FEM 6J7W1102W                                   
+6Q591101R     VESTIDO SM FEM 6Q591101R                                    
+6Q591201R     VESTIDO SM FEM 6Q591201R                                    
+519B1R00      CAMISETA REGATA MASC 519B1R00                               
+519C1P00      CAMISETA REGATA FEM 519C1P00                                
+519C1Q00      CAMISETA REGATA FEM 519C1Q00                                
+519C1R00      CAMISETA REGATA FEM 519C1R00                                
+51AQ1A00      CAMISETA REGATA FEM 51AQ1A00                                
+51AQ1B00      CAMISETA REGATA FEM 51AQ1B00                                
+51AUA7307     CAMISETA REGATA FEM 51AUA7307                               
+51AUKNS07     CAMISETA REGATA FEM 51AUKNS07                               
+51B2N0A10     CAMISETA REGATA MASC 51B2N0A10                              
+51B2RXP10     CAMISETA REGATA MASC 51B2RXP10                              
+51B3AQ910     CAMISETA REGATA MASC 51B3AQ910                              
+51B3NJG10     CAMISETA REGATA MASC 51B3NJG10                              
+527XRXP07     CAMISETA MM MASC 527XRXP07                                  
+527XW8V07     CAMISETA MM MASC 527XW8V07                                  
+52K8AP407     CAMISETA MM MASC 52K8AP407                                  
+774M2C0F      KIT C/ 2 CUECAS BOXER 774M2C0F                              
+52L42B00      CAMISETA MM MASC 52L42B00                                   
+77BY1A0F      KIT C/ 3 CUECAS MASC 77BY1A0F                               
+52L42D00      CAMISETA MM MASC 52L42D00                                   
+52P2W9A10     CAMISETA MM MASC 52P2W9A10                                  
+52P2AR110     CAMISETA MM MASC 52P2AR110                                  
+532WAR110     CAMISA POLO MM MASC 532WAR110                               
+532WRXP10     CAMISA POLO MM MASC 532WRXP10                               
+77BY1B0F      KIT C/ 3 CUECAS MASC 77BY1B0F                               
+0182KGH10S    CAMISA REGATA FEM 0182KGH10S                                
+0182NFV10S    CAMISETA REGATA FEM 0182NFV10S                              
+01UH2N00S     CAMISETA REGATA FEM 01UH2N00S                               
+01UH2P00S     CAMISETA REGATA FEM 01UH2P00S                               
+413NXJM10S    CAMISETA REGATA FEM 413NXJM10S                              
+01UH2Q00S     CAMISETA REGATA FEM 01UH2Q00S                               
+01UH2R00S     CAMISETA REGATA FEM 01UH2R00S                               
+01UH2T00S     CAMISETA REGATA FEM 01UH2T00S                               
+03F41A00S     CAMISA POLO MM FEM 03F41A00S                                
+03F41B00S     CAMISA POLO MM FEM 03F41B00S                                
+05991A00S     CAL€A FEM 05991A00S                                         
+059A1A00S     CAL€A FEM 059A1A00S                                         
+4129KGH07S    CAMISETA REGATA FEM 4129KGH07S                              
+4129NFV07S    CAMISETA REGATA FEM 4129NFV07S                              
+412Y1B00S     CAMISETA REGATA FEM 412Y1B00S                               
+42TG1A00S     BLUSA MM FEM 42TG1A00S                                      
+42TG1B00S     BLUSA MM FEM 42TG1B00S                                      
+42TTA7310S    BLUSA MM FEM 42TTA7310S                                     
+42TTW9A10S    BLUSA MM FEM 42TTW9A10S                                     
+09A61A00S     VESTIDO SM FEM 09A61A00S                                    
+09A61B00S     VESTIDO SM FEM 09A61B00S                                    
+42T8KKM10S    CAMISETA MM MASC 42T8KKM10S                                 
+42T8NJZ10S    CAMISETA MM MASC 42T8NJZ10S                                 
+42TEDDL10S    CAMISETA MM MASC 42TEDDL10S                                 
+42TEDDN10S    CAMISETA MM MASC 42TEDDN10S                                 
+42TV1A00S     BLUSA MM FEM 42TV1A00S                                      
+42TV1B00S     BLUSA MM FEM 42TV1B00S                                      
+42TVNFV10S    BLUSA MM FEM 42TVNFV10S                                     
+42TWW8V10S    BLUSA MM FEM 42TWW8V10S                                     
+42TWXJM10S    BLUSA MM FEM 42TWXJM10S                                     
+KP67NFVSO     SHORT FEM KP67NFVSO                                         
+KP67W8WSO     SHORT FEM KP67W8WSO                                         
+KP67XJMSO     SHORT FEM KP67XJMSO                                         
+774N3TOV      KIT C/ 3 CUECAS SLIP MASC 774N3TOV                          
+77221KOV      KIT C/ 3 CUECAS SLIP MASC 77221KOV                          
+774M1G0F      KIT C/ 2 CUECAS BOXER MASC 774M1G0F                         
+76QWKNQ07     PIJAMA SM FEM 76QWKNQ07                                     
+77C81A0F      KIT C/ 2 CALCINHAS FEM 77C81A0F                             
+H11JPXHBP     CAL€A MASC H11JPXHBP                                        
+H11NGIJ3F     CAL€A MASC H11NGIJ3F                                        
+H51KPQJ9L     CAL€A FEM H51KPQJ9L                                         
+H51MN5J4M     CAL€A FEM H51MN5J4M                                         
+H61QELA73     SHORT FEM H61QELA73                                         
+H61QELNFV     SHORT FEM H61QELNFV                                         
+H61QELW9A     SHORT FEM H61QELW9A                                         
+H61RD91GWE    BERMUDA FEM H61RD91GWE                                      
+H61UPD1GWE    SHORT FEM H61UPD1GWE                                        
+517           EMBALAGEM PRESENTE                                          
+518           SACOLA PLASTICA                                             
+519           TELEFONE SEM FIO PRETO INTELBRAS                            
+01UH2W00S     CAMISETA REGATA FEM 01UH2W00S                               
+01UH2X00S     CAMISETA REGATA FEM 01UH2X00S                               
+01UH2Z00S     CAMISETA REGATA FEM 01UH2Z00S                               
+03CANFV11S    CAMISA POLO MM FEM 03CANFV11S                               
+03EENFV10S    CAMISA POLO MM FEM 03EENFV10S                               
+03EEXJM10S    CAMISA POLO MM FEM 03EEXJM10S                               
+03FK1B00S     CAMISA POLO MM FEM 03FK1B00S                                
+03FQ1A10S     CAMISA POLO MM MASC 03FQ1A10S                               
+521           IMPRESSORA CASHWAY ARGOX OS 214                             
+522           MP FISC BEMATECH MP2100 N/S                                 
+523           BOBINA RINUS TERMICA                                        
+524           NOTAS FISCAIS                                               
+525           ENRGIA ELETRICA                                             
+03FQ1B10S     CAMISA POLO MM MASC 03FQ1B10S                               
+059EN1010S    MACACAO FEM 059EN1010S                                      
+059GN1007S    CAL€A FEM 059GN1007S                                        
+09AD1A00S     VESTIDO SM FEM 09AD1A00S                                    
+KP09M2HTX     BLUSA MM FEM KP09M2HTX                                      
+KP09XJGTX     BLUSA MM FEM KP09XJGTX                                      
+KQ511BSO      CAMISA POLO MM MASC KQ511BSO                                
+0111NOA00S    CAMISETA REGATA MASC 0111NOA00S                             
+0111YSW07S    CAMISETA REGATA MASC 0111YSW07S                             
+01AENOA00S    CAMISETA REGATA FEM 01AENOA00S                              
+01AENJG07S    CAMISETA REGATA FEM 01AENJG07S                              
+01AEYCS07S    CAMISETA REGATA FEM 01AEYCS07S                              
+01JCN0A00S    CAMISETA REGATA FEM 01JCN0A00S                              
+01JCW8V07S    CAMISETA REGATA FEM 01JCW8V07S                              
+01JCXJM07S    CAMISETA REGATA FEM 01JCXJM07S                              
+01JCYCS07S    CAMISETA REGATA FEM 01JCYCS07S                              
+01TEN1007S    CAMISETA REGATA FEM 01TEN1007S                              
+0201W8W07S    CAMISETA REGATA MASC 0201W8W07S                             
+022BAR207S    CAMISETA MM MASC 022BAR207S                                 
+0241A7307S    CAMISETA MM FEM 0241A7307S                                  
+0241KNN07S    CAMISETA MM FEM 0241KNN07S                                  
+02CEW9A07S    CAMISETA MM FEM 02CEW9A07S                                  
+427QN0A00S    BLUSA MM FEM 427QN0A00S                                     
+427QN1007S    BLUSA MM FEM 427QN1007S                                     
+427QW9A07S    BLUSA MM FEM 427QW9A07S                                     
+6H1B1BSO      BLUSA SM FEM 6H1B1BSO                                       
+6J111BSO      BLUSA MM FEM 6J111BSO                                       
+Z71W1ASO      BLUSA SM FEM Z71W1ASO                                       
+ZK972ASO      SHORT FEM ZK972ASO                                          
+ZK972BSO      SHORT FEM ZK972BSO                                          
+ZK98N0ASO     SHORT FEM ZK98N0ASO                                         
+KC141ESO      BONE UNISSEX                                                
+KL621DSO      CHINELO FEM DE PVC KL621DSO                                 
+KL721CSO      CHINELO MASC DE PVC KL721CSO                                
+KL721DSO      CHINELO MASC DE PVC KL721DSO                                
+KN03AR1SO     BERMUDA MASC KN03AR1SO                                      
+KO571ASO      BERMUDA FEM KO571ASO                                        
+KP90APZSO     VESTIDO KP90APZSO                                           
+KP90N0ASO     VESTIDO KP90N0ASO                                           
+KP931ASO      BERMUDA FEM KP931ASO                                        
+KP931BSO      BERMUDA FEM KP931BSO                                        
+KP97N0ASO     SHORT FEM KP97N0ASO                                         
+KP97N10SO     SHORT FEM KP97N10SO                                         
+KQ311ISO      CAMISA POLO MM MASC KQ311ISO                                
+KQ311JSO      CAMISA POLO MM MASC KQ311JSO                                
+KQ311KSO      CAMISA POLO MM MASC KQ311KSO                                
+KQ311LSO      CAMISA POLO MM MASC KQ311LSO                                
+KQ661ASO      BERMUDA MASC KQ661ASO                                       
+KQ661BSO      BERMUDA MASC KQ661BSO                                       
+KQ681ASO      BERMUDA MASC KQ681ASO                                       
+KQ691ASO      BERMUDA DUPLA FACE MASC KQ691ASO                            
+KQ691BSO      BERMUDA DUPLA FACE MASC KQ691BSO                            
+KQ72AR1SO     BERMUDA MASC KQ72AR1SO                                      
+KQ72NFVSO     BERMUDA MASC KQ72NFVSO                                      
+KQ76N0ASO     BERMUDA MASC KQ76N0ASO                                      
+KQ771ASO      BERMUDA MASC KQ771ASO                                       
+KQ771BSO      BERMUDA MASC KQ771BSO                                       
+KQ791BSO      BERMUDA MASC KQ791BSO                                       
+KR791ASO      BONE MASC KR791ASO                                          
+KS761BSO      CINTO FEM KS761BSO                                          
+KU04APZSO     BERMUDA FEM KU04APZSO                                       
+KU04N0ASO     BERMUDA FEM KU04N0ASO                                       
+KU191ESO      CAMISA POLO MM FEM KU191ESO                                 
+KU192ASO      CAMISA POLO MM FEM KU192ASO                                 
+KR37AP4SO     CAL€A MASC KR37AP4SO                                        
+KU193ASO      CAMISA POLO MM FEM KU193ASO                                 
+KV151ASO      BERMUDA MASC KV151ASO                                       
+KU242ASO      SHORT FEM KU242ASO                                          
+KX051ASO      BONE MASC KX051ASO                                          
+KX051BSO      BONE MASC KX051BSO                                          
+KX141ASO      CHAPEU DUPLA FACE FEM KX141ASO                              
+KX141BSO      CHAPEU DUPLA FACE FEM KX141BSO                              
+KO571CSO      BERMUDA FEM KO571CSO                                        
+KV17N0ASO     SHORT FEM KV17N0ASO                                         
+KQ80APZSO     SHORT MASC KQ80APZSO                                        
+KQ80NJGSO     SHORT MASC KQ80NJGSO                                        
+KU29M2HSO     SHORT FEM KU29M2HSO                                         
+KU29N10SO     SHORT FEM KU29N10SO                                         
+KR691ISO      BONE FEM UNI                                                
+KP951ASO      SHORTS FEM KP951ASO                                         
+KP961ASO      SHORTS FEM KP961ASO                                         
+KS2JA73SO     CAMISA REGATA FEM KS2JA73SO                                 
+KU06N0ASO     CALCA FEM KU06N0ASO                                         
+KU222FSO      BLUSA MM FEM KU222FSO                                       
+ U217SCNFV    CALCA MASC U217SCNFV                                        
+U51KSCN0A     BERMUDA MASC U51KSCN0A                                      
+U7CGSC1GWE    SHORTS FEM U7CGSC1GWE                                       
+US03KNSSO     SHORT FEM US03KNSSO                                         
+US03N0ASO     SHORT FEM US03N0ASO                                         
+US071ASO      BERMUDA MASC US071ASO                                       
+U217SCNFV     CALCA MASC U217SCNFV                                        
+US071BSO      BERMUDA MASC US071BSO                                       
+US071CSO      BERMUDA MASC US071CSO                                       
+0999SACKIP    SACOLA PLASTICA OXI KID 0999SACKIP                          
+5111AR307     CAMISETA REGATA MASC 5111AR307                              
+511JAQ937     CAMISETA REGATA MASC 511JAQ937                              
+511JW9A37     CAMISETA REGATA MASC 511JW9A37                              
+51AGN0A10     CAMISETA REGATA MASC 51AGN0A10                              
+51AGRXP10     CAMISETA REGATA MASC 51AGRXP10                              
+U11YFISE01    MAIO FEM U11YFISE01                                         
+U160FISE05    SUNGA MASC U160FISE05                                       
+U168FISE03    SUNGA MASC U168FISE03                                       
+U175FISE02    BIQUINI FEM U175FISE02                                      
+U179FISE01    CALCINHA DE BIQUINI U179FISE01                              
+U57XHZ5GWE    BERMUDA MASC U57XHZ5GWE                                     
+U7CL5VSE01    VESTIDO SM FEM U7CL5VSE01                                   
+U7CTI3BHW     VESTIDO SM FEM U7CTI3BHW                                    
+U91EHZ1GWE    CONJUNTO SM MASC U91EHZ1GWE                                 
+U91EHZ2GWE    CONJUNTO SM MASC U91EHZ2GWE                                 
+U947HZ1GWE    CONJUNTO MM MASC U947HZ1GWE                                 
+U947HZ2GWE    CONJUNTO MM MASC U947HZ2GWE                                 
+U7CGSC2GWE    SHORTS FEM 016 U7CGSC2GWE                                   
+KN03NFVSO     BERMUDA MASC KN03NFVSO                                      
+532UNJG07     CAMISETA POLO MM MASC 532UNJG07                             
+59HC1A00      CONJUNTO SM FEM 59HC1A00                                    
+H41LAR1SO     SHORT MASC H41LAR1SO                                        
+KP951BSO      SHORT FEM KP951BSO                                          
+KP961BSO      SHORT FEM KP961BSO                                          
+KS2UAPZSO     BLUSA MM FEM KS2UAPZSO                                      
+KS2UKNSSO     BLUSA MM FEM KS2UKNSSO                                      
+KS761ASO      CINTO FEM KS761ASO                                          
+KS811ASO      CARTEIRA FEM UNI KS811ASO                                   
+KU011ASO      SHORTS FEM KU011ASO                                         
+KU011CSO      SHORTS FEM KU011CSO                                         
+KU212ASO      BLUSA FEM KU212ASO                                          
+KU212BSO      BLUSA FEM KU212BSO                                          
+KU212CSO      BLUSA FEM KU212CSO                                          
+KU222ASO      BLUSA MM FEM KU222ASO                                       
+KU232CSO      BLUSA FEM KU232CSO                                          
+KU232ESO      BLUSA FEM KU232ESO                                          
+42VHNFV10S    BLUSA MM FEM 42VHNFV10S                                     
+59HC1B00      CONJUNTO SM FEM 59HC1B00                                    
+59HE1A00      CONJUNTO MM FEM 59HE1A00                                    
+59HE1B00      CONJUNTO MM FEM 59HE1B00                                    
+59HF1A00      CONJUNTO MM FEM 59HF1A00                                    
+59HF1B00      CONJUNTO MM FEM 59HF1B00                                    
+59HH1A00      CONJUNTO SM FEM 59HH1A00                                    
+59HH1B00      CONJUNTO SM FEM 59HH1B00                                    
+42VHW9A10S    BLUSA MM FEM 42VHW9A10S                                     
+414ALGW10S    CAMISETA REGATA FEM 414ALGW10S                              
+42UP1A10S     CAMISETA MM MASC 42UP1A10S                                  
+42UP1B10S     CAMISETA MM MASC 42UP1B10S                                  
+42UG1E00S     CAMISETA MM MASC 42UG1E00S                                  
+414C1C00S     CAMISETA REGATA FEM 414C1C00S                               
+6H1L1ASO      BLUSA SM FEM 6H1L1ASO                                       
+41391A00S     CAMISETA REGATA FEM 41391A00S                               
+41391B00S     CAMISETA  REGATA FEM 41391B00S                              
+413X1E00S     CAMISETA REGATA FEM 413X1E00S                               
+413R1C00S     CAMISETA REGATA FEM 413R1C00S                               
+414DN1007S    CAMISETA REGATA FEM 414DN1007S                              
+059DN1007S    SHORTS FEM 059DN1007S                                       
+059DNFV07S    SHORTS FEM 059DNFV07S                                       
+H61ZP7SE01    SHORT FEM H61ZP7SE01                                        
+H71JI32GWE    BLUSA FEM H71JI32GWE                                        
+Z563SC258Z    CALCA FEM Z563SC258Z                                        
+Z66KW9CSO     VESTIDO MM FEM Z66KW9CSO                                    
+6Q1N1ASO      VESTIDO SM FEM 6Q1N1ASO                                     
+6H1L1BSO      BLUSA SM FEM 6H1L1BSO                                       
+6J111ASO      BLUSA MM FEM 6J111ASO                                       
+ZK641ASO      BERMUDA MASC ZK641ASO                                       
+ZK65N0ASO     BERMUDA MASC ZK65N0ASO                                      
+U7CGSC3GWE    SHORT FEM U7CGSC3GWE                                        
+UR101CSO      CHAPEU FEM UR101CSO                                         
+UR181CSO      CHAPEU MASC UR181CSO                                        
+UR351ESO      TIARA FEM UR351ESO                                          
+UR351FSO      TIARA FEM UR351FSO                                          
+UR351GSO      TIARA FEM UR351GSO                                          
+UR651ASO      CINTO FEM UR651ASO                                          
+US01N0ASO     SHORT FEM US01N0ASO                                         
+US01YSWSO     SHORT FEM US01YSWSO                                         
+6Q1N1BSO      VESTIDO SM FEM 6Q1N1BSO                                     
+Z13YSC264Z    CALCA MASC Z13YSC264Z                                       
+Z163SC273Z    CALCA MASC Z163SC273Z                                       
+KR771FSO      BONE MASC KR771FSO                                          
+KV012BSO      VESTIDO KV012BSO                                            
+KV16N0ASO     VESTIDO KV16N0ASO                                           
+KS1MN10S0     TOP FEM KS1MN10S0                                           
+KS1MN10SO     TOP FEM KS1MN10SO                                           
+C019FISE05    SUNGA MASC C019FISE05                                       
+C01AFISE01    BIQUINI FEM C01AFISE01                                      
+C01AFISE02    BIQUINE FEM C01AFISE02                                      
+C01AFISE03    BIQUINI FEM C01AFISE03                                      
+C01CFISE01    MAIO FEM C01CFISE01                                         
+C01CFISE03    MAIO FEM C01CFISE03                                         
+C63Y1AHPW     BERMUDA FEM C63Y1AHPW                                       
+C94G5Z2GWE    CONJUNTO MM MASC C94G5Z2GWE                                 
+52XN1007      CAMISETA MM MASC 52XN1007                                   
+527XRXQ07     CAMISETA MM MASC 527XRXQ07                                  
+52K8RXQ07     CAMISETA MM MASC 52K8RXQ07                                  
+52K8W9B07     CAMISETA MM MASC 52K8W9B07                                  
+52L42H00      CAMISETA MM MASC 52L42H00                                   
+52Q1AZG10     CAMISETA MM MASC 52Q1AZG10                                  
+52Q1W9B10     CAMISETA MM MASC 52Q1W9B10                                  
+52PXAPZ10     CAMISETA MM MASC 52PXAPZ10                                  
+52PXW9B10     CAMISETA MM MASC 52PXW9B10                                  
+51BJN0A10     CAMISETA REGATA MASC 51BJN0A10                              
+51BJNJG10     CAMISETA REGATA MASC 51BJNJG10                              
+52Q41A00      BATA MM FEM 52Q41A00                                        
+59JE1A00      CONJUNTO MM FEM 59JE1A00                                    
+59JE1B00      CONJUNTO MM FEM 59JE1B00                                    
+C019FISE06    SUNGA MASC C019FISE06                                       
+6H1B1ASO      BLUSA SM FEM 6H1B1ASO                                       
+Z64W1ASO      VESTIDO MM FEM Z64W1ASO                                     
+Z66Y1ASO      VESTIDO SM FEM Z66Y1ASO                                     
+Z67WSC282Z    VESTIDO SM FEM Z67WSC282Z                                   
+Z6JRSCBHW     BERMUDA FEM Z6JRSCBHW                                       
+6B3EXJNH3P    CAMISA POLO MM MASC 6B3EXJNH3P                              
+KQ581BSO      BERMUDA MASC KQ581BSO                                       
+KQ63NFVSO     BERMUDA MASC KQ63NFVSO                                      
+KQ63W8WSO     BERMUDA MASC KQ63W8WSO                                      
+KS2JRXQSO     CAMISETA REGATA FEM KS2JRXQSO                               
+02TB1C07S     CAMISETA MM MASC 02TB1C07S                                  
+02TB1D07S     CAMISETA MM MASC 02TB1D07S                                  
+02TBAPZ07S    CAMISETA MM MASC 02TBAPZ07S                                 
+02TBRTU07S    CAMISETA MM MASC 02TBRTU07S                                 
+02TBW9B07S    CAMISETA MM MASC 02TBW9B07S                                 
+03F6APZ10S    CAMISA POLO MM FEM 03F6APZ10S                               
+6B6UN0AH3     CAMISETA MM MASC 6B6UN0AH3                                  
+6B74APZH2     CAMISETA MM MASC 6B74APZH2                                  
+Z5NTSCBHW     CALCA FEM Z5NTSCBHW                                         
+Z68WSC285Z    SHORT FEM Z68WSC285Z                                        
+U178FISE01    MAIO FEM U178FISE01                                         
+U25XA32GWE    BATA SM FEM U25XA32GWE                                      
+U25YI31YSW    BATA SM FEM U25YI31YSW                                      
+U25YI32YSW    BATA SM U25YI32YSW                                          
+U57XHZ7GWE    BERMUDA MASC U57XHZ7GWE                                     
+U7CNI31GWE    VESTIDO SM FEM U7CNI31GWE                                   
+U7CPA31GWE    VESTIDO SM FEM U7CPA31GWE                                   
+U7CQMWSE01    VESTIDO SM FEM U7CQMWSE01                                   
+U919KCAPZ     CONJUNTO SM MASC U919KCAPZ                                  
+U919KCAR3     CONJUNTO SM MASC U919KCAPZ                                  
+6B74KNTH2     CAMISETA MM MASC 6B74KNTH2                                  
+6B74N0AH2     CAMISETA MM MASC 6B74N0AH2                                  
+6B7BN0AH2     CAMISETA MM MASC 6B7BN0AH2                                  
+6N1D1100      JARDINEIRA FEM 6N1D1100                                     
+6017N10H1     CAMISETA REGATA MASC 6017N10H1                              
+6017W8WH1     CAMISETA REGATA MASC 6017W8WH1                              
+621QN0AH1     CAMISETA MM MASC 621QN0AH1                                  
+621QXHKH1     CAMISETA MM MASC 621QXHKH1                                  
+6A1MAPZH2     CAMISETA REGATA MASC 6A1MAPZH2                              
+6A1PN0AH2     CAMISETA REGATA MASC 6A1PN0AH2                              
+6A1PN10H2     CAMISETA REGATA MASC 6A1PN10H2                              
+03G21AIBC     CAMISA POLO MM MASC 03G21AIBC                               
+9400DOAC      DACAO CAMPANHA 9400DOAC                                     
+03G21BIBC     CAMISA POLO MM MASC 03G21BIBC                               
+4166N0AIBC    CAMISETA REGATA FEM 4166N0AIBC                              
+4166W9BIBC    CAMISETA REGATA FEM 4166W9BIBC                              
+4167A73IBC    CAMISETAQ REGATA FEM 4167A73IBC                             
+4167W9BIBC    CAMISETA REGATA FEM 4167W9BIBC                              
+42WK1AIBC     CAMISETA MM FEM 42WK1AIBC                                   
+42WK1BIBC     CAMISETA MM FEM 42WK1BIBC                                   
+42WL1AIBC     BLUSA MM FEM 42WL1AIBC                                      
+42WLN0AIBC    BLUSA MM FEM 42WLN0AIBC                                     
+42WNKKMIBC    CAMISETA MM MASC 42WNKKMIBC                                 
+03CQW9C07S    CAMISA POLO MASC 03CQW9C07S                                 
+059T1A00S     MACAQUINHO FEM 059T1A00S                                    
+U7CNI32GWE    VESTIDO SM FEM U7CNI32GWE                                   
+5111RXQ07     CAMISETA REGATA MASC 5111RXQ07                              
+5118KNU07     CAMISETA REGATA FEM 5118KNU07                               
+5118N1007     CAMISETA REGATA FEM 5118N1007                               
+5118W9B07     CAMISETA REGATA FEM 5118W9B07                               
+51BLW9B10     CAMISETA REGATA MASC 51BLW9B10                              
+527TAPZ34     CAMISETA MM MASC 527TAPZ34                                  
+52L42J00      CAMISETA MM MASC 52L42J00                                   
+52L61W00      CAMISETA MM FEM 52L61W00                                    
+52L61X00      CAMISETA MM FEM 52L61X00                                    
+52PJRXQ10     CAMISETA MM MASC 52PJRXQ10                                  
+52PJW9B10     CAMISETA MM MASC 52PJW9B10                                  
+59HK1A00      VESTIDO SM FEM 59HK1A00                                     
+59HLKNT10     CONJUNTO MM FEM 59HLKNT10                                   
+59HN1A00      VESTIDO SM FEM 59HN1A00                                     
+59HN1B00      VESTIDO SM FEM 59HN1B00                                     
+059TN1007S    MACAQUINHO FEM 059TN1007S                                   
+059PM2H07S    SHORT FEM 059TN1007S                                        
+059PN1007S    SHORT FEM 059PN1007S                                        
+76132R00      PIJAMA MM MASC 76132R00                                     
+76132T00      PIJAMA MM MASC 76132T00                                     
+76RB1A00      CAMISOLA SM FEM 76RB1A00                                    
+76RFM2H07     PIJAMA SM FEM 76RFM2H07                                     
+76RFXHE10     PIJAMA SM FEM 76RFXHE10                                     
+76RL1A00      PIJAMA SM FEM 76RL1A00                                      
+76RL1B00      PIJAMA SM FEM 76RL1B00                                      
+76RRN0A00     PIJAMA SM FEM 76RRN0A00                                     
+76RRXHE07     PIJAMA SM FEM 76RRXHE07                                     
+76TC1A00      PIJAMA MM MASC 76TC1A00                                     
+76TENFV10     PIJAMA S/M MASC 76TENFV10                                   
+76TEW7M10     PIJAMA S/M MASC 76TEW7M10                                   
+76TF1A00      PIJAMA SM MASC 76TF1A00                                     
+76TF1B00      PIJAMA SM MASC 76TF1B00                                     
+76TJ1A00      CAMISOLA SM FEM 76TJ1A00                                    
+76TK1A00      CAMISOLA SM FEM 76TK1A00                                    
+773P2N0F      KIT C/3 CALCINHA FEM 773P2N0F                               
+773P2T0F      KIT C/3 CALCINHAS FEM 773P2T0F                              
+02A8N0A00S    BLUSA MM FEM 02A8N0A00S                                     
+0393LDK07S    CAMISA POLO MM MASC 0393LDK07S                              
+03A7KKM07S    CAMISA POLO MASC 03A7KKM07S                                 
+03A7N0A00S    CAMISA POLO MM MASC 03A7N0A00S                              
+03A7YCS07S    CAMISA POLO MM MASC 03A7YCS07S                              
+416C1A00S     CAMISETA REGATA FEM 416C1A00S                               
+416C1B00S     CAMISETA REGATA FEM 416C1B00S                               
+02A8N1007S    BLUSA MM FEM 02A8N1007S                                     
+036XLGW07S    CAMISA POLO MM FEM 036XLGW07S                               
+059R1A00S     CALCA FEM 059R1A00S                                         
+KV04A73SO     SHORT FEM KV04A73SO                                         
+KV04KNUSO     SHORT FEM KV04KNUSO                                         
+KV09N0ASO     BERMUDA MASC KV09N0ASO                                      
+KV09W9BSO     BERMUDA MASC KV09W9BSO                                      
+KV102ASO      BERMUDA MASC KV102ASO                                       
+KV102BSO      BERMUDA MASC KV102BSO                                       
+KS1FAPZSO     CAMISETA MM MASC KS1FAPZSO                                  
+KS1FNJGSO     CAMISETA MM MASC KS1FNJGSO                                  
+KS1K1ASO      TOP FEM KS1K1ASO                                            
+KS1MAPZSO     TOP FEM KS1MAPZSO                                           
+KS1MKNSSO     TOP FEM KS1MKNSSO                                           
+H22MP42GHW    CAMISA MASC KS1MKNSSO                                       
+H421P1W8R     BERMUDA MASC H421P1W8R                                      
+H71MPI1GWE    BLUSA SM FEM H71MPI1GWE                                     
+01AELGW07S    CAMISETA REGATA FEM 01AELGW07S                              
+01AENFV07S    CAMISETA REGATA FEM 01AENFV07S                              
+01AEW9C07S    CAMISETA REGATA FEM 01AEW9C07S                              
+01AEYSX07S    CAMISETA REGATA FEM 01AEYSX07S                              
+01TEKNQ07S    CAMISETA REGATA FEM 01TEKNQ07S                              
+01TENJG07S    CAMISETA REGATA FEM 01TENJG07S                              
+01TERXQ07S    CAMISETA REGATA FEM 01TERXQ07S                              
+01TEW9C07S    CAMISETA REGATA FEM 01TEW9C07S                              
+01Y2N0A00S    CAMISETA REGATA FEM 01Y2N0A00S                              
+01Y2NJG07S    CAMISETA REGATA FEM 01Y2NJG07S                              
+01Y2W9B07S    CAMISETA REGATA FEM 01Y2W9B07S                              
+0241W9B07S    CAMISETA REGATA FEM 0241W9B07S                              
+0241XJN07S    CAMISETA MM FEM 0241XJN07S                                  
+036XN0A00S    CAMISA POLO MM FEM 036XN0A00S                               
+01Y2XJN07S    CAMISETA REGATA FEM 01Y2XJN07S                              
+42XH1B00S     BLUSA SM FEM 42XH1B00S                                      
+42XH1C00S     BLUSA SM FEM 42XH1C00S                                      
+42XDA1V10S    CAMISETA MM MASC 42XDA1V10S                                 
+42XDNJZ10S    CAMISETA MM MASC 42XDNJZ10S                                 
+42VRA1V10S    CAMISETA MM MASC 42VRA1V10S                                 
+42VRAPZ10S    CAMISETA MM MASC 42VRAPZ10S                                 
+414UW9C10S    CAMISETA REGATA FEM 414UW9C10S                              
+414UXHK10S    CAMISETA REGATA FEM 414UXHK10S                              
+03FV1A00S     CAMISA POLO MM MASC 03FV1A00S                               
+03F6KNS10S    CAMISA POLO MM FEM 03F6KNS10S                               
+03G4APZ10S    CAMISA POLO MM MASC 03G4APZ10S                              
+03G4NFV10S    CAMISA POLO MM MASC 03G4NFV10S                              
+03GEA7310S    CAMISA POLO MM FEM 03GEA7310S                               
+416HN0A10S    CAMISETA REGATA FEM 416HN0A10S                              
+09B7N1007S    VESTIDO SM FEM 09B7N1007S                                   
+09B31A00S     VESTIDO FEM 09B31A00S                                       
+4169W9B07S    CAMISETA REGATA FEM 4169W9B07S                              
+4169XJN07S    CAMISETA REGATA FEM 4169XJN07S                              
+416MKNS07S    CAMISETA REGATA FEM 416MKNS07S                              
+03FW1A00S     CAMISA POLO MM FEM 03FW1A00S                                
+03FW1B00S     CAMISA POLO MM FEM 03FW1B00S                                
+42W81A00S     BLUSA MM FEM 42W81A00S                                      
+Z54ESC250Z    CALCA FEM Z54ESC250Z                                        
+09BA1A00S     VESTIDO MM FEM 09BA1A00S                                    
+5118XHK07     CAMISETA REGATA FEM 5118XHK07                               
+519B1T00      CAMISETA REGATA MASC 519B1T00                               
+519B1V00      CAMISETA REGATA MASC 519B1V00                               
+519C1T00      CAMISETA REGATA FEM 519C1T00                                
+519C1U00      CAMISETA REGATA FEM 519C1U00                                
+519C1V00      CAMISETA REGATA FEM 519C1V00                                
+519X1A11      CAMISETA REGATA FEM 519X1A11                                
+51B81A00      CAMISETA REGATA FEM 51B81A00                                
+51B91A00      CAMISETA REGATA FEM 51B91A00                                
+51B91C00      CAMISETA REGATA FEM 51B91C00                                
+51BAAPZ10     CAMISETA REGATA MASC 51BAAPZ10                              
+51BDW9B07     CAMISETA REGATA FEM 51BDW9B07                               
+51BDXJN07     CAMISETA REGATA FEM 51BDXJN07                               
+55321E00      SHORT FEM 55321E00                                          
+553M1A00      SORT FEM 553M1A00                                           
+553M1B00      SHORT FEM 553M1B00                                          
+57023A0F      KIT C/3 CUECAS SLIP MASC 57023A0F                           
+57023B0F      KIT C/3 CUECAS SLIP MASC 57023B0F                           
+57052N0F      KIT C/2 CUECAS BOXER 57052N0F                               
+571A1E0F      KIT C/3 CALCINHAS FEM 571A1E0F                              
+571A1F0F      KIT C/3 CALCINHAS FEM 571A1F0F                              
+59J21A00      CONJUNTO MM FEM 59J21A00                                    
+59J21B00      CONJUNTO MM FEM 59J21B00                                    
+59J61A00      CONJUNTO SM FEM 59J61A00                                    
+59J61B00      CONJUNTO SM FEM 59J61B00                                    
+09BA1B00S     VESTIDO MM FEM 09BA1B00S                                    
+414Q1C00S     CAMISETA REGATA FEM 414Q1C00S                               
+414Q1D00S     CAMISETA REGATA FEM 414Q1D00S                               
+51B81B00      CAMISETA REGATA FEM 51B81B00                                
+42WU1A00S     CAMISETA MM MASC 42WU1A00S                                  
+0393A1V07S    CAMISA POLO MM MASC 0393A1V07S                              
+02A8KHK07S    BLUSA MM FEM 02A8KHK07S                                     
+02A8YCS07S    BLUSA MM FEM 02A8YCS07S                                     
+036XXHK07S    CAMISA POLO MM FEM 036XXHK07S                               
+42PCM2H07S    BLUSA MM FEM 42PCM2H07S                                     
+6017M2HH1     CAMISA REGATA MASC 6017M2HH1                                
+6017N0AH1     CAMISETA REGATA MASC 6017N0AH1                              
+6A1NRTUH2     CAMISETA REGATA MASC 6A1NRTUH2                              
+6B2UXJNH3     CAMISETA MM MASC 6B2UXJNH3                                  
+6B2UYRBH3     CAMISETA MM MASC 6B2UYRBH3                                  
+6B2VKNTH2     CAMISETA MM MASC 6B2VKNTH2                                  
+6B3EW8VH3P    CAMISA POLO MM MASC 6B3EW8VH3P                              
+6B3VAR3H3P    CAMISETA MM MASC 6B3VAR3H3P                                 
+6B3VRTUH3P    CAMISETA MM MASC 6B3VRTUH3P                                 
+6B6UNFVH3     CAMISETA MM MASC 6B6UNFVH3                                  
+6B71KNTH3P    CAMISA POLO MM MASC 6B71KNTH3P                              
+6B71W8VH3P    CAMISA POLO MM MASC 6B71W8VH3P                              
+6B72APZH3W    CAMISA POLO MM MASC 6B72APZH3W                              
+6B7911H3W     CAMISA POLO MM MASC 6B7911H3W                               
+6B7912H3W     CAMISA POLO MM MASC 6B7912H3W                               
+6H1TW9B07     CAMISETA REGATA FEM 6H1TW9B07                               
+6H2Q1100      CAMISETA REGATA FEM 6H2Q1100                                
+6Q1H1103W     VESTIDO SM FEM 6Q1H1103W                                    
+6Q1H1203W     VESTIDO SM FEM 6Q1H1203W                                    
+03FV1C00S     CAMISA POLO MM MASC 03FV1C00S                               
+42W1APZ10S    CAMISETA MM MASC 42W1APZ10S                                 
+42W1NJZ10S    CAMISETA MM MASC 42W1NJZ10S                                 
+42W1RTU10S    CAMISETA MM MASC 42W1RTU10S                                 
+42WCW9C10S    BLUSA MM FEM 42WCW9C10S                                     
+42WHNJT10S    CAMISETA MM MASC 42WHNJT10S                                 
+42WHRXP10S    CAMISETA MM MASC 42WHRXP10S                                 
+42WHW9C10S    CAMISETA MM MASC 42WHW9C10S                                 
+42WHYCS10S    CAMISETA MM MASC 42WHYCS10S                                 
+42WPNFV10S    CAMISETA MM MASC 42WPNFV10S                                 
+42WPNJT10S    CAMISETA MM MASC 42WPNJT10S                                 
+42WPW9C10S    CAMISETA MM MASC 42WPW9C10S                                 
+42WW1A10S     CAMISETA MM MASC 42WW1A10S                                  
+42WW1B10S     CAMISETA MM MASC 42WW1B10S                                  
+42X91A10S     CAMISETA MM MASC 42X91A10S                                  
+42X91B10S     CAMISETA MM MASC 42X91B10S                                  
+42XBA1V10S    CAMISETA MM MASC 42XBA1V10S                                 
+42XC1A10S     CAMISETA MM MASC 42XC1A10S                                  
+42XC1B10S     CAMISETA MM MASC 42XC1B10S                                  
+03FV1D00S     CAMISA POLO MM MASC 03FV1D00S                               
+03FX1C00S     CAMISA POLO MM FEM 03FX1C00S                                
+03GA1A10S     CAMISA POLO MM MASC 03GA1A10S                               
+03GA1B10S     CAMISA POLO MM MASC 03GA1B10S                               
+03GCN0A10S    CAMISA POLO MM MASC 03GCN0A10S                              
+03GD1B00S     CAMISA POLO MM FEM 03GD1B00S                                
+03GD1C00S     CAMISA POLO MM FEM 03GD1C00S                                
+03GEKNS10S    CAMISA POLO MM FEM 03GEKNS10S                               
+09B3N1007S    VESTIDO FEM 09B3N1007S                                      
+414K1A00S     CAMISETA REGATA FEM 414K1A00S                               
+414K1B00S     CAMISETA REGATA FEM 414K1B00S                               
+416HRXR10S    CAMISETA REGATA FEM 416HRXR10S                              
+4176N0A00S    BLUSA FEM 4176N0A00S                                        
+4176XHK07S    BLUSA FEM 4176XHK07S                                        
+42W6APZ07S    BLUSA MM FEM 42W6APZ07S                                     
+42X8NFV10S    CAMISETA MM MASC 42X8NFV10S                                 
+42X8NJT10S    CAMISETA MM MASC 42X8NJT10S                                 
+42XGW9B07S    BLUSA MM FEM 42XGW9B07S                                     
+036XN1007S    CAMISA POLO MM FEM 036XN1007S                               
+036XW9B07S    CAMISA POLO MM FEM 036XW9B07S                               
+42X1APZ10S    CAMISETA MM MASC 42X1APZ10S                                 
+42XGXJN07S    BLUSA MM FEM 42XGXJN07S                                     
+42X1KKM10S    CAMISETA MM MASC 42X1KKM10S                                 
+414HN0A00S    CAMISETA REGATA FEM 414HN0A00S                              
+414HXHMK07S   CAMISETA REGATA FEM 414HXHMK07S                             
+03FV1B00S     CAMISA POLO MM MASC 03FV1B00S                               
+09B31B00S     VESTIDO FEM 09B31B00S                                       
+4169N0A00S    CAMISETA REGATA FEM 4169N0A00S                              
+416MN0A00S    CAMISETA REGATA FEM 416MN0A00S                              
+416MW9B07S    CAMISETA REGATA FEM 416MW9B07S                              
+414P1B00S     CAMISETA REGATA FEM 414P1B00S                               
+414P1C00S     CAMISETA REGATA FEM 414P1C00S                               
+414W1A00S     CAMISETA REGATA FEM 414W1A00S                               
+03FX1A00S     CAMISA POLO MM FEM 03FX1A00S                                
+09AU1A00S     VESTIDO SM FEM 09AU1A00S                                    
+09AU1B00S     VESTIDO SM FEM 09AU1B00S                                    
+414HXHK07S    CAMISETA REGATA FEM 414HXHK07S                              
+01FNA7307S    CAMISETA REGATA FEM 01FNA7307S                              
+01FNRXQ07S    CAMISETA REGATA FEM 01FNRXQ07S                              
+01FNYSX07S    CAMISETA REGATA FEM 01FNYSX07S                              
+01TELGW07S    CAMISETA REGATA FEM 01TELGW07S                              
+01Y2N1007S    CAMISETA REGATA FEM 01Y2N1007S                              
+0201LHV07S    CAMISETA MM MASC 0201LHV07S                                 
+0201RTU07S    CAMISETA MM MASC 0201RTU07S                                 
+0201YSX07S    CAMISETA MM MASC 0201YSX07S                                 
+414A1A10S     CAMISETA REGATA FEM 414A1A10S                               
+414AN0A10S    CAMISETA REGATA FEM 414AN0A10S                              
+414T1C00S     CAMISETA REGATA FEM 414T1C00S                               
+416JRXQ10S    CAMISETA REGATA FEM 416JRXQ10S                              
+2AFD1400      CAMISETA REGATA FEM 2AFD1400                                
+24RNAPZ01     CAMISA POLO MM MASC 24RNAPZ01                               
+24RURTU03W    MACAQUINHO MM MASC 24RURTU03W                               
+24T11100      MACACAO SM FEM + FAIX 24T11100                              
+24T11200      MACACAO SM FEM + FAIX 24T11200                              
+24RJ1101      BODY MM MASC 24RJ1101                                       
+24RG1101      BODY MM MASC 24RG1101                                       
+214YNJG02W    CAMISETA REGATA MASC 214YNJG02W                             
+214YNJT02W    CAMISETA REGATA MASC 214YNJT02W                             
+214W1302W     CAMISETA REGATA MASC 214W1302W                              
+214W1402W     CAMISETA REGATA MASC 214W1402W                              
+22K91102W     CAMISETA MM MASC 22K91102W                                  
+22K91202W     CAMISETA MM MASC 22K91202W                                  
+214V1100      CAMISETA REGATA MASC 214V1100                               
+214V1200      CAMISETA REGATA MASC 214V1200                               
+214V1300      CAMISETA REGATA MASC 214V1300                               
+214V1400      CAMISETA REGATA MASC 214V1400                               
+2AHP1100R     BATA SM FEM 2AHP1100R                                       
+2AHP1200R     BATA SM FEM 2AHP1200R                                       
+24T31100      MACACAO SM FEM 24T31100                                     
+24T31200      MACACAO SM FEM 24T31200                                     
+2AGRKNT07     BATA SM FEM 2AGRKNT07                                       
+2AGRYSX07     BATA SM FEM 2AGRYSX07                                       
+24RC1100      CONJUNTO FEM + FAIXA 24RC1100                               
+24T21100      BODY MM FEM 24T21100                                        
+214U1202W     CAMISETA REGATA FEM 214U1202W                               
+214W1202W     CAMISETA REGATA MASC 214W1202W                              
+24RA1100      VESTIDO SM 24RA1100                                         
+5111N1007     CAMISETA REGATA MASC 5111N1007                              
+24RA1200      VESTIDO SM 24RA1200                                         
+5118KGH07     CAMISETA REGATA FEM 5118KGH07                               
+527XAR307     CAMISETA MM MASC 527XAR307                                  
+52L42K00      CAMISETA MM MASC 52L42K00                                   
+532Y1B10      CAMISA POLO MM MASC 532Y1B10                                
+59HK1C00      VESTIDO SM FEM 59HK1C00                                     
+C21CA32GWE    CAMISA MM MASC C21CA32GWE                                   
+C41GHVAPZ     BERMUDA MASC C41GHVAPZ                                      
+C21CA31GWE    CAMISA MM MASC C21CA31GWE                                   
+0999SACKIM    SACOLA PLASTICA OXI H 0999SACKIM                            
+51BE1A00      CAMISETA REGATA FEM 51BE1A00                                
+52Q21A00      BLUSA MM FEM 52Q21A00                                       
+52Q3W9B10     CAMISETA REGATA MASC 52Q3W9B10                              
+59J7KNU07     VESTIDO MM FEM 59J7KNU07                                    
+59J7XJN07     VESTIDO MM FEM 59J7XJN07                                    
+C21EP51GHW    CAMISA MM MASC C21EP51GHW                                   
+C21EP5W9B     CAMISA MM MASC C21EP5W9B                                    
+C63Y1AI9Q     BERMUDA FEM C63Y1AI9Q                                       
+C94G5Z1GWE    CONJUNTO MM MASC C94G5Z1GWE                                 
+C94KHZSE01    CONJUNTO SM MASC C94KHZSE01                                 
+C94KHZSE02    CONJUNTO SM MASC C94KHZSE02                                 
+C94UGJ1GWE    CONJUNTO MM FEM C94UGJ1GWE                                  
+C94YHZSE01    COJUNTO MM MASC C94YHZSE01                                  
+C94YHZSE02    CONJUNTO MM MASC C94YHZSE02                                 
+C96KHZ2GWE    CONJUNTO SM MASC C96KHZ2GWE                                 
+C96U5ZAPZ     CONJUNTO MM MASC C96U5ZAPZ                                  
+C96U5ZW9B     CONJUNTO MM MASC C96U5ZW9B                                  
+51BE1B00      CAMISETA REGATA FEM 51BE1B00                                
+52Q21B00      BLUSA MM FEM 52Q21B00                                       
+24RC1200      CONJUNTO FEM 24RC1200                                       
+24RC1300      CONJUNTO FEM 24RC1300                                       
+24RH1101      BODY MM MASC 24RH1101                                       
+Z53KSC243Z    CALCA FEM Z53KSC243Z                                        
+2AGM1100      VESTIDO MM FEM 2AGM1100                                     
+2AGM1200      VESTIDO MM FEM 2AGM1200                                     
+2AGW1100      VESTIDO SM 2AGW1100                                         
+2AGW1200      VESTIDO SM 2AGW1200                                         
+C64Q3B1BHW    VESTIDO SM FEM C64Q3B1BHW                                   
+2AH9YSW01     TWIN SET MM FEM 2AH9YSW01                                   
+2AHB1100      BATA SM FEM 2AHB1100                                        
+2AHVN0A01     VESTIDO SM FEM 2AHVN0A01                                    
+2AJN1100R     BATA SM FEM 2AJN1100R                                       
+2AJN1200R     BATA SM FEM 2AJN1200R                                       
+Z54WSC256Z    CALCA FEM Z54WSC256Z                                        
+01TEAPZ07S    CAMISETA REGATA FEM 01TEAPZ07S                              
+01TEHJK07S    CAMISETA REGATA FEM 01TEHJK07S                              
+01TEKNS07S    CAMISETA REGATA FEM 01TEKNS07S                              
+0201APZ07S    CAMISETA MM MASC 0201APZ07S                                 
+0201W9B07S    CAMISETA MM MASC 0201W9B07S                                 
+0201W9C07S    CAMISETA MM MASC 0201W9C07S                                 
+414AW9B10S    CAMISETA REGATA FEM 414AW9B10S                              
+414T1B00S     CAMISETA REGATA FEM 414T1B00S                               
+411V1P00S     CAMISETA REGATA FEM 411V1P00S                               
+411V1Q00S     CAMISETA REGATA FEM 411V1Q00S                               
+413X1F00S     CAMISETA REGATA FEM 413X1F00S                               
+413X1G00S     CAMISETA REGATA FEM 413X1G00S                               
+413X1H00S     CAMISETA REGATA FEM 413X1H00S                               
+414XNJT10S    CAMISETA REGATA MASC 414XNJT10S                             
+414XRXP10S    CAMISETA REGATA MASC 414XRXP10S                             
+416E1A00S     CAMISETA REGATA FEM 416E1A00S                               
+416LA7310S    CAMISETA REGATA FEM 416LA7310S                              
+416LXJN10S    CAMISETA REGATA FEM 416LXJN10S                              
+416PN1007S    CAMISETA REGATA FEM 416PN1007S                              
+416PW9B07S    CAMISETA REGATA FEM 416PW9B07S                              
+42VUAPZ10S    CAMISETA MM MASC 42VUAPZ10S                                 
+42VUNFV10S    CAMISETA MM MASC 42VUNFV10S                                 
+42VUW9B10S    CAMISETA MM MASC 42VUW9B10S                                 
+01W81G00S     CAMISETA REGATA FEM 01W81G00S                               
+H62TI31GWE    VESTIDO SM FEM H62TI31GWE                                   
+214U1102W     CAMISETA REGATA MASC 214U1102W                              
+214W1102W     CAMISETA REGATA MASC 214W1102W                              
+U11QFISE01    SUNGA MASC U11QFISE01                                       
+H62VDPJ8X     SHORT FEM H62VDPJ8X                                         
+42WCN0A10S    BLUSA MM FEM 42WCN0A10S                                     
+42XBAPZ10S    CAMISETA MM MASC 42XBAPZ10S                                 
+42XBNFV10S    CAMISETA MM MASC 42XBNFV10S                                 
+42XBNJZ10S    CAMISETA MM MASC 42XBNJZ10S                                 
+42XBW9B10S    CAMISETA MM MASC 42XBW9B10S                                 
+6J1N1ASO      BLUSA MM FEM 6J1N1ASO                                       
+Z14YSC272Z    CALCA MASC Z14YSC272Z                                       
+H62TI32GWE    VESTIDO SM FEM H62TI32GWE                                   
+42W6N0A00S    BLUSA MM FEM 42W6N0A00S                                     
+03FV1F00S     CAMISA POLO MM MASC 03FV1F00S                               
+03GEW9B10S    CAMISA POLO MM FEM 03GEW9B10S                               
+416HW9B10S    CAMISETA REGATA FEM 416HW9B10S                              
+09B31C00S     VESTIDO FEM 09B31C00S                                       
+03GCAPZ10S    CAMISA POLO MM MASC 03GCAPZ10S                              
+03FX1E00S     CAMISA POLO MM FEM 03FX1E00S                                
+51BKAR310     CAMISETA REGATA MASC 51BKAR310                              
+51BKW9B10     CAMISETA REGATA MASC 51BKW9B10                              
+51BLN0A10     CAMISETA REGATA MASC 51BLN0A10                              
+03CQNFV07S    CAMISA POLO MASC 03CQNFV07S                                 
+03CQW9B07S    CAMISA POLO MASC 03CQW9B07S                                 
+0393APZ07S    CAMISA POLO MM MASC 0393APZ07S                              
+0393W9B07S    CAMISA POLO MM MASC 0393W9B07S                              
+527TN0A34     CAMISETA MM MASC 527TN0A34                                  
+527TRXQ34     CAMISETA MM MASC 527TRXQ34                                  
+52PKAR310     CAMISETA MM MASC 52PKAR310                                  
+53272A00      CAMISA POLO MM MASC 53272A00                                
+53272B00      CAMISA POLO MM MASC 53272B00                                
+59HLN0A10     CONJUNTO MM FEM 59HLN0A10                                   
+59HQ1A00      CONJUNTO SM FEM 59HQ1A00                                    
+59HQ1B00      CONJUNTO SM FEM 59HQ1B00                                    
+C11RP51GWE    CALCA MASC C11RP51GWE                                       
+KS1EN0ASO     CAMISETA REGATA MASC KS1EN0ASO                              
+0111A1V07S    CAMISETA REGATA MASC 0111A1V07S                             
+0111APZ07S    CAMISETA REGATA MASC 0111APZ07S                             
+0111LDK07S    CAMISETA REGATA MASC 0111LDK07S                             
+014PAPZ07S    CAMISETA REGATA MASC 014PAPZ07S                             
+014PN0A00S    CAMISETA REGATA MASC 014PN0A00S                             
+014PN1007S    CAMISETA REGATA MASC 014PN1007S                             
+014PW8W07S    CAMISETA REGATA MASC 014PW8W07S                             
+01AEAPZ07S    CAMISETA REGATA FEM 01AEAPZ07S                              
+01AEXHK07S    CAMISETA REGATA FEM 01AEXHK07S                              
+01AEXJN07S    CAMISETA REGATA FEM 01AEXJN07S                              
+01TEW9B07S    CAMISETA REGATA FEM 01TEW9B07S                              
+01TEYSX07S    CAMISETA REGATA FEM 01TEYSX07S                              
+01W81F00S     CAMISETA REGATA FEM 01W81F00S                               
+414N1A00S     CAMISETA REGATA FEM 414N1A00S                               
+416E1B00S     CAMISETA REGATA FEM 416E1B00S                               
+416E1C00S     CAMISETA REGATA FEM 416E1C00S                               
+416LRXQ10S    CAMISETA REGATA FEM 416LRXQ10S                              
+42WJA1V10S    CAMISETA MM MASC 42WJA1V10S                                 
+42WJAPZ10S    CAMISETA MM MASC 42WJAPZ10S                                 
+42XFN0A00S    BLUSA FEM 42XFN0A00S                                        
+42XFW9B07S    BLUSA FEM 42XFW9B07S                                        
+42XLW9B10S    BLUSA MM FEM 42XLW9B10S                                     
+42XLXJN10S    BLUSA MM FEM 42XLXJN10S                                     
+0111RTU07S    CAMISETA REGATA MASC 0111RTU07S                             
+KS1EN10SO     CAMISETA REGATA MASC KS1EN10SO                              
+0111W9C07S    CAMISETA REGATA MASC 0111W9C07S                             
+KS1FN0ASO     CAMISETA MM MASC KS1FN0ASO                                  
+KS911CSO      BOLSA FEM KS911CSO                                          
+0111NFV07S    CAMISETA REGATA MASC 0111NFV07S                             
+0111W9B07S    CAMISETA REGATA MASC 0111W9B07S                             
+0111YSX07S    CAMISETA REGATA MASC 0111YSX07S                             
+413X1J00S     CAMISETA REGATA FEM 413X1J00S                               
+0111KKM07S    CAMISETA REGATA MASC 0111KKM07S                             
+01AEKNS07S    CAMISETA REGATA FEM 01AEKNS07S                              
+01TEXHK07S    CAMISETA REGATA FEM 01TEXHK07S                              
+42WJRTU10S    CAMISETA MM MASC 42WJRTU10S                                 
+U71KSCHJK     SHORT FEM U71KSCHJK                                         
+U71QSC1GWE    SHORT FEM U71QSC1GWE                                        
+U71QSC2GWE    SHORT FEM U71QSC2GWE                                        
+24TGNFV01     CAMISA POLO MM MASC 24TGNFV01                               
+24TR1100      JARDINEIRA FEM 24TR1100                                     
+2AJ61200W     VESTIDO SM FEM 2AJ61200W                                    
+2AJGXJN07     CAMISETA REGATA FEM 2AJGXJN07                               
+U162FISE03    BIQUINI FEM U162FISE03                                      
+U71CA31GWE    VESTIDO SM FEM U71CA31GWE                                   
+KU15APZSO     BLUSA SM FEM KU15APZSO                                      
+KQ471FSO      BERMUDA MASC KQ471FSO                                       
+24TF1201      MACAQUINHO MM MASC 24TF1201                                 
+24TGW8V01     CAMISA POLO MM MASC 24TGW8V01                               
+24TK1100      MACAQUINHO MM FEM 24TK1100                                  
+24TK1200      MACAQUINHO MM FEM 24TK1200                                  
+2AJK1100      CAMISETA REGATA FEM 2AJK1100                                
+U58KHZ8GWE    BERMUDA MASC U58KHZ8GWE                                     
+U91GHZ1GWE    CONJUNTO MM MASC U91GHZ1GWE                                 
+U91GHZ2GWE    CONJUNTO MM MASC U91GHZ2GWE                                 
+2163RTU02     CAMISETA REGATA MASC 2163RTU02                              
+24LMN0A07     BATA SM FEM 24LMN0A07                                       
+24Q71600      MACAQUINHO FEM 24Q71600                                     
+24Q71700      MACAQUINHO MM FEM 24Q71700                                  
+24Q71800      MACAQUINHO MM FEM 24Q71800                                  
+24TE1101      MACAQUINHO MM MASC 24TE1101                                 
+24TF1101      MACAQUINHO MM MASC 24TF1101                                 
+24THA7302     CAMISETA MM MASC 24THA7302                                  
+24TJ1202      CAMISETA REGATA MASC 24TJ1202                               
+24TP1100      SHORT FEM 24TP1100                                          
+24TR1200      JARDINEIRA FEM 24TR1200                                     
+24TT1200      BLUSA MM FEM 24TT1200                                       
+2AJ31100      VESTIDO SM FEM 2AJ31100                                     
+2AJE1100      BATA MM FEM 2AJE1100                                        
+U11UFISE01    SUNGA MASC U11UFISE01                                       
+U160FISE09    SUNGA MASC U160FISE09                                       
+U160FISE11    SUNGA MASC U160FISE11                                       
+U71CA32GWE    VESTIDO SM FEM U71CA32GWE                                   
+KU111CSO      SHORT FEM KU111CSO                                          
+214V1500      CAMISETA REGATA MASC 214V1500                               
+214V1600      CAMISETA REGATA MASC 214V1600                               
+2162N0A02     CAMISETA REGATA MASC 2162N0A02                              
+22KHAPZ02W    CAMISETA MM MASC 22KHAPZ02W                                 
+22KHRTU02W    CAMISETA MM MASC 22KHRTU02W                                 
+234P1600      CAMISA POLO MM MASC 234P1600                                
+234P1700      CAMISA POLO MM MASC 234P1700                                
+24QM1100      LEGGING FEM 24QM1100                                        
+24THAR202     CAMISETA MM MASC 24THAR202                                  
+24TL1100      VESTIDO FEM + CALCINHA 24TL1100                             
+24TL1200      VESTIDO FEM + CALCINHA 24TL1200                             
+24TN1100      VESTIDO SM + CALCINHA 24TN1100                              
+24TN1200      VESTIDO FEM + CALCINHA 24TN1200                             
+24TQ1100W     VESTIDO FEM + CALCINHA 24TQ1100W                            
+2AJ41100W     VESTIDO MM FEM 2AJ41100W                                    
+2AJ61100W     VESTIDO SM FEM 2AJ61100W                                    
+2AJ71100      VESTIDO SM FEM 2AJ71100                                     
+2AJ81100      VESTIDO SM FEM 2AJ81100                                     
+2AJ91100      VESTIDO MM FEM 2AJ91100                                     
+2AJ91200      VESTIDO MM FEM 2AJ91200                                     
+2AJA1100      VESTIDO MM FEM 2AJA1100                                     
+2AJF1100      CONJUNTO MM FEM 2AJF1100                                    
+2AJF1200      CONJUNTO MM FEM 2AJF1200                                    
+2AJJ1200      BATA SM FEM 2AJJ1200                                        
+2AJK1200      CAMISETA REGATA FEM 2AJK1200                                
+U160FISE10    SUNGA MASC U160FISE10                                       
+U58KHZ6GWE    BERMUDA MASC U58KHZ6GWE                                     
+KU11N0ASO     SHORT FEM KU11N0ASO                                         
+KQ471GSO      BERMUDA MASC KQ471GSO                                       
+KU14NFWSO     SHORT FEM KU14NFWSO                                         
+KQ65AR1SO     BERMUDA MASC KQ65AR1SO                                      
+KS1BKNSSO     CAMISETA REGATA FEM KS1BKNSSO                               
+KS1BN0ASO     CAMISETA REGATA FEM KS1BN0ASO                               
+KS1BN10SO     CAMISETA REGATA FEM KS1BN10SO                               
+KS871DSO      BOLSA FEM KS871DSO                                          
+KU14APZSO     SHORT FEM KU14APZSO                                         
+0995SACHEM    SACOLA PLASTICA OXI H 0995SACHEM                            
+KU111ASO      SHORT FEM KU111ASO                                          
+KU111BSO      SHORT FEM KU111BSO                                          
+03GKAPZ10S    CAMISA POLO MM MASC 03GKAPZ10S                              
+03GKNFV10S    CAMISA POLO MM MASC 03GKNFV10S                              
+03GJ1B10S     CAMISA POLO MM MASC 03GJ1B10S                               
+42Y4APZ10S    CAMISETA MM MASC 42Y4APZ10S                                 
+42Y4NFV10S    CAMISETA MM MASC 42Y4NFV10S                                 
+42Y4W9B10S    CAMISETA MM MASC 42Y4W9B10S                                 
+03GLAPZ10S    CAMISA POLO MM MASC 03GLAPZ10S                              
+059VAPZ07S    JARDINEIRA FEM 059VAPZ07S                                   
+09BD1A00S     VESTIDO FEM 09BD1A00S                                       
+09BD1B00S     VESTIDO FEM 09BD1B00S                                       
+4173W9A10S    CAMISETA REGATA FEM 4173W9A10S                              
+41741E00S     CAMISETA REGATA FEM 41741E00S                               
+41721B00S     CAMISETA REGATA FEM 41721B00S                               
+03GG1A00S     CAMISA POLO MM FEM 03GG1A00S                                
+03GLNFV10S    CAMISA POLO MM MASC 03GLNFV10S                              
+KQ65NFVSO     BERMUDA MASC KQ65NFVSO                                      
+KQ73NFVSO     BERMUDA MASC KQ73NFVSO                                      
+KQ73NJTSO     BERMUDA MASC KQ73NJTSO                                      
+KQ73W9BSO     BERMUDA MASC KQ73W9BSO                                      
+KS791CSO      CINTO FEM KS791CSO                                          
+KU091ASO      BERMUDA FEM KU091ASO                                        
+KU091BSO      BERMUDA FEM KU091BSO                                        
+KU121ASO      SHORT FEM KU121ASO                                          
+KU121BSO      SHORT FEM KU121BSO                                          
+KU14RXRSO     SHORT FEM KU14RXRSO                                         
+2162NFV02     CAMISETA REGATA MASC 2162NFV02                              
+22KFW8X02     CAMISETA MM MASC 22KFW8X02                                  
+24TJ1102      CAMISETA REGATA MASC 24TJ1102                               
+24TM1100      CONJUNTO MM FEM 24TM1100                                    
+2AJA1200      VESTIDO MM FEM 2AJA1200                                     
+22KFYCS02     CAMISETA MM MASC 22KFYCS02                                  
+24TM1200      CONJUNTO MM FEM 24TM1200                                    
+24TQ1200W     VESTIDO FEM + CALCINHA 24TQ1200W                            
+2AJ81200      VESTIDO SM FEM 2AJ81200                                     
+2AJE1200      BATA MM FEM 2AJE1200                                        
+2AJGHJK07     CAMISETA REGATA FEM 2AJGHJK07                               
+KU16N0ASO     BLUSA MM FEM KU16N0ASO                                      
+KU121CSO      SHORT FEM KU121CSO                                          
+4178APZ10S    CAMISETA REGATA MASC 4178APZ10S                             
+4178W9B10S    CAMISETA REGATA MASC 4178W9B10S                             
+U58KHZ7GWE    BERMUDA MASC U58KHZ7GWE                                     
+42XRAPZ10S    CAMISETA MM MASC 42XRAPZ10S                                 
+42Y3APZ10S    CAMISETA MM MASC 42Y3APZ10S                                 
+42Y3NFV10S    CAMISETA MM MASC 42Y3NFV10S                                 
+42Y2M2H10S    CAMISETA MM MASC 42Y2M2H10S                                 
+42Y2RTU10S    CAMISETA MM MASC 42Y2RTU10S                                 
+416X1A00S     CAMISETA REGATA MASC 416X1A00S                              
+416X1B00S     CAMISETA REGATA FEM 416X1B00S                               
+416W1B00S     CAMISETA REGATA FEM 416W1B00S                               
+42XYAPZ10S    BLUSA MM FEM 42XYAPZ10S                                     
+42XYKNS10S    BLUSA MM FEM 42XYKNS10S                                     
+416Y1E00S     CAMISETA REGATA FEM 416Y1E00S                               
+416Y1F00S     CAMISETA REGATA FEM 416Y1F00S                               
+42Y1N0A10S    BLUSA MM FEM 42Y1N0A10S                                     
+4177NFV10S    CAMISETA REGATA MASC 4177NFV10S                             
+4177RTU10S    CAMISETA REGATA MASC 4177RTU10S                             
+42XXNFV10S    CAMISETA MM MASC 42XXNFV10S                                 
+42XXNJT10S    CAMISETA MM MASC 42XXNJT10S                                 
+42XXRTU10S    CAMISETA MM MASC 42XXRTU10S                                 
+42Y7APZ10S    CAMISETA MM MASC 42Y7APZ10S                                 
+42Y7W9B10S    CAMISETA MM MASC 42Y7W9B10S                                 
+416Y1A00S     CAMISETA REGATA FEM 416Y1A00S                               
+416Y1B00S     CAMISETA REGATA FEM 416Y1B00S                               
+416Y1C00S     CAMISETA REGATA FEM 416Y1C00S                               
+H52EP7SE01    CALCA FEM H52EP7SE01                                        
+H52EP7SE02    CALCA FEM H52EP7SE02                                        
+H63GD91BHW    SHORT FEM H63GD91BHW                                        
+H63GD9APZ     SHORT FEM H63GD9APZ                                         
+H71V3B1BHW    BLUSA MM FEM H71V3B1BHW                                     
+H71V3BKNS     BLUSA MM FEM H71V3BKNS                                      
+42XT1A00S     BLUSA MM FEM 42XT1A00S                                      
+42XT1B00S     BLUSA MM FEM 42XT1B00S                                      
+03GJ1A10S     CAMISA POLO MM MASC 03GJ1A10S                               
+41741B00S     CAMISETA REGATA FEM 41741B00S                               
+41741C00S     CAMISETA REGATA FEM 41741C00S                               
+41741F00S     CAMISETA REGATA FEM 41741F00S                               
+41721A00S     CAMISETA REGATA FEM 41721A00S                               
+41721C00S     CAMISETA REGATA FEM 41721C00S                               
+03GG1B00S     CAMISA POLO MM FEM 03GG1B00S                                
+09BEKNS10S    VESTIDO MM FEM 09BEKNS10S                                   
+09BEN0A00S    VESTIDO FEM 09BEN0A00S                                      
+42XRM2H10S    CAMISETA MM MASC 42XRM2H10S                                 
+42XRNFV10S    CAMISETA MM MASC 42XRNFV10S                                 
+42Y3RTU10S    CAMISETA MM MASC 42Y3RTU10S                                 
+42Y3W9B10S    CAMISETA MM MASC 42Y3W9B10S                                 
+416W1C00S     CAMISETA REGATA FEM 416W1C00S                               
+416W1D00S     CAMISETA REGATA FEM 416W1D00S                               
+416U1A00S     CAMISETA REGATA FEM 416U1A00S                               
+416U1B00S     CAMISETA REGATA FEM 416U1B00S                               
+H63HA31BHW    VESTIDO SM FEM H63HA31BHW                                   
+H63JA31GWE    VESTIDO SM FEM H63JA31GWE                                   
+H63JA32GWE    VESTIDO SM FEM H63JA32GWE                                   
+U71PHZ2GWE    SHORT FEM U71PHZ2GWE                                        
+24TE1201      MACAQUINHO MM MASC 24TE1201                                 
+2AJ41200W     VESTIDO MM FEM 2AJ41200W                                    

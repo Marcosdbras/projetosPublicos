@@ -1,0 +1,37 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{17b900a1-161c-4611-8d07-1f26d4b59031}</ProjectGuid>
+    <MainSource>SPEDFiscal32dll.dpr</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>SPEDFiscal32dll.dll</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_MapFile>3</DCC_MapFile>
+    <DCC_Define>madExcept;RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_MapFile>3</DCC_MapFile>
+    <DCC_Define>madExcept;DEBUG</DCC_Define>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType>VCLApplication</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="HostApplication">C:\Projetos\Developers\SuperSintegra32dll\DLL_v1.0\Demo_SuperSintegra32Dll\Delphi\Sintegra_Sem_BD\Demo_SuperSintegra32Dll.exe</Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><Language><Language Name="RootDir">C:\ARQUIVOS DE PROGRAMAS\BORLAND\DELPHI6\BIN\</Language></Language><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">1</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">5</VersionInfo><VersionInfo Name="Build">0</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">1046</VersionInfo><VersionInfo Name="CodePage">1252</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName">TKS Software</VersionInfoKeys><VersionInfoKeys Name="FileDescription">Dll de geração do SIntegra (www.sintegra.gov.br)</VersionInfoKeys><VersionInfoKeys Name="FileVersion">1.0.5.0</VersionInfoKeys><VersionInfoKeys Name="InternalName">supersintegra32dll.dll</VersionInfoKeys><VersionInfoKeys Name="LegalCopyright">Distribuição de cópias Registradas permitida apenas para clientes dos Desenvolvedores que adquiriram o produto.</VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks">Produto desenvolvido pela TKS Software (www.igara.com.br)</VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName">SuperSintegra32dll.dll</VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments">Desenvolvedor responsável Victory Fernandes (www.igara.com.br/victory)</VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">SPEDFiscal32dll.dpr</Source></Source></Delphi.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="SPEDFiscal32dll.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="Validacao_Sintegra\Unit_Validacao_Sintegra.pas" />
+    <DCCReference Include="Validacao_SPED\Unit_Validacao_SPED.pas" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>SPEDFiscal32dll.dll - SPED Sitema Publico de Escrituração Digital </title>
+<meta http-equiv="Content-Type" content="text/html">
+<link rel="stylesheet" href="../../_Resources/css/DelphiCodeToDoc.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF">
+
+<table width="100%" border="0" cellspacing="0" bgcolor="#99CCFF">
+  <tr>
+    <td class="Generated"><b>SPEDFiscal32dll.dll</b></td>
+    <td class="Normal">
+      <div align="center"><a href="../../_ClassHierarchy.htm">Class Tree</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="../../SPEDFiscal32dll.dll.htm">Index</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroD160_B5C2.htm">Previous (RegistroD160)</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroD170_4FEF.htm">Next (RegistroD170)</a></div>
+    </td>
+  </tr>
+</table><br>
+
+<span class="SectionName">Name</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">RegistroD161</td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Parent</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated"><a href="../SPEDFiscal32dll.htm">SPEDFiscal32dll</a></td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Visibility</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">PUBLIC</td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Description</span><br>
+<table width="95%" border="0" cellspacing="0">
+
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td bgcolor="#FFFFCC" class="Generated"> 
+      <p>Registro D161 - REGISTRO D161: LOCAL DA COLETA E ENTREGA (C&Oacute;DIGO 07, 08, 09, 10, 11, 26 E 27) ---</p>
+    </td>
+  </tr>
+
+</table><br>
+
+<span class="SectionName">Source code</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">Function RegistroD161 ( IND_CARGA , CNPJ_COL , IE_COL , COD_MUN_COL , CNPJ_ENTG , IE_ENTG , COD_MUN_ENTG : String ) : Integer ; stdcall ; export </td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Parameters</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td> 
+      <table width="100%" border="1" cellspacing="0" class="IndexName">
+        <tr bgcolor="#FFFFFF"> 
+          <td class="IndexName" width="33%">Parameter</td>
+          <td class="IndexName">Description</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">IND_CARGA : STRING</td>
+          <td class="Generated">'Indicador do tipo de transporte da carga coletada:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">CNPJ_COL : STRING</td>
+          <td class="Generated">'N&uacute;mero do CNPJ do contribuinte do local de coleta</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">IE_COL : STRING</td>
+          <td class="Generated">'Inscri&ccedil;&atilde;o Estadual do contribuinte do local de coleta</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_MUN_COL : STRING</td>
+          <td class="Generated">'C&oacute;digo do Munic&iacute;pio do local de coleta, conforme tabela IBGE</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">CNPJ_ENTG : STRING</td>
+          <td class="Generated">'N&uacute;mero do CNPJ do contribuinte do local de entrega</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">IE_ENTG : STRING</td>
+          <td class="Generated">'Inscri&ccedil;&atilde;o Estadual do contribuinte do local de entrega</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_MUN_ENTG : STRING</td>
+          <td class="Generated">'C&oacute;digo do Munic&iacute;pio do local de entrega, conforme tabela IBGE</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table><br>
+
+<span class="SectionName">Return</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td> 
+      <table width="100%" border="1" cellspacing="0" class="IndexName">
+        <tr bgcolor="#FFFFFF"> 
+          <td class="IndexName" width="33%">Types</td>
+          <td class="IndexName">Description</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">INTEGER</td>
+          <td class="Generated">Caso nenhum erro encontrado retorna RegistroC001 devidamente formatado '|D161|' + IND_CARGA, CNPJ_COL, IE_COL, COD_MUN_COL, CNPJ_ENTG, IE_ENTG, COD_MUN_ENTG<BR>'Quebra de sequ&ecirc;ncia conforme L&oacute;gica de Ordena&ccedil;&atilde;o Inter-Registros.<BR>-1   Indicador do tipo de transporte da carga coletada : ' + IND_CARGA<BR>-3   CNPJ ou CPF Inv&aacute;lido : ' + CNPJ_COL<BR>-4   C&oacute;digo do Munic&iacute;pio do local de coleta, conforme tabela IBGE : ' + COD_MUN_COL<BR>-5   N&uacute;mero do CNPJ do contribuinte do local de entrega: ' + CNPJ_ENTG<BR>-6   C&oacute;digo do Munic&iacute;pio do local de entrega, conforme tabela IBGE : ' + COD_MUN_ENTG</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table><br>
+
+<table width="100%" border="0" cellspacing="0" bgcolor="#99CCFF">
+  <tr>
+    <td class="Generated"><b>SPEDFiscal32dll.dll</b></td>
+    <td class="Normal">
+      <div align="center"><a href="../../_ClassHierarchy.htm">Class Tree</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="../../SPEDFiscal32dll.dll.htm">Index</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroD160_B5C2.htm">Previous (RegistroD160)</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroD170_4FEF.htm">Next (RegistroD170)</a></div>
+    </td>
+  </tr>
+</table><br>
+
+<hr width="100%" align="left">
+<span class="Footer">Add your copyright informations and link here.<br>
+Created with DelphiCodeToDoc. To obtain the latest revision, please visit <a href="http://dephicodetodoc.sourceforge.net/"><b>http://dephicodetodoc.sourceforge.net/</b></a><br>
+</body>
+</html>
+

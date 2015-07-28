@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>SPEDFiscal32dll.dll - SPED Sitema Publico de Escrituração Digital </title>
+<meta http-equiv="Content-Type" content="text/html">
+<link rel="stylesheet" href="../../_Resources/css/DelphiCodeToDoc.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF">
+
+<table width="100%" border="0" cellspacing="0" bgcolor="#99CCFF">
+  <tr>
+    <td class="Generated"><b>SPEDFiscal32dll.dll</b></td>
+    <td class="Normal">
+      <div align="center"><a href="../../_ClassHierarchy.htm">Class Tree</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="../../SPEDFiscal32dll.dll.htm">Index</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroD100_5B8F.htm">Previous (RegistroD100)</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroD120_D20C.htm">Next (RegistroD120)</a></div>
+    </td>
+  </tr>
+</table><br>
+
+<span class="SectionName">Name</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">RegistroD110</td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Parent</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated"><a href="../SPEDFiscal32dll.htm">SPEDFiscal32dll</a></td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Visibility</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">PUBLIC</td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Description</span><br>
+<table width="95%" border="0" cellspacing="0">
+
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td bgcolor="#FFFFCC" class="Generated"> 
+      <p>Registro D110 - COMPLEMENTO DOS BILHETES (C&Oacute;DIGO 13, C&Oacute;DIGO 14 E C&Oacute;DIGO 16)</p>
+    </td>
+  </tr>
+
+</table><br>
+
+<span class="SectionName">Source code</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">Function RegistroD110 ( UF_ORIG , COD_MUN_ORIG , UF_DEST , COD_MUN_DEST , COD_LINHA , LINHA , POLT_CAB , AGENTE : String ) : Integer ; stdcall ; export </td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Parameters</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td> 
+      <table width="100%" border="1" cellspacing="0" class="IndexName">
+        <tr bgcolor="#FFFFFF"> 
+          <td class="IndexName" width="33%">Parameter</td>
+          <td class="IndexName">Description</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">UF_ORIG : STRING</td>
+          <td class="Generated">'Sigla da unidade da federa&ccedil;&atilde;o:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_MUN_ORIG : STRING</td>
+          <td class="Generated">'C&oacute;digo do munic&iacute;pio de origem do servi&ccedil;o:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">UF_DEST : STRING</td>
+          <td class="Generated">'Sigla da unidade da federa&ccedil;&atilde;o de destino do passageiro:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_MUN_DEST : STRING</td>
+          <td class="Generated">'C&oacute;digo do munic&iacute;pio de destino do passageiro:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_LINHA : STRING</td>
+          <td class="Generated">'C&oacute;digo do prefixo da linha de transporte:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">LINHA : STRING</td>
+          <td class="Generated">'Descri&ccedil;&atilde;o da linha de transporte:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">POLT_CAB : STRING</td>
+          <td class="Generated">'N&uacute;mero da poltrona ou cabine:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">AGENTE : STRING</td>
+          <td class="Generated">'Identifica&ccedil;&atilde; o do agente:</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table><br>
+
+<span class="SectionName">Return</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td> 
+      <table width="100%" border="1" cellspacing="0" class="IndexName">
+        <tr bgcolor="#FFFFFF"> 
+          <td class="IndexName" width="33%">Types</td>
+          <td class="IndexName">Description</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">INTEGER</td>
+          <td class="Generated">Caso nenhum erro encontrado retorna RegistroC001 devidamente formatado '|D110|' + UF_ORIG,COD_MUN_ORIG,UF_DEST,COD_MUN_DEST,COD_LINHA,LINHA,POLT_CAB,AGENTE<BR>'Quebra de sequ&ecirc;ncia conforme L&oacute;gica de Ordena&ccedil;&atilde;o Inter-Registros.<BR>-1   Unidade da Federa&ccedil;&atilde;o Inv&aacute;lida : ' + UF_ORIG<BR>-2   Unidade da Federa&ccedil;&atilde;o Inv&aacute;lida : ' + UF_DEST<BR>-3   C&oacute;digo do munic&iacute;pio do domic&iacute;lio fiscal : ' + COD_MUN_ORIG<BR>-4   C&oacute;digo do munic&iacute;pio do domic&iacute;lio fiscal : ' + COD_MUN_DEST</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table><br>
+
+<table width="100%" border="0" cellspacing="0" bgcolor="#99CCFF">
+  <tr>
+    <td class="Generated"><b>SPEDFiscal32dll.dll</b></td>
+    <td class="Normal">
+      <div align="center"><a href="../../_ClassHierarchy.htm">Class Tree</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="../../SPEDFiscal32dll.dll.htm">Index</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroD100_5B8F.htm">Previous (RegistroD100)</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroD120_D20C.htm">Next (RegistroD120)</a></div>
+    </td>
+  </tr>
+</table><br>
+
+<hr width="100%" align="left">
+<span class="Footer">Add your copyright informations and link here.<br>
+Created with DelphiCodeToDoc. To obtain the latest revision, please visit <a href="http://dephicodetodoc.sourceforge.net/"><b>http://dephicodetodoc.sourceforge.net/</b></a><br>
+</body>
+</html>
+

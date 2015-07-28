@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>SPEDFiscal32dll.dll - SPED Sitema Publico de Escrituração Digital </title>
+<meta http-equiv="Content-Type" content="text/html">
+<link rel="stylesheet" href="../../_Resources/css/DelphiCodeToDoc.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF">
+
+<table width="100%" border="0" cellspacing="0" bgcolor="#99CCFF">
+  <tr>
+    <td class="Generated"><b>SPEDFiscal32dll.dll</b></td>
+    <td class="Normal">
+      <div align="center"><a href="../../_ClassHierarchy.htm">Class Tree</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="../../SPEDFiscal32dll.dll.htm">Index</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroC700_9FBD.htm">Previous (RegistroC700)</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroC791_0F89.htm">Next (RegistroC791)</a></div>
+    </td>
+  </tr>
+</table><br>
+
+<span class="SectionName">Name</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">RegistroC790</td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Parent</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated"><a href="../SPEDFiscal32dll.htm">SPEDFiscal32dll</a></td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Visibility</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">PUBLIC</td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Description</span><br>
+<table width="95%" border="0" cellspacing="0">
+
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td bgcolor="#FFFFCC" class="Generated"> 
+      <p>REGISTRO C790 - REGISTRO ANAL&Iacute;TICO DOS DOCUMENTOS (COD 06) ---</p>
+    </td>
+  </tr>
+
+</table><br>
+
+<span class="SectionName">Source code</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">Function RegistroC790 ( CST_ICMS , CFOP , ALIQ_ICMS , VL_OPR , VL_BC_ICMS , VL_ICMS , VL_BC_ICMS_ST , VL_ICMS_ST , VL_RED_BC , COD_OBS : String ) : Integer ; stdcall ; export </td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Parameters</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td> 
+      <table width="100%" border="1" cellspacing="0" class="IndexName">
+        <tr bgcolor="#FFFFFF"> 
+          <td class="IndexName" width="33%">Parameter</td>
+          <td class="IndexName">Description</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">CST_ICMS : STRING</td>
+          <td class="Generated">'C&oacute;digo da Situa&ccedil;&atilde;o Tribut&aacute;ria, conforme a tabela indicada no item 4.3.1</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">CFOP : STRING</td>
+          <td class="Generated">'C&oacute;digo Fiscal de Opera&ccedil;&atilde;o e Presta&ccedil;&atilde;o, conforme a tabela indicada no item 4.2.2</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">ALIQ_ICMS : STRING</td>
+          <td class="Generated">'Al&iacute;quota do ICMS</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_OPR : STRING</td>
+          <td class="Generated">'Valor da opera&ccedil;&atilde;o correspondente &agrave; combina&ccedil;&atilde;o de CST_ICMS, CFOP, e al&iacute;quota do ICMS.</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_BC_ICMS : STRING</td>
+          <td class="Generated">'Parcela correspondente ao &quot;Valor da base de c&aacute;lculo do ICMS&quot; referente &agrave; combina&ccedil;&atilde;o CST_ICMS, CFOP, e al&iacute;quota do ICMS</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_ICMS : STRING</td>
+          <td class="Generated">'Parcela correspondente ao &quot;Valor do ICMS&quot; referente &agrave; combina&ccedil;&atilde;o CST_ICMS,  CFOP e al&iacute;quota do ICMS</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_BC_ICMS_ST : STRING</td>
+          <td class="Generated">'Valor da base de c&aacute;lculo do ICMS substitui&ccedil;&atilde;o tribut&aacute;ria</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_ICMS_ST : STRING</td>
+          <td class="Generated">'Valor do ICMS retido por substitui&ccedil;&atilde;o tribut&aacute;ria</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_RED_BC : STRING</td>
+          <td class="Generated">'Valor n&atilde;o tributado em fun&ccedil;&atilde;o da redu&ccedil;&atilde;o da base de c&aacute;lculo do ICMS, referente &agrave; combina&ccedil;&atilde;o de CST_ICMS, CFOP e al&iacute;quota do ICMS.</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_OBS : STRING</td>
+          <td class="Generated">'C&oacute;digo da observa&ccedil;&atilde;o do lan&ccedil;amento fiscal (campo 02 do Registro 0460)</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table><br>
+
+<span class="SectionName">Return</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td> 
+      <table width="100%" border="1" cellspacing="0" class="IndexName">
+        <tr bgcolor="#FFFFFF"> 
+          <td class="IndexName" width="33%">Types</td>
+          <td class="IndexName">Description</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">INTEGER</td>
+          <td class="Generated">Caso nenhum erro encontrado retorna RegistroC001 devidamente formatado '|C790|' + CST_ICMS, CFOP, ALIQ_ICMS, VL_OPR, VL_BC_ICMS, VL_ICMS, VL_BC_ICMS_ST, VL_ICMS_ST, VL_RED_BC, COD_OBS<BR>'Quebra de sequ&ecirc;ncia conforme L&oacute;gica de Ordena&ccedil;&atilde;o Inter-Registros.<BR>-2   Numero de CFOP inv&aacute;lido: ' + CFOP</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table><br>
+
+<table width="100%" border="0" cellspacing="0" bgcolor="#99CCFF">
+  <tr>
+    <td class="Generated"><b>SPEDFiscal32dll.dll</b></td>
+    <td class="Normal">
+      <div align="center"><a href="../../_ClassHierarchy.htm">Class Tree</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="../../SPEDFiscal32dll.dll.htm">Index</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroC700_9FBD.htm">Previous (RegistroC700)</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroC791_0F89.htm">Next (RegistroC791)</a></div>
+    </td>
+  </tr>
+</table><br>
+
+<hr width="100%" align="left">
+<span class="Footer">Add your copyright informations and link here.<br>
+Created with DelphiCodeToDoc. To obtain the latest revision, please visit <a href="http://dephicodetodoc.sourceforge.net/"><b>http://dephicodetodoc.sourceforge.net/</b></a><br>
+</body>
+</html>
+

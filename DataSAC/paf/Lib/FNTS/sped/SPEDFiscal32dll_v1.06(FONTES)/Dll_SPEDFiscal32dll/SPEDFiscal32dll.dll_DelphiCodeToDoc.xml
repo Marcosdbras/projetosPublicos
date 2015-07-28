@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<DelphiCodeToDoc_Project>
+  <TechnicalLevel>5</TechnicalLevel>
+  <ClassName>TDOCOptions</ClassName>
+  <TDOCOptions>
+    <BoolsAsChecks>TRUE</BoolsAsChecks>
+    <LaunchBrowser>TRUE</LaunchBrowser>
+    <Name>SPEDFiscal32dll.dll</Name>
+    <Title>Insert your project&apos;s title here</Title>
+    <Summary>SPED Sitema Publico de Escritura&#xE7;&#xE3;o Digital </Summary>
+    <Description>
+      <Count>26</Count>
+      <Item0/>
+      <Item1>O Projeto SPED -Sistema P&#xFA;blico de Escritura&#xE7;&#xE3;o Digital, oficializado </Item1>
+      <Item2>em Jan/2007, trata-se de uma solu&#xE7;&#xE3;o tecnol&#xF3;gica que oficializa os </Item2>
+      <Item3>arquivos digitais das escritura&#xE7;&#xF5;es fiscal e cont&#xE1;bil dos sistemas </Item3>
+      <Item4>empresariais dentro de um formato digital espec&#xED;fico e padronizado. </Item4>
+      <Item5>Dessa forma, o SPED ir&#xE1; contribuir para a redu&#xE7;&#xE3;o dos custos com o </Item5>
+      <Item6>armazenamento de documentos e tamb&#xE9;m para minimizar os encargos </Item6>
+      <Item7>com o cumprimento das obriga&#xE7;&#xF5;es acess&#xF3;rias, al&#xE9;m de possibilitar </Item7>
+      <Item8>uma maior seguran&#xE7;a.</Item8>
+      <Item9>Maiores informa&#xE7;&#xF5;es podem ser obtidas atrav&#xE9;s do portal nacional da </Item9>
+      <Item10>SPED-e em www1.receita.fazenda.gov.br</Item10>
+      <Item11/>
+      <Item12>A TKS disponibiliza um produto que permite ao desenvolvedor reduzir </Item12>
+      <Item13>significativamente o tempo de adequa&#xE7;&#xE3;o do seu sistema &#xE0; legisla&#xE7;&#xE3;o </Item13>
+      <Item14>do SPED.</Item14>
+      <Item15>Tudo o que voc&#xEA; queria saber sobre SPED, agora em </Item15>
+      <Item16>um s&#xF3; lugar!(Produto para Desenvolvedor)  </Item16>
+      <Item17> </Item17>
+      <Item18>Respons&#xE1;vel T&#xE9;cnico: </Item18>
+      <Item19>   Victory Fernandes</Item19>
+      <Item20/>
+      <Item21>Site oficial do Produto: </Item21>
+      <Item22>   www.igara.com.br/produto.php?cod_produto=114</Item22>
+      <Item23/>
+      <Item24>Coluna online no site da Revista ActiveDelphi contendo artigos sobre o tema:</Item24>
+      <Item25>   www.activedelphi.com.br/lista_topicos.php?todos=1&amp;topico=17</Item25>
+    </Description>
+    <Author>TKS Software - Victory Fernandes</Author>
+    <HTMLlink>http://dephicodetodoc.sf.net (Replace by your webpage for example)</HTMLlink>
+    <Copyright>Add your copyright informations and link here.</Copyright>
+    <RecurseDirectory>TRUE</RecurseDirectory>
+    <ConditionalDefines>
+      <Count>3</Count>
+      <Item0>MSWINDOWS</Item0>
+      <Item1>WIN32</Item1>
+      <Item2>DELPHI5_UP</Item2>
+    </ConditionalDefines>
+    <ParseImplementationSection>TRUE</ParseImplementationSection>
+    <CustomHeader>UNDER CONSTRUCTION</CustomHeader>
+    <CustomFooter>UNDER CONSTRUCTION</CustomFooter>
+    <Language>lEnglish</Language>
+    <OutputFormat>ofCHM</OutputFormat>
+    <OutputFolder>C:\Projetos\Developers\SPEDFiscal32dll\DLL_v1.0\Dll_SPED32dll\chm</OutputFolder>
+    <VisibilitySet>
+      <mvPrivate>TRUE</mvPrivate>
+      <mvProtected>TRUE</mvProtected>
+      <mvPublic>TRUE</mvPublic>
+      <mvPublished>TRUE</mvPublished>
+      <mvAutomated>TRUE</mvAutomated>
+    </VisibilitySet>
+    <TagCommentSet>
+      <tcINLINE>TRUE</tcINLINE>
+      <tcJAVADOC>TRUE</tcJAVADOC>
+      <tcJEDI>FALSE</tcJEDI>
+      <tcXMLDoc>FALSE</tcXMLDoc>
+    </TagCommentSet>
+    <AlphaSort>TRUE</AlphaSort>
+    <WarnEmptyTAG>FALSE</WarnEmptyTAG>
+    <HideEmptyTAGSection>TRUE</HideEmptyTAGSection>
+    <HideEmptyOutputBlock>TRUE</HideEmptyOutputBlock>
+    <OutputFilteringCategory>
+      <ocUnits>TRUE</ocUnits>
+      <ocConstants>TRUE</ocConstants>
+      <ocTypes>TRUE</ocTypes>
+      <ocVariables>TRUE</ocVariables>
+      <ocFunctions>TRUE</ocFunctions>
+      <ocRecords>TRUE</ocRecords>
+      <ocClasses>TRUE</ocClasses>
+      <ocFields>TRUE</ocFields>
+      <ocMethods>TRUE</ocMethods>
+      <ocProperties>TRUE</ocProperties>
+      <ocEvents>TRUE</ocEvents>
+    </OutputFilteringCategory>
+    <SkipFirstTAGLine>TRUE</SkipFirstTAGLine>
+    <SkipLastTAGLine>TRUE</SkipLastTAGLine>
+    <InLineJavaDocCharPrefix>47</InLineJavaDocCharPrefix>
+    <CurlyJavaDocCharPrefix>42</CurlyJavaDocCharPrefix>
+    <BracketStarJavaDocCharPrefix>42</BracketStarJavaDocCharPrefix>
+    <FilesIncludeList>
+      <Count>1</Count>
+      <Item0>C:\Projetos\Developers\SPEDFiscal32dll\DLL_v1.0\Dll_SPED32dll\SPEDFiscal32dll.dpr</Item0>
+    </FilesIncludeList>
+    <FilesExcludeList>
+      <Count>0</Count>
+    </FilesExcludeList>
+    <AllowHtmlInDescription>FALSE</AllowHtmlInDescription>
+    <PropertyCommentFromAssessors>TRUE</PropertyCommentFromAssessors>
+    <DisplayHiddenItems>TRUE</DisplayHiddenItems>
+    <MethodCommentFromAncestor>TRUE</MethodCommentFromAncestor>
+  </TDOCOptions>
+</DelphiCodeToDoc_Project>

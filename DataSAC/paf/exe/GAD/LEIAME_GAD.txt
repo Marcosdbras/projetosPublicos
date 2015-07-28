@@ -1,0 +1,167 @@
+GAD - Gerador de Arquivos Daruma
+
+
+Data de liberação: 18/04/2013
+
+Versão Arquivo: 1.7.15 
+
+Correções / Implementações:
+
+Implementação - Correção na tela de parametrização do Sintegra, havia campos com sujeira.
+
+Nova Implementação - Inclusão de opção Velocidade Geração, para saber se a geração de arquivos será feita em velocidade 115200. Sempre após a geração a velocidade da impressora é retornada para a velocidade original. A opção na tela aparece de acordo com o que está no XML, marcando e desmarcando, o xml é alterado.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Data de liberação: 27/11/2012
+
+Versão Arquivo: 1.7.12 
+
+Correções / Implementações:
+
+Nova Implementação - Inclusão de opção Auditoria, para que seja possível habilitar depois que o GAD já está aberto.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Data de liberação: 27/11/2012
+
+Versão Arquivo: 1.7.10 
+
+Correções / Implementações:
+
+Implementação - Ajuste na geração de relatórios isolados, onde estava saindo NFP no lugar de NFPTDM e vice-versa, e MF no lugar de TDM e vice-versa.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data de liberação: 14/11/2012
+
+Versão Arquivo: 1.7.9 
+
+Correções / Implementações:
+
+Implementação - Adicionada opção para geração Off-line.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data de liberação: 18/07/2012
+
+Versão Arquivo: 1.7.6 
+
+Correções / Implementações:
+
+Implementação - Adicionada a Nota Gaúcha nas opções de Nota Estadual.
+
+Implementação - Quando selecionado apenas opção de Espelho da Memória Fita Detalhe, agora permite que seja selecionada a data do movimento aberto. Foi retirado filtro que não permitia selecionar esta data.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data de liberação: 20/06/2012
+
+Versão Arquivo: 1.7.4 
+
+Correções / Implementações:
+
+Implementação - Adicionado formulário com informações de contato para clientes
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Versão Arquivo: 1.7.3 
+
+Correções / Implementações:
+
+Implementação - Geração do Sintegra não estava ocorrendo quando selecionado apenas ele.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data de liberação: 14/05/2012
+
+Versão Arquivo: 1.7.2 
+
+Correções / Implementações:
+
+Implementação - SPED - Adicionado campos opcionais de PIS e COFINS para geração do SPED Fiscal.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data de liberação: 13/04/2012
+
+Versão Arquivo: 1.7.1 
+
+Correções / Implementações:
+
+Implementação - Melhorado o log de erros. Foi adicionado tabulação nos campos Erro e Aviso de forma que fiquem alinhados o valores de retorno, tornando mais apresentável
+
+Implementação - configuração do diretório inicial. Quando se inicia o programa e automaticamente já está marcada a opção ‘separar relatórios em subpastas’, o caminho não é configurado corretamente
+
+Implementação - Corrigido o tamanho do checkbox separar por ‘Tipo do relatório’ da tela onde se configura a separação dos arquivos, o rótulo estava cortado
+
+Implementação - No checkBox "Nota Fiscal/Legal" alterar para "Nota Fiscal Estadual" e no checkBox "Nota Fiscal/Legal TDM" alterar para "Nota Fiscal Estadual TDM". 
+
+Implementação - Quando clicamos no botão "Abrir diretório de geração..." que é mostrado após a gerações dos relatórios, sempre esta abrindo o Meus documentos e não o diretório configurado para a geração
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data de liberação: 21/03/2012
+
+Versão Arquivo: 1.7.0 
+
+Correções / Implementações:
+
+Implementação - Opção para gerar o relatório VIVANOTA
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data de liberação: 17/01/2012
+
+Versão Arquivo: 1.6.7 
+
+Correções / Implementações:
+
+Implementação - Quando a impressora esta com pouco papel é apresentado o aviso de pouco papel mas o relatório selecionado não é gerado
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data de liberação: 02/01/2012
+
+Versão Arquivo: 1.6.6 
+
+Correções / Implementações:
+
+-Modificado caption do NFP e NFPTDM, para "Nota Fiscal/Legal Paulista, Alagoana, Rondoniense" e "Nota Fiscal/Legal TDM Paulista, Alagoana, Rondoniense"
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Data de liberação: 14/10/2011
+
+Versão Arquivo: 1.5.6
+
+Correções / Implementações:
+
+- Tratamento na geração dos arquivos NFP e NFPTDM para evitar sobreposição destes quando gerados simultaneamente no mesmo diretório.
+
+- Tela de informações (Sobre) com dados de versão do programa e links para acesso ao site Desenvolvedores Daruma e ao vídeo do GAD no Daruma Developers Channel9 (youtube)
+
+- Modificações na arquitetura usando Threads para melhorar desempenho.
+
+- Tela de parametrização da divisão dos arquvivos.
+
+- Carregamento automático dos dados do xml na tela de parametrização do SINTEGRA.
+
+- Campos para informação dos intervalos mudam de acordo com o tipo do intervalo seleciondo. Quando tipo do intervalo for COO ou CRZ é disponibilizado edits (caracteres apenas numéricos) e no se o tipo for data disponibiliza um calendário.
+
+- Tratamento de limite para o número máximo de COO e CRZ.
+
+- Calendário para seleção dos intervalos de data limitados de acordo com o ultimo movimento do ECF.
+
+- Opção para abrir o diretório onde os arquivos estão sendo gerados.
+
+- Tela de "Status da Geração" em modal e sem opção de fechamento antes de finalizado todo o processo de geração dos arquivos.
+
+- Novo diálogo para seleção de diretórios para selecionar o local de geração dos arquivos.
+
+- Informações do ECF atualizados automaticamente ao final de cada processo de geração dos arquivos.
+
+- Botão para mostrar/ocultar informações do ECF com efeito Downed.

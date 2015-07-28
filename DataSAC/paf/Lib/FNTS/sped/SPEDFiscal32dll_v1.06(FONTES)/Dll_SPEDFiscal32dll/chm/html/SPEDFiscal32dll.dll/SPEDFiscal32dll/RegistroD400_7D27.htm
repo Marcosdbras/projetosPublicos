@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>SPEDFiscal32dll.dll - SPED Sitema Publico de Escrituração Digital </title>
+<meta http-equiv="Content-Type" content="text/html">
+<link rel="stylesheet" href="../../_Resources/css/DelphiCodeToDoc.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF">
+
+<table width="100%" border="0" cellspacing="0" bgcolor="#99CCFF">
+  <tr>
+    <td class="Generated"><b>SPEDFiscal32dll.dll</b></td>
+    <td class="Normal">
+      <div align="center"><a href="../../_ClassHierarchy.htm">Class Tree</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="../../SPEDFiscal32dll.dll.htm">Index</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroD390_2176.htm">Previous (RegistroD390)</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroD410_1C67.htm">Next (RegistroD410)</a></div>
+    </td>
+  </tr>
+</table><br>
+
+<span class="SectionName">Name</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">RegistroD400</td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Parent</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated"><a href="../SPEDFiscal32dll.htm">SPEDFiscal32dll</a></td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Visibility</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">PUBLIC</td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Description</span><br>
+<table width="95%" border="0" cellspacing="0">
+
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td bgcolor="#FFFFCC" class="Generated"> 
+      <p>REGISTRO D400: NOTA FISCAL DE SERVI&Ccedil;O DE COMUNICA&Ccedil;&Atilde;O (C&Oacute;DIGO 21) E NOTA FISCAL DE SERVI&Ccedil;O DE TELECOMUNICA&Ccedil;&Atilde;O (C&Oacute;DIGO 22) ---</p>
+    </td>
+  </tr>
+
+</table><br>
+
+<span class="SectionName">Source code</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td class="Generated">Function RegistroD400 ( IND_OPER , IND_EMIT , COD_PART , COD_MOD , COD_SIT , SER , SUB , COD_CONS , NUM_DOC , DT_DOC , DT_A_P , COD_NAT , VL_DOC , VL_DESC , VL_SERV , VL_SERV_NT , VL_TERC , VL_DA , VL_BC_ICMS , VL_ICMS , COD_INF_OBS : String ) : Integer ; stdcall ; export </td>
+  </tr>
+</table>
+<br>
+
+<span class="SectionName">Parameters</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td> 
+      <table width="100%" border="1" cellspacing="0" class="IndexName">
+        <tr bgcolor="#FFFFFF"> 
+          <td class="IndexName" width="33%">Parameter</td>
+          <td class="IndexName">Description</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">IND_OPER : STRING</td>
+          <td class="Generated">'Indicador do tipo de opera&ccedil;&atilde; o:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">IND_EMIT : STRING</td>
+          <td class="Generated">'Indicador do emitente do documento fiscal:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_PART : STRING</td>
+          <td class="Generated">'C&oacute;digo do participante (campo 02 do Registro 0150):</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_MOD : STRING</td>
+          <td class="Generated">'C&oacute;digo do modelo do documento fiscal conforme a tabela indicada no item 4.1.1:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_SIT : STRING</td>
+          <td class="Generated">'C&oacute;digo da situa&ccedil;&atilde;o do documento fiscal conforme a tabela indicada no item 4.1.3:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">SER : STRING</td>
+          <td class="Generated">'S&eacute;rie do documento fiscal:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">SUB : STRING</td>
+          <td class="Generated">'Subs&eacute;rie do documento fiscal:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_CONS : STRING</td>
+          <td class="Generated">'C&oacute;digo de classe de consumo dos servi&ccedil;os de comunica&ccedil;&atilde;o ou de telecomunica&ccedil;&atilde;o conforme a tabela indicada no item 4.4.5:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">NUM_DOC : STRING</td>
+          <td class="Generated">'N&uacute;mero do documento fiscal:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">DT_DOC : STRING</td>
+          <td class="Generated">'Data da emiss&atilde;o do documento fiscal:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">DT_A_P : STRING</td>
+          <td class="Generated">'Data da aquisi&ccedil;&atilde;o ou da presta&ccedil;&atilde;o do servi&ccedil;o:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_NAT : STRING</td>
+          <td class="Generated">'C&oacute;digo da natureza da opera&ccedil;&atilde;o (campo 02 do Registro 0400) quando exigido:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_DOC : STRING</td>
+          <td class="Generated">'Valor total do documento fiscal:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_DESC : STRING</td>
+          <td class="Generated">'Valor total do desconto:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_SERV : STRING</td>
+          <td class="Generated">'Valor da presta&ccedil;&atilde;o dos servi&ccedil;os:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_SERV_NT : STRING</td>
+          <td class="Generated">'Valor total dos servi&ccedil;os n&atilde;o-tributados pelo ICMS:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_TERC : STRING</td>
+          <td class="Generated">'Valor cobrado em nome de terceiros:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_DA : STRING</td>
+          <td class="Generated">'Valor de despesas acess&oacute;rias indicadas no documento fiscal:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_BC_ICMS : STRING</td>
+          <td class="Generated">'Valor da base de c&aacute;lculo do ICMS:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">VL_ICMS : STRING</td>
+          <td class="Generated">'Valor do ICMS:</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">COD_INF_OBS : STRING</td>
+          <td class="Generated">'C&oacute;digo de refer&ecirc;ncia a informa&ccedil;&atilde;o complementar (campo 02 do Registro 0450):</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table><br>
+
+<span class="SectionName">Return</span><br>
+<table width="95%" border="0" cellspacing="0">
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td> 
+      <table width="100%" border="1" cellspacing="0" class="IndexName">
+        <tr bgcolor="#FFFFFF"> 
+          <td class="IndexName" width="33%">Types</td>
+          <td class="IndexName">Description</td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF"> 
+          <td class="Generated" width="33%">INTEGER</td>
+          <td class="Generated">Caso nenhum erro encontrado retorna RegistroC001 devidamente formatado '|D400|' + IND_OPER, IND_EMIT, COD_PART, COD_MOD, COD_SIT, SER, SUB, COD_CONS,NUM_DOC, DT_DOC, DT_A_P, COD_NAT, VL_DOC, VL_DESC, VL_SERV, VL_SERV_NT,VL_TERC, VL_DA, VL_BC_ICMS, VL_ICMS, COD_INF_OBS<BR>'Quebra de sequ&ecirc;ncia conforme L&oacute;gica de Ordena&ccedil;&atilde;o Inter-Registros.<BR>-1   Data Final Inv&aacute;lida (AAAAMMDD) : ' + DT_DOC<BR>-2   Data Final Inv&aacute;lida (AAAAMMDD) : ' + DT_A_P<BR>-3   Indicador do emitente do documento fiscal : ' + IND_EMIT</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table><br>
+
+<table width="100%" border="0" cellspacing="0" bgcolor="#99CCFF">
+  <tr>
+    <td class="Generated"><b>SPEDFiscal32dll.dll</b></td>
+    <td class="Normal">
+      <div align="center"><a href="../../_ClassHierarchy.htm">Class Tree</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="../../SPEDFiscal32dll.dll.htm">Index</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroD390_2176.htm">Previous (RegistroD390)</a></div>
+    </td>
+    <td class="Normal">
+      <div align="center"><a href="RegistroD410_1C67.htm">Next (RegistroD410)</a></div>
+    </td>
+  </tr>
+</table><br>
+
+<hr width="100%" align="left">
+<span class="Footer">Add your copyright informations and link here.<br>
+Created with DelphiCodeToDoc. To obtain the latest revision, please visit <a href="http://dephicodetodoc.sourceforge.net/"><b>http://dephicodetodoc.sourceforge.net/</b></a><br>
+</body>
+</html>
+

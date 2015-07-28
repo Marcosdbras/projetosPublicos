@@ -1,0 +1,364 @@
+unit condpgto;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, DBCtrls, StdCtrls, Buttons, Collection, TFlatPanelUnit,
+  Menus, DB, ZAbstractRODataset, ZAbstractDataset, ZDataset, Grids, DBGrids,
+  Mask, rxtooledit, rxcurredit, maskutils, RXDBCtrl, PageView, Wwdbigrd,
+  Wwdbgrid, AdvGlowButton;
+
+type
+  Tfrmcondpgto = class(TForm)
+    Pop1: TPopupMenu;
+    Incluir1: TMenuItem;
+    Alterar1: TMenuItem;
+    Excluir1: TMenuItem;
+    Localizar1: TMenuItem;
+    Fechar1: TMenuItem;
+    Pop2: TPopupMenu;
+    Gravar1: TMenuItem;
+    Cancelar1: TMenuItem;
+    dscondpgto2: TDataSource;
+    qrcondpgto: TZQuery;
+    Relatrios1: TMenuItem;
+    dscondpgto: TDataSource;
+    POP3: TPopupMenu;
+    InciodoNome1: TMenuItem;
+    PartedoNome1: TMenuItem;
+    FecharLocalizao1: TMenuItem;
+    dscondpgto_parcela: TDataSource;
+    Panel2: TPanel;
+    bincluir: TAdvGlowButton;
+    balterar: TAdvGlowButton;
+    bexcluir: TAdvGlowButton;
+    bfechar: TAdvGlowButton;
+    pgravar: TFlatPanel;
+    bgravar: TAdvGlowButton;
+    bcancelar: TAdvGlowButton;
+    Bevel1: TBevel;
+    Panel1: TPanel;
+    pficha: TFlatPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label7: TLabel;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit4: TDBEdit;
+    wwDBGrid1: TwwDBGrid;
+    Panel3: TPanel;
+    Bevel2: TBevel;
+    wwDBGrid2: TwwDBGrid;
+    bitbtn6: TAdvGlowButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure enomeEnter(Sender: TObject);
+    procedure enomeExit(Sender: TObject);
+    procedure bincluirClick(Sender: TObject);
+    procedure balterarClick(Sender: TObject);
+    procedure bexcluirClick(Sender: TObject);
+    procedure bfecharClick(Sender: TObject);
+    procedure bgravarClick(Sender: TObject);
+    procedure bcancelarClick(Sender: TObject);
+    procedure enomeKeyPress(Sender: TObject; var Key: Char);
+    procedure etipoExit(Sender: TObject);
+    procedure edata_cadastroEnter(Sender: TObject);
+    procedure elimiteKeyPress(Sender: TObject; var Key: Char);
+    procedure DBEdit1Enter(Sender: TObject);
+    procedure DBEdit1Exit(Sender: TObject);
+    procedure DBEdit1KeyPress(Sender: TObject; var Key: Char);
+    procedure RxDBCalcEdit2KeyPress(Sender: TObject; var Key: Char);
+    procedure bfinalizarClick(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure DBEdit1Change(Sender: TObject);
+    procedure wwDBGrid1KeyPress(Sender: TObject; var Key: Char);
+    procedure DBEdit4Exit(Sender: TObject);
+    procedure DBEdit4KeyPress(Sender: TObject; var Key: Char);
+    procedure DBEdit2KeyPress(Sender: TObject; var Key: Char);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmcondpgto: Tfrmcondpgto;
+  comando : string;
+
+implementation
+
+uses modulo, principal, loc_regiao, regiao, loc_funci;
+
+{$R *.dfm}
+
+
+procedure Tfrmcondpgto.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  action := cafree;
+end;
+
+procedure Tfrmcondpgto.FormShow(Sender: TObject);
+begin
+
+  pgravar.visible := false;
+  pgravar.Align := alClient;
+
+
+  frmmodulo.qrCONDPGTO.close;
+  frmmodulo.qrCONDPGTO.SQL.clear;
+  frmmodulo.qrCONDPGTO.SQL.add('select * from c000015 order by codigo');
+  frmmodulo.qrCONDPGTO.open;
+  frmmodulo.qrCONDPGTO.first;
+  pficha.Enabled := false;
+  bincluir.SetFocus;
+end;
+
+procedure Tfrmcondpgto.enomeEnter(Sender: TObject);
+begin
+  tedit(sender).Color := $00A0FAF8;
+end;
+
+procedure Tfrmcondpgto.enomeExit(Sender: TObject);
+begin
+  tedit(sender).Color := clwindow;
+end;
+
+procedure Tfrmcondpgto.bincluirClick(Sender: TObject);
+begin
+  frmmodulo.qrCONDPGTO.insert;
+  frmmodulo.qrCONDPGTO.fieldbyname('codigo').asstring := frmprincipal.codifica('000015');
+  pficha.Enabled := true;
+  dbedit2.setfocus;
+  pgravar.Visible := true;
+
+  PopupMenu := pop2;
+end;
+
+procedure Tfrmcondpgto.balterarClick(Sender: TObject);
+begin
+
+  IF dbedit1.Text <> '' THEN
+  BEGIN
+
+
+    frmmodulo.qrCONDPGTO.Edit;
+    pficha.Enabled := true;
+    dbedit2.setfocus;
+    pgravar.Visible := true;
+    PopupMenu := pop2;
+  END
+  ELSE
+  BEGIN
+    Showmessage('Nenhum registro foi selecionado!');
+  END;
+
+end;
+
+procedure Tfrmcondpgto.bexcluirClick(Sender: TObject);
+begin
+  if frmprincipal.autentica('Excluir CONDPGTO',4) then
+  begin
+
+    while frmmodulo.qrcondpgto_parcela.RecordCount <> 0 do
+       frmmodulo.qrcondpgto_parcela.Delete;
+
+    frmmodulo.qrCONDPGTO.Delete;
+    frmmodulo.Conexao.commit;
+  end
+  else
+  begin
+    Application.messagebox('Acesso não permitido!','Erro!',mb_ok+mb_iconerror);
+  end;
+end;
+
+procedure Tfrmcondpgto.bfecharClick(Sender: TObject);
+begin
+  close;
+end;
+
+procedure Tfrmcondpgto.bgravarClick(Sender: TObject);
+var situacao, tipo : integer;
+DATA: STRING;
+begin
+
+  if dbedit2.text = '' then
+  begin
+   application.messagebox('Favor informar a condição de pagamento!','Erro',mb_ok+mb_iconerror);
+   dbedit2.setfocus;
+   exit;
+
+  end;
+
+  if (frmmodulo.qrCONDPGTO_parcela.State = dsinsert) or (frmmodulo.qrCONDPGTO_parcela.State = dsedit) then frmmodulo.qrcondpgto_parcela.post;
+
+
+  if (frmmodulo.qrCONDPGTO.State = dsinsert) or (frmmodulo.qrCONDPGTO.State = dsedit) then
+  begin
+      frmmodulo.qrCONDPGTO.post;
+  end;
+
+  frmmodulo.Conexao.Commit;
+  pficha.Enabled := false;
+  pgravar.Visible := false;
+  PopupMenu := pop1;
+  bincluir.setfocus;
+
+
+
+
+
+end;
+
+procedure Tfrmcondpgto.bcancelarClick(Sender: TObject);
+begin
+  if (frmmodulo.qrCONDPGTO.State = dsinsert) or (frmmodulo.qrCONDPGTO.State = dsedit) then
+      frmmodulo.qrCONDPGTO.cancel;
+
+
+  pficha.Enabled := false;
+  pgravar.Visible := false;
+  PopupMenu := pop1;
+  bincluir.setfocus;
+  comando := '';
+
+end;
+
+procedure Tfrmcondpgto.enomeKeyPress(Sender: TObject; var Key: Char);
+begin
+  IF KEY = #13 THEN PERFORM(WM_NEXTDLGCTL,0,0);
+end;
+
+procedure Tfrmcondpgto.etipoExit(Sender: TObject);
+begin
+  tedit(sender).Color := clwindow;
+end;
+
+procedure Tfrmcondpgto.edata_cadastroEnter(Sender: TObject);
+begin
+ tedit(sender).Color := $00A0FAF8;
+ if frmmodulo.qrCONDPGTO.state = dsinsert then
+end;
+
+procedure Tfrmcondpgto.elimiteKeyPress(Sender: TObject; var Key: Char);
+begin
+  if key = #13 then bgravar.setfocus;
+end;
+
+procedure Tfrmcondpgto.DBEdit1Enter(Sender: TObject);
+begin
+tedit(sender).Color := $00A0FAF8;
+end;
+
+procedure Tfrmcondpgto.DBEdit1Exit(Sender: TObject);
+begin
+tedit(sender).Color := clwindow;
+end;
+
+procedure Tfrmcondpgto.DBEdit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key = #13 then bitbtn6.setfocus;
+end;
+
+procedure Tfrmcondpgto.RxDBCalcEdit2KeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if key = #13 then bgravar.setfocus;
+end;
+
+procedure Tfrmcondpgto.bfinalizarClick(Sender: TObject);
+begin
+  bgravar.setfocus;
+end;
+
+procedure Tfrmcondpgto.BitBtn6Click(Sender: TObject);
+var x, i : integer;
+
+begin
+  try
+
+  frmmodulo.qrcondpgto_parcela.Close;
+  frmmodulo.qrcondpgto_parcela.SQL.clear;
+  frmmodulo.qrcondpgto_parcela.SQL.Add('delete from c000016 where codcondpgto = '''+frmmodulo.qrcondpgto.fieldbyname('codigo').asstring+'''');
+  frmmodulo.qrcondpgto_parcela.ExecSQL;
+
+  frmmodulo.qrcondpgto_parcela.SQL.clear;
+  frmmodulo.qrcondpgto_parcela.SQL.Add('select * from c000016 where codcondpgto = '''+frmmodulo.qrcondpgto.fieldbyname('codigo').asstring+''' order by numero');
+  frmmodulo.qrcondpgto_parcela.open;
+
+  i := frmmodulo.qrcondpgto.fieldbyname('parcelas').asinteger;
+  x := 1;
+
+
+  while i <> 0 do
+  begin
+    frmmodulo.qrcondpgto_parcela.Insert;
+    frmmodulo.qrcondpgto_parcela.fieldbyname('codigo').asstring := frmprincipal.codifica('000016');
+    frmmodulo.qrcondpgto_parcela.fieldbyname('codcondpgto').asstring := frmmodulo.qrcondpgto.fieldbyname('codigo').asstring;
+    frmmodulo.qrcondpgto_parcela.fieldbyname('numero').asinteger := x;
+    frmmodulo.qrcondpgto_parcela.fieldbyname('percentual').asfloat := 100/frmmodulo.qrcondpgto.fieldbyname('parcelas').asinteger;
+    frmmodulo.qrcondpgto_parcela.post;
+
+    i := i - 1;
+    x := x + 1;
+  end;
+  frmmodulo.qrcondpgto_parcela.Refresh;
+  wwDBGrid1.SetFocus;
+
+  except
+  end;
+
+end;
+
+procedure Tfrmcondpgto.DBEdit1Change(Sender: TObject);
+begin
+  try
+    frmmodulo.qrcondpgto_parcela.Close;
+    frmmodulo.qrcondpgto_parcela.SQL.clear;
+    frmmodulo.qrcondpgto_parcela.SQL.Add('select * from c000016 where codcondpgto = '''+frmmodulo.qrcondpgto.fieldbyname('codigo').asstring+''' order by numero');
+    frmmodulo.qrcondpgto_parcela.open;
+  except
+  end;
+end;
+
+procedure Tfrmcondpgto.wwDBGrid1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key = #13 then bgravar.setfocus;
+end;
+
+procedure Tfrmcondpgto.DBEdit4Exit(Sender: TObject);
+begin
+tedit(sender).Color := clwindow;
+
+
+if   (frmmodulo.qrcondpgto.State = dsinsert) or (frmmodulo.qrcondpgto.State = dsedit) then
+begin
+try
+  if dbedit4.text = '' then
+  begin
+    showmessage('Favor informar um número válido!');
+    dbedit4.setfocus;
+  end;
+except
+  showmessage('Quantidade inválida!');
+  dbedit4.setfocus;
+end;
+end;
+end;
+
+procedure Tfrmcondpgto.DBEdit4KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key = #13 then bitbtn6.setfocus;
+end;
+
+procedure Tfrmcondpgto.DBEdit2KeyPress(Sender: TObject; var Key: Char);
+begin
+  if key = #13 then perform(wm_nextdlgctl,0,0);
+end;
+
+end.
+
+
+
+////  ecpf.text := FormatMaskText('99.999.999/9999-99;0;_',ecpf.text);

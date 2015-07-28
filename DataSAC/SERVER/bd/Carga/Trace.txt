@@ -1,0 +1,42 @@
+Arquivo Configuracao ->  
+C:\WINDOWS\sitconf.ini
+Endereco   = 02f8
+ Tipo       = Pinpad EMV
+ PortaSerial= 1
+ Velocidade   = 19200
+ Irq                      = 3
+Arquivo Configuracao ->  
+C:\WINDOWS\sitconf.ini
+Endereco   = 02f8
+ Tipo       = Pinpad EMV
+ PortaSerial= 1
+ Velocidade   = 19200
+ Irq                      = 3
+Arquivo Configuracao ->  
+C:\WINDOWS\sitconf.ini
+Endereco   = 02f8
+ Tipo       = Pinpad EMV
+ PortaSerial= 1
+ Velocidade   = 19200
+ Irq                      = 3
+Arquivo Configuracao ->  
+C:\WINDOWS\sitconf.ini
+Endereco   = 02f8
+ Tipo       = Pinpad EMV
+ PortaSerial= 1
+ Velocidade   = 19200
+ Irq                      = 3
+Arquivo Configuracao ->  
+C:\WINDOWS\sitconf.ini
+Endereco   = 02f8
+ Tipo       = Pinpad EMV
+ PortaSerial= 1
+ Velocidade   = 19200
+ Irq                      = 3
+Arquivo Configuracao ->  
+C:\WINDOWS\sitconf.ini
+Endereco   = 02f8
+ Tipo       = GERTEC
+ PortaSerial= 1
+ Velocidade   = 19200
+ Irq                      = 3
