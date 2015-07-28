@@ -1,0 +1,77 @@
+
+
+
+
+
+if frmdados.Cds_sVenda.FieldByName('parc').asInteger > 0 then
+                  begin
+                    tabela := 'Vencimentos';
+
+                    frmdados.Cds_Vencto.Active := false;
+                    frmdados.Dbx_Vencto.Active := false;
+                    frmdados.Dbx_Vencto.SQL.Clear;
+                    frmdados.Dbx_Vencto.SQL.Add('Select * from vencimentos where c_svenda = '+frmdados.Cds_sVenda.fieldbyname('codigo').asString);
+                    frmdados.Dbx_Vencto.Active := true;
+                    frmdados.Cds_Vencto.Active := true;
+
+                    frmdados.Cds_Vencto.Append;
+                    frmdados.Cds_Vencto.FieldByName('ccli').asInteger := frmdados.Cds_sVenda.fieldbyname('ccli').asInteger;
+                    frmdados.Cds_Vencto.Post;
+
+                    frmdados.Cds_Vencto.Append;
+                    frmdados.Cds_Vencto.FieldByName('c_svenda').asString := frmdados.Cds_sVenda.fieldbyname('codigo').asString;
+                    frmdados.Cds_Vencto.Post;
+
+                    frmdados.Cds_Vencto.Append;
+                    frmdados.Cds_Vencto.FieldByName('prazo').asString := frmdados.Cds_sVenda.fieldbyname('prazo1').asString;
+                    frmdados.Cds_Vencto.Post;
+
+                    frmdados.Cds_Vencto.Append;
+                    frmdados.Cds_Vencto.FieldByName('dtv').asString := frmdados.Cds_sVenda.fieldbyname('vctdup1').asString;
+                    frmdados.Cds_Vencto.Post;
+
+                    frmdados.Cds_Vencto.Append;
+                    frmdados.Cds_Vencto.FieldByName('dte').asDatetime := date;
+                    frmdados.Cds_Vencto.Post;
+
+                    frmdados.Cds_Vencto.Append;
+                    frmdados.Cds_Vencto.FieldByName('valor').asString := frmdados.Cds_sVenda.fieldbyname('vlrdup1').asString;
+                    frmdados.Cds_Vencto.Post;
+
+
+                    frmdados.Cds_Vencto.Append;
+                    frmdados.Cds_Vencto.FieldByName('valliq').asString := frmdados.Cds_sVenda.fieldbyname('vlrdup1').asString;
+                    frmdados.Cds_Vencto.Post;
+
+
+                    frmdados.Cds_Vencto.Append;
+                    frmdados.Cds_Vencto.FieldByName('ehvenda').asString := 'T';
+                    frmdados.Cds_Vencto.Post;
+
+
+                    frmdados.Dbx_Vencto.Active := false;
+                    frmdados.Cds_Vencto.Active := false;
+
+                    tabela := 'sVenda';
+
+                  end;
+               //endi
+
+
+
+               if application.MessageBox('Deseja Cancelar Número do Pedido?','Atenção',mb_YesNo + mb_DefButton2) = idYes then
+                   begin
+
+                     frmdados.Dbx_Exec.Active := false;
+                     frmdados.Dbx_Exec.SQL.Clear;
+                     frmdados.Dbx_Exec.SQL.Add('Delete from Vencimentos where c_svenda = '+frmdados.Cds_sVenda.fieldbyname('codigo').asString);
+                     frmdados.Dbx_Exec.ExecSQL;
+
+                     frmdados.Cds_sVenda.Edit;
+                     frmdados.Cds_sVenda.FieldByName('nped').asInteger := 0;
+                     frmdados.Cds_sVenda.Post;
+
+
+
+                 end;
+             //endi

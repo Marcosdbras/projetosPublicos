@@ -1,0 +1,21 @@
+var
+  Icon: TBitmap;
+
+begin
+  Icon := TBitmap.Create;
+  if (Column.FieldName = 'IMPNF') then
+  begin
+    with dbgdvenda.Canvas do
+    begin
+      Brush.Color := clWhite;
+      FillRect(Rect);
+      if (FrmDados.Cds_dVenda.FieldByName('IMPNF').asString = 'F') then
+        Lista_Img.GetBitmap(1, Icon)
+      else
+        Lista_Img.GetBitmap(0, Icon);
+      //endi
+      Draw(round((Rect.Left + Rect.Right - Icon.Width) / 2), Rect.Top, Icon);
+    end;
+  end;
+
+end;

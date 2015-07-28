@@ -1,0 +1,50 @@
+   if (inserting) then
+     begin
+
+        if (new.eous = 'S') then
+             update dprodutos d set d.qua = d.qua - new.qtde where (d.codigo = new.cpro) and (d.ultcont <= new.data_op) and (new.ehvenda = 'T');
+
+
+        if (new.eous = 'E') then
+             update dprodutos d set d.qua = d.qua + new.qtde where (d.codigo = new.cpro) and (d.ultcont <= new.data_op) and (new.ehvenda = 'T');
+
+
+
+     end
+  else
+     begin
+       if (updating) then
+          begin
+
+             if (old.eous = 'S') then
+                 update dprodutos d set d.qua = d.qua - old.qtde where (d.codigo = old.cpro) and (d.ultcont <= old.data_op) and (new.ehvenda = 'T');
+
+
+             if (old.eous = 'E') then
+                 update dprodutos d set d.qua = d.qua + old.qtde where (d.codigo = old.cpro) and (d.ultcont <= old.data_op) and (new.ehvenda = 'T');
+
+
+
+           end
+       else
+          begin
+            if (deleting) then
+               begin
+
+                  if (old.eous = 'S') then
+                     update dprodutos d set d.qua = d.qua + old.qtde where (d.codigo = old.cpro) and (d.ultcont <= old.data_op) and (old.ehvenda = 'T');
+
+
+                  if (old.eous = 'E') then
+                     update dprodutos d set d.qua = d.qua - old.qtde where (d.codigo = old.cpro) and (d.ultcont <= old.data_op) and (old.ehvenda = 'T');
+
+
+               end
+           end
+
+
+
+
+
+  end
+

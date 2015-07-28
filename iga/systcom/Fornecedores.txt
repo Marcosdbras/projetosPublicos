@@ -1,0 +1,55 @@
+[fornecedor00006]
+NomeRazao=CCR DISTRIBUIDORA
+Fantasia=
+Logradouro=RUA AMERICO VESPUCIO
+Complemento=
+Fone=1136874850
+CEP=06273-070
+CNPJ=52.760.758/0001-21
+IE=492443929112
+Numero=
+Bairro=
+[fornecedor00003]
+NomeRazao=HELIOCOLOR COM. E IND. LTDA.
+Fantasia=
+Logradouro=ESTRADA SADAE TAKAGI
+Complemento=
+Fone=1143934777/FAX 43926205
+CEP=098852070
+CNPJ=147541911913110
+IE=635554364113
+Numero=
+Bairro=
+[fornecedor00007]
+NomeRazao=PROFISSIONAL PARQUET ( SKANIA )
+Fantasia=
+Logradouro=
+Complemento=
+Fone=
+CEP=         
+CNPJ=
+IE=
+Numero=
+Bairro=
+[fornecedor00002]
+NomeRazao=RESITECH DO BRASIL
+Fantasia=
+Logradouro=AL. ARAGUAIA
+Complemento=
+Fone=11-41955754
+CEP=         
+CNPJ=0000000000000000
+IE=000000000000
+Numero=
+Bairro=
+[fornecedor00005]
+NomeRazao=W&W DISTRIBUIDORA DE RESINAS E ABRASIVOS LTDA.
+Fantasia=
+Logradouro=RUA PARAIBUNA
+Complemento=
+Fone=1239414808
+CEP=         
+CNPJ=07.115.500/001-18
+IE=645.465.921.114
+Numero=
+Bairro=

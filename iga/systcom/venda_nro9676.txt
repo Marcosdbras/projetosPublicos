@@ -1,0 +1,19 @@
+[cliente00522]
+CNPJ=038.197.348-48
+IE=
+NomeRazao=ADEILDO JOSE DOS SANTOS
+Fantasia=
+Fone=
+CEP=         
+Logradouro=
+Numero=
+Complemento=
+Bairro=
+[produto00006]
+CPRO=5288
+NPRO=ABAJUR LUZ NOTURNA URSO LED
+QTDE=1
+PRVE=6
+SUBTOTAL=6
+NCM=09876543
+ICMS=F1

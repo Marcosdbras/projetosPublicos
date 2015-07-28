@@ -1,0 +1,3 @@
+cd C:\ACBrNFeMonitor
+copy SAINFE.TXT C:\ACBrNFeMonitor\SAINFEIMP.TXT
+del SAINFE.TXT

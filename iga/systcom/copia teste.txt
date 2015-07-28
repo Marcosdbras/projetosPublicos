@@ -1,0 +1,8 @@
+            if (new.eous = 'S') then
+               begin
+                 update dprodutos d set d.qua = d.qua - (new.qtde - old.qtde) where (d.codigo = new.cpro) and (d.ultcont <= new.data_op) and (new.ehvenda = 'T');
+               end
+            else
+               begin
+                 update dprodutos d set d.qua = d.qua + (new.qtde - old.qtde) where (d.codigo = new.cpro) and (d.ultcont <= new.data_op) and (new.ehvenda = 'T');
+               end

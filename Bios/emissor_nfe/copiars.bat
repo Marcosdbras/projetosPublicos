@@ -1,0 +1,2 @@
+cd C:\ACBrNFeMonitor
+copy SAINFE.TXT C:\ACBrNFeMonitor\SAINFE_C041NF057.TXT

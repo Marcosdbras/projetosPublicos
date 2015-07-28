@@ -1,0 +1,8 @@
+select v.cpro,
+       p.descricao,
+       v.data_op,
+       d.qua
+from   dprodutos d
+left outer join dvenda   v on d.codigo = v.cpro
+     inner join produtos p on p.codigo = d.cdescprod
+where (d.qua > 0) order by v.data_op;

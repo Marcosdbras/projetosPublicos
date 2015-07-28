@@ -1,0 +1,173 @@
+    //1
+    'descricao;'+
+
+    //2
+    'codigo;'+
+
+    //3
+    'preco custo;'+
+
+    //4
+    'markup;'+
+
+    //5
+    'preco de venda;'+
+
+    //6
+    'Quantidade;'+
+
+    //7
+    'unidade;'+
+
+    //8
+    'grupo;'+
+
+    //9
+    'marca;'+
+
+    //10
+    'qtde embalagem;'+
+
+    //11
+    'codigo de barras;'+
+
+    //12
+    'codigo auxiliar;'+
+
+    //13
+    'observacao;'+
+
+    //14
+    'codigo fabricante;'+
+
+    //15
+    'reserva icms;'+
+
+    //16
+    'estoque minimo;'+
+
+    //17
+    'estoque maximo;'+
+
+    //18
+    'reserva ipi;'+
+
+    //19
+    'aliquota outro imposto;'+
+
+    //20
+    'reserva mercadoria;'+
+
+    //21
+    'saldo estoque;'+
+
+    //22
+    'mesclar;'+
+
+    //23
+    'val1;'+
+
+    //24
+    'val2;'+
+
+    //25
+    'preco base;'+
+
+    //26
+    'aliquota custo;'+
+
+    //27
+    'ICMS;'+
+
+    //28
+    'vlr adicional;'+
+
+    //29
+    'serie;'+
+
+    //30
+    'ultima saida;'+
+
+    //31
+    'ultima entrada;'+
+
+    //32
+    'ultima contagem;'+
+
+    //33
+    'caracterisica;'+
+
+    //34
+    'aceita desconto;'+
+
+    //35
+    'percentual desconto;'+
+
+    //36
+    'percentual comissao;'+
+
+    //37
+    'especificacao;'+
+
+    //38
+    'CF;'+
+
+    //39
+    'SITA;'+
+
+    //40
+    'SITB;'+
+
+    //41
+    'IPI;'+
+
+    //42
+    'Aplicacao;'+
+
+    //43
+    'Localizacao;'+
+
+    //44
+    'CFOP;'+
+
+    //45
+    'PIS;'+
+
+    //46
+    'COFINS;'+
+
+    //47
+    'MODBC;'+
+
+    //48
+    'Imposto II;'+
+
+    //49
+    'Imposto III;'+
+
+    //50
+    'Imposto IV;'+
+
+    //51
+    'VBC;'+
+
+    //52
+    'MODBCST;'+
+
+    //53
+    'PMVAST;'+
+
+    //54
+    'PREDBCST;'+
+
+    //55
+    'VBCST;'+
+
+    //56
+    'PICMSST;'+
+
+    //57
+    'VICMSST;'+
+
+    //58
+    'PREDBC' );

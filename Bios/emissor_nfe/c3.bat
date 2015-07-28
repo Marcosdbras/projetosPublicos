@@ -1,0 +1,2 @@
+cd C:\ACBrNFeMonitor
+copy SAINFE.TXT C:\ACBrNFeMonitor\Logs\SAINFE_C00217NF00231.TXT

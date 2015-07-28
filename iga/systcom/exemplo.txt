@@ -1,0 +1,73 @@
+procedure tfrmpesqvd.exportarped;
+var f:textfile;
+vardir:string;
+begin
+
+  vardir := extractfilepath(application.ExeName);
+
+  AssignFile(f,vardir+'nf' + inttostr( frmdados.Cds_sVenda.fieldbyname('codigo').asInteger ) + '.txt');
+  rewrite(f);
+
+  if frmdados.Cds_Clientes.Locate('codigo',frmdados.Cds_sVenda.fieldbyname('ccli').asString,[]) then
+     begin
+       Writeln(f,'[cliente'+formatfloat('00000',frmdados.cds_clientes.fieldbyname('codigo').asfloat)+']');
+       Writeln(f,'CNPJ='+frmdados.cds_clientes.fieldbyname('cpf').asString);
+       Writeln(f,'IE='+frmdados.cds_clientes.fieldbyname('ie').asString);
+       Writeln(f,'NomeRazao='+frmdados.cds_clientes.fieldbyname('nome').asString);
+       Writeln(f,'Fantasia='+frmdados.cds_clientes.fieldbyname('fantasia').asString);
+       Writeln(f,'Fone='+frmdados.cds_clientes.fieldbyname('telefones').asString);
+       Writeln(f,'CEP='+frmdados.cds_clientes.fieldbyname('cepent').asString);
+       Writeln(f,'Logradouro='+frmdados.cds_clientes.fieldbyname('endent').asString);
+       Writeln(f,'Numero='+frmdados.cds_clientes.fieldbyname('nroent').asString);
+       Writeln(f,'Complemento='+frmdados.cds_clientes.fieldbyname('complent').asString);
+       Writeln(f,'Bairro='+frmdados.cds_clientes.fieldbyname('bairroent').asString);
+     end;
+  //endi
+
+  frmdados.cds_produtos.Active := true;
+
+  frmdados.cds_dVenda.Active := false;
+  frmdados.cds_dVendacodsvenda.DefaultExpression := frmdados.cds_sVenda.fieldbyname('codigo').asString;
+  frmdados.cds_dVendaImpNf.DefaultExpression := 'T';
+  frmdados.dbx_dVenda.Active := false;
+  frmdados.dbx_dVenda.SQL.Clear;
+  frmdados.dbx_dVenda.SQL.Add('Select * from dVenda where codsvenda = '+ inttostr( frmdados.cds_sVenda.fieldbyname('codigo').asInteger ) );
+  frmdados.dbx_dVenda.Active := true;
+  frmdados.cds_dVenda.Active := true;
+
+
+  while not frmdados.cds_dvenda.Eof do
+    begin
+
+      Writeln(f,'[produto'+formatfloat('00000',frmdados.Cds_dVenda.fieldbyname('codigo').asfloat)+']');
+      Writeln(f,'CPRO='+frmdados.cds_dvenda.fieldbyname('cpro').asString);
+      Writeln(f,'NPRO='+frmdados.cds_dvenda.fieldbyname('npro').asString);
+      Writeln(f,'QTDE='+floattostr(frmdados.cds_dvenda.fieldbyname('qtde').asfloat));
+      Writeln(f,'PRVE='+floattostr(frmdados.cds_dvenda.fieldbyname('prve').asfloat));
+      Writeln(f,'SUBTOTAL='+floattostr(frmdados.cds_dvenda.fieldbyname('subtotal').asfloat));
+      //Writeln(f,'CAUX='+frmdados.cds_dvenda.fieldbyname('caux').asString);
+
+      if frmdados.Cds_produtos.Locate('codigo',frmdados.cds_dvenda.fieldbyname('cpro').AsInteger,[]) then
+         begin
+           Writeln(f,'NCM='+frmdados.cds_produtos.fieldbyname('ncm').asString);
+         end;
+      //endi
+
+      if frmdados.Cds_AliqImpFis.Locate('codigo',frmdados.cds_dvenda.fieldbyname('codicms').AsInteger,[]) then
+         begin
+           Writeln(f,'ICMS='+frmdados.cds_aliqimpfis.fieldbyname('sigla').asString);
+         end;
+      //endi
+
+
+
+      frmdados.Cds_dVenda.Next;
+
+    end;
+  //endi
+
+  CloseFile(f);
+
+
+
+end;
