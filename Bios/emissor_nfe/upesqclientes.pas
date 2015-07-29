@@ -517,14 +517,26 @@ frmdados.sql_clientes.SQL.Add('select * from clientes');
 frmdados.sql_clientes.Active := true;
 frmdados.cds_clientes.Active := true;
 
+frmdados.sql_Munic.Active := false;
+frmdados.cds_Munic.Active := false;
+frmdados.sql_Munic.SQL.Clear;
+frmdados.sql_Munic.SQL.Add('select * from munic order by nome');
 frmdados.sql_Munic.Active := true;
 frmdados.cds_Munic.Active := true;
 
-frmdados.sql_transportador.Active := true;
-frmdados.cds_transportador.Active := true;
-
+frmdados.sql_Estados.Active := false;
+frmdados.cds_Estados.Active := false;
+frmdados.sql_Estados.SQL.Clear;
+frmdados.sql_Estados.SQL.Add('select * from estados order by nome');
 frmdados.sql_Estados.Active := true;
 frmdados.cds_Estados.Active := true;
+
+frmdados.sql_transportador.Active := false;
+frmdados.cds_transportador.Active := false;
+frmdados.sql_transportador.SQL.Clear;
+frmdados.sql_transportador.SQL.Add('select * from transportador order by nome');
+frmdados.sql_transportador.Active := true;
+frmdados.cds_transportador.Active := true;
 
 
 

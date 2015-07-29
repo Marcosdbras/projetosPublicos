@@ -2490,7 +2490,7 @@ begin
      begin
        Writeln(f,'idDest=2' );
      end;
-  //endi 
+  //endi
 
 
   if (edidatasai.Text <> '00/00/0000') then
@@ -2499,6 +2499,9 @@ begin
   if (edihorasai.Text <> '  :  ') then
      Writeln(f,'hSaiEnt='+edihorasai.text);
   //endi
+
+  Writeln(f,'tpNF='+frmdados.cds_tiponf.FieldByName('sigla').asString);
+  //Writeln(f,'Finalidade=0');
 
 
   if cbxfinalidade.ItemIndex = 0 then
@@ -2562,8 +2565,6 @@ begin
        Writeln(f,'xJust='+edit1.text);
      end;
 
-  Writeln(f,'tpNF='+frmdados.cds_tiponf.FieldByName('sigla').asString);
-  //Writeln(f,'Finalidade=0');
 
 
   if rgbformapgto.ItemIndex <> -1 then
