@@ -6053,7 +6053,13 @@ begin
           spCupom_Forma.ParamByName('codigo').asstring     := codifica_forma(1);
           spCupom_Forma.ParamByName('cod_cupom').asstring  := sCod_Cupom;
           spCupom_Forma.ParamByName('forma').asstring      := copy(cb_forma1.text,1,30);
-          spCupom_Forma.ParamByName('valor').asfloat       := ed_forma1.Value;
+
+          if ed_forma1.Value > ed_total_pagar.Value then
+             spCupom_Forma.ParamByName('valor').asfloat       := ed_total_pagar.Value
+          else
+             spCupom_Forma.ParamByName('valor').asfloat       := ed_forma1.Value;
+          //endi
+
           spCupom_Forma.ParamByName('prestacao').asinteger := 1;
           spCupom_Forma.ParamByName('tipo').asstring       := 'CUPOM FISCAL';
           spCupom_Forma.Prepare;
@@ -6068,7 +6074,13 @@ begin
           spCupom_Forma.ParamByName('codigo').asstring     := codifica_forma(2);
           spCupom_Forma.ParamByName('cod_cupom').asstring  := sCod_Cupom;
           spCupom_Forma.ParamByName('forma').asstring      := copy(cb_forma2.text,1,30);
-          spCupom_Forma.ParamByName('valor').asfloat       := ed_forma2.Value;
+
+          if ed_forma2.Value > ed_total_pagar.Value then
+             spCupom_Forma.ParamByName('valor').asfloat       := ed_total_pagar.Value
+          else
+             spCupom_Forma.ParamByName('valor').asfloat       := ed_forma2.Value;
+          //endif
+
           spCupom_Forma.ParamByName('prestacao').asinteger := 2;
           spCupom_Forma.ParamByName('tipo').asstring       := 'CUPOM FISCAL';
           spCupom_Forma.Prepare;
@@ -6083,7 +6095,13 @@ begin
           spCupom_Forma.ParamByName('codigo').asstring     := codifica_forma(3);
           spCupom_Forma.ParamByName('cod_cupom').asstring  := sCod_Cupom;
           spCupom_Forma.ParamByName('forma').asstring      := copy(cb_forma3.text,1,30);
-          spCupom_Forma.ParamByName('valor').asfloat       := ed_forma3.Value;
+
+          if ed_forma3.Value > ed_total_pagar.Value then
+             spCupom_Forma.ParamByName('valor').asfloat       := ed_total_pagar.Value
+          else
+             spCupom_Forma.ParamByName('valor').asfloat       := ed_forma3.Value;
+          //endi
+
           spCupom_Forma.ParamByName('prestacao').asinteger := 3;
           spCupom_Forma.ParamByName('tipo').asstring       := 'CUPOM FISCAL';
           spCupom_Forma.Prepare;

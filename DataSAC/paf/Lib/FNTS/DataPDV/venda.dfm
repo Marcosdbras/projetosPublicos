@@ -3,7 +3,7 @@ object frmVenda: TfrmVenda
   Top = 0
   BorderStyle = bsNone
   Caption = 'Venda Balc'#227'o'
-  ClientHeight = 543
+  ClientHeight = 539
   ClientWidth = 790
   Color = clBlack
   Font.Charset = ANSI_CHARSET
