@@ -3609,149 +3609,154 @@ begin
 
   sobs := '';
 
-  if edinped.Text <> '' then
-     sobs := sitens;
-
-  if sobs = '' then
-     sobs := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';'
-  else
-    sobs := sobs +  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';';
-
-  if frmdados.cds_regtrib.Locate('codigo',frmdados.cds_emitente.FieldByName('cregtrib').AsInteger,[]) then
+  if not ckbdadosadic.Checked then
      begin
-       if sobs = '' then
-          begin
-            sobs := frmdados.cds_regtrib.fieldbyname('obs').asString;
-          end
-       else
-          begin
-            sobs := sobs +' '+ frmdados.cds_regtrib.fieldbyname('obs').asString;
-          end;
-       //endi
+
+
+            if edinped.Text <> '' then
+               sobs := sitens;
+
+            if sobs = '' then
+               sobs := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';'
+            else
+              sobs := sobs +  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';';
+
+            if frmdados.cds_regtrib.Locate('codigo',frmdados.cds_emitente.FieldByName('cregtrib').AsInteger,[]) then
+               begin
+                 if sobs = '' then
+                    begin
+                      sobs := frmdados.cds_regtrib.fieldbyname('obs').asString;
+                    end
+                 else
+                    begin
+                      sobs := sobs +' '+ frmdados.cds_regtrib.fieldbyname('obs').asString;
+                    end;
+                 //endi
+               end;
+            //endi
+
+            if frmdados.cds_nf.FieldByName('vlrcredipi').asfloat = 0 then
+               begin
+                 if sobs = '' then
+                    begin
+                      //sobs := 'NAO GERA DIREITO A CREDITO FISCAL DE IPI';
+                    end
+                 else
+                    begin
+                       //sobs := sobs +' / NAO GERA DIREITO A CREDITO FISCAL DE IPI';
+                    end;
+                 //endi
+               end;
+            //endi
+
+
+            if frmdados.cds_nf.FieldByName('vlrcrediss').asfloat = 0 then
+               begin
+                 if sobs = '' then
+                    begin
+                      //sobs := 'NAO GERA DIREITO A CREDITO FISCAL DE ISS';
+                    end
+                 else
+                    begin
+                       //sobs := sobs +' / NAO GERA DIREITO A CREDITO FISCAL DE ISS';
+                    end;
+                 //endi
+               end;
+            //endi
+
+
+
+
+            frmdados.cds_temp_imp.First;
+            while not frmdados.cds_temp_imp.Eof do
+              begin
+                 if sobs = '' then
+                    begin
+                      sobs := frmdados.cds_temp_imp.fieldbyname('obs').asString;
+                    end
+                 else
+                    begin
+                       sobs := sobs +' / '+frmdados.cds_temp_imp.fieldbyname('obs').asString;
+                    end;
+                 //endi
+
+                 frmdados.cds_temp_imp.Next;
+
+              end;
+            //endi
+
+            if frmdados.cds_nf.FieldByName('nnfrefdevol').asString <> ''  then
+               begin
+                 if sobs = '' then
+                    begin
+                      sobs := 'DEVOLUCAO DE MERCADORIA REFERENTE SUA N.F. N.O '+ frmdados.cds_nf.FieldByName('nnfrefdevol').asString +' DE '+  frmdados.cds_nf.FieldByName('datanfrefdevol').asString+' POR ESTAR EM DESACORDO COM O PEDIDO';
+                    end
+                 else
+                    begin
+                       sobs := sobs +' / DEVOLUCAO DE MERCADORIA REFERENTE SUA N.F. N.O '+ frmdados.cds_nf.FieldByName('nnfrefdevol').asString +' DE '+  frmdados.cds_nf.FieldByName('datanfrefdevol').asString+' POR ESTAR EM DESACORDO COM O PEDIDO';
+                    end;
+                 //endi
+               end;
+            //endi
+
+            if fvicms > 0  then
+               begin
+                 if sobs = '' then
+                    begin
+                      sobs := 'BC DO ICMS '+formatfloat('###,###,##0.00', ftotbcicms );
+                    end
+                 else
+                    begin
+                      sobs := sobs +' / BC DO ICMS '+formatfloat('###,###,##0.00', ftotbcicms );
+                    end;
+                 //endi
+               end;
+            //endi
+
+            if fvicms > 0  then
+               begin
+                 if sobs = '' then
+                    begin
+                      sobs := 'VALOR ICMS '+formatfloat('###,###,##0.00', ftoticms ) ;
+                    end
+                 else
+                    begin
+                       sobs := sobs +' / VALOR ICMS '+formatfloat('###,###,##0.00', ftoticms );
+                    end;
+                 //endi
+               end;
+            //endi
+
+            if fvipi > 0  then
+               begin
+                 if sobs = '' then
+                    begin
+                      sobs := 'BC DO IPI '+formatfloat('###,###,##0.00', ftotbcipi ) ;
+                    end
+                 else
+                    begin
+                       sobs := sobs +' / BC DO IPI '+formatfloat('###,###,##0.00', ftotbcipi );
+                    end;
+                 //endi
+               end;
+            //endi
+
+            if fvipi > 0  then
+               begin
+                 if sobs = '' then
+                    begin
+                      sobs := 'VALOR IPI '+formatfloat('###,###,##0.00', ftotipi );
+                    end
+                 else
+                    begin
+                       sobs := sobs +' / VALOR IPI '+formatfloat('###,###,##0.00', ftotipi ) ;
+                    end;
+                 //endi
+               end;
+            //endi
+
      end;
   //endi
-
-  if frmdados.cds_nf.FieldByName('vlrcredipi').asfloat = 0 then
-     begin
-       if sobs = '' then
-          begin
-            //sobs := 'NAO GERA DIREITO A CREDITO FISCAL DE IPI';
-          end
-       else
-          begin
-             //sobs := sobs +' / NAO GERA DIREITO A CREDITO FISCAL DE IPI';
-          end;
-       //endi
-     end;
-  //endi
-
-
-  if frmdados.cds_nf.FieldByName('vlrcrediss').asfloat = 0 then
-     begin
-       if sobs = '' then
-          begin
-            //sobs := 'NAO GERA DIREITO A CREDITO FISCAL DE ISS';
-          end
-       else
-          begin
-             //sobs := sobs +' / NAO GERA DIREITO A CREDITO FISCAL DE ISS';
-          end;
-       //endi
-     end;
-  //endi
-
-
-
-
-  frmdados.cds_temp_imp.First;
-  while not frmdados.cds_temp_imp.Eof do
-    begin
-       if sobs = '' then
-          begin
-            sobs := frmdados.cds_temp_imp.fieldbyname('obs').asString;
-          end
-       else
-          begin
-             sobs := sobs +' / '+frmdados.cds_temp_imp.fieldbyname('obs').asString;
-          end;
-       //endi
-
-       frmdados.cds_temp_imp.Next;
-
-    end;
-  //endi
-
-  if frmdados.cds_nf.FieldByName('nnfrefdevol').asString <> ''  then
-     begin
-       if sobs = '' then
-          begin
-            sobs := 'DEVOLUCAO DE MERCADORIA REFERENTE SUA N.F. N.O '+ frmdados.cds_nf.FieldByName('nnfrefdevol').asString +' DE '+  frmdados.cds_nf.FieldByName('datanfrefdevol').asString+' POR ESTAR EM DESACORDO COM O PEDIDO';
-          end
-       else
-          begin
-             sobs := sobs +' / DEVOLUCAO DE MERCADORIA REFERENTE SUA N.F. N.O '+ frmdados.cds_nf.FieldByName('nnfrefdevol').asString +' DE '+  frmdados.cds_nf.FieldByName('datanfrefdevol').asString+' POR ESTAR EM DESACORDO COM O PEDIDO';
-          end;
-       //endi
-     end;
-  //endi
-
-  if fvicms > 0  then
-     begin
-       if sobs = '' then
-          begin
-            sobs := 'BC DO ICMS '+formatfloat('###,###,##0.00', ftotbcicms );
-          end
-       else
-          begin
-            sobs := sobs +' / BC DO ICMS '+formatfloat('###,###,##0.00', ftotbcicms );
-          end;
-       //endi
-     end;
-  //endi
-
-  if fvicms > 0  then
-     begin
-       if sobs = '' then
-          begin
-            sobs := 'VALOR ICMS '+formatfloat('###,###,##0.00', ftoticms ) ;
-          end
-       else
-          begin
-             sobs := sobs +' / VALOR ICMS '+formatfloat('###,###,##0.00', ftoticms );
-          end;
-       //endi
-     end;
-  //endi
-
-  if fvipi > 0  then
-     begin
-       if sobs = '' then
-          begin
-            sobs := 'BC DO IPI '+formatfloat('###,###,##0.00', ftotbcipi ) ;
-          end
-       else
-          begin
-             sobs := sobs +' / BC DO IPI '+formatfloat('###,###,##0.00', ftotbcipi );
-          end;
-       //endi
-     end;
-  //endi
-
-  if fvipi > 0  then
-     begin
-       if sobs = '' then
-          begin
-            sobs := 'VALOR IPI '+formatfloat('###,###,##0.00', ftotipi );
-          end
-       else
-          begin
-             sobs := sobs +' / VALOR IPI '+formatfloat('###,###,##0.00', ftotipi ) ;
-          end;
-       //endi
-     end;
-  //endi
-
-
 
   with frmdados do
     begin
@@ -3808,63 +3813,71 @@ begin
   //if frmdados.cds_nf.FieldByName('ncupom').asString <> ''  then
 
 
-  if scupom <> '' then
-     begin
-       if sobs = '' then
-          begin
-            //sobs := 'LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL Nº '+frmdados.cds_nf.FieldByName('ncupom').asString+' EMITIDO EM '+frmdados.cds_nf.FieldByName('datacupom').asString;
-            sobs := 'LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL'+scupom;
+  if not ckbdadosadic.Checked  then
+    begin
 
-          end
-       else
-          begin
-            //sobs := sobs +' / LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL Nº '+frmdados.cds_nf.FieldByName('ncupom').asString+' EMITIDO EM '+frmdados.cds_nf.FieldByName('datacupom').asString ;
-            sobs := sobs +' / LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL'+scupom ;
-          end;
-       //endi
-     end;
+
+            if scupom <> '' then
+               begin
+                 if sobs = '' then
+                    begin
+                      //sobs := 'LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL Nº '+frmdados.cds_nf.FieldByName('ncupom').asString+' EMITIDO EM '+frmdados.cds_nf.FieldByName('datacupom').asString;
+                      sobs := 'LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL'+scupom;
+
+                    end
+                 else
+                    begin
+                      //sobs := sobs +' / LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL Nº '+frmdados.cds_nf.FieldByName('ncupom').asString+' EMITIDO EM '+frmdados.cds_nf.FieldByName('datacupom').asString ;
+                      sobs := sobs +' / LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL'+scupom ;
+                    end;
+                 //endi
+               end;
+            //endi
+
+            //if frmdados.cds_nf.FieldByName('vlrcredicms').asfloat > 0  then
+
+
+            //showmessage(floattostr(ftotcredicms));
+
+
+            if ftotcredicms > 0 then
+               begin
+                 if sobs = '' then
+                    begin
+                      //sobs := 'PERMITE APROVEITAMENTO DO CREDITO DE ICMS NO VALOR DE R$ '+formatfloat('###,###,##0.00', frmdados.cds_nf.FieldByName('vlrcredicms').asfloat)+' CORRESPONDENTE A ALIQUOTA DE '+ formatfloat('###,###,##0.00', frmdados.cds_nf.FieldByName('aliqapicms').asfloat)+'% NOS TERMOS DO ARTIGO 23 DA LC 123/2006';
+                      sobs := 'PERMITE APROVEITAMENTO DO CREDITO DE ICMS NO VALOR DE R$ '+formatfloat('###,###,##0.00', ftotcredicms)+' CORRESPONDENTE A ALIQUOTA DE '+ formatfloat('###,###,##0.00', faliqapicms)+'% NOS TERMOS DO ARTIGO 23 DA LC 123/2006';
+                    end
+                 else
+                    begin
+                      //sobs := sobs +' / PERMITE APROVEITAMENTO DO CREDITO DE ICMS NO VALOR DE R$ '+formatfloat('###,###,##0.00', frmdados.cds_nf.FieldByName('vlrcredicms').asfloat)+' CORRESPONDENTE A ALIQUOTA DE '+ formatfloat('###,###,##0.00', frmdados.cds_nf.FieldByName('aliqapicms').asfloat)+'% NOS TERMOS DO ARTIGO 23 DA LC 123/2006';
+                      sobs := sobs +' / PERMITE APROVEITAMENTO DO CREDITO DE ICMS NO VALOR DE R$ '+formatfloat('###,###,##0.00', ftotcredicms)+' CORRESPONDENTE A ALIQUOTA DE '+ formatfloat('###,###,##0.00', faliqapicms)+'% NOS TERMOS DO ARTIGO 23 DA LC 123/2006';
+                    end;
+                 //endi
+               end
+            else
+               begin
+
+                 { //mensagem quando não gerar credito icms
+                 if sobs = '' then
+                    begin
+                      sobs := '';
+                    end
+                 else
+                    begin
+                      sobs := sobs +' / ';
+                    end;
+                 //endi
+                 }
+
+
+
+
+               end;
+            //endi
+
+    end;
   //endi
 
-  //if frmdados.cds_nf.FieldByName('vlrcredicms').asfloat > 0  then
-
-
-  //showmessage(floattostr(ftotcredicms));
-
-
-  if ftotcredicms > 0 then
-     begin
-       if sobs = '' then
-          begin
-            //sobs := 'PERMITE APROVEITAMENTO DO CREDITO DE ICMS NO VALOR DE R$ '+formatfloat('###,###,##0.00', frmdados.cds_nf.FieldByName('vlrcredicms').asfloat)+' CORRESPONDENTE A ALIQUOTA DE '+ formatfloat('###,###,##0.00', frmdados.cds_nf.FieldByName('aliqapicms').asfloat)+'% NOS TERMOS DO ARTIGO 23 DA LC 123/2006';
-            sobs := 'PERMITE APROVEITAMENTO DO CREDITO DE ICMS NO VALOR DE R$ '+formatfloat('###,###,##0.00', ftotcredicms)+' CORRESPONDENTE A ALIQUOTA DE '+ formatfloat('###,###,##0.00', faliqapicms)+'% NOS TERMOS DO ARTIGO 23 DA LC 123/2006';
-          end
-       else
-          begin
-            //sobs := sobs +' / PERMITE APROVEITAMENTO DO CREDITO DE ICMS NO VALOR DE R$ '+formatfloat('###,###,##0.00', frmdados.cds_nf.FieldByName('vlrcredicms').asfloat)+' CORRESPONDENTE A ALIQUOTA DE '+ formatfloat('###,###,##0.00', frmdados.cds_nf.FieldByName('aliqapicms').asfloat)+'% NOS TERMOS DO ARTIGO 23 DA LC 123/2006';
-            sobs := sobs +' / PERMITE APROVEITAMENTO DO CREDITO DE ICMS NO VALOR DE R$ '+formatfloat('###,###,##0.00', ftotcredicms)+' CORRESPONDENTE A ALIQUOTA DE '+ formatfloat('###,###,##0.00', faliqapicms)+'% NOS TERMOS DO ARTIGO 23 DA LC 123/2006';
-          end;
-       //endi
-     end
-  else
-     begin
-
-       { //mensagem quando não gerar credito icms
-       if sobs = '' then
-          begin
-            sobs := '';
-          end
-       else
-          begin
-            sobs := sobs +' / ';
-          end;
-       //endi
-       }
-
-
-
-
-     end;
-  //endi
 
   if mmoadicnf.Text <> '' then
      begin

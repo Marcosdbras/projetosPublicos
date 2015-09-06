@@ -48,7 +48,7 @@ object frmfecnf: Tfrmfecnf
     Caption = 'DATA SA'#205'DA/ENTRADA'
   end
   object Label27: TLabel
-    Left = 466
+    Left = 491
     Top = 132
     Width = 66
     Height = 13
@@ -76,7 +76,7 @@ object frmfecnf: Tfrmfecnf
     Caption = 'R$'
   end
   object Label23: TLabel
-    Left = 466
+    Left = 491
     Top = 155
     Width = 44
     Height = 13
@@ -257,21 +257,21 @@ object frmfecnf: Tfrmfecnf
     Caption = 'FINALIDADE'
   end
   object Label39: TLabel
-    Left = 466
+    Left = 491
     Top = 179
     Width = 107
     Height = 13
     Caption = 'CONSUMIDOR FINAL'
   end
   object Label5: TLabel
-    Left = 466
+    Left = 491
     Top = 105
     Width = 59
     Height = 13
     Caption = 'OPERA'#199#195'O'
   end
   object Label40: TLabel
-    Left = 466
+    Left = 491
     Top = 79
     Width = 92
     Height = 13
@@ -1203,10 +1203,9 @@ object frmfecnf: Tfrmfecnf
   object ckbdadosadic: TCheckBox
     Left = 280
     Top = 178
-    Width = 177
+    Width = 209
     Height = 17
-    Caption = 'SUPRIMIR DADOS ADIC. AUTO'
+    Caption = 'SUPRIMIR DADOS ADIC. AUTOMAT.'
     TabOrder = 31
-    Visible = False
   end
 end
