@@ -1,0 +1,138 @@
+ Function  cript(senha,chave,operacao : string) : string;
+
+function Cript(senha,chave,operacao: string) : string;
+var
+   i, tamanhostring, pos, posletra, tamanhochave : integer;
+begin
+   result := '';
+   result := senha;
+   tamanhostring := length(senha);
+   tamanhochave  := length(chave);
+   for i := 1 to tamanhostring do
+      begin
+         pos := (i mod tamanhochave);
+         if pos = 0 then pos := tamanhochave;
+         pos := pos + 7;
+         if operacao = 'descript' then
+            begin
+               posLetra := ord(result[i]) + pos;
+            end
+         else
+            begin
+               posLetra := ord(result[i]) - pos;
+            end;
+         //endif
+         result[i] := chr(posletra);
+      end;
+   //endfor
+end;
+
+Cript('sqlremoto','bios2805','cript')
+
+cript(arqini.ReadString('Base','PassWord','sqlremoto'),'bios2805','descript');
+
+
+================================================================================
+
+Se você precisa salvar ou obter dados de um arquivo INI, utilize as seguintes rotinas:
+
+ 
+
+{ Declare em uses IniFiles }
+
+procedure GravaIni(aTexto: string);
+
+var
+
+  ArqIni: TIniFile;
+
+begin
+
+  ArqIni := TIniFile.Create('c:\Arquivo.ini');
+
+  try
+
+    ArqIni.WriteString('Dados', 'Texto', aTexto);
+
+  finally
+
+    ArqIni.Free;
+
+  end;
+
+end;
+
+ 
+
+procedure LeIni(var aTexto: string);
+
+var
+
+  ArqIni: TIniFile;
+
+begin
+
+  ArqIni := TIniFile.Create('c:\Arquivo.ini');
+
+  try
+
+    aTexto := ArqIni.ReadString('Dados', 'Texto', aTexto);
+
+  finally
+
+    ArqIni.Free;
+
+  end;
+
+end;
+
+ 
+
+Para gravar e ler, utilize o seguinte código:
+
+ 
+
+procedure TForm1.Button1Click(Sender: TObject);
+
+begin
+
+  GravaIni('ClubeDelphi');
+
+end;
+
+ 
+
+procedure TForm1.Button2Click(Sender: TObject);
+
+var
+
+  aTexto: string;
+
+begin
+
+  LeIni(aTexto);
+
+  ShowMessage(aTexto);
+
+end;
+
+Entendendo o código
+
+WriteString grava em um arquivo INI, os dados passados como parâmetro, onde Dados é o nome da seção do arquivo INI (valor que fica entre colchetes []), Texto é a variável do arquivo e o parâmetro aTexto é o valor que será salvo no arquivo.
+
+Se o arquivo (Arquivo.ini) não existir, ele será criado automaticamente. Para carregar os dados do arquivo INI, a técnica é praticamente a mesma. Se desejar armazenar/ler outros tipos de dados como Boolean e integer, por exemplo, basta alterar os métodos para WriteBool, WriteInteger, ReadInteger e ReadBool, respectivamente.
+
+
+
+Leia mais em: Manipulando arquivos INI http://www.devmedia.com.br/manipulando-arquivos-ini/304#ixzz3m5SmHIJ8
+
+
+   GravaIniConfig('Backup', 'FUsuario', BackupMySQL.FUsuario);
+   GravaIniConfig('Backup','FSenha',  cript(BackupMySQL.FSenha,'amex2642america','cript')   );
+   GravaIniConfig('Backup','FNomeArquivo',BackupMySQL.FNomeArquivo);
+   GravaIniConfig('Backup','FNomeBancoDados',BackupMySQL.FNomeBancoDados);
+   GravaIniConfig('Backup','FPastaBackup',BackupMySQL.FPastaBackup);
+   GravaIniConfig('Backup','FCaminhoGbase',BackupMySQL.FCaminhoGbase);
+   
+    GravaIniConfig('Backup','FArqAtu',BackupMySQL.FArqAtu);
+

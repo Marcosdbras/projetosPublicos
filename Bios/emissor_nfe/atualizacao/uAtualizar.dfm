@@ -137,7 +137,7 @@ object BackupMySQL: TBackupMySQL
     Width = 177
     Height = 21
     TabOrder = 3
-    Text = 'C:\Backup\'
+    Text = 'edtpastabackup'
   end
   object Executar: TButton
     Left = 617
@@ -154,7 +154,7 @@ object BackupMySQL: TBackupMySQL
     Width = 319
     Height = 21
     TabOrder = 5
-    Text = 'C:\Arquivos de programas\MySQL\MySQL Server 5.1\bin'
+    Text = 'edicaminhogbase'
   end
   object Button1: TButton
     Left = 617
