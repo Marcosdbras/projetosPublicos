@@ -7690,7 +7690,7 @@ begin
 
     //if frmprincipal.stipoimp = 'Paralela' then
     // begin
-
+    // aqui - verificar por que está excedendo 7 espaços, chr(15) não está funcionando.
     assignfile(frmprincipal.arq,frmprincipal.sportaimp);
     reWrite(frmprincipal.arq);
     Writeln(frmprincipal.arq,chr(15)+s1);

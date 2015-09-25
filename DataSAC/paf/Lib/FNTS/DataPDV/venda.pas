@@ -1457,10 +1457,9 @@ begin
     // verificar se foi digitado a quantidade no campo de busca do produto utilizando os
     // caracteres "X" ou "*"
 
-    if (pos('X',ansiuppercase(referencia)) > 0) or
-       (pos('*',ansiuppercase(referencia)) > 0) then
+    if (pos('*',ansiuppercase(referencia)) > 0) then
     begin
-      iPosicao := pos('X',ansiuppercase(referencia));
+      iPosicao := pos('*',ansiuppercase(referencia));
       if iPosicao = 0 then iPosicao := pos('*',ansiuppercase(referencia));
       try
         // alimenta a varivel de qtde
@@ -1561,6 +1560,7 @@ begin
             query.sql.add('order by nome');
             query.open;
 
+            //showmessage(ANSIUPPERCASE(referencia)+' '+inttostr( query.RecordCount));
             if query.RecordCount > 0 then
             begin
               if query.recordcount > 1 then
@@ -1570,7 +1570,9 @@ begin
                 if iPesquisa_produto = 1 then
                 begin
                   frmProduto_consulta := TfrmProduto_consulta.create(self);
-                  frmproduto_consulta.ed_barra.text := ed_barra.text;
+                  // aqui
+                  //frmproduto_consulta.ed_barra.text := ed_barra.text;
+                  frmproduto_consulta.ed_barra.text := ANSIUPPERCASE(referencia);
                   frmProduto_consulta.showmodal;
                   if iProd_codigo > 0 then
                   begin
@@ -3304,6 +3306,7 @@ begin
      iPesquisa_produto := 1;
     // fazer a busca do produto
     sProd_barra := ed_barra.text;
+
     If frmVenda.Localizar_Produto(ed_barra.Text) then
     begin
 
