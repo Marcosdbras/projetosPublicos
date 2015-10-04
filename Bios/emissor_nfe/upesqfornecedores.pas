@@ -514,6 +514,10 @@ frmdados.cds_fornecedores.Active := true;
 frmdados.sql_Munic.Active := true;
 frmdados.cds_Munic.Active := true;
 
+frmdados.sql_estados.Active := true;
+frmdados.cds_estados.Active := true;
+
+
 frmdados.sql_transportador.Active := true;
 frmdados.cds_transportador.Active := true;
 

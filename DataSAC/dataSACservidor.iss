@@ -19,9 +19,10 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName=c:\datasac\{#MyAppName}
+DefaultDirName=c:\datasac\server
 DefaultGroupName={#MyAppName}
-OutputBaseFilename=SetupServidorDataSAC
+OutputDir=C:\Projetos\DataSAC\instaladores
+OutputBaseFilename=Setup_Servidor_DataSAC
 Compression=lzma
 SolidCompression=yes
 

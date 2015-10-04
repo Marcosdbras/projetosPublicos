@@ -194,7 +194,7 @@ object frmpesqEst: TfrmpesqEst
       Top = 49
       Width = 566
       Height = 392
-      ActivePage = tbsficha
+      ActivePage = tbslista
       Align = alClient
       Images = imgprincipal
       Style = tsButtons

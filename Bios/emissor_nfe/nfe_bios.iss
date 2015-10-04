@@ -19,7 +19,7 @@ AppPublisher={#MyAppPublisher}
 DefaultDirName=c:\nfe\
 
 DefaultGroupName={#MyAppName}
-OutputDir=C:\nfe
+OutputDir=C:\Projetos\Bios\emissor_nfe\instaladores
 OutputBaseFilename=setup
 Compression=lzma
 SolidCompression=yes

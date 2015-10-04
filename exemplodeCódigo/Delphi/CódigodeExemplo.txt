@@ -1,3 +1,18 @@
+procedure TForm1.ListBox1Click(Sender: TObject);
+begin
+  DirectoryOutline1.Drive :=
+    Listbox1.Items[Listbox1.ItemIndex][1];
+ end;
+ 
+ procedure TForm1.DirectoryOutline1Change(Sender: TObject);
+ begin
+   Label1.Caption := DirectoryOutline1.Directory;
+ end;
+
+=====================================================================================
+
+
+
  Function  cript(senha,chave,operacao : string) : string;
 
 function Cript(senha,chave,operacao: string) : string;

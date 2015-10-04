@@ -4014,7 +4014,11 @@ with frmdados do
     //   exit;
     //endi
 
-    if ediid1.Text = '' then
+
+
+    if (ediid1.Text = '') and
+       (frmDados.Cds_Indice.FieldByName('ordem_producao').AsString <> 'T')
+    then
        exit;
     //endi
     
@@ -6527,7 +6531,9 @@ begin
 if dbgos.Visible then
    exit;
 //endi   
-
+if frmDados.Cds_Indice.FieldByName('ordem_producao').AsString <> 'T' then
+   exit;
+//endi   
 
 with frmdados do
   begin

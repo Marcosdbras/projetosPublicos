@@ -308,7 +308,16 @@ lblaliquota_outras.left    := lblaliqicms.left;
           end
        else
           begin
-            lblchave.caption := 'NENHUM ARQUIVO DE CHAVE IDENTIFICADO';
+            if frmdados.cds_nfe.FieldByName('chave').AsString = '' then
+               begin
+                 lblchave.caption := 'NENHUM ARQUIVO DE CHAVE IDENTIFICADO';
+               end
+            else
+               begin
+                 lblchave.caption := frmdados.cds_nfe.FieldByName('chave').AsString;
+               end;
+            //endi
+
           end;
        //endi
 

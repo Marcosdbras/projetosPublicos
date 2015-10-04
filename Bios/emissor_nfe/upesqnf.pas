@@ -375,6 +375,8 @@ type
     edibcicms: TEdit;
     Label131: TLabel;
     Label132: TLabel;
+    Label133: TLabel;
+    edichave: TEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Limpar;
     procedure btnnovaClick(Sender: TObject);
@@ -713,6 +715,7 @@ begin
   lblie.caption := '';
   lblmunicipio.caption := '';
   lblestado.caption := '';
+  
 
   lblcnpjemi.caption := '';
   lblenderecoemi.caption := '';
@@ -760,6 +763,7 @@ begin
   edivaldesc.Text := '0,00';
   edivlricms.Text := '0,00';
   edibcicms.Text := '0,00';
+  edichave.Text := '';
 
   edivlrsubsicms.Text := '0,00';
   edibcsubsicms.Text := '0,00';
@@ -961,6 +965,8 @@ with frmdados do
     edinparc.Text :=  inttostr( cds_nf.fieldbyname('nparc').asInteger );
     edidatainic.Text := cds_nf.fieldbyname('datainic').asString;
     ediperiodo.Text :=   inttostr( cds_nf.fieldbyname('periodo').asInteger );
+    
+
 
     edialiqapicms.Text := formatfloat('###,###,##0.00', cds_nf.fieldbyname('aliqapicms').asfloat);
     edialiqapipi.Text :=  formatfloat('###,###,##0.00', cds_nf.fieldbyname('aliqapipi').asfloat);
@@ -4508,6 +4514,7 @@ edihorasai.Text := '';
 edipdesc.Text := '0,00';
 edivaldesc.Text := '0,00';
 ediliquido.Text := '0,00';
+edichave.Text := '';
 
 //AssignFile(f,vardir+'copiaris.bat');
 //Rewrite(f); //abre o arquivo para escrita
@@ -4677,13 +4684,14 @@ begin
        //frmdados.cds_nfe.FieldByName('arquivonfe').asString := 'SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT' ;
        frmdados.cds_nfe.FieldByName('cnf').asInteger :=  frmdados.cds_nf.fieldbyname('codigo').asInteger;
        //frmdados.cds_nfe.FieldByName('contador').asInteger :=  icontadornfe;
+       frmdados.cds_nfe.FieldByName('chave').asString :=  edichave.Text;
 
        frmdados.cds_nfe.Post;
        frmdados.cds_nfe.Active := false;
        frmdados.sql_nfe.Active := false;
 
 
-
+       pctdados.ActivePageIndex := 0;
 
      end;
 end;

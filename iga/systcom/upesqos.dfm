@@ -1,6 +1,6 @@
 object frmPesqOS: TfrmPesqOS
-  Left = 481
-  Top = 98
+  Left = 225
+  Top = 40
   Width = 1036
   Height = 780
   BorderIcons = []

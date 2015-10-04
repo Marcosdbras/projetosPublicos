@@ -247,7 +247,9 @@ uses
   uFecPed in 'uFecPed.pas' {frmfecped},
   upesqpag in 'upesqpag.pas' {frmPesqPag},
   upesqmar in 'upesqmar.pas' {frmPesqmar},
-  uImpOS in 'uimpos.pas' {FrmImpOs};
+  uImpOS in 'uimpos.pas' {FrmImpOs},
+  uimpproducao2 in 'uimpproducao2.pas' {Form1},
+  uimpproducao3 in 'uimpproducao3.pas' {Form2};
 
 {$R *.res}
 
@@ -260,6 +262,8 @@ begin
   Application.Title := '- Systcom - Sistema de Informação';
   Application.CreateForm(TfrmDados, frmDados);
   Application.CreateForm(Tfrmprincipal, frmprincipal);
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TForm2, Form2);
   Atualizar;
   frmSplash.Hide;
   frmSplash.Free;

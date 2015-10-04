@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, IniFiles;
+  Dialogs, StdCtrls, ExtCtrls, IniFiles, Buttons, Grids, Outline, DirOutln;
 
 type
   TBackupMySQL = class(TForm)
@@ -24,6 +24,20 @@ type
     Button1: TButton;
     edtArqAtu: TEdit;
     Label3: TLabel;
+    SpeedButton3: TSpeedButton;
+    dlgabrir: TOpenDialog;
+    DirectoryOutline1: TDirectoryOutline;
+    Button2: TButton;
+    Button3: TButton;
+    Bevel3: TBevel;
+    Label8: TLabel;
+    Label7: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
     procedure ExecutarClick(Sender: TObject);
     procedure ExecutarBackup;
     procedure FormShow(Sender: TObject);
@@ -31,6 +45,11 @@ type
     procedure GravaIniConfig(Topico:string ;  Campo:string; aTexto: string);
     procedure LerIniConfig;
     Function  cript(senha,chave,operacao : string) : string;
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -77,7 +96,7 @@ Try
 
 
    GravaIniConfig('Backup', 'FUsuario', BackupMySQL.FUsuario);
-   GravaIniConfig('Backup','FSenha',  cript(BackupMySQL.FSenha,'amex2642america','cript')   );
+   GravaIniConfig('Backup','FSenha',  cript(BackupMySQL.FSenha,'bios2805','cript')   );
    GravaIniConfig('Backup','FNomeBancoDados',BackupMySQL.FNomeBancoDados);
    GravaIniConfig('Backup','FPastaBackup',BackupMySQL.FPastaBackup);
    GravaIniConfig('Backup','FCaminhoGbase',BackupMySQL.FCaminhoGbase);
@@ -114,14 +133,14 @@ begin
     xArquivoBat.Add('pause');
 
 
-    if fileexists(FPastaBackup+FArqAtu) then
+    if fileexists(FArqAtu) then
       begin
 
         xArquivoBat.Add('@echo off');
         xArquivoBat.Add('@echo.');
         xArquivoBat.Add('cd '+FCaminhoGbase);
-        xArquivoBat.Add('mysql.exe -u'+ FUsuario + ' -p'+FSenha + '  ' +FNomeBancoDados+' < '+FPastaBackup+FArqAtu);
-        xArquivoBat.Add('del '+FPastaBackup+FArqAtu);
+        xArquivoBat.Add('mysql.exe -u'+ FUsuario + ' -p'+FSenha + '  ' +FNomeBancoDados+' < '+FArqAtu);
+        xArquivoBat.Add('del '+FArqAtu);
 
         xArquivoBat.SaveToFile('BackupMySQL.bat');
 
@@ -131,11 +150,11 @@ begin
       end
     else
       begin
-        application.MessageBox(pchar('Não encontrei atualizações, somente será realizada cópia de segurança na pasta '+FPastaBackup),'Aviso',mb_ok);
+        application.MessageBox(pchar('Arquivo de atualização '+FArqAtu+' não foi encontrado. Somente será realizada cópia de segurança na pasta '+FPastaBackup),'Aviso',mb_ok);
       end;
     //endi
 
-    xArquivoBat.SaveToFile('BackupMySQL.bat');
+      xArquivoBat.SaveToFile('BackupMySQL.bat');
       WinExec('BackupMySQL.bat', SW_NORMAL);
 
 
@@ -200,7 +219,7 @@ begin
   edtusuario.Text := ArqIni.ReadString('Backup', 'FUsuario', 'root');
 
 
-  sSenha :=    ArqIni.ReadString('Backup', 'FSenha',     cript('khbgY`ae_' , 'amex2642america', 'descript')    );
+  sSenha :=    cript(arqini.ReadString('Base','PassWord','sqlremoto'),'bios2805','descript');
 
 
   edtsenha.Text :=   sSenha ;
@@ -255,5 +274,40 @@ begin
 end;
 
 
+
+procedure TBackupMySQL.SpeedButton1Click(Sender: TObject);
+begin
+edtpastabackup.Text := DirectoryOutline1.Directory;
+
+
+
+end;
+
+procedure TBackupMySQL.SpeedButton3Click(Sender: TObject);
+begin
+  dlgabrir.InitialDir  := DirectoryOutline1.Directory;
+
+  if dlgabrir.Execute then
+     begin
+       edtarqatu.Text := dlgabrir.FileName;
+
+     end;
+
+end;
+
+procedure TBackupMySQL.Button2Click(Sender: TObject);
+begin
+  edtpastabackup.Text := DirectoryOutline1.Directory;
+end;
+
+procedure TBackupMySQL.Button3Click(Sender: TObject);
+begin
+  edtcaminhogbase.Text := DirectoryOutline1.Directory;
+end;
+
+procedure TBackupMySQL.SpeedButton2Click(Sender: TObject);
+begin
+   edtcaminhogbase.Text := DirectoryOutline1.Directory;
+end;
 
 end.

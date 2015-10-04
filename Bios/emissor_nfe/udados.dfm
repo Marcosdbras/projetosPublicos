@@ -676,8 +676,8 @@ object frmdados: Tfrmdados
     IndexName = 'codigo'
     Params = <>
     StoreDefs = True
-    Left = 756
-    Top = 473
+    Left = 724
+    Top = 353
     object IntegerField2: TIntegerField
       FieldName = 'codigo'
     end
@@ -1044,8 +1044,8 @@ object frmdados: Tfrmdados
   end
   object dts_Temp: TDataSource
     DataSet = cds_Temp
-    Left = 770
-    Top = 487
+    Left = 738
+    Top = 367
   end
   object cds_Munic: TClientDataSet
     Aggregates = <>
@@ -4632,6 +4632,11 @@ object frmdados: Tfrmdados
         Name = 'ndest'
         DataType = ftString
         Size = 60
+      end
+      item
+        Name = 'chave'
+        DataType = ftString
+        Size = 200
       end>
     IndexDefs = <
       item
@@ -4928,6 +4933,10 @@ object frmdados: Tfrmdados
     object cds_nfendest: TStringField
       FieldName = 'ndest'
       Size = 60
+    end
+    object cds_nfechave: TStringField
+      FieldName = 'chave'
+      Size = 200
     end
   end
   object dts_nfe: TDataSource
@@ -6246,8 +6255,8 @@ object frmdados: Tfrmdados
     IndexDefs = <>
     Params = <>
     StoreDefs = True
-    Left = 656
-    Top = 472
+    Left = 648
+    Top = 360
     object cds_configdataexpira: TDateField
       FieldName = 'dataexpira'
     end
@@ -6257,8 +6266,8 @@ object frmdados: Tfrmdados
   end
   object dts_config: TDataSource
     DataSet = cds_config
-    Left = 672
-    Top = 480
+    Left = 664
+    Top = 368
   end
   object cd_enfe: TClientDataSet
     Aggregates = <>
@@ -7182,6 +7191,10 @@ object frmdados: Tfrmdados
     object sql_nfendest: TStringField
       FieldName = 'ndest'
       Size = 60
+    end
+    object sql_nfechave: TStringField
+      FieldName = 'chave'
+      Size = 200
     end
   end
   object sql_duplicata: TZQuery
@@ -9088,5 +9101,46 @@ object frmdados: Tfrmdados
     DataSet = cds_produtos
     Left = 952
     Top = 112
+  end
+  object cds_corrigirNFP: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dsp_nfp'
+    AfterPost = cds_corrigirNFPAfterPost
+    AfterDelete = cds_corrigirNFPAfterDelete
+    Left = 536
+    Top = 504
+  end
+  object cds_corrigirNFE: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    AfterPost = cds_corrigirNFEAfterPost
+    AfterDelete = cds_corrigirNFEAfterDelete
+    Left = 544
+    Top = 560
+  end
+  object cds_corrigirNF: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    AfterPost = cds_corrigirNFAfterPost
+    AfterDelete = cds_corrigirNFAfterDelete
+    Left = 632
+    Top = 504
+  end
+  object cds_corrigirClientes: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    AfterPost = cds_corrigirClientesAfterPost
+    AfterDelete = cds_corrigirClientesAfterDelete
+    Left = 632
+    Top = 560
+  end
+  object cds_corrigirFornecedores: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    AfterPost = cds_corrigirFornecedoresAfterPost
+    AfterDelete = cds_corrigirFornecedoresAfterDelete
+    Left = 624
+    Top = 456
   end
 end

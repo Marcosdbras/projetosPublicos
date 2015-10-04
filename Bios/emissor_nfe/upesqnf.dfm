@@ -3761,6 +3761,13 @@ object frmpesqnf: Tfrmpesqnf
           Height = 13
           Caption = 'EMISS'#195'O'
         end
+        object Label133: TLabel
+          Left = 18
+          Top = 133
+          Width = 36
+          Height = 13
+          Caption = 'CHAVE'
+        end
         object ediproxnota: TEdit
           Left = 144
           Top = 15
@@ -3868,6 +3875,14 @@ object frmpesqnf: Tfrmpesqnf
           Text = '  /  /    '
           OnKeyDown = edidataemiKeyDown
           OnKeyPress = edidataemiKeyPress
+        end
+        object edichave: TEdit
+          Left = 144
+          Top = 128
+          Width = 369
+          Height = 21
+          TabOrder = 10
+          Text = 'edichave'
         end
       end
     end

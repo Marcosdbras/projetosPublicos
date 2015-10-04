@@ -194,7 +194,7 @@ object frmpesqnfemi: Tfrmpesqnfemi
       Top = 49
       Width = 668
       Height = 392
-      ActivePage = tbslista
+      ActivePage = tbsficha
       Align = alClient
       Images = imgprincipal
       Style = tsButtons
