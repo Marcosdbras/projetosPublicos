@@ -74,6 +74,7 @@ type
     scliente_im, scliente_endereco, scliente_bairro, scliente_cidade,
     scliente_uf, scliente_cep:string;
 
+    
     vardir:string;
 
     cupomini:TInifile;

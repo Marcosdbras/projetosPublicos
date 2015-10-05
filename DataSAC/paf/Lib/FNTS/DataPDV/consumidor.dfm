@@ -1,6 +1,6 @@
 object frmConsumidor: TfrmConsumidor
-  Left = 782
-  Top = 375
+  Left = 787
+  Top = 184
   BorderStyle = bsNone
   Caption = 'frmConsumidor'
   ClientHeight = 395
@@ -620,7 +620,7 @@ object frmConsumidor: TfrmConsumidor
   end
   object pop_consumid: TAdvPopupMenu
     MenuStyler = frmModulo.estilo_menu
-    Version = '2.5.3.0'
+    Version = '2.5.4.0'
     Left = 264
     Top = 248
     object MenuItem2: TMenuItem

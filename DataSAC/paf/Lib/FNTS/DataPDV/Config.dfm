@@ -1,8 +1,8 @@
 object frmConfig: TfrmConfig
-  Left = 211
-  Top = 209
-  Width = 451
-  Height = 435
+  Left = 215
+  Top = 161
+  Width = 443
+  Height = 440
   Caption = 'Configura'#231#245'es Gerais'
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
@@ -108,78 +108,90 @@ object frmConfig: TfrmConfig
     Left = 16
     Top = 177
     Width = 241
-    Height = 123
+    Height = 136
     Caption = 'Outras'
     TabOrder = 1
     object DBCheckBox1: TDBCheckBox
       Left = 8
-      Top = 16
+      Top = 32
       Width = 223
       Height = 17
       Caption = 'Informar o Consumidor no in'#237'cio da venda'
       DataField = 'NF_PAULISTA'
       DataSource = dsconfig
-      TabOrder = 0
+      TabOrder = 1
       ValueChecked = '1'
       ValueUnchecked = '0'
     end
     object DBCheckBox2: TDBCheckBox
       Left = 8
-      Top = 32
+      Top = 48
       Width = 223
       Height = 17
       Caption = 'Alterar Pre'#231'o Unit'#225'rio'
       DataField = 'MUDA_UNITARIO'
       DataSource = dsconfig
-      TabOrder = 1
+      TabOrder = 2
       ValueChecked = '1'
       ValueUnchecked = '0'
     end
     object DBCheckBox3: TDBCheckBox
       Left = 8
-      Top = 48
+      Top = 64
       Width = 223
       Height = 17
       Caption = 'Alterar Quantidade'
       DataField = 'MUDA_QTDE'
       DataSource = dsconfig
-      TabOrder = 2
+      TabOrder = 3
       ValueChecked = '1'
       ValueUnchecked = '0'
     end
     object DBCheckBox4: TDBCheckBox
       Left = 8
-      Top = 64
+      Top = 80
       Width = 223
       Height = 17
       Caption = 'Alterar Total'
       DataField = 'MUDA_TOTAL'
       DataSource = dsconfig
-      TabOrder = 3
+      TabOrder = 4
       ValueChecked = '1'
       ValueUnchecked = '0'
     end
     object DBCheckBox8: TDBCheckBox
       Left = 8
-      Top = 80
+      Top = 96
       Width = 223
       Height = 17
       Caption = 'Imprime comprovante de Credi'#225'rio'
       DataField = 'COMPROVANTE_CREDIARIO'
       DataSource = dsconfig
-      TabOrder = 4
+      TabOrder = 5
       ValueChecked = '1'
       ValueUnchecked = '0'
     end
     object DBCheckBox9: TDBCheckBox
       Left = 8
-      Top = 96
+      Top = 112
       Width = 223
       Height = 17
       Caption = 'Imprime Produtos no Comprovante'
       DataField = 'COMPROVANTE_CREDIARIO_PRODUTO'
       DataSource = dsconfig
-      TabOrder = 5
+      TabOrder = 6
+      ValueChecked = '1'
+      ValueUnchecked = '0'
+    end
+    object DBCheckBox10: TDBCheckBox
+      Left = 8
+      Top = 16
+      Width = 223
+      Height = 17
+      Caption = 'Dados Consumidor ao finalizar a venda'
+      DataField = 'DADOSCONSUMIDOR'
+      DataSource = dsconfig
+      TabOrder = 0
       ValueChecked = '1'
       ValueUnchecked = '0'
     end
@@ -230,8 +242,8 @@ object frmConfig: TfrmConfig
   end
   object Panel1: TPanel
     Left = 0
-    Top = 367
-    Width = 443
+    Top = 372
+    Width = 435
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
@@ -259,12 +271,12 @@ object frmConfig: TfrmConfig
     Left = 264
     Top = 251
     Width = 161
-    Height = 49
+    Height = 62
     Caption = 'Vendedor'
     TabOrder = 4
     object chkVendedor: TCheckBox
       Left = 8
-      Top = 16
+      Top = 24
       Width = 145
       Height = 25
       Caption = 'Informar Vendedor no Fechamento da Venda'
@@ -274,20 +286,20 @@ object frmConfig: TfrmConfig
   end
   object GroupBox5: TGroupBox
     Left = 16
-    Top = 308
+    Top = 318
     Width = 409
     Height = 49
     Caption = 'Avan'#231'o do papel'
     TabOrder = 5
     object Label5: TLabel
-      Left = 31
+      Left = 35
       Top = 22
       Width = 34
       Height = 13
       Caption = 'Linhas:'
     end
     object DBEdit5: TDBEdit
-      Left = 72
+      Left = 76
       Top = 20
       Width = 33
       Height = 21

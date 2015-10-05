@@ -41,6 +41,7 @@ type
     GroupBox5: TGroupBox;
     Label5: TLabel;
     DBEdit5: TDBEdit;
+    DBCheckBox10: TDBCheckBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BitBtn2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);

@@ -342,7 +342,7 @@ type
     procedure ed_unitarioKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
-
+     bConsumidor:boolean;
 
   public
     { Public declarations }
@@ -4662,21 +4662,31 @@ begin
     else
     begin
       // abrir tela simples de identificacao de Cliente
-      bContinua := false;
-      frmconsumidor := tfrmconsumidor.create(self);
 
-      if sConsumidor_CPF <> '' then
-      begin
-        frmConsumidor.ed_consumid_cpf.Text := sConsumidor_CPF;
-        frmConsumidor.ed_consumid_nome.Text := sConsumidor_Nome;
-        frmConsumidor.ed_consumid_endereco.Text := sConsumidor_Endereco;
-      end;
+      if bConsumidor then
+         begin
+            bContinua := false;
+            frmconsumidor := tfrmconsumidor.create(self);
 
-      try
-        frmconsumidor.showmodal;
-      finally
-        FreeAndNil(frmconsumidor);
-      end;
+            if sConsumidor_CPF <> '' then
+            begin
+              frmConsumidor.ed_consumid_cpf.Text := sConsumidor_CPF;
+              frmConsumidor.ed_consumid_nome.Text := sConsumidor_Nome;
+              frmConsumidor.ed_consumid_endereco.Text := sConsumidor_Endereco;
+            end;
+
+            try
+              frmconsumidor.showmodal;
+            finally
+              FreeAndNil(frmconsumidor);
+            end;
+
+         end
+      else
+         begin
+           bContinua := true;
+         end;
+      //endi
 
       if not bcontinua then
       begin
@@ -6817,6 +6827,11 @@ begin
   frmmodulo.query.Open;
 
   iavanca := frmmodulo.query.FieldByName('avanco').AsInteger;
+  if frmmodulo.query.FieldByName('dadosconsumidor').AsInteger = 1 then
+     bConsumidor := true
+  else
+     bConsumidor := false;
+  //endi  
 
   frmmodulo.query.Close;
 
