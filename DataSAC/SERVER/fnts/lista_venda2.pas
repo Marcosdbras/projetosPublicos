@@ -259,6 +259,7 @@ type
     rserial: TRzCheckBox;
     qrvenda_produto2CODSUBGRUPO: TStringField;
     bTodos_Produtos: TRzCheckBox;
+    qrvenda_produto3vlrcomissao: TFloatField;
     procedure combo_clienteChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -886,6 +887,8 @@ begin
      QRVENDA_PRODUTO3.Params.ParamByName('datai').asdatetime := dateedit1.date;
      QRVENDA_PRODUTO3.Params.ParamByName('dataf').asdatetime := dateedit2.date;
      QRVENDA_PRODUTO3.open;
+     //showmessage(QRVENDA_PRODUTO3.SQL.Text);
+
      frmmodulo.qrrelatorio.fieldbyname('LINHA1').asstring := 'VENDAS/COMISSÃO';
      fXVENDA.LoadFromFile('\DATASAC\server\rel\f000038.fr3');
      fXVENDA.ShowReport;

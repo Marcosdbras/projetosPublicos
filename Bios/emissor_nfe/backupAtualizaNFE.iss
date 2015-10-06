@@ -61,6 +61,7 @@ Source: "C:\nfe\script_nfe_v30.sql"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\nfe\script_nfe_v31.sql"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\nfe\script_nfe_v32.sql"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\nfe\script_nfe_v33.sql"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\nfe\config.ini"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
