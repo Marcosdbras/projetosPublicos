@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, DB, DBTables, DBCtrls, ExtDlgs, 
   CellEditors, jpeg,
-  ExtCtrls, VrControls, VrButtons, AdvGlowButton;
+  ExtCtrls, VrControls, VrButtons, AdvGlowButton, iniFiles;
 
 type
   Tfrmsenha_caixa = class(TForm)
@@ -110,12 +110,19 @@ end;
 
 procedure Tfrmsenha_caixa.Edit2Exit(Sender: TObject);
 VAR SENHA : STRING;
+     caixa:TInifile;
+     vardir:string;
 begin
   TRy
+  vardir := extractfilepath(application.ExeName);
   SENHA := Frmprincipal.Cript('D',frmmodulo.qrcaixa_operador.fieldbyname('senha').asstring);
   if edit2.text = SENHA then
   begin
       autenticado := true;
+      caixa:= TIniFile.Create(vardir+'caixa.ini');
+      caixa.WriteString('Ident','Codigo',frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring);
+      caixa.WriteString('Ident','Password',frmmodulo.qrcaixa_operador.fieldbyname('senha').asstring);
+      caixa.Free;
   end
   else
   begin

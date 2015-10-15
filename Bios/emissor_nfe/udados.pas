@@ -4856,7 +4856,7 @@ begin
        cds_corrigirNFP.Next;
      end;
 
- {
+
  cds_corrigirNFE.ProviderName := 'dsp_nfe';
  cds_corrigirNFE.Active := false;
  sql_nfe.Active := false;
@@ -4899,7 +4899,7 @@ begin
      end;
 
 
-
+  {
   cds_corrigirclientes.ProviderName := 'dsp_clientes';
  cds_corrigirclientes.Active := false;
  sql_clientes.Active := false;

@@ -13,9 +13,8 @@ uses
   AdvOfficeStatusBarStylers, AdvOfficeHint, ImgList, RzTray, AdvNavBar,
   AdvOfficePager, AdvOfficePagerStylers, AdvPanel, Wwdbigrd, Wwdbgrid,
   MemDS, StrUtils, Mask, RzEdit, RzPanel, IBServices, DBAccess, IBC,
-  AdvReflectionLabel, 
-  pngimage,   TFlatHintUnit, AdvReflectionImage, NxScrollControl, NxLinkMenu,
-  frxpngimage, ExtDlgs, AdvSmoothButton, LockApplication;
+  AdvReflectionLabel, pngimage,   TFlatHintUnit, AdvReflectionImage, NxScrollControl,
+  NxLinkMenu, frxpngimage, ExtDlgs, AdvSmoothButton, LockApplication, inifiles;
   
 type
 
@@ -272,6 +271,8 @@ type
     N1: TMenuItem;
     AdvGlowButton12: TAdvGlowButton;
     PrVenda1: TMenuItem;
+    Bevel1: TBevel;
+    btnvenda: TAdvGlowButton;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -439,6 +440,7 @@ type
     procedure LanamentoPedido1Click(Sender: TObject);
     procedure AdvGlowButton12Click(Sender: TObject);
     procedure PrVenda1Click(Sender: TObject);
+    procedure btnvendaClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -578,7 +580,7 @@ var
   venda_TEF : boolean;
   //
 
-
+  vardir:string;
 
 implementation
 
@@ -1718,17 +1720,20 @@ var
   vInventario_ano : integer;
 
 
-  vardir:string;
+
 //  ano, mes, dia : word;
 
 begin
+
+   vardir := extractfilepath(application.ExeName);
+
 
     CarregaPapelParede;
 
   ptopo2.panels[3].Text := '---';
 
 
-  vardir := extractfilepath(application.ExeName);
+
 
   arquivo :=  vardir+'script_atualiza_banco.sql';
 
@@ -4218,13 +4223,32 @@ begin
 
   FRMBALANCA := TFRMBALANCA.CREATE(SELF);
   FRMBALANCA.SHOWMODAL;
-    
+
 end;
 
 procedure TfrmPrincipal.Venda2Click(Sender: TObject);
 VAR F : TEXTFILE;
 slinha : string;
+
+caixa:TInifile;
+codcaixa:string;
+senha:string;
+contador:integer;
+
 begin
+
+  caixa := TIniFile.Create(vardir+'caixa.ini');
+  codcaixa := caixa.ReadString('Ident','codigo','000000');
+  senha:=caixa.ReadString('Ident','password','$$$$$$');
+  autenticado := false;
+
+  frmmodulo.qrcaixa_operador.close;
+  frmmodulo.qrcaixa_operador.sql.clear;
+  frmmodulo.qrcaixa_operador.sql.add('select * from c000045 where codigo = '+quotedstr(codcaixa)+' and senha = '+quotedstr(senha)+'and situacao = 1');
+  frmmodulo.qrcaixa_operador.open;
+
+  contador :=  frmmodulo.qrcaixa_operador.RecordCount;
+
   If frmprincipal.acesso(codigo_usuario,'03.01') = 'NAO' then
   begin
     application.messagebox('Acesso não permitido!','Atenção',mb_ok+MB_ICONERROR);
@@ -4285,24 +4309,44 @@ begin
     END
   ELSE
     begin
-      if frmPrincipal.autentica_caixa('Pedido de Venda',0) then
-        begin
-          if frmmodulo.qrcaixa_operador.FieldByName('situacao').asinteger = 1 then
-            begin
-              frmvenda_inicio := tfrmvenda_inicio.create(self);
-              frmvenda_inicio.showmodal;
-              
-            END
-          ELSE
-            BEGIN
-              APPLICATION.MESSAGEBOX('Este caixa está fechado! Favor verificar...','Atenção',mb_ok+MB_ICONWARNING);
-            END;
-        end
+
+      if (contador = 0) or (codcaixa='000000') then
+         begin
+
+            if frmPrincipal.autentica_caixa('Pedido de Venda',0) then
+              begin
+                if frmmodulo.qrcaixa_operador.FieldByName('situacao').asinteger = 1 then
+                  begin
+                    frmvenda_inicio := tfrmvenda_inicio.create(self);
+                    frmvenda_inicio.showmodal;
+
+                  END
+                ELSE
+                  BEGIN
+                    APPLICATION.MESSAGEBOX('Este caixa está fechado! Favor verificar...','Atenção',mb_ok+MB_ICONWARNING);
+                  END;
+              end
+            else
+              begin
+                APPLICATION.MESSAGEBOX('Não autorizado!','Aviso',mb_ok+MB_ICONERROR);
+              end;
+            //endi
+
+         end
       else
-        begin
-          APPLICATION.MESSAGEBOX('Não autorizado!','Aviso',mb_ok+MB_ICONERROR);
-        end;
-    end;
+         begin
+
+
+           frmvenda_inicio := tfrmvenda_inicio.create(self);
+           frmvenda_inicio.showmodal;
+
+
+
+         end;
+      //endi
+
+
+  end;
 
 end;
 
@@ -5366,6 +5410,11 @@ end;
 procedure TfrmPrincipal.PrVenda1Click(Sender: TObject);
 begin
 AtendimentodePrVenda1Click(Sender);
+end;
+
+procedure TfrmPrincipal.btnvendaClick(Sender: TObject);
+begin
+Venda2Click(Sender);
 end;
 
 end.
