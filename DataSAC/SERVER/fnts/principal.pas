@@ -273,6 +273,8 @@ type
     PrVenda1: TMenuItem;
     Bevel1: TBevel;
     btnvenda: TAdvGlowButton;
+    btndesconectarcaixa: TAdvGlowButton;
+    DesconectarCaixa1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -441,6 +443,8 @@ type
     procedure AdvGlowButton12Click(Sender: TObject);
     procedure PrVenda1Click(Sender: TObject);
     procedure btnvendaClick(Sender: TObject);
+    procedure DesconectarCaixa1Click(Sender: TObject);
+    procedure btndesconectarcaixaClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -452,6 +456,14 @@ type
    FBuilt: String;
    FHistorico: TStrings;
    STime: TDateTime;
+
+
+   caixa:TInifile;
+   codcaixa:string;
+   senha:string;
+   contador:integer;
+
+
     procedure CarregaPapelParede;
 
 
@@ -2349,6 +2361,8 @@ begin
 //  LockApplication1.executar;
 bloqueio.executar;
 
+
+
   if busca_preco = '1' then
   begin
     Hand := FindWindow('TApplication', 'Busca Preco');
@@ -4230,16 +4244,14 @@ procedure TfrmPrincipal.Venda2Click(Sender: TObject);
 VAR F : TEXTFILE;
 slinha : string;
 
-caixa:TInifile;
-codcaixa:string;
-senha:string;
-contador:integer;
 
 begin
 
   caixa := TIniFile.Create(vardir+'caixa.ini');
   codcaixa := caixa.ReadString('Ident','codigo','000000');
   senha:=caixa.ReadString('Ident','password','$$$$$$');
+  caixa.Free;
+
   autenticado := false;
 
   frmmodulo.qrcaixa_operador.close;
@@ -4290,34 +4302,70 @@ begin
   FRMMODULO.qrconfig.OPEN;
   IF frmmodulo.qrconfig.FieldByName('ramo_atividade').asinteger = 4 THEN
     BEGIN
-      if frmPrincipal.autentica_caixa('Pedido de Venda',0) then
-        begin
-          if frmmodulo.qrcaixa_operador.FieldByName('situacao').asinteger = 1 then
-            begin
-              FRMVENDA_FARMA := TFRMVENDA_FARMA.CREATE(SELF);
-              FRMVENDA_FARMA.SHOWMODAL;
-            END
-          ELSE
-            BEGIN
-              APPLICATION.MESSAGEBOX('Este caixa está fechado! Favor verificar...','Atenção',mb_ok+MB_ICONWARNING);
-            END;
-        end
+
+      if (contador = 0) or (codcaixa='000000') or (senha='$$$$$$')then
+         begin
+
+
+            if frmPrincipal.autentica_caixa('Pedido de Venda',0) then
+               begin
+                 if frmmodulo.qrcaixa_operador.FieldByName('situacao').asinteger = 1 then
+                    begin
+
+                      caixa:= TIniFile.Create(vardir+'caixa.ini');
+                      caixa.WriteString('Ident','Codigo',frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring);
+                      caixa.WriteString('Ident','Password',frmmodulo.qrcaixa_operador.fieldbyname('senha').asstring);
+                      caixa.Free;
+
+                      FRMVENDA_FARMA := TFRMVENDA_FARMA.CREATE(SELF);
+                      FRMVENDA_FARMA.Caption := 'Pedido de Venda - Caixa Número '+frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring;
+                      FRMVENDA_FARMA.SHOWMODAL;
+
+                    end
+                  else
+                    begin
+                     APPLICATION.MESSAGEBOX('Este caixa está fechado! Favor verificar...','Atenção',mb_ok+MB_ICONWARNING);
+                   end;
+               end
+            else
+               begin
+                 APPLICATION.MESSAGEBOX('Não autorizado!','Aviso',mb_ok+MB_ICONERROR);
+               end;
+            //endi
+
+         end
       else
-        begin
-          APPLICATION.MESSAGEBOX('Não autorizado!','Aviso',mb_ok+MB_ICONERROR);
-        end;
+         begin
+
+           FRMVENDA_FARMA := TFRMVENDA_FARMA.CREATE(SELF);
+           FRMVENDA_FARMA.Caption := 'Pedido de Venda - Caixa Número '+frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring;
+           FRMVENDA_FARMA.SHOWMODAL;
+
+         end;
+      //endi
+
+
     END
   ELSE
     begin
 
-      if (contador = 0) or (codcaixa='000000') then
+      if (contador = 0) or (codcaixa='000000') or (senha='$$$$$$')then
          begin
 
             if frmPrincipal.autentica_caixa('Pedido de Venda',0) then
               begin
+
+
                 if frmmodulo.qrcaixa_operador.FieldByName('situacao').asinteger = 1 then
                   begin
+
+                    caixa:= TIniFile.Create(vardir+'caixa.ini');
+                    caixa.WriteString('Ident','Codigo',frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring);
+                    caixa.WriteString('Ident','Password',frmmodulo.qrcaixa_operador.fieldbyname('senha').asstring);
+                    caixa.Free;
+
                     frmvenda_inicio := tfrmvenda_inicio.create(self);
+                    frmvenda_inicio.Caption := 'Pedido de Venda - Caixa Número '+frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring;
                     frmvenda_inicio.showmodal;
 
                   END
@@ -4338,6 +4386,7 @@ begin
 
 
            frmvenda_inicio := tfrmvenda_inicio.create(self);
+           frmvenda_inicio.Caption := 'Pedido de Venda - Caixa Número '+frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring;
            frmvenda_inicio.showmodal;
 
 
@@ -5415,6 +5464,25 @@ end;
 procedure TfrmPrincipal.btnvendaClick(Sender: TObject);
 begin
 Venda2Click(Sender);
+end;
+
+procedure TfrmPrincipal.DesconectarCaixa1Click(Sender: TObject);
+begin
+  if application.MessageBox('Deseja realmente desconectar o caixa atual, esta operaçao exigirá um novo login de caixa na próxima venda','Atençao',mb_yesno) = 6 then
+     begin
+       caixa := TIniFile.Create(vardir+'caixa.ini');
+       caixa.WriteString('Ident','codigo','000000');
+       caixa.WriteString('Ident','password','$$$$$$');
+       caixa.Free;
+
+       autenticado := false;
+       application.MessageBox('Caixa desconectado com sucesso','Atenção',mb_ok)
+     end;
+end;
+
+procedure TfrmPrincipal.btndesconectarcaixaClick(Sender: TObject);
+begin
+  DesconectarCaixa1Click(Sender);
 end;
 
 end.

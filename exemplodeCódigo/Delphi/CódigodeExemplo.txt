@@ -150,4 +150,155 @@ Leia mais em: Manipulando arquivos INI http://www.devmedia.com.br/manipulando-ar
    GravaIniConfig('Backup','FCaminhoGbase',BackupMySQL.FCaminhoGbase);
    
     GravaIniConfig('Backup','FArqAtu',BackupMySQL.FArqAtu);
+============================================================================================
 
+Introdução
+
+Nas nossas aplicações comerciais muitas vezes precisamos interagir com ferramentas externas, o que nos leva a buscar funções do Delphi como WinExec, a mais conhecida, mas que também só é utilizada por compatibilidade. 
+
+Iremos verificar nesta dica como utilizar o ShellExecute, funcionalidade da API do Windows, para executar aplicativos externos. Também iremos verificar que podemos enviar arquivos diretamente para a impressora e abrir pastas do WindowsExplorer com este comando. 
+
+A função ShellExecute funciona como o menu Executar do Windows, e este é o seu melhor benefício de uso. Se colocamos ali um path de internet, como http://www.clubedelphi.net, o sistema abre o Navegador padrão, se colocamos um caminho de um arquivo .doc, o sistema vai abrir o WordPad ou outro software associado para abrir documentos MS-Word. Se colocamos um caminho, o sistema abre uma janela do explorer posicionado no caminho requisitado. 
+
+A estrutura do Comando
+
+O comando ShellExecute tem a seguinte assinatura:
+
+function ShellExecute(hWnd: HWND; Operation, FileName, Parameters, Directory: PChar; ShowCmd: Integer): HINST; 
+
+ 
+
+Onde:
+
+hWnd: Handle da Janela que está executando o Comando. 
+
+Operation: Tipo de operação que se quer executar. Pode ser 'open', 'print' ou 'explorer' 
+
+FileName: O arquivo que se quer abrir. 
+
+Parameters: Parâmetros a serem passados para o FileName que vai ser aberto. Este parâmetro é útil no caso de se passar no FileName o caminho de um executável. 
+
+Directory: O diretório onde a aplicação deve executar. 
+
+ShowCmd: indica o tipo de janela que deve ser aberta. Podemos utilizar por exemplo SW_HIDE (deixa a janela invisível), SW_MAXIMIZE (janela maximizada), SW_MINIMIZE (janela minimizada), SW_SHOWNORMAL (abre a janela restaurada e ativa). 
+
+Retorno: A função possui erro quando o retorno é menor ou igual a 32. Exemplos de erros que podem ser testados são ERROR_FILE_NOT_FOUND (arquivo não encontrado), ERROR_PATH_NOT_FOUND (caminho não encontrado), SE_ERR_ACCESSDENIED (o programa não tem direito para acessar o arquivo/programa requisitado), SE_ERR_ASSOCINCOMPLETE (arquivo requisitado não possui associação definida), SE_ERR_SHARE (Violação de Compartilhamento), entre outros erros que podem ser mapeados. 
+
+Exemplos com ShellExecute
+
+Vamos verificar alguns exemplos de comandos que podem ser executados com o ShellExecute. Vamos utilizar o arquivo "c:\clubedelphi\teste.doc" como exemplo para os nossos estudos. Você consegue simular a ação de open e explorer acessando o menu "Run" ou "Executar" do Windows. 
+
+ 
+
+Abrir o arquivo com o programa associado:
+
+edArquivo.Text := 'c:\clubedelphi\teste.doc';
+
+ShellExecute(handle,'open',PChar(edArquivo.Text), '','',SW_SHOWNORMAL);
+
+ 
+
+Imprimindo o arquivo: 
+
+edArquivo.Text := 'c:\clubedelphi\teste.doc';
+
+ShellExecute(handle,'print',PChar(edArquivo.Text), '','',SW_SHOWNORMAL); 
+
+ 
+
+Abrindo a pasta 'c:\clubedelphi' e colocando a janela em modo Maximizada: 
+
+edArquivo.Text := 'c:\clubedelphi\';
+
+ShellExecute(handle,'explore',PChar(edArquivo.Text), '','',SW_SHOWMAXIMIZED);
+
+ 
+
+Criando uma nova mensagem com o cliente de email padrão definindo para quem vai a mensagem (dwildt@dug-rs.org), definido cópia (dug-rs@dug-rs.org), assunto (Assunto do email) e corpo da mensagem (Texto da Mensagem): 
+
+edArquivo.Text := 'mailto:dwildt@dug-rs.org?cc=dug-rs@dug-rs.org&subject=Assunto do email&body=Texto da Mensagem';
+
+ShellExecute(handle,'open',PChar(edArquivo.Text), '','',SW_SHOWNORMAL);
+
+ 
+
+Abrindo um web site com o navegador padrão:
+
+edArquivo.Text := 'http://www.clubedelphi.net';
+
+ShellExecute(handle,'open',PChar(edArquivo.Text), '','',SW_SHOWNORMAL)
+
+Conclusões
+
+Com esta dica verificamos como trabalhar com a função ShellExecute. Veja o exemplo para download que permite que você selecione arquivos e execute as operações de open, print e execute com eles. 
+
+
+
+Leia mais em: Usando ShellExecute para executar aplicativos externos http://www.devmedia.com.br/usando-shellexecute-para-executar-aplicativos-externos/613#ixzz3okEo9O5t
+
+unit teste;
+
+interface
+
+uses
+Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+Dialogs,ShellAPI;
+
+type
+TForm1 = class(TForm)
+procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+
+private
+{ Private declarations }
+
+public
+{ Public declarations }
+
+
+end;
+
+var
+Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TForm1.FormKeyDown(Sender: TObject; var Key: Word;
+Shift: TShiftState);
+begin
+if (key = VK_f1) then
+// aqui vc informa o caminho que está seu help.
+ShellExecute(handle,'open',PChar('C:Ajuda SGE\Ajuda SGE.chm'), '','',SW_SHOWMAXIMIZED)
+else
+ShowMessage('Arquivo de ajuda não encontrado');
+end;
+
+end. 
+
+Leia mais em: Usando ShellExecute para executar aplicativos externos http://www.devmedia.com.br/usando-shellexecute-para-executar-aplicativos-externos/613#ixzz3okFBWz3t
+ 
+http://www.devmedia.com.br/usando-shellexecute-para-executar-aplicativos-externos/613
+
+===========================================================================================
+
+
+   uses inifiles;
+
+     caixa:TInifile;
+   codcaixa:string;
+   senha:string;
+   contador:integer;
+
+
+
+  caixa := TIniFile.Create(vardir+'caixa.ini');
+  codcaixa := caixa.ReadString('Ident','codigo','000000');
+  senha:=caixa.ReadString('Ident','password','$$$$$$');
+  caixa.Free;
+
+  caixa:= TIniFile.Create(vardir+'caixa.ini');
+  caixa.WriteString('Ident','Codigo',frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring);
+  caixa.WriteString('Ident','Password',frmmodulo.qrcaixa_operador.fieldbyname('senha').asstring);
+  caixa.Free;

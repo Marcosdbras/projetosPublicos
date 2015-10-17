@@ -119,10 +119,6 @@ begin
   if edit2.text = SENHA then
   begin
       autenticado := true;
-      caixa:= TIniFile.Create(vardir+'caixa.ini');
-      caixa.WriteString('Ident','Codigo',frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring);
-      caixa.WriteString('Ident','Password',frmmodulo.qrcaixa_operador.fieldbyname('senha').asstring);
-      caixa.Free;
   end
   else
   begin

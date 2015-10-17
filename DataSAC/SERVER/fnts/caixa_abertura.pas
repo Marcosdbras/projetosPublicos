@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, rxcurredit, StdCtrls, Mask, rxtooledit, RXDBCtrl, Collection,
   ExtCtrls, Buttons, TFlatPanelUnit, Menus, DB, ZAbstractRODataset,
-  ZAbstractDataset, ZDataset, AdvGlowButton;
+  ZAbstractDataset, ZDataset, AdvGlowButton, shellapi;
 
 type
   Tfrmcaixa_abertura = class(TForm)
@@ -35,6 +35,7 @@ type
     procedure rsaldoKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
+    vardir:string;
   public
     { Public declarations }
   end;
@@ -135,6 +136,13 @@ begin
        end;
        frmmodulo.Conexao.Commit;
        application.messagebox('Caixa aberto com sucesso!','Aviso',mb_ok+MB_ICONINFORMATION);
+
+       //aqui
+
+
+       //            hWnd: HWND;     Operation,   FileName,                     Parameters, Directory: PChar; ShowCmd: Integer): HINST;
+       ShellExecute(  handle   ,     'open'   ,   PChar(vardir+'DataCOMM.exe'), '',         pchar(vardir),    SW_SHOWNORMAL);
+
 //       if application.messagebox('Deseja imprimir a leitura X?','Aviso',mb_yesno+mb_iconquestion+MB_DEFBUTTON2) = idyes then
 //       begin
 //         ecf_leitura_x(ecf_modelo);
@@ -178,6 +186,8 @@ end;
 procedure Tfrmcaixa_abertura.FormShow(Sender: TObject);
 begin
   saldo_anterior := rsaldo.value;
+
+  vardir := extractfilepath(application.ExeName);
 end;
 
 procedure Tfrmcaixa_abertura.Gravar1Click(Sender: TObject);
