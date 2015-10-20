@@ -346,7 +346,7 @@ type
 
   public
     { Public declarations }
-    iavanca:integer;
+    iavanca, colunas:integer;
 
     procedure EnviaComando(comando:string;timeout:integer);
     function Localizar_Produto(referencia:string):boolean;
@@ -6827,6 +6827,8 @@ begin
   frmmodulo.query.Open;
 
   iavanca := frmmodulo.query.FieldByName('avanco').AsInteger;
+  colunas := frmmodulo.query.FieldByName('colunas').AsInteger;
+
   if frmmodulo.query.FieldByName('dadosconsumidor').AsInteger = 1 then
      bConsumidor := true
   else

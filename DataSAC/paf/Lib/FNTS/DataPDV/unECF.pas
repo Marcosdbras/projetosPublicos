@@ -30,6 +30,7 @@ var
     sMsg : string;
     
     srodape:string;
+    espacoproduto:integer;
     
 
 
@@ -7693,12 +7694,17 @@ begin
     // aqui - verificar por que está excedendo 7 espaços, chr(15) não está funcionando.
     assignfile(frmprincipal.arq,frmprincipal.sportaimp);
     reWrite(frmprincipal.arq);
+
+
+
     Writeln(frmprincipal.arq,chr(15)+s1);
     Writeln(frmprincipal.arq, frmprincipal.scliente_nome );
     Writeln(frmprincipal.arq, frmprincipal.scliente_endereco+' - '+frmprincipal.scliente_cep );
-
     Writeln(frmprincipal.arq,  'VENDA N.o '+formatfloat('000000', frmmodulo.query.fieldbyname('totnumerocupom').AsInteger ));
     Writeln(frmprincipal.arq,s1);
+
+
+
 
     //   end;
     //endi
@@ -7837,11 +7843,23 @@ begin
   else
   if COD_ECF = NENHUMA then
   begin
-
+    //aqui
     funitario := valor_unitario  + ( valor_acrescimo / quantidade) ;
 
     codigo := trimleft(TrimRight(copy(codigo,1,13)));
-    produto := trimleft(TrimRight(copy(PRODUTO,1,29)));
+
+    if frmvenda.colunas = 0 then
+       begin
+         produto := trimleft(TrimRight(copy(PRODUTO,1,29)));
+         espacoproduto := 22;
+       end
+    else
+       begin
+         produto := trimleft(TrimRight(copy(PRODUTO,1,24)));
+         espacoproduto := 17;
+       end;
+    //endi
+
     Sqtde :=  padr(  formatfloat('###,###,##0.000',quantidade),10);
     Svalor := padr(formatfloat('###,###,##0.000', funitario ),10);
     Sacrescimo := padr(formatfloat('###,###,##0.00',valor_acrescimo),10);
@@ -7850,8 +7868,8 @@ begin
     sTipo_qtde:= 'F';
 
     divisor_duplo;
-    
-    for x := 1 to (22 - length(produto)) do
+
+    for x := 1 to (espacoproduto - length(produto)) do
       begin
         s2 := s2 + ' ';
       end;
@@ -7885,7 +7903,7 @@ begin
     //if frmprincipal.stipoimp = 'Paralela' then
     //   begin
 
-    Writeln(frmprincipal.arq, codigo+' '+copy(produto,1,22)+s2+sqtde+' '+unidade+s4+svalor+s5+stotal );
+    Writeln(frmprincipal.arq, codigo+' '+copy(produto,1,espacoproduto)+s2+sqtde+' '+unidade+s4+svalor+s5+stotal );
 
     //   end;
     //endi
@@ -7907,6 +7925,8 @@ var
   svalor, stotal, sporcentagem, sliquido, svalordesc : string;
   bDesconto: Boolean;
   bPercentual: Boolean;
+
+  col:integer;
 
 begin
   Result := ERRO;
@@ -7979,8 +7999,18 @@ begin
   if COD_ECF = NENHUMA then
   begin
 
+   if frmvenda.colunas = 0 then
+      begin
+        col := 63;
+      end
+   else
+      begin
+         col := 58;
+      end;
+   //endi
 
-    limpa_s;
+
+   limpa_s;
 
     divisor_simples;
 
@@ -8024,7 +8054,7 @@ begin
     //total
     s0 := '';
     srodape :=  'Total R$ '+stotal;
-    for x := 0 to (63 - length(srodape)) do
+    for x := 0 to (col - length(srodape)) do
        begin
          s0 := s0 + ' ';
        end;
@@ -8035,7 +8065,7 @@ begin
     //desconto
     s0 := '';
     srodape :=  'Desconto '+sporcentagem+'% R$ '+svalordesc;
-    for x := 0 to (63 - length(srodape)) do
+    for x := 0 to (col - length(srodape)) do
        begin
          s0 := s0 + ' ';
        end;
@@ -8046,7 +8076,7 @@ begin
     //liquido
     s0 := '';
     srodape :=  'Liquido R$ '+sliquido;
-    for x := 0 to (63 - length(srodape)) do
+    for x := 0 to (col - length(srodape)) do
        begin
          s0 := s0 + ' ';
        end;
@@ -8077,6 +8107,7 @@ var
   svalor : string;
   apurado:real;
 
+  col:integer;
 begin
 
   Result := ERRO;
@@ -8132,11 +8163,25 @@ begin
   if COD_ECF = NENHUMA then
   begin
 
+
+    if frmvenda.colunas = 0 then
+        begin
+          col := 63;
+        end
+    else
+        begin
+           col := 58;
+        end;
+    //endi
+
+
+
+
     svalor := padr(formatfloat('#,###,###,##0.00',valor),10);
 
     s0 := '';
     srodape :=  forma_pgto+' '+svalor;
-    for x := 0 to (63 - length(srodape)) do
+    for x := 0 to (col - length(srodape)) do
        begin
          s0 := s0 + ' ';
        end;
@@ -8152,7 +8197,7 @@ begin
 
           s0 := '';
           srodape :=  'Troco '+svalor;
-          for x := 0 to (63 - length(srodape)) do
+          for x := 0 to (col - length(srodape)) do
              begin
                s0 := s0 + ' ';
              end;
@@ -9963,19 +10008,44 @@ begin
 end;
 
 procedure divisor_duplo;
+var
+  col:integer;
 begin
-   for x := 1 to 64 do
+  if frmvenda.colunas = 0 then
+     begin
+       col := 64;
+     end
+  else
+     begin
+       col := 59;
+     end;
+  //endi
+
+  for x := 1 to col do
       begin
         s1 := s1 + '=';
       end;
-    //endi
+  //endi
 
 end;
 
 
 procedure divisor_simples;
+var
+  col:integer;
 begin
-   for x := 1 to 64 do
+  if frmvenda.colunas = 0 then
+     begin
+       col := 64;
+     end
+  else
+     begin
+       col := 59;
+     end;
+  //endi
+
+
+  for x := 1 to col do
       begin
         s1 := s1 + '-';
       end;

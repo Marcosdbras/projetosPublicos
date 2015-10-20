@@ -1,8 +1,8 @@
 object frmConfig: TfrmConfig
-  Left = 215
-  Top = 161
-  Width = 443
-  Height = 440
+  Left = 222
+  Top = 147
+  Width = 455
+  Height = 455
   Caption = 'Configura'#231#245'es Gerais'
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
@@ -242,14 +242,14 @@ object frmConfig: TfrmConfig
   end
   object Panel1: TPanel
     Left = 0
-    Top = 372
-    Width = 435
+    Top = 387
+    Width = 447
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 3
     object BitBtn1: TBitBtn
-      Left = 160
+      Left = 159
       Top = 8
       Width = 75
       Height = 25
@@ -258,7 +258,7 @@ object frmConfig: TfrmConfig
       OnClick = BitBtn1Click
     end
     object BitBtn2: TBitBtn
-      Left = 240
+      Left = 239
       Top = 8
       Width = 75
       Height = 25
@@ -271,7 +271,7 @@ object frmConfig: TfrmConfig
     Left = 264
     Top = 251
     Width = 161
-    Height = 62
+    Height = 63
     Caption = 'Vendedor'
     TabOrder = 4
     object chkVendedor: TCheckBox
@@ -287,7 +287,7 @@ object frmConfig: TfrmConfig
   object GroupBox5: TGroupBox
     Left = 16
     Top = 318
-    Width = 409
+    Width = 241
     Height = 49
     Caption = 'Avan'#231'o do papel'
     TabOrder = 5
@@ -307,6 +307,22 @@ object frmConfig: TfrmConfig
       DataSource = dsconfig
       TabOrder = 0
     end
+  end
+  object DBRadioGroup1: TDBRadioGroup
+    Left = 264
+    Top = 319
+    Width = 161
+    Height = 49
+    Caption = 'Impressora'
+    DataField = 'COLUNAS'
+    DataSource = dsconfig
+    Items.Strings = (
+      '40 Colunas'
+      '35 Colunas')
+    TabOrder = 6
+    Values.Strings = (
+      '0'
+      '1')
   end
   object qrconfig: TIBCQuery
     Connection = frmModulo.conexao
