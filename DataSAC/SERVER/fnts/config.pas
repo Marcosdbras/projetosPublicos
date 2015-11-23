@@ -66,7 +66,6 @@ type
     Label38: TLabel;
     RadioButton1: TRadioButton;
     RadioButton2: TRadioButton;
-    DBEdit17: TDBEdit;
     DBEdit19: TDBEdit;
     combo_os: TComboBox;
     combo_venda: TComboBox;
@@ -358,6 +357,7 @@ type
     DBCheckBox23: TDBCheckBox;
     DBCheckBox9: TDBCheckBox;
     RadioButton4: TRadioButton;
+    DBComboBox2: TDBComboBox;
 
     procedure bcancelarClick(Sender: TObject);
     procedure bgravarClick(Sender: TObject);

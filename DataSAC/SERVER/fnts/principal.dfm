@@ -341,6 +341,7 @@ object frmPrincipal: TfrmPrincipal
       TabSettings.Height = 24
       Transparent = True
       ShowShortCutHints = False
+      Visible = False
       OnClosedPage = psuperClosedPage
       TabOrder = 0
       NextPictureChanged = False
@@ -11996,7 +11997,6 @@ object frmPrincipal: TfrmPrincipal
     Top = 232
     object Venda1: TMenuItem
       Caption = 'Venda'
-      ShortCut = 113
       OnClick = Venda1Click
     end
     object ConsultadePreos1: TMenuItem

@@ -794,7 +794,7 @@ object frmvenda_fechamento: Tfrmvenda_fechamento
         D24F0000000049454E44AE426082}
       ParentFont = False
       TabOrder = 7
-      Version = '5.0.0.0'
+      Version = '5.4.0.0'
     end
     object rdesconto2: TRxCalcEdit
       Left = 307
@@ -9301,5 +9301,15 @@ object frmvenda_fechamento: Tfrmvenda_fechamento
         end
       end
     end
+  end
+  object SayPrint1: TSayPrint
+    Porta = Lpt1
+    Impressora = imEpsom
+    EjectPage = False
+    DelayPauseHide = 0
+    CommandFile = False
+    OutputFile = '.txt'
+    Left = 200
+    Top = 144
   end
 end

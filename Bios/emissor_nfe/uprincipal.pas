@@ -88,6 +88,7 @@ type
     bloqueio: TLockApplication;
     Timer1: TTimer;
     Memo1: TMemo;
+    Reparar1: TMenuItem;
     procedure FormShow(Sender: TObject);
     procedure dbg_paisesTitleClick(Column: TColumn);
     procedure Edit1Change(Sender: TObject);
@@ -134,6 +135,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Memo1KeyPress(Sender: TObject; var Key: Char);
+    procedure Reparar1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -717,6 +719,146 @@ end;
 procedure Tfrmprincipal.Memo1KeyPress(Sender: TObject; var Key: Char);
 begin
 key := #0;
+end;
+
+procedure Tfrmprincipal.Reparar1Click(Sender: TObject);
+begin
+
+if application.MessageBox('Este processo irá EXCLUIR CLIENTES e FORNECEDORES e pode demorar algumas horas, você quer continuar?','Importante',mb_yesno) <> 6 then
+   exit;
+//endi   
+
+lblmensagem.Caption := 'Aguarde, corrigindo dados...';
+with frmdados do
+ begin
+
+ cds_corrigirNFP.ProviderName := 'dsp_nfp';
+ cds_corrigirNFP.Active := false;
+ sql_nfp.Active := false;
+ sql_nfp.SQL.Clear;
+ sql_nfp.SQL.Add('select * from nfp');
+ sql_nfp.Active := true;
+ cds_corrigirNFP.Active := true;
+
+  while not cds_corrigirNFP.Eof do
+     begin
+       if cds_corrigirNFP.FieldByName('codigo').AsInteger <> cds_corrigirNFP.FieldByName('id').AsInteger then
+          begin
+             cds_corrigirNFP.Edit;
+             cds_corrigirNFP.FieldByName('codigo').AsInteger := cds_corrigirNFP.fieldbyname('id').AsInteger;
+             cds_corrigirNFP.Post;
+          end;
+       //endi
+       cds_corrigirNFP.Next;
+     end;
+
+
+ cds_corrigirNFE.ProviderName := 'dsp_nfe';
+ cds_corrigirNFE.Active := false;
+ sql_nfe.Active := false;
+ sql_nfe.SQL.Clear;
+ sql_nfe.SQL.Add('select * from nfe');
+ sql_nfe.Active := true;
+ cds_corrigirNFE.Active := true;
+
+  while not cds_corrigirNFE.Eof do
+     begin
+       if cds_corrigirNFE.FieldByName('codigo').AsInteger <> cds_corrigirNFE.FieldByName('id').AsInteger then
+          begin
+             cds_corrigirNFE.Edit;
+             cds_corrigirNFE.FieldByName('codigo').AsInteger := cds_corrigirNFE.fieldbyname('id').AsInteger;
+             cds_corrigirNFE.Post;
+          end;
+       //endi
+       cds_corrigirNFE.Next;
+     end;
+
+
+  cds_corrigirnf.ProviderName := 'dsp_nf';
+ cds_corrigirnf.Active := false;
+ sql_nf.Active := false;
+ sql_nf.SQL.Clear;
+ sql_nf.SQL.Add('select * from nf');
+ sql_nf.Active := true;
+ cds_corrigirnf.Active := true;
+
+  while not cds_corrigirnf.Eof do
+     begin
+       if cds_corrigirnf.FieldByName('codigo').AsInteger <> cds_corrigirnf.FieldByName('id').AsInteger then
+          begin
+             cds_corrigirnf.Edit;
+             cds_corrigirnf.FieldByName('codigo').AsInteger := cds_corrigirnf.fieldbyname('id').AsInteger;
+             cds_corrigirnf.Post;
+          end;
+       //endi
+       cds_corrigirnf.Next;
+     end;
+
+    sql_exec.Active := false;
+    sql_exec.SQL.Clear;
+    sql_exec.SQL.Add('delete from clientes');
+    sql_exec.ExecSQL;
+
+    sql_exec.Active := false;
+    sql_exec.SQL.Clear;
+    sql_exec.SQL.Add('delete from fornecedores');
+    sql_exec.ExecSQL;
+
+
+    importarc;
+    importarf;
+
+     lblmensagem.Caption := '';
+  {
+  cds_corrigirclientes.ProviderName := 'dsp_clientes';
+ cds_corrigirclientes.Active := false;
+ sql_clientes.Active := false;
+ sql_clientes.SQL.Clear;
+ sql_clientes.SQL.Add('select * from clientes');
+ sql_clientes.Active := true;
+ cds_corrigirclientes.Active := true;
+
+  while not cds_corrigirclientes.Eof do
+     begin
+       if cds_corrigirclientes.FieldByName('codigo').AsInteger <> cds_corrigirclientes.FieldByName('id').AsInteger then
+          begin
+             cds_corrigirclientes.Edit;
+             cds_corrigirclientes.FieldByName('codigo').AsInteger := cds_corrigirclientes.fieldbyname('id').AsInteger;
+             cds_corrigirclientes.Post;
+          end;
+       //endi
+       cds_corrigirclientes.Next;
+     end;
+
+
+  cds_corrigirfornecedores.ProviderName := 'dsp_fornecedores';
+ cds_corrigirfornecedores.Active := false;
+ sql_fornecedores.Active := false;
+ sql_fornecedores.SQL.Clear;
+ sql_fornecedores.SQL.Add('select * from fornecedores');
+ sql_fornecedores.Active := true;
+ cds_corrigirfornecedores.Active := true;
+
+  while not cds_corrigirfornecedores.Eof do
+     begin
+       if cds_corrigirfornecedores.FieldByName('codigo').AsInteger <> cds_corrigirfornecedores.FieldByName('id').AsInteger then
+          begin
+             cds_corrigirfornecedores.Edit;
+             cds_corrigirfornecedores.FieldByName('codigo').AsInteger := cds_corrigirfornecedores.fieldbyname('id').AsInteger;
+             cds_corrigirfornecedores.Post;
+          end;
+       //endi
+       cds_corrigirfornecedores.Next;
+     end;
+
+
+
+
+ }
+
+ end;
+
+
 end;
 
 end.

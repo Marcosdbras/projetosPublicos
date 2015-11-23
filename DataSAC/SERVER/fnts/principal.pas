@@ -2514,6 +2514,8 @@ end;
 
 procedure TfrmPrincipal.SpeedButton1Click(Sender: TObject);
 begin
+
+  {
   if frmPrincipal.autentica_caixa('Pedido de Venda',0) then
   begin
     if frmmodulo.qrcaixa_operador.FieldByName('situacao').asinteger = 1 then
@@ -2530,6 +2532,8 @@ begin
   begin
     APPLICATION.MESSAGEBOX('Não autorizado!','Aviso',mb_ok+MB_ICONERROR);
   end;
+
+  }
 end;
 
 procedure TfrmPrincipal.LUSUARIOClick(Sender: TObject);
@@ -3469,13 +3473,15 @@ end;
 
 procedure TfrmPrincipal.Venda1Click(Sender: TObject);
 begin
+{
+
   If frmprincipal.acesso(codigo_usuario,'03.01') = 'NAO' then
   begin
     application.messagebox('Acesso não permitido!','Atenção',mb_ok+MB_ICONERROR);
     exit;
   end;
 
-{
+
     if frmPrincipal.autentica_caixa('Pedido de Venda',0) then
     begin
       if frmmodulo.qrcaixa_operador.FieldByName('situacao').asinteger = 1 then
@@ -3492,9 +3498,9 @@ begin
     begin
       APPLICATION.MESSAGEBOX('Não autorizado!','Aviso',mb_ok+MB_ICONERROR);
     end;
- }
 
- 
+
+
   FRMMODULO.qrconfig.OPEN;
   IF frmmodulo.qrconfig.FieldByName('ramo_atividade').asinteger = 4 THEN
     BEGIN
@@ -3535,7 +3541,7 @@ begin
           APPLICATION.MESSAGEBOX('Não autorizado!','Aviso',mb_ok+MB_ICONERROR);
         end;
     end;
-
+}
 
 end;
 

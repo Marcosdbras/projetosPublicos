@@ -31,8 +31,8 @@ object frmconfig: Tfrmconfig
     Top = 0
     Width = 668
     Height = 373
-    ActivePage = PageSheet7
-    ActivePageIndex = 0
+    ActivePage = PageSheet10
+    ActivePageIndex = 1
     AdaptiveColors = True
     Align = alTop
     BackgroundColor = clBtnFace
@@ -542,19 +542,19 @@ object frmconfig: Tfrmconfig
           Left = 8
           Top = 117
           Width = 371
-          Height = 53
+          Height = 61
           Caption = 'Impressora Matricial'
           TabOrder = 2
           object Label22: TLabel
-            Left = 128
-            Top = 8
+            Left = 122
+            Top = 18
             Width = 41
             Height = 13
             Caption = 'Caminho'
           end
           object Label38: TLabel
-            Left = 288
-            Top = 8
+            Left = 291
+            Top = 18
             Width = 65
             Height = 13
             Caption = 'Avan'#231'o Papel'
@@ -571,25 +571,15 @@ object frmconfig: Tfrmconfig
           end
           object RadioButton2: TRadioButton
             Left = 8
-            Top = 32
+            Top = 36
             Width = 113
             Height = 17
             Caption = 'Em Rede - Local:'
             TabOrder = 1
           end
-          object DBEdit17: TDBEdit
-            Left = 129
-            Top = 24
-            Width = 152
-            Height = 21
-            CharCase = ecUpperCase
-            DataField = 'VENDA_PORTA_IMPRESSORA'
-            DataSource = dsconfig
-            TabOrder = 2
-          end
           object DBEdit19: TDBEdit
             Left = 288
-            Top = 24
+            Top = 35
             Width = 73
             Height = 21
             CharCase = ecUpperCase
@@ -597,11 +587,27 @@ object frmconfig: Tfrmconfig
             DataSource = dsconfig
             TabOrder = 3
           end
+          object DBComboBox2: TDBComboBox
+            Left = 120
+            Top = 34
+            Width = 161
+            Height = 21
+            DataField = 'VENDA_PORTA_IMPRESSORA'
+            DataSource = dsconfig
+            ItemHeight = 13
+            Items.Strings = (
+              'LPT1'
+              'LPT2'
+              'LPT3'
+              'LPT4'
+              'c:\impressao\impressao.txt')
+            TabOrder = 2
+          end
         end
         object combo_os: TComboBox
-          Left = 57
+          Left = 80
           Top = 37
-          Width = 241
+          Width = 209
           Height = 20
           Style = csDropDownList
           CharCase = ecUpperCase
@@ -629,9 +635,9 @@ object frmconfig: Tfrmconfig
             '13 - CUPOM FISCAL + NOTA FISCAL')
         end
         object combo_venda: TComboBox
-          Left = 57
+          Left = 80
           Top = 13
-          Width = 241
+          Width = 209
           Height = 20
           Style = csDropDownList
           CharCase = ecUpperCase
@@ -675,7 +681,7 @@ object frmconfig: Tfrmconfig
         object combo_orcamento: TComboBox
           Left = 80
           Top = 61
-          Width = 218
+          Width = 209
           Height = 20
           Style = csDropDownList
           CharCase = ecUpperCase
@@ -884,13 +890,13 @@ object frmconfig: Tfrmconfig
         Left = 204
         Top = 208
         Width = 193
-        Height = 73
+        Height = 105
         Caption = 'Tipo Duplicata'
         TabOrder = 3
         object DBComboBox1: TDBComboBox
-          Left = 16
-          Top = 32
-          Width = 161
+          Left = 8
+          Top = 23
+          Width = 177
           Height = 21
           Style = csDropDownList
           CharCase = ecUpperCase
@@ -4764,8 +4770,8 @@ object frmconfig: Tfrmconfig
       'Arquivos NFE (*-nfe.XML)|*-nfe.XML|Arquivos XML (*.XML)|*.XML|To' +
       'dos os Arquivos (*.*)|*.*'
     Title = 'Selecione a NFe'
-    Left = 344
-    Top = 112
+    Left = 584
+    Top = 48
   end
   object ACBrNFe1: TACBrNFe
     Configuracoes.Geral.PathSalvar = 'C:\siscom\SERVER\nfe\'

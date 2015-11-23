@@ -1,10 +1,9 @@
-object FrmImpProducao: TFrmImpProducao
+object FrmImpProducao_old: TFrmImpProducao_old
   Left = 261
   Top = 52
   Width = 928
   Height = 681
-  VertScrollBar.Position = 62
-  Caption = 'FrmImpProducao'
+  Caption = 'FrmImpProducao_old'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +16,7 @@ object FrmImpProducao: TFrmImpProducao
   TextHeight = 13
   object relatorio: TQuickRep
     Left = 8
-    Top = -76
+    Top = -14
     Width = 794
     Height = 1123
     Frame.Color = clBlack
@@ -64,7 +63,7 @@ object FrmImpProducao: TFrmImpProducao
       Left = 38
       Top = 38
       Width = 718
-      Height = 211
+      Height = 262
       Frame.Color = clBlack
       Frame.DrawTop = False
       Frame.DrawBottom = False
@@ -76,7 +75,7 @@ object FrmImpProducao: TFrmImpProducao
       ForceNewColumn = False
       ForceNewPage = False
       Size.Values = (
-        558.270833333333400000
+        693.208333333333400000
         1899.708333333333000000)
       BandType = rbPageHeader
       object QRShape19: TQRShape
@@ -94,6 +93,23 @@ object FrmImpProducao: TFrmImpProducao
           10.583333333333330000
           412.750000000000100000
           1177.395833333333000000)
+        Shape = qrsRectangle
+      end
+      object QRShape6: TQRShape
+        Left = 4
+        Top = 208
+        Width = 709
+        Height = 49
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          129.645833333333300000
+          10.583333333333330000
+          550.333333333333400000
+          1875.895833333333000000)
         Shape = qrsRectangle
       end
       object QRShape5: TQRShape
@@ -150,7 +166,7 @@ object FrmImpProducao: TFrmImpProducao
       object QRShape2: TQRShape
         Left = 4
         Top = 104
-        Width = 373
+        Width = 185
         Height = 49
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -161,7 +177,24 @@ object FrmImpProducao: TFrmImpProducao
           129.645833333333300000
           10.583333333333330000
           275.166666666666700000
-          986.895833333333400000)
+          489.479166666666600000)
+        Shape = qrsRectangle
+      end
+      object QRShape1: TQRShape
+        Left = 192
+        Top = 104
+        Width = 185
+        Height = 49
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          129.645833333333300000
+          508.000000000000000000
+          275.166666666666700000
+          489.479166666666600000)
         Shape = qrsRectangle
       end
       object lblCab2: TQRLabel
@@ -227,7 +260,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 8
       end
       object lblCab3: TQRLabel
-        Left = 6
+        Left = 46
         Top = 66
         Width = 36
         Height = 15
@@ -238,7 +271,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           39.687500000000000000
-          15.875000000000000000
+          121.708333333333300000
           174.625000000000000000
           95.250000000000000000)
         Alignment = taLeftJustify
@@ -258,7 +291,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 8
       end
       object lblCab4: TQRLabel
-        Left = 6
+        Left = 47
         Top = 80
         Width = 36
         Height = 15
@@ -269,7 +302,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           39.687500000000000000
-          15.875000000000000000
+          124.354166666666700000
           211.666666666666700000
           95.250000000000000000)
         Alignment = taLeftJustify
@@ -289,7 +322,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 8
       end
       object lbltit2: TQRLabel
-        Left = 6
+        Left = 7
         Top = 80
         Width = 15
         Height = 15
@@ -300,7 +333,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           39.687500000000000000
-          15.875000000000000000
+          18.520833333333330000
           211.666666666666700000
           39.687500000000000000)
         Alignment = taLeftJustify
@@ -320,7 +353,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 8
       end
       object lblcabcodigo: TQRLabel
-        Left = 6
+        Left = 10
         Top = 110
         Width = 81
         Height = 18
@@ -331,7 +364,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          26.458333333333330000
           291.041666666666700000
           214.312500000000000000)
         Alignment = taLeftJustify
@@ -351,7 +384,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lblOS: TQRLabel
-        Left = 6
+        Left = 11
         Top = 129
         Width = 33
         Height = 17
@@ -362,7 +395,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          15.875000000000000000
+          29.104166666666670000
           341.312500000000000000
           87.312500000000000000)
         Alignment = taLeftJustify
@@ -370,6 +403,68 @@ object FrmImpProducao: TFrmImpProducao
         AutoSize = True
         AutoStretch = False
         Caption = 'lblOS'
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        Transparent = False
+        WordWrap = True
+        FontSize = 10
+      end
+      object QRLabel3: TQRLabel
+        Left = 8
+        Top = 213
+        Width = 58
+        Height = 19
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          50.270833333333330000
+          21.166666666666670000
+          563.562500000000000000
+          153.458333333333300000)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'CLIENTE:'
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        Transparent = False
+        WordWrap = True
+        FontSize = 10
+      end
+      object lblNome: TQRLabel
+        Left = 8
+        Top = 234
+        Width = 689
+        Height = 19
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          50.270833333333330000
+          21.166666666666670000
+          619.125000000000000000
+          1822.979166666667000000)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = False
+        AutoStretch = False
+        Caption = 'lblNome'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -432,6 +527,68 @@ object FrmImpProducao: TFrmImpProducao
         AutoSize = False
         AutoStretch = False
         Caption = 'lbldesc1'
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        Transparent = False
+        WordWrap = True
+        FontSize = 10
+      end
+      object lblid1: TQRLabel
+        Left = 197
+        Top = 129
+        Width = 121
+        Height = 18
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          47.625000000000000000
+          521.229166666666800000
+          341.312500000000000000
+          320.145833333333400000)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = False
+        AutoStretch = False
+        Caption = 'lblid1'
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        Transparent = False
+        WordWrap = True
+        FontSize = 10
+      end
+      object lbltitid1: TQRLabel
+        Left = 197
+        Top = 109
+        Width = 42
+        Height = 18
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          47.625000000000000000
+          521.229166666666700000
+          288.395833333333400000
+          111.125000000000000000)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'lbltitid1'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -598,7 +755,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbltitdesc2: TQRLabel
-        Left = 6
+        Left = 9
         Top = 160
         Width = 60
         Height = 18
@@ -609,7 +766,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          23.812500000000000000
           423.333333333333300000
           158.750000000000000000)
         Alignment = taLeftJustify
@@ -629,7 +786,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbldesc2: TQRLabel
-        Left = 6
+        Left = 8
         Top = 181
         Width = 433
         Height = 18
@@ -640,7 +797,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          21.166666666666670000
           478.895833333333400000
           1145.645833333333000000)
         Alignment = taLeftJustify
@@ -662,7 +819,7 @@ object FrmImpProducao: TFrmImpProducao
     end
     object QRSubDetail1: TQRSubDetail
       Left = 38
-      Top = 280
+      Top = 331
       Width = 718
       Height = 32
       Frame.Color = clBlack
@@ -849,7 +1006,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lblnpro: TQRLabel
-        Left = 6
+        Left = 7
         Top = 8
         Width = 39
         Height = 18
@@ -860,7 +1017,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          18.520833333333330000
           21.166666666666670000
           103.187500000000000000)
         Alignment = taLeftJustify
@@ -975,7 +1132,7 @@ object FrmImpProducao: TFrmImpProducao
     end
     object GroupFooterBand2: TQRBand
       Left = 38
-      Top = 312
+      Top = 363
       Width = 718
       Height = 480
       Frame.Color = clBlack
@@ -1026,9 +1183,9 @@ object FrmImpProducao: TFrmImpProducao
         Shape = qrsRectangle
       end
       object QRShape35: TQRShape
-        Left = 3
+        Left = 8
         Top = 413
-        Width = 410
+        Width = 404
         Height = 63
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -1037,9 +1194,9 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           166.687500000000000000
-          7.937500000000000000
+          21.166666666666670000
           1092.729166666667000000
-          1084.791666666667000000)
+          1068.916666666667000000)
         Shape = qrsRectangle
       end
       object QRShape32: TQRShape
@@ -1060,9 +1217,9 @@ object FrmImpProducao: TFrmImpProducao
         Shape = qrsRectangle
       end
       object QRShape31: TQRShape
-        Left = 3
+        Left = 8
         Top = 310
-        Width = 410
+        Width = 404
         Height = 49
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -1071,15 +1228,15 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           129.645833333333300000
-          7.937500000000000000
+          21.166666666666670000
           820.208333333333500000
-          1084.791666666667000000)
+          1068.916666666667000000)
         Shape = qrsRectangle
       end
       object QRShape30: TQRShape
-        Left = 3
+        Left = 8
         Top = 259
-        Width = 410
+        Width = 405
         Height = 49
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -1088,9 +1245,9 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           129.645833333333300000
-          7.937500000000000000
+          21.166666666666670000
           685.270833333333400000
-          1084.791666666667000000)
+          1071.562500000000000000)
         Shape = qrsRectangle
       end
       object QRShape29: TQRShape
@@ -1179,9 +1336,9 @@ object FrmImpProducao: TFrmImpProducao
         Shape = qrsRectangle
       end
       object QRShape24: TQRShape
-        Left = 3
+        Left = 8
         Top = 207
-        Width = 410
+        Width = 405
         Height = 50
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -1190,15 +1347,15 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           132.291666666666700000
-          7.937500000000000000
+          21.166666666666670000
           547.687500000000000000
-          1084.791666666667000000)
+          1071.562500000000000000)
         Shape = qrsRectangle
       end
       object QRShape23: TQRShape
-        Left = 3
+        Left = 8
         Top = 156
-        Width = 410
+        Width = 405
         Height = 49
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -1207,15 +1364,15 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           129.645833333333300000
-          7.937500000000000000
+          21.166666666666670000
           412.750000000000100000
-          1084.791666666667000000)
+          1071.562500000000000000)
         Shape = qrsRectangle
       end
       object QRShape22: TQRShape
-        Left = 3
+        Left = 8
         Top = 105
-        Width = 410
+        Width = 405
         Height = 49
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -1224,15 +1381,15 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           129.645833333333300000
-          7.937500000000000000
+          21.166666666666670000
           277.812500000000000000
-          1084.791666666667000000)
+          1071.562500000000000000)
         Shape = qrsRectangle
       end
       object QRShape21: TQRShape
-        Left = 3
+        Left = 8
         Top = 54
-        Width = 410
+        Width = 405
         Height = 49
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -1241,15 +1398,15 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           129.645833333333300000
-          7.937500000000000000
+          21.166666666666670000
           142.875000000000000000
-          1084.791666666667000000)
+          1071.562500000000000000)
         Shape = qrsRectangle
       end
       object QRShape20: TQRShape
-        Left = 3
+        Left = 8
         Top = 3
-        Width = 410
+        Width = 405
         Height = 49
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -1258,13 +1415,13 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           129.645833333333300000
+          21.166666666666670000
           7.937500000000000000
-          7.937500000000000000
-          1084.791666666667000000)
+          1071.562500000000000000)
         Shape = qrsRectangle
       end
       object lbltitdesc3: TQRLabel
-        Left = 6
+        Left = 14
         Top = 11
         Width = 60
         Height = 18
@@ -1275,7 +1432,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          37.041666666666670000
           29.104166666666670000
           158.750000000000000000)
         Alignment = taLeftJustify
@@ -1295,7 +1452,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbldesc3: TQRLabel
-        Left = 6
+        Left = 13
         Top = 31
         Width = 388
         Height = 18
@@ -1306,7 +1463,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          34.395833333333340000
           82.020833333333340000
           1026.583333333333000000)
         Alignment = taLeftJustify
@@ -1326,7 +1483,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbltitdesc4: TQRLabel
-        Left = 6
+        Left = 13
         Top = 58
         Width = 60
         Height = 18
@@ -1337,7 +1494,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          34.395833333333340000
           153.458333333333300000
           158.750000000000000000)
         Alignment = taLeftJustify
@@ -1357,7 +1514,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbldesc4: TQRLabel
-        Left = 6
+        Left = 13
         Top = 81
         Width = 388
         Height = 18
@@ -1368,7 +1525,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          34.395833333333340000
           214.312500000000000000
           1026.583333333333000000)
         Alignment = taLeftJustify
@@ -1388,7 +1545,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbltitdesc5: TQRLabel
-        Left = 6
+        Left = 14
         Top = 109
         Width = 60
         Height = 18
@@ -1399,7 +1556,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          37.041666666666670000
           288.395833333333400000
           158.750000000000000000)
         Alignment = taLeftJustify
@@ -1419,7 +1576,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbldesc5: TQRLabel
-        Left = 6
+        Left = 14
         Top = 131
         Width = 387
         Height = 18
@@ -1430,7 +1587,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          37.041666666666670000
           346.604166666666700000
           1023.937500000000000000)
         Alignment = taLeftJustify
@@ -1450,7 +1607,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbltitdesc6: TQRLabel
-        Left = 6
+        Left = 13
         Top = 160
         Width = 60
         Height = 18
@@ -1461,7 +1618,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          34.395833333333340000
           423.333333333333300000
           158.750000000000000000)
         Alignment = taLeftJustify
@@ -1481,7 +1638,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbldesc6: TQRLabel
-        Left = 6
+        Left = 12
         Top = 182
         Width = 389
         Height = 18
@@ -1492,7 +1649,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          31.750000000000000000
           481.541666666666700000
           1029.229166666667000000)
         Alignment = taLeftJustify
@@ -1512,7 +1669,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbltitdesc7: TQRLabel
-        Left = 6
+        Left = 13
         Top = 212
         Width = 60
         Height = 18
@@ -1523,7 +1680,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          34.395833333333340000
           560.916666666666700000
           158.750000000000000000)
         Alignment = taLeftJustify
@@ -1543,7 +1700,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbldesc7: TQRLabel
-        Left = 6
+        Left = 13
         Top = 234
         Width = 388
         Height = 18
@@ -1554,7 +1711,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          34.395833333333340000
           619.125000000000000000
           1026.583333333333000000)
         Alignment = taLeftJustify
@@ -1574,7 +1731,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbltitdesc8: TQRLabel
-        Left = 6
+        Left = 13
         Top = 266
         Width = 60
         Height = 18
@@ -1585,7 +1742,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          34.395833333333340000
           703.791666666666800000
           158.750000000000000000)
         Alignment = taLeftJustify
@@ -1605,7 +1762,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbldesc8: TQRLabel
-        Left = 6
+        Left = 13
         Top = 282
         Width = 388
         Height = 18
@@ -1616,7 +1773,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          34.395833333333340000
           746.125000000000000000
           1026.583333333333000000)
         Alignment = taLeftJustify
@@ -1636,7 +1793,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbltitdesc9: TQRLabel
-        Left = 6
+        Left = 11
         Top = 316
         Width = 60
         Height = 18
@@ -1647,7 +1804,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          29.104166666666670000
           836.083333333333400000
           158.750000000000000000)
         Alignment = taLeftJustify
@@ -1667,7 +1824,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbldesc9: TQRLabel
-        Left = 6
+        Left = 11
         Top = 336
         Width = 390
         Height = 18
@@ -1678,7 +1835,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          29.104166666666670000
           889.000000000000000000
           1031.875000000000000000)
         Alignment = taLeftJustify
@@ -2094,7 +2251,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object mmoobs: TQRMemo
-        Left = 6
+        Left = 16
         Top = 431
         Width = 385
         Height = 41
@@ -2105,7 +2262,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           108.479166666666700000
-          15.875000000000000000
+          42.333333333333340000
           1140.354166666667000000
           1018.645833333333000000)
         Alignment = taLeftJustify
@@ -2118,9 +2275,9 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object QRShape37: TQRShape
-        Left = 3
+        Left = 8
         Top = 362
-        Width = 410
+        Width = 404
         Height = 49
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -2129,9 +2286,9 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           129.645833333333300000
-          7.937500000000000000
+          21.166666666666670000
           957.791666666666800000
-          1084.791666666667000000)
+          1068.916666666667000000)
         Shape = qrsRectangle
       end
       object QRShape38: TQRShape
@@ -2152,7 +2309,7 @@ object FrmImpProducao: TFrmImpProducao
         Shape = qrsRectangle
       end
       object lbltitdesc17: TQRLabel
-        Left = 6
+        Left = 11
         Top = 368
         Width = 67
         Height = 18
@@ -2163,7 +2320,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          29.104166666666670000
           973.666666666666900000
           177.270833333333300000)
         Alignment = taLeftJustify
@@ -2183,7 +2340,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lbldesc17: TQRLabel
-        Left = 6
+        Left = 11
         Top = 388
         Width = 390
         Height = 18
@@ -2194,7 +2351,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          29.104166666666670000
           1026.583333333333000000
           1031.875000000000000000)
         Alignment = taLeftJustify
@@ -2338,7 +2495,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object QRLabel1: TQRLabel
-        Left = 6
+        Left = 15
         Top = 415
         Width = 33
         Height = 18
@@ -2349,7 +2506,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          15.875000000000000000
+          39.687500000000000000
           1098.020833333333000000
           87.312500000000000000)
         Alignment = taLeftJustify
@@ -2371,7 +2528,7 @@ object FrmImpProducao: TFrmImpProducao
     end
     object GroupHeaderBand2: TQRBand
       Left = 38
-      Top = 249
+      Top = 300
       Width = 718
       Height = 31
       Frame.Color = clBlack
@@ -2553,7 +2710,7 @@ object FrmImpProducao: TFrmImpProducao
         FontSize = 10
       end
       object lblcabdesc: TQRLabel
-        Left = 7
+        Left = 9
         Top = 8
         Width = 67
         Height = 18
@@ -2564,7 +2721,7 @@ object FrmImpProducao: TFrmImpProducao
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333330000
+          23.812500000000000000
           21.166666666666670000
           177.270833333333300000)
         Alignment = taLeftJustify

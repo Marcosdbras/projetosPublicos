@@ -478,6 +478,10 @@ object frmprincipal: Tfrmprincipal
         Caption = 'Apaga Todos os Dados'
         OnClick = ApagaTodososDados1Click
       end
+      object Reparar1: TMenuItem
+        Caption = 'Corrigir Dados'
+        OnClick = Reparar1Click
+      end
     end
     object Configurao1: TMenuItem
       Caption = 'Configura'#231#227'o'

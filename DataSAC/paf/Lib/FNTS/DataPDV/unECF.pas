@@ -7697,7 +7697,7 @@ begin
 
 
 
-    Writeln(frmprincipal.arq,chr(15)+s1);
+    Writeln(frmprincipal.arq,chr(27)+chr(15)+s1);
     Writeln(frmprincipal.arq, frmprincipal.scliente_nome );
     Writeln(frmprincipal.arq, frmprincipal.scliente_endereco+' - '+frmprincipal.scliente_cep );
     Writeln(frmprincipal.arq,  'VENDA N.o '+formatfloat('000000', frmmodulo.query.fieldbyname('totnumerocupom').AsInteger ));

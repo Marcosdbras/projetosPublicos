@@ -1,4 +1,4 @@
-unit uimpproducao;
+unit uimpproducao_old;
 
 interface
 
@@ -7,7 +7,7 @@ uses
   QuickRpt, ExtCtrls, Qrctrls, Db, DBTables, jpeg, dbiprocs, shellapi;
 
 type
-  TFrmImpProducao = class(TForm)
+  TFrmImpProducao_old = class(TForm)
     tabConfig: TTable;
     tabConfigCAMPO1: TStringField;
     tabConfigCAMPO2: TStringField;
@@ -35,8 +35,12 @@ type
     lbltit2: TQRLabel;
     lblcabcodigo: TQRLabel;
     lblOS: TQRLabel;
+    QRLabel3: TQRLabel;
+    lblNome: TQRLabel;
     lbltitdesc1: TQRLabel;
     lbldesc1: TQRLabel;
+    lblid1: TQRLabel;
+    lbltitid1: TQRLabel;
     QRSubDetail1: TQRSubDetail;
     GroupFooterBand2: TQRBand;
     GroupHeaderBand2: TQRBand;
@@ -59,10 +63,12 @@ type
     imgfoto: TQRImage;
     lbltitid2: TQRLabel;
     lblid2: TQRLabel;
+    QRShape1: TQRShape;
     QRShape2: TQRShape;
     QRShape3: TQRShape;
     QRShape4: TQRShape;
     QRShape5: TQRShape;
+    QRShape6: TQRShape;
     lbltitdesc3: TQRLabel;
     lbldesc3: TQRLabel;
     lbltitdesc4: TQRLabel;
@@ -158,13 +164,13 @@ type
   end;
 
 var
-  FrmImpProducao: TFrmImpProducao;
+  FrmImpProducao_old: TFrmImpProducao_old;
 
 implementation
  uses uGeral, udados, upesqos;
 {$R *.DFM}
 
-procedure TFrmImpProducao.mostrararq_ext;
+procedure TFrmImpProducao_old.mostrararq_ext;
 var
  J : TJPEGImage;
  figura : tbitmap;
@@ -260,7 +266,7 @@ with frmdados do
 
 end;
 
-procedure TFrmImpProducao.detalheBeforePrint(Sender: TQRCustomBand;
+procedure TFrmImpProducao_old.detalheBeforePrint(Sender: TQRCustomBand;
   var PrintBand: Boolean);
   var pCodSit, pCodfunreb, pCodfuncon:Integer;
       VarDir, presttexto:String;
@@ -270,7 +276,7 @@ begin
 
 end;
 
-procedure TFrmImpProducao.QRBand1BeforePrint(Sender: TQRCustomBand;
+procedure TFrmImpProducao_old.QRBand1BeforePrint(Sender: TQRCustomBand;
   var PrintBand: Boolean);
   var pCodSit, pCodfunreb, pCodfuncon:Integer;
       VarDir, presttexto:String;
@@ -279,8 +285,8 @@ procedure TFrmImpProducao.QRBand1BeforePrint(Sender: TQRCustomBand;
 begin
 
 
-//lblid1.caption := '';
-//lbltitid1.caption := '';
+lblid1.caption := '';
+lbltitid1.caption := '';
 
 lbldesc1.caption := '';
 lbltitdesc1.caption := '';
@@ -390,7 +396,7 @@ lblOs.Caption := FormatFloat('00000',frmdados.Cds_sVenda.FieldByName('nos').asFl
 
 
 
-//lblNome.Caption := frmdados.Cds_Clientes.FieldByName('Nome').asString;
+lblNome.Caption := frmdados.Cds_Clientes.FieldByName('Nome').asString;
 
 
 
@@ -400,11 +406,11 @@ lblOs.Caption := FormatFloat('00000',frmdados.Cds_sVenda.FieldByName('nos').asFl
 
        if (cds_indice.FieldByName('ID1').asString <> '') then
            begin
-             //lbltitid1.Caption := cds_indice.FieldByName('ID1').asString;
-             //lbltitid1.Visible := true;
+             lbltitid1.Caption := cds_indice.FieldByName('ID1').asString;
+             lbltitid1.Visible := true;
 
-             //lblid1.Caption := cds_svenda.FieldByName('ID1').asString;
-             //lblid1.Visible := true;
+             lblid1.Caption := cds_svenda.FieldByName('ID1').asString;
+             lblid1.Visible := true;
 
            end;
        //endi
@@ -651,7 +657,7 @@ if frmdados.Cds_sVenda.FieldByName('datafec').asString <> '' then
 
 end;
 
-procedure TFrmImpProducao.GroupHeaderBand2BeforePrint(Sender: TQRCustomBand;
+procedure TFrmImpProducao_old.GroupHeaderBand2BeforePrint(Sender: TQRCustomBand;
   var PrintBand: Boolean);
 begin
 if frmdados.Cds_dVenda.RecordCount > 0  then
@@ -676,7 +682,7 @@ else
 
 end;
 
-procedure TFrmImpProducao.QRSubDetail1BeforePrint(Sender: TQRCustomBand;
+procedure TFrmImpProducao_old.QRSubDetail1BeforePrint(Sender: TQRCustomBand;
   var PrintBand: Boolean);
 begin
  if frmdados.Cds_dVenda.RecordCount > 0 then
@@ -702,7 +708,7 @@ begin
 
 end;
 
-procedure TFrmImpProducao.QRSubDetail2AfterPrint(Sender: TQRCustomBand;
+procedure TFrmImpProducao_old.QRSubDetail2AfterPrint(Sender: TQRCustomBand;
   BandPrinted: Boolean);
 begin
 try
@@ -713,7 +719,7 @@ end;
 
 end;
 
-procedure TFrmImpProducao.GroupFooterBand1BeforePrint(Sender: TQRCustomBand;
+procedure TFrmImpProducao_old.GroupFooterBand1BeforePrint(Sender: TQRCustomBand;
   var PrintBand: Boolean);
 begin
   mmoobs1.Lines.Clear;
@@ -723,7 +729,7 @@ begin
 
 end;
 
-procedure TFrmImpProducao.GroupFooterBand3BeforePrint(Sender: TQRCustomBand;
+procedure TFrmImpProducao_old.GroupFooterBand3BeforePrint(Sender: TQRCustomBand;
   var PrintBand: Boolean);
   var
     vardir:string;
@@ -733,7 +739,7 @@ begin
 
 end;
 
-procedure TFrmImpProducao.relatorioBeforePrint(Sender: TCustomQuickRep;
+procedure TFrmImpProducao_old.relatorioBeforePrint(Sender: TCustomQuickRep;
   var PrintReport: Boolean);
 begin
 

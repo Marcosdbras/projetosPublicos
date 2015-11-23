@@ -87,7 +87,6 @@ uses
   upesqost in 'upesqost.pas' {frmPesqOST},
   ufecos in 'ufecos.pas' {frmfecOS},
   upesqcmobrad in 'upesqcmobrad.pas' {frmpesqcmobrad},
-  uimpproducao in 'uimpproducao.pas' {FrmImpProducao},
   ucopiaapl4 in 'ucopiaapl4.pas' {frmcopiaapl4},
   upesqtcc in 'upesqtcc.pas' {frmPesqtcc},
   upesqtpcli in 'upesqtpcli.pas' {frmPesqTpCli},
@@ -249,7 +248,8 @@ uses
   upesqmar in 'upesqmar.pas' {frmPesqmar},
   uImpOS in 'uimpos.pas' {FrmImpOs},
   uimpproducao2 in 'uimpproducao2.pas' {Form1},
-  uimpproducao3 in 'uimpproducao3.pas' {Form2};
+  uimpproducao3 in 'uimpproducao3.pas' {Form2},
+  uimpproducao in 'uimpproducao.pas' {FrmImpProducao};
 
 {$R *.res}
 
@@ -264,6 +264,7 @@ begin
   Application.CreateForm(Tfrmprincipal, frmprincipal);
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TFrmImpProducao, FrmImpProducao);
   Atualizar;
   frmSplash.Hide;
   frmSplash.Free;

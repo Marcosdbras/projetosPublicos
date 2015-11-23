@@ -8,7 +8,7 @@ uses
   TFlatPanelUnit, Buttons, Menus, wwdbedit, Wwdotdot, Wwdbcomb, DB,
   ZAbstractRODataset, ZAbstractDataset, ZDataset, AdvShapeButton,
   AdvGlowButton, IBDatabase, IBCustomDataSet, IBQuery, MemDS, DBAccess, IBC,
-  RzEdit, RzSpnEdt, frxDesgn, frxClass, frxDBSet, RxMemDS;
+  RzEdit, RzSpnEdt, frxDesgn, frxClass, frxDBSet, RxMemDS, SayPrint;
 
 type
   Tfrmvenda_fechamento = class(TForm)
@@ -152,6 +152,7 @@ type
     fxdesenhar: TfrxDesigner;
     qrcliente: TZQuery;
     fxduplicata: TfrxReport;
+    SayPrint1: TSayPrint;
     procedure rdesconto1KeyPress(Sender: TObject; var Key: Char);
     procedure racrescimo2KeyPress(Sender: TObject; var Key: Char);
     procedure rdesconto1Enter(Sender: TObject);
@@ -352,6 +353,8 @@ v_dinheiro:real;
  ecf_ok : boolean;
  qtef:integer;
  cvinc : boolean;
+
+ ilin, icol:integer;
  //
  iparcela, itotal_parcela : integer;
  vpis, vcofins : Double;
@@ -2000,6 +2003,63 @@ if rconvenio.Value <> 0 then
         end;
       end;
     end;
+
+    if frmmodulo.qrconfig.FieldByName('VENDA_PORTA_IMPRESSORA').AsString = 'LPT1'  then
+       begin
+         sayprint1.Porta := LPT1;
+         sayprint1.OutputFile := '.txt';
+       end;
+    //endi
+    if frmmodulo.qrconfig.FieldByName('VENDA_PORTA_IMPRESSORA').AsString = 'LPT2'  then
+       begin
+         sayprint1.Porta := LPT2;
+         sayprint1.OutputFile := '.txt';
+       end;
+    //endi
+    if frmmodulo.qrconfig.FieldByName('VENDA_PORTA_IMPRESSORA').AsString = 'LPT3'  then
+       begin
+         sayprint1.Porta := LPT3;
+         sayprint1.OutputFile := '.txt';
+       end;
+    //endi
+    if frmmodulo.qrconfig.FieldByName('VENDA_PORTA_IMPRESSORA').AsString = 'LPT4'  then
+       begin
+         sayprint1.Porta := LPT4;
+         sayprint1.OutputFile := '.txt';
+       end;
+    //endi
+    if pos(   ':\',frmmodulo.qrconfig.FieldByName('VENDA_PORTA_IMPRESSORA').AsString)>0 then
+       begin
+         sayprint1.Porta :=  PrnFile;
+         sayprint1.OutputFile := frmmodulo.qrconfig.FieldByName('VENDA_PORTA_IMPRESSORA').AsString;
+       end;
+    //endi 
+
+    sayprint1.BeginPrn;
+
+    sayprint1.Condensed(True);
+    sayprint1.Say(0,0,'Nome:');
+    sayprint1.Say(1,0,'Endereço:');
+    sayprint1.Say(2,0,'Venda nº:');
+    sayprint1.Say(3,0,'');
+
+
+    ilin := 4;
+    frmvenda.qrvenda_produto.First;
+    while not frmvenda.qrvenda_produto.Eof do
+      begin
+        sayprint1.Say(ilin,0,frmvenda.qrvenda_produto.fieldbyname('codproduto').AsString);
+
+        ilin := ilin + 1;
+        frmvenda.qrvenda_produto.Next;
+      end;
+    //endw
+
+
+    sayprint1.EndPrn;
+
+
+
 
   finalizou := true;
 

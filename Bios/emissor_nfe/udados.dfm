@@ -9143,4 +9143,36 @@ object frmdados: Tfrmdados
     Left = 624
     Top = 456
   end
+  object sql_exec: TZQuery
+    Connection = zconexao
+    SQL.Strings = (
+      'select * from aliqinter')
+    Params = <>
+    Left = 176
+    Top = 624
+    object IntegerField1: TIntegerField
+      FieldName = 'CODIGO'
+    end
+    object IntegerField3: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object IntegerField4: TIntegerField
+      FieldName = 'CODPROD'
+    end
+    object FloatField1: TFloatField
+      FieldName = 'ALIQ'
+    end
+    object FloatField2: TFloatField
+      FieldName = 'IVA'
+    end
+    object IntegerField5: TIntegerField
+      FieldName = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object StringField1: TStringField
+      FieldName = 'ST'
+      Size = 1
+    end
+  end
 end
