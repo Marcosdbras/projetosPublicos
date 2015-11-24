@@ -30,6 +30,8 @@ function Imp_Forma_Pgto(sPorta:string;forma_pgto:string;valor:real):string;
 function Imp_Termina_Fechamento(sPorta:string; Mensagem:string):string;
 function Imp_Cancela_Item(sPorta:string;Item:string):string;
 function Imp_Cancela_Cupom(sPorta:string):string;
+function PadL(s:string; n:integer): string;
+function PadR(s:string; n:integer): string;
 
  // Varifica se valor string é inteiro
 Function IsInteger(sString:string):Integer;
@@ -47,6 +49,18 @@ const
 implementation
 
 uses Classes, principal;
+
+
+function PadL(s:string; n:integer): string;
+begin
+  Result := Format('%-' + IntToStr(n) + '.' + IntToStr(n) + 's', [s]);
+end;
+
+function PadR(s:string; n:integer): string;
+begin
+Result := Format('%' + IntToStr(n) + '.' + IntToStr(n) + 's', [s]);
+end;
+
 
 function SystemDrive: String;
 var

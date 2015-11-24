@@ -201,6 +201,19 @@ type
     procedure spin_debitoKeyPress(Sender: TObject; var Key: Char);
     procedure Gravar1Click(Sender: TObject);
     procedure bduplicataClick(Sender: TObject);
+
+
+    procedure limpa_s;
+
+    procedure avanca;
+
+    
+
+    procedure divisor_duplo;
+
+    procedure divisor_simples;
+
+
   private
     function retorna_letra(numero:Integer):string;
     { Private declarations }
@@ -219,13 +232,16 @@ var
   cons_cheque : boolean;
   JA_ABERTO : BOOLEAN;
 
+  s1,s2,s3,s4,s5,s0:string;
+  x:integer;
+
 
 implementation
 
 uses venda, modulo, principal, venda_contasreceber, troco, venda_impressao,
   extenso1,venda_obs, cheque, ecf, xloc_cliente, venda_inicio,
   cheque_avulso, venda_impressaoCP, venda_entrega, venda_financeira,
-  consulta_cheque, unFuncoesTEF, duplicata_impressao;
+  consulta_cheque, unFuncoesTEF, duplicata_impressao, UFuncoes;
 
 {$R *.dfm}
 
@@ -358,6 +374,11 @@ v_dinheiro:real;
  //
  iparcela, itotal_parcela : integer;
  vpis, vcofins : Double;
+
+
+ Sqtde, Svalor, Sdesconto,  stotal, scodigo, sproduto:string;
+
+
 begin
 
   frmmodulo.qrFilial.Open;
@@ -446,14 +467,7 @@ begin
 
   TEFFINAL := FALSE;
   elcheque := false;
-
-
-
-
-
-
-
-
+  
    FI_LANCTO := '';
    FI_CODIGO := '';
    FI_BORDERO:= '';
@@ -904,7 +918,6 @@ begin
 
            until ecf_ok = true;
          end;
-
 
 
 
@@ -2033,22 +2046,39 @@ if rconvenio.Value <> 0 then
          sayprint1.Porta :=  PrnFile;
          sayprint1.OutputFile := frmmodulo.qrconfig.FieldByName('VENDA_PORTA_IMPRESSORA').AsString;
        end;
-    //endi 
+    //endi
 
     sayprint1.BeginPrn;
-
+     divisor_duplo;
     sayprint1.Condensed(True);
-    sayprint1.Say(0,0,'Nome:');
-    sayprint1.Say(1,0,'Endereço:');
-    sayprint1.Say(2,0,'Venda nº:');
-    sayprint1.Say(3,0,'');
+    sayprint1.Say(0,0,s1);
+    sayprint1.Say(1,0,'Nome: '+frmvenda.qrcliente.fieldbyname('codigo').AsString+'-'+frmvenda.qrcliente.fieldbyname('nome').asstring);
+    sayprint1.Say(2,0,'Endereço: '+frmvenda.qrcliente.fieldbyname('endereco').AsString);
+    sayprint1.Say(3,0,'Venda nº: '+frmvenda.lvenda_codigo.Caption);
+    sayprint1.Say(4,0,s1);
 
 
-    ilin := 4;
+    ilin := 5;
     frmvenda.qrvenda_produto.First;
     while not frmvenda.qrvenda_produto.Eof do
       begin
-        sayprint1.Say(ilin,0,frmvenda.qrvenda_produto.fieldbyname('codproduto').AsString);
+
+
+
+        sproduto := trimleft(TrimRight(copy(frmvenda.qrvenda_produto.fieldbyname('produto').AsString,1,25)));
+        scodigo := frmvenda.qrvenda_produto.fieldbyname('codproduto').AsString;
+        Sqtde :=  padr(  formatfloat('###,###,##0.000',frmvenda.qrvenda_produto.fieldbyname('qtde').Asfloat),10);
+        Svalor := padr(formatfloat('###,###,##0.00', frmvenda.qrvenda_produto.fieldbyname('unitario').Asfloat ),10);
+        //Sacrescimo := padr(formatfloat('###,###,##0.00',frmvenda.qrvenda_produto.fieldbyname('').Asfloat),10);
+        //Sdesconto := padr(formatfloat('###,###,##0.00',frmvenda.qrvenda_produto.fieldbyname('').Asfloat),10);
+        stotal :=  padr(  formatfloat('###,###,##0.00',frmvenda.qrvenda_produto.fieldbyname('qtde').Asfloat * frmvenda.qrvenda_produto.fieldbyname('unitario').Asfloat),10);
+
+        sayprint1.Say(ilin,0, scodigo);
+        sayprint1.Say(ilin,7,sproduto);
+        sayprint1.Say(ilin,33,sqtde);
+        sayprint1.Say(ilin,43,svalor);
+        sayprint1.Say(ilin,54,stotal);
+
 
         ilin := ilin + 1;
         frmvenda.qrvenda_produto.Next;
@@ -3079,5 +3109,76 @@ begin
               FXduplicata.ShowReport;
 
 end;
+
+
+procedure Tfrmvenda_fechamento.limpa_s;
+begin
+  s0:='';
+  s1:='';
+  s2:='';
+  s3:='';
+  s4:='';
+  s5:='';
+
+
+end;
+
+procedure Tfrmvenda_fechamento.divisor_duplo;
+var
+  col:integer;
+begin
+  col := 64;
+
+  for x := 1 to col do
+      begin
+        s1 := s1 + '=';
+      end;
+  //endi
+
+end;
+
+
+procedure Tfrmvenda_fechamento.divisor_simples;
+var
+  col:integer;
+begin
+  col := 64;
+
+  for x := 1 to col do
+      begin
+        s1 := s1 + '-';
+      end;
+    //endi
+
+end;
+
+procedure Tfrmvenda_fechamento.avanca;
+begin
+
+
+
+
+
+  {
+   if pos('\:',frmprincipal.sportaimp) > 0 then
+      exit;
+
+   assignfile(frmprincipal.arq, frmprincipal.sportaimp);
+   rewrite(frmprincipal.arq);
+
+
+
+   for x := 0 to frmvenda.iavanca do
+    begin
+
+      writeln(frmprincipal.arq,'');
+
+    end;
+
+   closefile(frmprincipal.arq);
+  }
+
+end;
+
 
 end.
