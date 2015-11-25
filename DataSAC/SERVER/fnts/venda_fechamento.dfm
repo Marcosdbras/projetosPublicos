@@ -1,6 +1,6 @@
 object frmvenda_fechamento: Tfrmvenda_fechamento
-  Left = 378
-  Top = 133
+  Left = 382
+  Top = 137
   BorderStyle = bsToolWindow
   Caption = 'PEDIDO DE VENDA | Fechamento'
   ClientHeight = 429

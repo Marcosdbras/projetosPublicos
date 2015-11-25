@@ -1,10 +1,8 @@
 object frmmodulo: Tfrmmodulo
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 198
-  Top = 97
   Height = 570
-  Width = 1135
+  Width = 800
   object Conexao: TZConnection
     AutoCommit = False
     ReadOnly = True
@@ -4134,6 +4132,7 @@ object frmmodulo: Tfrmmodulo
     AutoCommit = False
     ReadOnly = True
     TransactIsolationLevel = tiReadCommitted
+    Connected = True
     SQLHourGlass = True
     Port = 0
     Database = 'C:\DATASAC\SERVER\bd\BASE.FDB'

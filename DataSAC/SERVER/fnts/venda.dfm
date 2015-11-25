@@ -1,8 +1,8 @@
 object frmvenda: Tfrmvenda
-  Left = 156
-  Top = 77
-  Width = 803
-  Height = 574
+  Left = 3
+  Top = 1
+  Width = 798
+  Height = 568
   BorderIcons = []
   Caption = 'Pedido de Venda'
   Color = clBtnFace
@@ -22,29 +22,29 @@ object frmvenda: Tfrmvenda
   object pficha: TPanel
     Left = 0
     Top = 0
-    Width = 795
-    Height = 547
+    Width = 790
+    Height = 541
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
     object Bevel10: TBevel
       Left = 0
-      Top = 459
-      Width = 795
+      Top = 453
+      Width = 790
       Height = 3
       Align = alBottom
     end
     object Bevel4: TBevel
       Left = 0
       Top = 66
-      Width = 795
+      Width = 790
       Height = 3
       Align = alTop
     end
     object FlatPanel57: TFlatPanel
       Left = 0
-      Top = 462
-      Width = 795
+      Top = 456
+      Width = 790
       Height = 85
       ParentColor = True
       ColorHighLight = clBtnFace
@@ -55,14 +55,14 @@ object frmvenda: Tfrmvenda
       object Bevel2: TBevel
         Left = 1
         Top = 49
-        Width = 793
+        Width = 788
         Height = 3
         Align = alTop
       end
       object Panel3: TPanel
         Left = 1
         Top = 52
-        Width = 793
+        Width = 788
         Height = 32
         Align = alClient
         BevelOuter = bvNone
@@ -246,7 +246,7 @@ object frmvenda: Tfrmvenda
       object Panel2: TPanel
         Left = 1
         Top = 1
-        Width = 793
+        Width = 788
         Height = 48
         Align = alTop
         BevelOuter = bvNone
@@ -502,7 +502,7 @@ object frmvenda: Tfrmvenda
           Appearance.GradientChecked = ggVertical
         end
         object Panel4: TPanel
-          Left = 400
+          Left = 395
           Top = 0
           Width = 393
           Height = 48
@@ -618,8 +618,8 @@ object frmvenda: Tfrmvenda
     object wwDBGrid1: TwwDBGrid
       Left = 0
       Top = 69
-      Width = 795
-      Height = 390
+      Width = 790
+      Height = 384
       DittoAttributes.ShortCutDittoField = 0
       DittoAttributes.ShortCutDittoRecord = 0
       DittoAttributes.Options = []
@@ -667,7 +667,7 @@ object frmvenda: Tfrmvenda
     object Panel5: TPanel
       Left = 0
       Top = 0
-      Width = 795
+      Width = 790
       Height = 66
       Align = alTop
       BevelOuter = bvNone
@@ -1109,7 +1109,7 @@ object frmvenda: Tfrmvenda
           C3B78DFFB7F6BFBB1C5FB2B72551940000000049454E44AE426082}
         ParentFont = False
         TabOrder = 1
-        Version = '5.0.0.0'
+        Version = '5.4.0.0'
       end
       object AdvShapeButton2: TAdvShapeButton
         Left = 411
@@ -1266,7 +1266,7 @@ object frmvenda: Tfrmvenda
           340B7DFE77008FE4D64D2186FEB00000000049454E44AE426082}
         ParentFont = False
         TabOrder = 2
-        Version = '5.0.0.0'
+        Version = '5.4.0.0'
       end
       object FlatPanel6: TFlatPanel
         Left = 856

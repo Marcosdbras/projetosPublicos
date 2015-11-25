@@ -2048,45 +2048,100 @@ if rconvenio.Value <> 0 then
        end;
     //endi
 
-    sayprint1.BeginPrn;
-     divisor_duplo;
-    sayprint1.Condensed(True);
-    sayprint1.Say(0,0,s1);
-    sayprint1.Say(1,0,'Nome: '+frmvenda.qrcliente.fieldbyname('codigo').AsString+'-'+frmvenda.qrcliente.fieldbyname('nome').asstring);
-    sayprint1.Say(2,0,'Endereço: '+frmvenda.qrcliente.fieldbyname('endereco').AsString);
-    sayprint1.Say(3,0,'Venda nº: '+frmvenda.lvenda_codigo.Caption);
-    sayprint1.Say(4,0,s1);
 
 
-    ilin := 5;
-    frmvenda.qrvenda_produto.First;
-    while not frmvenda.qrvenda_produto.Eof do
-      begin
+    if frmmodulo.qrconfig.FieldByName('VENDA_PORTA_IMPRESSORA').AsString <> 'Nenhuma' then
+       begin
+
+
+          sayprint1.BeginPrn;
+          divisor_simples;
+          sayprint1.Condensed(True);
+          sayprint1.Say(0,0,s1);
+          sayprint1.Say(1,0,'Nome: '+frmvenda.qrcliente.fieldbyname('codigo').AsString+'-'+frmvenda.qrcliente.fieldbyname('nome').asstring);
+          sayprint1.Say(2,0,'Endereço: '+frmvenda.qrcliente.fieldbyname('endereco').AsString);
+          sayprint1.Say(3,0,'Venda nº: '+frmvenda.lvenda_codigo.Caption);
+          sayprint1.Say(4,0,s1);
+
+
+          ilin := 5;
+          frmvenda.qrvenda_produto.First;
+          while not frmvenda.qrvenda_produto.Eof do
+            begin
+
+              sproduto := trimleft(TrimRight(copy(frmvenda.qrvenda_produto.fieldbyname('produto').AsString,1,25)));
+              scodigo := frmvenda.qrvenda_produto.fieldbyname('codproduto').AsString;
+              Sqtde :=  padr(  formatfloat('###,###,##0.000',frmvenda.qrvenda_produto.fieldbyname('qtde').Asfloat),10);
+              Svalor := padr(formatfloat('###,###,##0.00', frmvenda.qrvenda_produto.fieldbyname('unitario').Asfloat ),10);
+              //Sacrescimo := padr(formatfloat('###,###,##0.00',frmvenda.qrvenda_produto.fieldbyname('').Asfloat),10);
+              //Sdesconto := padr(formatfloat('###,###,##0.00',frmvenda.qrvenda_produto.fieldbyname('').Asfloat),10);
+              stotal :=  padr(  formatfloat('###,###,##0.00',frmvenda.qrvenda_produto.fieldbyname('qtde').Asfloat * frmvenda.qrvenda_produto.fieldbyname('unitario').Asfloat),10);
+
+              sayprint1.Say(ilin,0,scodigo);
+              sayprint1.Say(ilin,7,sproduto);
+              sayprint1.Say(ilin,33,sqtde);
+              sayprint1.Say(ilin,43,svalor);
+              sayprint1.Say(ilin,54,stotal);
+
+
+              ilin := ilin + 1;
+              frmvenda.qrvenda_produto.Next;
+
+            end;
+          //endw
 
 
 
-        sproduto := trimleft(TrimRight(copy(frmvenda.qrvenda_produto.fieldbyname('produto').AsString,1,25)));
-        scodigo := frmvenda.qrvenda_produto.fieldbyname('codproduto').AsString;
-        Sqtde :=  padr(  formatfloat('###,###,##0.000',frmvenda.qrvenda_produto.fieldbyname('qtde').Asfloat),10);
-        Svalor := padr(formatfloat('###,###,##0.00', frmvenda.qrvenda_produto.fieldbyname('unitario').Asfloat ),10);
-        //Sacrescimo := padr(formatfloat('###,###,##0.00',frmvenda.qrvenda_produto.fieldbyname('').Asfloat),10);
-        //Sdesconto := padr(formatfloat('###,###,##0.00',frmvenda.qrvenda_produto.fieldbyname('').Asfloat),10);
-        stotal :=  padr(  formatfloat('###,###,##0.00',frmvenda.qrvenda_produto.fieldbyname('qtde').Asfloat * frmvenda.qrvenda_produto.fieldbyname('unitario').Asfloat),10);
 
-        sayprint1.Say(ilin,0, scodigo);
-        sayprint1.Say(ilin,7,sproduto);
-        sayprint1.Say(ilin,33,sqtde);
-        sayprint1.Say(ilin,43,svalor);
-        sayprint1.Say(ilin,54,stotal);
-
+        sayprint1.Say(ilin,0,s1);
 
         ilin := ilin + 1;
-        frmvenda.qrvenda_produto.Next;
-      end;
-    //endw
+        sayprint1.Say(ilin,45,'Total.:');
+        Svalor := padr(formatfloat('###,###,##0.00', rsubtotal.Value ),10);
+        sayprint1.Say(ilin,54,Svalor);
+
+        if (rdesconto2.Value > 0) then
+           begin
+
+              ilin := ilin + 1;
+              sayprint1.Say(ilin,45,'Desc..:');
+              Svalor := padr(formatfloat('###,###,##0.00', rdesconto2.Value ),10);
+              sayprint1.Say(ilin,54,Svalor);
+
+           end;
+        //endi
+
+        if (racrescimo2.Value > 0) then
+           begin
+
+              ilin := ilin + 1;
+              sayprint1.Say(ilin,45,'Acres.:');
+              Svalor := padr(formatfloat('###,###,##0.00', racrescimo2.Value ),10);
+              sayprint1.Say(ilin,54,Svalor);
+
+           end;
+        //endi
+
+        if (rdesconto2.Value > 0) or (racrescimo2.Value > 0) then
+           begin
+              ilin := ilin + 1;
+              sayprint1.Say(ilin,45,'Pagar.:');
+              Svalor := padr(formatfloat('###,###,##0.00', rtotal.Value ),10);
+              sayprint1.Say(ilin,54,Svalor);
+
+           end;
+        //endi
 
 
-    sayprint1.EndPrn;
+
+
+        sayprint1.EndPrn;
+
+
+       end;
+    //endi
+
+
 
 
 
@@ -2099,6 +2154,8 @@ if rconvenio.Value <> 0 then
 
   finally
     bgravar.Enabled := true;
+
+    
   end;
 
 

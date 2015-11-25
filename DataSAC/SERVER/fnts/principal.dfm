@@ -1,8 +1,8 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 0
-  Top = 0
-  Width = 1360
-  Height = 738
+  Left = 3
+  Top = 1
+  Width = 798
+  Height = 568
   Caption = 'DataSAC 2.5 - Retaguarda'
   Color = 15985594
   Font.Charset = ANSI_CHARSET
@@ -23,16 +23,16 @@ object frmPrincipal: TfrmPrincipal
   object pfundo: TPanel
     Left = 0
     Top = 16
-    Width = 1352
-    Height = 676
+    Width = 790
+    Height = 506
     Align = alClient
     Color = 15784647
     TabOrder = 0
     object imgFundo: TImage
       Left = 97
       Top = 73
-      Width = 1254
-      Height = 474
+      Width = 692
+      Height = 304
       Align = alClient
       AutoSize = True
       Center = True
@@ -43,13 +43,13 @@ object frmPrincipal: TfrmPrincipal
       Left = 1
       Top = 73
       Width = 96
-      Height = 474
+      Height = 304
       Align = alLeft
     end
     object psuper: TAdvOfficePager
       Left = 1
-      Top = 547
-      Width = 1350
+      Top = 377
+      Width = 788
       Height = 109
       AdvOfficePagerStyler = AdvOfficePagerOfficeStyler1
       Align = alBottom
@@ -349,7 +349,7 @@ object frmPrincipal: TfrmPrincipal
       object AdvOfficePage1: TAdvOfficePage
         Left = 1
         Top = 24
-        Width = 1348
+        Width = 786
         Height = 83
         Caption = 'Informa'#231#245'es da Empresa'
         ImageIndex = 4
@@ -806,7 +806,7 @@ object frmPrincipal: TfrmPrincipal
       object AdvOfficePage2: TAdvOfficePage
         Left = 1
         Top = 24
-        Width = 1348
+        Width = 786
         Height = 83
         Caption = 'Contas a Vencer Hoje'
         ImageIndex = 6
@@ -866,7 +866,7 @@ object frmPrincipal: TfrmPrincipal
         TabAppearance.BackGround.ColorTo = 15128792
         TabAppearance.BackGround.Direction = gdVertical
         object AdvPanel2: TAdvPanel
-          Left = 1148
+          Left = 586
           Top = 2
           Width = 198
           Height = 79
@@ -916,7 +916,7 @@ object frmPrincipal: TfrmPrincipal
         object wwDBGrid2: TwwDBGrid
           Left = 2
           Top = 2
-          Width = 1146
+          Width = 584
           Height = 79
           DittoAttributes.ShortCutDittoField = 0
           DittoAttributes.ShortCutDittoRecord = 0
@@ -951,7 +951,7 @@ object frmPrincipal: TfrmPrincipal
       object AdvOfficePage3: TAdvOfficePage
         Left = 1
         Top = 24
-        Width = 1348
+        Width = 786
         Height = 83
         Caption = 'Clientes Aniversariantes'
         ImageIndex = 7
@@ -1013,7 +1013,7 @@ object frmPrincipal: TfrmPrincipal
         object wwDBGrid1: TwwDBGrid
           Left = 2
           Top = 2
-          Width = 1146
+          Width = 584
           Height = 79
           DittoAttributes.ShortCutDittoField = 0
           DittoAttributes.ShortCutDittoRecord = 0
@@ -1047,7 +1047,7 @@ object frmPrincipal: TfrmPrincipal
           PaintOptions.ActiveRecordColor = clBlack
         end
         object AdvPanel3: TAdvPanel
-          Left = 1148
+          Left = 586
           Top = 2
           Width = 198
           Height = 79
@@ -1108,8 +1108,8 @@ object frmPrincipal: TfrmPrincipal
     end
     object pstatus: TAdvOfficeStatusBar
       Left = 1
-      Top = 656
-      Width = 1350
+      Top = 486
+      Width = 788
       Height = 19
       AnchorHint = False
       Images = ImageList1
@@ -1485,7 +1485,7 @@ object frmPrincipal: TfrmPrincipal
     object AdvPanel1: TAdvPanel
       Left = 1
       Top = 1
-      Width = 1350
+      Width = 788
       Height = 72
       Align = alTop
       BevelOuter = bvNone
@@ -10858,7 +10858,7 @@ object frmPrincipal: TfrmPrincipal
   object ptopo2: TAdvOfficeStatusBar
     Left = 0
     Top = 0
-    Width = 1352
+    Width = 790
     Height = 16
     AnchorHint = False
     Align = alTop

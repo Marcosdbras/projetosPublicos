@@ -1,6 +1,6 @@
 object frmvenda_inicio: Tfrmvenda_inicio
-  Left = 264
-  Top = 225
+  Left = 270
+  Top = 229
   BorderIcons = []
   BorderStyle = bsToolWindow
   Caption = 'Pedido de Venda'
@@ -520,7 +520,7 @@ object frmvenda_inicio: Tfrmvenda_inicio
       C7590000000049454E44AE426082}
     ParentFont = False
     TabOrder = 9
-    Version = '5.0.0.0'
+    Version = '5.4.0.0'
   end
   object evendedor: TRzButtonEdit
     Left = 216
@@ -884,51 +884,27 @@ object frmvenda_inicio: Tfrmvenda_inicio
   end
   object qrfunci: TZQuery
     Connection = frmmodulo.Conexao
-    CachedUpdates = False
-    ParamCheck = True
     Params = <>
-    ShowRecordTypes = [usUnmodified, usModified, usInserted]
-    UpdateMode = umUpdateChanged
-    WhereMode = wmWhereKeyOnly
-    Options = [doCalcDefaults]
     Left = 312
     Top = 16
   end
   object qrcontasreceber: TZQuery
     Connection = frmmodulo.Conexao
-    CachedUpdates = False
-    ParamCheck = True
     Params = <>
-    ShowRecordTypes = [usUnmodified, usModified, usInserted]
-    UpdateMode = umUpdateChanged
-    WhereMode = wmWhereKeyOnly
-    Options = [doCalcDefaults]
     Left = 352
     Top = 16
   end
   object qrpessoas: TZQuery
     Connection = frmmodulo.Conexao
-    CachedUpdates = False
-    ParamCheck = True
     Params = <>
-    ShowRecordTypes = [usUnmodified, usModified, usInserted]
-    UpdateMode = umUpdateChanged
-    WhereMode = wmWhereKeyOnly
-    Options = [doCalcDefaults]
     Left = 384
     Top = 16
   end
   object qrcliente: TZQuery
     Connection = frmmodulo.Conexao
-    CachedUpdates = False
     SQL.Strings = (
       'select * from C000007')
-    ParamCheck = True
     Params = <>
-    ShowRecordTypes = [usUnmodified, usModified, usInserted]
-    UpdateMode = umUpdateChanged
-    WhereMode = wmWhereKeyOnly
-    Options = [doCalcDefaults]
     Left = 416
     Top = 16
   end
@@ -939,13 +915,7 @@ object frmvenda_inicio: Tfrmvenda_inicio
   end
   object query: TZQuery
     Connection = frmmodulo.Conexao
-    CachedUpdates = False
-    ParamCheck = True
     Params = <>
-    ShowRecordTypes = [usUnmodified, usModified, usInserted]
-    UpdateMode = umUpdateChanged
-    WhereMode = wmWhereKeyOnly
-    Options = [doCalcDefaults]
     Left = 136
     Top = 48
   end

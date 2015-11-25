@@ -674,6 +674,8 @@ begin
  except
  end;
  action := cafree;
+
+ 
 end;
 
 procedure Tfrmvenda.qrvenda_produto1CalcFields(DataSet: TDataSet);

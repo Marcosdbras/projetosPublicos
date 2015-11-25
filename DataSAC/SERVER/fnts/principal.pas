@@ -471,7 +471,7 @@ type
   public
 
     FHoje: TDateTime;
-
+    outravenda:boolean;
     vfil_codigo,vfil_nome,vfil_cnpj,vfil_ie,vfil_cst,vfil_cipi,vfil_simples,vfil_ssimples,vfil_estadual: string;
     vcontador : integer;
     { Public declarations }
@@ -4252,6 +4252,7 @@ slinha : string;
 
 
 begin
+  frmprincipal.outravenda := true;
 
   caixa := TIniFile.Create(vardir+'caixa.ini');
   codcaixa := caixa.ReadString('Ident','codigo','000000');
@@ -4327,6 +4328,9 @@ begin
                       FRMVENDA_FARMA.Caption := 'Pedido de Venda - Caixa Número '+frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring;
                       FRMVENDA_FARMA.SHOWMODAL;
 
+                      //if outravenda then
+                      //   frmprincipal.btnvenda.Click;
+                      //endi
                     end
                   else
                     begin
@@ -4346,6 +4350,10 @@ begin
            FRMVENDA_FARMA := TFRMVENDA_FARMA.CREATE(SELF);
            FRMVENDA_FARMA.Caption := 'Pedido de Venda - Caixa Número '+frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring;
            FRMVENDA_FARMA.SHOWMODAL;
+
+           //if outravenda then
+           //   frmprincipal.btnvenda.Click;
+           //endi
 
          end;
       //endi
@@ -4374,6 +4382,10 @@ begin
                     frmvenda_inicio.Caption := 'Pedido de Venda - Caixa Número '+frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring;
                     frmvenda_inicio.showmodal;
 
+                    if outravenda then
+                       frmprincipal.btnvenda.Click;
+                    //endi
+
                   END
                 ELSE
                   BEGIN
@@ -4395,7 +4407,9 @@ begin
            frmvenda_inicio.Caption := 'Pedido de Venda - Caixa Número '+frmmodulo.qrcaixa_operador.fieldbyname('codigo').asstring;
            frmvenda_inicio.showmodal;
 
-
+           if outravenda then
+              frmprincipal.btnvenda.Click;
+           //endi
 
          end;
       //endi

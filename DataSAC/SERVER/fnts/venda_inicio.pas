@@ -72,6 +72,7 @@ uses modulo, loc_funci, principal, loc_cliente, venda, loc_cliente_VENDA,
 
 procedure Tfrmvenda_inicio.bcancelarClick(Sender: TObject);
 begin
+  frmprincipal.outravenda := false;
   close;
 end;
 
@@ -215,7 +216,7 @@ vlimite : double;
 begin
 
   bgravar.Enabled := False;
-
+  
   if ecliente.text = '' then
   begin
     application.messagebox('Favor informar o cliente!','Atenção!',mb_ok+MB_ICONWARNING);
@@ -445,6 +446,8 @@ begin
     frmvenda.Release;
     frmvenda := nil;
     close;
+
+    
   end;
 
 end;

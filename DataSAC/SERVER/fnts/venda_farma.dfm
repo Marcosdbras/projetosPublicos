@@ -1,8 +1,8 @@
 object frmvenda_farma: Tfrmvenda_farma
-  Left = 193
-  Top = 107
+  Left = 9
+  Top = 0
   Width = 795
-  Height = 574
+  Height = 570
   BorderIcons = []
   Caption = 'PEDIDO DE VENDA | Farm'#225'cia'
   Color = clBtnFace
@@ -21,7 +21,7 @@ object frmvenda_farma: Tfrmvenda_farma
   TextHeight = 13
   object Bevel1: TBevel
     Left = 0
-    Top = 466
+    Top = 469
     Width = 787
     Height = 3
     Align = alBottom
@@ -35,7 +35,7 @@ object frmvenda_farma: Tfrmvenda_farma
   end
   object Bevel3: TBevel
     Left = 0
-    Top = 503
+    Top = 506
     Width = 787
     Height = 3
     Align = alBottom
@@ -315,14 +315,14 @@ object frmvenda_farma: Tfrmvenda_farma
         C3B78DFFB7F6BFBB1C5FB2B72551940000000049454E44AE426082}
       ParentFont = False
       TabOrder = 0
-      Version = '5.0.0.0'
+      Version = '5.4.0.0'
     end
   end
   object wwDBGrid1: TwwDBGrid
     Left = 0
     Top = 51
     Width = 787
-    Height = 415
+    Height = 418
     DittoAttributes.ShortCutDittoField = 0
     DittoAttributes.ShortCutDittoRecord = 0
     DittoAttributes.Options = []
@@ -414,7 +414,7 @@ object frmvenda_farma: Tfrmvenda_farma
   end
   object Panel1: TPanel
     Left = 0
-    Top = 469
+    Top = 472
     Width = 787
     Height = 34
     Align = alBottom
@@ -564,7 +564,7 @@ object frmvenda_farma: Tfrmvenda_farma
   end
   object Panel2: TPanel
     Left = 0
-    Top = 506
+    Top = 509
     Width = 787
     Height = 34
     Align = alBottom
@@ -819,16 +819,10 @@ object frmvenda_farma: Tfrmvenda_farma
   end
   object qrvenda_contasreceber: TZQuery
     Connection = frmmodulo.ConexaoLocal
-    CachedUpdates = False
     Active = True
     SQL.Strings = (
       'select * from cL00002')
-    ParamCheck = True
     Params = <>
-    ShowRecordTypes = [usUnmodified, usModified, usInserted]
-    UpdateMode = umUpdateChanged
-    WhereMode = wmWhereKeyOnly
-    Options = [doCalcDefaults]
     Left = 176
     Top = 240
     object qrvenda_contasreceberPRESTACAO: TIntegerField
@@ -862,15 +856,9 @@ object frmvenda_farma: Tfrmvenda_farma
   end
   object qrproduto: TZQuery
     Connection = frmmodulo.Conexao
-    CachedUpdates = False
     SQL.Strings = (
       'select pro.*, lab.nome from c000025 pro, c000019 lab ')
-    ParamCheck = True
     Params = <>
-    ShowRecordTypes = [usUnmodified, usModified, usInserted]
-    UpdateMode = umUpdateChanged
-    WhereMode = wmWhereKeyOnly
-    Options = [doCalcDefaults]
     Left = 208
     Top = 240
     object qrprodutoPRODUTO: TStringField
@@ -982,7 +970,6 @@ object frmvenda_farma: Tfrmvenda_farma
   end
   object query1: TZQuery
     Connection = frmmodulo.ConexaoLocal
-    CachedUpdates = False
     AfterInsert = qrvenda_produtoAfterInsert
     AfterEdit = qrvenda_produtoAfterEdit
     BeforePost = qrvenda_produtoBeforePost
@@ -990,12 +977,7 @@ object frmvenda_farma: Tfrmvenda_farma
     BeforeDelete = qrvenda_produtoBeforeDelete
     SQL.Strings = (
       'select * from CL00001')
-    ParamCheck = True
     Params = <>
-    ShowRecordTypes = [usUnmodified, usModified, usInserted]
-    UpdateMode = umUpdateChanged
-    WhereMode = wmWhereKeyOnly
-    Options = [doCalcDefaults]
     Left = 280
     Top = 240
   end
@@ -1014,41 +996,23 @@ object frmvenda_farma: Tfrmvenda_farma
   end
   object QUERY: TZQuery
     Connection = frmmodulo.Conexao
-    CachedUpdates = False
     SQL.Strings = (
       'select pro.*, lab.nome from c000025 pro, c000019 lab ')
-    ParamCheck = True
     Params = <>
-    ShowRecordTypes = [usUnmodified, usModified, usInserted]
-    UpdateMode = umUpdateChanged
-    WhereMode = wmWhereKeyOnly
-    Options = [doCalcDefaults]
     Left = 240
     Top = 240
   end
   object qrestoque: TZQuery
     Connection = frmmodulo.Conexao
-    CachedUpdates = False
     SQL.Strings = (
       'select * from c000100')
-    ParamCheck = True
     Params = <>
-    ShowRecordTypes = [usUnmodified, usModified, usInserted]
-    UpdateMode = umUpdateChanged
-    WhereMode = wmWhereKeyOnly
-    Options = [doCalcDefaults]
     Left = 112
     Top = 240
   end
   object qrvendido: TZQuery
     Connection = frmmodulo.ConexaoLocal
-    CachedUpdates = False
-    ParamCheck = True
     Params = <>
-    ShowRecordTypes = [usUnmodified, usModified, usInserted]
-    UpdateMode = umUpdateChanged
-    WhereMode = wmWhereKeyOnly
-    Options = [doCalcDefaults]
     Left = 144
     Top = 240
   end

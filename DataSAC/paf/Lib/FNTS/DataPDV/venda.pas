@@ -1484,6 +1484,9 @@ begin
         on EConvertError do
           Bbusca_codigo := false;
       end;
+
+
+
       if Bbusca_codigo then
       begin
         // comando SQL para filtrar o produto pelo codigo de barras
@@ -1493,6 +1496,9 @@ begin
         query.sql.add('select * from ESTOQUE');
         query.sql.add('where cod_barra = '''+referencia+'''');
         query.Open;
+
+
+
         if query.recordcount  > 0 then
         begin
           // encontrou o registro pelo codigo de barras
@@ -1604,6 +1610,7 @@ begin
     else
     begin
       // verificar se o produto é pesado em balanca
+      //showmessage(referencia);
       if (copy(referencia,1,1) = '2') and (length(referencia) <= 13) then
       begin
         try //Exemplo de codigo na etiqueta: 2000010002550 -> Codigo = 00001 Valor = 000255 = 2,55
