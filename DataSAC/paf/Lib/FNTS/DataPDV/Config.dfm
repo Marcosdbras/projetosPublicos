@@ -1,8 +1,8 @@
 object frmConfig: TfrmConfig
-  Left = 222
-  Top = 147
+  Left = 224
+  Top = 95
   Width = 455
-  Height = 455
+  Height = 496
   Caption = 'Configura'#231#245'es Gerais'
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
@@ -242,7 +242,7 @@ object frmConfig: TfrmConfig
   end
   object Panel1: TPanel
     Left = 0
-    Top = 387
+    Top = 428
     Width = 447
     Height = 41
     Align = alBottom
@@ -286,8 +286,8 @@ object frmConfig: TfrmConfig
   end
   object GroupBox5: TGroupBox
     Left = 16
-    Top = 318
-    Width = 241
+    Top = 374
+    Width = 409
     Height = 49
     Caption = 'Avan'#231'o do papel'
     TabOrder = 5
@@ -310,7 +310,7 @@ object frmConfig: TfrmConfig
   end
   object DBRadioGroup1: TDBRadioGroup
     Left = 264
-    Top = 319
+    Top = 321
     Width = 161
     Height = 49
     Caption = 'Impressora'
@@ -323,6 +323,29 @@ object frmConfig: TfrmConfig
     Values.Strings = (
       '0'
       '1')
+  end
+  object GroupBox6: TGroupBox
+    Left = 16
+    Top = 320
+    Width = 241
+    Height = 49
+    TabOrder = 7
+    object Label7: TLabel
+      Left = 8
+      Top = 20
+      Width = 188
+      Height = 13
+      Caption = 'Inicio c'#243'digo de barra produto balan'#231'a:'
+    end
+    object DBEdit7: TDBEdit
+      Left = 201
+      Top = 18
+      Width = 33
+      Height = 21
+      DataField = 'inicodbal'
+      DataSource = dsconfig
+      TabOrder = 0
+    end
   end
   object qrconfig: TIBCQuery
     Connection = frmModulo.conexao

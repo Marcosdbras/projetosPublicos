@@ -43,6 +43,9 @@ type
     DBEdit5: TDBEdit;
     DBCheckBox10: TDBCheckBox;
     DBRadioGroup1: TDBRadioGroup;
+    GroupBox6: TGroupBox;
+    Label7: TLabel;
+    DBEdit7: TDBEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BitBtn2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);

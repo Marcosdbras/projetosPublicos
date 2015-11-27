@@ -347,6 +347,7 @@ type
   public
     { Public declarations }
     iavanca, colunas:integer;
+    inicodbal:string;
 
     procedure EnviaComando(comando:string;timeout:integer);
     function Localizar_Produto(referencia:string):boolean;
@@ -1611,7 +1612,9 @@ begin
     begin
       // verificar se o produto é pesado em balanca
       //showmessage(referencia);
-      if (copy(referencia,1,1) = '2') and (length(referencia) <= 13) then
+      //if (copy(referencia,1,1) = '2') and (length(referencia) <= 13) then
+
+      if (copy(referencia,1,1) = inicodbal) and (length(referencia) <= 13) then
       begin
         try //Exemplo de codigo na etiqueta: 2000010002550 -> Codigo = 00001 Valor = 000255 = 2,55
            query.close;
@@ -6835,6 +6838,7 @@ begin
 
   iavanca := frmmodulo.query.FieldByName('avanco').AsInteger;
   colunas := frmmodulo.query.FieldByName('colunas').AsInteger;
+  inicodbal := frmmodulo.query.FieldByName('inicodbal').AsString;
 
   if frmmodulo.query.FieldByName('dadosconsumidor').AsInteger = 1 then
      bConsumidor := true
