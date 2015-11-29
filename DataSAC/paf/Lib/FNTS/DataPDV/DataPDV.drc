@@ -8,246 +8,247 @@
   resources were bound to the produced executable.
 */
 
-#define bdeconst_STruncationError 64768
-#define bdeconst_SResultName 64769
-#define bdeconst_SIndexDoesNotExist 64770
-#define bdeconst_SNoTableName 64771
-#define bdeconst_SNoDataSetField 64772
-#define bdeconst_SNoCachedUpdates 64773
-#define bdeconst_SInvalidAliasName 64774
-#define bdeconst_SNoFieldAccess 64775
-#define bdeconst_SUntitled 64776
-#define bdeconst_SLocalTransDirty 64777
-#define OleConst_SLinkProperties 64778
-#define OleConst_SInvalidLinkSource 64779
-#define OleConst_SCannotBreakLink 64780
-#define OleConst_SPropDlgCaption 64781
-#define RxMemDS_SMemNoRecords 64782
-#define dxGDIPlusAPI_scxGdipInvalidOperation 64783
-#define bdeconst_SDatabaseClosed 64784
-#define bdeconst_SDatabaseHandleSet 64785
-#define bdeconst_SSessionActive 64786
-#define bdeconst_SHandleError 64787
-#define bdeconst_STableMismatch 64788
-#define bdeconst_SNoReferenceTableName 64789
-#define bdeconst_SCompositeIndexError 64790
-#define bdeconst_SEmptySQLStatement 64791
-#define bdeconst_SNoParameterValue 64792
-#define bdeconst_SNoParameterType 64793
-#define bdeconst_SLoginError 64794
-#define bdeconst_SInitError 64795
-#define bdeconst_SIDAPILangID 64796
-#define bdeconst_SBDEError 64797
-#define bdeconst_SLookupSourceError 64798
-#define bdeconst_SLookupTableError 64799
-#define JConsts_sJPEGImageFile 64800
-#define RzTabs_sRzIncorrectNumberOfPoints 64801
-#define RzTabs_sRzTabRegionCapacityError 64802
-#define RzTabs_sRzSavingDCError 64803
-#define RzTabs_sRzCreateRegionError 64804
-#define RzTabs_sRzPageIndexOutOfRange 64805
-#define RzTabs_sRzInvalidVisibilityChange 64806
-#define bdeconst_SAutoSessionExclusive 64807
-#define bdeconst_SAutoSessionExists 64808
-#define bdeconst_SAutoSessionActive 64809
-#define bdeconst_SDuplicateDatabaseName 64810
-#define bdeconst_SDuplicateSessionName 64811
-#define bdeconst_SInvalidSessionName 64812
-#define bdeconst_SDatabaseNameMissing 64813
-#define bdeconst_SSessionNameMissing 64814
-#define bdeconst_SDatabaseOpen 64815
-#define ZMessages_SErrorConvertionField 64816
-#define ZMessages_SUnknownError 64817
-#define ZMessages_SFieldNotFound1 64818
-#define ZMessages_SLoginPromptFailure 64819
-#define ZMessages_SUpdateSQLNoResult 64820
-#define ZMessages_SNeedField 64821
-#define ZMessages_SFailedtoInitPrepStmt 64822
-#define ZMessages_SFailedtoPrepareStmt 64823
-#define ZMessages_SBindingFailure 64824
-#define ZMessages_SPreparedStmtExecFailure 64825
-#define ZMessages_SFailedToBindResults 64826
-#define ZMessages_SRefreshRowOnlySupportedWithUpdateObject 64827
-#define ZMessages_SInvalidUpdateCount 64828
-#define ZMessages_SRowBufferWidthExceeded 64829
-#define JConsts_sChangeJPGSize 64830
-#define JConsts_sJPEGError 64831
-#define ZMessages_SOperationIsNotAllowed4 64832
-#define ZMessages_SNoMoreRecords 64833
-#define ZMessages_SCanNotOpenResultSet 64834
-#define ZMessages_SCanNotOpenDataSetWhenDestroying 64835
-#define ZMessages_SCircularLink 64836
-#define ZMessages_SBookmarkWasNotFound 64837
-#define ZMessages_SIncorrectSearchFieldsNumber 64838
-#define ZMessages_SInvalidOperationInTrans 64839
-#define ZMessages_SIncorrectSymbol 64840
-#define ZMessages_SIncorrectToken 64841
-#define ZMessages_SPattern2Long 64842
-#define ZMessages_SStatementIsNotAllowed 64843
-#define ZMessages_SInvalidState 64844
-#define ZMessages_SErrorConvertion 64845
-#define ZMessages_SUnsupportedParameterType 64846
-#define ZMessages_SUnsupportedDataType 64847
-#define ZMessages_SCanNotConnectToServer 64848
-#define ZMessages_STableIsNotSpecified 64849
-#define ZMessages_SLiveResultSetsAreNotSupported 64850
-#define ZMessages_SInvalidInputParameterCount 64851
-#define ZMessages_SIsolationIsNotSupported 64852
-#define ZMessages_SColumnWasNotFound 64853
-#define ZMessages_SWrongTypeForBlobParameter 64854
-#define ZMessages_SConnectionIsNotOpened 64855
-#define ZMessages_SInvalidOpInAutoCommit 64856
-#define ZMessages_SInvalidOpInNonAutoCommit 64857
-#define ZMessages_SInvalidOpPrepare 64858
-#define ZMessages_SConnectionIsNotAssigned 64859
-#define ZMessages_SQueryIsEmpty 64860
-#define ZMessages_SCanNotExecuteMoreQueries 64861
-#define ZMessages_SOperationIsNotAllowed1 64862
-#define ZMessages_SOperationIsNotAllowed2 64863
-#define ZMessages_SCanNotRetrieveResultSetData 64864
-#define ZMessages_SRowBufferIsNotAssigned 64865
-#define ZMessages_SColumnIsNotAccessable 64866
-#define ZMessages_SConvertionIsNotPossible 64867
-#define ZMessages_SCanNotAccessBlobRecord 64868
-#define ZMessages_SRowDataIsNotAvailable 64869
-#define ZMessages_SResolverIsNotSpecified 64870
-#define ZMessages_SResultsetIsAlreadyOpened 64871
-#define ZMessages_SCanNotUpdateEmptyRow 64872
-#define ZMessages_SCanNotUpdateDeletedRow 64873
-#define ZMessages_SCanNotDeleteEmptyRow 64874
-#define ZMessages_SCannotUseCommit 64875
-#define ZMessages_SCannotUseRollBack 64876
-#define ZMessages_SCanNotUpdateComplexQuery 64877
-#define ZMessages_SCanNotUpdateThisQueryType 64878
-#define ZMessages_SDriverWasNotFound 64879
-#define ZMessages_SStackIsEmpty 64880
-#define ZMessages_SVariableWasNotFound 64881
-#define ZMessages_SFunctionWasNotFound 64882
-#define ZMessages_SInternalError 64883
-#define ZMessages_SSyntaxErrorNear 64884
-#define ZMessages_SSyntaxError 64885
-#define ZMessages_SUnknownSymbol 64886
-#define ZMessages_SUnexpectedExprEnd 64887
-#define ZMessages_SRightBraceExpected 64888
-#define ZMessages_SParametersError 64889
-#define ZMessages_SExpectedMoreParams 64890
-#define ZMessages_SInvalidVarByteArray 64891
-#define ZMessages_SVariableAlreadyExists 64892
-#define ZMessages_STypesMismatch 64893
-#define ZMessages_SUnsupportedOperation 64894
-#define ZMessages_SLibraryNotFound 64895
-#define pnglang_EPNGInvalidFileHeaderText 64896
-#define pnglang_EPNGIHDRNotFirstText 64897
-#define pnglang_EPNGSizeExceedsText 64898
-#define pnglang_EPNGUnknownPalEntryText 64899
-#define pnglang_EPNGUnknownCriticalChunkText 64900
-#define pnglang_EPNGUnknownCompressionText 64901
-#define pnglang_EPNGUnknownInterlaceText 64902
-#define pnglang_EPNGCannotAssignChunkText 64903
-#define pnglang_EPNGUnexpectedEndText 64904
-#define pnglang_EPNGNoImageDataText 64905
-#define pnglang_EPNGOutMemoryText 64906
-#define pnglang_EPNGHeaderNotPresentText 64907
-#define pnglang_EInvalidNewSize 64908
-#define ZMessages_SSQLError1 64909
-#define ZMessages_SClonningIsNotSupported 64910
-#define ZMessages_SImmutableOpIsNotAllowed 64911
-#define frxpnglang_EPNGSizeExceedsText 64912
-#define frxpnglang_EPNGUnknownPalEntryText 64913
-#define frxpnglang_EPNGUnknownCriticalChunkText 64914
-#define frxpnglang_EPNGUnknownCompressionText 64915
-#define frxpnglang_EPNGUnknownInterlaceText 64916
-#define frxpnglang_EPNGCannotAssignChunkText 64917
-#define frxpnglang_EPNGUnexpectedEndText 64918
-#define frxpnglang_EPNGNoImageDataText 64919
-#define frxpnglang_EPNGOutMemoryText 64920
-#define frxpnglang_EPNGHeaderNotPresentText 64921
-#define frxpnglang_EInvalidNewSize 64922
-#define pnglang_EPngInvalidCRCText 64923
-#define pnglang_EPNGInvalidIHDRText 64924
-#define pnglang_EPNGMissingMultipleIDATText 64925
-#define pnglang_EPNGZLIBErrorText 64926
-#define pnglang_EPNGInvalidPaletteText 64927
-#define RzBorder_sRzColor3DDkShadow 64928
-#define RzBorder_sRzColor3DLight 64929
-#define RzBorder_sRzColorInfoText 64930
-#define RzBorder_sRzColorInfoBk 64931
-#define RzBorder_sRzColorHotLight 64932
-#define RzBorder_sRzColorGradientActiveCaption 64933
-#define RzBorder_sRzColorGradientInactiveCaption 64934
-#define RzBorder_sRzColorMenuHighlight 64935
-#define RzBorder_sRzColorMenuBar 64936
-#define frxpnglang_EPngInvalidCRCText 64937
-#define frxpnglang_EPNGInvalidIHDRText 64938
-#define frxpnglang_EPNGMissingMultipleIDATText 64939
-#define frxpnglang_EPNGZLIBErrorText 64940
-#define frxpnglang_EPNGInvalidPaletteText 64941
-#define frxpnglang_EPNGInvalidFileHeaderText 64942
-#define frxpnglang_EPNGIHDRNotFirstText 64943
-#define RzBorder_sRzColorWindow 64944
-#define RzBorder_sRzColorWindowFrame 64945
-#define RzBorder_sRzColorMenuText 64946
-#define RzBorder_sRzColorWindowText 64947
-#define RzBorder_sRzColorCaptionText 64948
-#define RzBorder_sRzColorActiveBorder 64949
-#define RzBorder_sRzColorInactiveBorder 64950
-#define RzBorder_sRzColorAppWorkSpace 64951
-#define RzBorder_sRzColorHighlight 64952
-#define RzBorder_sRzColorHighlightText 64953
-#define RzBorder_sRzColorBtnFace 64954
-#define RzBorder_sRzColorBtnShadow 64955
-#define RzBorder_sRzColorGrayText 64956
-#define RzBorder_sRzColorBtnText 64957
-#define RzBorder_sRzColorInactiveCaptionText 64958
-#define RzBorder_sRzColorBtnHighlight 64959
-#define RzBorder_sRzColorSkyBlue 64960
-#define RzBorder_sRzColorPlum 64961
-#define RzBorder_sRzColorGray25 64962
-#define RzBorder_sRzColorRose 64963
-#define RzBorder_sRzColorTan 64964
-#define RzBorder_sRzColorLightYellow 64965
-#define RzBorder_sRzColorLightGreen 64966
-#define RzBorder_sRzColorLightTurquoise 64967
-#define RzBorder_sRzColorPaleBlue 64968
-#define RzBorder_sRzColorLavender 64969
-#define RzBorder_sRzColorWhite 64970
-#define RzBorder_sRzColorScrollBar 64971
-#define RzBorder_sRzColorBackground 64972
-#define RzBorder_sRzColorActiveCaption 64973
-#define RzBorder_sRzColorInactiveCaption 64974
-#define RzBorder_sRzColorMenu 64975
-#define RzBorder_sRzColorBlue 64976
-#define RzBorder_sRzColorBlueGray 64977
-#define RzBorder_sRzColorGray50 64978
-#define RzBorder_sRzColorRed 64979
-#define RzBorder_sRzColorLightOrange 64980
-#define RzBorder_sRzColorLime 64981
-#define RzBorder_sRzColorSeaGreen 64982
-#define RzBorder_sRzColorAqua 64983
-#define RzBorder_sRzColorLightBlue 64984
-#define RzBorder_sRzColorViolet 64985
-#define RzBorder_sRzColorGray40 64986
-#define RzBorder_sRzColorPink 64987
-#define RzBorder_sRzColorGold 64988
-#define RzBorder_sRzColorYellow 64989
-#define RzBorder_sRzColorBrightGreen 64990
-#define RzBorder_sRzColorTurquoise 64991
-#define VDBConsts_SPropDefByLookup 64992
-#define VDBConsts_STooManyColumns 64993
-#define VDBConsts_SRemoteLogin 64994
-#define RzBorder_sRzColorBlack 64995
-#define RzBorder_sRzColorBrown 64996
-#define RzBorder_sRzColorOliveGreen 64997
-#define RzBorder_sRzColorDarkGreen 64998
-#define RzBorder_sRzColorDarkTeal 64999
-#define RzBorder_sRzColorDarkBlue 65000
-#define RzBorder_sRzColorIndigo 65001
-#define RzBorder_sRzColorGray80 65002
-#define RzBorder_sRzColorDarkRed 65003
-#define RzBorder_sRzColorOrange 65004
-#define RzBorder_sRzColorDarkYellow 65005
-#define RzBorder_sRzColorGreen 65006
-#define RzBorder_sRzColorTeal 65007
+#define dxGDIPlusAPI_scxGdipInvalidOperation 64752
+#define bdeconst_SLookupTableError 64768
+#define bdeconst_STruncationError 64769
+#define bdeconst_SResultName 64770
+#define bdeconst_SIndexDoesNotExist 64771
+#define bdeconst_SNoTableName 64772
+#define bdeconst_SNoDataSetField 64773
+#define bdeconst_SNoCachedUpdates 64774
+#define bdeconst_SInvalidAliasName 64775
+#define bdeconst_SNoFieldAccess 64776
+#define bdeconst_SUntitled 64777
+#define bdeconst_SLocalTransDirty 64778
+#define OleConst_SLinkProperties 64779
+#define OleConst_SInvalidLinkSource 64780
+#define OleConst_SCannotBreakLink 64781
+#define OleConst_SPropDlgCaption 64782
+#define RxMemDS_SMemNoRecords 64783
+#define bdeconst_SDatabaseOpen 64784
+#define bdeconst_SDatabaseClosed 64785
+#define bdeconst_SDatabaseHandleSet 64786
+#define bdeconst_SSessionActive 64787
+#define bdeconst_SHandleError 64788
+#define bdeconst_STableMismatch 64789
+#define bdeconst_SNoReferenceTableName 64790
+#define bdeconst_SCompositeIndexError 64791
+#define bdeconst_SEmptySQLStatement 64792
+#define bdeconst_SNoParameterValue 64793
+#define bdeconst_SNoParameterType 64794
+#define bdeconst_SLoginError 64795
+#define bdeconst_SInitError 64796
+#define bdeconst_SIDAPILangID 64797
+#define bdeconst_SBDEError 64798
+#define bdeconst_SLookupSourceError 64799
+#define JConsts_sJPEGError 64800
+#define JConsts_sJPEGImageFile 64801
+#define RzTabs_sRzIncorrectNumberOfPoints 64802
+#define RzTabs_sRzTabRegionCapacityError 64803
+#define RzTabs_sRzSavingDCError 64804
+#define RzTabs_sRzCreateRegionError 64805
+#define RzTabs_sRzPageIndexOutOfRange 64806
+#define RzTabs_sRzInvalidVisibilityChange 64807
+#define bdeconst_SAutoSessionExclusive 64808
+#define bdeconst_SAutoSessionExists 64809
+#define bdeconst_SAutoSessionActive 64810
+#define bdeconst_SDuplicateDatabaseName 64811
+#define bdeconst_SDuplicateSessionName 64812
+#define bdeconst_SInvalidSessionName 64813
+#define bdeconst_SDatabaseNameMissing 64814
+#define bdeconst_SSessionNameMissing 64815
+#define ZMessages_SUnsupportedDataType 64816
+#define ZMessages_SErrorConvertionField 64817
+#define ZMessages_SUnknownError 64818
+#define ZMessages_SFieldNotFound1 64819
+#define ZMessages_SLoginPromptFailure 64820
+#define ZMessages_SUpdateSQLNoResult 64821
+#define ZMessages_SNeedField 64822
+#define ZMessages_SFailedtoInitPrepStmt 64823
+#define ZMessages_SFailedtoPrepareStmt 64824
+#define ZMessages_SBindingFailure 64825
+#define ZMessages_SPreparedStmtExecFailure 64826
+#define ZMessages_SFailedToBindResults 64827
+#define ZMessages_SRefreshRowOnlySupportedWithUpdateObject 64828
+#define ZMessages_SInvalidUpdateCount 64829
+#define ZMessages_SRowBufferWidthExceeded 64830
+#define JConsts_sChangeJPGSize 64831
+#define ZMessages_SOperationIsNotAllowed2 64832
+#define ZMessages_SOperationIsNotAllowed4 64833
+#define ZMessages_SNoMoreRecords 64834
+#define ZMessages_SCanNotOpenResultSet 64835
+#define ZMessages_SCanNotOpenDataSetWhenDestroying 64836
+#define ZMessages_SCircularLink 64837
+#define ZMessages_SBookmarkWasNotFound 64838
+#define ZMessages_SIncorrectSearchFieldsNumber 64839
+#define ZMessages_SInvalidOperationInTrans 64840
+#define ZMessages_SIncorrectSymbol 64841
+#define ZMessages_SIncorrectToken 64842
+#define ZMessages_SPattern2Long 64843
+#define ZMessages_SStatementIsNotAllowed 64844
+#define ZMessages_SInvalidState 64845
+#define ZMessages_SErrorConvertion 64846
+#define ZMessages_SUnsupportedParameterType 64847
+#define ZMessages_SDriverWasNotFound 64848
+#define ZMessages_SCanNotConnectToServer 64849
+#define ZMessages_STableIsNotSpecified 64850
+#define ZMessages_SLiveResultSetsAreNotSupported 64851
+#define ZMessages_SInvalidInputParameterCount 64852
+#define ZMessages_SIsolationIsNotSupported 64853
+#define ZMessages_SColumnWasNotFound 64854
+#define ZMessages_SWrongTypeForBlobParameter 64855
+#define ZMessages_SConnectionIsNotOpened 64856
+#define ZMessages_SInvalidOpInAutoCommit 64857
+#define ZMessages_SInvalidOpInNonAutoCommit 64858
+#define ZMessages_SInvalidOpPrepare 64859
+#define ZMessages_SConnectionIsNotAssigned 64860
+#define ZMessages_SQueryIsEmpty 64861
+#define ZMessages_SCanNotExecuteMoreQueries 64862
+#define ZMessages_SOperationIsNotAllowed1 64863
+#define ZMessages_SLibraryNotFound 64864
+#define ZMessages_SCanNotRetrieveResultSetData 64865
+#define ZMessages_SRowBufferIsNotAssigned 64866
+#define ZMessages_SColumnIsNotAccessable 64867
+#define ZMessages_SConvertionIsNotPossible 64868
+#define ZMessages_SCanNotAccessBlobRecord 64869
+#define ZMessages_SRowDataIsNotAvailable 64870
+#define ZMessages_SResolverIsNotSpecified 64871
+#define ZMessages_SResultsetIsAlreadyOpened 64872
+#define ZMessages_SCanNotUpdateEmptyRow 64873
+#define ZMessages_SCanNotUpdateDeletedRow 64874
+#define ZMessages_SCanNotDeleteEmptyRow 64875
+#define ZMessages_SCannotUseCommit 64876
+#define ZMessages_SCannotUseRollBack 64877
+#define ZMessages_SCanNotUpdateComplexQuery 64878
+#define ZMessages_SCanNotUpdateThisQueryType 64879
+#define ZMessages_SImmutableOpIsNotAllowed 64880
+#define ZMessages_SStackIsEmpty 64881
+#define ZMessages_SVariableWasNotFound 64882
+#define ZMessages_SFunctionWasNotFound 64883
+#define ZMessages_SInternalError 64884
+#define ZMessages_SSyntaxErrorNear 64885
+#define ZMessages_SSyntaxError 64886
+#define ZMessages_SUnknownSymbol 64887
+#define ZMessages_SUnexpectedExprEnd 64888
+#define ZMessages_SRightBraceExpected 64889
+#define ZMessages_SParametersError 64890
+#define ZMessages_SExpectedMoreParams 64891
+#define ZMessages_SInvalidVarByteArray 64892
+#define ZMessages_SVariableAlreadyExists 64893
+#define ZMessages_STypesMismatch 64894
+#define ZMessages_SUnsupportedOperation 64895
+#define pnglang_EPNGInvalidPaletteText 64896
+#define pnglang_EPNGInvalidFileHeaderText 64897
+#define pnglang_EPNGIHDRNotFirstText 64898
+#define pnglang_EPNGSizeExceedsText 64899
+#define pnglang_EPNGUnknownPalEntryText 64900
+#define pnglang_EPNGUnknownCriticalChunkText 64901
+#define pnglang_EPNGUnknownCompressionText 64902
+#define pnglang_EPNGUnknownInterlaceText 64903
+#define pnglang_EPNGCannotAssignChunkText 64904
+#define pnglang_EPNGUnexpectedEndText 64905
+#define pnglang_EPNGNoImageDataText 64906
+#define pnglang_EPNGOutMemoryText 64907
+#define pnglang_EPNGHeaderNotPresentText 64908
+#define pnglang_EInvalidNewSize 64909
+#define ZMessages_SSQLError1 64910
+#define ZMessages_SClonningIsNotSupported 64911
+#define frxpnglang_EPNGIHDRNotFirstText 64912
+#define frxpnglang_EPNGSizeExceedsText 64913
+#define frxpnglang_EPNGUnknownPalEntryText 64914
+#define frxpnglang_EPNGUnknownCriticalChunkText 64915
+#define frxpnglang_EPNGUnknownCompressionText 64916
+#define frxpnglang_EPNGUnknownInterlaceText 64917
+#define frxpnglang_EPNGCannotAssignChunkText 64918
+#define frxpnglang_EPNGUnexpectedEndText 64919
+#define frxpnglang_EPNGNoImageDataText 64920
+#define frxpnglang_EPNGOutMemoryText 64921
+#define frxpnglang_EPNGHeaderNotPresentText 64922
+#define frxpnglang_EInvalidNewSize 64923
+#define pnglang_EPngInvalidCRCText 64924
+#define pnglang_EPNGInvalidIHDRText 64925
+#define pnglang_EPNGMissingMultipleIDATText 64926
+#define pnglang_EPNGZLIBErrorText 64927
+#define RzBorder_sRzColorBtnHighlight 64928
+#define RzBorder_sRzColor3DDkShadow 64929
+#define RzBorder_sRzColor3DLight 64930
+#define RzBorder_sRzColorInfoText 64931
+#define RzBorder_sRzColorInfoBk 64932
+#define RzBorder_sRzColorHotLight 64933
+#define RzBorder_sRzColorGradientActiveCaption 64934
+#define RzBorder_sRzColorGradientInactiveCaption 64935
+#define RzBorder_sRzColorMenuHighlight 64936
+#define RzBorder_sRzColorMenuBar 64937
+#define frxpnglang_EPngInvalidCRCText 64938
+#define frxpnglang_EPNGInvalidIHDRText 64939
+#define frxpnglang_EPNGMissingMultipleIDATText 64940
+#define frxpnglang_EPNGZLIBErrorText 64941
+#define frxpnglang_EPNGInvalidPaletteText 64942
+#define frxpnglang_EPNGInvalidFileHeaderText 64943
+#define RzBorder_sRzColorMenu 64944
+#define RzBorder_sRzColorWindow 64945
+#define RzBorder_sRzColorWindowFrame 64946
+#define RzBorder_sRzColorMenuText 64947
+#define RzBorder_sRzColorWindowText 64948
+#define RzBorder_sRzColorCaptionText 64949
+#define RzBorder_sRzColorActiveBorder 64950
+#define RzBorder_sRzColorInactiveBorder 64951
+#define RzBorder_sRzColorAppWorkSpace 64952
+#define RzBorder_sRzColorHighlight 64953
+#define RzBorder_sRzColorHighlightText 64954
+#define RzBorder_sRzColorBtnFace 64955
+#define RzBorder_sRzColorBtnShadow 64956
+#define RzBorder_sRzColorGrayText 64957
+#define RzBorder_sRzColorBtnText 64958
+#define RzBorder_sRzColorInactiveCaptionText 64959
+#define RzBorder_sRzColorTurquoise 64960
+#define RzBorder_sRzColorSkyBlue 64961
+#define RzBorder_sRzColorPlum 64962
+#define RzBorder_sRzColorGray25 64963
+#define RzBorder_sRzColorRose 64964
+#define RzBorder_sRzColorTan 64965
+#define RzBorder_sRzColorLightYellow 64966
+#define RzBorder_sRzColorLightGreen 64967
+#define RzBorder_sRzColorLightTurquoise 64968
+#define RzBorder_sRzColorPaleBlue 64969
+#define RzBorder_sRzColorLavender 64970
+#define RzBorder_sRzColorWhite 64971
+#define RzBorder_sRzColorScrollBar 64972
+#define RzBorder_sRzColorBackground 64973
+#define RzBorder_sRzColorActiveCaption 64974
+#define RzBorder_sRzColorInactiveCaption 64975
+#define RzBorder_sRzColorTeal 64976
+#define RzBorder_sRzColorBlue 64977
+#define RzBorder_sRzColorBlueGray 64978
+#define RzBorder_sRzColorGray50 64979
+#define RzBorder_sRzColorRed 64980
+#define RzBorder_sRzColorLightOrange 64981
+#define RzBorder_sRzColorLime 64982
+#define RzBorder_sRzColorSeaGreen 64983
+#define RzBorder_sRzColorAqua 64984
+#define RzBorder_sRzColorLightBlue 64985
+#define RzBorder_sRzColorViolet 64986
+#define RzBorder_sRzColorGray40 64987
+#define RzBorder_sRzColorPink 64988
+#define RzBorder_sRzColorGold 64989
+#define RzBorder_sRzColorYellow 64990
+#define RzBorder_sRzColorBrightGreen 64991
+#define VDBConsts_SNotReplicatable 64992
+#define VDBConsts_SPropDefByLookup 64993
+#define VDBConsts_STooManyColumns 64994
+#define VDBConsts_SRemoteLogin 64995
+#define RzBorder_sRzColorBlack 64996
+#define RzBorder_sRzColorBrown 64997
+#define RzBorder_sRzColorOliveGreen 64998
+#define RzBorder_sRzColorDarkGreen 64999
+#define RzBorder_sRzColorDarkTeal 65000
+#define RzBorder_sRzColorDarkBlue 65001
+#define RzBorder_sRzColorIndigo 65002
+#define RzBorder_sRzColorGray80 65003
+#define RzBorder_sRzColorDarkRed 65004
+#define RzBorder_sRzColorOrange 65005
+#define RzBorder_sRzColorDarkYellow 65006
+#define RzBorder_sRzColorGreen 65007
 #define IBCConsts_SArrayLowBoundError 65008
 #define IBCConsts_SArrayHighBoundError 65009
 #define IBCConsts_SInvalidDimension 65010
@@ -778,6 +779,8 @@
 #define SysConst_SAccessDenied 65535
 STRINGTABLE
 BEGIN
+	dxGDIPlusAPI_scxGdipInvalidOperation,	"Invalid operation in GDI+"
+	bdeconst_SLookupTableError,	"LookupSource must be connected to TTable component"
 	bdeconst_STruncationError,	"Parameter '%s' truncated on output"
 	bdeconst_SResultName,	"Result"
 	bdeconst_SIndexDoesNotExist,	"Index does not exist. Index: %s"
@@ -793,7 +796,7 @@ BEGIN
 	OleConst_SCannotBreakLink,	"Break link operation is not supported."
 	OleConst_SPropDlgCaption,	"%s Properties"
 	RxMemDS_SMemNoRecords,	"No data found"
-	dxGDIPlusAPI_scxGdipInvalidOperation,	"Invalid operation in GDI+"
+	bdeconst_SDatabaseOpen,	"Cannot perform this operation on an open database"
 	bdeconst_SDatabaseClosed,	"Cannot perform this operation on a closed database"
 	bdeconst_SDatabaseHandleSet,	"Database handle owned by a different session"
 	bdeconst_SSessionActive,	"Cannot perform this operation on an active session"
@@ -809,7 +812,7 @@ BEGIN
 	bdeconst_SIDAPILangID,	"0009"
 	bdeconst_SBDEError,	"BDE error $%.4x"
 	bdeconst_SLookupSourceError,	"Unable to use duplicate DataSource and LookupSource"
-	bdeconst_SLookupTableError,	"LookupSource must be connected to TTable component"
+	JConsts_sJPEGError,	"JPEG error #%d"
 	JConsts_sJPEGImageFile,	"JPEG Image File"
 	RzTabs_sRzIncorrectNumberOfPoints,	"Incorrect number of points in tab shape"
 	RzTabs_sRzTabRegionCapacityError,	"Capacity must be -1 (to cache all regions) or > 0"
@@ -825,7 +828,7 @@ BEGIN
 	bdeconst_SInvalidSessionName,	"Invalid session name %s"
 	bdeconst_SDatabaseNameMissing,	"Database name missing"
 	bdeconst_SSessionNameMissing,	"Session name missing"
-	bdeconst_SDatabaseOpen,	"Cannot perform this operation on an open database"
+	ZMessages_SUnsupportedDataType,	"Unsupported data type"
 	ZMessages_SErrorConvertionField,	"Conversion error for field \"%s\" to SQLType \"%s\""
 	ZMessages_SUnknownError,	"Unknown error"
 	ZMessages_SFieldNotFound1,	"Field \"%s\" was not found"
@@ -841,7 +844,7 @@ BEGIN
 	ZMessages_SInvalidUpdateCount,	"%d record(s) updated. Only one record should have been updated."
 	ZMessages_SRowBufferWidthExceeded,	"Row buffer width exceeded. Try using fewer or longer columns in SQL query."
 	JConsts_sChangeJPGSize,	"Cannot change the size of a JPEG image"
-	JConsts_sJPEGError,	"JPEG error #%d"
+	ZMessages_SOperationIsNotAllowed2,	"Operation is not allowed in READ ONLY mode"
 	ZMessages_SOperationIsNotAllowed4,	"Operation is not allowed for closed dataset"
 	ZMessages_SNoMoreRecords,	"No more records in the Resultset"
 	ZMessages_SCanNotOpenResultSet,	"Can not open a Resultset"
@@ -857,7 +860,7 @@ BEGIN
 	ZMessages_SInvalidState,	"Invalid state"
 	ZMessages_SErrorConvertion,	"Convertion error"
 	ZMessages_SUnsupportedParameterType,	"Unsupported parameter type"
-	ZMessages_SUnsupportedDataType,	"Unsupported data type"
+	ZMessages_SDriverWasNotFound,	"Requested database driver was not found"
 	ZMessages_SCanNotConnectToServer,	"Cannot connect to SQL server"
 	ZMessages_STableIsNotSpecified,	"Table is not specified"
 	ZMessages_SLiveResultSetsAreNotSupported,	"Live query is not supported by this class"
@@ -873,7 +876,7 @@ BEGIN
 	ZMessages_SQueryIsEmpty,	"SQL Query is empty"
 	ZMessages_SCanNotExecuteMoreQueries,	"Cannot execute more then one query"
 	ZMessages_SOperationIsNotAllowed1,	"Operation is not allowed in FORWARD ONLY mode"
-	ZMessages_SOperationIsNotAllowed2,	"Operation is not allowed in READ ONLY mode"
+	ZMessages_SLibraryNotFound,	"None of the dynamic libraries can be found or is not loadable: %s !\n\rUse TZConnection.LibraryLocation if the location is invalid."
 	ZMessages_SCanNotRetrieveResultSetData,	"Cannot retrieve Resultset data"
 	ZMessages_SRowBufferIsNotAssigned,	"Row buffer is not assigned"
 	ZMessages_SColumnIsNotAccessable,	"Column with index %d is not accessable"
@@ -889,7 +892,7 @@ BEGIN
 	ZMessages_SCannotUseRollBack,	"You cannot use ROLLBACK in AUTOCOMMIT mode"
 	ZMessages_SCanNotUpdateComplexQuery,	"Cannot update a complex query with more then one table"
 	ZMessages_SCanNotUpdateThisQueryType,	"Cannot update this query type"
-	ZMessages_SDriverWasNotFound,	"Requested database driver was not found"
+	ZMessages_SImmutableOpIsNotAllowed,	"The operation is not allowed on not changeable collections"
 	ZMessages_SStackIsEmpty,	"Stack is empty"
 	ZMessages_SVariableWasNotFound,	"Variable \"%s\" was not found"
 	ZMessages_SFunctionWasNotFound,	"Function \"%s\" was not found"
@@ -905,7 +908,7 @@ BEGIN
 	ZMessages_SVariableAlreadyExists,	"Variable \"%s\" already exists"
 	ZMessages_STypesMismatch,	"Types mismatch"
 	ZMessages_SUnsupportedOperation,	"Unsupported operation"
-	ZMessages_SLibraryNotFound,	"None of the dynamic libraries can be found or is not loadable: %s !\n\rUse TZConnection.LibraryLocation if the location is invalid."
+	pnglang_EPNGInvalidPaletteText,	"The \"Portable Network Graphics\" image contains an invalid palette."
 	pnglang_EPNGInvalidFileHeaderText,	"The file being readed is not a valid \"Portable Network Graphics\" image because it contains an invalid header. This file may be corruped, try obtaining it again."
 	pnglang_EPNGIHDRNotFirstText,	"This \"Portable Network Graphics\" image is not supported or it might be invalid.\r\n(IHDR chunk is not the first)"
 	pnglang_EPNGSizeExceedsText,	"This \"Portable Network Graphics\" image is not supported because either it's width or height exceeds the maximum size, which is 65535 pixels length."
@@ -921,7 +924,7 @@ BEGIN
 	pnglang_EInvalidNewSize,	"The new size provided for image resizing is invalid."
 	ZMessages_SSQLError1,	"SQL Error: %s"
 	ZMessages_SClonningIsNotSupported,	"Clonning is not supported by this class"
-	ZMessages_SImmutableOpIsNotAllowed,	"The operation is not allowed on not changeable collections"
+	frxpnglang_EPNGIHDRNotFirstText,	"This \"Portable Network Graphics\" image is not supported or it might be invalid.\r\n(IHDR chunk is not the first)"
 	frxpnglang_EPNGSizeExceedsText,	"This \"Portable Network Graphics\" image is not supported because either it's width or height exceeds the maximum size, which is 65535 pixels length."
 	frxpnglang_EPNGUnknownPalEntryText,	"There is no such palette entry."
 	frxpnglang_EPNGUnknownCriticalChunkText,	"This \"Portable Network Graphics\" image contains an unknown critical part which could not be decoded."
@@ -937,7 +940,7 @@ BEGIN
 	pnglang_EPNGInvalidIHDRText,	"The \"Portable Network Graphics\" image could not be loaded because one of its main piece of data (ihdr) might be corrupted"
 	pnglang_EPNGMissingMultipleIDATText,	"This \"Portable Network Graphics\" image is invalid because it has missing image parts."
 	pnglang_EPNGZLIBErrorText,	"Could not decompress the image because it contains invalid compressed data.\r\n Description: "
-	pnglang_EPNGInvalidPaletteText,	"The \"Portable Network Graphics\" image contains an invalid palette."
+	RzBorder_sRzColorBtnHighlight,	"Button Highlight"
 	RzBorder_sRzColor3DDkShadow,	"3D Dark Shadow"
 	RzBorder_sRzColor3DLight,	"3D Light"
 	RzBorder_sRzColorInfoText,	"Info Text"
@@ -953,7 +956,7 @@ BEGIN
 	frxpnglang_EPNGZLIBErrorText,	"Could not decompress the image because it contains invalid compressed data.\r\n Description: "
 	frxpnglang_EPNGInvalidPaletteText,	"The \"Portable Network Graphics\" image contains an invalid palette."
 	frxpnglang_EPNGInvalidFileHeaderText,	"The file being readed is not a valid \"Portable Network Graphics\" image because it contains an invalid header. This file may be corruped, try obtaining it again."
-	frxpnglang_EPNGIHDRNotFirstText,	"This \"Portable Network Graphics\" image is not supported or it might be invalid.\r\n(IHDR chunk is not the first)"
+	RzBorder_sRzColorMenu,	"Menu"
 	RzBorder_sRzColorWindow,	"Window"
 	RzBorder_sRzColorWindowFrame,	"Window Frame"
 	RzBorder_sRzColorMenuText,	"Menu Text"
@@ -969,7 +972,7 @@ BEGIN
 	RzBorder_sRzColorGrayText,	"Gray Text"
 	RzBorder_sRzColorBtnText,	"Button Text"
 	RzBorder_sRzColorInactiveCaptionText,	"Inactive Caption Text"
-	RzBorder_sRzColorBtnHighlight,	"Button Highlight"
+	RzBorder_sRzColorTurquoise,	"Turquoise"
 	RzBorder_sRzColorSkyBlue,	"Sky Blue"
 	RzBorder_sRzColorPlum,	"Plum"
 	RzBorder_sRzColorGray25,	"Gray 25%"
@@ -985,7 +988,7 @@ BEGIN
 	RzBorder_sRzColorBackground,	"Background"
 	RzBorder_sRzColorActiveCaption,	"Active Caption"
 	RzBorder_sRzColorInactiveCaption,	"Inactive Caption"
-	RzBorder_sRzColorMenu,	"Menu"
+	RzBorder_sRzColorTeal,	"Teal"
 	RzBorder_sRzColorBlue,	"Blue"
 	RzBorder_sRzColorBlueGray,	"Blue Gray"
 	RzBorder_sRzColorGray50,	"Gray 50%"
@@ -1001,7 +1004,7 @@ BEGIN
 	RzBorder_sRzColorGold,	"Gold"
 	RzBorder_sRzColorYellow,	"Yellow"
 	RzBorder_sRzColorBrightGreen,	"Bright Green"
-	RzBorder_sRzColorTurquoise,	"Turquoise"
+	VDBConsts_SNotReplicatable,	"Control cannot be used in a DBCtrlGrid"
 	VDBConsts_SPropDefByLookup,	"Property already defined by lookup field"
 	VDBConsts_STooManyColumns,	"Grid requested to display more than 256 columns"
 	VDBConsts_SRemoteLogin,	"Remote Login"
@@ -1017,7 +1020,6 @@ BEGIN
 	RzBorder_sRzColorOrange,	"Orange"
 	RzBorder_sRzColorDarkYellow,	"Dark Yellow"
 	RzBorder_sRzColorGreen,	"Green"
-	RzBorder_sRzColorTeal,	"Teal"
 	IBCConsts_SArrayLowBoundError,	"Array low bound out of bounds (%d)"
 	IBCConsts_SArrayHighBoundError,	"Array high bound out of bounds (%d)"
 	IBCConsts_SInvalidDimension,	"Array dimension is not valid"

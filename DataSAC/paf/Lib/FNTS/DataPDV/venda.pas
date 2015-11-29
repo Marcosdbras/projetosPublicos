@@ -347,7 +347,7 @@ type
   public
     { Public declarations }
     iavanca, colunas:integer;
-    inicodbal:string;
+    inicodbal, pedirnumcom:string;
 
     procedure EnviaComando(comando:string;timeout:integer);
     function Localizar_Produto(referencia:string):boolean;
@@ -429,7 +429,7 @@ uses modulo, Math, funcoes, cliente_consulta, preco_consulta,
   TEF_Cancelamento, senha, menu_cupom, Lista_DAV, pre_venda, msg_Operador,
   Meios_pagamento, Orcamento_Abrir, menu_fiscal,
   os, caixa_abertura, mesas, fabricacao, senha_supervisor, ComObj,
-  Constantes, Vendedor, ContasReceberNovo, funcoes_ibpt;
+  Constantes, Vendedor, ContasReceberNovo, funcoes_ibpt, comanda;
 
 {$R *.dfm}
 
@@ -4380,6 +4380,8 @@ var
   sIdentificarVendedor: String;
 
 begin
+
+
   ED_FOCUS.SETFOCUS;
 
   bfinalizado := false;
@@ -4409,17 +4411,17 @@ begin
     end;
 
 
-  IF (ED_DESC_ACRE.Value < 0) OR
-     (ed_total_pagar.Value < 0) OR
-     (ed_totalizador.Value < 0) THEN
-  BEGIN
-      Imprime_display('Existe valor negativo!',clred,tiErro);
-      sleep(1500);
-      Imprime_display_anterior;
-      bt_confirmar_fechamento.Enabled := true;
-      bt_confirmar_fechamento.SetFocus;
-      exit;
-  END;
+    IF (ED_DESC_ACRE.Value < 0) OR
+       (ed_total_pagar.Value < 0) OR
+       (ed_totalizador.Value < 0) THEN
+    BEGIN
+        Imprime_display('Existe valor negativo!',clred,tiErro);
+        sleep(1500);
+        Imprime_display_anterior;
+        bt_confirmar_fechamento.Enabled := true;
+        bt_confirmar_fechamento.SetFocus;
+        exit;
+    END;
 
 
     bt_confirmar_fechamento.Enabled := false;
@@ -4524,6 +4526,7 @@ begin
           end;
         end;
       end;
+
 
       if not bcontinua then exit;
     end;
@@ -6839,6 +6842,7 @@ begin
   iavanca := frmmodulo.query.FieldByName('avanco').AsInteger;
   colunas := frmmodulo.query.FieldByName('colunas').AsInteger;
   inicodbal := frmmodulo.query.FieldByName('inicodbal').AsString;
+  pedirnumcom := frmmodulo.query.FieldByName('pedirnumcom').AsString;
 
   if frmmodulo.query.FieldByName('dadosconsumidor').AsInteger = 1 then
      bConsumidor := true

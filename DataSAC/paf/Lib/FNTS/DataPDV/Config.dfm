@@ -1,5 +1,5 @@
 object frmConfig: TfrmConfig
-  Left = 224
+  Left = 229
   Top = 95
   Width = 455
   Height = 496
@@ -287,7 +287,7 @@ object frmConfig: TfrmConfig
   object GroupBox5: TGroupBox
     Left = 16
     Top = 374
-    Width = 409
+    Width = 241
     Height = 49
     Caption = 'Avan'#231'o do papel'
     TabOrder = 5
@@ -344,6 +344,27 @@ object frmConfig: TfrmConfig
       Height = 21
       DataField = 'inicodbal'
       DataSource = dsconfig
+      TabOrder = 0
+    end
+  end
+  object GroupBox7: TGroupBox
+    Left = 264
+    Top = 376
+    Width = 163
+    Height = 46
+    Caption = 'Pedir N'#250'mero da comanda'
+    TabOrder = 8
+    object DBComboBox1: TDBComboBox
+      Left = 9
+      Top = 17
+      Width = 65
+      Height = 21
+      DataField = 'PEDIRNUMCOM'
+      DataSource = dsconfig
+      ItemHeight = 13
+      Items.Strings = (
+        'N'
+        'S')
       TabOrder = 0
     end
   end

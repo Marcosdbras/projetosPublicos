@@ -46,6 +46,8 @@ type
     GroupBox6: TGroupBox;
     Label7: TLabel;
     DBEdit7: TDBEdit;
+    GroupBox7: TGroupBox;
+    DBComboBox1: TDBComboBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BitBtn2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);

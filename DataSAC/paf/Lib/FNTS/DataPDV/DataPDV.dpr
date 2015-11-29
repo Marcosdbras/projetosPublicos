@@ -82,7 +82,8 @@ uses
   ContasReceberNovo in 'ContasReceberNovo.pas' {frmContasReceberNovo},
   notafiscalNova in 'notafiscalNova.pas' {frmNotaFiscalNova},
   funcoes_ibpt in 'funcoes_ibpt.pas',
-  conexao_ibpt in 'conexao_ibpt.pas' {frmconexao_ibpt: TDataModule};
+  conexao_ibpt in 'conexao_ibpt.pas' {frmconexao_ibpt: TDataModule},
+  comanda in 'comanda.pas' {frmcomanda};
 
 var
   Hand : THandle;
