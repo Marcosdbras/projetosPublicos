@@ -1,5 +1,5 @@
 object frmProduto_consulta: TfrmProduto_consulta
-  Left = 2
+  Left = 3
   Top = 0
   BorderStyle = bsNone
   Caption = 'frmProduto_consulta'

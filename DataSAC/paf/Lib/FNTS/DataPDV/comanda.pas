@@ -4,16 +4,16 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, WinSkinData, StdCtrls, Buttons;
+  Dialogs, WinSkinData, StdCtrls, Buttons, pngimage, ExtCtrls;
 
 type
   Tfrmcomanda = class(TForm)
     SkinData1: TSkinData;
     Label1: TLabel;
     ediComanda: TEdit;
-    btnLancar: TBitBtn;
-    btnCancelar: TBitBtn;
-    procedure btnCancelarClick(Sender: TObject);
+    Image1: TImage;
+    Label2: TLabel;
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -26,10 +26,22 @@ var
 implementation
 
 {$R *.dfm}
-
-procedure Tfrmcomanda.btnCancelarClick(Sender: TObject);
+      uses venda;
+procedure Tfrmcomanda.FormKeyPress(Sender: TObject; var Key: Char);
 begin
-  close;
+  if key = #13 then
+     begin
+       frmvenda.numcomanda := edicomanda.Text;
+       close;
+     end;
+  //endi
+
+  if key = #27 then
+     begin
+       frmvenda.numcomanda := '';
+       close;
+     end;
+
 end;
 
 end.

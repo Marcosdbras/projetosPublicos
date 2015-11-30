@@ -347,7 +347,7 @@ type
   public
     { Public declarations }
     iavanca, colunas:integer;
-    inicodbal, pedirnumcom:string;
+    inicodbal, pedirnumcom, numcomanda:string;
 
     procedure EnviaComando(comando:string;timeout:integer);
     function Localizar_Produto(referencia:string):boolean;
@@ -4370,7 +4370,7 @@ end;
 procedure TfrmVenda.bt_confirmar_fechamentoClick(Sender: TObject);
 var
   rValor_Temp : real;
-  i, icont : integer;
+  i, icont,qtregistro : integer;
   rvalor_total_convenio : real;
   sCod_Cupom : string;
   bLanca_comprovante_crediario,
@@ -4381,11 +4381,57 @@ var
 
 begin
 
-
   ED_FOCUS.SETFOCUS;
+
+  if pedirnumcom = 'S' then
+     begin
+       frmcomanda := tfrmcomanda.Create(self);
+       frmcomanda.showmodal;
+       frmcomanda.Free;
+
+       // Verifica duplicidade de comanda no próprio terminal
+       query.Close;
+       query.SQL.Clear;
+       query.SQL.Add('select c.* from comanda c where (c.lancado = '+quotedstr('N')+') and (codigo_comanda = '+quotedstr(numcomanda)+')' );
+       query.Open;
+       qtregistro := query.RecordCount;
+       if qtregistro > 0 then
+          begin
+
+             Imprime_display('Comanda aguardando lançamento!',clred,tiErro);
+             sleep(1500);
+             Imprime_display_anterior;
+             bt_confirmar_fechamento.Enabled := true;
+             bt_confirmar_fechamento.SetFocus;
+             exit;
+
+
+          end;
+       //endi
+
+       //Verifica duplicidade de comanda no servidor
+
+
+
+     end;
+  //endi
+
+
 
   bfinalizado := false;
   try
+
+    if (pedirnumcom = 'S') and (numcomanda='') then
+       begin
+         Imprime_display('Necessário informar comanda!',clred,tiErro);
+         sleep(1500);
+         Imprime_display_anterior;
+         bt_confirmar_fechamento.Enabled := true;
+         bt_confirmar_fechamento.SetFocus;
+         exit;
+       end;
+    //endi
+
 
     if ed_troco.Value < 0 then
     begin
@@ -5923,7 +5969,27 @@ begin
 
       with frmmodulo do
       begin
+
         // lancamento do cupom no banco de dados
+
+        if  pedirnumcom = 'S' then
+            begin
+               //aqui
+
+               query.Close;
+               query.SQL.Clear;
+               query.SQL.Add('insert into (numero_venda, codigo_comanda, valor_total, status, datahr, codusu, num) values (:numero_venda, :codigo_comanda, :valor_total, :status, :datahr, :codusu)');
+               query.Params.ParamByName('numero_venda').asString := sCod_Cupom;
+               query.Params.ParamByName('codigo_comanda').asString := numcomanda;
+
+               query.ExecSQL;
+
+
+            end;
+        //endi
+
+
+
         try
         sNumero_Cupom := sNumero_Venda;
         sCod_Cupom := codifica_cupom;
