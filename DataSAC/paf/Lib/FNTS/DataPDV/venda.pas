@@ -4392,7 +4392,9 @@ begin
        // Verifica duplicidade de comanda no próprio terminal
        query.Close;
        query.SQL.Clear;
-       query.SQL.Add('select c.* from comanda c where (c.lancado = '+quotedstr('N')+') and (codigo_comanda = '+quotedstr(numcomanda)+')' );
+       //query.SQL.Add('select c.* from comanda c where (c.lancado = '+quotedstr('N')+') and (codigo_comanda = '+quotedstr(numcomanda)+')' );
+
+       query.SQL.Add('select * from cupom where (codigo_comanda = '+quotedstr(numcomanda)+')' );
        query.Open;
        qtregistro := query.RecordCount;
        if qtregistro > 0 then
@@ -5976,6 +5978,7 @@ begin
             begin
                //aqui
 
+               {
                query.Close;
                query.SQL.Clear;
                query.SQL.Add('insert into (numero_venda, codigo_comanda, valor_total, status, datahr, codusu, num) values (:numero_venda, :codigo_comanda, :valor_total, :status, :datahr, :codusu)');
@@ -5983,7 +5986,7 @@ begin
                query.Params.ParamByName('codigo_comanda').asString := numcomanda;
 
                query.ExecSQL;
-
+               }
 
             end;
         //endi
@@ -6018,9 +6021,18 @@ begin
         spcupom.ParamByName('cod_caixa').asinteger := icodigo_Usuario;
         spCupom.ParamByName('ecf_caixa').asstring := Copy(sECF_Caixa,1,3);
         spcupom.ParamByName('cod_vendedor').asinteger := iVendedorCodigo;
+
+        if  pedirnumcom = 'S' then
+            begin
+              spcupom.ParamByName('codigo_comanda').asString := numcomanda;
+            end;
+        //endi
+
+
         spCupom.Prepare;
         spCupom.Execute;
         except
+          showmessage('erro');
         end;
 
         // Excluir os arquivos temporarios

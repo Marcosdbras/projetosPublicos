@@ -1,6 +1,7 @@
 object frmModulo: TfrmModulo
   OldCreateOrder = False
-  Left = 3
+  Left = 5
+  Top = 109
   Height = 566
   Width = 798
   object conexao: TIBCConnection
@@ -128,13 +129,21 @@ object frmModulo: TfrmModulo
   object spCupom: TIBCStoredProc
     StoredProcName = 'ST_CUPOM_INSERT'
     Connection = conexao
-    Left = 1080
+    SQL.Strings = (
+      
+        'EXECUTE PROCEDURE ST_CUPOM_INSERT(:CODIGO, :NUMERO, :CCF, :ECF, ' +
+        ':DATA, :HORA, :QTDE_ITEM, :VALOR_PRODUTO, :VALOR_DESCONTO, :VALO' +
+        'R_ACRESCIMO, :VALOR_TOTAL, :VALOR_PAGO, :VALOR_TROCO, :COD_CLIEN' +
+        'TE, :CANCELADO, :CPF_CONSUMIDOR, :NOME_CONSUMIDOR, :COD_VENDEDOR' +
+        ', :COD_CAIXA, :ECF_CAIXA, :CODIGO_COMANDA)')
+    Left = 488
     Top = 56
     ParamData = <
       item
         DataType = ftString
         Name = 'CODIGO'
         ParamType = ptInput
+        Size = 50
       end
       item
         DataType = ftString
@@ -236,7 +245,14 @@ object frmModulo: TfrmModulo
         Name = 'ECF_CAIXA'
         ParamType = ptInput
         Size = 3
+      end
+      item
+        DataType = ftString
+        Name = 'CODIGO_COMANDA'
+        ParamType = ptInput
+        Size = 15
       end>
+    CommandStoredProcName = 'ST_CUPOM_INSERT'
   end
   object spCupom_Crediario: TIBCStoredProc
     StoredProcName = 'ST_CUPOM_CREDIARIO_INSERT'
