@@ -377,7 +377,7 @@ v_dinheiro:real;
 
 
  Sqtde, Svalor, Sdesconto,  stotal, scodigo, sproduto:string;
-
+  i:integer;
 
 begin
 
@@ -2017,6 +2017,7 @@ if rconvenio.Value <> 0 then
       end;
     end;
 
+
     if frmmodulo.qrconfig.FieldByName('VENDA_PORTA_IMPRESSORA').AsString = 'LPT1'  then
        begin
          sayprint1.Porta := LPT1;
@@ -2049,12 +2050,13 @@ if rconvenio.Value <> 0 then
     //endi
 
 
-
+    frmmodulo.qrconfig.open;
     if frmmodulo.qrconfig.FieldByName('VENDA_PORTA_IMPRESSORA').AsString <> 'Nenhuma' then
        begin
 
 
           sayprint1.BeginPrn;
+          limpa_s;
           divisor_simples;
           sayprint1.Condensed(True);
           sayprint1.Say(0,0,s1);
@@ -2133,9 +2135,17 @@ if rconvenio.Value <> 0 then
         //endi
 
 
+      for i := 1 to  frmmodulo.qrconfig.fieldbyname('Bobina_subirpapel').asinteger   do
+        begin
 
+          ilin := ilin + 1;
+          sayprint1.Say(ilin,0,'');
+
+        end;
 
         sayprint1.EndPrn;
+
+
 
 
        end;

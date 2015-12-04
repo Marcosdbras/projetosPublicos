@@ -231,6 +231,8 @@ type
 
     function TEF_Cartao(bandeira:Tbandeira_tef):boolean;
     function TEF_Cheque(bandeira:Tbandeira_tef):boolean;
+    function verQtdeReg():boolean;
+    function verComanda():boolean;
 
 
     procedure Cancela_cupom_aberto();
@@ -340,9 +342,12 @@ type
     procedure Voltar1Click(Sender: TObject);
     procedure timer_cargaTimer(Sender: TObject);
     procedure ed_unitarioKeyPress(Sender: TObject; var Key: Char);
+    procedure solicitarnumcomanda;
   private
     { Private declarations }
      bConsumidor:boolean;
+     qtregistro:integer;
+     
 
   public
     { Public declarations }
@@ -1958,9 +1963,23 @@ begin
         spcupom.parambyname('cod_caixa').asinteger := icodigo_Usuario;
         spCupom.ParamByName('ecf_caixa').asstring := Copy(sECF_Caixa,1,3);
         spcupom.parambyname('cod_vendedor').asinteger := iVendedorCodigo;
+
+        if pedirnumcom = 'S' then
+           begin
+             spcupom.ParamByName('codigo_comanda').asString := numcomanda;
+           end
+        else
+           begin
+             spcupom.ParamByName('codigo_comanda').Clear;
+           end;
+        //endi
+
+
+
         spCupom.Prepare;
         spCupom.Execute;
         except
+           showmessage('Erro ao lançar cupom no banco');
         end;
 
 
@@ -2173,9 +2192,23 @@ begin
         spcupom.parambyname('cod_caixa').asinteger := icodigo_Usuario;
         spCupom.ParamByName('ecf_caixa').asstring := Copy(sECF_Caixa,1,3);
         spcupom.parambyname('cod_vendedor').asinteger := iVendedorCodigo;
+
+        if pedirnumcom = 'S' then
+           begin
+             spcupom.ParamByName('codigo_comanda').asString := numcomanda;
+           end
+        else
+           begin
+             spcupom.ParamByName('codigo_comanda').Clear;
+           end;
+        //endi
+
+
+
         spCupom.Prepare;
         spCupom.Execute;
         except
+           showmessage('Erro ao lançar cupom!')
         end;
         // lancar os itens no banco de dados como cancelado
         for i := 0 to grid.RowCount - 1 do
@@ -3736,6 +3769,8 @@ end;
 // -------------------------------------------------------------------------- //
 procedure TfrmVenda.CancelarCupom1Click(Sender: TObject);
 begin
+
+
   if bVenda then
   begin
     //Caso exista cupom aberto
@@ -4370,7 +4405,7 @@ end;
 procedure TfrmVenda.bt_confirmar_fechamentoClick(Sender: TObject);
 var
   rValor_Temp : real;
-  i, icont,qtregistro : integer;
+  i, icont : integer;
   rvalor_total_convenio : real;
   sCod_Cupom : string;
   bLanca_comprovante_crediario,
@@ -4383,56 +4418,18 @@ begin
 
   ED_FOCUS.SETFOCUS;
 
-  if pedirnumcom = 'S' then
-     begin
-       frmcomanda := tfrmcomanda.Create(self);
-       frmcomanda.showmodal;
-       frmcomanda.Free;
+  solicitarnumcomanda;
 
-       // Verifica duplicidade de comanda no próprio terminal
-       query.Close;
-       query.SQL.Clear;
-       //query.SQL.Add('select c.* from comanda c where (c.lancado = '+quotedstr('N')+') and (codigo_comanda = '+quotedstr(numcomanda)+')' );
+  if not verComanda then
+     exit;
 
-       query.SQL.Add('select * from cupom where (codigo_comanda = '+quotedstr(numcomanda)+')' );
-       query.Open;
-       qtregistro := query.RecordCount;
-       if qtregistro > 0 then
-          begin
-
-             Imprime_display('Comanda aguardando lançamento!',clred,tiErro);
-             sleep(1500);
-             Imprime_display_anterior;
-             bt_confirmar_fechamento.Enabled := true;
-             bt_confirmar_fechamento.SetFocus;
-             exit;
-
-
-          end;
-       //endi
-
-       //Verifica duplicidade de comanda no servidor
-
-
-
-     end;
-  //endi
-
+  if not verQtdeReg() then
+     exit;
 
 
   bfinalizado := false;
   try
 
-    if (pedirnumcom = 'S') and (numcomanda='') then
-       begin
-         Imprime_display('Necessário informar comanda!',clred,tiErro);
-         sleep(1500);
-         Imprime_display_anterior;
-         bt_confirmar_fechamento.Enabled := true;
-         bt_confirmar_fechamento.SetFocus;
-         exit;
-       end;
-    //endi
 
 
     if ed_troco.Value < 0 then
@@ -5976,7 +5973,7 @@ begin
 
         if  pedirnumcom = 'S' then
             begin
-               //aqui
+               //aqui - lancamento centralizado no servidor se houver comunicação
 
                {
                query.Close;
@@ -6022,17 +6019,21 @@ begin
         spCupom.ParamByName('ecf_caixa').asstring := Copy(sECF_Caixa,1,3);
         spcupom.ParamByName('cod_vendedor').asinteger := iVendedorCodigo;
 
-        if  pedirnumcom = 'S' then
-            begin
-              spcupom.ParamByName('codigo_comanda').asString := numcomanda;
-            end;
+        if pedirnumcom = 'S' then
+           begin
+             spcupom.ParamByName('codigo_comanda').asString := numcomanda;
+           end
+        else
+           begin
+             spcupom.ParamByName('codigo_comanda').Clear;
+           end;
         //endi
 
 
         spCupom.Prepare;
         spCupom.Execute;
         except
-          showmessage('erro');
+          showmessage('Erro ao lançar cupom, foi realizado fechamento do cupom, porém, não registrado na base de dados, assim que possível informe o técnico.');
         end;
 
         // Excluir os arquivos temporarios
@@ -6628,12 +6629,47 @@ begin
     begin
       bSair_campo := true;
       pn_senha_cancelar.Visible := false;
-      if lb_cancelar.caption = 'Cancelar Item' then  Cancela_Item(ed_cancelar_item.text);
+
+      if lb_cancelar.caption = 'Cancelar Item' then
+         begin
+           Cancela_Item(ed_cancelar_item.text);
+         end;
+      //endi
+
       if lb_cancelar.caption = 'Cancelar Cupom' then
         if bVenda then
-          Cancela_cupom_aberto
+          begin
+
+            solicitarnumcomanda;
+
+            if (verComanda()) and (verQtdeReg())then
+               begin
+                 Cancela_cupom_aberto;
+               end
+            else
+               begin
+                 bSair_campo := false;
+                 exit;
+               end;
+            //endi
+
+          end
+
         else
-          Cancela_cupom_fechado;
+          begin
+
+            //solicitarnumcomanda;
+
+            //if not verComanda then
+            //   exit;
+
+             //cancela se encontrar o número da comanda
+            //if not verQtdeReg() then
+            //   exit;
+
+            Cancela_cupom_fechado;
+          end;
+
     end
     else
     begin
@@ -8663,6 +8699,103 @@ begin
     end;
   END;
 end;
+
+
+procedure tfrmvenda.solicitarnumcomanda;
+begin
+
+  if pedirnumcom <> 'S' then
+     exit;
+  //endi
+
+  frmcomanda := tfrmcomanda.Create(self);
+  frmcomanda.showmodal;
+  frmcomanda.Free;
+
+end;
+
+
+function tfrmvenda.verQtdeReg():boolean;
+begin
+
+  result := true;
+
+  if pedirnumcom <> 'S' then
+     exit;
+  //endi
+
+   // Verifica duplicidade de comanda no próprio terminal
+   query.Close;
+   query.SQL.Clear;
+   //query.SQL.Add('select * from cupom where (codigo_comanda = '+quotedstr(numcomanda)+')' );
+   query.SQL.Add('select * from cupom  where (lancado = '+quotedstr('N')+') and (codigo_comanda = '+quotedstr(numcomanda)+')' );
+   query.Open;
+   qtregistro := query.RecordCount;
+   if qtregistro > 0 then
+      begin
+
+        Imprime_display('Comanda em duplicidade nesta máquina!',clred,tiErro);
+        sleep(1500);
+
+        if pn_fechamento.Visible then
+          begin
+            Imprime_display_anterior;
+            bt_confirmar_fechamento.Enabled := true;
+            bt_confirmar_fechamento.SetFocus;
+
+          end
+       else
+          begin
+            Imprime_display('INFORME O PRODUTO...',clWhite,tiLivre);
+            ed_barra.SetFocus;
+          end;
+       //endi
+
+       result := false;
+
+
+      end;
+   //endi
+
+end;
+
+
+function tfrmvenda.verComanda():boolean;
+begin
+
+  result := true;
+
+  if pedirnumcom <> 'S' then
+     exit;
+  //endi
+
+  if (numcomanda='') then
+      begin
+
+       Imprime_display('Necessário informar comanda!',clred,tiErro);
+       sleep(1500);
+        //aqui
+       if pn_fechamento.Visible then
+          begin
+            Imprime_display_anterior;
+            bt_confirmar_fechamento.Enabled := true;
+            bt_confirmar_fechamento.SetFocus;
+          end
+       else
+          begin
+            Imprime_display('INFORME O PRODUTO...',clWhite,tiLivre);
+            ed_barra.SetFocus;
+
+
+          end;
+       //endi
+       result := false;
+
+     end;
+ //endi
+end;
+
+
 
 end.
 

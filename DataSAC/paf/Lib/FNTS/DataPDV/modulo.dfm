@@ -1,7 +1,7 @@
 object frmModulo: TfrmModulo
   OldCreateOrder = False
-  Left = 5
-  Top = 109
+  Left = 3
+  Top = 5
   Height = 566
   Width = 798
   object conexao: TIBCConnection
