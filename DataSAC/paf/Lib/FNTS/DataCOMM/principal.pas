@@ -431,10 +431,10 @@ begin
             qrServidor.sql.clear;
             qrServidor.sql.add('insert into c000089');
             qrServidor.sql.add('(codigo, cupom, data, serial, ecf, subtotal,');
-            qrServidor.sql.add('desconto, acrescimo, total, situacao)');
+            qrServidor.sql.add('desconto, acrescimo, total, situacao, codigo_comanda, baixado)');
             qrServidor.sql.add('values');
             qrServidor.sql.add('(:codigo,:numero_cupom_fiscal,:datax,:ECF_SERIAL,:ecf_codigo,');
-            qrServidor.sql.add(':SUBTOTAL,:DESCONTO,:ACRESCIMO,:TOTAL,:situacao)');
+            qrServidor.sql.add(':SUBTOTAL,:DESCONTO,:ACRESCIMO,:TOTAL,:situacao, :codigo_comanda, :baixado)');
 
             qrServidor.Params.ParamByName('codigo').asstring     := scod_vend;
             qrServidor.Params.ParamByName('numero_cupom_fiscal').asstring := qrpdv.fieldbyname('numero').asstring;
@@ -446,6 +446,8 @@ begin
             qrServidor.Params.ParamByName('ACRESCIMO').asFLOAT   := qrpdv.fieldbyname('valor_acrescimo').asfloat;
             qrServidor.Params.ParamByName('TOTAL').asFLOAT       := qrpdv.fieldbyname('valor_total').asfloat;
             qrServidor.params.parambyname('situacao').asinteger  := qrpdv.fieldbyname('cancelado').asinteger;
+            qrServidor.params.parambyname('codigo_comanda').asString  := qrpdv.fieldbyname('codigo_comanda').asString;
+            qrServidor.params.parambyname('baixado').asString  := 'N';
             qrServidor.ExecSQL;
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1440,6 +1442,7 @@ begin
                            qrpdv.parambyname('IPPT').asstring := qrservidor_tabela.fieldbyname('IPPT').AsString;
                            qrpdv.ExecSQL;
                          except
+                           //aqui
                            memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' ERRO - INC - PRODUTO - '+qrservidor.fieldbyname('codregistro').asstring);
                            qrPDV.close;
                            qrPDV.sql.clear;

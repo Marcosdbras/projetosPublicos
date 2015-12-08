@@ -11300,4 +11300,61 @@ object frmmodulo: Tfrmmodulo
     Left = 864
     Top = 184
   end
+  object ZQuery2: TZQuery
+    Connection = Conexao
+    SQL.Strings = (
+      'select * from c000089')
+    Params = <>
+    Left = 24
+    Top = 229
+    object ZQuery2CODIGO: TStringField
+      FieldName = 'CODIGO'
+      Size = 10
+    end
+    object ZQuery2CUPOM: TStringField
+      FieldName = 'CUPOM'
+      Size = 10
+    end
+    object ZQuery2DATA: TDateTimeField
+      FieldName = 'DATA'
+    end
+    object ZQuery2SERIAL: TStringField
+      FieldName = 'SERIAL'
+      Size = 30
+    end
+    object ZQuery2ECF: TStringField
+      FieldName = 'ECF'
+      Size = 3
+    end
+    object ZQuery2SUBTOTAL: TFloatField
+      FieldName = 'SUBTOTAL'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object ZQuery2DESCONTO: TFloatField
+      FieldName = 'DESCONTO'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object ZQuery2ACRESCIMO: TFloatField
+      FieldName = 'ACRESCIMO'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object ZQuery2TOTAL: TFloatField
+      FieldName = 'TOTAL'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object ZQuery2SITUACAO: TIntegerField
+      FieldName = 'SITUACAO'
+    end
+    object ZQuery2ID: TIntegerField
+      FieldName = 'ID'
+    end
+    object ZQuery2CODIGO_COMANDA: TStringField
+      FieldName = 'CODIGO_COMANDA'
+      Size = 15
+    end
+    object ZQuery2BAIXADO: TStringField
+      FieldName = 'BAIXADO'
+      Size = 1
+    end
+  end
 end

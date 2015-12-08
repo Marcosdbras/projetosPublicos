@@ -275,6 +275,7 @@ type
     btnvenda: TAdvGlowButton;
     btndesconectarcaixa: TAdvGlowButton;
     DesconectarCaixa1: TMenuItem;
+    Lanamentos1: TMenuItem;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -445,6 +446,7 @@ type
     procedure btnvendaClick(Sender: TObject);
     procedure DesconectarCaixa1Click(Sender: TObject);
     procedure btndesconectarcaixaClick(Sender: TObject);
+    procedure Lanamentos1Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -620,7 +622,7 @@ uses modulo, senha, filial, papelparede, cliente,
   Tef, unFuncoesTEF, cartao, cnae, cor, tamanho, Lista_ABC_Marca_Grupo,
   lista_frete, fluxo_caixa, DRE, mensagem_inventario, industrializacao, Ncm,
   xloc_csosn, sobre, Unit1, FMapa, xloc_cnae, UFuncoes, backup, restore,
-  GeracaoSPED, pedido, atualizabd;
+  GeracaoSPED, pedido, atualizabd, lancamentos;
 
 
 {$R *.dfm}
@@ -5503,6 +5505,13 @@ end;
 procedure TfrmPrincipal.btndesconectarcaixaClick(Sender: TObject);
 begin
   DesconectarCaixa1Click(Sender);
+end;
+
+procedure TfrmPrincipal.Lanamentos1Click(Sender: TObject);
+begin
+  frmlancamentos:= tfrmlancamentos.create(self);
+  frmlancamentos.showmodal;
+  frmlancamentos.free;
 end;
 
 end.

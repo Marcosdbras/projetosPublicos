@@ -8401,12 +8401,14 @@ begin
   else
   if COD_ECF = NENHUMA then
   begin
-
+    try
     closefile(frmprincipal.arq);
-
+    except
+    end;
+    
     assignfile(frmprincipal.arq,frmprincipal.sportaimp);
     reWrite(frmprincipal.arq);
-    Writeln(frmprincipal.arq,chr(15));
+    Writeln(frmprincipal.arq,chr(27)+chr(15));
 
     Writeln(frmprincipal.arq,  'CUPOM CANCELADO!');
 
@@ -8933,7 +8935,7 @@ begin
 
     assignfile(frmprincipal.arq,frmprincipal.sportaimp);
     reWrite(frmprincipal.arq);
-    Writeln(frmprincipal.arq,chr(15)+s1);
+    Writeln(frmprincipal.arq,chr(27)+chr(15)+s1);
     Writeln(frmprincipal.arq, frmprincipal.scliente_nome );
     Writeln(frmprincipal.arq, frmprincipal.scliente_endereco+' - '+frmprincipal.scliente_cep );
     Writeln(frmprincipal.arq,'');
@@ -9023,7 +9025,7 @@ begin
 
     assignfile(frmprincipal.arq,frmprincipal.sportaimp);
     reWrite(frmprincipal.arq);
-    Writeln(frmprincipal.arq,chr(15)+s1);
+    Writeln(frmprincipal.arq,chr(27)+chr(15)+s1);
     Writeln(frmprincipal.arq, frmprincipal.scliente_nome );
     Writeln(frmprincipal.arq, frmprincipal.scliente_endereco+' - '+frmprincipal.scliente_cep );
     Writeln(frmprincipal.arq,'');

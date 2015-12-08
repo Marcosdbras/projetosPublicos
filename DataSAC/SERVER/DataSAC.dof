@@ -135,7 +135,6 @@ ProductName=DataSAC Retaguarda
 ProductVersion=1.0.0.0
 Comments=
 [Excluded Packages]
-C:\Arquivos de programas\Borland\Delphi7\Projects\Bpl\DclRxDb70.bpl=RX Library Database Components
 C:\Arquivos de programas\Borland\Delphi7\Projects\Bpl\NxThirdpartyRun.bpl=Berg ThirdParty
 [HistoryLists\hlDebugSourcePath]
 Count=1

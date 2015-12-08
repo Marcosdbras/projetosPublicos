@@ -403,7 +403,8 @@ uses
   pedido_financeira in 'fnts\pedido_financeira.pas' {frmpedido_financeira},
   xloc_produtos in 'fnts\xloc_produtos.pas' {frmxloc_produtos},
   funcoes in 'fnts\funcoes.pas',
-  atualizabd in 'fnts\atualizabd.pas' {frmatualizabd};
+  atualizabd in 'fnts\atualizabd.pas' {frmatualizabd},
+  lancamentos in 'fnts\lancamentos.pas' {frmlancamentos};
 
 var
 Hand : THandle;

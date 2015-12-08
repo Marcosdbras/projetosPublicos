@@ -232,6 +232,7 @@ type
     function TEF_Cartao(bandeira:Tbandeira_tef):boolean;
     function TEF_Cheque(bandeira:Tbandeira_tef):boolean;
     function verQtdeReg():boolean;
+    function verQtdeRegEx():boolean;
     function verComanda():boolean;
 
 
@@ -6660,24 +6661,26 @@ begin
 
             //solicitarnumcomanda;
 
-            //if not verComanda then
-            //   exit;
-
-             //cancela se encontrar o número da comanda
-            //if not verQtdeReg() then
-            //   exit;
-
+            //if (verComanda()) and (verQtdeRegEx()) then
+            //   begin
             Cancela_cupom_fechado;
+            //   end
+            //else
+            //   begin
+            //     bSair_campo := false;
+            //     exit;
+            //   end;
+            //endi
           end;
 
-    end
+       end
     else
-    begin
-      Imprime_display('NÃO AUTORIZADO!',CLRED,tiErro);
-      Sleep(1500);
-      Imprime_display_anterior;
-      ed_senha.Text := '';
-    end;
+      begin
+        Imprime_display('NÃO AUTORIZADO!',CLRED,tiErro);
+        Sleep(1500);
+        Imprime_display_anterior;
+        ed_senha.Text := '';
+      end;
   end
   else
   begin
@@ -8728,7 +8731,7 @@ begin
    query.Close;
    query.SQL.Clear;
    //query.SQL.Add('select * from cupom where (codigo_comanda = '+quotedstr(numcomanda)+')' );
-   query.SQL.Add('select * from cupom  where (lancado = '+quotedstr('N')+') and (codigo_comanda = '+quotedstr(numcomanda)+')' );
+   query.SQL.Add('select * from cupom  where (ex = 0) and (codigo_comanda = '+quotedstr(numcomanda)+')' );
    query.Open;
    qtregistro := query.RecordCount;
    if qtregistro > 0 then
@@ -8758,6 +8761,70 @@ begin
    //endi
 
 end;
+
+
+
+function tfrmvenda.verQtdeRegEx():boolean;
+begin
+
+  result := true;
+
+  if pedirnumcom <> 'S' then
+     exit;
+  //endi
+
+   // Verifica duplicidade de comanda no próprio terminal
+   query.Close;
+   query.SQL.Clear;
+   //query.SQL.Add('select * from cupom where (codigo_comanda = '+quotedstr(numcomanda)+')' );
+   query.SQL.Add('select * from cupom  where (ex = 0) and (codigo_comanda = '+quotedstr(numcomanda)+')' );
+   query.Open;
+   qtregistro := query.RecordCount;
+   if qtregistro = 0 then
+      begin
+
+        Imprime_display('Comanda não encontrada!',clred,tiErro);
+        sleep(1500);
+
+        if pn_fechamento.Visible then
+          begin
+            Imprime_display_anterior;
+            bt_confirmar_fechamento.Enabled := true;
+            bt_confirmar_fechamento.SetFocus;
+
+          end
+       else
+          begin
+            Imprime_display('INFORME O PRODUTO...',clWhite,tiLivre);
+            ed_barra.SetFocus;
+          end;
+       //endi
+
+       result := false;
+
+
+      end
+   else
+      begin
+         if query.FieldByName('codigo_comanda').AsString <> numcomanda then
+            begin
+
+              Imprime_display('Comanda não pertence ao último cupom!',clred,tiErro);
+              sleep(1500);
+
+              result := false;
+            end;
+         //endi
+
+
+      end;
+   //endi
+
+
+
+
+end;
+
 
 
 function tfrmvenda.verComanda():boolean;

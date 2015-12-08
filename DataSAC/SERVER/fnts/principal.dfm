@@ -1,5 +1,5 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 3
+  Left = 2
   Top = 1
   Width = 798
   Height = 568
@@ -13186,6 +13186,10 @@ object frmPrincipal: TfrmPrincipal
       object LanamentoPedido1: TMenuItem
         Caption = 'Pedido'
         OnClick = LanamentoPedido1Click
+      end
+      object Lanamentos1: TMenuItem
+        Caption = 'Lan'#231'amentos'
+        OnClick = Lanamentos1Click
       end
     end
     object Financeiro1: TMenuItem
