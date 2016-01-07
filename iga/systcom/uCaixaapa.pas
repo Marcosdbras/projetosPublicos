@@ -197,7 +197,7 @@ procedure TfrmCaixaApa.spdfiltrarClick(Sender: TObject);
     totpagas, totpagar, totdinOS, totparcOs, totGparcOs, totrecparc, totpagparc,
     totcusto, totvenda, totcuspecas, totcusdevpecas, totmo, totvendapecas, totvdescp,
     totvdescv, saldovpecas, saldocpecas, saldomobra, totGrec, totvendac, ftotarecber,
-    totdin, totliq, fvlr, fperc1, fperc2, ftotingestao, ftotsangria, totgpagl:real;
+    totdin, totliq, fvlr, fperc1, fperc2, ftotingestao, ftotsangria, totgpagl, ftotp:real;
 begin
 
 if iNum = 1 then
@@ -370,8 +370,8 @@ with frmdados do
       begin
 
         //showmessage(cds_svenda.fieldbyname('liquido').asString);
-
-        totvendapecas := totvendapecas + cds_svenda.fieldbyname('ftotp').asfloat;
+        ftotp := cds_svenda.fieldbyname('ftotp').asfloat;
+        totvendapecas := totvendapecas + ftotp;
         totmo := totmo + cds_svenda.fieldbyname('ftotm').asfloat;
         totcuspecas := totcuspecas + cds_svenda.fieldbyname('custopecas').asfloat;
         totvdescp := totvdescp + (  cds_svenda.fieldbyname('pdesc_p').asfloat / 100 * cds_svenda.fieldbyname('ftotp').asfloat );
