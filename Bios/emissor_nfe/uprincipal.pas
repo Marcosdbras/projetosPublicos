@@ -794,10 +794,6 @@ with frmdados do
        cds_corrigirnf.Next;
      end;
 
-    sql_exec.Active := false;
-    sql_exec.SQL.Clear;
-    sql_exec.SQL.Add('delete from clientes');
-    sql_exec.ExecSQL;
 
     sql_exec.Active := false;
     sql_exec.SQL.Clear;

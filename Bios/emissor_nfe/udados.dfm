@@ -2872,10 +2872,6 @@ object frmdados: Tfrmdados
     Aggregates = <>
     FieldDefs = <
       item
-        Name = 'codigo'
-        DataType = ftInteger
-      end
-      item
         Name = 'nome'
         DataType = ftString
         Size = 70
@@ -2965,6 +2961,10 @@ object frmdados: Tfrmdados
         Name = 'id'
         Attributes = [faRequired]
         DataType = ftInteger
+      end
+      item
+        Name = 'codigo'
+        DataType = ftInteger
       end>
     IndexDefs = <
       item
@@ -3004,9 +3004,6 @@ object frmdados: Tfrmdados
     OnNewRecord = cds_clientesNewRecord
     Left = 1132
     Top = 8
-    object cds_clientescodigo: TIntegerField
-      FieldName = 'codigo'
-    end
     object cds_clientesnome: TStringField
       FieldName = 'nome'
       Size = 70
@@ -3075,6 +3072,9 @@ object frmdados: Tfrmdados
     object cds_clientesid: TIntegerField
       FieldName = 'id'
       Required = True
+    end
+    object cds_clientescodigo: TIntegerField
+      FieldName = 'codigo'
     end
   end
   object dts_clientes: TDataSource
@@ -4948,10 +4948,6 @@ object frmdados: Tfrmdados
     Aggregates = <>
     FieldDefs = <
       item
-        Name = 'codigo'
-        DataType = ftInteger
-      end
-      item
         Name = 'cpro'
         DataType = ftInteger
       end
@@ -5108,6 +5104,10 @@ object frmdados: Tfrmdados
       item
         Name = 'bcicms'
         DataType = ftFloat
+      end
+      item
+        Name = 'codigo'
+        DataType = ftInteger
       end>
     IndexDefs = <
       item
@@ -5124,9 +5124,6 @@ object frmdados: Tfrmdados
     OnNewRecord = cds_nfpNewRecord
     Left = 740
     Top = 86
-    object cds_nfpcodigo: TIntegerField
-      FieldName = 'codigo'
-    end
     object cds_nfpcpro: TIntegerField
       FieldName = 'cpro'
     end
@@ -5255,6 +5252,9 @@ object frmdados: Tfrmdados
     end
     object cds_nfpbcicms: TFloatField
       FieldName = 'bcicms'
+    end
+    object cds_nfpcodigo: TIntegerField
+      FieldName = 'codigo'
     end
   end
   object dts_nfp: TDataSource
@@ -6747,9 +6747,6 @@ object frmdados: Tfrmdados
     Params = <>
     Left = 16
     Top = 497
-    object sql_clientescodigo: TIntegerField
-      FieldName = 'codigo'
-    end
     object sql_clientesnome: TStringField
       FieldName = 'nome'
       Size = 70
@@ -6818,6 +6815,9 @@ object frmdados: Tfrmdados
     object sql_clientesid: TIntegerField
       FieldName = 'id'
       Required = True
+    end
+    object sql_clientescodigo: TIntegerField
+      FieldName = 'codigo'
     end
   end
   object sql_rcserv: TZQuery
@@ -7653,9 +7653,6 @@ object frmdados: Tfrmdados
     Params = <>
     Left = 248
     Top = 561
-    object sql_nfpcodigo: TIntegerField
-      FieldName = 'codigo'
-    end
     object sql_nfpcpro: TIntegerField
       FieldName = 'cpro'
     end
@@ -7774,6 +7771,9 @@ object frmdados: Tfrmdados
     end
     object sql_nfpbcicms: TFloatField
       FieldName = 'bcicms'
+    end
+    object sql_nfpcodigo: TIntegerField
+      FieldName = 'codigo'
     end
   end
   object sql_sita: TZQuery
@@ -9150,29 +9150,29 @@ object frmdados: Tfrmdados
     Params = <>
     Left = 176
     Top = 624
-    object IntegerField1: TIntegerField
-      FieldName = 'CODIGO'
-    end
-    object IntegerField3: TIntegerField
-      FieldName = 'CODEST'
-    end
-    object IntegerField4: TIntegerField
-      FieldName = 'CODPROD'
-    end
-    object FloatField1: TFloatField
-      FieldName = 'ALIQ'
-    end
-    object FloatField2: TFloatField
-      FieldName = 'IVA'
-    end
-    object IntegerField5: TIntegerField
-      FieldName = 'ID'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object StringField1: TStringField
-      FieldName = 'ST'
-      Size = 1
-    end
+  end
+  object sql_exec2: TZQuery
+    Connection = zconexao
+    SQL.Strings = (
+      'select * from aliqinter')
+    Params = <>
+    Left = 248
+    Top = 624
+  end
+  object sql_exec3: TZQuery
+    Connection = zconexao
+    SQL.Strings = (
+      'select * from aliqinter')
+    Params = <>
+    Left = 344
+    Top = 624
+  end
+  object sql_exec4: TZQuery
+    Connection = zconexao
+    SQL.Strings = (
+      'select * from aliqinter')
+    Params = <>
+    Left = 432
+    Top = 624
   end
 end

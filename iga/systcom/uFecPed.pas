@@ -41,6 +41,8 @@ type
     lbltroco: TLabel;
     cbxcondpgto: TDBLookupComboBox;
     Label5: TLabel;
+    Label7: TLabel;
+    lbldatafec: TLabel;
     procedure spdcancelar2310Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure edipdescKeyPress(Sender: TObject; var Key: Char);
@@ -191,8 +193,16 @@ begin
   if frmdados.Cds_sVenda.FieldByName('nped').asInteger <> 0 then
      begin
        lblnped.Caption := formatfloat('00000',frmdados.Cds_sVenda.FieldByName('nped').asfloat);
+
      end;
   //endi
+
+  if frmdados.Cds_sVenda.FieldByName('lancado').asString = 'T' then
+     lbldatafec.Caption :=   frmdados.Cds_sVenda.FieldByName('datafec').asString
+  else
+     lbldatafec.Caption := '';
+  //endi   
+
 
   iccli := frmdados.cds_clientes.fieldbyname('codigo').asInteger;
   sNomeCli := frmdados.cds_clientes.fieldbyname('Nome').asString;

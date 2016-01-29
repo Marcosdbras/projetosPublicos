@@ -510,13 +510,18 @@ end;
 procedure TfrmpesqClientes.FormCreate(Sender: TObject);
 begin
 
-frmdados.cds_clientes.Active := false;
-frmdados.sql_clientes.Active := false;
-frmdados.sql_clientes.SQL.Clear;
-frmdados.sql_clientes.SQL.Add('select * from clientes');
-frmdados.sql_clientes.Active := true;
-frmdados.cds_clientes.Active := true;
+try
+  frmdados.cds_clientes.Active := false;
+  frmdados.sql_clientes.Active := false;
+  frmdados.sql_clientes.SQL.Clear;
+  frmdados.sql_clientes.SQL.Add('select * from clientes');
+  frmdados.sql_clientes.Active := true;
+  frmdados.cds_clientes.Active := true;
+except
 
+  application.MessageBox('Ocorreu um problema ao acessar clientes, operação cancelada ', 'Atenção', mb_ok);
+  abort;
+end;
 frmdados.sql_Munic.Active := false;
 frmdados.cds_Munic.Active := false;
 frmdados.sql_Munic.SQL.Clear;

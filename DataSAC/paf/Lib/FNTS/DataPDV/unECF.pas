@@ -7700,7 +7700,7 @@ begin
     Writeln(frmprincipal.arq,chr(27)+chr(15)+s1);
     Writeln(frmprincipal.arq, frmprincipal.scliente_nome );
     Writeln(frmprincipal.arq, frmprincipal.scliente_endereco+' - '+frmprincipal.scliente_cep );
-    Writeln(frmprincipal.arq,  'VENDA N.o '+formatfloat('000000', frmmodulo.query.fieldbyname('totnumerocupom').AsInteger ));
+    Writeln(frmprincipal.arq,  'VENDA N.o '+formatfloat('000000', frmmodulo.query.fieldbyname('totnumerocupom').AsInteger )+'                 Data/Hora '+cECF_Data_Hora(NENHUMA) );
     Writeln(frmprincipal.arq,s1);
 
 
@@ -7844,7 +7844,7 @@ begin
   if COD_ECF = NENHUMA then
   begin
     //aqui
-    funitario := valor_unitario  + ( valor_acrescimo / quantidade) ;
+    funitario := valor_unitario  + ( valor_acrescimo / quantidade) - (valor_desconto / quantidade);
 
     codigo := trimleft(TrimRight(copy(codigo,1,13)));
 

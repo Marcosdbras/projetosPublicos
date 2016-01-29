@@ -193,7 +193,7 @@ object frmfecped: Tfrmfecped
   end
   object lblnped: TLabel
     Left = 151
-    Top = 44
+    Top = 43
     Width = 53
     Height = 16
     Caption = 'lblnped'
@@ -287,6 +287,32 @@ object frmfecped: Tfrmfecped
     Font.Style = [fsBold]
     ParentFont = False
   end
+  object Label7: TLabel
+    Left = 199
+    Top = 417
+    Width = 123
+    Height = 16
+    Caption = 'Data Fechamento'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lbldatafec: TLabel
+    Left = 375
+    Top = 417
+    Width = 70
+    Height = 16
+    Caption = 'lbldatafec'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object edipdesc: TDBEdit
     Left = 103
     Top = 92
@@ -346,9 +372,9 @@ object frmfecped: Tfrmfecped
   end
   object dbgvencto: TDBGrid
     Left = 8
-    Top = 200
+    Top = 192
     Width = 401
-    Height = 161
+    Height = 169
     BorderStyle = bsNone
     Color = clCream
     Ctl3D = True

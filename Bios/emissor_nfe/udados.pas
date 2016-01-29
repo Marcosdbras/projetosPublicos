@@ -486,7 +486,6 @@ type
     sql_onusdofretenome: TStringField;
     sql_onusdofretesigla: TStringField;
     sql_onusdofreteid: TIntegerField;
-    sql_clientescodigo: TIntegerField;
     sql_clientesnome: TStringField;
     sql_clientesfantasia: TStringField;
     sql_clientescnpj: TStringField;
@@ -603,7 +602,6 @@ type
     sql_nfscod14servnf: TIntegerField;
     sql_nfscnfe: TIntegerField;
     sql_nfsid: TIntegerField;
-    sql_nfpcodigo: TIntegerField;
     sql_nfpcpro: TIntegerField;
     sql_nfpnpro: TStringField;
     sql_nfpqtde: TFloatField;
@@ -800,7 +798,6 @@ type
     cds_unidadedescricao: TStringField;
     cds_unidadesigla: TStringField;
     cds_unidadeid: TIntegerField;
-    cds_clientescodigo: TIntegerField;
     cds_clientesnome: TStringField;
     cds_clientesfantasia: TStringField;
     cds_clientescnpj: TStringField;
@@ -943,7 +940,6 @@ type
     cds_cfopcpis: TIntegerField;
     cds_cfopccofins: TIntegerField;
     cds_cfopid: TIntegerField;
-    cds_nfpcodigo: TIntegerField;
     cds_nfpcpro: TIntegerField;
     cds_nfpnpro: TStringField;
     cds_nfpqtde: TFloatField;
@@ -1440,13 +1436,13 @@ type
     sql_nfechave: TStringField;
     cds_nfechave: TStringField;
     sql_exec: TZQuery;
-    IntegerField1: TIntegerField;
-    IntegerField3: TIntegerField;
-    IntegerField4: TIntegerField;
-    FloatField1: TFloatField;
-    FloatField2: TFloatField;
-    IntegerField5: TIntegerField;
-    StringField1: TStringField;
+    sql_nfpcodigo: TIntegerField;
+    cds_nfpcodigo: TIntegerField;
+    sql_clientescodigo: TIntegerField;
+    cds_clientescodigo: TIntegerField;
+    sql_exec2: TZQuery;
+    sql_exec3: TZQuery;
+    sql_exec4: TZQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);
@@ -1607,7 +1603,7 @@ type
     procedure cds_corrigirFornecedoresAfterPost(DataSet: TDataSet);
     procedure cds_corrigirClientesAfterPost(DataSet: TDataSet);
     procedure cds_corrigirClientesAfterDelete(DataSet: TDataSet);
-
+    procedure verificaclientes;
 
   private
     { Private declarations }
@@ -4843,7 +4839,7 @@ begin
        end;
   end;
 
-
+  verificaclientes;
 
 
 end;
@@ -6088,19 +6084,16 @@ begin
        if not cds_produtos.Locate('codigo',strtoint(scpro),[])  then
           begin
             cds_produtos.Append;
-            //incluir produto
-            //icodprod := cds_produtos.FieldByName('codigo').asInteger;
+
           end
        else
           begin
             cds_produtos.Edit;
-            //editar produto
-            //icodprod := cds_produtos.FieldByName('codigo').asInteger;
+
           end;
        //endi
 
        //produto
-
             cds_produtos.FieldByName('codigo').asInteger := strtoint(scpro);
             cds_produtos.FieldByName('descricao').asString := snpro;
             cds_produtos.FieldByName('prve').asfloat := strtofloat(tirapontos(sprve));
@@ -6194,6 +6187,9 @@ begin
   //endi
 
   sql_nfp.Active := true;
+  sql_nfp.SQL.Clear;
+  sql_nfp.SQL.Add('select * from nfp order by codigo');
+
   cds_nfp.Active := true;
   cds_nfp.Filtered := false;
   cds_nfp.Last;
@@ -6250,6 +6246,9 @@ begin
        else
           begin
             sql_unidade.Active := true;
+            sql_unidade.SQL.Clear;
+            sql_unidade.SQL.add('select * from unidade order by codigo');
+
             cds_unidade.Active := true;
             cds_unidade.Filtered := false;
             cds_unidade.IndexName := 'codigo';
@@ -6304,6 +6303,7 @@ begin
      begin
        cds_clientes.Append;
        cds_clientes.FieldByName('codigo').asInteger := strtoint(scodigo);
+       
      end;
   //endi
 
@@ -6345,6 +6345,7 @@ begin
      begin
        cds_fornecedores.Append;
        cds_fornecedores.FieldByName('codigo').asInteger := strtoint(scodigo);
+       
      end;
   //endi
 
@@ -6384,6 +6385,7 @@ begin
      begin
        cds_produtos.Append;
        cds_produtos.FieldByName('codigo').asInteger := strtoint(scodigo);
+     
      end;
   //endi
 
@@ -7563,5 +7565,70 @@ procedure Tfrmdados.cds_corrigirClientesAfterDelete(DataSet: TDataSet);
 begin
 cds_corrigirClientes.ApplyUpdates(0);
 end;
+
+
+procedure tfrmdados.verificaclientes;
+var codigo:integer;
+begin
+      try
+        cds_clientes.Active := false;
+        sql_clientes.Active := false;
+        sql_clientes.SQL.Clear;
+        sql_clientes.SQL.Add('select * from clientes');
+        sql_clientes.Active := true;
+        cds_clientes.Active := true;
+      except
+
+        if application.MessageBox('Ocorreu um problema ao acessar clientes, deseja corrigir a base de dados? ', 'Atenção', mb_yesno) = 6 then
+           begin
+             //acha valores duplicados
+             sql_exec.Active := false;
+             sql_exec.SQL.Clear;
+             sql_exec.SQL.Add('select DISTINCT codigo from clientes group by codigo having count(codigo) > 1');
+             sql_exec.Active := true;
+             while not sql_exec.Eof  do
+                begin
+                  sql_exec2.Active := false;
+                  sql_exec2.SQL.Clear;
+                  sql_exec2.SQL.Add('select * from clientes where codigo = '+frmdados.sql_exec.fieldbyname('codigo').asstring);
+                  sql_exec2.Active := true;
+                  while not  sql_exec2.Eof do
+                      begin
+                        sql_exec3.Active := false;
+                        sql_exec3.SQL.Clear;
+                        sql_exec3.SQL.Add('select max(codigo) as ultcodigo from clientes ');
+                        sql_exec3.Active := true;
+
+                        codigo :=  sql_exec3.fieldbyname('ultcodigo').AsInteger + 1;
+
+                        sql_exec4.Active := false;
+                        sql_exec4.SQL.Clear;
+                        sql_exec4.SQL.Add('update clientes set codigo = '+ inttostr(codigo) +' where id = '+sql_exec2.fieldbyname('id').AsString);
+                        sql_exec4.ExecSQL;
+                        
+                        sql_exec2.Next;
+                      end;
+                  //endi
+
+
+                  frmdados.sql_exec.next;
+                end;
+
+
+
+
+
+           end;
+
+
+
+
+
+      end;
+
+
+
+end;
+
 
 end.
