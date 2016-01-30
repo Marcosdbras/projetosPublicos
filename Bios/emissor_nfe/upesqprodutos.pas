@@ -425,9 +425,9 @@ with frmdados do
 
          cds_produtos.IndexName := 'codigo';
          cds_produtos.Last;
-         icodigo := cds_produtos.fieldbyname('codigo').asInteger;
+         //icodigo := cds_produtos.fieldbyname('codigo').asInteger;
          cds_produtos.Append;
-         cds_produtos.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_produtos.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

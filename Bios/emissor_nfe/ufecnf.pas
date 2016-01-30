@@ -4037,10 +4037,13 @@ begin
        frmdados.cds_nfe.Filtered := false;
        frmdados.cds_nfe.IndexName := 'codigo';
        frmdados.cds_nfe.Last;
-       icodigo := frmdados.cds_nfe.fieldbyname('codigo').asInteger;
-       icodigo := icodigo + 1;
+
+       //icodigo := frmdados.cds_nfe.fieldbyname('codigo').asInteger;
+       //icodigo := icodigo + 1;
+
+
        frmdados.cds_nfe.Append;
-       frmdados.cds_nfe.FieldByName('codigo').asInteger :=  icodigo;
+       //frmdados.cds_nfe.FieldByName('codigo').asInteger :=  icodigo;
        frmdados.cds_nfe.FieldByName('cemi').asInteger :=  frmdados.Cds_emitente.fieldbyname('codigo').asInteger;
        frmdados.cds_nfe.FieldByName('tipodest').asString :=  frmdados.cds_nf.FieldByName('tipodest').AsString;
        frmdados.cds_nfe.FieldByName('cdest').asInteger :=  frmdados.cds_nf.fieldbyname('cdest').asInteger ;

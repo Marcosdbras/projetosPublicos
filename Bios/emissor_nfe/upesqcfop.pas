@@ -271,9 +271,9 @@ with frmdados do
 
          cds_cfop.IndexName := 'codigo';
          cds_cfop.Last;
-         icodigo := cds_cfop.fieldbyname('codigo').asInteger;
+         //icodigo := cds_cfop.fieldbyname('codigo').asInteger;
          cds_cfop.Append;
-         cds_cfop.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_cfop.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

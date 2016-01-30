@@ -198,9 +198,9 @@ with frmdados do
          cds_nfe.Filtered := false;
          cds_nfe.IndexName := 'codigo';
          cds_nfe.Last;
-         icodigo := cds_nfe.fieldbyname('codigo').asInteger;
+         //icodigo := cds_nfe.fieldbyname('codigo').asInteger;
          cds_nfe.Append;
-         cds_nfe.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_nfe.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

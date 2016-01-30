@@ -225,9 +225,9 @@ with frmdados do
 
          cds_icms.IndexName := 'codigo';
          cds_icms.Last;
-         icodigo := cds_icms.fieldbyname('codigo').asInteger;
+         //icodigo := cds_icms.fieldbyname('codigo').asInteger;
          cds_icms.Append;
-         cds_icms.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_icms.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

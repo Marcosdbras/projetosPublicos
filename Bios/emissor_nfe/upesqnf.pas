@@ -1633,9 +1633,11 @@ with frmdados do
 
          cds_nf.IndexName := 'codigo';
          cds_nf.Last;
-         icodigo := cds_nf.fieldbyname('codigo').asInteger;
+
+         //icodigo := cds_nf.fieldbyname('codigo').asInteger;
+
          cds_nf.Append;
-         cds_nf.fieldbyname('codigo').asInteger := icodigo + 1;
+         cds_nf.fieldbyname('cemi').asInteger := 1;
 
        end;
     //endi
@@ -1882,9 +1884,9 @@ with frmdados do
 
          cds_nfp.IndexName := 'codigo';
          cds_nfp.Last;
-         icodigo := cds_nfp.fieldbyname('codigo').asInteger;
+         //icodigo := cds_nfp.fieldbyname('codigo').asInteger;
          cds_nfp.Append;
-         cds_nfp.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_nfp.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi
@@ -2126,9 +2128,9 @@ with frmdados do
 
          cds_nfs.IndexName := 'codigo';
          cds_nfs.Last;
-         icodigo := cds_nfs.fieldbyname('codigo').asInteger;
+         //icodigo := cds_nfs.fieldbyname('codigo').asInteger;
          cds_nfs.Append;
-         cds_nfs.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_nfs.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi
@@ -4580,10 +4582,12 @@ begin
        frmdados.cds_nfe.Filtered := false;
        frmdados.cds_nfe.IndexName := 'codigo';
        frmdados.cds_nfe.Last;
-       icodigo := frmdados.cds_nfe.fieldbyname('codigo').asInteger;
-       icodigo := icodigo + 1;
+
+       //icodigo := frmdados.cds_nfe.fieldbyname('codigo').asInteger;
+       //icodigo := icodigo + 1;
+
        frmdados.cds_nfe.Append;
-       frmdados.cds_nfe.FieldByName('codigo').asInteger :=  icodigo;
+       //frmdados.cds_nfe.FieldByName('codigo').asInteger :=  icodigo;
        frmdados.cds_nfe.FieldByName('cemi').asInteger :=  frmdados.Cds_emitente.fieldbyname('codigo').asInteger;
        frmdados.cds_nfe.FieldByName('tipodest').asString :=  frmdados.cds_nf.FieldByName('tipodest').AsString;
        frmdados.cds_nfe.FieldByName('cdest').asInteger :=  frmdados.cds_nf.fieldbyname('cdest').asInteger ;

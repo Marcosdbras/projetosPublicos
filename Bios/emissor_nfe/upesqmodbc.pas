@@ -154,9 +154,9 @@ with frmdados do
 
          cds_modbc.IndexName := 'codigo';
          cds_modbc.Last;
-         icodigo := cds_modbc.fieldbyname('codigo').asInteger;
+         //icodigo := cds_modbc.fieldbyname('codigo').asInteger;
          cds_modbc.Append;
-         cds_modbc.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_modbc.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

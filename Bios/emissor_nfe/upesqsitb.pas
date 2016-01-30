@@ -161,9 +161,9 @@ with frmdados do
 
          cds_sitb.IndexName := 'codigo';
          cds_sitb.Last;
-         icodigo := cds_sitb.fieldbyname('codigo').asInteger;
+         //icodigo := cds_sitb.fieldbyname('codigo').asInteger;
          cds_sitb.Append;
-         cds_sitb.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_sitb.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

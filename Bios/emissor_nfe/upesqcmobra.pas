@@ -190,9 +190,9 @@ with frmdados do
 
          cds_cmobra.IndexName := 'codigo';
          cds_cmobra.Last;
-         icodigo := cds_cmobra.fieldbyname('codigo').asInteger;
+         //icodigo := cds_cmobra.fieldbyname('codigo').asInteger;
          cds_cmobra.Append;
-         cds_cmobra.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_cmobra.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

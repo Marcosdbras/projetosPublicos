@@ -347,7 +347,7 @@ object frmpesqnf: Tfrmpesqnf
       Top = 49
       Width = 1042
       Height = 429
-      ActivePage = tbsprod
+      ActivePage = tbslista
       Align = alClient
       Images = imgprincipal
       Style = tsButtons

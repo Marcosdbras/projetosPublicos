@@ -156,9 +156,9 @@ with frmdados do
 
          cds_unidade.IndexName := 'codigo';
          cds_unidade.Last;
-         icodigo := cds_unidade.fieldbyname('codigo').asInteger;
+         //icodigo := cds_unidade.fieldbyname('codigo').asInteger;
          cds_unidade.Append;
-         cds_unidade.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_unidade.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

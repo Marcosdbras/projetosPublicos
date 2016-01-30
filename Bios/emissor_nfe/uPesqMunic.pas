@@ -178,9 +178,9 @@ with frmdados do
 
          cds_Munic.IndexName := 'codigo';
          cds_Munic.Last;
-         icodigo := cds_Munic.fieldbyname('codigo').asInteger;
+         //icodigo := cds_Munic.fieldbyname('codigo').asInteger;
          cds_Munic.Append;
-         cds_Munic.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_Munic.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

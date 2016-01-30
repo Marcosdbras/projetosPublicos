@@ -169,9 +169,10 @@ with frmdados do
 
          cds_impostoII.IndexName := 'codigo';
          cds_impostoII.Last;
-         icodigo := cds_impostoII.fieldbyname('codigo').asInteger;
+         //icodigo := cds_impostoII.fieldbyname('codigo').asInteger;
+
          cds_impostoII.Append;
-         cds_impostoII.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_impostoII.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

@@ -155,9 +155,9 @@ with frmdados do
 
          cds_cf.IndexName := 'codigo';
          cds_cf.Last;
-         icodigo := cds_cf.fieldbyname('codigo').asInteger;
+         //icodigo := cds_cf.fieldbyname('codigo').asInteger;
          cds_cf.Append;
-         cds_cf.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_cf.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

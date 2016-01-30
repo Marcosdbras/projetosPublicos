@@ -166,9 +166,10 @@ with frmdados do
 
          cds_sita.IndexName := 'codigo';
          cds_sita.Last;
-         icodigo := cds_sita.fieldbyname('codigo').asInteger;
+         //icodigo := cds_sita.fieldbyname('codigo').asInteger;
+
          cds_sita.Append;
-         cds_sita.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_sita.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

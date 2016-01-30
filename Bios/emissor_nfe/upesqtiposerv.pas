@@ -154,9 +154,9 @@ with frmdados do
 
          cds_tiposerv.IndexName := 'codigo';
          cds_tiposerv.Last;
-         icodigo := cds_tiposerv.fieldbyname('codigo').asInteger;
+         //icodigo := cds_tiposerv.fieldbyname('codigo').asInteger;
          cds_tiposerv.Append;
-         cds_tiposerv.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_tiposerv.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

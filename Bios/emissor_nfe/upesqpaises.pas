@@ -154,9 +154,9 @@ with frmdados do
          cds_paises.Filtered := false;
          cds_paises.IndexName := 'codigo';
          cds_paises.Last;
-         icodigo := cds_paises.fieldbyname('codigo').asInteger;
+         //icodigo := cds_paises.fieldbyname('codigo').asInteger;
          cds_paises.Append;
-         cds_paises.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_paises.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

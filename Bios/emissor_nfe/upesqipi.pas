@@ -184,9 +184,9 @@ with frmdados do
 
          cds_ipi.IndexName := 'codigo';
          cds_ipi.Last;
-         icodigo := cds_ipi.fieldbyname('codigo').asInteger;
+         //icodigo := cds_ipi.fieldbyname('codigo').asInteger;
          cds_ipi.Append;
-         cds_ipi.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_ipi.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

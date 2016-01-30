@@ -723,10 +723,10 @@ end;
 
 procedure Tfrmprincipal.Reparar1Click(Sender: TObject);
 begin
-
+{
 if application.MessageBox('Este processo irá EXCLUIR CLIENTES e FORNECEDORES e pode demorar algumas horas, você quer continuar?','Importante',mb_yesno) <> 6 then
    exit;
-//endi   
+//endi
 
 lblmensagem.Caption := 'Aguarde, corrigindo dados...';
 with frmdados do
@@ -805,7 +805,7 @@ with frmdados do
     importarf;
 
      lblmensagem.Caption := '';
-  {
+
   cds_corrigirclientes.ProviderName := 'dsp_clientes';
  cds_corrigirclientes.Active := false;
  sql_clientes.Active := false;
@@ -850,10 +850,10 @@ with frmdados do
 
 
 
- }
+
 
  end;
-
+}
 
 end;
 

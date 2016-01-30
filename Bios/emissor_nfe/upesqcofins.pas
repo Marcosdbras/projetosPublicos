@@ -182,9 +182,9 @@ with frmdados do
 
          cds_cofins.IndexName := 'codigo';
          cds_cofins.Last;
-         icodigo := cds_cofins.fieldbyname('codigo').asInteger;
+         //icodigo := cds_cofins.fieldbyname('codigo').asInteger;
          cds_cofins.Append;
-         cds_cofins.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_cofins.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

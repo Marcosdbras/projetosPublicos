@@ -251,9 +251,9 @@ with frmdados do
 
          cds_transportador.IndexName := 'codigo';
          cds_transportador.Last;
-         icodigo := cds_transportador.fieldbyname('codigo').asInteger;
+         //icodigo := cds_transportador.fieldbyname('codigo').asInteger;
          cds_transportador.Append;
-         cds_transportador.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_transportador.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

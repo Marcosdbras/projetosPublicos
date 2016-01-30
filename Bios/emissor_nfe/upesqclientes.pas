@@ -284,9 +284,10 @@ with frmdados do
 
          cds_clientes.IndexName := 'codigo';
          cds_clientes.Last;
-         icodigo := cds_clientes.fieldbyname('codigo').asInteger;
+         //icodigo := cds_clientes.fieldbyname('codigo').asInteger;
+
          cds_clientes.Append;
-         cds_clientes.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_clientes.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

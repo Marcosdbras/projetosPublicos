@@ -154,9 +154,9 @@ with frmdados do
 
          cds_csosn.IndexName := 'codigo';
          cds_csosn.Last;
-         icodigo := cds_csosn.fieldbyname('codigo').asInteger;
+         //icodigo := cds_csosn.fieldbyname('codigo').asInteger;
          cds_csosn.Append;
-         cds_csosn.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_csosn.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

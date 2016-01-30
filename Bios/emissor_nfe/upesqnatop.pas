@@ -176,9 +176,9 @@ with frmdados do
 
          cds_natop.IndexName := 'codigo';
          cds_natop.Last;
-         icodigo := cds_natop.fieldbyname('codigo').asInteger;
+         //icodigo := cds_natop.fieldbyname('codigo').asInteger;
          cds_natop.Append;
-         cds_natop.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_natop.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

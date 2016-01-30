@@ -156,9 +156,9 @@ with frmdados do
 
          cds_rcserv.IndexName := 'codigo';
          cds_rcserv.Last;
-         icodigo := cds_rcserv.fieldbyname('codigo').asInteger;
+         //icodigo := cds_rcserv.fieldbyname('codigo').asInteger;
          cds_rcserv.Append;
-         cds_rcserv.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_rcserv.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

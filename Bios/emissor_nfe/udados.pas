@@ -1604,7 +1604,12 @@ type
     procedure cds_corrigirClientesAfterPost(DataSet: TDataSet);
     procedure cds_corrigirClientesAfterDelete(DataSet: TDataSet);
     procedure verificaclientes;
-
+    procedure verificaprodutos;
+    procedure verificafornecedores;
+    procedure verificanfp;
+    procedure verificanfe;
+    procedure verificanf;
+    
   private
     { Private declarations }
     T: TStringField;
@@ -4840,6 +4845,11 @@ begin
   end;
 
   verificaclientes;
+  verificaprodutos;
+  verificafornecedores;
+  verificanfp;
+  verificanfe;
+  verificanf;
 
 
 end;
@@ -5704,10 +5714,13 @@ begin
 
 
        cds_nf.Last;
-       icodnf := cds_nf.FieldByName('codigo').AsInteger + 1;
+       //icodnf := cds_nf.FieldByName('codigo').AsInteger + 1;
+
        cds_nf.Append;
        cds_nf.FieldByName('tipodest').asstring := 'C';
-       cds_nf.FieldByName('codigo').AsInteger := icodnf;
+
+
+       icodnf :=  cds_nf.FieldByName('codigo').AsInteger;
        cds_nf.FieldByName('cdest').asInteger := icoddest;
 
        cds_nf.Post;
@@ -5752,10 +5765,14 @@ begin
 
 
        cds_nf.Last;
-       icodnf := cds_nf.FieldByName('codigo').AsInteger + 1;
+       //icodnf := cds_nf.FieldByName('codigo').AsInteger + 1;
+
+
        cds_nf.Append;
        cds_nf.FieldByName('tipodest').asstring := 'F';
-       cds_nf.FieldByName('codigo').AsInteger := icodnf;
+
+       icodnf := cds_nf.FieldByName('codigo').AsInteger;
+
        cds_nf.FieldByName('cdest').asInteger := icoddest;
 
        cds_nf.fieldbyname('aliqapipi').asfloat := 0;
@@ -6138,11 +6155,11 @@ begin
                       cds_unidade.IndexName := 'codigo';
                       cds_unidade.Last;
 
-                      icodigo := cds_unidade.fieldbyname('codigo').asInteger;
-                      icodigo := icodigo + 1;
+                      //icodigo := cds_unidade.fieldbyname('codigo').asInteger;
+                      //icodigo := icodigo + 1;
 
                       cds_unidade.Append;
-                      cds_unidade.FieldByName('codigo').asInteger := icodigo;
+                      //cds_unidade.FieldByName('codigo').asInteger := icodigo;
                       cds_unidade.FieldByName('descricao').AsString := sunidade;
                       cds_unidade.FieldByName('sigla').AsString := sunidade;
                       cds_unidade.Post;
@@ -6193,9 +6210,14 @@ begin
   cds_nfp.Active := true;
   cds_nfp.Filtered := false;
   cds_nfp.Last;
-  icodprodutonf := cds_nfp.FieldByName('codigo').AsInteger + 1;
+  //icodprodutonf := cds_nfp.FieldByName('codigo').AsInteger + 1;
+
+
+
   cds_nfp.Append;
-  cds_nfp.FieldByName('codigo').asInteger := icodprodutonf;
+  icodprodutonf := cds_nfp.FieldByName('codigo').asInteger;
+
+
   cds_nfp.FieldByName('cnf').asInteger := icodnf;
   cds_nfp.FieldByName('cpro').asInteger := icodprod;
   cds_nfp.FieldByName('npro').asString := snpro;
@@ -6254,11 +6276,11 @@ begin
             cds_unidade.IndexName := 'codigo';
             cds_unidade.Last;
 
-            icodigo := cds_unidade.fieldbyname('codigo').asInteger;
-            icodigo := icodigo + 1;
+            //icodigo := cds_unidade.fieldbyname('codigo').asInteger;
+            //icodigo := icodigo + 1;
 
             cds_unidade.Append;
-            cds_unidade.FieldByName('codigo').asInteger := icodigo;
+            //cds_unidade.FieldByName('codigo').asInteger := icodigo;
             cds_unidade.FieldByName('descricao').AsString := sunidade;
             cds_unidade.FieldByName('sigla').AsString := sunidade;
             cds_unidade.Post;
@@ -6462,11 +6484,11 @@ begin
 
             cds_unidade.IndexName := 'codigo';
             cds_unidade.Last;
-            icodigo := cds_unidade.fieldbyname('codigo').asInteger;
-            icodigo := icodigo + 1;
+            //icodigo := cds_unidade.fieldbyname('codigo').asInteger;
+            //icodigo := icodigo + 1;
 
             cds_unidade.Append;
-            cds_unidade.FieldByName('codigo').asInteger := icodigo;
+            //cds_unidade.FieldByName('codigo').asInteger := icodigo;
             cds_unidade.FieldByName('descricao').AsString := sunidade;
             cds_unidade.FieldByName('sigla').AsString := sunidade;
             cds_unidade.Post;
@@ -6592,7 +6614,15 @@ begin
     sql_consulta.Active := true;
 
     Cds_Paises.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_Paises.FieldByName('codigo').AsInteger :=  cds_paises.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(contador) as contador from Paises');
+    sql_consulta.Active := true;
+
+
+
+    Cds_Paises.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 
 
@@ -6606,7 +6636,15 @@ begin
     sql_consulta.Active := true;
 
     Cds_impostoii.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_impostoii.FieldByName('codigo').AsInteger :=  cds_impostoii.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from impostoii');
+    sql_consulta.Active := true;
+
+
+
+    Cds_impostoii.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6618,7 +6656,15 @@ begin
     sql_consulta.Active := true;
 
     Cds_impostoiii.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_impostoiii.FieldByName('codigo').AsInteger :=  cds_impostoiii.fieldbyname('id').asInteger;
+
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from impostoiii');
+    sql_consulta.Active := true;
+
+
+    Cds_impostoiii.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6650,7 +6696,13 @@ begin
     sql_consulta.Active := true;
 
     Cds_tiposerv.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_tiposerv.FieldByName('codigo').AsInteger :=  cds_tiposerv.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from tiposerv');
+    sql_consulta.Active := true;
+
+    Cds_tiposerv.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_tiposervAfterDelete(DataSet: TDataSet);
@@ -6671,7 +6723,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_regtrib.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_regtrib.FieldByName('codigo').AsInteger :=  cds_regtrib.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from regtrib');
+    sql_consulta.Active := true;
+
+
+    Cds_regtrib.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_regtribAfterPost(DataSet: TDataSet);
@@ -6692,7 +6751,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_indice.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_indice.FieldByName('codigo').AsInteger :=  cds_indice.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from indice');
+    sql_consulta.Active := true;
+
+
+    Cds_indice.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6714,7 +6780,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_fatura.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_fatura.FieldByName('codigo').AsInteger :=  cds_fatura.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from fatura');
+    sql_consulta.Active := true;
+
+
+    Cds_fatura.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6726,7 +6799,16 @@ begin
     sql_consulta.Active := true;
 
     Cds_cf.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_cf.FieldByName('codigo').AsInteger :=  cds_cf.fieldbyname('id').asInteger;
+
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from cf');
+    sql_consulta.Active := true;
+
+
+
+    Cds_cf.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6758,7 +6840,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_pis.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_pis.FieldByName('codigo').AsInteger :=  cds_pis.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from pis');
+    sql_consulta.Active := true;
+
+
+    Cds_pis.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6770,7 +6859,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_munic.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_munic.FieldByName('codigo').AsInteger :=  cds_munic.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from munic');
+    sql_consulta.Active := true;
+
+
+    Cds_munic.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6782,7 +6878,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_modbc.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_modbc.FieldByName('codigo').AsInteger :=  cds_modbc.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from modbc');
+    sql_consulta.Active := true;
+
+
+    Cds_modbc.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6794,7 +6897,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_cofins.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_cofins.FieldByName('codigo').AsInteger :=  cds_cofins.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from cofins');
+    sql_consulta.Active := true;
+
+
+    Cds_cofins.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6806,7 +6916,13 @@ begin
     sql_consulta.Active := true;
 
     Cds_unidade.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_unidade.FieldByName('codigo').AsInteger :=  cds_unidade.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from unidade');
+    sql_consulta.Active := true;
+
+    Cds_unidade.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6818,7 +6934,15 @@ begin
     sql_consulta.Active := true;
 
     Cds_clientes.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_clientes.FieldByName('codigo').AsInteger :=  cds_clientes.fieldbyname('id').asInteger;
+
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from clientes');
+    sql_consulta.Active := true;
+
+
+    Cds_clientes.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6830,7 +6954,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_rcserv.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_rcserv.FieldByName('codigo').AsInteger :=  cds_rcserv.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from rcserv');
+    sql_consulta.Active := true;
+
+
+    Cds_rcserv.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6842,7 +6973,13 @@ begin
     sql_consulta.Active := true;
 
     Cds_emitente.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_emitente.FieldByName('codigo').AsInteger :=  cds_emitente.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from emitente');
+    sql_consulta.Active := true;
+
+    Cds_emitente.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6854,7 +6991,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_nfe.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_nfe.FieldByName('codigo').AsInteger :=  cds_nfe.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from nfe');
+    sql_consulta.Active := true;
+
+
+    Cds_nfe.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6866,7 +7010,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_duplicata.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_duplicata.FieldByName('codigo').AsInteger :=  cds_duplicata.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from duplicata');
+    sql_consulta.Active := true;
+
+
+    Cds_duplicata.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6878,7 +7029,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_nfs.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_nfs.FieldByName('codigo').AsInteger :=  cds_nfs.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from nfs');
+    sql_consulta.Active := true;
+
+
+    Cds_nfs.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6890,7 +7048,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_modbcst.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_modbcst.FieldByName('codigo').AsInteger :=  cds_modbcst.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from modbcst');
+    sql_consulta.Active := true;
+
+
+    Cds_modbcst.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6902,7 +7067,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_nfep.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_nfep.FieldByName('codigo').AsInteger :=  cds_nfep.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from nfep');
+    sql_consulta.Active := true;
+
+
+    Cds_nfep.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_icmsNewRecord(DataSet: TDataSet);
@@ -6913,7 +7085,13 @@ begin
     sql_consulta.Active := true;
 
     Cds_icms.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_icms.FieldByName('codigo').AsInteger :=  cds_icms.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from icms');
+    sql_consulta.Active := true;
+
+    Cds_icms.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_cfopNewRecord(DataSet: TDataSet);
@@ -6924,7 +7102,15 @@ begin
     sql_consulta.Active := true;
 
     Cds_cfop.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_cfop.FieldByName('codigo').AsInteger :=  cds_cfop.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from cfop');
+    sql_consulta.Active := true;
+
+
+
+    Cds_cfop.FieldByName('codigo').AsInteger := sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_nfpNewRecord(DataSet: TDataSet);
@@ -6935,7 +7121,15 @@ begin
     sql_consulta.Active := true;
 
     Cds_nfp.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_nfp.FieldByName('codigo').AsInteger :=  cds_nfp.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from nfp');
+    sql_consulta.Active := true;
+
+
+
+    Cds_nfp.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6947,7 +7141,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_fornecedores.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_fornecedores.FieldByName('codigo').AsInteger :=  cds_fornecedores.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from fornecedores');
+    sql_consulta.Active := true;
+
+
+    Cds_fornecedores.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6961,7 +7162,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_produtos.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-     Cds_produtos.FieldByName('codigo').AsInteger :=  cds_produtos.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from produtos');
+    sql_consulta.Active := true;
+
+
+     Cds_produtos.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_sitaNewRecord(DataSet: TDataSet);
@@ -6972,7 +7180,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_sita.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_sita.FieldByName('codigo').AsInteger :=  cds_sita.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from sita');
+    sql_consulta.Active := true;
+
+
+    Cds_sita.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_ipiNewRecord(DataSet: TDataSet);
@@ -6983,7 +7198,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_ipi.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_ipi.FieldByName('codigo').AsInteger :=  cds_ipi.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from ipi');
+    sql_consulta.Active := true;
+
+
+    Cds_ipi.FieldByName('codigo').AsInteger := sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -6995,7 +7217,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_impostoi.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_impostoi.FieldByName('codigo').AsInteger :=  cds_impostoi.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from impostoi');
+    sql_consulta.Active := true;
+
+
+    Cds_impostoi.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_natopNewRecord(DataSet: TDataSet);
@@ -7006,7 +7235,15 @@ begin
     sql_consulta.Active := true;
 
     Cds_natop.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_natop.FieldByName('codigo').AsInteger :=  cds_natop.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from natop');
+    sql_consulta.Active := true;
+
+
+
+    Cds_natop.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_tgicmsNewRecord(DataSet: TDataSet);
@@ -7017,7 +7254,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_tgicms.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_tgicms.FieldByName('codigo').AsInteger :=  cds_tgicms.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from tgicms');
+    sql_consulta.Active := true;
+
+
+    Cds_tgicms.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_transportadorNewRecord(DataSet: TDataSet);
@@ -7028,7 +7272,15 @@ begin
     sql_consulta.Active := true;
 
     Cds_transportador.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_transportador.FieldByName('codigo').AsInteger :=  cds_transportador.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from transportador');
+    sql_consulta.Active := true;
+
+
+
+    Cds_transportador.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_nfNewRecord(DataSet: TDataSet);
@@ -7039,7 +7291,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_nf.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_nf.FieldByName('codigo').AsInteger :=  cds_nf.fieldbyname('id').asInteger;
+
+     sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from nf');
+    sql_consulta.Active := true;
+
+
+    Cds_nf.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_csosnNewRecord(DataSet: TDataSet);
@@ -7050,7 +7309,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_csosn.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_csosn.FieldByName('codigo').AsInteger :=  cds_csosn.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from csosn');
+    sql_consulta.Active := true;
+
+
+    Cds_csosn.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_cupomNewRecord(DataSet: TDataSet);
@@ -7061,7 +7327,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_cupom.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_cupom.FieldByName('codigo').AsInteger :=  cds_cupom.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from cupom');
+    sql_consulta.Active := true;
+
+
+    Cds_cupom.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_tipopgtoNewRecord(DataSet: TDataSet);
@@ -7072,7 +7345,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_tipopgto.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-     Cds_tipopgto.FieldByName('codigo').AsInteger :=  cds_tipopgto.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from tipopgto');
+    sql_consulta.Active := true;
+
+
+     Cds_tipopgto.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_EstadosNewRecord(DataSet: TDataSet);
@@ -7083,7 +7363,15 @@ begin
     sql_consulta.Active := true;
 
     Cds_estados.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_estados.FieldByName('codigo').AsInteger :=  cds_estados.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from estados');
+    sql_consulta.Active := true;
+
+
+
+    Cds_estados.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_onusdofreteNewRecord(DataSet: TDataSet);
@@ -7094,7 +7382,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_onusdofrete.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_onusdofrete.FieldByName('codigo').AsInteger :=  cds_onusdofrete.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from onusdofrete');
+    sql_consulta.Active := true;
+
+
+    Cds_onusdofrete.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_tiponfNewRecord(DataSet: TDataSet);
@@ -7105,7 +7400,15 @@ begin
     sql_consulta.Active := true;
 
     Cds_tiponf.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_tiponf.FieldByName('codigo').AsInteger :=  cds_tiponf.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from tiponf');
+    sql_consulta.Active := true;
+
+
+
+    Cds_tiponf.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_sitbNewRecord(DataSet: TDataSet);
@@ -7116,7 +7419,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_sitb.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-   Cds_sitb.FieldByName('codigo').AsInteger :=  cds_sitb.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from sitb');
+    sql_consulta.Active := true;
+
+
+   Cds_sitb.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_cmobraNewRecord(DataSet: TDataSet);
@@ -7127,7 +7437,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_cmobra.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_cmobra.FieldByName('codigo').AsInteger :=  cds_cmobra.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from cmobra');
+    sql_consulta.Active := true;
+
+
+    Cds_cmobra.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_cmobraAfterPost(DataSet: TDataSet);
@@ -7468,7 +7785,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_ibpt.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_ibpt.FieldByName('codigo').AsInteger :=  cds_ibpt.fieldbyname('id').asInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from ibpt');
+    sql_consulta.Active := true;
+
+
+    Cds_ibpt.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 end;
 
 procedure Tfrmdados.cds_ibptAfterPost(DataSet: TDataSet);
@@ -7507,7 +7831,14 @@ begin
     sql_consulta.Active := true;
 
     Cds_aliqinter.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-    Cds_aliqinter.FieldByName('codigo').AsInteger :=  Cds_aliqinter.FieldByName('id').AsInteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(codigo) as contador from aliqinter');
+    sql_consulta.Active := true;
+
+
+    Cds_aliqinter.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
 end;
 
@@ -7605,7 +7936,7 @@ begin
                         sql_exec4.SQL.Clear;
                         sql_exec4.SQL.Add('update clientes set codigo = '+ inttostr(codigo) +' where id = '+sql_exec2.fieldbyname('id').AsString);
                         sql_exec4.ExecSQL;
-                        
+
                         sql_exec2.Next;
                       end;
                   //endi
@@ -7629,6 +7960,335 @@ begin
 
 
 end;
+
+
+
+procedure tfrmdados.verificaprodutos;
+var codigo:integer;
+begin
+      try
+        cds_produtos.Active := false;
+        sql_produtos.Active := false;
+        sql_produtos.SQL.Clear;
+        sql_produtos.SQL.Add('select * from produtos');
+        sql_produtos.Active := true;
+        cds_produtos.Active := true;
+      except
+
+        if application.MessageBox('Ocorreu um problema ao acessar produtos, deseja corrigir a base de dados? ', 'Atenção', mb_yesno) = 6 then
+           begin
+             //acha valores duplicados
+             sql_exec.Active := false;
+             sql_exec.SQL.Clear;
+             sql_exec.SQL.Add('select DISTINCT codigo from produtos group by codigo having count(codigo) > 1');
+             sql_exec.Active := true;
+             while not sql_exec.Eof  do
+                begin
+                  sql_exec2.Active := false;
+                  sql_exec2.SQL.Clear;
+                  sql_exec2.SQL.Add('select * from produtos where codigo = '+frmdados.sql_exec.fieldbyname('codigo').asstring);
+                  sql_exec2.Active := true;
+                  while not  sql_exec2.Eof do
+                      begin
+                        sql_exec3.Active := false;
+                        sql_exec3.SQL.Clear;
+                        sql_exec3.SQL.Add('select max(codigo) as ultcodigo from produtos ');
+                        sql_exec3.Active := true;
+
+                        codigo :=  sql_exec3.fieldbyname('ultcodigo').AsInteger + 1;
+
+                        sql_exec4.Active := false;
+                        sql_exec4.SQL.Clear;
+                        sql_exec4.SQL.Add('update produtos set codigo = '+ inttostr(codigo) +' where id = '+sql_exec2.fieldbyname('id').AsString);
+                        sql_exec4.ExecSQL;
+
+                        sql_exec2.Next;
+                      end;
+                  //endi
+
+
+                  frmdados.sql_exec.next;
+                end;
+
+
+
+
+
+           end;
+
+
+
+
+
+      end;
+
+
+
+end;
+
+
+
+
+procedure tfrmdados.verificafornecedores;
+var codigo:integer;
+begin
+      try
+        cds_fornecedores.Active := false;
+        sql_fornecedores.Active := false;
+        sql_fornecedores.SQL.Clear;
+        sql_fornecedores.SQL.Add('select * from fornecedores');
+        sql_fornecedores.Active := true;
+        cds_fornecedores.Active := true;
+      except
+
+        if application.MessageBox('Ocorreu um problema ao acessar fornecedores, deseja corrigir a base de dados? ', 'Atenção', mb_yesno) = 6 then
+           begin
+             //acha valores duplicados
+             sql_exec.Active := false;
+             sql_exec.SQL.Clear;
+             sql_exec.SQL.Add('select DISTINCT codigo from fornecedores group by codigo having count(codigo) > 1');
+             sql_exec.Active := true;
+             while not sql_exec.Eof  do
+                begin
+                  sql_exec2.Active := false;
+                  sql_exec2.SQL.Clear;
+                  sql_exec2.SQL.Add('select * from fornecedores where codigo = '+frmdados.sql_exec.fieldbyname('codigo').asstring);
+                  sql_exec2.Active := true;
+                  while not  sql_exec2.Eof do
+                      begin
+                        sql_exec3.Active := false;
+                        sql_exec3.SQL.Clear;
+                        sql_exec3.SQL.Add('select max(codigo) as ultcodigo from fornecedores ');
+                        sql_exec3.Active := true;
+
+                        codigo :=  sql_exec3.fieldbyname('ultcodigo').AsInteger + 1;
+
+                        sql_exec4.Active := false;
+                        sql_exec4.SQL.Clear;
+                        sql_exec4.SQL.Add('update fornecedores set codigo = '+ inttostr(codigo) +' where id = '+sql_exec2.fieldbyname('id').AsString);
+                        sql_exec4.ExecSQL;
+
+                        sql_exec2.Next;
+                      end;
+                  //endi
+
+
+                  frmdados.sql_exec.next;
+                end;
+
+
+
+
+
+           end;
+
+
+
+
+
+      end;
+
+
+
+end;
+
+
+
+
+procedure tfrmdados.verificanfp;
+var codigo:integer;
+begin
+      try
+        cds_nfp.Active := false;
+        sql_nfp.Active := false;
+        sql_nfp.SQL.Clear;
+        sql_nfp.SQL.Add('select * from nfp');
+        sql_nfp.Active := true;
+        cds_nfp.Active := true;
+      except
+
+        if application.MessageBox('Ocorreu um problema ao acessar produtos das notas fiscais, deseja corrigir a base de dados? ', 'Atenção', mb_yesno) = 6 then
+           begin
+             //acha valores duplicados
+             sql_exec.Active := false;
+             sql_exec.SQL.Clear;
+             sql_exec.SQL.Add('select DISTINCT codigo from nfp group by codigo having count(codigo) > 1');
+             sql_exec.Active := true;
+             while not sql_exec.Eof  do
+                begin
+                  sql_exec2.Active := false;
+                  sql_exec2.SQL.Clear;
+                  sql_exec2.SQL.Add('select * from nfp where codigo = '+frmdados.sql_exec.fieldbyname('codigo').asstring);
+                  sql_exec2.Active := true;
+                  while not  sql_exec2.Eof do
+                      begin
+                        sql_exec3.Active := false;
+                        sql_exec3.SQL.Clear;
+                        sql_exec3.SQL.Add('select max(codigo) as ultcodigo from nfp ');
+                        sql_exec3.Active := true;
+
+                        codigo :=  sql_exec3.fieldbyname('ultcodigo').AsInteger + 1;
+
+                        sql_exec4.Active := false;
+                        sql_exec4.SQL.Clear;
+                        sql_exec4.SQL.Add('update nfp set codigo = '+ inttostr(codigo) +' where id = '+sql_exec2.fieldbyname('id').AsString);
+                        sql_exec4.ExecSQL;
+
+                        sql_exec2.Next;
+                      end;
+                  //endi
+
+
+                  frmdados.sql_exec.next;
+                end;
+
+
+
+
+
+           end;
+
+
+
+
+
+      end;
+
+
+
+end;
+
+
+procedure tfrmdados.verificanfe;
+var codigo:integer;
+begin
+      try
+        cds_nfe.Active := false;
+        sql_nfe.Active := false;
+        sql_nfe.SQL.Clear;
+        sql_nfe.SQL.Add('select * from nfe');
+        sql_nfe.Active := true;
+        cds_nfe.Active := true;
+      except
+
+        if application.MessageBox('Ocorreu um problema ao acessar produtos das notas fiscais, deseja corrigir a base de dados? ', 'Atenção', mb_yesno) = 6 then
+           begin
+             //acha valores duplicados
+             sql_exec.Active := false;
+             sql_exec.SQL.Clear;
+             sql_exec.SQL.Add('select DISTINCT codigo from nfe group by codigo having count(codigo) > 1');
+             sql_exec.Active := true;
+             while not sql_exec.Eof  do
+                begin
+                  sql_exec2.Active := false;
+                  sql_exec2.SQL.Clear;
+                  sql_exec2.SQL.Add('select * from nfe where codigo = '+frmdados.sql_exec.fieldbyname('codigo').asstring);
+                  sql_exec2.Active := true;
+                  while not  sql_exec2.Eof do
+                      begin
+                        sql_exec3.Active := false;
+                        sql_exec3.SQL.Clear;
+                        sql_exec3.SQL.Add('select max(codigo) as ultcodigo from nfe ');
+                        sql_exec3.Active := true;
+
+                        codigo :=  sql_exec3.fieldbyname('ultcodigo').AsInteger + 1;
+
+                        sql_exec4.Active := false;
+                        sql_exec4.SQL.Clear;
+                        sql_exec4.SQL.Add('update nfe set codigo = '+ inttostr(codigo) +' where id = '+sql_exec2.fieldbyname('id').AsString);
+                        sql_exec4.ExecSQL;
+
+                        sql_exec2.Next;
+                      end;
+                  //endi
+
+
+                  frmdados.sql_exec.next;
+                end;
+
+
+
+
+
+           end;
+
+
+
+
+
+      end;
+
+
+
+end;
+
+
+
+procedure tfrmdados.verificanf;
+var codigo:integer;
+begin
+      try
+        cds_nf.Active := false;
+        sql_nf.Active := false;
+        sql_nf.SQL.Clear;
+        sql_nf.SQL.Add('select * from nf');
+        sql_nf.Active := true;
+        cds_nf.Active := true;
+      except
+
+        if application.MessageBox('Ocorreu um problema ao acessar produtos das notas fiscais, deseja corrigir a base de dados? ', 'Atenção', mb_yesno) = 6 then
+           begin
+             //acha valores duplicados
+             sql_exec.Active := false;
+             sql_exec.SQL.Clear;
+             sql_exec.SQL.Add('select DISTINCT codigo from nf group by codigo having count(codigo) > 1');
+             sql_exec.Active := true;
+             while not sql_exec.Eof  do
+                begin
+                  sql_exec2.Active := false;
+                  sql_exec2.SQL.Clear;
+                  sql_exec2.SQL.Add('select * from nf where codigo = '+frmdados.sql_exec.fieldbyname('codigo').asstring);
+                  sql_exec2.Active := true;
+                  while not  sql_exec2.Eof do
+                      begin
+                        sql_exec3.Active := false;
+                        sql_exec3.SQL.Clear;
+                        sql_exec3.SQL.Add('select max(codigo) as ultcodigo from nf ');
+                        sql_exec3.Active := true;
+
+                        codigo :=  sql_exec3.fieldbyname('ultcodigo').AsInteger + 1;
+
+                        sql_exec4.Active := false;
+                        sql_exec4.SQL.Clear;
+                        sql_exec4.SQL.Add('update nf set codigo = '+ inttostr(codigo) +' where id = '+sql_exec2.fieldbyname('id').AsString);
+                        sql_exec4.ExecSQL;
+
+                        sql_exec2.Next;
+                      end;
+                  //endi
+
+
+                  frmdados.sql_exec.next;
+                end;
+
+
+
+
+
+           end;
+
+
+
+
+
+      end;
+
+
+
+end;
+
+
+
 
 
 end.

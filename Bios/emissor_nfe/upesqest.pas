@@ -178,9 +178,9 @@ with frmdados do
 
          cds_Estados.IndexName := 'codigo';
          cds_Estados.Last;
-         icodigo := cds_Estados.fieldbyname('codigo').asInteger;
+         //icodigo := cds_Estados.fieldbyname('codigo').asInteger;
          cds_Estados.Append;
-         cds_Estados.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_Estados.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

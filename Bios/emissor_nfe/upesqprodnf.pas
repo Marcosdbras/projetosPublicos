@@ -338,9 +338,9 @@ with frmdados do
 
          cds_nfp.IndexName := 'codigo';
          cds_nfp.Last;
-         icodigo := cds_nfp.fieldbyname('codigo').asInteger;
+         //icodigo := cds_nfp.fieldbyname('codigo').asInteger;
          cds_nfp.Append;
-         cds_nfp.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_nfp.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi

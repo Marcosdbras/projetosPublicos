@@ -164,9 +164,9 @@ with frmdados do
          cds_regtrib.Filtered := false;
          cds_regtrib.IndexName := 'codigo';
          cds_regtrib.Last;
-         icodigo := cds_regtrib.fieldbyname('codigo').asInteger;
+         //icodigo := cds_regtrib.fieldbyname('codigo').asInteger;
          cds_regtrib.Append;
-         cds_regtrib.fieldbyname('codigo').asInteger := icodigo + 1;
+         //cds_regtrib.fieldbyname('codigo').asInteger := icodigo + 1;
 
        end;
     //endi
