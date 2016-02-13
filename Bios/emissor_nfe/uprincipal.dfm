@@ -3,7 +3,7 @@ object frmprincipal: Tfrmprincipal
   Top = -4
   Width = 1374
   Height = 742
-  Caption = 'Emissor de Nota Fiscal Eletr'#244'nica para WebService 3.10'
+  Caption = 'Emissor de Nota Fiscal Eletr'#244'nica vers'#227'o 1.0 WebService 3.10'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

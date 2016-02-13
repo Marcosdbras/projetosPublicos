@@ -5,7 +5,7 @@ object frmDados: TfrmDados
   OnDestroy = DataModuleDestroy
   Left = 1
   Height = 728
-  Width = 1340
+  Width = 1036
   object Sql_Dados: TSQLConnection
     ConnectionName = 'UIB FireBird15 Connection'
     DriverName = 'UIB FireBird15'
@@ -9732,6 +9732,7 @@ object frmDados: TfrmDados
     end
     object Cds_PagarDTB: TDateField
       FieldName = 'DTB'
+      EditMask = '!99/99/0000;1;_'
     end
     object Cds_PagarCODTIPOP: TIntegerField
       FieldName = 'CODTIPOP'

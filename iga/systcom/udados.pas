@@ -11721,17 +11721,17 @@ end;
 
 procedure TfrmDados.Dts_SituRecDataChange(Sender: TObject; Field: TField);
 begin
-if (frmpesqrecbto <> nil) and (frmpesqrecbto.sOpcao <> '') and (not frmpesqrecbto.cbxnomesitrec.Focused) then
+if (frmpesqrecbto <> nil) and (frmpesqrecbto.sOpcao <> '') and (not frmpesqrecbto.cbxnomesitrec.Focused) and (frmpesqrecbto.dbgrecbto.Visible = false) then
   begin
     if cds_siturec.FieldByName('codigo').asInteger = 2 then
        begin
-         cds_vencto.Edit;
-         cds_vencto.FieldByName('dtl').AsDateTime   := date;
-         cds_vencto.FieldByName('dtb').AsDateTime := date;
+         //cds_vencto.Edit;
+         //cds_vencto.FieldByName('dtl').AsDateTime   := date;
+         //cds_vencto.FieldByName('dtb').AsDateTime := date;
        end;
     //endi
 
-    if (cds_siturec.FieldByName('codigo').asInteger = 1) and (frmpesqrecbto.sOpcao <> '') then
+    if (cds_siturec.FieldByName('codigo').asInteger = 1) and (frmpesqrecbto.sOpcao <> '') and (frmpesqrecbto.dbgrecbto.Visible = false) then
        begin
          cds_vencto.Edit;
          cds_vencto.FieldByName('dtl').AsString   := '';
@@ -11748,9 +11748,9 @@ if (frmpesqrecbtop <> nil) and (frmpesqrecbtop.sOpcao <> '') and (not frmpesqrec
   begin
     if cds_siturec.FieldByName('codigo').asInteger = 2 then
        begin
-         cds_vencto.Edit;
-         cds_vencto.FieldByName('dtl').AsDateTime   := date;
-         cds_vencto.FieldByName('dtb').AsDateTime := date;
+         //cds_vencto.Edit;
+         //cds_vencto.FieldByName('dtl').AsDateTime   := date;
+         //cds_vencto.FieldByName('dtb').AsDateTime := date;
        end;
     //endi
 
@@ -11771,9 +11771,9 @@ if (frmtra <> nil) and ((frmtra.cbxnsit.Focused) or (frmtra.edicsit.Focused))  t
   begin
     if cds_siturec.FieldByName('codigo').asInteger = 2 then
        begin
-         cds_vencto.Edit;
-         cds_vencto.FieldByName('dtl').AsDateTime   := date;
-         cds_vencto.FieldByName('dtb').AsDateTime := date;
+         //cds_vencto.Edit;
+         //cds_vencto.FieldByName('dtl').AsDateTime   := date;
+         //cds_vencto.FieldByName('dtb').AsDateTime := date;
        end;
     //endi
 
@@ -11824,18 +11824,18 @@ end;
 procedure TfrmDados.Dts_SituPagarDataChange(Sender: TObject;
   Field: TField);
 begin
-if (frmpesqpag <> nil) and (frmpesqpag.sOpcao <> '') then
+if (frmpesqpag <> nil) and (frmpesqpag.sOpcao <> '') and (frmpesqpag.dbgpag.Visible = false)then
   begin
     if cds_situpagar.FieldByName('codigo').asInteger = 2 then
        begin
-         cds_pagar.Edit;
-         cds_pagar.FieldByName('dtl').AsDateTime   := date;
-         cds_pagar.FieldByName('dtb').AsDateTime := date;
+         //cds_pagar.Edit;
+         //cds_pagar.FieldByName('dtl').AsDateTime   := date;
+         //cds_pagar.FieldByName('dtb').AsDateTime := date;
 
        end;
     //endi
 
-    if (cds_situpagar.FieldByName('codigo').asInteger = 1) and (frmpesqpag.sOpcao <> '') and (not frmpesqpag.cbxnomesitpagar.Focused)then
+    if (cds_situpagar.FieldByName('codigo').asInteger = 1) and (frmpesqpag.sOpcao <> '') and (not frmpesqpag.cbxnomesitpagar.Focused) and (frmpesqpag.dbgpag.Visible = false) then
        begin
          cds_pagar.Edit;
          cds_pagar.FieldByName('dtl').AsString   := '';

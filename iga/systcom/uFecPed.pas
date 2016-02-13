@@ -2076,7 +2076,7 @@ if rgblanca.ItemIndex = 0 then
                 frmdados.Cds_vencto.FieldByName('c_tipo_pgto').asInteger := frmdados.Cds_Indice.fieldbyname('parcpadrao').asInteger;
                 frmdados.Cds_vencto.FieldByName('csit').asInteger := frmdados.Cds_Indice.fieldbyname('csitr').asInteger;
                 frmdados.Cds_vencto.FieldByName('parc').asstring := formatfloat('00',x)+'/'+ formatfloat('00',frmdados.cds_svenda.fieldbyname('parc_p').asfloat);
-                frmdados.Cds_vencto.FieldByName('doc').asstring := lblnped.Caption+'-'+chr(64+x);
+                //frmdados.Cds_vencto.FieldByName('doc').asstring := lblnped.Caption+'-'+chr(64+x);
                 frmdados.Cds_vencto.FieldByName('parte').asstring := chr(64+x);
                 frmdados.Cds_vencto.FieldByName('ehvenda').asstring := 'F';
 
@@ -2260,7 +2260,7 @@ try
                 frmdados.Dbx_Exec.ParamByName('c_tipo_pgto').asInteger := frmdados.Cds_Indice.fieldbyname('parcpadrao').asInteger;
                 frmdados.Dbx_Exec.ParamByName('csit').asInteger := frmdados.Cds_Indice.fieldbyname('csitr').asInteger;
                 frmdados.Dbx_Exec.ParamByName('parc').asstring := formatfloat('00',frmdados.cds_conddetalhe_pgto.FieldByName('dias').asInteger)+'/'+ formatfloat('00',frmdados.cds_conddetalhe_pgto.RecordCount);
-                frmdados.Dbx_Exec.ParamByName('doc').asstring := lblnped.Caption+'-'+chr(64+frmdados.cds_conddetalhe_pgto.FieldByName('numero').asInteger);
+                //frmdados.Dbx_Exec.ParamByName('doc').asstring := lblnped.Caption+'-'+chr(64+frmdados.cds_conddetalhe_pgto.FieldByName('numero').asInteger);
                 frmdados.Dbx_Exec.ParamByName('parte').asstring := chr(64+frmdados.cds_conddetalhe_pgto.FieldByName('numero').asInteger);
                 frmdados.Dbx_Exec.ParamByName('ehvenda').asstring := 'F';
                 frmdados.Dbx_Exec.ParamByName('c_sVenda').asInteger := frmdados.cds_sVenda.fieldbyname('codigo').asInteger;

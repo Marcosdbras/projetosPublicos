@@ -1138,9 +1138,31 @@ if sOpcao <> 'E' then
 
           if sOpcao = 'I' then
              begin
-               frmdados.Cds_Pagar.FieldByName('valorreal').AsFloat := frmdados.Cds_Pagar.FieldByName('valor').AsFloat;
+               //frmdados.Cds_Pagar.FieldByName('valorreal').AsFloat := frmdados.Cds_Pagar.FieldByName('valor').AsFloat;
              end;
           //endi
+
+           if (strtoint(edicsit.Text) = 2) and
+              (
+
+                 (edidtl.Text = '') or
+                 (edidtl.Text = '  /  /    ') or
+                 (edidtb.Text = '')  or
+                 (edidtb.Text = '  /  /    ')  or
+                 ( strtofloat( tirapontos(edivalliq.Text) ) = 0 ) or
+                 (cbxntipoop.Text = '')
+
+
+               )
+           then
+               begin
+
+                  showmessage('Data de liquidação, baixa, valor liquido e forma de recebimento precisam ser preenchidos');
+                  exit;
+
+               end;
+           //endif
+
 
           if (strtofloat(tirapontos(edivalor.Text)) > strtofloat(tirapontos(edivalliq.Text)))
              and (strtoint(edicsit.Text) = 2)

@@ -1,6 +1,6 @@
 object frmrelrec: Tfrmrelrec
-  Left = -126
-  Top = 236
+  Left = -1
+  Top = 85
   Width = 1032
   Height = 748
   Caption = 'frmrelrec'
@@ -16,7 +16,7 @@ object frmrelrec: Tfrmrelrec
   PixelsPerInch = 96
   TextHeight = 13
   object relatorio: TQuickRep
-    Left = 8
+    Left = 16
     Top = 8
     Width = 816
     Height = 1056
@@ -125,7 +125,7 @@ object frmrelrec: Tfrmrelrec
           44.979166666666670000
           0.000000000000000000
           50.270833333333330000
-          76.729166666666670000)
+          76.729166666666680000)
         Alignment = taLeftJustify
         AlignToBand = True
         AutoSize = True
@@ -156,7 +156,7 @@ object frmrelrec: Tfrmrelrec
           44.979166666666670000
           0.000000000000000000
           127.000000000000000000
-          76.729166666666670000)
+          76.729166666666680000)
         Alignment = taLeftJustify
         AlignToBand = True
         AutoSize = True
@@ -187,7 +187,7 @@ object frmrelrec: Tfrmrelrec
           44.979166666666670000
           939.270833333333400000
           92.604166666666680000
-          76.729166666666670000)
+          76.729166666666680000)
         Alignment = taCenter
         AlignToBand = True
         AutoSize = True
@@ -218,7 +218,7 @@ object frmrelrec: Tfrmrelrec
           44.979166666666670000
           1881.187500000000000000
           50.270833333333330000
-          76.729166666666670000)
+          76.729166666666680000)
         Alignment = taRightJustify
         AlignToBand = True
         AutoSize = True
@@ -324,7 +324,7 @@ object frmrelrec: Tfrmrelrec
           44.979166666666670000
           1058.333333333333000000
           211.666666666666700000
-          121.708333333333400000)
+          121.708333333333300000)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
@@ -336,9 +336,9 @@ object frmrelrec: Tfrmrelrec
         FontSize = 10
       end
       object QRLabel5: TQRLabel
-        Left = 472
+        Left = 527
         Top = 80
-        Width = 67
+        Width = 41
         Height = 17
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -347,14 +347,14 @@ object frmrelrec: Tfrmrelrec
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          1248.833333333333000000
+          1394.354166666667000000
           211.666666666666700000
-          177.270833333333300000)
-        Alignment = taLeftJustify
+          108.479166666666700000)
+        Alignment = taRightJustify
         AlignToBand = False
         AutoSize = True
         AutoStretch = False
-        Caption = 'Documento'
+        Caption = 'Pedido'
         Color = clWhite
         Transparent = False
         WordWrap = True
@@ -444,7 +444,7 @@ object frmrelrec: Tfrmrelrec
           44.979166666666670000
           21.166666666666670000
           0.000000000000000000
-          68.791666666666670000)
+          68.791666666666680000)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
@@ -496,7 +496,7 @@ object frmrelrec: Tfrmrelrec
           44.979166666666670000
           867.833333333333500000
           0.000000000000000000
-          68.791666666666670000)
+          68.791666666666680000)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
@@ -535,7 +535,7 @@ object frmrelrec: Tfrmrelrec
         FontSize = 10
       end
       object QRDBText5: TQRDBText
-        Left = 472
+        Left = 470
         Top = 0
         Width = 81
         Height = 17
@@ -546,16 +546,16 @@ object frmrelrec: Tfrmrelrec
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          1248.833333333333000000
+          1243.541666666667000000
           0.000000000000000000
           214.312500000000000000)
-        Alignment = taLeftJustify
+        Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
         AutoStretch = False
         Color = clWhite
         DataSet = frmDados.Cds_Vencto
-        DataField = 'DOC'
+        DataField = 'NPED'
         Transparent = False
         WordWrap = True
         FontSize = 10
@@ -612,6 +612,57 @@ object frmrelrec: Tfrmrelrec
         WordWrap = True
         FontSize = 10
       end
+      object QRDBText8: TQRDBText
+        Left = 556
+        Top = -1
+        Width = 11
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          1471.083333333333000000
+          -2.645833333333333000
+          29.104166666666670000)
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = False
+        AutoStretch = False
+        Color = clWhite
+        DataSet = frmDados.Cds_Vencto
+        DataField = 'PARTE'
+        Transparent = False
+        WordWrap = True
+        FontSize = 10
+      end
+      object QRLabel8: TQRLabel
+        Left = 553
+        Top = 0
+        Width = 5
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          1463.145833333333000000
+          0.000000000000000000
+          13.229166666666670000)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = '-'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        FontSize = 10
+      end
     end
     object QRBand3: TQRBand
       Left = 38
@@ -663,7 +714,7 @@ object frmrelrec: Tfrmrelrec
           44.979166666666670000
           1248.833333333333000000
           21.166666666666670000
-          76.729166666666670000)
+          76.729166666666680000)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True

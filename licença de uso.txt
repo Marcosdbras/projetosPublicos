@@ -1,0 +1,78 @@
+CONTRATO DE ADESÃO PARA LICENÇA DE USO DE SOFTWARE DE EMISSÃO DE NOTA FISCAL ELETRÔNICA
+
+Pelo presente instrumento e na melhor forma de direito, as partes abaixo qualificadas têm, entre si, justo e acordado, este Contrato de Concessão de Uso de Software que será regido de acordo com as seguintes cláusulas e condições de vontades.
+
+De um lado Marcos Brás Desenvolvedor de Sistema., com sede na cidade de São Paulo, estado de São Paulo, à Rua Antonio Pereira Simões / 611, CEP 03.808-050, inscrita no CPF sob n. 131.777.658-55 neste ato, representada por seus representantes legais, doravante simplesmente denominada CONTRATADA, e, de outro lado a pessoa, doravante denominado simplesmente CONTRATANTE, identificada na Confirmação Contratual, em conformidade com a legislação vigente, tem entre si justo e avençado o seguinte:
+
+CLÁUSULA PRIMEIRA - DO OBJETO
+1.1. Por este instrumento particular, a CONTRATADA concede ao CONTRATANTE a licença para o uso do SOFTWARE de emissão de nota fiscal eletrônica (NFe+) conforme as regulamentações da Secretaria da Fazenda.
+
+1.2. Não faz parte deste contrato a venda do SOFTWARE ou qualquer cópia do mesmo, apenas um licenciamento temporário de uso (não exclusivo), onde a licença de uso do SOFTWARE se dá de duas formas distintas, uma com plano para uma máquina e outra com plano para mais de uma máquina.
+
+1.2.1. O plano gratuito permite até o número de 15 (quinze) registros no cadastro de produto, até 15 (quinze) clientes e/ou transportadores nos contatos, limitação de 15 (quinze) transações por mês, o CONTRATANTE não poderá usar o logotipo/logomarca da sua empresa nas notas fiscais e haverá propaganda de outros produtos na tela do software.
+
+1.2.1.1. Como transação entenda-se emissão de Notas Fiscais (em contingência ou não) e inutilização de numeração. Uma Nota Fiscal emitida e posteriormente cancelada, ainda é considerada como transação. Notas que sejam denegadas pela Sefaz, contam como transação.
+
+1.2.2. O plano profissional terá número ilimitado de registros no cadastro de produtos, número ilimitado de clientes e/ou fornecedores nos contatos, sem limite de notas fiscais eletrônicas emitidas, os arquivos gerados pela NFe+ serão guardados pelo período de 05 (cinco) anos, terá direito a cadastrar 05 (cinco) usuários que poderão acessar o SOFTWARE ao mesmo tempo e o CONTRATANTE poderá configurar o logotipo/logomarca de sua empresa nas notas fiscais eletrônicas.
+
+1.3. A CONTRATADA esclarece que o software licenciado é uma solução completa de emissão das Notas Fiscais Eletrônicas para os computadores da Secretaria da Fazenda de qualquer Estado brasileiro, bem como verifica se a mesma fora emitida corretamente.
+
+1.4. A propriedade do SOFTWARE NFe+ não é objeto deste contrato e continua sendo propriedade exclusiva da ZIPLINE TECNOLOGIA LTDA, sendo que tais direitos estão protegidos pela Legislação Brasileira e Internacional aplicável a propriedade intelectual e aos direitos autorais , especificamente no Brasil, pela Lei n° 9.609 (Lei do Software) e Lei n° 9.610 (Lei de Direitos Autorais).
+
+CLÁUSULA SEGUNDA - DO PREÇO E DAS CONDIÇÕES DE PAGAMENTO
+2.1. A CONTRATANTE poderá fazer uso do SOFTWARE na versão gratuita, sendo que para este plano não pagará para usá-lo, respeitando o estabelecido na cláusula 1.2.1; no plano profissional, a CONTRATANTE pagará o valor mensal no valor de R$ xx, terá os benefícios descritos na cláusula 1.2.2.
+
+2.2. As partes acertam que ocorrendo o término do pagamento, o serviço será imediatamente interrompido, ficando a CONTRATATE impossibilitada à utilização e uso do SOFTWARE no plano profissional, podendo utiliza-lo no plano gratuito, de acordo com o estipulado na cláusula 1.2.1.
+
+2.3. A periodicidade de utilização dos serviços é opção única e exclusiva da CONTRATANTE e seu uso esporádico, ou mesmo a não utilização, não a isenta do pagamento integral dos serviços contratados.
+
+Parágrafo Único - Os reajustes serão praticados sempre de acordo com a legislação vigente, sendo que no primeiro ano de vigência deste não está previsto nenhum tipo de reajuste, haja vista não haver expectativa de inflação; entretanto, se ao longo deste contrato for verificada qualquer tipo de desvalorização da moeda, aplicar-se-á sobre os valores mensais, o índice divulgado pelo Governo que melhor corrigir esta desvalorização, preferencialmente o IGPM-FGV.
+
+CLÁUSULA TERCEIRA - DAS RESPONSABILIDADES E LIMITAÇÕES
+3.1. A CONTRATADA se obriga a manter o SOFTWARE em pleno funcionamento 24 (vinte e quatro) horas por dia e 7 (sete) dias por semana, exceto nas situações de caso fortuito ou força maior, bem como se os servidores da Secretaria da Fazenda do Estado não estiver disponível.
+
+3.2. A CONTRATADA se obriga a disponibilizar meio para a realização de backup do(s) banco(s) de dados das informações de todos os arquivos referentes as notas fiscais emitidas pelo SOFTWARE, sendo o conteúdo e a guarda do backup extraído é de inteira responsabilidade da CONTRATANTE.
+
+3.3. A CONTRATADA não se responsabiliza pelo conteúdo das informações que serão emitidas pelas notas fiscais, sendo este de inteira responsabilidade da CONTRATANTE.
+
+3.4. O SOFTWARE poderá ficar indisponível por dificuldades técnicas, falhas de Internet, manutenção improrrogável ou qualquer outra circunstância alheia a CONTRATADA, a qual não se responsabiliza, tampouco responderá por lucro cessante, bem como qualquer outro tipo de danos diretos e indiretos que surjam em conexão com o presente contrato.
+
+3.5. A CONTRATADA não se responsabiliza por quaisquer insucessos comerciais da CONTRATANTE decorrentes dos serviços aqui prestados, bem como por perdas e danos, lucros cessantes ou qualquer outra indenização, bem como quando decorrente de eventual indisponibilidade dos serviços, quer por ação da CONTRATANTE, quer por terceiros.
+
+3.6. Se as partes deixarem de exigir em qualquer tempo o cumprimento de quaisquer cláusulas ou condições deste contrato, à parte prejudicada não ficará impedida de quando entender, fazer com que a outra parte inadimplente cumpra todas as condições contratuais.
+
+3.7. A eventual tolerância, por uma das partes, a qualquer infração de cláusula ou condição deste contrato, não significará qualquer liberação das obrigações futuras da parte infratora, sem qualquer modificação do dispositivo infringido.
+
+3.8. A CONTRATADA deverá manter total sigilo sobre as informações confidenciais da CONTRATANTE a que tiver acesso, inerentes do trabalho de manutenção e desenvolvimento do SOFTWARE.
+
+Parágrafo Único. Entende-se por caso fortuito ou de força maior aquele evento, fato ou circunstância que não pode ou pôde ser previsível e, se pudesse, ainda assim não seria possível evitar que produzisse os efeitos que produziu.
+
+CLÁUSULA QUARTA - CONDIÇÕES GERAIS
+4.1. A CONTRATANTE não poderá copiar, traduzir, modificar, adaptar, separar, desmontar ou reconstruir o SOFTWARE, bem como o conteúdo e a estrutura do(s) banco(s) de dados.
+
+4.2. Para a utilização do SOFTWARE, por parte da CONTRATANTE, será necessária a utilização dos seguintes equipamentos e programas:
+
+1 - Conexão de banda larga com a Internet;
+2 - Pelo menos 01 microcomputador com processador de 500 MHz ou maior e memória de 128 MB ou maior;
+3 - Navegador Mozilla Firefox na versão atualizada.
+
+4.3. O suporte será prestado pela CONTRATADA através dos meio eletrônicos (e-mail e chat) e por telefone no horário comercial em que esta presta seus serviços, no plano profissional; e apenas por e-mail no plano gratuito.
+
+4.4. Os certificados A1 e e-CNPJ ficam a cargo da CONTRATANTE a compra de tais assinaturas por empresas especializadas, sendo que os mesmos não serão fornecidos pela CONTRATADA. Tais certificados são fundamentais para a emissão das notas fiscais eletrônicas.
+
+CLÁUSULA QUINTA - DO PRAZO E DA RESCISÃO
+5.1. O presente contrato é pactuado por prazo mensal no plano profissional, respeitando as promoções ou planos adicionais publicados pela CONTRATADA, a partir daí passando a vigorar por prazo indeterminado, de modo automático, independentemente de aviso ou notificação.
+
+5.2. Após o período pactuado, as partes poderão dá-lo por findo, a qualquer tempo, não necessitando notificação a outra parte, vez que o SOFTWARE ficará indisponível ao CONTRATANTE após o término do período acordado.
+
+5.3. No caso da CONTRATADA ser impossibilitada de prestar os serviços, objeto deste contrato, devido a caso fortuito, força maior ou fatores alheios à sua vontade, tais como proibições legais ou quaisquer outras disposições que não possa superar, extingui-se, automaticamente, o presente contrato, ficando, a CONTRATANTE, obrigada ao pagamento dos serviços prestados até o momento do fator que impossibilitou o serviço. Neste caso, além da CONTRATADA desobrigar-se de quaisquer responsabilidades advindas deste contrato, fica, desde já, autorizada a bloquear a utilização e uso do SOFTWARE.
+
+5.4. A CONTRATANTE após aderir ao plano profissional nçao poderá migrar para o plano gratuito, a não ser que todos os dados sejam apagados. Caso possua mais de um usuário cadastrado, os mesmos deverão ser deletados.
+
+5.5. No caso de ocorrer o cancelamento da licença do uso do SOFTWARE, no plano profissional, por qualquer uma das partes, será enviado pela CONTRATADA à CONTRATANTE cópia compactada por e-mail de todos os arquivos referentes as notas fiscais por esta emitida. No plano gratuito não serão enviados os dados referentes a emissão das notas ficais.
+
+Parágrafo único. Na rescisão deste contrato a CONTRATANTE perderá todos os direitos de uso mediante bloqueio de acesso ao SOFTWARE feito pela CONTRATADA que enviará, por meio eletrônico e-mail, uma cópia do conteúdo de seu Banco de Dados num prazo de 30 (trinta) dias. Além da rescisão, a CONTRATANTE ficará sujeita às sanções cíveis e penais porventura aplicáveis.
+
+CLÁUSULA SEXTA - DO FORO
+6.1. As partes elegem o foro de Santa Maria, estado do Rio Grande do Sul, como único competente para dirimir qualquer controvérsia ou dúvida oriunda do presente contrato, com expressa renúncia a qualquer outro, por mais privilegiado que seja.
+

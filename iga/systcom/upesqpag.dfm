@@ -1000,7 +1000,7 @@ object frmPesqPag: TfrmPesqPag
           Expanded = False
           FieldName = 'nfor'
           Title.Caption = 'Nome do Fornecedor'
-          Width = 191
+          Width = 193
           Visible = True
         end
         item
