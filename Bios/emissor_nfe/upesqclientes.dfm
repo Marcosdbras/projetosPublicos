@@ -205,7 +205,8 @@ object frmpesqClientes: TfrmpesqClientes
       Lines.Strings = (
         'Instru'#231#227'o Inicial'
         ''
-        '1) Para Editar, Inserir '
+        '1) Para Editar, '
+        'Inserir '
         'ou Excluir um '
         'CLIENTE '
         'clique na guia '
@@ -215,8 +216,52 @@ object frmpesqClientes: TfrmpesqClientes
         'diferente tipo de '
         'informa'#231#227'o Clique '
         'no bot'#227'o'
-        '* FILTRAR * ')
+        '* FILTRAR * '
+        ''
+        '3) Quando emitir '
+        'nota '
+        'para CPF voc'#234' '
+        'deve '
+        'dexar RG/IE sem'
+        'preencher'
+        ''
+        '4) Para emitir nota '
+        'onde'
+        'o IE '#233' isento voc'#234' '
+        'deve'
+        'deixar RG/IE sem '
+        'preencher'
+        ''
+        '5) Campo Telefone '
+        'S'#243' dever'
+        'ser preenchido '
+        'com '
+        'um '#250'nico'
+        'telefone'
+        ''
+        '6) QUando voc'#234' '
+        'importa o cliente'
+        'de outro sistema, '
+        'por '
+        'exemplo: '
+        'Construtor,'
+        'Systcom, entre '
+        'outros, '
+        'os campos estado '
+        'e'
+        'munic'#237'pio deve ser '
+        'preenchido '
+        'manualmente'
+        'aqui neste '
+        'cadastro, '
+        'assim como o '
+        'campo '
+        'n'#250'mero deve ser '
+        'preenchido em seu '
+        'respectivo'
+        'lugar.  ')
       ParentFont = False
+      ScrollBars = ssVertical
       TabOrder = 3
       OnEnter = Memo1Enter
     end
@@ -234,7 +279,7 @@ object frmpesqClientes: TfrmpesqClientes
       Top = 49
       Width = 797
       Height = 411
-      ActivePage = tbslista
+      ActivePage = tbsficha
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack

@@ -1,7 +1,7 @@
 object frmpesqnf: Tfrmpesqnf
-  Left = 32
-  Top = 77
-  Width = 1213
+  Left = 33
+  Top = 93
+  Width = 1036
   Height = 636
   Caption = 'Pesquisa de Notas Fiscais'
   Color = clBtnFace
@@ -48,7 +48,7 @@ object frmpesqnf: Tfrmpesqnf
   object pnlsuperior: TPanel
     Left = 0
     Top = 0
-    Width = 1205
+    Width = 1028
     Height = 65
     Align = alTop
     TabOrder = 0
@@ -84,7 +84,7 @@ object frmpesqnf: Tfrmpesqnf
       Top = 2
       Width = 152
       Height = 33
-      Caption = '&IMPORTAR'
+      Caption = '&1) IMPORTAR'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -96,11 +96,11 @@ object frmpesqnf: Tfrmpesqnf
       NumGlyphs = 2
     end
     object btnajustatrib: TBitBtn
-      Left = 674
+      Left = 509
       Top = 2
       Width = 152
       Height = 33
-      Caption = 'AJUSTA TR&IBUTA'#199#195'O'
+      Caption = '&3) AJUSTA TR&IBUTA'#199#195'O'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -112,11 +112,11 @@ object frmpesqnf: Tfrmpesqnf
       NumGlyphs = 2
     end
     object btnemitenfe: TBitBtn
-      Left = 835
+      Left = 822
       Top = 2
       Width = 152
       Height = 33
-      Caption = '&EMISS'#195'O NFE'
+      Caption = '&6) EMISS'#195'O NFE'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -128,7 +128,7 @@ object frmpesqnf: Tfrmpesqnf
       NumGlyphs = 2
     end
     object BitBtn1: TBitBtn
-      Left = 513
+      Left = 666
       Top = 2
       Width = 152
       Height = 33
@@ -147,14 +147,14 @@ object frmpesqnf: Tfrmpesqnf
   object pnlinferior: TPanel
     Left = 0
     Top = 544
-    Width = 1205
+    Width = 1028
     Height = 65
     Align = alBottom
     TabOrder = 1
     object stbrodape: TStatusBar
       Left = 1
       Top = 45
-      Width = 1203
+      Width = 1026
       Height = 19
       Panels = <
         item
@@ -165,7 +165,7 @@ object frmpesqnf: Tfrmpesqnf
         end>
     end
     object pnlinternodir: TPanel
-      Left = 895
+      Left = 718
       Top = 1
       Width = 309
       Height = 44
@@ -312,24 +312,63 @@ object frmpesqnf: Tfrmpesqnf
       Lines.Strings = (
         'Instru'#231#227'o Inicial'
         ''
-        '1) Para Editar, Inserir '
+        '1) Para Editar, '
+        'Inserir '
         'ou Excluir um '
         'N.F.'
         'clique na guia '
         '* EDI'#199#195'O * '
         ''
-        '2) Para ordenar por'
-        'diferente tipo de '
-        'informa'#231#227'o Clique '
-        'no bot'#227'o'
-        '* FILTRAR * '
+        '2) Clique em '
+        'edi'#231#227'o e preencha'
+        'Natureza da '
+        'Opera'#231#227'o / '
+        'Emitente'
+        'e verifique se todos '
+        'itens em vermelho '
+        'est'#227'o preenchidos '
+        'salvo excess'#245'es, '
+        'salve'
+        'a opera'#231#227'o e '
+        'clique em ajusta '
+        'tributa'#231#227'o, verifique'
+        'ou preencha dados '
+        'relativos a '
+        'tributa'#231#227'o'
+        'dos produtos'
         ''
         '3) Para Editar ou '
         'Inserir Cliente ou '
         'Fornecedor'
         'utilize Menu'
-        'Cadastro')
+        'Cadastro'
+        ''
+        '4) Para ordenar por'
+        'diferente tipo de '
+        'informa'#231#227'o Clique '
+        'no bot'#227'o'
+        '* FILTRAR * '
+        ''
+        '5) Se ocorrer erro '
+        '12057 '
+        'ou similar no '
+        'retorno do'
+        'ACBR, voc'#234' pode '
+        'acessar'
+        'o menu '
+        'Ferramentas/Op'#231#245
+        'es'
+        'avan'#231'adas da '
+        'internet no'
+        'Internet Explorer e '
+        'deixar'
+        'marcado somente '
+        'SSL 3.0 e'
+        'desmarcar as '
+        'outras op'#231#245'es'
+        'abaixo dela.')
       ParentFont = False
+      ScrollBars = ssVertical
       TabOrder = 3
       OnEnter = Memo1Enter
     end
@@ -337,7 +376,7 @@ object frmpesqnf: Tfrmpesqnf
   object pnlcentro: TPanel
     Left = 161
     Top = 65
-    Width = 1044
+    Width = 867
     Height = 479
     Align = alClient
     Caption = 'pnlcentro'
@@ -345,7 +384,7 @@ object frmpesqnf: Tfrmpesqnf
     object pctdados: TPageControl
       Left = 1
       Top = 49
-      Width = 1042
+      Width = 865
       Height = 429
       ActivePage = tbslista
       Align = alClient
@@ -358,7 +397,7 @@ object frmpesqnf: Tfrmpesqnf
         object dbg_nf: TDBGrid
           Left = 0
           Top = 0
-          Width = 1034
+          Width = 857
           Height = 397
           Align = alClient
           DataSource = frmdados.dts_nf
@@ -387,7 +426,7 @@ object frmpesqnf: Tfrmpesqnf
         end
       end
       object tbsficha: TTabSheet
-        Caption = '&EDI'#199#195'O'
+        Caption = '&2) EDI'#199#195'O'
         ImageIndex = 1
         OnShow = tbsfichaShow
         object Bevel8: TBevel
@@ -1373,7 +1412,7 @@ object frmpesqnf: Tfrmpesqnf
         end
       end
       object tbsprod: TTabSheet
-        Caption = 'PRODUTOS'
+        Caption = '&4) PRODUTOS'
         ImageIndex = 2
         OnHide = tbsprodHide
         OnShow = tbsprodShow
@@ -1650,7 +1689,7 @@ object frmpesqnf: Tfrmpesqnf
             end
           end
           object tbstributacao: TTabSheet
-            Caption = '&TRIBUTA'#199#195'O'
+            Caption = '&5) TRIBUTA'#199#195'O'
             ImageIndex = 1
             OnShow = tbstributacaoShow
             object pnlnavegatribnf: TPanel
@@ -3416,7 +3455,7 @@ object frmpesqnf: Tfrmpesqnf
           end
         end
         object Panel2: TPanel
-          Left = 791
+          Left = 614
           Top = 97
           Width = 243
           Height = 300
@@ -3615,7 +3654,7 @@ object frmpesqnf: Tfrmpesqnf
         object Panel3: TPanel
           Left = 0
           Top = 0
-          Width = 1034
+          Width = 857
           Height = 97
           Align = alTop
           TabOrder = 2
@@ -3889,7 +3928,7 @@ object frmpesqnf: Tfrmpesqnf
     object Panel1: TPanel
       Left = 1
       Top = 1
-      Width = 1042
+      Width = 865
       Height = 48
       Align = alTop
       BevelOuter = bvNone
