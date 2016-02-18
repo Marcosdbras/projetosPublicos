@@ -1,6 +1,6 @@
 object frmpesqnf: Tfrmpesqnf
-  Left = 33
-  Top = 93
+  Left = -23
+  Top = 88
   Width = 1036
   Height = 636
   Caption = 'Pesquisa de Notas Fiscais'

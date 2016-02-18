@@ -2163,6 +2163,7 @@ begin
   frmdados.sql_nfe.Active := true;
   frmdados.cds_nfe.Active := true;
 
+  //aqui implementar
 
   if frmdados.cds_nfe.Locate('NNF',strtoint(ediproxnota.Text),[]) then
      begin
@@ -4047,7 +4048,8 @@ begin
        frmdados.cds_nfe.FieldByName('cemi').asInteger :=  frmdados.Cds_emitente.fieldbyname('codigo').asInteger;
        frmdados.cds_nfe.FieldByName('tipodest').asString :=  frmdados.cds_nf.FieldByName('tipodest').AsString;
        frmdados.cds_nfe.FieldByName('cdest').asInteger :=  frmdados.cds_nf.fieldbyname('cdest').asInteger ;
-
+       frmdados.cds_nfe.FieldByName('cnpjcpfdest').AsString := frmpesqnf.lblcnpj.Caption;
+       frmdados.cds_nfe.FieldByName('cnpjcpfemi').AsString := frmdados.Cds_emitente.fieldbyname('cnpj').asString;
        {
 
        if frmdados.cds_nf.FieldByName('tipodest').AsString = 'C' then

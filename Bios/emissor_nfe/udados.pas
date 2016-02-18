@@ -1443,6 +1443,10 @@ type
     sql_exec2: TZQuery;
     sql_exec3: TZQuery;
     sql_exec4: TZQuery;
+    sql_nfecnpjcpfemi: TStringField;
+    sql_nfecnpjcpfdest: TStringField;
+    cds_nfecnpjcpfemi: TStringField;
+    cds_nfecnpjcpfdest: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);

@@ -1,10 +1,10 @@
 object frmdados: Tfrmdados
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 20
-  Top = 22
+  Left = 65448
+  Top = 13
   Height = 714
-  Width = 1335
+  Width = 1036
   object cds_Paises: TClientDataSet
     Aggregates = <>
     FieldDefs = <
@@ -4637,6 +4637,16 @@ object frmdados: Tfrmdados
         Name = 'chave'
         DataType = ftString
         Size = 200
+      end
+      item
+        Name = 'cnpjcpfemi'
+        DataType = ftString
+        Size = 22
+      end
+      item
+        Name = 'cnpjcpfdest'
+        DataType = ftString
+        Size = 22
       end>
     IndexDefs = <
       item
@@ -4937,6 +4947,14 @@ object frmdados: Tfrmdados
     object cds_nfechave: TStringField
       FieldName = 'chave'
       Size = 200
+    end
+    object cds_nfecnpjcpfemi: TStringField
+      FieldName = 'cnpjcpfemi'
+      Size = 22
+    end
+    object cds_nfecnpjcpfdest: TStringField
+      FieldName = 'cnpjcpfdest'
+      Size = 22
     end
   end
   object dts_nfe: TDataSource
@@ -7195,6 +7213,14 @@ object frmdados: Tfrmdados
     object sql_nfechave: TStringField
       FieldName = 'chave'
       Size = 200
+    end
+    object sql_nfecnpjcpfemi: TStringField
+      FieldName = 'cnpjcpfemi'
+      Size = 22
+    end
+    object sql_nfecnpjcpfdest: TStringField
+      FieldName = 'cnpjcpfdest'
+      Size = 22
     end
   end
   object sql_duplicata: TZQuery
