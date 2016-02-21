@@ -262,9 +262,6 @@ begin
   Application.Title := '- Systcom - Sistema de Informação';
   Application.CreateForm(TfrmDados, frmDados);
   Application.CreateForm(Tfrmprincipal, frmprincipal);
-  Application.CreateForm(TForm1, Form1);
-  Application.CreateForm(TForm2, Form2);
-  Application.CreateForm(TFrmImpProducao, FrmImpProducao);
   Atualizar;
   frmSplash.Hide;
   frmSplash.Free;

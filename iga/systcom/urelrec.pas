@@ -34,6 +34,8 @@ type
     QRLabel7: TQRLabel;
     lbltittot: TQRLabel;
     lbltotal: TQRLabel;
+    QRDBText8: TQRDBText;
+    QRLabel8: TQRLabel;
     procedure QRBand1BeforePrint(Sender: TQRCustomBand;
       var PrintBand: Boolean);
     procedure relatorioBeforePrint(Sender: TCustomQuickRep;
