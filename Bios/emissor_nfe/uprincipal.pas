@@ -89,6 +89,7 @@ type
     Timer1: TTimer;
     Memo1: TMemo;
     Reparar1: TMenuItem;
+    Label12: TLabel;
     procedure FormShow(Sender: TObject);
     procedure dbg_paisesTitleClick(Column: TColumn);
     procedure Edit1Change(Sender: TObject);

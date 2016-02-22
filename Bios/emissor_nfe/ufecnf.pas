@@ -1637,7 +1637,7 @@ var
   data:TDateTime;
   A,B,MVA, fporciva, faliqintra, faliqinter, ftotalbasecalcicmsst,  fvlrbasecalcicmsst, fvlricms, ftotalvlricmsst, fvlricmsst  :real;
   sufemi, sufdest:string;
-  sitens:string;
+  sitens, scnpjcpfeminfe, scnpjcpfemi:string;
 
 
 

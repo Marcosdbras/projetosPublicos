@@ -1,7 +1,7 @@
 object frmprincipal: Tfrmprincipal
   Left = -4
   Top = -4
-  Width = 1374
+  Width = 1036
   Height = 742
   Caption = 'Emissor de Nota Fiscal Eletr'#244'nica vers'#227'o 1.0 WebService 3.10'
   Color = clBtnFace
@@ -23,8 +23,8 @@ object frmprincipal: Tfrmprincipal
   object Image1: TImage
     Left = 0
     Top = 42
-    Width = 1366
-    Height = 611
+    Width = 1337
+    Height = 595
     Align = alClient
   end
   object Label1: TLabel
@@ -80,7 +80,7 @@ object frmprincipal: Tfrmprincipal
     end
     object Label5: TLabel
       Left = 8
-      Top = 144
+      Top = 123
       Width = 819
       Height = 29
       Caption = 
@@ -95,7 +95,7 @@ object frmprincipal: Tfrmprincipal
     end
     object Label6: TLabel
       Left = 8
-      Top = 192
+      Top = 160
       Width = 773
       Height = 29
       Caption = 
@@ -110,7 +110,7 @@ object frmprincipal: Tfrmprincipal
     end
     object Label7: TLabel
       Left = 8
-      Top = 248
+      Top = 195
       Width = 704
       Height = 29
       Caption = 
@@ -125,7 +125,7 @@ object frmprincipal: Tfrmprincipal
     end
     object Label8: TLabel
       Left = 8
-      Top = 304
+      Top = 233
       Width = 380
       Height = 29
       Caption = 'DDD (11) 97043-3730 /  96393-0108'
@@ -138,7 +138,7 @@ object frmprincipal: Tfrmprincipal
     end
     object Label9: TLabel
       Left = 8
-      Top = 368
+      Top = 387
       Width = 309
       Height = 29
       Caption = 'Obrigado pela compreens'#227'o'
@@ -151,7 +151,7 @@ object frmprincipal: Tfrmprincipal
     end
     object Label10: TLabel
       Left = 8
-      Top = 486
+      Top = 501
       Width = 233
       Height = 29
       Caption = 'Respons'#225'vel T'#233'cnico'
@@ -164,10 +164,23 @@ object frmprincipal: Tfrmprincipal
     end
     object Label11: TLabel
       Left = 8
-      Top = 454
+      Top = 469
       Width = 134
       Height = 29
       Caption = 'Marcos Br'#225's'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -24
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label12: TLabel
+      Left = 397
+      Top = 230
+      Width = 418
+      Height = 29
+      Caption = 'ou acesse o site www.marcosbras.com'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clRed
       Font.Height = -24
@@ -210,7 +223,7 @@ object frmprincipal: Tfrmprincipal
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1366
+    Width = 1337
     Height = 42
     Align = alTop
     BevelOuter = bvNone
@@ -265,8 +278,8 @@ object frmprincipal: Tfrmprincipal
   end
   object Panel2: TPanel
     Left = 0
-    Top = 653
-    Width = 1366
+    Top = 637
+    Width = 1337
     Height = 24
     Align = alBottom
     BevelOuter = bvNone
@@ -287,8 +300,8 @@ object frmprincipal: Tfrmprincipal
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 677
-    Width = 1366
+    Top = 661
+    Width = 1337
     Height = 19
     Panels = <>
   end
