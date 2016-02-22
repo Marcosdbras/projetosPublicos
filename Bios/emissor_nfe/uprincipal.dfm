@@ -66,11 +66,11 @@ object frmprincipal: Tfrmprincipal
     object Label4: TLabel
       Left = 8
       Top = 88
-      Width = 815
+      Width = 843
       Height = 29
       Caption = 
-        'Assim como o certifica digital  este programa tamb'#233'm tem data de' +
-        ' expira'#231#227'o'
+        'Assim como o certificado digital  este programa tamb'#233'm tem data ' +
+        'de expira'#231#227'o'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clRed
       Font.Height = -24

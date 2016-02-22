@@ -1637,7 +1637,7 @@ var
   data:TDateTime;
   A,B,MVA, fporciva, faliqintra, faliqinter, ftotalbasecalcicmsst,  fvlrbasecalcicmsst, fvlricms, ftotalvlricmsst, fvlricmsst  :real;
   sufemi, sufdest:string;
-  sitens, scnpjcpfeminfe, scnpjcpfemi:string;
+  sitens, scnpjcpfemi:string;
 
 
 
@@ -2160,12 +2160,29 @@ begin
      end;
   //endi
 
-  frmdados.sql_nfe.Active := true;
-  frmdados.cds_nfe.Active := true;
+  //frmdados.sql_nfe.Active := true;
+  //frmdados.cds_nfe.Active := true;
 
-  //aqui implementar
 
-  if frmdados.cds_nfe.Locate('NNF',strtoint(ediproxnota.Text),[]) then
+  scnpjcpfemi := tirapontos(frmpesqnf.lblcnpjemi.Caption);
+  scnpjcpfemi := tirabarras(scnpjcpfemi);
+  scnpjcpfemi := tiratracos(scnpjcpfemi);
+
+  with frmdados do
+    begin
+      cds_nfe.Active := false;
+      sql_nfe.Active := false;
+      sql_nfe.SQL.Clear;
+      sql_nfe.SQL.Add('select * from nfe where cnpjcpfeminfe = '+quotedstr(scnpjcpfemi)+' and  nnf = '+ediproxnota.Text);
+
+      sql_nfe.Active := true;
+      cds_nfe.Active := true;
+
+    end;
+
+
+
+  if frmdados.cds_nfe.RecordCount > 0 then
      begin
 
        if x > 0 then
@@ -4049,7 +4066,17 @@ begin
        frmdados.cds_nfe.FieldByName('tipodest').asString :=  frmdados.cds_nf.FieldByName('tipodest').AsString;
        frmdados.cds_nfe.FieldByName('cdest').asInteger :=  frmdados.cds_nf.fieldbyname('cdest').asInteger ;
        frmdados.cds_nfe.FieldByName('cnpjcpfdest').AsString := frmpesqnf.lblcnpj.Caption;
-       frmdados.cds_nfe.FieldByName('cnpjcpfemi').AsString := frmdados.Cds_emitente.fieldbyname('cnpj').asString;
+
+
+       scnpjcpfemi := tirapontos(frmdados.Cds_emitente.fieldbyname('cnpj').asString);
+       scnpjcpfemi := tirabarras(scnpjcpfemi);
+       scnpjcpfemi := tiratracos(scnpjcpfemi);
+
+
+
+       frmdados.cds_nfe.FieldByName('cnpjcpfemi').AsString := scnpjcpfemi;
+
+
        {
 
        if frmdados.cds_nf.FieldByName('tipodest').AsString = 'C' then
