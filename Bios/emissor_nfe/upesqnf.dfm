@@ -84,7 +84,7 @@ object frmpesqnf: Tfrmpesqnf
       Top = 2
       Width = 152
       Height = 33
-      Caption = '&1) IMPORTAR'
+      Caption = '&IMPORTAR'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -100,7 +100,7 @@ object frmpesqnf: Tfrmpesqnf
       Top = 2
       Width = 152
       Height = 33
-      Caption = '&3) AJUSTA TR&IBUTA'#199#195'O'
+      Caption = '&AJUSTA TR&IBUTA'#199#195'O'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -116,7 +116,7 @@ object frmpesqnf: Tfrmpesqnf
       Top = 2
       Width = 152
       Height = 33
-      Caption = '&6) EMISS'#195'O NFE'
+      Caption = '&EMISS'#195'O NFE'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -132,7 +132,7 @@ object frmpesqnf: Tfrmpesqnf
       Top = 2
       Width = 152
       Height = 33
-      Caption = 'NOVA NFE'
+      Caption = '&NOVA NFE'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -426,7 +426,7 @@ object frmpesqnf: Tfrmpesqnf
         end
       end
       object tbsficha: TTabSheet
-        Caption = '&2) EDI'#199#195'O'
+        Caption = '&EDI'#199#195'O'
         ImageIndex = 1
         OnShow = tbsfichaShow
         object Bevel8: TBevel
@@ -1412,7 +1412,7 @@ object frmpesqnf: Tfrmpesqnf
         end
       end
       object tbsprod: TTabSheet
-        Caption = '&4) PRODUTOS'
+        Caption = '&PRODUTOS'
         ImageIndex = 2
         OnHide = tbsprodHide
         OnShow = tbsprodShow
@@ -2466,7 +2466,7 @@ object frmpesqnf: Tfrmpesqnf
         end
       end
       object tbscupomf: TTabSheet
-        Caption = 'CUPOM FISCAL'
+        Caption = 'CUPOM &FISCAL'
         ImageIndex = 4
         OnShow = tbscupomfShow
         object DBGrid1: TDBGrid
@@ -3699,7 +3699,7 @@ object frmpesqnf: Tfrmpesqnf
         end
       end
       object TabSheet1: TTabSheet
-        Caption = 'INCLUS'#195'O MANUAL'
+        Caption = 'INCLUS'#195'O &MANUAL'
         ImageIndex = 6
         OnShow = TabSheet1Show
         object Label28: TLabel
