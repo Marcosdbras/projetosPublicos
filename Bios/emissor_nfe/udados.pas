@@ -1445,8 +1445,10 @@ type
     sql_exec4: TZQuery;
     sql_nfecnpjcpfemi: TStringField;
     sql_nfecnpjcpfdest: TStringField;
+    sql_nfecnpjcpfeminfe: TStringField;
     cds_nfecnpjcpfemi: TStringField;
     cds_nfecnpjcpfdest: TStringField;
+    cds_nfecnpjcpfeminfe: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);
@@ -5575,7 +5577,7 @@ begin
 
   //if not fileexists(frmdados.cds_indice.fieldbyname('importarpara').asString+'\nf.txt') then
 
-  if not fileexists(frmpesqnf.scaminho) then
+  if not fileexists(frmprincipal.scaminho) then
      begin
        exit;
      end;
@@ -5599,7 +5601,7 @@ begin
 
   //Assignfile(f,frmdados.cds_indice.fieldbyname('importarpara').asString+'\nf.txt');
 
-  Assignfile(f,frmpesqnf.scaminho);
+  Assignfile(f,frmprincipal.scaminho);
 
 
   reset(f);
@@ -5815,7 +5817,7 @@ begin
 
   scodigo := '';
 
-  Assignfile(f,frmpesqnf.scaminho);
+  Assignfile(f,frmprincipal.scaminho);
   reset(f);
   while true do
     begin

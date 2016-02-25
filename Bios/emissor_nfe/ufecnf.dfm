@@ -1,7 +1,7 @@
 object frmfecnf: Tfrmfecnf
   Left = 2
   Top = 104
-  Width = 1036
+  Width = 1172
   Height = 671
   BorderIcons = []
   Caption = 'Emiss'#227'o de NFE'

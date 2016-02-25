@@ -1,7 +1,7 @@
 object frmprincipal: Tfrmprincipal
   Left = -4
   Top = -4
-  Width = 1036
+  Width = 1361
   Height = 742
   Caption = 'Emissor de Nota Fiscal Eletr'#244'nica vers'#227'o 1.0 WebService 3.10'
   Color = clBtnFace
@@ -23,8 +23,8 @@ object frmprincipal: Tfrmprincipal
   object Image1: TImage
     Left = 0
     Top = 42
-    Width = 1337
-    Height = 595
+    Width = 1353
+    Height = 611
     Align = alClient
   end
   object Label1: TLabel
@@ -52,7 +52,7 @@ object frmprincipal: Tfrmprincipal
     TabOrder = 3
     object Label3: TLabel
       Left = 8
-      Top = 24
+      Top = 15
       Width = 179
       Height = 29
       Caption = 'Prezado cliente, '
@@ -65,7 +65,7 @@ object frmprincipal: Tfrmprincipal
     end
     object Label4: TLabel
       Left = 8
-      Top = 88
+      Top = 77
       Width = 843
       Height = 29
       Caption = 
@@ -80,7 +80,7 @@ object frmprincipal: Tfrmprincipal
     end
     object Label5: TLabel
       Left = 8
-      Top = 123
+      Top = 112
       Width = 819
       Height = 29
       Caption = 
@@ -95,7 +95,7 @@ object frmprincipal: Tfrmprincipal
     end
     object Label6: TLabel
       Left = 8
-      Top = 160
+      Top = 149
       Width = 773
       Height = 29
       Caption = 
@@ -110,7 +110,7 @@ object frmprincipal: Tfrmprincipal
     end
     object Label7: TLabel
       Left = 8
-      Top = 195
+      Top = 184
       Width = 704
       Height = 29
       Caption = 
@@ -125,10 +125,10 @@ object frmprincipal: Tfrmprincipal
     end
     object Label8: TLabel
       Left = 8
-      Top = 233
-      Width = 380
+      Top = 222
+      Width = 529
       Height = 29
-      Caption = 'DDD (11) 97043-3730 /  96393-0108'
+      Caption = 'DDD (11) 97043-3730 /  96393-0108  /   3042-3730'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clRed
       Font.Height = -24
@@ -138,7 +138,7 @@ object frmprincipal: Tfrmprincipal
     end
     object Label9: TLabel
       Left = 8
-      Top = 387
+      Top = 427
       Width = 309
       Height = 29
       Caption = 'Obrigado pela compreens'#227'o'
@@ -176,8 +176,8 @@ object frmprincipal: Tfrmprincipal
       ParentFont = False
     end
     object Label12: TLabel
-      Left = 397
-      Top = 230
+      Left = 9
+      Top = 254
       Width = 418
       Height = 29
       Caption = 'ou acesse o site www.marcosbras.com'
@@ -189,11 +189,11 @@ object frmprincipal: Tfrmprincipal
       ParentFont = False
     end
     object Button1: TButton
-      Left = 543
+      Left = 408
       Top = 518
-      Width = 289
+      Width = 585
       Height = 57
-      Caption = 'FECHAR MENSAGEM'
+      Caption = 'FECHAR MENSAGEM E CONTINUAR EMITINDO AT'#201' EXPIRAR'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -19
@@ -205,9 +205,9 @@ object frmprincipal: Tfrmprincipal
     end
     object Memo1: TMemo
       Left = 408
-      Top = 288
+      Top = 304
       Width = 585
-      Height = 225
+      Height = 209
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlue
       Font.Height = -19
@@ -216,6 +216,7 @@ object frmprincipal: Tfrmprincipal
       Lines.Strings = (
         'Memo1')
       ParentFont = False
+      ScrollBars = ssVertical
       TabOrder = 1
       OnKeyPress = Memo1KeyPress
     end
@@ -223,7 +224,7 @@ object frmprincipal: Tfrmprincipal
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1337
+    Width = 1353
     Height = 42
     Align = alTop
     BevelOuter = bvNone
@@ -231,7 +232,7 @@ object frmprincipal: Tfrmprincipal
     object TPanel
       Left = 0
       Top = 0
-      Width = 940
+      Width = 1057
       Height = 42
       Align = alLeft
       BevelOuter = bvNone
@@ -239,7 +240,7 @@ object frmprincipal: Tfrmprincipal
       ParentCtl3D = False
       TabOrder = 0
       object btncadcli: TBitBtn
-        Left = 21
+        Left = 124
         Top = 2
         Width = 113
         Height = 37
@@ -248,7 +249,7 @@ object frmprincipal: Tfrmprincipal
         OnClick = btncadcliClick
       end
       object btnforn: TBitBtn
-        Left = 137
+        Left = 240
         Top = 2
         Width = 113
         Height = 37
@@ -257,7 +258,7 @@ object frmprincipal: Tfrmprincipal
         OnClick = btnfornClick
       end
       object btnprodutos: TBitBtn
-        Left = 253
+        Left = 356
         Top = 2
         Width = 113
         Height = 37
@@ -266,7 +267,7 @@ object frmprincipal: Tfrmprincipal
         OnClick = btnprodutosClick
       end
       object BitBtn1: TBitBtn
-        Left = 370
+        Left = 473
         Top = 2
         Width = 113
         Height = 37
@@ -274,12 +275,28 @@ object frmprincipal: Tfrmprincipal
         TabOrder = 3
         OnClick = BitBtn1Click
       end
+      object btnimportar: TBitBtn
+        Left = 8
+        Top = 2
+        Width = 113
+        Height = 37
+        Caption = '&Importar Pedido'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+        OnClick = btnimportarClick
+        NumGlyphs = 2
+      end
     end
   end
   object Panel2: TPanel
     Left = 0
-    Top = 637
-    Width = 1337
+    Top = 653
+    Width = 1353
     Height = 24
     Align = alBottom
     BevelOuter = bvNone
@@ -300,8 +317,8 @@ object frmprincipal: Tfrmprincipal
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 661
-    Width = 1337
+    Top = 677
+    Width = 1353
     Height = 19
     Panels = <>
   end
@@ -544,5 +561,9 @@ object frmprincipal: Tfrmprincipal
   object Timer1: TTimer
     Left = 624
     Top = 376
+  end
+  object odpExec: TOpenDialog
+    Left = 934
+    Top = 486
   end
 end

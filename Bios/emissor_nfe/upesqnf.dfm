@@ -92,6 +92,7 @@ object frmpesqnf: Tfrmpesqnf
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
+      Visible = False
       OnClick = btnimportarClick
       NumGlyphs = 2
     end

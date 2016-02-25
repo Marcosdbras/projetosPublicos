@@ -1,10 +1,10 @@
 object frmdados: Tfrmdados
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 65448
-  Top = 13
-  Height = 714
-  Width = 1036
+  Left = 65532
+  Top = 65532
+  Height = 746
+  Width = 1374
   object cds_Paises: TClientDataSet
     Aggregates = <>
     FieldDefs = <
@@ -4647,6 +4647,11 @@ object frmdados: Tfrmdados
         Name = 'cnpjcpfdest'
         DataType = ftString
         Size = 22
+      end
+      item
+        Name = 'cnpjcpfeminfe'
+        DataType = ftString
+        Size = 22
       end>
     IndexDefs = <
       item
@@ -4954,6 +4959,10 @@ object frmdados: Tfrmdados
     end
     object cds_nfecnpjcpfdest: TStringField
       FieldName = 'cnpjcpfdest'
+      Size = 22
+    end
+    object cds_nfecnpjcpfeminfe: TStringField
+      FieldName = 'cnpjcpfeminfe'
       Size = 22
     end
   end
@@ -7220,6 +7229,10 @@ object frmdados: Tfrmdados
     end
     object sql_nfecnpjcpfdest: TStringField
       FieldName = 'cnpjcpfdest'
+      Size = 22
+    end
+    object sql_nfecnpjcpfeminfe: TStringField
+      FieldName = 'cnpjcpfeminfe'
       Size = 22
     end
   end

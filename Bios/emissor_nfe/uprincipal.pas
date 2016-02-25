@@ -90,6 +90,8 @@ type
     Memo1: TMemo;
     Reparar1: TMenuItem;
     Label12: TLabel;
+    btnimportar: TBitBtn;
+    odpExec: TOpenDialog;
     procedure FormShow(Sender: TObject);
     procedure dbg_paisesTitleClick(Column: TColumn);
     procedure Edit1Change(Sender: TObject);
@@ -137,10 +139,14 @@ type
     procedure FormCreate(Sender: TObject);
     procedure Memo1KeyPress(Sender: TObject; var Key: Char);
     procedure Reparar1Click(Sender: TObject);
+    procedure btnimportarClick(Sender: TObject);
+    procedure abretabelas();
+    procedure fechatabelas();
   private
     { Private declarations }
   public
     { Public declarations }
+    scaminho:string;
   end;
 
 var
@@ -166,12 +172,29 @@ vardir := extractfilepath(application.ExeName);
 
 
    memo1.Lines.Clear;
-   memo1.Lines.Add(  'ID da instalação : '+ IntToStr(bloqueio.IDInstalacao) );
+
+   memo1.Lines.Add('1) Acesse o site www.marcosbras.com ');
+   memo1.Lines.Add('2) Clique nos links comunicações / Chaves & Desbloqueio');
+   memo1.Lines.Add('3) No final da página localize a frase');
+   memo1.Lines.Add('   Você precisa fazer o login para publicar um comentário.');
+   memo1.Lines.Add('4) Clique em LOGIN');
+   memo1.Lines.Add('5) Se você já está cadastrado utilize seu nome de usuário e senha / FAZER LOGIN para se autenticar');
+   memo1.Lines.Add('   ou clique em PERDEU A SENHA se este for o motivo');
+   memo1.Lines.Add('6) Caso não tenha cadastro clique em REGISTRA-SE');
+   memo1.Lines.Add('7) Após se autenticar localize a frase DEIXE UMA RESPOSTA ou COMENTÁRIO e');
+   memo1.Lines.Add('   informe ID DA INSTALAÇÃO '+ IntToStr(bloqueio.IDInstalacao));
+   memo1.Lines.Add('   identificação do pagamento / CNPJ da empresa / Nome do contato / email e telefone');
+   memo1.Lines.Add('8) Depois clique em PUBLICAR COMENTÁRIO ');
+   memo1.Lines.Add('9) Aguarde contato via email');
+   memo1.Lines.Add('Em caso de dúvida envie mensagem para contato@marcosbras.com');
+
     memo1.Lines.Add( 'Dias Restantes : ' + IntToStr(frmprincipal.bloqueio.Dias_RestantesU) );
    memo1.Lines.Add( 'Data Vencimento : ' + frmprincipal.bloqueio.Data_VencimentoU );
    memo1.Lines.Add('Chave : ' + frmprincipal.bloqueio.Chave_RegistradaU);
    memo1.Lines.Add('E-mail : ' + frmprincipal.bloqueio.Email_ClienteU);
    memo1.Lines.Add( 'Versão : ' + IntToStr(frmprincipal.bloqueio.Versao_Sistema) );
+   memo1.Lines.Add(  'ID da instalação : '+ IntToStr(bloqueio.IDInstalacao) );
+
    if bloqueio.Sistema_DemoU then
          memo1.Lines.Add(  'DEMO')
    else
@@ -855,6 +878,303 @@ with frmdados do
 
  end;
 }
+
+end;
+
+procedure Tfrmprincipal.btnimportarClick(Sender: TObject);
+var
+  vardir:string;
+
+begin
+
+ try
+    abretabelas;
+    fechatodos;
+    vardir := extractfilepath(application.ExeName);
+    //carregadadosprincipais;
+    //frmprincipal.skin.Active := false;
+    frmprincipal.skin.SkinFile := '';
+
+    odpExec.InitialDir := frmdados.cds_indice.fieldbyname('importarpara').AsString;
+    odpExec.FileName := '*.txt';
+    odpExec.Filter := '*.txt';
+    if odpExec.Execute then
+       begin
+
+         scaminho := odpExec.FileName;
+         frmdados.importarnfc;
+         deletefile(scaminho);
+         application.MessageBox('Pedido importado com sucesso','caption',mb_ok);
+       end;
+    //endi
+
+
+ finally
+
+
+    skin.SkinFile := vardir+'skin.skn';
+
+    if frmpesqnf <> nil then
+       begin
+         frmpesqnf.pctdados.ActivePageIndex := 0;
+       end;
+
+
+    fechatabelas;
+
+
+ end;
+
+
+
+end;
+
+procedure tfrmprincipal.abretabelas();
+begin
+  frmdados.cds_clientes.Active := false;
+frmdados.sql_clientes.Active := false;
+frmdados.sql_clientes.SQL.Clear;
+frmdados.sql_clientes.SQL.Add('select * from clientes');
+frmdados.sql_clientes.Active := true;
+frmdados.cds_clientes.Active := true;
+
+
+frmdados.cds_fornecedores.Active := false;
+frmdados.sql_fornecedores.Active := false;
+frmdados.sql_fornecedores.SQL.Clear;
+frmdados.sql_fornecedores.SQL.Add('select * from fornecedores');
+frmdados.sql_fornecedores.Active := true;
+frmdados.cds_fornecedores.Active := true;
+
+frmdados.cds_clientes.Active := false;
+frmdados.sql_clientes.Active := false;
+frmdados.sql_clientes.SQL.Clear;
+frmdados.sql_clientes.SQL.Add('select * from clientes');
+frmdados.sql_clientes.Active := true;
+frmdados.cds_clientes.Active := true;
+
+
+frmdados.sql_nf.Active := true;
+frmdados.cds_nf.Active := true;
+
+frmdados.sql_nfp.Active := true;
+frmdados.cds_nfp.Active := true;
+
+frmdados.sql_nfs.Active := true;
+frmdados.cds_nfs.Active := true;
+
+frmdados.sql_emitente.Active := true;
+frmdados.cds_emitente.Active := true;
+
+frmdados.sql_icms.Active := true;
+frmdados.cds_icms.Active := true;
+frmdados.cds_icms.Filtered := false;
+
+frmdados.sql_ipi.Active := true;
+frmdados.cds_ipi.Active := true;
+
+frmdados.sql_cf.Active := true;
+frmdados.cds_cf.Active := true;
+
+frmdados.sql_sita.Active := true;
+frmdados.cds_sita.Active := true;
+
+frmdados.sql_sitb.Active := true;
+frmdados.cds_sitb.Active := true;
+
+frmdados.sql_modbc.Active := true;
+frmdados.cds_modbc.Active := true;
+
+frmdados.sql_modbcst.Active := true;
+frmdados.cds_modbcst.Active := true;
+
+frmdados.sql_impostoII.Active := true;
+frmdados.cds_impostoII.Active := true;
+
+frmdados.sql_pis.Active := true;
+frmdados.cds_pis.Active := true;
+
+frmdados.sql_cofins.Active := true;
+frmdados.cds_cofins.Active := true;
+
+
+frmdados.sql_cfop.Active := true;
+frmdados.cds_cfop.Active := true;
+
+
+frmdados.sql_impostoIII.Active := true;
+frmdados.cds_impostoIII.Active := true;
+
+
+frmdados.sql_csosn.Active := true;
+frmdados.cds_csosn.Active := true;
+
+
+frmdados.cds_produtos.Active := false;
+frmdados.sql_produtos.Active := false;
+frmdados.sql_produtos.SQL.Clear;
+frmdados.sql_produtos.SQL.Add('select * from produtos');
+frmdados.sql_produtos.Active := true;
+frmdados.cds_produtos.Active := true;
+
+
+frmdados.sql_tiposerv.Active := true;
+frmdados.cds_tiposerv.Active := true;
+
+
+frmdados.sql_rcserv.Active := true;
+frmdados.cds_rcserv.Active := true;
+
+
+frmdados.sql_impostoI.Active := true;
+frmdados.cds_impostoI.Active := true;
+
+
+frmdados.sql_Munic.Active := true;
+frmdados.cds_Munic.Active := true;
+
+
+frmdados.sql_Estados.Active := true;
+frmdados.cds_Estados.Active := true;
+
+
+frmdados.sql_Paises.Active := true;
+frmdados.cds_Paises.Active := true;
+
+
+frmdados.sql_natop.Active := true;
+frmdados.cds_natop.Active := true;
+
+frmdados.sql_unidade.Active := true;
+frmdados.cds_unidade.Active := true;
+
+
+
+frmdados.cds_Temp.Active := true;
+
+end;
+
+procedure tfrmprincipal.fechatabelas();
+begin
+ frmdados.cds_clientes.Active := false;
+frmdados.sql_clientes.Active := false;
+frmdados.sql_clientes.SQL.Clear;
+frmdados.sql_clientes.SQL.Add('select * from clientes');
+frmdados.sql_clientes.Active := false;
+frmdados.cds_clientes.Active := false;
+
+
+frmdados.cds_fornecedores.Active := false;
+frmdados.sql_fornecedores.Active := false;
+frmdados.sql_fornecedores.SQL.Clear;
+frmdados.sql_fornecedores.SQL.Add('select * from fornecedores');
+frmdados.sql_fornecedores.Active := false;
+frmdados.cds_fornecedores.Active := false;
+
+frmdados.cds_clientes.Active := false;
+frmdados.sql_clientes.Active := false;
+frmdados.sql_clientes.SQL.Clear;
+frmdados.sql_clientes.SQL.Add('select * from clientes');
+frmdados.sql_clientes.Active := false;
+frmdados.cds_clientes.Active := false;
+
+frmdados.sql_nf.Active := false;
+frmdados.cds_nf.Active := false;
+
+frmdados.sql_nfp.Active := false;
+frmdados.cds_nfp.Active := false;
+
+frmdados.sql_nfs.Active := false;
+frmdados.cds_nfs.Active := false;
+
+frmdados.sql_emitente.Active := false;
+frmdados.cds_emitente.Active := false;
+
+frmdados.sql_icms.Active := false;
+frmdados.cds_icms.Active := false;
+frmdados.cds_icms.Filtered := false;
+
+frmdados.sql_ipi.Active := false;
+frmdados.cds_ipi.Active := false;
+
+frmdados.sql_cf.Active := false;
+frmdados.cds_cf.Active := false;
+
+frmdados.sql_sita.Active := false;
+frmdados.cds_sita.Active := false;
+
+frmdados.sql_sitb.Active := false;
+frmdados.cds_sitb.Active := false;
+
+frmdados.sql_modbc.Active := false;
+frmdados.cds_modbc.Active := false;
+
+frmdados.sql_modbcst.Active := false;
+frmdados.cds_modbcst.Active := false;
+
+frmdados.sql_impostoII.Active := false;
+frmdados.cds_impostoII.Active := false;
+
+frmdados.sql_pis.Active := false;
+frmdados.cds_pis.Active := false;
+
+frmdados.sql_cofins.Active := false;
+frmdados.cds_cofins.Active := false;
+
+
+frmdados.sql_cfop.Active := false;
+frmdados.cds_cfop.Active := false;
+
+
+frmdados.sql_impostoIII.Active := false;
+frmdados.cds_impostoIII.Active := false;
+
+
+frmdados.sql_csosn.Active := false;
+frmdados.cds_csosn.Active := false;
+
+
+frmdados.cds_produtos.Active := false;
+frmdados.sql_produtos.Active := false;
+frmdados.sql_produtos.SQL.Clear;
+frmdados.sql_produtos.SQL.Add('select * from produtos');
+frmdados.sql_produtos.Active := false;
+frmdados.cds_produtos.Active := false;
+
+
+frmdados.sql_tiposerv.Active := false;
+frmdados.cds_tiposerv.Active := false;
+
+
+frmdados.sql_rcserv.Active := false;
+frmdados.cds_rcserv.Active := false;
+
+
+frmdados.sql_impostoI.Active := false;
+frmdados.cds_impostoI.Active := false;
+
+
+frmdados.sql_Munic.Active := false;
+frmdados.cds_Munic.Active := false;
+
+
+frmdados.sql_Estados.Active := false;
+frmdados.cds_Estados.Active := false;
+
+
+frmdados.sql_Paises.Active := false;
+frmdados.cds_Paises.Active := false;
+
+
+frmdados.sql_natop.Active := false;
+frmdados.cds_natop.Active := false;
+
+frmdados.sql_unidade.Active := false;
+frmdados.cds_unidade.Active := false;
+
+
+
+
 
 end;
 

@@ -222,15 +222,16 @@ object frmpesqClientes: TfrmpesqClientes
         'nota '
         'para CPF voc'#234' '
         'deve '
-        'dexar RG/IE sem'
+        'dexar IE sem'
         'preencher'
         ''
         '4) Para emitir nota '
         'onde'
         'o IE '#233' isento voc'#234' '
         'deve'
-        'deixar RG/IE sem '
-        'preencher'
+        'deixar IE sem '
+        'preencher ou '
+        'digitar ISENTO'
         ''
         '5) Campo Telefone '
         'S'#243' dever'
@@ -240,7 +241,7 @@ object frmpesqClientes: TfrmpesqClientes
         'telefone'
         ''
         '6) QUando voc'#234' '
-        'importa o cliente'
+        'importar o cliente'
         'de outro sistema, '
         'por '
         'exemplo: '
@@ -444,9 +445,9 @@ object frmpesqClientes: TfrmpesqClientes
         object Label7: TLabel
           Left = 490
           Top = 33
-          Width = 37
+          Width = 13
           Height = 13
-          Caption = 'RG/IE'
+          Caption = 'IE'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clRed
           Font.Height = -11
@@ -733,9 +734,9 @@ object frmpesqClientes: TfrmpesqClientes
           OnKeyPress = edinomeKeyPress
         end
         object ediie: TEdit
-          Left = 539
+          Left = 512
           Top = 29
-          Width = 230
+          Width = 257
           Height = 21
           CharCase = ecUpperCase
           TabOrder = 1
