@@ -53,20 +53,25 @@ begin
 
  XMLDocument1.Active := False;
  //XMLDocument1.LoadFromFile('http://www.buscarcep.com.br/?cep='+StringReplace(ediCep.Text,'-','',[rfReplaceAll])+'&formato=xml');
- XMLDocument1.LoadFromFile('http://www.buscarcep.com.br/?cep='+StringReplace(ediCep.Text,'-','',[rfReplaceAll])+'&formato=xml&chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString);
+ //XMLDocument1.LoadFromFile('http://www.buscarcep.com.br/?cep='+StringReplace(ediCep.Text,'-','',[rfReplaceAll])+'&formato=xml&chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString);
+ //showmessage('http://www.buscarcep.com.br/?cep='+StringReplace(ediCep.Text,'-','',[rfReplaceAll])+'&formato=xml&chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString);
+ XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/webservice.php/?chave=17JBJpoO2tCCCsMwbqmEGVqcZEO3FL1&pesquisa=CEP&valor=69960-000');
+
 
 
  XMLDocument1.Active := True;
- ediCepResp.Text := XMLDocument1.ChildNodes['webservicecep'].ChildNodes['retorno'].ChildNodes['cep'].Text;
- ediUF.Text      := XMLDocument1.ChildNodes['webservicecep'].ChildNodes['retorno'].ChildNodes['uf'].Text;
- ediCidade.Text  := XMLDocument1.ChildNodes['webservicecep'].ChildNodes['retorno'].ChildNodes['cidade'].Text;
- ediBairro.Text  := XMLDocument1.ChildNodes['webservicecep'].ChildNodes['retorno'].ChildNodes['bairro'].Text;
- ediTipoLog.Text := XMLDocument1.ChildNodes['webservicecep'].ChildNodes['retorno'].ChildNodes['tipo_logradouro'].Text;
- ediLogradouro.Text   := XMLDocument1.ChildNodes['webservicecep'].ChildNodes['retorno'].ChildNodes['logradouro'].Text;
- ediResultado.Text    := XMLDocument1.ChildNodes['webservicecep'].ChildNodes['retorno'].ChildNodes['resultado'].Text;
- ediResultadoTXT.Text := XMLDocument1.ChildNodes['webservicecep'].ChildNodes['retorno'].ChildNodes['resultado_txt'].Text;
- ediUFIBGE.Text       := XMLDocument1.ChildNodes['webservicecep'].ChildNodes['retorno'].ChildNodes['ibge_uf'].Text;
- ediCidadeIBGE.Text   := XMLDocument1.ChildNodes['webservicecep'].ChildNodes['retorno'].ChildNodes['ibge_municipio'].Text;
+ //XMLDocument1.SaveToFile('c:\resposta.xml');
+
+ ediCepResp.Text := XMLDocument1.ChildNodes['response'].ChildNodes['cep'].Text;
+ ediUF.Text      := XMLDocument1.ChildNodes['response'].ChildNodes['uf'].Text;
+ ediCidade.Text  := XMLDocument1.ChildNodes['response'].ChildNodes['cidade'].Text;
+ ediBairro.Text  := XMLDocument1.ChildNodes['response'].ChildNodes['bairro'].Text;
+ ediTipoLog.Text := XMLDocument1.ChildNodes['response'].ChildNodes['tipo_logradouro'].Text;
+ ediLogradouro.Text   := XMLDocument1.ChildNodes['response'].ChildNodes['logradouro'].Text;
+ ediResultado.Text    := XMLDocument1.ChildNodes['response'].ChildNodes['resultado'].Text;
+ ediResultadoTXT.Text := XMLDocument1.ChildNodes['response'].ChildNodes['resultado_txt'].Text;
+ ediUFIBGE.Text       := XMLDocument1.ChildNodes['response'].ChildNodes['ibge_uf'].Text;
+ ediCidadeIBGE.Text   := XMLDocument1.ChildNodes['response'].ChildNodes['ibge_municipio'].Text;
 
  edidigito.Text := DigitoCidade(ediCidadeIBGE.Text);
 

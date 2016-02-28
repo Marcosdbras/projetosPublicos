@@ -163,6 +163,14 @@ object frmpcodibge: Tfrmpcodibge
     Text = 'EDIDIGITO'
   end
   object XMLDocument1: TXMLDocument
+    XML.Strings = (
+      '<?xml version="1.0" encoding="utf-8" ?><response>'
+      
+        '<cep>69960-000</cep><uf>AC</uf><cidade>feijo</cidade><bairro></b' +
+        'airro><tipo_logradouro></tipo_logradouro><logradouro></logradour' +
+        'o><resultado></resultado><resultado_txt></resultado_txt><ibge_uf' +
+        '>12</ibge_uf><ibge_municipio>1200302</ibge_municipio><erro>0</er' +
+        'ro><msgerro></msgerro></response>')
     Left = 48
     Top = 16
     DOMVendorDesc = 'MSXML'

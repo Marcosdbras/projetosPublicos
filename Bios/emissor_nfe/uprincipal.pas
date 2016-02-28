@@ -904,6 +904,7 @@ begin
          scaminho := odpExec.FileName;
          frmdados.importarnfc;
          deletefile(scaminho);
+         // testar mais tarde -> skin.SkinFile := vardir+'skin.skn';
          application.MessageBox('Pedido importado com sucesso','caption',mb_ok);
        end;
     //endi
