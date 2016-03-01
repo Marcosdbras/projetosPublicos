@@ -27,6 +27,10 @@ type
     XMLDocument1: TXMLDocument;
     edidigito: TEdit;
     IdHTTP1: TIdHTTP;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
     procedure btnconsultacepClick(Sender: TObject);
     procedure btncancelarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -154,7 +158,7 @@ begin
      (strtoint(ediresultado.Text) = 0)
   then
      begin
-       exit;
+       //exit;
      end;
   //endi
 

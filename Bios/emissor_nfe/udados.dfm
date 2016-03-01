@@ -1,10 +1,10 @@
 object frmdados: Tfrmdados
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 65532
-  Top = 65532
-  Height = 746
-  Width = 1374
+  Left = 1
+  Top = 1
+  Height = 736
+  Width = 1022
   object cds_Paises: TClientDataSet
     Aggregates = <>
     FieldDefs = <

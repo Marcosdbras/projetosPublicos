@@ -174,7 +174,7 @@ vardir := extractfilepath(application.ExeName);
    memo1.Lines.Clear;
 
    memo1.Lines.Add('1) Acesse o site www.marcosbras.com ');
-   memo1.Lines.Add('2) Clique nos links comunicações / Chaves & Desbloqueio');
+   memo1.Lines.Add('2) Clique nos links contate-nos / Chaves & Desbloqueio');
    memo1.Lines.Add('3) No final da página localize a frase');
    memo1.Lines.Add('   Você precisa fazer o login para publicar um comentário.');
    memo1.Lines.Add('4) Clique em LOGIN');

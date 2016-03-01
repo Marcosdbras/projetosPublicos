@@ -1,8 +1,8 @@
 object frmpcodibge: Tfrmpcodibge
-  Left = 405
+  Left = 408
   Top = 267
-  Width = 442
-  Height = 279
+  Width = 497
+  Height = 327
   BorderIcons = []
   Caption = 'Consulta C'#243'digo IBGE na Internet'
   Color = clBtnFace
@@ -16,22 +16,80 @@ object frmpcodibge: Tfrmpcodibge
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 10
+    Top = 190
+    Width = 436
+    Height = 13
+    Caption = 
+      'Este sistema utiliza base de dados pr'#243'prio para consulta de cep ' +
+      'dos correios'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 10
+    Top = 206
+    Width = 473
+    Height = 13
+    Caption = 
+      'se voc'#234' n'#227'o conseguir localizar o cep desejado, pe'#231'o por gentile' +
+      'za que nos envie '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 10
+    Top = 223
+    Width = 452
+    Height = 13
+    Caption = 
+      'o mesmo  para que possamos inseri-lo em nossa base de dados, com' +
+      'unique-nos'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 10
+    Top = 240
+    Width = 321
+    Height = 13
+    Caption = 'atrav'#233's do site www.marcosbras.com op'#231#227'o contate-nos'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object btninserir: TBitBtn
-    Left = 256
-    Top = 16
+    Left = 328
+    Top = 273
     Width = 75
     Height = 25
     Caption = '&Inserir'
-    TabOrder = 0
+    TabOrder = 14
     OnClick = btninserirClick
   end
   object btncancelar: TBitBtn
-    Left = 336
-    Top = 16
+    Left = 408
+    Top = 273
     Width = 75
     Height = 25
     Caption = '&Cancelar'
-    TabOrder = 1
+    TabOrder = 15
     OnClick = btncancelarClick
   end
   object edicep: TMaskEdit
@@ -41,7 +99,7 @@ object frmpcodibge: Tfrmpcodibge
     Height = 21
     EditMask = '00000\-999;1;_'
     MaxLength = 9
-    TabOrder = 2
+    TabOrder = 0
     Text = '     -   '
   end
   object btnconsultacep: TBitBtn
@@ -50,25 +108,25 @@ object frmpcodibge: Tfrmpcodibge
     Width = 81
     Height = 25
     Caption = 'Consulta CEP'
-    TabOrder = 3
+    TabOrder = 1
     OnClick = btnconsultacepClick
   end
   object memores: TMemo
-    Left = 344
-    Top = 256
+    Left = 593
+    Top = 136
     Width = 65
     Height = 73
     Lines.Strings = (
       'memores')
-    TabOrder = 4
+    TabOrder = 2
     Visible = False
   end
   object edicepresp: TEdit
-    Left = 272
-    Top = 256
+    Left = 521
+    Top = 136
     Width = 65
     Height = 21
-    TabOrder = 5
+    TabOrder = 3
     Text = 'edicepresp'
     Visible = False
   end
@@ -78,7 +136,7 @@ object frmpcodibge: Tfrmpcodibge
     Width = 57
     Height = 21
     CharCase = ecUpperCase
-    TabOrder = 6
+    TabOrder = 4
     Text = 'EDIUF'
   end
   object edicidade: TEdit
@@ -87,7 +145,7 @@ object frmpcodibge: Tfrmpcodibge
     Width = 137
     Height = 21
     CharCase = ecUpperCase
-    TabOrder = 7
+    TabOrder = 5
     Text = 'EDICIDADE'
   end
   object edibairro: TEdit
@@ -96,7 +154,7 @@ object frmpcodibge: Tfrmpcodibge
     Width = 193
     Height = 21
     CharCase = ecUpperCase
-    TabOrder = 8
+    TabOrder = 6
     Text = 'EDIBAIRRO'
   end
   object editipolog: TEdit
@@ -105,7 +163,7 @@ object frmpcodibge: Tfrmpcodibge
     Width = 201
     Height = 21
     CharCase = ecUpperCase
-    TabOrder = 9
+    TabOrder = 7
     Text = 'EDITIPOLOG'
   end
   object edilogradouro: TEdit
@@ -114,52 +172,54 @@ object frmpcodibge: Tfrmpcodibge
     Width = 401
     Height = 21
     CharCase = ecUpperCase
-    TabOrder = 10
+    TabOrder = 8
     Text = 'EDILOGRADOURO'
   end
   object ediresultado: TEdit
+    Left = 529
+    Top = 248
+    Width = 73
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 9
+    Text = 'EDIRESULTADO'
+    Visible = False
+  end
+  object ediresultadotxt: TEdit
+    Left = 521
+    Top = 216
+    Width = 321
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 10
+    Text = 'EDIRESULTADOTXT'
+    Visible = False
+  end
+  object ediufibge: TEdit
     Left = 8
-    Top = 160
+    Top = 158
     Width = 73
     Height = 21
     CharCase = ecUpperCase
     TabOrder = 11
-    Text = 'EDIRESULTADO'
-  end
-  object ediresultadotxt: TEdit
-    Left = 88
-    Top = 160
-    Width = 321
-    Height = 21
-    CharCase = ecUpperCase
-    TabOrder = 12
-    Text = 'EDIRESULTADOTXT'
-  end
-  object ediufibge: TEdit
-    Left = 8
-    Top = 192
-    Width = 73
-    Height = 21
-    CharCase = ecUpperCase
-    TabOrder = 13
     Text = 'EDIUFIBGE'
   end
   object edicidadeibge: TEdit
-    Left = 272
-    Top = 304
+    Left = 521
+    Top = 184
     Width = 65
     Height = 21
-    TabOrder = 14
+    TabOrder = 12
     Text = 'edicidadeibge'
     Visible = False
   end
   object edidigito: TEdit
     Left = 88
-    Top = 192
+    Top = 158
     Width = 321
     Height = 21
     CharCase = ecUpperCase
-    TabOrder = 15
+    TabOrder = 13
     Text = 'EDIDIGITO'
   end
   object XMLDocument1: TXMLDocument

@@ -1,5 +1,5 @@
 object frmpesqClientes: TfrmpesqClientes
-  Left = 149
+  Left = 75
   Top = 92
   Width = 968
   Height = 594
