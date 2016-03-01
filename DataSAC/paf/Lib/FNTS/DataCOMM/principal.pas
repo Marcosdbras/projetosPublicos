@@ -528,6 +528,9 @@ begin
                       qrcaixa_mov.sql.add(':VALOR,:VALOR,''100001'',3,''Venda DINHEIRO - ECF No. '+qrpdv.fieldbyname('numero').asstring+''')');
                       qrcaixa_mov.Params.ParamByName('datax').asdatetime := qrpdv.fieldbyname('data').asdatetime;
                       QRCAIXA_MOV.Params.ParamByName('VALOR').ASFLOAT := qrforma.fieldbyname('valor').asfloat;
+
+                      //showmessage( qrcaixa_mov.SQL.Text);
+
                       qrcaixa_mov.ExecSQL;
 
                       bachou := true;
@@ -555,6 +558,10 @@ begin
                       qrcaixa_mov.sql.add('0,:VALOR,''100001'',5,''Venda CHEQUE - ECF No. '+qrpdv.fieldbyname('numero').asstring+''')');
                       qrcaixa_mov.Params.ParamByName('datax').asdatetime := qrpdv.fieldbyname('data').asdatetime;
                       QRCAIXA_MOV.Params.ParamByName('VALOR').ASFLOAT := qrforma.fieldbyname('valor').asfloat;
+
+                      //showmessage( qrcaixa_mov.SQL.Text);
+
+
                       qrcaixa_mov.ExecSQL;
 
                       bachou := true;
@@ -597,6 +604,10 @@ begin
 
                     end;
 
+                      if length(stipocartao) = 0 then
+                         stipocartao := '7';
+                      //end
+
                       // lancamento do caixa
                       qrcaixa_mov.close;
                       qrcaixa_mov.sql.clear;
@@ -607,6 +618,10 @@ begin
                       qrcaixa_mov.sql.add('0,:VALOR,''100001'','+stipocartao+',''Venda '+ AnsiUpperCase(qrforma.fieldbyname('forma').asstring)  +' - ECF No. '+qrpdv.fieldbyname('numero').asstring+''')');
                       qrcaixa_mov.Params.ParamByName('datax').asdatetime := qrpdv.fieldbyname('data').asdatetime;
                       QRCAIXA_MOV.Params.ParamByName('VALOR').ASFLOAT := qrforma.fieldbyname('valor').asfloat;
+                      //aqui
+                      //showmessage( qrcaixa_mov.SQL.Text+'  stipocartao = '+stipocartao );
+
+
                       qrcaixa_mov.ExecSQL;
 
 
@@ -636,6 +651,9 @@ begin
                       qrcaixa_mov.sql.add('0,:VALOR,''100001'',4,''Venda CREDIARIO - ECF No. '+qrpdv.fieldbyname('numero').asstring+''')');
                       qrcaixa_mov.Params.ParamByName('datax').asdatetime := qrpdv.fieldbyname('data').asdatetime;
                       QRCAIXA_MOV.Params.ParamByName('VALOR').ASFLOAT := qrforma.fieldbyname('valor').asfloat;
+
+                      //showmessage( qrcaixa_mov.SQL.Text);
+
                       qrcaixa_mov.ExecSQL;
 
 
@@ -664,6 +682,9 @@ begin
                       qrcaixa_mov.sql.add('0,:VALOR,''100001'',40,''Venda CONVENIO - ECF No. '+qrpdv.fieldbyname('numero').asstring+''')');
                       qrcaixa_mov.Params.ParamByName('datax').asdatetime := qrpdv.fieldbyname('data').asdatetime;
                       QRCAIXA_MOV.Params.ParamByName('VALOR').ASFLOAT := qrforma.fieldbyname('valor').asfloat;
+
+                     //showmessage( qrcaixa_mov.SQL.Text);
+
                       qrcaixa_mov.ExecSQL;
 
 
