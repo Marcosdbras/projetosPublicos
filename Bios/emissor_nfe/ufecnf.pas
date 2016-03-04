@@ -1621,16 +1621,22 @@ end;
 procedure Tfrmfecnf.monta_nota;
 var
   f:TextFile;
+
   vardir, scnpjt, scnpje, siee, scepe, scnpjd, siet,sied, scepd, scfop, scf, sund, ssitb, ssita,
   smodbc, smodbcst, spis, scofins, scfopt, sipi, scsosn, scalciva:string;
+
   iItem, iI, iPos, icontador, icodigo, icontdup, iureg:integer;
+
   ffrete_unit, foutrasdesp_unit, fvalorseg_unit, fvalordesc_unit, ftotfrete_unit, ftotoutrasdesp_unit, ftotvalorseg_unit,
   ftotvalordesc_unit, fdiffrete_unit, fdifoutrasdesp_unit, fdifvalorseg_unit, fdifvalordesc_unit,  ftotp, fbcipi, fbcicms,
   fvipi, fvicms, ftotbcipi, ftotbcicms, ftotipi, ftoticms, faliqicms, faliqipi,freducaobcicms, freducaobcipi, icodcfopt,
-  ftotcredicms, fbasecalc:real;
+  ftotcredicms, fbasecalc, perc:real;
+
   Linha, scaminho, sobs, scnpj:String;
+
   bAut, bNaut, bSairLoop, bDesistiu, bautImp:boolean;
   saplicaliqfat, smodelocp, sdtecp, scoocp, scaixacp, sseriecp, scupom, smensagem:string;
+
   smsg: array of string;
   iicms, icfop,  icsosn, isitb, isita,  icf, icodufdest, icodufemi:integer;
   x, iregp, iregs:integer;
@@ -2838,24 +2844,22 @@ begin
       cds_nfp.Filter := 'cnf = '+inttostr(cds_nf.fieldbyname('codigo').asInteger);
       cds_nfp.Filtered := true;
 
-      if cds_nfp.RecordCount > 0 then
-         begin
-           ffrete_unit := strtofloat(  tirapontos( edivlrfrete.Text ) ) / cds_nfp.RecordCount;
-           foutrasdesp_unit := strtofloat(  tirapontos( edivlrout.Text ) ) / cds_nfp.RecordCount;
-           fvalorseg_unit   := strtofloat(  tirapontos( edivlrseg.Text ) ) / cds_nfp.RecordCount;
-           fvalordesc_unit  := strtofloat(  tirapontos( edivaldesc.Text ) ) / cds_nfp.RecordCount;
+      //if cds_nfp.RecordCount > 0 then
+      //   begin
 
-           ftotfrete_unit := ffrete_unit   * cds_nfp.RecordCount ;
-           ftotoutrasdesp_unit := foutrasdesp_unit  * cds_nfp.RecordCount ;
-           ftotvalorseg_unit := fvalorseg_unit   * cds_nfp.RecordCount ;
-           ftotvalordesc_unit := fvalordesc_unit  * cds_nfp.RecordCount ;
 
-           fdiffrete_unit :=   strtofloat(  tirapontos( edivlrfrete.Text ) ) -  ftotfrete_unit;
-           fdifoutrasdesp_unit := strtofloat(  tirapontos( edivlrout.Text ) ) - ftotoutrasdesp_unit;
-           fdifvalorseg_unit :=  strtofloat(  tirapontos( edivlrseg.Text ) ) - ftotvalorseg_unit;
-           fdifvalordesc_unit := strtofloat(  tirapontos( edivaldesc.Text ) ) - ftotvalordesc_unit;
 
-         end;
+      //ffrete_unit := strtofloat(  tirapontos( edivlrfrete.Text ) ) / cds_nfp.RecordCount;
+      //foutrasdesp_unit := strtofloat(  tirapontos( edivlrout.Text ) ) / cds_nfp.RecordCount;
+      //fvalorseg_unit   := strtofloat(  tirapontos( edivlrseg.Text ) ) / cds_nfp.RecordCount;
+      //fvalordesc_unit  := strtofloat(  tirapontos( edivaldesc.Text ) ) / ;
+
+      //ftotfrete_unit := ffrete_unit   * cds_nfp.RecordCount ;
+      //ftotoutrasdesp_unit := foutrasdesp_unit  * cds_nfp.RecordCount ;
+      //ftotvalorseg_unit := fvalorseg_unit   * cds_nfp.RecordCount ;
+      //ftotvalordesc_unit := fvalordesc_unit  * cds_nfp.RecordCount ;
+
+       //  end;
       //endi
 
       fvlrbasecalcicmsst := 0;
@@ -3223,15 +3227,32 @@ begin
 
           Writeln(f,'ValorTotal='+formatfloat('0.00',cds_nfp.fieldbyname('subtotal').asfloat));
 
-          Writeln(f,'vFrete='+formatfloat('0.00',ffrete_unit + fdiffrete_unit));
 
-          Writeln(f,'vOutro='+formatfloat('0.00',foutrasdesp_unit + fdifoutrasdesp_unit));
+          perc :=  cds_nfp.fieldbyname('subtotal').asfloat / strtofloat(tirapontos(lbltotal.Caption)) * 100;
 
-          Writeln(f,'vSeg='+formatfloat('0.00',fvalorseg_unit + fdifvalorseg_unit));
+          fvalordesc_unit := strtofloat(  tirapontos( edivaldesc.Text ) ) *  perc / 100;
 
-          Writeln(f,'vDesc='+formatfloat('0.00',fvalordesc_unit + fdifvalordesc_unit));
+          fvalorseg_unit := strtofloat(  tirapontos( edivlrseg.Text ) ) * perc / 100;
 
-          fsb_valorliquidoitem := cds_nfp.fieldbyname('subtotal').asfloat-((      cds_nfp.fieldbyname('qtde').asfloat*cds_nfp.fieldbyname('prve').asfloat)-cds_nfp.fieldbyname('subtotal').asfloat);
+          foutrasdesp_unit :=  strtofloat(  tirapontos( edivlrout.Text ) ) * perc / 100;
+
+          ffrete_unit :=   strtofloat(  tirapontos( edivlrfrete.Text ) ) * perc / 100;
+
+          ftotfrete_unit := ftotfrete_unit + ffrete_unit;
+          ftotoutrasdesp_unit := ftotoutrasdesp_unit + foutrasdesp_unit;
+          ftotvalorseg_unit := ftotvalorseg_unit + fvalorseg_unit;
+          ftotvalordesc_unit := ftotvalordesc_unit + fvalordesc_unit;
+          
+
+          Writeln(f,'vFrete='+formatfloat('0.00',ffrete_unit ));
+
+          Writeln(f,'vOutro='+formatfloat('0.00',foutrasdesp_unit ));
+
+          Writeln(f,'vSeg='+formatfloat('0.00',fvalorseg_unit ));
+
+          Writeln(f,'vDesc='+formatfloat('0.00',fvalordesc_unit ));
+
+          fsb_valorliquidoitem := cds_nfp.fieldbyname('subtotal').asfloat;   //-((      cds_nfp.fieldbyname('qtde').asfloat*cds_nfp.fieldbyname('prve').asfloat)-cds_nfp.fieldbyname('subtotal').asfloat);
 
           fsb_valorliquidocupom := fsb_valorliquidocupom+fsb_valorliquidoitem;
 
@@ -3443,8 +3464,8 @@ begin
    Writeln(f,'[Total]');
   Writeln(f,'BaseICMS='+formatfloat('0.00',ftotbcicms));
   Writeln(f,'ValorICMS='+formatfloat('0.00',ftoticms));
-  Writeln(f,'ValorProduto='+formatfloat('0.00',ftotp  - strtofloat(tirapontos(edivaldesc.text))  ));
-  //Writeln(f,'ValorProduto='+formatfloat('0.00',ftotp ));
+  //Writeln(f,'ValorProduto='+formatfloat('0.00',ftotp  - strtofloat(tirapontos(edivaldesc.text))  ));
+  Writeln(f,'ValorProduto='+formatfloat('0.00',ftotp ));
 
 
   if  strtofloat( tirapontos(edibscalcsubstrib.text )) > 0  then

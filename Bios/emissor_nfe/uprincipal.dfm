@@ -1,7 +1,7 @@
 object frmprincipal: Tfrmprincipal
   Left = 1
   Top = 1
-  Width = 1022
+  Width = 1359
   Height = 736
   Caption = 'Emissor de Nota Fiscal Eletr'#244'nica vers'#227'o 1.0 WebService 3.10'
   Color = clBtnFace
@@ -23,8 +23,8 @@ object frmprincipal: Tfrmprincipal
   object Image1: TImage
     Left = 0
     Top = 42
-    Width = 1337
-    Height = 591
+    Width = 1351
+    Height = 605
     Align = alClient
   end
   object Label1: TLabel
@@ -224,7 +224,7 @@ object frmprincipal: Tfrmprincipal
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1337
+    Width = 1351
     Height = 42
     Align = alTop
     BevelOuter = bvNone
@@ -295,8 +295,8 @@ object frmprincipal: Tfrmprincipal
   end
   object Panel2: TPanel
     Left = 0
-    Top = 633
-    Width = 1337
+    Top = 647
+    Width = 1351
     Height = 24
     Align = alBottom
     BevelOuter = bvNone
@@ -317,8 +317,8 @@ object frmprincipal: Tfrmprincipal
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 657
-    Width = 1337
+    Top = 671
+    Width = 1351
     Height = 19
     Panels = <>
   end
