@@ -1202,7 +1202,7 @@ object frmPesqVd: TfrmPesqVd
             Top = 19
             Width = 38
             Height = 21
-            ItemHeight = 0
+            ItemHeight = 13
             TabOrder = 2
             Text = 'cbxunid'
             OnExit = cbxunidExit

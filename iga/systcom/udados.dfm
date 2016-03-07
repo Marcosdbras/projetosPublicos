@@ -4,8 +4,8 @@ object frmDados: TfrmDados
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
   Left = 1
-  Height = 728
-  Width = 1036
+  Height = 713
+  Width = 1343
   object Sql_Dados: TSQLConnection
     ConnectionName = 'UIB FireBird15 Connection'
     DriverName = 'UIB FireBird15'
@@ -11545,6 +11545,9 @@ object frmDados: TfrmDados
     object Dbx_VendabCEMP: TIntegerField
       FieldName = 'CEMP'
     end
+    object Dbx_VendabCODICMS: TIntegerField
+      FieldName = 'CODICMS'
+    end
   end
   object Dsp_Vendab: TDataSetProvider
     DataSet = Dbx_Vendab
@@ -11725,6 +11728,9 @@ object frmDados: TfrmDados
     end
     object Cds_VendabCEMP: TIntegerField
       FieldName = 'CEMP'
+    end
+    object Cds_VendabCODICMS: TIntegerField
+      FieldName = 'CODICMS'
     end
   end
   object Dts_Vendab: TDataSource

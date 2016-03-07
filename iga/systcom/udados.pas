@@ -4458,6 +4458,8 @@ type
     cds_logtableHORA: TTimeField;
     dbx_logtableHISTORICO: TMemoField;
     cds_logtableHISTORICO: TMemoField;
+    Dbx_VendabCODICMS: TIntegerField;
+    Cds_VendabCODICMS: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure cds_Tipo_PgtoAfterPost(DataSet: TDataSet);

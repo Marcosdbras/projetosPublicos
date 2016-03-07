@@ -305,7 +305,9 @@ type
     sCab1, sCab2, sCab3, sCab4:string;
 
 
+    icsita, icsitb, icicms, icipi, iccfop,  icpis, iccofins:Integer;
 
+    
   public
     { Public declarations }
     bprocura:boolean;
@@ -451,6 +453,9 @@ begin
   lbltote.Caption := '0,00';
   icpro := 0;
   icuni := 0;
+  icicms := 0;
+  icsita :=0;
+
   icfun := 0;
   fpcomf := 0;
   iccli := 0;
@@ -1054,6 +1059,8 @@ with frmdados do
 
                                     icpro := 0;
                                     icuni := 0;
+                                    icicms := 0;
+                                    icsita := 0;
                                     fQtdeEstq := 0;
                                     sActDesc := 'T';
                                     pnlnpro.Caption := sDescricao;
@@ -1078,6 +1085,17 @@ with frmdados do
                           fprcu := dbx_vProdutos.fieldbyname('prcu').asfloat;
                           fQtdeEstq := dbx_vProdutos.fieldbyname('Qua').asfloat;
                           sActDesc := dbx_vProdutos.fieldbyname('ActDesc').asString;
+
+                          icsita := dbx_vProdutos.fieldbyname('codsita').asInteger;
+                          icsitb := dbx_vProdutos.fieldbyname('codsitb').asInteger;
+                          icicms := dbx_vProdutos.fieldbyname('sglimpfis').asInteger;
+                          icipi  := dbx_vProdutos.fieldbyname('codipi').asInteger;
+                          iccfop  := dbx_vProdutos.fieldbyname('ccfop').asInteger;
+
+                          icpis  := dbx_vProdutos.fieldbyname('cpis').asInteger;
+                          iccofins  := dbx_vProdutos.fieldbyname('ccofins').asInteger;
+
+
                           bMostrar := true;
                           sTipoCod := 'Codigo';
                         end
@@ -1135,6 +1153,18 @@ with frmdados do
                    fprcu := dbx_vProdutos.fieldbyname('prcu').asfloat;
                    fQtdeEstq := dbx_vProdutos.fieldbyname('Qua').asfloat;
                    sActDesc := dbx_vProdutos.fieldbyname('ActDesc').asString;
+
+                   icsita := dbx_vProdutos.fieldbyname('codsita').asInteger;
+                   icsitb := dbx_vProdutos.fieldbyname('codsitb').asInteger;
+                   icicms := dbx_vProdutos.fieldbyname('sglimpfis').asInteger;
+                   icipi  := dbx_vProdutos.fieldbyname('codipi').asInteger;
+                   iccfop  := dbx_vProdutos.fieldbyname('ccfop').asInteger;
+
+                   icpis  := dbx_vProdutos.fieldbyname('cpis').asInteger;
+                   iccofins  := dbx_vProdutos.fieldbyname('ccofins').asInteger;
+
+
+
                    bMostrar := true;
                    sTipoCod := 'Desc';
                  end
@@ -1150,6 +1180,20 @@ with frmdados do
               fprcu := dbx_vProdutos.fieldbyname('prcu').asfloat;
               fQtdeEstq := dbx_vProdutos.fieldbyname('qua').asfloat;
               sActDesc := dbx_vProdutos.fieldbyname('ActDesc').asString;
+
+
+              icsita := dbx_vProdutos.fieldbyname('codsita').asInteger;
+              icsitb := dbx_vProdutos.fieldbyname('codsitb').asInteger;
+              icicms := dbx_vProdutos.fieldbyname('sglimpfis').asInteger;
+              icipi  := dbx_vProdutos.fieldbyname('codipi').asInteger;
+              iccfop  := dbx_vProdutos.fieldbyname('ccfop').asInteger;
+
+              icpis  := dbx_vProdutos.fieldbyname('cpis').asInteger;
+              iccofins  := dbx_vProdutos.fieldbyname('ccofins').asInteger;
+
+
+
+
               bMostrar := true;
               sTipoCod := 'cAux';
             end
@@ -1165,6 +1209,19 @@ with frmdados do
          fprcu := dbx_vProdutos.fieldbyname('prcu').asfloat;
          fQtdeEstq := dbx_vProdutos.fieldbyname('Qua').asfloat;
          sActDesc := dbx_vProdutos.fieldbyname('ActDesc').asString;
+
+
+         icsita := dbx_vProdutos.fieldbyname('codsita').asInteger;
+         icsitb := dbx_vProdutos.fieldbyname('codsitb').asInteger;
+         icicms := dbx_vProdutos.fieldbyname('sglimpfis').asInteger;
+         icipi  := dbx_vProdutos.fieldbyname('codipi').asInteger;
+         iccfop  := dbx_vProdutos.fieldbyname('ccfop').asInteger;
+
+         icpis  := dbx_vProdutos.fieldbyname('cpis').asInteger;
+         iccofins  := dbx_vProdutos.fieldbyname('ccofins').asInteger;
+
+
+
          bMostrar := true;
          sTipoCod := 'cBar';
        end
@@ -1947,6 +2004,20 @@ with frmdados do
            dbx_Exec.SQL.Add('ItemEcf, ');
         //endi
 
+
+        if  icicms> 0 then
+           dbx_Exec.SQL.Add('codicms, ');
+        //endi
+
+
+        if  icsita> 0 then
+           dbx_Exec.SQL.Add('codsita, ');
+        //endi
+
+
+
+
+
         dbx_Exec.SQL.Add('controle');
 
         dbx_Exec.SQL.Add(')');
@@ -2000,6 +2071,16 @@ with frmdados do
         if sUltimoItem <> '' then
            dbx_Exec.SQL.Add(sUltimoItem+',');
         //endi
+
+
+        if icicms > 0 then
+           dbx_Exec.SQL.Add(inttostr(icicms)+',');
+        //endi
+
+        if icsita > 0 then
+           dbx_Exec.SQL.Add(inttostr(icsita)+',');
+        //endi
+
 
         dbx_Exec.SQL.Add(inttostr(iControle));
 

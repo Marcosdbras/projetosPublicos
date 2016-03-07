@@ -27,15 +27,13 @@ type
     XMLDocument1: TXMLDocument;
     edidigito: TEdit;
     IdHTTP1: TIdHTTP;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
+    Memo1: TMemo;
     procedure btnconsultacepClick(Sender: TObject);
     procedure btncancelarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btninserirClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Memo1Enter(Sender: TObject);
   private
     { Private declarations }
   public
@@ -59,7 +57,7 @@ begin
  //XMLDocument1.LoadFromFile('http://www.buscarcep.com.br/?cep='+StringReplace(ediCep.Text,'-','',[rfReplaceAll])+'&formato=xml');
  //XMLDocument1.LoadFromFile('http://www.buscarcep.com.br/?cep='+StringReplace(ediCep.Text,'-','',[rfReplaceAll])+'&formato=xml&chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString);
  //showmessage('http://www.buscarcep.com.br/?cep='+StringReplace(ediCep.Text,'-','',[rfReplaceAll])+'&formato=xml&chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString);
- XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wscep.php');
+ XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wscep.php?chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString+'&campo=CEP'+'&valor='+ediCep.Text);
 
 
 
@@ -296,6 +294,11 @@ begin
      end;
   //endi
 
+end;
+
+procedure Tfrmpcodibge.Memo1Enter(Sender: TObject);
+begin
+SelectNext(ActiveControl,True,True);
 end;
 
 end.
