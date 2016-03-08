@@ -607,7 +607,7 @@ object frmPesqVd: TfrmPesqVd
         Top = 106
         Width = 939
         Height = 367
-        ActivePage = TbsProdutos
+        ActivePage = tbsDadosG
         Align = alClient
         MultiLine = True
         TabOrder = 1
