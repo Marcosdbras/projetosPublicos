@@ -5562,7 +5562,9 @@ var f:textfile;
     sFone,
     sFantasia,
     sNomeRazao,
-    sprocura:string;
+    sprocura,
+    scidade,
+    sestado:string;
 
     iInicio, icoddest:integer;
 begin
@@ -5674,6 +5676,15 @@ begin
               sBairro := copy(linha,8,length(linha));
            //endi
 
+           if pos('Cidade=',Linha) > 0 then
+              sCidade := copy(linha,8,length(linha));
+           //endi
+
+           if pos('Estado=',Linha) > 0 then
+              sEstado := copy(linha,8,length(linha));
+           //endi
+
+
          end;
       //endi
 
@@ -5687,6 +5698,14 @@ begin
 
   if sprocura = 'cliente' then
      begin
+
+       cds_clientes.Active := false;
+       sql_clientes.Active := false;
+       sql_clientes.SQL.Clear;
+       sql_clientes.SQL.Add('select * from clientes');
+
+       sql_clientes.Active := true;
+       cds_clientes.Active := true;
 
        if not cds_clientes.Locate('codigo',strtoint(scodigo),[]) then
           begin
@@ -5718,7 +5737,7 @@ begin
           end;
        //endi
 
-
+       //aqui
        cds_nf.Last;
        //icodnf := cds_nf.FieldByName('codigo').AsInteger + 1;
 

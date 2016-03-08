@@ -1315,6 +1315,22 @@ vardir := extractfilepath(application.ExeName);
   codigo := '';
   nome := '';
 
+  Cds_Clientes.Active   := false;
+  Dbx_Clientes.Active := false;
+  Dbx_Clientes.SQL.Clear;
+  Dbx_Clientes.SQL.Add('select * from clientes');
+  Dbx_Clientes.Active := true;
+  Cds_Clientes.Active := true;
+
+  if Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
+     begin
+       codigo := Cds_Clientes.fieldbyname('codigo').AsString;
+       nome := Cds_Clientes.fieldbyname('nome').AsString;;
+
+     end;
+
+
+
   cds_sita.Active := false;
   dbx_sita.Active := false;
   dbx_sita.sql.Clear;
@@ -1343,21 +1359,6 @@ vardir := extractfilepath(application.ExeName);
   cds_unidade.Active := true;
   cds_unidade.Active := true;
 
-  Cds_Clientes.Active   := false;
-  Dbx_Clientes.Active := false;
-  Dbx_Clientes.SQL.Clear;
-  Dbx_Clientes.SQL.Add('select * from clientes');
-  Dbx_Clientes.Active := true;
-  Cds_Clientes.Active := true;
-
-
-  if Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
-     begin
-       codigo := Cds_Clientes.fieldbyname('codigo').AsString;
-       nome := Cds_Clientes.fieldbyname('nome').AsString;;
-
-     end;
-
   AssignFile(f,vardir+'venda_nro' + inttostr( Cds_sVenda.fieldbyname('codigo').asInteger ) + nome + codigo +'.txt');
   rewrite(f);
 
@@ -1374,6 +1375,8 @@ vardir := extractfilepath(application.ExeName);
        Writeln(f,'Numero='+cds_clientes.fieldbyname('nroent').asString);
        Writeln(f,'Complemento='+cds_clientes.fieldbyname('complent').asString);
        Writeln(f,'Bairro='+cds_clientes.fieldbyname('bairroent').asString);
+       Writeln(f,'Cidade='+cds_clientes.fieldbyname('cidadeent').asString);
+       Writeln(f,'Estado='+cds_clientes.fieldbyname('estadoent').asString);
      end;
   //endi
 

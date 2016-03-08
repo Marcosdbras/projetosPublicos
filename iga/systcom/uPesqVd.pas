@@ -346,6 +346,13 @@ begin
        //endth
        Cds_AliqImpFis.Active := true;
 
+       Cds_sita.Active := false;
+       Dbx_sita.Active := false;
+       Dbx_sita.SQL.Clear;
+       Dbx_sita.SQL.Add('Select * from sita');
+       Dbx_sita.Active := true;
+       Cds_sita.Active := true;
+
        Cds_tipotab.Active := false;
        Dbx_tipotab.Active := false;
        Dbx_tipotab.SQL.Clear;
@@ -949,6 +956,7 @@ with frmdados do
                           iccf   := 0;
                           icsita := 0;
                           icgru := 0;
+                          
                           icMar  := 0;
                           icsitb := 0;
                           icicms := 0;
@@ -987,6 +995,7 @@ with frmdados do
                           icsita := dbx_vProdutos.fieldbyname('codsita').asInteger;
                           icgru := dbx_vProdutos.fieldbyname('cgru').asInteger;
 
+                          
                           icMar := dbx_vProdutos.fieldbyname('cmar').asInteger;
 
                           icsitb := dbx_vProdutos.fieldbyname('codsitb').asInteger;
@@ -1038,6 +1047,7 @@ with frmdados do
                        iccf   := 0;
                        icsita := 0;
                        icgru := 0;
+                       
                        icMar  := 0;
                        icsitb := 0;
                        icicms := 0;
@@ -1073,8 +1083,10 @@ with frmdados do
                    bimpnf := true;
 
                    iccf   := dbx_vProdutos.fieldbyname('codcf').asInteger;
-                   icsita := dbx_vProdutos.fieldbyname('codsita').asInteger;
+                   
                    icgru := dbx_vProdutos.fieldbyname('cgru').asInteger;
+
+                   icsita := dbx_vProdutos.fieldbyname('codsita').asInteger;
 
                    icMar := dbx_vProdutos.fieldbyname('cMar').asInteger;
                    
@@ -1701,6 +1713,9 @@ with frmdados do
                  dbx_Exec.SQL.Add('cgru, ');
               //endi
 
+
+
+
               //31
               dbx_Exec.SQL.Add('indtot, ');
 
@@ -1866,6 +1881,8 @@ with frmdados do
               if icgru > 0 then
                  dbx_Exec.SQL.Add(inttostr(icgru)+',');
               //endi
+
+
 
               //31
               if bindtot then
@@ -3631,6 +3648,9 @@ begin
        Writeln(f,'Numero='+frmdados.cds_clientes.fieldbyname('nroent').asString);
        Writeln(f,'Complemento='+frmdados.cds_clientes.fieldbyname('complent').asString);
        Writeln(f,'Bairro='+frmdados.cds_clientes.fieldbyname('bairroent').asString);
+       Writeln(f,'Cidade='+frmdados.cds_clientes.fieldbyname('Cidadeent').asString);
+       Writeln(f,'Estado='+frmdados.cds_clientes.fieldbyname('estadoent').asString);
+
      end;
   //endi
 
@@ -3676,6 +3696,16 @@ begin
       //endi
 
 
+      if frmdados.Cds_sita.Locate('codigo',frmdados.cds_dvenda.fieldbyname('codsita').AsInteger,[]) then
+         begin
+           Writeln(f,'ORIGEM='+frmdados.cds_sita.fieldbyname('sigla').asString);
+         end;
+      //endi
+
+
+
+
+
       frmdados.Cds_dVenda.Next;
 
     end;
@@ -3683,6 +3713,8 @@ begin
 
   CloseFile(f);
 
+
+   showmessage('Exportação efetuada com sucesso');
 
 
 end;
