@@ -121,8 +121,8 @@ procedure Tfrmpesqfornecedores.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
 
-  frmdados.cds_fornecedores.Active := false;
-  frmdados.sql_fornecedores.Active := false;
+  //frmdados.cds_fornecedores.Active := false;
+  //frmdados.sql_fornecedores.Active := false;
 
   frmdados.cds_Munic.Active := false;
   frmdados.sql_Munic.Active := false;

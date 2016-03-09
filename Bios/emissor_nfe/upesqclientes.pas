@@ -121,8 +121,8 @@ procedure TfrmpesqClientes.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
 
-  frmdados.cds_clientes.Active := false;
-  frmdados.sql_clientes.Active := false;
+  //frmdados.cds_clientes.Active := false;
+  //frmdados.sql_clientes.Active := false;
 
   frmdados.cds_Munic.Active := false;
   frmdados.sql_Munic.Active := false;

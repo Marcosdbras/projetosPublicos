@@ -5486,9 +5486,21 @@ begin
       Writeln(f,'Complemento='+frmdados.Cds_clientes.fieldbyname('compl').asString);
       Writeln(f,'Bairro='+frmdados.Cds_clientes.fieldbyname('bairro').asString);
 
+      if cds_estados.Locate('codigo',frmdados.Cds_clientes.fieldbyname('cest').asInteger,[]) then
+         begin
+            Writeln(f,'Estado='+frmdados.Cds_estados.fieldbyname('sigla').asString);
+         end;
+      //endi
 
-      //Writeln(f,'Bairro='+frmdados.Cds_clientes.fieldbyname('Cidade').asString);
-      //Writeln(f,'Bairro='+frmdados.Cds_clientes.fieldbyname('Estdo').asString);
+      if cds_munic.Locate('codigo',frmdados.Cds_clientes.fieldbyname('cmun').asInteger,[]) then
+         begin
+           Writeln(f,'Cidade='+frmdados.Cds_munic.fieldbyname('Nome').asString);
+         end;
+      //endi
+
+
+
+
 
 
       //if frmdados.cds_Munic.Locate('codigo',frmdados.cds_clientes.fieldbyname('cmun').asInteger,[]) then
@@ -5534,6 +5546,20 @@ begin
       Writeln(f,'Numero='+frmdados.Cds_fornecedores.fieldbyname('nro').asString);
       Writeln(f,'Complemento='+frmdados.Cds_fornecedores.fieldbyname('compl').asString);
       Writeln(f,'Bairro='+frmdados.Cds_fornecedores.fieldbyname('bairro').asString);
+
+      if cds_estados.Locate('codigo',frmdados.Cds_fornecedores.fieldbyname('cest').asInteger,[]) then
+         begin
+            Writeln(f,'Estado='+frmdados.Cds_estados.fieldbyname('sigla').asString);
+         end;
+      //endi
+
+      if cds_munic.Locate('codigo',frmdados.Cds_fornecedores.fieldbyname('cmun').asInteger,[]) then
+         begin
+           Writeln(f,'Cidade='+frmdados.Cds_munic.fieldbyname('Nome').asString);
+         end;
+      //endi
+
+
 
 
       //Writeln(f,'Cidade='+frmdados.Cds_fornecedores.fieldbyname('Cidade').asString);
@@ -5794,7 +5820,7 @@ begin
           end;
        //endi
 
-       //aqui
+
 
 
 
@@ -5846,11 +5872,11 @@ begin
 
                        if cds_munic.Locate('nome',sCidade,[]) then
                           begin
-                          cds_clientes.FieldByName('cmun').asInteger := cds_munic.fieldbyname('codigo').AsInteger;
+                          cds_fornecedores.FieldByName('cmun').asInteger := cds_munic.fieldbyname('codigo').AsInteger;
                           end;
                        //endi
 
-                       cds_clientes.FieldByName('cest').AsInteger :=  cds_estados.fieldbyname('codigo').AsInteger;
+                       cds_fornecedores.FieldByName('cest').AsInteger :=  cds_estados.fieldbyname('codigo').AsInteger;
 
                     end;
                  //endi
@@ -6045,6 +6071,22 @@ begin
             Writeln(f,'Complemento='+frmdados.Cds_clientes.fieldbyname('compl').asString);
             Writeln(f,'Bairro='+frmdados.Cds_clientes.fieldbyname('bairro').asString);
 
+            if cds_estados.Locate('codigo',frmdados.Cds_clientes.fieldbyname('cest').asInteger,[]) then
+               begin
+                  Writeln(f,'Estado='+frmdados.Cds_estados.fieldbyname('sigla').asString);
+               end;
+            //endi
+
+            if cds_munic.Locate('codigo',frmdados.Cds_clientes.fieldbyname('cmun').asInteger,[]) then
+               begin
+                 Writeln(f,'Cidade='+frmdados.Cds_munic.fieldbyname('Nome').asString);
+               end;
+            //endi
+
+
+
+
+
             //Writeln(f,'Cidade='+frmdados.Cds_clientes.fieldbyname('cidade').asString);
             //Writeln(f,'Estado='+frmdados.Cds_clientes.fieldbyname('estado').asString);
 
@@ -6067,6 +6109,21 @@ begin
             Writeln(f,'Numero='+frmdados.Cds_fornecedores.fieldbyname('nro').asString);
             Writeln(f,'Complemento='+frmdados.Cds_fornecedores.fieldbyname('compl').asString);
             Writeln(f,'Bairro='+frmdados.Cds_fornecedores.fieldbyname('bairro').asString);
+
+
+            if cds_estados.Locate('codigo',frmdados.Cds_fornecedores.fieldbyname('cest').asInteger,[]) then
+               begin
+                  Writeln(f,'Estado='+frmdados.Cds_estados.fieldbyname('sigla').asString);
+               end;
+            //endi
+
+            if cds_munic.Locate('codigo',frmdados.Cds_fornecedores.fieldbyname('cmun').asInteger,[]) then
+               begin
+                 Writeln(f,'Cidade='+frmdados.Cds_munic.fieldbyname('Nome').asString);
+               end;
+            //endi
+
+
 
             //Writeln(f,'Cidade='+frmdados.Cds_fornecedores.fieldbyname('cidade').asString);
             //Writeln(f,'Estado='+frmdados.Cds_fornecedores.fieldbyname('estado').asString);

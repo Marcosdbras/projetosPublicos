@@ -584,8 +584,8 @@ begin
   frmdados.cds_cupom.Active := false;
   frmdados.sql_cupom.Active := false;
 
-  frmdados.cds_clientes.Active := false;
-  frmdados.sql_clientes.Active := false;
+  //frmdados.cds_clientes.Active := false;
+  //frmdados.sql_clientes.Active := false;
 
   frmdados.cds_emitente.Active := false;
   frmdados.sql_emitente.Active := false;
@@ -632,8 +632,8 @@ begin
   frmdados.cds_produtos.Active := false;
   frmdados.sql_produtos.Active := false;
 
-  frmdados.cds_fornecedores.Active := false;
-  frmdados.sql_fornecedores.Active := false;
+  //frmdados.cds_fornecedores.Active := false;
+  //frmdados.sql_fornecedores.Active := false;
 
   frmdados.cds_tiposerv.Active := false;
   frmdados.sql_tiposerv.Active := false;
