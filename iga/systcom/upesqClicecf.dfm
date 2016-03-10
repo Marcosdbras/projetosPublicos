@@ -194,6 +194,7 @@ object frmpesqClicecf: TfrmpesqClicecf
       Height = 17
       Alignment = taRightJustify
       DataField = 'CODIGO'
+      DataSource = frmDados.Dts_Clientes
     end
     object Label8: TLabel
       Left = 552
@@ -209,6 +210,7 @@ object frmpesqClicecf: TfrmpesqClicecf
       Height = 17
       Alignment = taRightJustify
       DataField = 'DTCAD'
+      DataSource = frmDados.Dts_Clientes
     end
     object DBEdit4: TDBEdit
       Left = 128
@@ -217,6 +219,7 @@ object frmpesqClicecf: TfrmpesqClicecf
       Height = 21
       CharCase = ecUpperCase
       DataField = 'FANTASIA'
+      DataSource = frmDados.Dts_Clientes
       TabOrder = 4
       OnKeyPress = DBEdit2KeyPress
     end
@@ -227,6 +230,7 @@ object frmpesqClicecf: TfrmpesqClicecf
       Height = 21
       CharCase = ecUpperCase
       DataField = 'NOME'
+      DataSource = frmDados.Dts_Clientes
       TabOrder = 3
       OnKeyPress = DBEdit2KeyPress
     end
@@ -237,6 +241,7 @@ object frmpesqClicecf: TfrmpesqClicecf
       Height = 21
       CharCase = ecUpperCase
       DataField = 'CPF'
+      DataSource = frmDados.Dts_Clientes
       TabOrder = 1
       OnEnter = DBEdit1Enter
       OnExit = DBEdit1Exit
@@ -249,6 +254,7 @@ object frmpesqClicecf: TfrmpesqClicecf
       Height = 21
       CharCase = ecUpperCase
       DataField = 'IE'
+      DataSource = frmDados.Dts_Clientes
       TabOrder = 2
       OnKeyPress = DBEdit2KeyPress
     end
@@ -308,6 +314,7 @@ object frmpesqClicecf: TfrmpesqClicecf
           Height = 21
           CharCase = ecUpperCase
           DataField = 'TELEFONES'
+          DataSource = frmDados.Dts_Clientes
           TabOrder = 0
           OnKeyPress = DBEdit2KeyPress
         end
@@ -318,6 +325,7 @@ object frmpesqClicecf: TfrmpesqClicecf
           Height = 21
           CharCase = ecLowerCase
           DataField = 'EMAIL'
+          DataSource = frmDados.Dts_Clientes
           TabOrder = 1
           OnKeyPress = DBEdit2KeyPress
         end
@@ -328,6 +336,7 @@ object frmpesqClicecf: TfrmpesqClicecf
           Height = 21
           CharCase = ecLowerCase
           DataField = 'SITE'
+          DataSource = frmDados.Dts_Clientes
           TabOrder = 2
           OnKeyPress = DBEdit2KeyPress
         end
@@ -338,6 +347,7 @@ object frmpesqClicecf: TfrmpesqClicecf
           Height = 21
           CharCase = ecUpperCase
           DataField = 'CONTATO'
+          DataSource = frmDados.Dts_Clientes
           TabOrder = 3
           OnKeyPress = DBEdit2KeyPress
         end
@@ -348,6 +358,7 @@ object frmpesqClicecf: TfrmpesqClicecf
           Height = 21
           CharCase = ecUpperCase
           DataField = 'LIMITE'
+          DataSource = frmDados.Dts_Clientes
           TabOrder = 4
           OnKeyPress = DBEdit2KeyPress
         end
@@ -356,8 +367,8 @@ object frmpesqClicecf: TfrmpesqClicecf
         Caption = '&ENTREGA'
         ImageIndex = 1
         object Label14: TLabel
-          Left = 0
-          Top = 11
+          Left = 3
+          Top = 37
           Width = 60
           Height = 13
           Caption = 'ENDERE'#199'O'
@@ -365,15 +376,15 @@ object frmpesqClicecf: TfrmpesqClicecf
         end
         object Label15: TLabel
           Left = 464
-          Top = 11
+          Top = 37
           Width = 83
           Height = 13
           Caption = 'COMPLEMENTO'
           FocusControl = DBEdit11
         end
         object Label16: TLabel
-          Left = 0
-          Top = 35
+          Left = 3
+          Top = 61
           Width = 41
           Height = 13
           Caption = 'BAIRRO'
@@ -381,7 +392,7 @@ object frmpesqClicecf: TfrmpesqClicecf
         end
         object Label17: TLabel
           Left = 320
-          Top = 35
+          Top = 61
           Width = 40
           Height = 13
           Caption = 'CIDADE'
@@ -389,7 +400,7 @@ object frmpesqClicecf: TfrmpesqClicecf
         end
         object Label18: TLabel
           Left = 640
-          Top = 35
+          Top = 61
           Width = 44
           Height = 13
           Caption = 'ESTADO'
@@ -397,87 +408,94 @@ object frmpesqClicecf: TfrmpesqClicecf
         end
         object Label20: TLabel
           Left = 3
-          Top = 59
+          Top = 14
           Width = 21
           Height = 13
           Caption = 'CEP'
           FocusControl = DBEdit15
         end
         object Label21: TLabel
-          Left = 288
-          Top = 59
-          Width = 56
-          Height = 13
+          Left = 3
+          Top = 86
+          Width = 53
+          Height = 12
           Caption = 'TELEFONE'
           FocusControl = DBEdit16
         end
         object DBEdit10: TDBEdit
           Left = 109
-          Top = 7
+          Top = 33
           Width = 340
           Height = 21
           CharCase = ecUpperCase
           DataField = 'ENDENT'
-          TabOrder = 0
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 1
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit11: TDBEdit
           Left = 560
-          Top = 7
+          Top = 33
           Width = 169
           Height = 21
           CharCase = ecUpperCase
           DataField = 'COMPLENT'
-          TabOrder = 1
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 2
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit12: TDBEdit
           Left = 109
-          Top = 31
+          Top = 57
           Width = 204
           Height = 21
           CharCase = ecUpperCase
           DataField = 'BAIRROENT'
-          TabOrder = 2
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 3
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit13: TDBEdit
           Left = 376
-          Top = 31
+          Top = 57
           Width = 257
           Height = 21
           CharCase = ecUpperCase
           DataField = 'CIDADEENT'
-          TabOrder = 3
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 4
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit14: TDBEdit
           Left = 689
-          Top = 32
+          Top = 58
           Width = 38
           Height = 21
           CharCase = ecUpperCase
           DataField = 'ESTADOENT'
-          TabOrder = 4
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 5
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit15: TDBEdit
           Left = 110
-          Top = 54
+          Top = 9
           Width = 121
           Height = 21
           CharCase = ecUpperCase
           DataField = 'CEPENT'
-          TabOrder = 5
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 0
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit16: TDBEdit
-          Left = 376
-          Top = 56
+          Left = 109
+          Top = 82
           Width = 134
           Height = 21
           CharCase = ecUpperCase
           DataField = 'TELEFONEENT'
+          DataSource = frmDados.Dts_Clientes
           TabOrder = 6
           OnKeyPress = DBEdit2KeyPress
         end
@@ -487,7 +505,7 @@ object frmpesqClicecf: TfrmpesqClicecf
         ImageIndex = 2
         object Label22: TLabel
           Left = 0
-          Top = 11
+          Top = 35
           Width = 60
           Height = 13
           Caption = 'ENDERE'#199'O'
@@ -495,7 +513,7 @@ object frmpesqClicecf: TfrmpesqClicecf
         end
         object Label23: TLabel
           Left = 464
-          Top = 11
+          Top = 35
           Width = 83
           Height = 13
           Caption = 'COMPLEMENTO'
@@ -503,7 +521,7 @@ object frmpesqClicecf: TfrmpesqClicecf
         end
         object Label24: TLabel
           Left = 0
-          Top = 35
+          Top = 59
           Width = 41
           Height = 13
           Caption = 'BAIRRO'
@@ -511,7 +529,7 @@ object frmpesqClicecf: TfrmpesqClicecf
         end
         object Label25: TLabel
           Left = 320
-          Top = 35
+          Top = 59
           Width = 40
           Height = 13
           Caption = 'CIDADE'
@@ -519,23 +537,23 @@ object frmpesqClicecf: TfrmpesqClicecf
         end
         object Label26: TLabel
           Left = 640
-          Top = 35
+          Top = 59
           Width = 44
           Height = 13
           Caption = 'ESTADO'
           FocusControl = DBEdit21
         end
         object Label27: TLabel
-          Left = 3
-          Top = 59
+          Left = 2
+          Top = 12
           Width = 21
           Height = 13
           Caption = 'CEP'
           FocusControl = DBEdit22
         end
         object Label28: TLabel
-          Left = 288
-          Top = 59
+          Left = 0
+          Top = 83
           Width = 56
           Height = 13
           Caption = 'TELEFONE'
@@ -543,71 +561,78 @@ object frmpesqClicecf: TfrmpesqClicecf
         end
         object DBEdit17: TDBEdit
           Left = 109
-          Top = 7
+          Top = 31
           Width = 340
           Height = 21
           CharCase = ecUpperCase
           DataField = 'ENDCOB'
-          TabOrder = 0
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 1
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit18: TDBEdit
           Left = 560
-          Top = 7
+          Top = 31
           Width = 169
           Height = 21
           CharCase = ecUpperCase
           DataField = 'COMPLCOB'
-          TabOrder = 1
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 2
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit19: TDBEdit
           Left = 109
-          Top = 31
+          Top = 55
           Width = 204
           Height = 21
           CharCase = ecUpperCase
           DataField = 'BAIRROCOB'
-          TabOrder = 2
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 3
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit20: TDBEdit
           Left = 376
-          Top = 31
+          Top = 55
           Width = 257
           Height = 21
           CharCase = ecUpperCase
           DataField = 'CIDADECOB'
-          TabOrder = 3
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 4
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit21: TDBEdit
           Left = 689
-          Top = 32
+          Top = 56
           Width = 38
           Height = 21
           CharCase = ecUpperCase
           DataField = 'ESTADOCOB'
-          TabOrder = 4
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 5
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit22: TDBEdit
-          Left = 110
-          Top = 54
+          Left = 109
+          Top = 7
           Width = 121
           Height = 21
           CharCase = ecUpperCase
           DataField = 'CEPCOB'
-          TabOrder = 5
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 0
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit23: TDBEdit
-          Left = 376
-          Top = 56
+          Left = 109
+          Top = 80
           Width = 134
           Height = 21
           CharCase = ecUpperCase
           DataField = 'TELEFONECOB'
+          DataSource = frmDados.Dts_Clientes
           TabOrder = 6
           OnKeyPress = DBEdit2KeyPress
         end
@@ -617,7 +642,7 @@ object frmpesqClicecf: TfrmpesqClicecf
         ImageIndex = 3
         object Label29: TLabel
           Left = 0
-          Top = 11
+          Top = 43
           Width = 60
           Height = 13
           Caption = 'ENDERE'#199'O'
@@ -625,7 +650,7 @@ object frmpesqClicecf: TfrmpesqClicecf
         end
         object Label30: TLabel
           Left = 464
-          Top = 11
+          Top = 43
           Width = 83
           Height = 13
           Caption = 'COMPLEMENTO'
@@ -633,7 +658,7 @@ object frmpesqClicecf: TfrmpesqClicecf
         end
         object Label31: TLabel
           Left = 0
-          Top = 35
+          Top = 67
           Width = 41
           Height = 13
           Caption = 'BAIRRO'
@@ -641,7 +666,7 @@ object frmpesqClicecf: TfrmpesqClicecf
         end
         object Label32: TLabel
           Left = 320
-          Top = 35
+          Top = 67
           Width = 40
           Height = 13
           Caption = 'CIDADE'
@@ -649,23 +674,23 @@ object frmpesqClicecf: TfrmpesqClicecf
         end
         object Label33: TLabel
           Left = 640
-          Top = 35
+          Top = 67
           Width = 44
           Height = 13
           Caption = 'ESTADO'
           FocusControl = DBEdit28
         end
         object Label34: TLabel
-          Left = 3
-          Top = 59
+          Left = 2
+          Top = 20
           Width = 21
           Height = 13
           Caption = 'CEP'
           FocusControl = DBEdit29
         end
         object Label35: TLabel
-          Left = 288
-          Top = 59
+          Left = 0
+          Top = 91
           Width = 56
           Height = 13
           Caption = 'TELEFONE'
@@ -673,71 +698,78 @@ object frmpesqClicecf: TfrmpesqClicecf
         end
         object DBEdit24: TDBEdit
           Left = 109
-          Top = 7
+          Top = 39
           Width = 340
           Height = 21
           CharCase = ecUpperCase
           DataField = 'ENDCOM'
-          TabOrder = 0
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 1
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit25: TDBEdit
           Left = 560
-          Top = 7
+          Top = 39
           Width = 169
           Height = 21
           CharCase = ecUpperCase
           DataField = 'COMPLCOM'
-          TabOrder = 1
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 2
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit26: TDBEdit
           Left = 109
-          Top = 31
+          Top = 63
           Width = 204
           Height = 21
           CharCase = ecUpperCase
           DataField = 'BAIRROCOM'
-          TabOrder = 2
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 3
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit27: TDBEdit
           Left = 376
-          Top = 31
+          Top = 63
           Width = 257
           Height = 21
           CharCase = ecUpperCase
           DataField = 'CIDADECOM'
-          TabOrder = 3
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 4
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit28: TDBEdit
           Left = 689
-          Top = 32
+          Top = 64
           Width = 38
           Height = 21
           CharCase = ecUpperCase
           DataField = 'ESTADOCOM'
-          TabOrder = 4
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 5
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit29: TDBEdit
-          Left = 110
-          Top = 54
+          Left = 109
+          Top = 15
           Width = 121
           Height = 21
           CharCase = ecUpperCase
           DataField = 'CEPCOM'
-          TabOrder = 5
+          DataSource = frmDados.Dts_Clientes
+          TabOrder = 0
           OnKeyPress = DBEdit2KeyPress
         end
         object DBEdit30: TDBEdit
-          Left = 376
-          Top = 56
+          Left = 109
+          Top = 88
           Width = 134
           Height = 21
           CharCase = ecUpperCase
           DataField = 'TELEFONECOM'
+          DataSource = frmDados.Dts_Clientes
           TabOrder = 6
           OnKeyPress = DBEdit2KeyPress
         end

@@ -1500,7 +1500,7 @@ object frmPesqcli: TfrmPesqcli
           end
           object lbltitcepent: TLabel
             Left = 515
-            Top = 57
+            Top = 55
             Width = 21
             Height = 13
             Caption = 'CEP'
@@ -1602,9 +1602,9 @@ object frmPesqcli: TfrmPesqcli
             OnKeyPress = ediendentKeyPress
           end
           object edicepent: TDBEdit
-            Left = 566
+            Left = 544
             Top = 51
-            Width = 75
+            Width = 97
             Height = 21
             CharCase = ecUpperCase
             DataField = 'CEPENT'
@@ -1636,7 +1636,7 @@ object frmPesqcli: TfrmPesqcli
           object edinroent: TDBEdit
             Left = 560
             Top = 5
-            Width = 83
+            Width = 81
             Height = 21
             CharCase = ecUpperCase
             DataField = 'NROENT'
@@ -1825,8 +1825,8 @@ object frmPesqcli: TfrmPesqcli
             OnKeyPress = ediendcobKeyPress
           end
           object edicepcob: TDBEdit
-            Left = 566
-            Top = 102
+            Left = 567
+            Top = 104
             Width = 75
             Height = 21
             CharCase = ecUpperCase
@@ -2400,7 +2400,7 @@ object frmPesqcli: TfrmPesqcli
             Width = 202
             Height = 21
             CharCase = ecUpperCase
-            ItemHeight = 0
+            ItemHeight = 13
             TabOrder = 9
             Text = 'CBXOUTINF7'
             OnKeyPress = CBXOUTINF7KeyPress
@@ -2411,7 +2411,7 @@ object frmPesqcli: TfrmPesqcli
             Width = 201
             Height = 21
             CharCase = ecUpperCase
-            ItemHeight = 0
+            ItemHeight = 13
             TabOrder = 10
             Text = 'CBXOUTINF8'
             OnKeyPress = CBXOUTINF8KeyPress
@@ -2422,7 +2422,7 @@ object frmPesqcli: TfrmPesqcli
             Width = 201
             Height = 21
             CharCase = ecUpperCase
-            ItemHeight = 0
+            ItemHeight = 13
             TabOrder = 11
             Text = 'CBXOUTINF9'
             OnKeyPress = CBXOUTINF9KeyPress
@@ -2433,7 +2433,7 @@ object frmPesqcli: TfrmPesqcli
             Width = 201
             Height = 21
             CharCase = ecUpperCase
-            ItemHeight = 0
+            ItemHeight = 13
             TabOrder = 12
             Text = 'CBXOUTINF10'
             OnKeyPress = CBXOUTINF10KeyPress
@@ -2476,7 +2476,7 @@ object frmPesqcli: TfrmPesqcli
     object dbgClientes: TDBGrid
       Left = 12
       Top = 503
-      Width = 681
+      Width = 413
       Height = 105
       DataSource = frmDados.Dts_Clientes
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]

@@ -787,7 +787,7 @@ object frmPesqforc: TfrmPesqforc
         Top = 129
         Width = 689
         Height = 246
-        ActivePage = tbsoutras
+        ActivePage = tabinf
         Align = alClient
         TabOrder = 1
         object tabinf: TTabSheet

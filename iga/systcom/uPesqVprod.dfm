@@ -1295,6 +1295,12 @@ object frmPesqVProd: TfrmPesqVProd
               Height = 13
               Caption = 'ICMS'
               FocusControl = cbxnomeicms
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clRed
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              Font.Style = []
+              ParentFont = False
             end
             object Label20: TLabel
               Left = 255
@@ -1303,6 +1309,12 @@ object frmPesqVProd: TfrmPesqVProd
               Height = 13
               Caption = 'IPI'
               FocusControl = cbxnomeipi
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clRed
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              Font.Style = []
+              ParentFont = False
             end
             object Label17: TLabel
               Left = 473
@@ -1311,6 +1323,12 @@ object frmPesqVProd: TfrmPesqVProd
               Height = 13
               Caption = 'Sit. Trib. A'
               FocusControl = cbxnomesita
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clRed
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              Font.Style = []
+              ParentFont = False
             end
             object Label18: TLabel
               Left = 6
@@ -1319,6 +1337,12 @@ object frmPesqVProd: TfrmPesqVProd
               Height = 13
               Caption = 'Sit. Trib. B'
               FocusControl = cbxnomesitb
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clRed
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              Font.Style = []
+              ParentFont = False
             end
             object Label16: TLabel
               Left = 255
@@ -1415,6 +1439,12 @@ object frmPesqVProd: TfrmPesqVProd
               Height = 13
               Caption = 'NCM'
               FocusControl = DBEdit3
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clRed
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              Font.Style = []
+              ParentFont = False
             end
             object Label63: TLabel
               Left = 9
@@ -1423,6 +1453,12 @@ object frmPesqVProd: TfrmPesqVProd
               Height = 13
               Caption = 'CSOSN'
               FocusControl = DBEdit4
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clRed
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              Font.Style = []
+              ParentFont = False
             end
             object Label64: TLabel
               Left = 261

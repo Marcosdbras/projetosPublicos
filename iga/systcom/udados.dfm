@@ -7570,6 +7570,7 @@ object frmDados: TfrmDados
     end
     object Cds_FuncionariosCEP: TStringField
       FieldName = 'CEP'
+      EditMask = '#####-###'
       FixedChar = True
       Size = 9
     end
@@ -8098,6 +8099,7 @@ object frmDados: TfrmDados
     end
     object Cds_FornecedoresCEP: TStringField
       FieldName = 'CEP'
+      EditMask = '#####-###'
       FixedChar = True
       Size = 9
     end
@@ -8891,6 +8893,7 @@ object frmDados: TfrmDados
     end
     object Cds_ClientesCEPCOM: TStringField
       FieldName = 'CEPCOM'
+      EditMask = '#####-###'
       FixedChar = True
       Size = 9
     end
@@ -8915,6 +8918,7 @@ object frmDados: TfrmDados
     end
     object Cds_ClientesCEPENT: TStringField
       FieldName = 'CEPENT'
+      EditMask = '#####-###'
       FixedChar = True
       Size = 9
     end
@@ -8928,6 +8932,7 @@ object frmDados: TfrmDados
     end
     object Cds_ClientesCEPCOB: TStringField
       FieldName = 'CEPCOB'
+      EditMask = '#####-###'
       FixedChar = True
       Size = 9
     end
