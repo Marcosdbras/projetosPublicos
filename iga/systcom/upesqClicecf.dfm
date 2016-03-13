@@ -417,8 +417,8 @@ object frmpesqClicecf: TfrmpesqClicecf
         object Label21: TLabel
           Left = 3
           Top = 86
-          Width = 53
-          Height = 12
+          Width = 56
+          Height = 13
           Caption = 'TELEFONE'
           FocusControl = DBEdit16
         end

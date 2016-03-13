@@ -5,7 +5,9 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, Grids, DBGrids, StdCtrls, DB, DBTables, WinSkinData,
-  Buttons, ComCtrls, ExtCtrls, jpeg, LockApplication;
+  Buttons, ComCtrls, ExtCtrls, jpeg, LockApplication, xmldom, XMLIntf,
+  msxmldom, XMLDoc, IdBaseComponent, IdComponent, IdTCPConnection,
+  IdTCPClient, IdHTTP;
 
 type
   Tfrmprincipal = class(TForm)
@@ -92,6 +94,14 @@ type
     Label12: TLabel;
     btnimportar: TBitBtn;
     odpExec: TOpenDialog;
+    lHTTP: TIdHTTP;
+    XMLEnvio: TXMLDocument;
+    Button2: TButton;
+    reResp: TMemo;
+
+    //Response: TStringStream;
+    //Arquivo: TIdMultipartFormDataStream;
+
     procedure FormShow(Sender: TObject);
     procedure dbg_paisesTitleClick(Column: TColumn);
     procedure Edit1Change(Sender: TObject);
@@ -142,6 +152,7 @@ type
     procedure btnimportarClick(Sender: TObject);
     procedure abretabelas();
     procedure fechatabelas();
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -1177,6 +1188,42 @@ frmdados.cds_unidade.Active := false;
 
 
 
+end;
+
+procedure Tfrmprincipal.Button2Click(Sender: TObject);
+var
+
+  lParamList: TStringList;
+  lResponse : TStringStream;
+  smostrar:string;
+begin
+  lParamList := TStringList.Create;
+  lResponse := TStringStream.Create('');
+
+  lParamList.Add('opcao=I');
+  lParamList.Add('cnpj='+tirapontos(tirabarras(tiratracos(frmdados.cds_emitente.fieldbyname('cnpj').AsString))));
+  lParamList.Add('nome='+frmdados.cds_emitente.FieldByName('nome').AsString);
+
+
+
+  try
+  lHTTP := TIdHTTP.Create(nil);
+  try
+    lHTTP.Post('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php', lParamList, lResponse);
+    lResponse.Position := 0;
+    reResp.Lines.LoadFromStream(lResponse);
+  finally
+
+    lHTTP.Free;
+    lParamList.Free;
+    lResponse.Free();
+
+  end;
+  except
+     showmessage('Não consegui conexão com servidor');
+  end;
+
+  
 end;
 
 end.

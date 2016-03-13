@@ -23,8 +23,8 @@ object frmprincipal: Tfrmprincipal
   object Image1: TImage
     Left = 0
     Top = 42
-    Width = 1351
-    Height = 605
+    Width = 1337
+    Height = 615
     Align = alClient
   end
   object Label1: TLabel
@@ -224,7 +224,7 @@ object frmprincipal: Tfrmprincipal
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1351
+    Width = 1337
     Height = 42
     Align = alTop
     BevelOuter = bvNone
@@ -291,12 +291,21 @@ object frmprincipal: Tfrmprincipal
         OnClick = btnimportarClick
         NumGlyphs = 2
       end
+      object Button2: TButton
+        Left = 624
+        Top = 8
+        Width = 75
+        Height = 25
+        Caption = 'Button2'
+        TabOrder = 5
+        OnClick = Button2Click
+      end
     end
   end
   object Panel2: TPanel
     Left = 0
-    Top = 647
-    Width = 1351
+    Top = 657
+    Width = 1337
     Height = 24
     Align = alBottom
     BevelOuter = bvNone
@@ -317,10 +326,19 @@ object frmprincipal: Tfrmprincipal
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 671
-    Width = 1351
+    Top = 681
+    Width = 1337
     Height = 19
     Panels = <>
+  end
+  object reResp: TMemo
+    Left = 568
+    Top = 568
+    Width = 185
+    Height = 89
+    Lines.Strings = (
+      'reResp')
+    TabOrder = 4
   end
   object MMMenu: TMainMenu
     Left = 200
@@ -565,5 +583,35 @@ object frmprincipal: Tfrmprincipal
   object odpExec: TOpenDialog
     Left = 934
     Top = 486
+  end
+  object lHTTP: TIdHTTP
+    AllowCookies = True
+    ProxyParams.BasicAuthentication = False
+    ProxyParams.ProxyPort = 0
+    Request.ContentLength = -1
+    Request.ContentRangeEnd = -1
+    Request.ContentRangeStart = -1
+    Request.ContentRangeInstanceLength = -1
+    Request.Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    Request.BasicAuthentication = False
+    Request.UserAgent = 'Mozilla/3.0 (compatible; Indy Library)'
+    Request.Ranges.Units = 'bytes'
+    Request.Ranges = <>
+    HTTPOptions = [hoForceEncodeParams]
+    Left = 24
+    Top = 184
+  end
+  object XMLEnvio: TXMLDocument
+    XML.Strings = (
+      '<?xml version="1.0" encoding="utf-8" ?><response>'
+      
+        '<cep>69960-000</cep><uf>AC</uf><cidade>feijo</cidade><bairro></b' +
+        'airro><tipo_logradouro></tipo_logradouro><logradouro></logradour' +
+        'o><resultado></resultado><resultado_txt></resultado_txt><ibge_uf' +
+        '>12</ibge_uf><ibge_municipio>1200302</ibge_municipio><erro>0</er' +
+        'ro><msgerro></msgerro></response>')
+    Left = 56
+    Top = 184
+    DOMVendorDesc = 'MSXML'
   end
 end

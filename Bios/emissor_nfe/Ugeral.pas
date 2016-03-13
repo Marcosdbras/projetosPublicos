@@ -1337,6 +1337,19 @@ begin
   //atuabase(  vardir + 'inst 0504\ctr11.txt' );
   //atuabase(  vardir + 'inst 0504\ctr12.txt' );
 
+
+
+  with frmprincipal do
+    begin
+       
+
+
+
+    end;
+
+
+
+
   with frmSplash do
   begin
 

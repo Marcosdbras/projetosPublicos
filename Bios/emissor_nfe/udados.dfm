@@ -4,7 +4,7 @@ object frmdados: Tfrmdados
   Left = 1
   Top = 1
   Height = 736
-  Width = 1022
+  Width = 1325
   object cds_Paises: TClientDataSet
     Aggregates = <>
     FieldDefs = <
@@ -6360,7 +6360,6 @@ object frmdados: Tfrmdados
   end
   object zconexao: TZConnection
     TransactIsolationLevel = tiReadCommitted
-    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'nfe'

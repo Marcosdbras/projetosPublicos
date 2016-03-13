@@ -109,7 +109,8 @@ uses
   conexao_ibpt in 'conexao_ibpt.pas' {frmconexao_ibpt: TDataModule},
   upesquisaproduto in 'upesquisaproduto.pas' {frmpesquisaproduto},
   ucancelar in 'ucancelar.pas' {frmcancelamento},
-  ucorrecao in 'ucorrecao.pas' {frmcorrecao};
+  ucorrecao in 'ucorrecao.pas' {frmcorrecao},
+  uenvioxml in 'uenvioxml.pas';
 
 {$R *.res}
 
@@ -123,6 +124,9 @@ begin
   Application.CreateForm(TfrmDados, frmDados);
   Application.CreateForm(Tfrmprincipal, frmprincipal);
   Application.CreateForm(Tfrmconexao_ibpt, frmconexao_ibpt);
+
+
+
   Atualizar;
   frmSplash.Hide;
   frmSplash.Free;
