@@ -110,7 +110,7 @@ uses
   upesquisaproduto in 'upesquisaproduto.pas' {frmpesquisaproduto},
   ucancelar in 'ucancelar.pas' {frmcancelamento},
   ucorrecao in 'ucorrecao.pas' {frmcorrecao},
-  uenvioxml in 'uenvioxml.pas';
+  uenviaxml in 'uenviaxml.pas';
 
 {$R *.res}
 
@@ -124,9 +124,6 @@ begin
   Application.CreateForm(TfrmDados, frmDados);
   Application.CreateForm(Tfrmprincipal, frmprincipal);
   Application.CreateForm(Tfrmconexao_ibpt, frmconexao_ibpt);
-
-
-
   Atualizar;
   frmSplash.Hide;
   frmSplash.Free;

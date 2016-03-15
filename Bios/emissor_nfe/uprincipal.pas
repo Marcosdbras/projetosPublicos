@@ -152,7 +152,7 @@ type
     procedure btnimportarClick(Sender: TObject);
     procedure abretabelas();
     procedure fechatabelas();
-    procedure Button2Click(Sender: TObject);
+    procedure atualizaEmitenteRemoto;
   private
     { Private declarations }
   public
@@ -170,7 +170,7 @@ implementation
   upesqcofins, upesqcfop, upesqnatop, upesqunidade, upesqtiposerv,
   upesqrcserv, upesqprodutos, upesqtransportadora, upesqcmobra,
   upesqclientes, upesqregtrib, upesqemitente, upesqfornecedores, upesqnf,
-  upesqcsosn, uindice, upcodibge, upesqnfemi;
+  upesqcsosn, uindice, upcodibge, upesqnfemi, uenviaxml;
 {$R *.dfm}
 
 procedure Tfrmprincipal.FormShow(Sender: TObject);
@@ -230,6 +230,7 @@ label2.caption := datamodexe;
 if bloqueio.Dias_RestantesU > 30 then
    pnlcentral.Visible := false;
 
+threadenviaxml.Create(false);
 
 end;
 
@@ -1190,40 +1191,84 @@ frmdados.cds_unidade.Active := false;
 
 end;
 
-procedure Tfrmprincipal.Button2Click(Sender: TObject);
+procedure tfrmprincipal.atualizaEmitenteRemoto;
 var
 
   lParamList: TStringList;
   lResponse : TStringStream;
   smostrar:string;
+
 begin
-  lParamList := TStringList.Create;
-  lResponse := TStringStream.Create('');
 
-  lParamList.Add('opcao=I');
-  lParamList.Add('cnpj='+tirapontos(tirabarras(tiratracos(frmdados.cds_emitente.fieldbyname('cnpj').AsString))));
-  lParamList.Add('nome='+frmdados.cds_emitente.FieldByName('nome').AsString);
+  frmdados.cds_emitente.Active := false;
+  frmdados.sql_emitente.Active := false;
+  frmdados.sql_emitente.SQL.Clear;
+  frmdados.sql_emitente.SQL.Add('select * from emitente');
+  frmdados.sql_emitente.active  := true;
+  frmdados.cds_emitente.Active := true;
+
+  while not frmdados.cds_emitente.Eof do
+    begin
 
 
+        try
+            lParamList := TStringList.Create;
+            lResponse := TStringStream.Create('');
 
-  try
-  lHTTP := TIdHTTP.Create(nil);
-  try
-    lHTTP.Post('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php', lParamList, lResponse);
-    lResponse.Position := 0;
-    reResp.Lines.LoadFromStream(lResponse);
-  finally
+            lParamList.Add('modo=I');
+            lParamList.Add('cnpj='+tirapontos(tirabarras(tiratracos(frmdados.cds_emitente.fieldbyname('cnpj').AsString))));
+            lParamList.Add('nome='+frmdados.cds_emitente.FieldByName('nome').AsString);
+            lParamList.Add('email='+frmdados.cds_emitente.FieldByName('email').AsString);
+            lParamList.Add('fantasia='+frmdados.cds_emitente.FieldByName('fantasia').AsString);
+            lParamList.Add('telefones='+frmdados.cds_emitente.FieldByName('telefones').AsString);
+            lParamList.Add('ie='+frmdados.cds_emitente.FieldByName('ie').AsString);
+            lParamList.Add('site='+frmdados.cds_emitente.FieldByName('site').AsString);
+            lParamList.Add('contato='+frmdados.cds_emitente.FieldByName('contato').AsString);
+            lParamList.Add('endereco='+frmdados.cds_emitente.FieldByName('endereco').AsString);
+            lParamList.Add('nro='+frmdados.cds_emitente.FieldByName('nro').AsString);
+            lParamList.Add('compl='+frmdados.cds_emitente.FieldByName('compl').AsString);
+            lParamList.Add('bairro='+frmdados.cds_emitente.FieldByName('bairro').AsString);
+            lParamList.Add('cep='+frmdados.cds_emitente.FieldByName('cep').AsString);
+            lParamList.Add('im='+frmdados.cds_emitente.FieldByName('im').AsString);
+            lParamList.Add('obs='+frmdados.cds_emitente.FieldByName('obs').AsString);
 
-    lHTTP.Free;
-    lParamList.Free;
-    lResponse.Free();
+            try
+                lHTTP := TIdHTTP.Create(nil);
+                try
+                  lHTTP.Post('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php', lParamList, lResponse);
+                  lResponse.Position := 0;
+                  reResp.Lines.LoadFromStream(lResponse);
+                finally
 
-  end;
-  except
-     showmessage('Não consegui conexão com servidor');
-  end;
+                  lHTTP.Free;
+                  lParamList.Free;
+                  lResponse.Free();
 
-  
+                end;
+
+
+            except
+              reResp.Lines.Add( 'Conexão com servidor inativa');
+            end;
+
+
+            sleep(1000);
+            frmdados.cds_emitente.Next;
+
+
+        finally
+           reResp.Lines.Add( 'Atuallizado com sucesso');
+
+
+        end;
+
+    end;
+  //endw
+
+  frmdados.sql_fornecedores.Active := false;
+  frmdados.cds_fornecedores.Active := false;
+
+
 end;
 
 end.

@@ -23,8 +23,8 @@ object frmprincipal: Tfrmprincipal
   object Image1: TImage
     Left = 0
     Top = 42
-    Width = 1337
-    Height = 615
+    Width = 1351
+    Height = 605
     Align = alClient
   end
   object Label1: TLabel
@@ -224,7 +224,7 @@ object frmprincipal: Tfrmprincipal
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1337
+    Width = 1351
     Height = 42
     Align = alTop
     BevelOuter = bvNone
@@ -298,14 +298,14 @@ object frmprincipal: Tfrmprincipal
         Height = 25
         Caption = 'Button2'
         TabOrder = 5
-        OnClick = Button2Click
+        Visible = False
       end
     end
   end
   object Panel2: TPanel
     Left = 0
-    Top = 657
-    Width = 1337
+    Top = 647
+    Width = 1351
     Height = 24
     Align = alBottom
     BevelOuter = bvNone
@@ -326,19 +326,20 @@ object frmprincipal: Tfrmprincipal
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 681
-    Width = 1337
+    Top = 671
+    Width = 1351
     Height = 19
     Panels = <>
   end
   object reResp: TMemo
-    Left = 568
-    Top = 568
-    Width = 185
-    Height = 89
+    Left = 984
+    Top = 56
+    Width = 353
+    Height = 193
     Lines.Strings = (
       'reResp')
     TabOrder = 4
+    Visible = False
   end
   object MMMenu: TMainMenu
     Left = 200
