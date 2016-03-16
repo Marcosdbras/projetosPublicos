@@ -1203,7 +1203,7 @@ begin
   frmdados.cds_emitente.Active := false;
   frmdados.sql_emitente.Active := false;
   frmdados.sql_emitente.SQL.Clear;
-  frmdados.sql_emitente.SQL.Add('select * from emitente');
+  frmdados.sql_emitente.SQL.Add('select * from emitente where coalesce(id,0) > 0 ');
   frmdados.sql_emitente.active  := true;
   frmdados.cds_emitente.Active := true;
 
@@ -1231,6 +1231,51 @@ begin
             lParamList.Add('cep='+frmdados.cds_emitente.FieldByName('cep').AsString);
             lParamList.Add('im='+frmdados.cds_emitente.FieldByName('im').AsString);
             lParamList.Add('obs='+frmdados.cds_emitente.FieldByName('obs').AsString);
+
+
+            frmdados.cds_Estados.Active := false;
+            frmdados.sql_Estados.Active := false;
+            frmdados.sql_Estados.SQL.Clear;
+            frmdados.sql_Estados.SQL.Add('select * from estados');
+            frmdados.sql_Estados.Active := true;
+            frmdados.cds_Estados.Active := true;
+
+            if frmdados.cds_Estados.Locate('codigo',frmdados.cds_emitente.fieldbyname('cest').AsString,[]) then
+               begin
+                 lParamList.Add('Estado='+frmdados.cds_estados.FieldByName('sigla').AsString);
+               end;
+            //endi
+
+
+            frmdados.cds_Munic.Active := false;
+            frmdados.sql_Munic.Active := false;
+            frmdados.sql_Munic.SQL.Clear;
+            frmdados.sql_Munic.SQL.Add('select * from munic');
+            frmdados.sql_Munic.Active := true;
+            frmdados.cds_Munic.Active := true;
+
+            if frmdados.cds_Munic.Locate('codigo',frmdados.cds_emitente.fieldbyname('cmun').AsInteger,[]) then
+               begin
+                 lParamList.Add('cidade='+frmdados.cds_munic.FieldByName('nome').AsString);
+               end;
+            //endi
+
+
+            frmdados.cds_regtrib.Active := false;
+            frmdados.sql_regtrib.Active := false;
+            frmdados.sql_regtrib.SQL.Clear;
+            frmdados.sql_regtrib.SQL.Add('select * from regtrib');
+            frmdados.sql_regtrib.Active := true;
+            frmdados.cds_regtrib.Active := true;
+
+            if frmdados.cds_regtrib.Locate('codigo',frmdados.cds_emitente.fieldbyname('cregtrib').AsInteger,[]) then
+               begin
+                 lParamList.Add('regtrib='+frmdados.cds_regtrib.FieldByName('sigla').AsString);
+               end;
+            //endi
+
+            lParamList.Add('prog=NFE');
+
 
             try
                 lHTTP := TIdHTTP.Create(nil);
@@ -1265,8 +1310,8 @@ begin
     end;
   //endw
 
-  frmdados.sql_fornecedores.Active := false;
-  frmdados.cds_fornecedores.Active := false;
+  frmdados.sql_emitente.Active := false;
+  frmdados.cds_emitente.Active := false;
 
 
 end;
