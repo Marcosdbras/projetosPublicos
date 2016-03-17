@@ -597,7 +597,8 @@ var
 implementation
 
 uses uGeral, uPrincipal, uDados, uImpOrcp, upesqprod, uimpnf, uFecOs, uemailped,
-  uMRVD, upesqcmobrad, uImpOS, uMROS, uampliafoto, uimpfolha, uimpproducao;
+  uMRVD, upesqcmobrad, uImpOS, uMROS, uampliafoto, uimpfolha, uimpproducao,
+  uimpfolha2;
 
 {$R *.DFM}
 
@@ -7704,6 +7705,13 @@ begin
            end;
         //endi
 
+        if frmdados.Cds_Indice.FieldByName('tpimpvi').asInteger = 5 then
+           begin
+             frmimpfolha2 := tfrmimpfolha2.Create(self);
+             frmimpfolha2.relatorio.Preview;
+             frmimpfolha2.Free;
+           end;
+        //endi
 
 
      end

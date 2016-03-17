@@ -240,7 +240,7 @@ uses
   urelprodforn in 'urelprodforn.pas' {frmrelprodforn},
   uampliafoto in 'uampliafoto.pas' {frmampliafoto},
   uimpampliafoto in 'uimpampliafoto.pas' {frmimpampliafoto},
-  uimpfolha in 'uimpfolha.pas' {FrmImpfolha},
+  uimpfolha2 in 'uimpfolha2.pas' {FrmImpfolha2},
   ucancelacaixaind in 'ucancelacaixaind.pas' {frmcancelacaixaind},
   upesqtipopgtov in 'upesqtipopgtov.pas' {frmPesqtipopgtov},
   uFecPed in 'uFecPed.pas' {frmfecped},

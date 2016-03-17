@@ -25,7 +25,7 @@ object frmIndice: TfrmIndice
   object Bevel1: TBevel
     Left = 0
     Top = 0
-    Width = 875
+    Width = 883
     Height = 45
     Align = alTop
   end
@@ -1348,14 +1348,16 @@ object frmIndice: TfrmIndice
         'Direto LPT1 Carta Cont'#237'nuo '
         'Laser Jato de Tinta A4'
         'Bobina  70 Col X 2 Linhas'
-        'Bobina 70 Col X 1 Linha')
+        'Bobina 70 Col X 1 Linha'
+        'Modelo 2')
       TabOrder = 26
       Values.Strings = (
         '0'
         '1'
         '2'
         '3'
-        '4')
+        '4'
+        '5')
     end
     object editipoctapass: TDBEdit
       Left = 245
