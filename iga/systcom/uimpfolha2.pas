@@ -105,6 +105,11 @@ type
     lbldesc13: TQRLabel;
     lbltitdesc14: TQRLabel;
     lbldesc14: TQRLabel;
+    QRShape2: TQRShape;
+    lbltitdesc15: TQRLabel;
+    lbldesc15: TQRLabel;
+    QRShape3: TQRShape;
+    QRLabel2: TQRLabel;
     procedure detalheBeforePrint(Sender: TQRCustomBand;
       var PrintBand: Boolean);
     procedure QRSubDetail2AfterPrint(Sender: TQRCustomBand;
@@ -877,6 +882,28 @@ lblemail.Caption := frmdados.Cds_Clientes.FieldByName('email').asString;
           end;
        //endi
 
+
+
+       if (cds_indice.FieldByName('DESC15').asString <> '') then
+          begin
+             lbltitdesc15.Caption := cds_indice.FieldByName('desc15').asString;
+             lbltitdesc15.Visible := true;
+
+             lbldesc15.Caption := cds_svenda.FieldByName('desc15').asString;
+             lbldesc15.Visible := true;
+
+
+             //lbltitdesc82.Caption := cds_indice.FieldByName('desc8').asString;
+             //lbltitdesc82.Visible := true;
+
+             //lbldesc82.Caption := cds_svenda.FieldByName('desc8').asString;
+             //lbldesc82.Visible := true;
+
+
+
+
+          end;
+       //endi
 
 
 

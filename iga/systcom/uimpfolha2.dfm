@@ -2,8 +2,8 @@ object FrmImpfolha2: TFrmImpfolha2
   Left = 0
   Top = 0
   Width = 928
-  Height = 681
-  VertScrollBar.Position = 455
+  Height = 707
+  VertScrollBar.Position = 290
   Caption = 'FrmImpfolha2'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,9 +17,9 @@ object FrmImpfolha2: TFrmImpfolha2
   TextHeight = 13
   object relatorio: TQuickRep
     Left = 8
-    Top = -469
+    Top = -264
     Width = 794
-    Height = 1123
+    Height = 944
     Frame.Color = clBlack
     Frame.DrawTop = False
     Frame.DrawBottom = False
@@ -64,7 +64,7 @@ object FrmImpfolha2: TFrmImpfolha2
       Left = 38
       Top = 38
       Width = 718
-      Height = 1027
+      Height = 883
       Frame.Color = clBlack
       Frame.DrawTop = False
       Frame.DrawBottom = False
@@ -76,7 +76,7 @@ object FrmImpfolha2: TFrmImpfolha2
       ForceNewColumn = False
       ForceNewPage = False
       Size.Values = (
-        2717.270833333333000000
+        2336.270833333333000000
         1899.708333333333000000)
       BandType = rbTitle
       object lblCab2: TQRLabel
@@ -245,7 +245,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawLeft = False
         Frame.DrawRight = False
         Size.Values = (
-          60.854166666666670000
+          60.854166666666680000
           29.104166666666670000
           261.937500000000000000
           277.812500000000000000)
@@ -276,7 +276,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawLeft = False
         Frame.DrawRight = False
         Size.Values = (
-          60.854166666666670000
+          60.854166666666680000
           523.875000000000000000
           261.937500000000000000
           111.125000000000000000)
@@ -651,7 +651,7 @@ object FrmImpfolha2: TFrmImpfolha2
           44.979166666666670000
           254.000000000000000000
           386.291666666666700000
-          828.145833333333300000)
+          828.145833333333200000)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -680,7 +680,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          846.666666666666700000
+          846.666666666666800000
           425.979166666666700000
           113.770833333333300000)
         Alignment = taLeftJustify
@@ -711,9 +711,9 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          846.666666666666700000
+          846.666666666666800000
           465.666666666666700000
-          121.708333333333400000)
+          121.708333333333300000)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
@@ -742,7 +742,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          846.666666666666700000
+          846.666666666666800000
           510.645833333333300000
           129.645833333333300000)
         Alignment = taLeftJustify
@@ -773,7 +773,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          846.666666666666700000
+          846.666666666666800000
           555.625000000000000000
           116.416666666666700000)
         Alignment = taLeftJustify
@@ -897,7 +897,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          994.833333333333300000
+          994.833333333333200000
           425.979166666666700000
           404.812500000000000000)
         Alignment = taLeftJustify
@@ -930,7 +930,7 @@ object FrmImpfolha2: TFrmImpfolha2
           44.979166666666670000
           1441.979166666667000000
           425.979166666666700000
-          84.666666666666670000)
+          84.666666666666680000)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
@@ -1054,7 +1054,7 @@ object FrmImpfolha2: TFrmImpfolha2
           50.270833333333330000
           1439.333333333333000000
           338.666666666666700000
-          92.604166666666670000)
+          92.604166666666680000)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
@@ -1115,7 +1115,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           23.812500000000000000
           21.166666666666670000
-          600.604166666666700000
+          600.604166666666800000
           1867.958333333333000000)
         Shape = qrsHorLine
       end
@@ -1319,7 +1319,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
+          18.520833333333330000
           756.708333333333400000
           158.750000000000000000)
         Alignment = taLeftJustify
@@ -1371,7 +1371,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lblid1: TQRLabel
         Left = 225
-        Top = 237
+        Top = 267
         Width = 110
         Height = 18
         Frame.Color = clBlack
@@ -1382,7 +1382,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           47.625000000000000000
           595.312500000000000000
-          627.062500000000000000
+          706.437500000000000000
           291.041666666666700000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1402,7 +1402,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbltitid1: TQRLabel
         Left = 7
-        Top = 236
+        Top = 266
         Width = 42
         Height = 18
         Frame.Color = clBlack
@@ -1412,8 +1412,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
-          624.416666666666700000
+          18.520833333333330000
+          703.791666666666800000
           111.125000000000000000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1433,7 +1433,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbltitdesc5: TQRLabel
         Left = 7
-        Top = 374
+        Top = 398
         Width = 60
         Height = 18
         Frame.Color = clBlack
@@ -1443,8 +1443,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
-          989.541666666666700000
+          18.520833333333330000
+          1053.041666666667000000
           158.750000000000000000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1474,8 +1474,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
-          814.916666666666700000
+          18.520833333333330000
+          814.916666666666800000
           158.750000000000000000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1506,7 +1506,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           47.625000000000000000
           595.312500000000000000
-          814.916666666666700000
+          814.916666666666800000
           291.041666666666700000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1526,7 +1526,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbldesc5: TQRLabel
         Left = 225
-        Top = 373
+        Top = 397
         Width = 110
         Height = 18
         Frame.Color = clBlack
@@ -1537,7 +1537,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           47.625000000000000000
           595.312500000000000000
-          986.895833333333400000
+          1050.395833333333000000
           291.041666666666700000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1557,7 +1557,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbltitdesc6: TQRLabel
         Left = 7
-        Top = 398
+        Top = 423
         Width = 60
         Height = 18
         Frame.Color = clBlack
@@ -1567,8 +1567,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
-          1053.041666666667000000
+          18.520833333333330000
+          1119.187500000000000000
           158.750000000000000000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1588,7 +1588,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbldesc6: TQRLabel
         Left = 225
-        Top = 400
+        Top = 425
         Width = 110
         Height = 18
         Frame.Color = clBlack
@@ -1599,7 +1599,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           47.625000000000000000
           595.312500000000000000
-          1058.333333333333000000
+          1124.479166666667000000
           291.041666666666700000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1619,7 +1619,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbldesc3: TQRLabel
         Left = 225
-        Top = 331
+        Top = 355
         Width = 110
         Height = 18
         Frame.Color = clBlack
@@ -1630,7 +1630,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           47.625000000000000000
           595.312500000000000000
-          875.770833333333400000
+          939.270833333333400000
           291.041666666666700000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1650,7 +1650,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbltitdesc3: TQRLabel
         Left = 7
-        Top = 330
+        Top = 354
         Width = 60
         Height = 18
         Frame.Color = clBlack
@@ -1660,8 +1660,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
-          873.124999999999900000
+          18.520833333333330000
+          936.625000000000100000
           158.750000000000000000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1681,7 +1681,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbltitdesc4: TQRLabel
         Left = 7
-        Top = 354
+        Top = 378
         Width = 60
         Height = 18
         Frame.Color = clBlack
@@ -1691,8 +1691,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
-          936.625000000000100000
+          18.520833333333330000
+          1000.125000000000000000
           158.750000000000000000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1712,7 +1712,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbldesc4: TQRLabel
         Left = 225
-        Top = 352
+        Top = 376
         Width = 110
         Height = 18
         Frame.Color = clBlack
@@ -1723,7 +1723,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           47.625000000000000000
           595.312500000000000000
-          931.333333333333500000
+          994.833333333333400000
           291.041666666666700000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1743,7 +1743,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object QRShape4: TQRShape
         Left = 6
-        Top = 919
+        Top = 652
         Width = 707
         Height = 9
         Frame.Color = clBlack
@@ -1754,13 +1754,13 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           23.812500000000000000
           15.875000000000000000
-          2431.520833333333000000
+          1725.083333333334000000
           1870.604166666667000000)
         Shape = qrsHorLine
       end
       object lbltitdesc7: TQRLabel
         Left = 7
-        Top = 422
+        Top = 447
         Width = 60
         Height = 18
         Frame.Color = clBlack
@@ -1770,8 +1770,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
-          1116.541666666667000000
+          18.520833333333330000
+          1182.687500000000000000
           158.750000000000000000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1791,7 +1791,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbldesc7: TQRLabel
         Left = 225
-        Top = 424
+        Top = 449
         Width = 112
         Height = 18
         Frame.Color = clBlack
@@ -1802,7 +1802,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           47.625000000000000000
           595.312500000000000000
-          1121.833333333333000000
+          1187.979166666667000000
           296.333333333333400000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1822,43 +1822,49 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object mmoobs1: TQRMemo
         Left = 6
-        Top = 929
-        Width = 705
-        Height = 49
+        Top = 662
+        Width = 707
+        Height = 152
         Frame.Color = clBlack
         Frame.DrawTop = False
         Frame.DrawBottom = False
         Frame.DrawLeft = False
         Frame.DrawRight = False
         Size.Values = (
-          129.645833333333300000
+          402.166666666666600000
           15.875000000000000000
-          2457.979166666667000000
-          1865.312500000000000000)
+          1751.541666666667000000
+          1870.604166666667000000)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
         AutoStretch = False
         Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
         Transparent = False
         WordWrap = True
-        FontSize = 10
+        FontSize = 9
       end
       object mmoobs: TQRMemo
-        Left = 6
-        Top = 981
-        Width = 704
-        Height = 42
+        Left = 350
+        Top = 269
+        Width = 355
+        Height = 340
         Frame.Color = clBlack
         Frame.DrawTop = False
         Frame.DrawBottom = False
         Frame.DrawLeft = False
         Frame.DrawRight = False
         Size.Values = (
-          111.125000000000000000
-          15.875000000000000000
-          2595.562500000000000000
-          1862.666666666667000000)
+          899.583333333333400000
+          926.041666666666800000
+          711.729166666666800000
+          939.270833333333400000)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -1870,7 +1876,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object QRLabel1: TQRLabel
         Left = 7
-        Top = 267
+        Top = 235
         Width = 546
         Height = 17
         Frame.Color = clBlack
@@ -1880,8 +1886,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          18.520833333333340000
-          706.437500000000000000
+          18.520833333333330000
+          621.770833333333400000
           1444.625000000000000000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1903,7 +1909,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbltitdesc8: TQRLabel
         Left = 7
-        Top = 442
+        Top = 467
         Width = 60
         Height = 18
         Frame.Color = clBlack
@@ -1913,8 +1919,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
-          1169.458333333333000000
+          18.520833333333330000
+          1235.604166666667000000
           158.750000000000000000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1934,7 +1940,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbldesc8: TQRLabel
         Left = 225
-        Top = 444
+        Top = 469
         Width = 112
         Height = 18
         Frame.Color = clBlack
@@ -1945,7 +1951,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           47.625000000000000000
           595.312500000000000000
-          1174.750000000000000000
+          1240.895833333333000000
           296.333333333333400000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1965,7 +1971,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbltitdesc9: TQRLabel
         Left = 7
-        Top = 461
+        Top = 491
         Width = 60
         Height = 18
         Frame.Color = clBlack
@@ -1975,8 +1981,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
-          1219.729166666667000000
+          18.520833333333330000
+          1299.104166666667000000
           158.750000000000000000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1996,7 +2002,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbldesc9: TQRLabel
         Left = 225
-        Top = 463
+        Top = 493
         Width = 112
         Height = 18
         Frame.Color = clBlack
@@ -2007,7 +2013,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           47.625000000000000000
           595.312500000000000000
-          1225.020833333333000000
+          1304.395833333333000000
           296.333333333333400000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -2027,7 +2033,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbltitdesc10: TQRLabel
         Left = 7
-        Top = 480
+        Top = 510
         Width = 67
         Height = 18
         Frame.Color = clBlack
@@ -2037,8 +2043,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
-          1270.000000000000000000
+          18.520833333333330000
+          1349.375000000000000000
           177.270833333333300000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -2058,7 +2064,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbldesc10: TQRLabel
         Left = 225
-        Top = 482
+        Top = 512
         Width = 112
         Height = 18
         Frame.Color = clBlack
@@ -2069,7 +2075,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           47.625000000000000000
           595.312500000000000000
-          1275.291666666667000000
+          1354.666666666667000000
           296.333333333333400000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -2089,7 +2095,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbltitdesc11: TQRLabel
         Left = 7
-        Top = 499
+        Top = 529
         Width = 67
         Height = 18
         Frame.Color = clBlack
@@ -2099,8 +2105,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
-          1320.270833333333000000
+          18.520833333333330000
+          1399.645833333333000000
           177.270833333333300000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -2120,7 +2126,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbldesc11: TQRLabel
         Left = 225
-        Top = 501
+        Top = 531
         Width = 112
         Height = 18
         Frame.Color = clBlack
@@ -2131,7 +2137,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           47.625000000000000000
           595.312500000000000000
-          1325.562500000000000000
+          1404.937500000000000000
           296.333333333333400000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -2151,7 +2157,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbltitdesc12: TQRLabel
         Left = 7
-        Top = 517
+        Top = 555
         Width = 67
         Height = 18
         Frame.Color = clBlack
@@ -2161,8 +2167,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
-          1367.895833333333000000
+          18.520833333333330000
+          1468.437500000000000000
           177.270833333333300000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -2182,7 +2188,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbldesc12: TQRLabel
         Left = 225
-        Top = 519
+        Top = 557
         Width = 112
         Height = 18
         Frame.Color = clBlack
@@ -2193,7 +2199,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           47.625000000000000000
           595.312500000000000000
-          1373.187500000000000000
+          1473.729166666667000000
           296.333333333333400000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -2213,7 +2219,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbltitdesc13: TQRLabel
         Left = 7
-        Top = 536
+        Top = 574
         Width = 67
         Height = 18
         Frame.Color = clBlack
@@ -2223,8 +2229,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
-          1418.166666666667000000
+          18.520833333333330000
+          1518.708333333333000000
           177.270833333333300000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -2244,7 +2250,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbldesc13: TQRLabel
         Left = 225
-        Top = 538
+        Top = 576
         Width = 112
         Height = 18
         Frame.Color = clBlack
@@ -2255,7 +2261,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           47.625000000000000000
           595.312500000000000000
-          1423.458333333333000000
+          1524.000000000000000000
           296.333333333333400000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -2275,7 +2281,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbltitdesc14: TQRLabel
         Left = 7
-        Top = 555
+        Top = 593
         Width = 67
         Height = 18
         Frame.Color = clBlack
@@ -2285,8 +2291,8 @@ object FrmImpfolha2: TFrmImpfolha2
         Frame.DrawRight = False
         Size.Values = (
           47.625000000000000000
-          18.520833333333340000
-          1468.437500000000000000
+          18.520833333333330000
+          1568.979166666667000000
           177.270833333333300000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -2306,7 +2312,7 @@ object FrmImpfolha2: TFrmImpfolha2
       end
       object lbldesc14: TQRLabel
         Left = 225
-        Top = 557
+        Top = 595
         Width = 112
         Height = 18
         Frame.Color = clBlack
@@ -2317,7 +2323,7 @@ object FrmImpfolha2: TFrmImpfolha2
         Size.Values = (
           47.625000000000000000
           595.312500000000000000
-          1473.729166666667000000
+          1574.270833333333000000
           296.333333333333400000)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -2331,6 +2337,127 @@ object FrmImpfolha2: TFrmImpfolha2
         Font.Name = 'Arial'
         Font.Style = []
         ParentFont = False
+        Transparent = False
+        WordWrap = True
+        FontSize = 10
+      end
+      object QRShape2: TQRShape
+        Left = 8
+        Top = 254
+        Width = 706
+        Height = 9
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          23.812500000000000000
+          21.166666666666670000
+          672.041666666666800000
+          1867.958333333333000000)
+        Shape = qrsHorLine
+      end
+      object lbltitdesc15: TQRLabel
+        Left = 7
+        Top = 617
+        Width = 67
+        Height = 18
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          47.625000000000000000
+          18.520833333333330000
+          1632.479166666667000000
+          177.270833333333300000)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'lbltitdesc15'
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        Transparent = False
+        WordWrap = True
+        FontSize = 10
+      end
+      object lbldesc15: TQRLabel
+        Left = 225
+        Top = 619
+        Width = 480
+        Height = 18
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          47.625000000000000000
+          595.312500000000000000
+          1637.770833333333000000
+          1270.000000000000000000)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = False
+        AutoStretch = False
+        Caption = 'lbldesc15'
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        Transparent = False
+        WordWrap = True
+        FontSize = 10
+      end
+      object QRShape3: TQRShape
+        Left = 166
+        Top = 828
+        Width = 401
+        Height = 9
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          23.812500000000000000
+          439.208333333333400000
+          2190.750000000000000000
+          1060.979166666667000000)
+        Shape = qrsHorLine
+      end
+      object QRLabel2: TQRLabel
+        Left = 312
+        Top = 840
+        Width = 123
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          825.500000000000100000
+          2222.500000000000000000
+          325.437500000000000000)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'Assinatura do cliente'
+        Color = clWhite
         Transparent = False
         WordWrap = True
         FontSize = 10
