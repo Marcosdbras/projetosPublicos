@@ -152,9 +152,13 @@ type
     procedure btnimportarClick(Sender: TObject);
     procedure abretabelas();
     procedure fechatabelas();
-    procedure atualizaEmitenteRemoto;
+    procedure atualizacaoBaseRemota;
+    procedure atualizaEmitente;
+    
+
   private
     { Private declarations }
+    //tenviaxml:threadenviaxml;
   public
     { Public declarations }
     scaminho:string;
@@ -170,7 +174,7 @@ implementation
   upesqcofins, upesqcfop, upesqnatop, upesqunidade, upesqtiposerv,
   upesqrcserv, upesqprodutos, upesqtransportadora, upesqcmobra,
   upesqclientes, upesqregtrib, upesqemitente, upesqfornecedores, upesqnf,
-  upesqcsosn, uindice, upcodibge, upesqnfemi, uenviaxml;
+  upesqcsosn, uindice, upcodibge, upesqnfemi;
 {$R *.dfm}
 
 procedure Tfrmprincipal.FormShow(Sender: TObject);
@@ -230,7 +234,14 @@ label2.caption := datamodexe;
 if bloqueio.Dias_RestantesU > 30 then
    pnlcentral.Visible := false;
 
-threadenviaxml.Create(false);
+//tenviaxml := threadenviaxml.Create(true);
+//tenviaxml.FreeOnTerminate := true;
+//tenviaxml.Resume;
+
+
+
+
+
 
 end;
 
@@ -750,6 +761,7 @@ end;
 procedure Tfrmprincipal.FormCreate(Sender: TObject);
 begin
 bloqueio.executar;
+atualizacaoBaseRemota;
 end;
 
 procedure Tfrmprincipal.Memo1KeyPress(Sender: TObject; var Key: Char);
@@ -1191,7 +1203,28 @@ frmdados.cds_unidade.Active := false;
 
 end;
 
-procedure tfrmprincipal.atualizaEmitenteRemoto;
+procedure tfrmprincipal.atualizacaoBaseRemota;
+begin
+  try
+
+      try
+        atualizaEmitente;
+
+      except
+        reResp.Lines.Add('erro ao sincronizar dados');
+      end;
+
+  finally
+     //tenviaxml.Terminate;
+      reResp.Lines.Add('fim da sincronização');
+  end;
+
+
+end;
+
+
+procedure tfrmprincipal.atualizaEmitente;
+
 var
 
   lParamList: TStringList;
@@ -1312,6 +1345,9 @@ begin
 
   frmdados.sql_emitente.Active := false;
   frmdados.cds_emitente.Active := false;
+
+  //--------------------------------------------------------------------
+
 
 
 end;

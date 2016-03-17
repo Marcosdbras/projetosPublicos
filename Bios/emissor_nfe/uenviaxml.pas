@@ -35,10 +35,13 @@ procedure threadenviaxml.Execute;
 
 begin
   { Place thread code here }
-   frmprincipal.atualizaEmitenteRemoto;
 
+  if not terminated then
+    begin
+      frmprincipal.atualizacaoBaseRemota;
+    end;
 
-
+ 
 
 end;
 
