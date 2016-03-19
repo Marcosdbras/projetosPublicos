@@ -1,8 +1,8 @@
 object frmfrenteecf: Tfrmfrenteecf
   Left = 1
-  Top = 1
+  Top = 0
   Width = 1035
-  Height = 780
+  Height = 738
   BorderIcons = [biSystemMenu]
   Caption = 'Frente de Caixa - ecf'
   Color = clBlue
@@ -1943,8 +1943,8 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object pnlinferior: TPanel
     Left = 0
-    Top = 690
-    Width = 1027
+    Top = 688
+    Width = 1016
     Height = 44
     Align = alBottom
     BevelOuter = bvNone
@@ -2276,8 +2276,8 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object barra: TStatusBar
     Left = 0
-    Top = 734
-    Width = 1027
+    Top = 732
+    Width = 1016
     Height = 19
     Color = clBlue
     Panels = <
@@ -3284,15 +3284,15 @@ object frmfrenteecf: Tfrmfrenteecf
       OnKeyPress = edivalorKeyPress
     end
     object pnlparcelar: TPanel
-      Left = 19
-      Top = 105
+      Left = 43
+      Top = 33
       Width = 234
       Height = 161
       BevelOuter = bvNone
       Color = clCream
       TabOrder = 3
       object Label5: TLabel
-        Left = 1
+        Left = 5
         Top = 32
         Width = 136
         Height = 21
@@ -3309,7 +3309,7 @@ object frmfrenteecf: Tfrmfrenteecf
         Transparent = True
       end
       object Label14: TLabel
-        Left = 1
+        Left = 5
         Top = 100
         Width = 136
         Height = 22
@@ -3326,7 +3326,7 @@ object frmfrenteecf: Tfrmfrenteecf
         Transparent = True
       end
       object Label15: TLabel
-        Left = 1
+        Left = 5
         Top = 67
         Width = 136
         Height = 22
@@ -3343,7 +3343,7 @@ object frmfrenteecf: Tfrmfrenteecf
         Transparent = True
       end
       object lbltotalp: TLabel
-        Left = 144
+        Left = 148
         Top = 32
         Width = 79
         Height = 23
@@ -3379,7 +3379,7 @@ object frmfrenteecf: Tfrmfrenteecf
         Transparent = True
       end
       object edinparc: TEdit
-        Left = 180
+        Left = 175
         Top = 100
         Width = 50
         Height = 21
@@ -3398,7 +3398,7 @@ object frmfrenteecf: Tfrmfrenteecf
         OnKeyPress = edinparcKeyPress
       end
       object ediporcjuros: TEdit
-        Left = 182
+        Left = 174
         Top = 67
         Width = 50
         Height = 22
@@ -3567,8 +3567,8 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object btninferior2: TPanel
     Left = 0
-    Top = 653
-    Width = 1027
+    Top = 651
+    Width = 1016
     Height = 37
     Align = alBottom
     BevelOuter = bvNone

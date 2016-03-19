@@ -389,8 +389,8 @@ object frmPesqVfb: TfrmPesqVfb
       Caption = 'lbltotal'
     end
     object lbldatafec: TDBText
-      Left = 48
-      Top = 428
+      Left = 608
+      Top = 196
       Width = 65
       Height = 17
       Alignment = taRightJustify
@@ -399,8 +399,8 @@ object frmPesqVfb: TfrmPesqVfb
       Visible = False
     end
     object lblnumped: TDBText
-      Left = 46
-      Top = 456
+      Left = 606
+      Top = 240
       Width = 65
       Height = 17
       Alignment = taRightJustify
@@ -409,8 +409,8 @@ object frmPesqVfb: TfrmPesqVfb
       Visible = False
     end
     object lblnco: TDBText
-      Left = 64
-      Top = 443
+      Left = 608
+      Top = 219
       Width = 65
       Height = 17
       Alignment = taRightJustify
@@ -446,28 +446,35 @@ object frmPesqVfb: TfrmPesqVfb
           Expanded = False
           FieldName = 'DATACAD'
           Title.Caption = 'Emiss'#227'o'
-          Width = 93
+          Width = 76
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'PDESC'
           Title.Caption = '% Desconto'
-          Width = 143
+          Width = 71
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'VALDESC'
           Title.Caption = 'Vlr Desconto'
-          Width = 116
+          Width = 84
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'TOTGPAGAR'
           Title.Caption = 'L'#237'quido'
-          Width = 101
+          Width = 84
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'nomecli'
+          Title.Caption = 'Cliente'
+          Width = 236
           Visible = True
         end>
     end
@@ -524,8 +531,8 @@ object frmPesqVfb: TfrmPesqVfb
         end>
     end
     object dbgvencto: TDBGrid
-      Left = 3
-      Top = 318
+      Left = 11
+      Top = 430
       Width = 438
       Height = 83
       DataSource = Dts_Vencto
@@ -577,7 +584,7 @@ object frmPesqVfb: TfrmPesqVfb
     end
     object btncancelap: TButton
       Left = 595
-      Top = 53
+      Top = 52
       Width = 134
       Height = 33
       Caption = 'Cancela Pedido'
@@ -586,7 +593,7 @@ object frmPesqVfb: TfrmPesqVfb
     end
     object Button1: TButton
       Left = 595
-      Top = 88
+      Top = 87
       Width = 134
       Height = 33
       Caption = 'Exportar'
@@ -931,7 +938,7 @@ object frmPesqVfb: TfrmPesqVfb
     MaxBlobSize = -1
     Params = <>
     SQL.Strings = (
-      'Select * from svenda')
+      'select * from svendas')
     SQLConnection = frmDados.Sql_Dados
     Left = 467
     Top = 142
@@ -2789,6 +2796,16 @@ object frmPesqVfb: TfrmPesqVfb
     object Cds_sVendaIDTERMINAL: TIntegerField
       FieldName = 'IDTERMINAL'
     end
+    object Cds_sVendanomecli: TStringField
+      FieldKind = fkLookup
+      FieldName = 'nomecli'
+      LookupDataSet = Cds_Vendab
+      LookupKeyFields = 'CODIGO'
+      LookupResultField = 'NPRO'
+      KeyFields = 'CCLI'
+      Size = 80
+      Lookup = True
+    end
   end
   object Dts_sVenda: TDataSource
     DataSet = Cds_sVenda
@@ -3318,5 +3335,14 @@ object frmPesqVfb: TfrmPesqVfb
     DataSet = cds_sita
     Left = 617
     Top = 329
+  end
+  object SQLQuery1: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'select * from svenda')
+    SQLConnection = frmDados.Sql_Dados
+    Left = 345
+    Top = 138
   end
 end

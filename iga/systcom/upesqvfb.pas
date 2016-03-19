@@ -689,6 +689,8 @@ type
     dsp_sita: TDataSetProvider;
     dbx_sita: TSQLQuery;
     dts_sita: TDataSource;
+    SQLQuery1: TSQLQuery;
+    Cds_sVendanomecli: TStringField;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -747,6 +749,12 @@ begin
 
    vardir := ExtractFilePath(Application.ExeName);
 
+
+
+
+
+
+
    with frmdados do
      begin
 
@@ -774,10 +782,19 @@ begin
      end;
    //endi
 
+
+   Cds_sVendanomecli.KeyFields := 'ccli';
+   Cds_sVendanomecli.LookupDataSet := frmdados.cds_Clientes;
+   Cds_sVendanomecli.LookupKeyFields := 'codigo';
+   Cds_sVendanomecli.LookupResultField := 'nome';
+
+
+
+
    spdlimpar.Click;
    edicodigo.Text := '';
    ediid.Text := '1';
-   
+
 
    //showmessage(frmdados.Cds_Clientes.FieldByName('codigo').asString);
 end;
