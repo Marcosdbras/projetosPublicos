@@ -1,6 +1,6 @@
 object frmfecnf: Tfrmfecnf
-  Left = 2
-  Top = 104
+  Left = 25
+  Top = 60
   Width = 1172
   Height = 671
   BorderIcons = []
@@ -22,14 +22,14 @@ object frmfecnf: Tfrmfecnf
   object Bevel1: TBevel
     Left = 15
     Top = 475
-    Width = 946
+    Width = 834
     Height = 62
     Shape = bsFrame
   end
   object Bevel4: TBevel
     Left = 416
     Top = 547
-    Width = 545
+    Width = 433
     Height = 40
     Shape = bsFrame
   end
@@ -124,14 +124,14 @@ object frmfecnf: Tfrmfecnf
     Caption = 'lbldestinatario'
   end
   object Label15: TLabel
-    Left = 408
+    Left = 344
     Top = 485
     Width = 121
     Height = 13
     Caption = 'BS. CALC. ICMS SUBST.'
   end
   object Label16: TLabel
-    Left = 749
+    Left = 635
     Top = 484
     Width = 95
     Height = 13
@@ -145,14 +145,14 @@ object frmfecnf: Tfrmfecnf
     Caption = 'VLR. FRETE'
   end
   object Label18: TLabel
-    Left = 749
+    Left = 635
     Top = 508
     Width = 73
     Height = 13
     Caption = 'VLR. SEGURO'
   end
   object Label19: TLabel
-    Left = 408
+    Left = 344
     Top = 511
     Width = 105
     Height = 13
@@ -207,14 +207,14 @@ object frmfecnf: Tfrmfecnf
     Caption = ' DEVOLU'#199#195'O '
   end
   object Label14: TLabel
-    Left = 424
+    Left = 431
     Top = 561
     Width = 69
     Height = 13
     Caption = 'REF. N.O N.F.'
   end
   object Label28: TLabel
-    Left = 762
+    Left = 652
     Top = 561
     Width = 79
     Height = 13
@@ -278,15 +278,15 @@ object frmfecnf: Tfrmfecnf
     Caption = 'REFER'#202'NCIA NFE'
   end
   object Bevel2: TBevel
-    Left = 968
-    Top = 67
-    Width = 145
-    Height = 518
+    Left = 854
+    Top = 74
+    Width = 130
+    Height = 512
     Shape = bsFrame
   end
   object btnemitir: TBitBtn
-    Left = 981
-    Top = 122
+    Left = 859
+    Top = 129
     Width = 116
     Height = 37
     Caption = '&EMITIR'
@@ -294,8 +294,8 @@ object frmfecnf: Tfrmfecnf
     OnClick = btnemitirClick
   end
   object btncancelar: TBitBtn
-    Left = 981
-    Top = 170
+    Left = 859
+    Top = 177
     Width = 116
     Height = 37
     Caption = '&CANCELAR'
@@ -305,7 +305,7 @@ object frmfecnf: Tfrmfecnf
   object pctcadnf: TPageControl
     Left = 15
     Top = 206
-    Width = 946
+    Width = 714
     Height = 263
     ActivePage = tbsdup
     MultiLine = True
@@ -329,37 +329,37 @@ object frmfecnf: Tfrmfecnf
         Caption = 'PARCELAS'
       end
       object Label29: TLabel
-        Left = 841
-        Top = 3
+        Left = 609
+        Top = 11
         Width = 85
         Height = 13
         Caption = 'TOTAL '#192' PRAZO'
       end
       object lbltotdup: TLabel
-        Left = 883
-        Top = 23
+        Left = 651
+        Top = 31
         Width = 40
         Height = 13
         Alignment = taRightJustify
         Caption = 'lbltotdup'
       end
       object Label30: TLabel
-        Left = 673
-        Top = 95
+        Left = 441
+        Top = 103
         Width = 37
         Height = 13
         Caption = 'PRAZO'
       end
       object Label31: TLabel
-        Left = 673
-        Top = 126
+        Left = 441
+        Top = 134
         Width = 71
         Height = 13
         Caption = 'VENCIMENTO'
       end
       object Label32: TLabel
-        Left = 673
-        Top = 159
+        Left = 441
+        Top = 167
         Width = 36
         Height = 13
         Caption = 'VALOR'
@@ -379,8 +379,8 @@ object frmfecnf: Tfrmfecnf
         Caption = 'DATA INICIAL'
       end
       object Label35: TLabel
-        Left = 673
-        Top = 61
+        Left = 441
+        Top = 69
         Width = 48
         Height = 13
         Caption = 'EMISS'#195'O'
@@ -388,7 +388,7 @@ object frmfecnf: Tfrmfecnf
       object rgbformapgto: TRadioGroup
         Left = 0
         Top = 192
-        Width = 938
+        Width = 706
         Height = 43
         Align = alBottom
         Caption = ' PAGAMENTO '
@@ -465,8 +465,8 @@ object frmfecnf: Tfrmfecnf
           end>
       end
       object ediprazo: TEdit
-        Left = 761
-        Top = 88
+        Left = 529
+        Top = 96
         Width = 49
         Height = 21
         TabOrder = 7
@@ -475,8 +475,8 @@ object frmfecnf: Tfrmfecnf
         OnKeyPress = ediprazoKeyPress
       end
       object edivencimento: TMaskEdit
-        Left = 761
-        Top = 121
+        Left = 529
+        Top = 129
         Width = 81
         Height = 21
         EditMask = '!99/99/0000;1;_'
@@ -487,8 +487,8 @@ object frmfecnf: Tfrmfecnf
         OnKeyPress = edivencimentoKeyPress
       end
       object edivalorp: TEdit
-        Left = 761
-        Top = 154
+        Left = 529
+        Top = 162
         Width = 81
         Height = 21
         TabOrder = 9
@@ -517,8 +517,8 @@ object frmfecnf: Tfrmfecnf
         OnKeyPress = edidatainicKeyPress
       end
       object btneditar: TBitBtn
-        Left = 849
-        Top = 54
+        Left = 617
+        Top = 62
         Width = 75
         Height = 25
         Caption = '&EDITAR'
@@ -526,8 +526,8 @@ object frmfecnf: Tfrmfecnf
         OnClick = btneditarClick
       end
       object btnsalvar: TBitBtn
-        Left = 849
-        Top = 86
+        Left = 617
+        Top = 94
         Width = 75
         Height = 25
         Caption = '&SALVAR'
@@ -535,8 +535,8 @@ object frmfecnf: Tfrmfecnf
         OnClick = btnsalvarClick
       end
       object btncancelarparc: TBitBtn
-        Left = 849
-        Top = 118
+        Left = 617
+        Top = 126
         Width = 75
         Height = 25
         Caption = '&DESISTIR'
@@ -544,8 +544,8 @@ object frmfecnf: Tfrmfecnf
         OnClick = btncancelarparcClick
       end
       object edidte: TMaskEdit
-        Left = 761
-        Top = 55
+        Left = 529
+        Top = 63
         Width = 81
         Height = 21
         EditMask = '!99/99/0000;1;_'
@@ -575,28 +575,28 @@ object frmfecnf: Tfrmfecnf
         FocusControl = cbxdescfreteporconta_cod2nf
       end
       object Label4: TLabel
-        Left = 340
+        Left = 351
         Top = 128
         Width = 83
         Height = 13
         Caption = 'PLACA VE'#205'CULO'
       end
       object Label25: TLabel
-        Left = 552
+        Left = 539
         Top = 128
         Width = 69
         Height = 13
         Caption = 'U.F. VE'#205'CULO'
       end
       object Label49: TLabel
-        Left = 464
+        Left = 450
         Top = 29
         Width = 27
         Height = 13
         Caption = 'CNPJ'
       end
       object edicnpjtransp: TDBText
-        Left = 552
+        Left = 539
         Top = 29
         Width = 145
         Height = 17
@@ -619,14 +619,14 @@ object frmfecnf: Tfrmfecnf
         DataSource = frmdados.dts_transportador
       end
       object Label51: TLabel
-        Left = 464
+        Left = 450
         Top = 55
         Width = 24
         Height = 13
         Caption = 'NRO'
       end
       object DBText23: TDBText
-        Left = 552
+        Left = 539
         Top = 55
         Width = 65
         Height = 17
@@ -664,14 +664,14 @@ object frmfecnf: Tfrmfecnf
         DataSource = frmdados.dts_transportador
       end
       object Label54: TLabel
-        Left = 464
+        Left = 450
         Top = 80
         Width = 56
         Height = 13
         Caption = 'MUNIC'#205'PIO'
       end
       object edimunicipiotransp: TDBText
-        Left = 552
+        Left = 539
         Top = 80
         Width = 201
         Height = 17
@@ -707,14 +707,14 @@ object frmfecnf: Tfrmfecnf
         DataSource = frmdados.dts_transportador
       end
       object Label57: TLabel
-        Left = 464
+        Left = 450
         Top = 102
         Width = 10
         Height = 13
         Caption = 'IE'
       end
       object ediietransp: TDBText
-        Left = 552
+        Left = 539
         Top = 102
         Width = 124
         Height = 17
@@ -729,14 +729,14 @@ object frmfecnf: Tfrmfecnf
         Caption = 'QUANTIDADE'
       end
       object Label59: TLabel
-        Left = 340
+        Left = 351
         Top = 155
         Width = 45
         Height = 13
         Caption = 'ESP'#201'CIE'
       end
       object Label60: TLabel
-        Left = 552
+        Left = 539
         Top = 155
         Width = 38
         Height = 13
@@ -750,14 +750,14 @@ object frmfecnf: Tfrmfecnf
         Caption = 'N'#218'MERO'
       end
       object Label62: TLabel
-        Left = 340
+        Left = 351
         Top = 182
         Width = 70
         Height = 13
         Caption = 'PESO BRUTO'
       end
       object Label63: TLabel
-        Left = 552
+        Left = 539
         Top = 182
         Width = 76
         Height = 13
@@ -800,7 +800,7 @@ object frmfecnf: Tfrmfecnf
         OnKeyPress = edidatasaiKeyPress
       end
       object ediplacavei: TEdit
-        Left = 464
+        Left = 449
         Top = 123
         Width = 81
         Height = 21
@@ -810,7 +810,7 @@ object frmfecnf: Tfrmfecnf
         OnKeyPress = edidatasaiKeyPress
       end
       object EDIUFVEI: TEdit
-        Left = 633
+        Left = 620
         Top = 123
         Width = 40
         Height = 21
@@ -830,7 +830,7 @@ object frmfecnf: Tfrmfecnf
         OnKeyPress = edidatasaiKeyPress
       end
       object ediespecie: TEdit
-        Left = 464
+        Left = 449
         Top = 151
         Width = 81
         Height = 21
@@ -840,9 +840,9 @@ object frmfecnf: Tfrmfecnf
         OnKeyPress = edidatasaiKeyPress
       end
       object edimarca: TEdit
-        Left = 632
+        Left = 620
         Top = 151
-        Width = 129
+        Width = 76
         Height = 21
         CharCase = ecUpperCase
         TabOrder = 6
@@ -860,7 +860,7 @@ object frmfecnf: Tfrmfecnf
         OnKeyPress = edidatasaiKeyPress
       end
       object EDIPESOB: TEdit
-        Left = 464
+        Left = 449
         Top = 178
         Width = 81
         Height = 21
@@ -870,9 +870,9 @@ object frmfecnf: Tfrmfecnf
         OnKeyPress = EDIPESOBKeyPress
       end
       object EDIPESOL: TEdit
-        Left = 632
+        Left = 620
         Top = 178
-        Width = 129
+        Width = 75
         Height = 21
         CharCase = ecUpperCase
         TabOrder = 9
@@ -898,10 +898,10 @@ object frmfecnf: Tfrmfecnf
       Caption = 'DADOS ADICIONAIS'
       ImageIndex = 5
       object mmoadicnf: TMemo
-        Left = 2
+        Left = 1
         Top = 3
-        Width = 803
-        Height = 199
+        Width = 703
+        Height = 230
         Lines.Strings = (
           'mmoadicnf')
         TabOrder = 0
@@ -965,7 +965,7 @@ object frmfecnf: Tfrmfecnf
     OnKeyPress = edipdescKeyPress
   end
   object edibscalcsubstrib: TEdit
-    Left = 538
+    Left = 474
     Top = 481
     Width = 87
     Height = 21
@@ -975,7 +975,7 @@ object frmfecnf: Tfrmfecnf
     OnKeyPress = edibscalcsubstribKeyPress
   end
   object EDIVLRICMSSUBTRIB: TEdit
-    Left = 852
+    Left = 738
     Top = 481
     Width = 95
     Height = 21
@@ -995,7 +995,7 @@ object frmfecnf: Tfrmfecnf
     OnKeyPress = edivlrfreteKeyPress
   end
   object EDIVLRSEG: TEdit
-    Left = 852
+    Left = 738
     Top = 506
     Width = 97
     Height = 21
@@ -1005,7 +1005,7 @@ object frmfecnf: Tfrmfecnf
     OnKeyPress = EDIVLRSEGKeyPress
   end
   object edivlrout: TEdit
-    Left = 538
+    Left = 474
     Top = 506
     Width = 87
     Height = 21
@@ -1041,7 +1041,7 @@ object frmfecnf: Tfrmfecnf
     Text = 'edialiqapipi'
   end
   object edinnfrefdevol: TEdit
-    Left = 496
+    Left = 503
     Top = 559
     Width = 129
     Height = 21
@@ -1049,7 +1049,7 @@ object frmfecnf: Tfrmfecnf
     Text = 'edinnfrefdevol'
   end
   object edidatanfrefdevol: TMaskEdit
-    Left = 849
+    Left = 739
     Top = 556
     Width = 74
     Height = 21
@@ -1084,8 +1084,8 @@ object frmfecnf: Tfrmfecnf
     TabOrder = 12
   end
   object BitBtn1: TBitBtn
-    Left = 981
-    Top = 74
+    Left = 859
+    Top = 81
     Width = 116
     Height = 37
     Caption = '&VISUALIZAR'
@@ -1106,10 +1106,10 @@ object frmfecnf: Tfrmfecnf
     OnKeyPress = cbxdesctiponf_cod1nfKeyPress
   end
   object rg1: TRadioGroup
-    Left = 839
-    Top = 60
-    Width = 122
-    Height = 141
+    Left = 735
+    Top = 224
+    Width = 114
+    Height = 243
     Caption = 'Forma de Emiss'#227'o'
     ItemIndex = 0
     Items.Strings = (
@@ -1118,9 +1118,9 @@ object frmfecnf: Tfrmfecnf
     TabOrder = 29
   end
   object Edit1: TEdit
-    Left = 900
-    Top = 155
-    Width = 53
+    Left = 748
+    Top = 430
+    Width = 85
     Height = 21
     TabOrder = 30
     Text = 'Edit1'
@@ -1162,7 +1162,7 @@ object frmfecnf: Tfrmfecnf
   object cbxindfinal: TComboBox
     Left = 600
     Top = 175
-    Width = 233
+    Width = 249
     Height = 21
     ItemHeight = 13
     ItemIndex = 0
@@ -1176,7 +1176,7 @@ object frmfecnf: Tfrmfecnf
   object cbxindpres: TComboBox
     Left = 600
     Top = 101
-    Width = 233
+    Width = 249
     Height = 21
     ItemHeight = 13
     ItemIndex = 0
@@ -1193,7 +1193,7 @@ object frmfecnf: Tfrmfecnf
   object edirefnfe: TEdit
     Left = 600
     Top = 74
-    Width = 233
+    Width = 249
     Height = 21
     TabOrder = 2
     Text = 'edirefnfe'
