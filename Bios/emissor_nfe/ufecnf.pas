@@ -667,7 +667,8 @@ begin
 
   while true do
         begin
-          lblmensagem.Caption := 'Aguardando resposta da secretaria da fazenda...';
+          //aqui
+          lblmensagem.Caption := 'Realize a impressão assim que possível ...';
           frmfecnf.Update;
 
           if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT' ) then
@@ -681,7 +682,7 @@ begin
                    if ( iPos > 0) then
                       begin
                         bAut := true;
-                        lblmensagem.Caption := 'Impressão realizada com sucesso...';
+                        lblmensagem.Caption := 'Impressão realizada com sucesso, aguarde encerramento desta tela...';
                         frmfecnf.Update;
                         sleep(5000);
                         scaminho := copy(Linha,iPos,length(Linha));
@@ -3991,7 +3992,7 @@ begin
                     else
                        begin
                          bNaut := true;
-                         lblmensagem.Caption := 'Não Autorizado pelo Sefaz...';
+                         lblmensagem.Caption := 'Não Autorizado pela Sefaz...';
                          frmfecnf.Update;
                          sleep(5000);
                          break;
