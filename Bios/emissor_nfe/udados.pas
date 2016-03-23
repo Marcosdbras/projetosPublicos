@@ -1449,6 +1449,10 @@ type
     cds_nfecnpjcpfemi: TStringField;
     cds_nfecnpjcpfdest: TStringField;
     cds_nfecnpjcpfeminfe: TStringField;
+    sql_produtoscest: TStringField;
+    sql_nfpcest: TStringField;
+    cds_nfpcest: TStringField;
+    cds_produtoscest: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);
@@ -1631,6 +1635,7 @@ type
     sdescricao,
     saux,
     sncm,
+    scest,
     sicms,
     sunidade,
     sorigem:string;
@@ -5393,6 +5398,11 @@ begin
          sncm := copy(linha,5,length(linha));
       //endi
 
+      if pos('CEST=',Linha) > 0 then
+         scest := copy(linha,6,length(linha));
+      //endi
+
+
       if pos('ICMS=',Linha) > 0 then
          sicms := copy(linha,6,length(linha));
       //endi
@@ -5986,6 +5996,12 @@ begin
          sncm := copy(linha,5,length(linha));
       //endi
 
+      if pos('CEST=',Linha) > 0 then
+         scest := copy(linha,6,length(linha));
+      //endi
+
+
+
       if pos('ICMS=',Linha) > 0 then
          sicms := copy(linha,6,length(linha));
       //endi
@@ -6291,6 +6307,7 @@ begin
             cds_produtos.FieldByName('cbar').AsString := scbar;
             cds_produtos.FieldByName('caux').asString := saux;
             cds_produtos.FieldByName('simplesncm').asString := sncm;
+            cds_produtos.FieldByName('cest').asString := scest;
             cds_produtos.FieldByName('cpis').asInteger := 1;
             cds_produtos.FieldByName('ccofins').asInteger := 1;
             cds_produtos.FieldByName('cipi').asInteger := 1;
@@ -6407,6 +6424,7 @@ begin
   cds_nfp.FieldByName('cbar').AsString := scbar;
   cds_nfp.FieldByName('caux').asString := saux;
   cds_nfp.FieldByName('simplesncm').asString := sncm;
+  cds_nfp.FieldByName('cest').asString := scest;
   if sicms <> '' then
      begin
 
@@ -6600,6 +6618,7 @@ begin
   cds_produtos.FieldByName('caux').AsString := saux;
   cds_produtos.FieldByName('prve').Asfloat := strtofloat(sprve);
   cds_produtos.FieldByName('simplesncm').AsString := sncm;
+  cds_produtos.FieldByName('cest').AsString := scest;
   cds_produtos.FieldByName('cpis').asInteger := 1;
   cds_produtos.FieldByName('ccofins').asInteger := 1;
   cds_produtos.FieldByName('cipi').asInteger := 1;

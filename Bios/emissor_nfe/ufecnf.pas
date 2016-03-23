@@ -667,7 +667,7 @@ begin
 
   while true do
         begin
-          lblmensagem.Caption := 'Aguardando ordem de impressão do usuário...';
+          lblmensagem.Caption := 'Aguardando resposta da secretaria da fazenda...';
           frmfecnf.Update;
 
           if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT' ) then
@@ -701,7 +701,7 @@ begin
                     if sAcao = 'V' then
                        lblmensagem.Caption := 'Visualização concluída'
                     else
-                       lblmensagem.Caption := 'Rejeição do documento pelo SEFAZ';
+                       lblmensagem.Caption := 'Rejeição do documento pela secretaria da fazenda, verifique os erros';
                     //endi
                     frmfecnf.Update;
                     sleep(5000);
@@ -3110,6 +3110,8 @@ begin
              end;
           //endi
 
+          Writeln(f,'CEST='+cds_nfp.fieldbyname('CEST').asString);
+
           if cds_unidade.Locate('codigo',cds_nfp.fieldbyname('cod13prodnf').asInteger,[]) then
              begin
                sund := Cds_unidade.fieldbyname('sigla').asString;
@@ -3972,7 +3974,7 @@ begin
                         if iPos > 0 then
                            begin
                              bAut := true;
-                             lblmensagem.Caption := 'Pré Autorizado, aguarde impressão...';
+                             lblmensagem.Caption := 'Nota fiscal eletrônica validada com sucesso, aguarde impressão ou rejeição da secretaria...';
                              frmfecnf.Update;
                              sleep(5000);
                              scaminho := copy(Linha,iPos+4,length(Linha));

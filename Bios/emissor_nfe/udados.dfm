@@ -5135,6 +5135,11 @@ object frmdados: Tfrmdados
       item
         Name = 'codigo'
         DataType = ftInteger
+      end
+      item
+        Name = 'cest'
+        DataType = ftString
+        Size = 40
       end>
     IndexDefs = <
       item
@@ -5282,6 +5287,10 @@ object frmdados: Tfrmdados
     end
     object cds_nfpcodigo: TIntegerField
       FieldName = 'codigo'
+    end
+    object cds_nfpcest: TStringField
+      FieldName = 'cest'
+      Size = 40
     end
   end
   object dts_nfp: TDataSource
@@ -6360,6 +6369,7 @@ object frmdados: Tfrmdados
   end
   object zconexao: TZConnection
     TransactIsolationLevel = tiReadCommitted
+    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'nfe'
@@ -7813,6 +7823,10 @@ object frmdados: Tfrmdados
     object sql_nfpcodigo: TIntegerField
       FieldName = 'codigo'
     end
+    object sql_nfpcest: TStringField
+      FieldName = 'cest'
+      Size = 40
+    end
   end
   object sql_sita: TZQuery
     Connection = zconexao
@@ -9018,6 +9032,10 @@ object frmdados: Tfrmdados
     object sql_produtostabela: TIntegerField
       FieldName = 'tabela'
     end
+    object sql_produtoscest: TStringField
+      FieldName = 'cest'
+      Size = 40
+    end
   end
   object dsp_produtos: TDataSetProvider
     DataSet = sql_produtos
@@ -9027,7 +9045,131 @@ object frmdados: Tfrmdados
   end
   object cds_produtos: TClientDataSet
     Aggregates = <>
-    FieldDefs = <>
+    FieldDefs = <
+      item
+        Name = 'codigo'
+        DataType = ftInteger
+      end
+      item
+        Name = 'descricao'
+        DataType = ftString
+        Size = 80
+      end
+      item
+        Name = 'cund'
+        DataType = ftInteger
+      end
+      item
+        Name = 'prve'
+        DataType = ftFloat
+      end
+      item
+        Name = 'cbar'
+        DataType = ftString
+        Size = 13
+      end
+      item
+        Name = 'bscalcst'
+        DataType = ftFloat
+      end
+      item
+        Name = 'icmscalcst'
+        DataType = ftFloat
+      end
+      item
+        Name = 'compoetnf'
+        DataType = ftString
+        Size = 1
+      end
+      item
+        Name = 'cicms'
+        DataType = ftInteger
+      end
+      item
+        Name = 'cipi'
+        DataType = ftInteger
+      end
+      item
+        Name = 'csita'
+        DataType = ftInteger
+      end
+      item
+        Name = 'csitb'
+        DataType = ftInteger
+      end
+      item
+        Name = 'ccfncm'
+        DataType = ftInteger
+      end
+      item
+        Name = 'cmodbscalc'
+        DataType = ftInteger
+      end
+      item
+        Name = 'cmodbscalcst'
+        DataType = ftInteger
+      end
+      item
+        Name = 'cvii'
+        DataType = ftInteger
+      end
+      item
+        Name = 'cpis'
+        DataType = ftInteger
+      end
+      item
+        Name = 'ccofins'
+        DataType = ftInteger
+      end
+      item
+        Name = 'coimp'
+        DataType = ftInteger
+      end
+      item
+        Name = 'ccfop'
+        DataType = ftInteger
+      end
+      item
+        Name = 'caux'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ccsosn'
+        DataType = ftInteger
+      end
+      item
+        Name = 'simplesncm'
+        DataType = ftString
+        Size = 60
+      end
+      item
+        Name = 'id'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'qtde'
+        DataType = ftFloat
+      end
+      item
+        Name = 'EX'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'iva'
+        DataType = ftFloat
+      end
+      item
+        Name = 'tabela'
+        DataType = ftInteger
+      end
+      item
+        Name = 'cest'
+        DataType = ftString
+        Size = 40
+      end>
     IndexDefs = <
       item
         Name = 'descricao'
@@ -9133,6 +9275,10 @@ object frmdados: Tfrmdados
     end
     object cds_produtostabela: TIntegerField
       FieldName = 'tabela'
+    end
+    object cds_produtoscest: TStringField
+      FieldName = 'cest'
+      Size = 40
     end
   end
   object dts_produtos: TDataSource

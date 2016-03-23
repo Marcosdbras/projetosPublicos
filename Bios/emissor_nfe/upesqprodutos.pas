@@ -100,6 +100,9 @@ type
     edibscalcst: TEdit;
     Label19: TLabel;
     ediicmscalcst: TEdit;
+    Label6: TLabel;
+    edicest: TEdit;
+    BitBtn2: TBitBtn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Limpar;
     procedure btnnovaClick(Sender: TObject);
@@ -138,6 +141,7 @@ type
     procedure Button2Click(Sender: TObject);
     procedure filtro;
     procedure retirarfiltro;
+    procedure edicestKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -225,6 +229,7 @@ begin
   ediicmscalcst.Text := '0,00';
   edisimplesncm.Text := '';
   ediiva.Text := '0,00';
+  edicest.Text := '';
 
 
   ckbcompoetnf.Checked := true;
@@ -264,6 +269,7 @@ edibscalcst.Enabled := true;
 ediiva.Enabled := true;
 ediicmscalcst.Enabled := true;
 edisimplesncm.Enabled := true;
+edicest.Enabled := true;
 ckbcompoetnf.Enabled := true;
 cbxnund.Enabled := true;
 cbxdescicms_cod1.Enabled := true;
@@ -349,6 +355,7 @@ if frmdados.cds_produtos.RecordCount > 0 then
      edibscalcst.Enabled := true;
      ediicmscalcst.Enabled := true;
      edisimplesncm.Enabled := true;
+     edicest.Enabled := true;
      ckbcompoetnf.Enabled := true;
      cbxnund.Enabled := true;
      cbxdescicms_cod1.Enabled := true;
@@ -384,6 +391,7 @@ else
      edibscalcst.Enabled := false;
      ediicmscalcst.Enabled := false;
      edisimplesncm.Enabled := false;
+     edicest.Enabled := false;
 
      ckbcompoetnf.Enabled := false;
      cbxnund.Enabled := false;
@@ -443,7 +451,7 @@ with frmdados do
     cds_produtos.FieldByName('bscalcst').asfloat := strtofloat(tirapontos(edibscalcst.Text));
     cds_produtos.FieldByName('icmscalcst').asfloat := strtofloat(tirapontos(ediicmscalcst.Text));
     cds_produtos.FieldByName('simplesncm').asString := edisimplesncm.Text;
-
+    cds_produtos.FieldByName('cest').asString := edicest.Text;
     
     if ckbcompoetnf.Checked then
        cds_produtos.FieldByName('compoetnf').asString := 'T'
@@ -509,6 +517,7 @@ with frmdados do
     ediicmscalcst.Text := formatfloat('###,###,##0.00', cds_produtos.fieldbyname('icmscalcst').asfloat);
 
     edisimplesncm.Text := cds_produtos.fieldbyname('simplesncm').asString;
+    edicest.Text := cds_produtos.fieldbyname('cest').asString;
 
     if cds_produtos.fieldbyname('compoetnf').asString = 'T' then
        ckbcompoetnf.Checked := true
@@ -1017,5 +1026,17 @@ begin
 
 end;
 
+
+procedure Tfrmpesqprodutos.edicestKeyPress(Sender: TObject; var Key: Char);
+begin
+  if (key = #13) then
+     begin
+       key := #0;
+       SelectNext(ActiveControl,True,True);
+       exit;
+     end;
+  //endif
+
+end;
 
 end.

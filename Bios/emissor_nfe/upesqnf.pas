@@ -377,6 +377,9 @@ type
     Label132: TLabel;
     Label133: TLabel;
     edichave: TEdit;
+    edicest: TEdit;
+    BitBtn4: TBitBtn;
+    Label134: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Limpar;
     procedure btnnovaClick(Sender: TObject);
@@ -536,6 +539,7 @@ type
     procedure EDIBCSUBSICMSKeyPress(Sender: TObject; var Key: Char);
     procedure edibcicmsExit(Sender: TObject);
     procedure edibcicmsKeyPress(Sender: TObject; var Key: Char);
+    procedure edicestKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     sOpcao:string;
@@ -1784,6 +1788,7 @@ begin
   //.Text := '0,00';
 
   edisimplesncm.Text := '';
+  edicest.Text := '';
   
   ckbcompoetnf.Checked := True;
   frmdados.cds_Temp.edit;
@@ -2079,6 +2084,7 @@ with frmdados do
 
 
     cds_nfp.FieldByName('simplesncm').asString := edisimplesncm.text;
+    cds_nfp.FieldByName('cest').asString := edicest.text;
 
 
     if ckbcompoetnf.Checked then
@@ -2210,6 +2216,8 @@ begin
                  frmdados.cds_produtos.FieldByName('cund').AsInteger := frmdados.cds_temp.fieldbyname('cod13prodnf').asInteger;
                  frmdados.cds_produtos.FieldByName('ccsosn').AsInteger := frmdados.cds_temp.fieldbyname('cod14prodnf').asInteger;
                  frmdados.cds_produtos.FieldByName('simplesncm').Asstring := edisimplesncm.Text;
+                 frmdados.cds_produtos.FieldByName('cest').Asstring := edicest.Text;
+
                  frmdados.cds_produtos.FieldByName('bscalcst').Asstring := edibscalcst.Text;
                  frmdados.cds_produtos.FieldByName('icmscalcst').Asstring := ediicmscalcst.Text;
 
@@ -2275,6 +2283,9 @@ with frmdados do
     edibscalcst.text   := formatfloat('###,###,##0.00', cds_nfp.FieldByName('bscalcst').asfloat);
     ediicmscalcst.text := formatfloat('###,###,##0.00', cds_nfp.FieldByName('icmscalcst').asfloat);
     edisimplesncm.text := cds_nfp.FieldByName('simplesncm').asString;
+    edicest.text := cds_nfp.FieldByName('cest').asString;
+
+
     ediiva.text := formatfloat('###,###,##0.00', cds_nfp.FieldByName('iva').asfloat);
 
     edivlricms.text := formatfloat('###,###,##0.00', cds_nfp.FieldByName('vlricms').asfloat);
@@ -2483,6 +2494,7 @@ edibscalcst.Text := formatfloat('###,###,##0.00',frmdados.cds_nfp.fieldbyname('b
 ediicmscalcst.Text := formatfloat('###,###,##0.00',frmdados.cds_nfp.fieldbyname('icmscalcst').asfloat);
 
 edisimplesncm.Text := frmdados.cds_nfp.fieldbyname('simplesncm').asString;
+edicest.Text := frmdados.cds_nfp.fieldbyname('cest').asString;
 
 
 if frmdados.cds_nfp.fieldbyname('compoetnf').asString = 'T' then
@@ -2546,6 +2558,7 @@ edibcsubsicms.Enabled := false;
 
 
 edisimplesncm.Enabled := false;
+edicest.Enabled := false;
 ckbcompoetnf.Enabled := false;
 end;
 
@@ -2588,6 +2601,7 @@ edibcsubsicms.Enabled := true;
 edivlripi.Enabled := true;
 
 edisimplesncm.Enabled := true;
+edicest.Enabled := true;
 
 ckbcompoetnf.Enabled := true;
 
@@ -2710,7 +2724,7 @@ begin
 
 
       edisimplesncm.Text := cds_produtos.fieldbyname('simplesncm').asString;
-
+      edicest.Text := cds_produtos.fieldbyname('cest').asString;
 
       ediprve.Text := formatfloat('###,###,##0.00',cds_produtos.fieldbyname('prve').asfloat);
 
@@ -3527,6 +3541,8 @@ begin
                cds_nfp.FieldByName('bscalcst').asfloat := cds_produtos.fieldbyname('bscalcst').asfloat;
                cds_nfp.FieldByName('icmscalcst').AsFloat := cds_produtos.fieldbyname('icmscalcst').asfloat;
                cds_nfp.FieldByName('simplesncm').AsString := cds_produtos.fieldbyname('simplesncm').asString;
+               cds_nfp.FieldByName('cest').AsString := cds_produtos.fieldbyname('cest').asString;
+
                if cds_nfp.FieldByName('simplesncm').asString = '' then
                   cds_nfp.FieldByName('simplesncm').asString := '99999999';
                //endi
@@ -4840,6 +4856,18 @@ begin
        key:=#0;
      end;
   //endi
+
+end;
+
+procedure Tfrmpesqnf.edicestKeyPress(Sender: TObject; var Key: Char);
+begin
+  if (key = #13) then
+     begin
+       key := #0;
+       SelectNext(ActiveControl,True,True);
+       exit;
+     end;
+  //endif
 
 end;
 

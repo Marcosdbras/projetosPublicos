@@ -204,7 +204,7 @@ object frmpesqprodutos: Tfrmpesqprodutos
       Top = 49
       Width = 819
       Height = 405
-      ActivePage = tbsficha
+      ActivePage = tbslista
       Align = alClient
       Images = imgprincipal
       Style = tsButtons
@@ -215,8 +215,8 @@ object frmpesqprodutos: Tfrmpesqprodutos
         object dbg_produtos: TDBGrid
           Left = 0
           Top = 0
-          Width = 1195
-          Height = 531
+          Width = 811
+          Height = 373
           Align = alClient
           DataSource = frmdados.dts_produtos
           Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
@@ -418,7 +418,7 @@ object frmpesqprodutos: Tfrmpesqprodutos
           Top = 64
           Width = 769
           Height = 257
-          ActivePage = TabSheet1
+          ActivePage = tbsprincipal
           MultiLine = True
           TabOrder = 1
           object tbsprincipal: TTabSheet
@@ -590,6 +590,16 @@ object frmpesqprodutos: Tfrmpesqprodutos
                     Height = 13
                     Caption = 'ICMS CALC. SUB. TRIB. ANT.'
                   end
+                  object Label6: TLabel
+                    Left = 317
+                    Top = 109
+                    Width = 115
+                    Height = 13
+                    Hint = 'C'#243'digo Especificador da Substitui'#231#227'o Tribut'#225'ria'
+                    Caption = 'Cod. Esp. da Subs. Trib.'
+                    ParentShowHint = False
+                    ShowHint = True
+                  end
                   object cbxdescsitb_cod5: TDBLookupComboBox
                     Left = 153
                     Top = 35
@@ -707,6 +717,36 @@ object frmpesqprodutos: Tfrmpesqprodutos
                     Text = 'EDIICMSCALCST'
                     OnExit = ediicmscalcstExit
                     OnKeyPress = edibscalcstKeyPress
+                  end
+                  object edicest: TEdit
+                    Left = 476
+                    Top = 107
+                    Width = 120
+                    Height = 21
+                    TabOrder = 10
+                    Text = 'edicest'
+                    OnKeyPress = edicestKeyPress
+                  end
+                  object BitBtn2: TBitBtn
+                    Left = 600
+                    Top = 105
+                    Width = 25
+                    Height = 25
+                    TabOrder = 11
+                    Glyph.Data = {
+                      76010000424D7601000000000000760000002800000020000000100000000100
+                      04000000000000010000120B0000120B00001000000000000000000000000000
+                      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+                      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+                      33333333333333333333333333333333333333333333333333FF333333333333
+                      3000333333FFFFF3F77733333000003000B033333777773777F733330BFBFB00
+                      E00033337FFF3377F7773333000FBFB0E000333377733337F7773330FBFBFBF0
+                      E00033F7FFFF3337F7773000000FBFB0E000377777733337F7770BFBFBFBFBF0
+                      E00073FFFFFFFF37F777300000000FB0E000377777777337F7773333330BFB00
+                      000033333373FF77777733333330003333333333333777333333333333333333
+                      3333333333333333333333333333333333333333333333333333333333333333
+                      3333333333333333333333333333333333333333333333333333}
+                    NumGlyphs = 2
                   end
                 end
               end

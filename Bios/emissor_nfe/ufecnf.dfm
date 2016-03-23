@@ -1108,7 +1108,7 @@ object frmfecnf: Tfrmfecnf
   object rg1: TRadioGroup
     Left = 735
     Top = 224
-    Width = 114
+    Width = 113
     Height = 243
     Caption = 'Forma de Emiss'#227'o'
     ItemIndex = 0
@@ -1118,7 +1118,7 @@ object frmfecnf: Tfrmfecnf
     TabOrder = 29
   end
   object Edit1: TEdit
-    Left = 748
+    Left = 740
     Top = 430
     Width = 85
     Height = 21
