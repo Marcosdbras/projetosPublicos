@@ -75,8 +75,8 @@ begin
  if edincm.Text = '' then
     break;
 
- //if (application.MessageBox('Deseja continuar a pesquisa?','Pesquisa',mb_yesno) = 7) then
- //   break;
+  //if (application.MessageBox('Deseja continuar a pesquisa?','Pesquisa',mb_yesno) = 7) then
+  //   break;
 
  until(application.MessageBox('Deseja continuar a pesquisa?','Pesquisa',mb_yesno) = 7)    ;
 
