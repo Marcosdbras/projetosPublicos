@@ -238,6 +238,60 @@ object BackupMySQL: TBackupMySQL
     Font.Style = [fsBold]
     ParentFont = False
   end
+  object spdxp32: TSpeedButton
+    Left = 568
+    Top = 332
+    Width = 23
+    Height = 22
+    Hint = 'Baixe o arquivo de atualiza'#231#227'o no site marcosbras.com'
+    Caption = 'XP'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    NumGlyphs = 2
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = spdxp32Click
+  end
+  object spd7x32bits: TSpeedButton
+    Left = 541
+    Top = 332
+    Width = 23
+    Height = 22
+    Hint = 'Baixe o arquivo de atualiza'#231#227'o no site marcosbras.com'
+    Caption = '7'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    NumGlyphs = 2
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = spd7x32bitsClick
+  end
+  object spdpadrao: TSpeedButton
+    Left = 567
+    Top = 247
+    Width = 23
+    Height = 22
+    Hint = 'Baixe o arquivo de atualiza'#231#227'o no site marcosbras.com'
+    Caption = '<'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    NumGlyphs = 2
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    OnClick = spdpadraoClick
+  end
   object EdtUsuario: TEdit
     Left = 269
     Top = 248
@@ -249,7 +303,7 @@ object BackupMySQL: TBackupMySQL
   object EdtSenha: TEdit
     Left = 470
     Top = 248
-    Width = 123
+    Width = 91
     Height = 21
     PasswordChar = '*'
     TabOrder = 4
@@ -289,7 +343,7 @@ object BackupMySQL: TBackupMySQL
   object EdtCaminhoGbase: TEdit
     Left = 269
     Top = 333
-    Width = 324
+    Width = 268
     Height = 21
     TabOrder = 7
     Text = 'edicaminhogbase'

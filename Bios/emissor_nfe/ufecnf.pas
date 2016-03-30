@@ -3111,7 +3111,11 @@ begin
              end;
           //endi
 
-          Writeln(f,'CEST='+cds_nfp.fieldbyname('CEST').asString);
+          if  cds_nfp.fieldbyname('CEST').asString <> '' then
+             begin
+               Writeln(f,'CEST='+cds_nfp.fieldbyname('CEST').asString);
+             end;
+          //endi
 
           if cds_unidade.Locate('codigo',cds_nfp.fieldbyname('cod13prodnf').asInteger,[]) then
              begin

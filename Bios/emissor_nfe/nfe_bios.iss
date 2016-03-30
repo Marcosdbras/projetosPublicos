@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "NFE"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.11"
 #define MyAppPublisher "BIOS"
 #define MyAppExeName "pProg.exe"
 

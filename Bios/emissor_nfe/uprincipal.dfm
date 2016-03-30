@@ -3,7 +3,7 @@ object frmprincipal: Tfrmprincipal
   Top = 1
   Width = 1359
   Height = 736
-  Caption = 'Emissor NFE vers'#227'o 1.10'
+  Caption = 'Emissor NFE vers'#227'o 1.11'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

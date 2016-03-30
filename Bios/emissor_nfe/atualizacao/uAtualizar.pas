@@ -38,6 +38,9 @@ type
     Label12: TLabel;
     Label13: TLabel;
     Label14: TLabel;
+    spdxp32: TSpeedButton;
+    spd7x32bits: TSpeedButton;
+    spdpadrao: TSpeedButton;
     procedure ExecutarClick(Sender: TObject);
     procedure ExecutarBackup;
     procedure FormShow(Sender: TObject);
@@ -45,11 +48,12 @@ type
     procedure GravaIniConfig(Topico:string ;  Campo:string; aTexto: string);
     procedure LerIniConfig;
     Function  cript(senha,chave,operacao : string) : string;
-    procedure SpeedButton1Click(Sender: TObject);
+    procedure spdxp32Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
+    procedure spd7x32bitsClick(Sender: TObject);
+    procedure spdpadraoClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -275,9 +279,9 @@ end;
 
 
 
-procedure TBackupMySQL.SpeedButton1Click(Sender: TObject);
+procedure TBackupMySQL.spdxp32Click(Sender: TObject);
 begin
-edtpastabackup.Text := DirectoryOutline1.Directory;
+EdtCaminhoGbase.Text := 'C:\Arquivos de programas\MySQL\MySQL Server 5.1\bin';
 
 
 
@@ -305,9 +309,15 @@ begin
   edtcaminhogbase.Text := DirectoryOutline1.Directory;
 end;
 
-procedure TBackupMySQL.SpeedButton2Click(Sender: TObject);
+procedure TBackupMySQL.spd7x32bitsClick(Sender: TObject);
 begin
-   edtcaminhogbase.Text := DirectoryOutline1.Directory;
+   EdtCaminhoGbase.Text := 'C:\Program Files\MySQL\MySQL Server 5.1\bin';
+end;
+
+procedure TBackupMySQL.spdpadraoClick(Sender: TObject);
+begin
+edtusuario.Text := 'root';
+edtsenha.Text := 'sqlremoto';
 end;
 
 end.

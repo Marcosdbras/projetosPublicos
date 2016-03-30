@@ -254,6 +254,7 @@ object frmpesqprodutos: Tfrmpesqprodutos
               Expanded = False
               FieldName = 'cbar'
               Title.Caption = 'COD. BAR.'
+              Width = 64
               Visible = True
             end
             item
@@ -733,6 +734,7 @@ object frmpesqprodutos: Tfrmpesqprodutos
                     Width = 25
                     Height = 25
                     TabOrder = 11
+                    OnClick = BitBtn2Click
                     Glyph.Data = {
                       76010000424D7601000000000000760000002800000020000000100000000100
                       04000000000000010000120B0000120B00001000000000000000000000000000

@@ -98,7 +98,7 @@ uses
   uconsserv in 'uconsserv.pas' {frmconsserv},
   ufecnf in 'ufecnf.pas' {frmfecnf},
   uindice in 'uindice.pas' {frmindice},
-  upcodibge in 'upcodibge.pas' {frmpcodibge},
+  upcodcest in 'upcodcest.pas' {frmpcodcest},
   upesqnfemi in 'upesqnfemi.pas' {frmpesqnfemi},
   ufiltronfemi in 'ufiltronfemi.pas' {FrmFiltronfemi},
   urelnfemi in 'urelnfemi.pas' {frmrelnfemi},
@@ -110,7 +110,8 @@ uses
   upesquisaproduto in 'upesquisaproduto.pas' {frmpesquisaproduto},
   ucancelar in 'ucancelar.pas' {frmcancelamento},
   ucorrecao in 'ucorrecao.pas' {frmcorrecao},
-  uenviaxml in 'uenviaxml.pas';
+  uenviaxml in 'uenviaxml.pas',
+  upcodibge in 'upcodibge.pas' {frmpcodibge};
 
 {$R *.res}
 

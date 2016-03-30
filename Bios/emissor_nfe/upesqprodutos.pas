@@ -142,6 +142,7 @@ type
     procedure filtro;
     procedure retirarfiltro;
     procedure edicestKeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn2Click(Sender: TObject);
 
 
   private
@@ -158,7 +159,7 @@ var
   frmpesqprodutos: Tfrmpesqprodutos;
 
 implementation
-   uses ugeral, udados, ufiltroprodutos, urelprodutos;
+   uses ugeral, udados, ufiltroprodutos, urelprodutos, upcodcest;
 {$R *.dfm}
 
 procedure Tfrmpesqprodutos.FormClose(Sender: TObject;
@@ -1037,6 +1038,13 @@ begin
      end;
   //endif
 
+end;
+
+procedure Tfrmpesqprodutos.BitBtn2Click(Sender: TObject);
+begin
+  frmpcodcest := tfrmpcodcest.create(self);
+  frmpcodcest.showmodal;
+  frmpcodcest.free;
 end;
 
 end.
