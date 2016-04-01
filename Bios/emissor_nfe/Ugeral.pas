@@ -47,6 +47,8 @@ Type
   function FindReplace (Var Enc:String; Var subs: String; Var Texto: String): string;
   function Decimal_Is_Point(var Valor:String):String;
   function Decimal_Is_Pointf(var Valor:String):String;
+  function Decimal_Is_Coma(var Valor:String):String;
+
   function Bar_Is_Point(var sData:string):string;
   function datainvertida(var sData:string):string;
   function EnDecryptString(StrValue : String; Chave: Word) : String;
@@ -1531,6 +1533,19 @@ begin
   end;
 end;
 
+
+function Decimal_Is_Coma(var Valor:String):String;
+var sEnc, sSubs, sInfAnt:string;
+begin
+  try
+    sEnc := '.';
+    sSubs := ',';
+    sInfAnt := Valor;
+    result := findreplace(sEnc,sSubs,sinfAnt);
+  except
+    result := Valor;
+  end;
+end;
 
 
 

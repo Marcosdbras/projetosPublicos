@@ -1658,6 +1658,8 @@ begin
 
   porcibpt := 0;
   vlribpt  := 0;
+  vlrestadual := 0;
+  vlrmunicipal := 0;
 
   sitens := '';
 
@@ -2465,6 +2467,8 @@ begin
        frmdados.sql_consulta.Active := true;
 
        sufemi := frmdados.sql_consulta.fieldbyname('sigla').asString;
+
+       sunidadefederativa := frmdados.sql_consulta.fieldbyname('sigla').asString;
 
      end;
   //endi
@@ -3661,11 +3665,21 @@ begin
 
             if edinped.Text <> '' then
                sobs := sitens;
+            //endi
 
             if sobs = '' then
-               sobs := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';'
+               begin
+                 //sobs := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';'
+                 sobs := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e'+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT'+schave+';';
+
+               end
             else
-              sobs := sobs +  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';';
+              begin
+                 //sobs := sobs +  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';';
+                 sobs := sobs +  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e'+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';';
+
+              end;
+            //endi
 
             if frmdados.cds_regtrib.Locate('codigo',frmdados.cds_emitente.FieldByName('cregtrib').AsInteger,[]) then
                begin

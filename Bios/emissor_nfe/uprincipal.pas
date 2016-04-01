@@ -98,6 +98,8 @@ type
     XMLEnvio: TXMLDocument;
     Button2: TButton;
     reResp: TMemo;
+    IdHTTP1: TIdHTTP;
+    XMLDocument1: TXMLDocument;
 
     //Response: TStringStream;
     //Arquivo: TIdMultipartFormDataStream;
