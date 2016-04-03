@@ -1714,8 +1714,36 @@ begin
   zconexao.User := arqini.ReadString('Base','UserName','root');
   zconexao.Password :=  cript(arqini.ReadString('Base','PassWord','sqlremoto'),'bios2805','descript');
 
-  zconexao.Connect;
-  
+  try
+    zconexao.Connect;
+
+    sql_nfe.Active := false;
+    sql_nfe.SQL.Clear;
+    sql_nfe.SQL.Add('select * from nfe where id = 0');
+    sql_nfe.Active := true;
+
+    sql_nf.Active := false;
+    sql_nf.SQL.Clear;
+    sql_nf.SQL.Add('select * from nf where id = 0');
+    sql_nf.Active := true;
+
+    sql_nfp.Active := false;
+    sql_nfp.SQL.Clear;
+    sql_nfp.SQL.Add('select * from nfp where id = 0');
+    sql_nfp.Active := true;
+
+
+  except
+    showmessage('Houve falha ao acessar a base de dados, por favor atualize-a');
+
+    winexec(pchar(vardir+'AtualizarBase.exe'),sw_normal);
+
+    application.Terminate;
+
+  end;
+
+
+
   cds_Temp.Active := false;
 
   with cds_Temp do
@@ -4280,7 +4308,7 @@ begin
   sql_nfs.Active := true;
 
   with cds_nfs do
-    begin                   
+    begin
       //Active := false;
       //FileName :=vardir+'nfs.cds';
       //if not fileexists(vardir+'nfs.cds') then
@@ -4388,6 +4416,9 @@ begin
 
     end;
   //endth
+
+
+
 
 
 

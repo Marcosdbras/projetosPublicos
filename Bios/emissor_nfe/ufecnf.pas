@@ -3269,13 +3269,13 @@ begin
 
           buscarcalcibpt(cds_nfp.fieldbyname('cpro').asString,fsb_valorliquidoitem, fsb_valorliquidocupom);
 
-          if cds_nfp.RecNo = 1 then
-             begin
-               fdiffrete_unit :=   0;
-               fdifoutrasdesp_unit := 0;
-               fdifvalorseg_unit :=  0;
-               fdifvalordesc_unit := 0;
-             end;
+          //if cds_nfp.RecNo = 1 then
+          //   begin
+          //     fdiffrete_unit :=   0;
+          //     fdifoutrasdesp_unit := 0;
+          //     fdifvalorseg_unit :=  0;
+          //     fdifvalordesc_unit := 0;
+          //   end;
           //endi
 
           Writeln(f,'[ICMS'+formatfloat('000',iItem)+']');
@@ -3670,13 +3670,13 @@ begin
             if sobs = '' then
                begin
                  //sobs := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';'
-                 sobs := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e'+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT'+schave+';';
+                 sobs := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT'+schave+';';
 
                end
             else
               begin
                  //sobs := sobs +  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';';
-                 sobs := sobs +  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e'+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';';
+                 sobs := sobs +  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';';
 
               end;
             //endi

@@ -156,46 +156,108 @@ begin
   else
       begin
 
-        frmprincipal.XMLDocument1.Active := False;
-        frmprincipal.XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsibpt.php?chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString+'&campo=codigo'+'&valor='+sncmnbs+'&uf='+ lowercase( sunidadefederativa));
-        frmprincipal.XMLDocument1.Active := True;
+        try
 
-        sex       := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['ex'].Text;
-        sversao       := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['versao'].Text;
-        stipo      := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['tipo'].Text;
-        sdescricao   := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['descricao'].Text;
-        svigenciainicio       := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['vigenciainicio'].Text;
-        svigenciafim   := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['vigenciafim'].Text;
-        schave := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['chave'].Text;
-        sversao := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['versao'].Text;
-        sfonte :=  frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['fonte'].Text;
+            frmprincipal.XMLDocument1.Active := False;
+            frmprincipal.XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsibpt.php?chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString+'&campo=codigo'+'&valor='+sncmnbs+'&uf='+ lowercase( sunidadefederativa));
+            frmprincipal.XMLDocument1.Active := True;
 
-
-        saliqnac      :=  frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['nacionalfederal'].Text;
-        saliqimp           := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['importadosfederal'].Text;
-        sestadual    := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['estadual'].Text;
-        smunicipal := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['municipal'].Text;
+            sex       := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['ex'].Text;
+            sversao       := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['versao'].Text;
+            stipo      := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['tipo'].Text;
+            sdescricao   := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['descricao'].Text;
+            svigenciainicio       := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['vigenciainicio'].Text;
+            svigenciafim   := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['vigenciafim'].Text;
+            schave := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['chave'].Text;
+            sversao := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['versao'].Text;
+            sfonte :=  frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['fonte'].Text;
 
 
-        saliqnac      :=  Decimal_Is_Coma( saliqnac );
-        saliqimp           := Decimal_Is_Coma( saliqimp );
-        sestadual    := Decimal_Is_Coma(sestadual);
-        smunicipal := Decimal_Is_Coma(smunicipal);
-
-        faliqnac      :=  strtofloat( saliqnac );
-        faliqimp           := strtofloat( saliqimp );
-        festadual    := strtofloat( sestadual );
-        fmunicipal := strtofloat( smunicipal );
+            saliqnac      :=  frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['nacionalfederal'].Text;
+            saliqimp           := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['importadosfederal'].Text;
+            sestadual    := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['estadual'].Text;
+            smunicipal := frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['municipal'].Text;
 
 
+            saliqnac      :=  Decimal_Is_Coma( saliqnac );
+            saliqimp           := Decimal_Is_Coma( saliqimp );
+            sestadual    := Decimal_Is_Coma(sestadual);
+            smunicipal := Decimal_Is_Coma(smunicipal);
 
-        //faliqnac      :=  strtofloat(  Decimal_Is_Coma(frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['nacionalfederal'].Text));
-        //faliqimp           := strtofloat(  Decimal_Is_Coma(frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['importadosfederal'].Text));
-        //festadual    := strtofloat( Decimal_Is_Coma(frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['estadual'].Text));
-        //fmunicipal := strtofloat(  Decimal_Is_Coma(frmprincipal.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['municipal'].Text));
+            faliqnac      :=  strtofloat( saliqnac );
+            faliqimp           := strtofloat( saliqimp );
+            festadual    := strtofloat( sestadual );
+            fmunicipal := strtofloat( smunicipal );
 
 
-        calcibpt(valorliquido,total, sorigem, faliqnac, faliqimp, itabela, sex,  sversao, festadual, fmunicipal );
+            calcibpt(valorliquido,total, sorigem, faliqnac, faliqimp, itabela, sex,  sversao, festadual, fmunicipal );
+
+
+            with frmdados do
+              begin
+                sql_exec.Active := false;
+                sql_exec.SQL.Clear;
+                sql_exec.SQL.Add('insert into ibpt (codigo, ex, tipo, descricao, nacionalfederal, importadosfederal, estadual, municipal, vigenciainicio, vigenciafim, chave, versao, fonte)');
+                sql_exec.SQL.Add(' values (:codigo, :ex, :tipo, :descricao, :nacionalfederal, :importadosfederal, :estadual, :municipal, :vigenciainicio, :vigenciafim, :chave, :versao, :fonte)');
+
+                sql_exec.Params.ParamByName('codigo').AsString :=  sncmnbs;
+                sql_exec.Params.ParamByName('ex').AsString :=  sex;
+                sql_exec.Params.ParamByName('versao').AsString :=  sversao;
+                sql_exec.Params.ParamByName('tipo').AsString :=  stipo;
+                sql_exec.Params.ParamByName('descricao').AsString :=  sdescricao;
+
+                sql_exec.Params.ParamByName('vigenciainicio').AsString :=  svigenciainicio;
+                sql_exec.Params.ParamByName('vigenciafim').AsString :=    svigenciafim;
+
+                sql_exec.Params.ParamByName('chave').AsString :=    schave;
+                sql_exec.Params.ParamByName('fonte').AsString :=    sfonte;
+
+                sql_exec.Params.ParamByName('nacionalfederal').AsFloat :=    faliqnac;
+                sql_exec.Params.ParamByName('importadosfederal').AsFloat :=      faliqimp;
+                sql_exec.Params.ParamByName('estadual').AsFloat :=      festadual;
+                sql_exec.Params.ParamByName('municipal').AsFloat :=      fmunicipal;
+
+                sql_exec.ExecSQL;
+
+              end;
+
+
+
+
+
+
+
+        except
+
+
+            sex       := '';
+            sversao       := '';
+            stipo      := '';
+            sdescricao   := '';
+            svigenciainicio       := '';
+            svigenciafim   := '';
+            schave := '';
+            sversao := '';
+            sfonte :=  '';
+
+
+
+            faliqnac      :=  0;
+            faliqimp           := 0;
+            festadual    := 0;
+            fmunicipal := 0;
+
+
+            calcibpt(valorliquido,total, sorigem, faliqnac, faliqimp, itabela, sex,  sversao, festadual, fmunicipal );
+
+
+
+
+
+        end;
+
+
+
 
       end;
 

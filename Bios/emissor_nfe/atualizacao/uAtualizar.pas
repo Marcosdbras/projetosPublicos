@@ -4,7 +4,9 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, IniFiles, Buttons, Grids, Outline, DirOutln;
+  Dialogs, StdCtrls, ExtCtrls, IniFiles, Buttons, Grids, Outline, DirOutln,
+  xmldom, XMLIntf, msxmldom, XMLDoc, IdBaseComponent, IdComponent,
+  IdTCPConnection, IdTCPClient, IdHTTP;
 
 type
   TBackupMySQL = class(TForm)
@@ -26,21 +28,20 @@ type
     Label3: TLabel;
     SpeedButton3: TSpeedButton;
     dlgabrir: TOpenDialog;
-    DirectoryOutline1: TDirectoryOutline;
-    Button2: TButton;
-    Button3: TButton;
-    Bevel3: TBevel;
-    Label8: TLabel;
     Label7: TLabel;
     Label9: TLabel;
     Label10: TLabel;
-    Label11: TLabel;
-    Label12: TLabel;
-    Label13: TLabel;
-    Label14: TLabel;
     spdxp32: TSpeedButton;
     spd7x32bits: TSpeedButton;
     spdpadrao: TSpeedButton;
+    IdHTTP1: TIdHTTP;
+    XMLDocument1: TXMLDocument;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    spdpastabackup: TSpeedButton;
+    spdcaminhogbase: TSpeedButton;
+    Memo1: TMemo;
     procedure ExecutarClick(Sender: TObject);
     procedure ExecutarBackup;
     procedure FormShow(Sender: TObject);
@@ -50,10 +51,16 @@ type
     Function  cript(senha,chave,operacao : string) : string;
     procedure spdxp32Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
     procedure spd7x32bitsClick(Sender: TObject);
     procedure spdpadraoClick(Sender: TObject);
+    procedure atualizacoes;
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure separaScript;
+    procedure spdpastabackupClick(Sender: TObject);
+    procedure spdcaminhogbaseClick(Sender: TObject);
+    procedure Memo1KeyPress(Sender: TObject; var Key: Char);
+    procedure executa;
 
   private
     { Private declarations }
@@ -66,53 +73,26 @@ type
     FArqAtu:String;
 
     ArqIni: TIniFile;
+    Resultado, ResultadoTXT, script:String;
 
   public
     { Public declarations }
+    tipo:integer;
   end;
 
 var
   BackupMySQL: TBackupMySQL;
   vardir:string;
 
-implementation
 
+implementation
+    uses udiretorios;
 {$R *.dfm}
 
 procedure TBackupMySQL.ExecutarClick(Sender: TObject);
-Var
-BackupMySQL : TBackupMySQL;
-sArquivo:string;
 begin
-
-Try
-   BackupMySQL := TBackupMySQL.Create(self);
-   BackupMySQL.FUsuario := EdtUsuario.Text;
-   BackupMySQL.FSenha :=  EdtSenha.Text;
-   //BackupMySQL.FNomeArquivo := EdtNomeArquivo.Text;
-
-   sArquivo := 'bkp'+formatdatetime('YYYYMMDDHHMMSS',now())+'.sql';
-   BackupMySQL.FNomeArquivo := sArquivo;
-   BackupMySQL.FPastaBackup := EdtPastaBackup.Text;
-   BackupMySQL.FNomeBancoDados := EdtNomeBancoDados.Text;
-   BackupMySQL.FCaminhoGbase := EdtCaminhoGbase.Text;
-   BackupMySQL.FArqAtu := EdtArqAtu.Text;
-
-
-   GravaIniConfig('Backup', 'FUsuario', BackupMySQL.FUsuario);
-   GravaIniConfig('Backup','FSenha',  cript(BackupMySQL.FSenha,'bios2805','cript')   );
-   GravaIniConfig('Backup','FNomeBancoDados',BackupMySQL.FNomeBancoDados);
-   GravaIniConfig('Backup','FPastaBackup',BackupMySQL.FPastaBackup);
-   GravaIniConfig('Backup','FCaminhoGbase',BackupMySQL.FCaminhoGbase);
-   GravaIniConfig('Backup','FArqAtu',BackupMySQL.FArqAtu);
-
-   BackupMySQL.ExecutarBackup;
-Finally
-   FreeAndNil(BackupMySQL);
-End;
-
-
-
+  separaScript;
+  executa;
 end;
 
 procedure TBackupMySQL.ExecutarBackup;
@@ -288,25 +268,24 @@ EdtCaminhoGbase.Text := 'C:\Arquivos de programas\MySQL\MySQL Server 5.1\bin';
 end;
 
 procedure TBackupMySQL.SpeedButton3Click(Sender: TObject);
+  var vardir:string;
 begin
-  dlgabrir.InitialDir  := DirectoryOutline1.Directory;
+  vardir := extractfilepath(application.ExeName);
+
+  //dlgabrir.InitialDir  := DirectoryOutline1.Directory;
+
+  dlgabrir.InitialDir := vardir;
+
+  dlgabrir.Filter := '*.sql';
+  dlgabrir.FileName := '*.sql';
 
   if dlgabrir.Execute then
      begin
        edtarqatu.Text := dlgabrir.FileName;
-
+       executa;
+       
      end;
 
-end;
-
-procedure TBackupMySQL.Button2Click(Sender: TObject);
-begin
-  edtpastabackup.Text := DirectoryOutline1.Directory;
-end;
-
-procedure TBackupMySQL.Button3Click(Sender: TObject);
-begin
-  edtcaminhogbase.Text := DirectoryOutline1.Directory;
 end;
 
 procedure TBackupMySQL.spd7x32bitsClick(Sender: TObject);
@@ -318,6 +297,103 @@ procedure TBackupMySQL.spdpadraoClick(Sender: TObject);
 begin
 edtusuario.Text := 'root';
 edtsenha.Text := 'sqlremoto';
+end;
+
+procedure TBackupMySQL.atualizacoes;
+begin
+ XMLDocument1.Active := False;
+ XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsatualizacoes.php?chave=17JBJpoO2tCCCsMwbqmEGVqcZEO3FL1&sistema=E_NFE_DESK');
+ XMLDocument1.Active := True;
+
+ script      := XMLDocument1.ChildNodes['wsatualizacoes'].ChildNodes['response'].ChildNodes['script'].Text;
+ Resultado    := XMLDocument1.ChildNodes['wsatualizacoes'].ChildNodes['response'].ChildNodes['resultado'].Text;
+ ResultadoTXT := XMLDocument1.ChildNodes['wsatualizacoes'].ChildNodes['response'].ChildNodes['resultadotxt'].Text;
+
+
+end;
+
+procedure TBackupMySQL.SpeedButton1Click(Sender: TObject);
+begin
+  separaScript;
+end;
+
+procedure TBackupMySQL.FormCreate(Sender: TObject);
+begin
+  atualizacoes;
+end;
+
+procedure TBackupMySQL.separaScript;
+var arq,vardir:string;
+begin
+ vardir := extractfilepath(application.ExeName);
+
+ //arquivo para executar
+ arq := copy(script,0,pos(';',script)-1);
+
+ //restante dos arquivos até chegar ao fim
+ script := copy(script,pos(';',script)+1,length(script)-1);
+
+ edtarqatu.Text := vardir+arq;
+end;
+
+procedure TBackupMySQL.spdpastabackupClick(Sender: TObject);
+begin
+  tipo := 1;
+  frmdiretorios := tfrmdiretorios.Create(self);
+  frmdiretorios.ShowModal;
+  frmdiretorios.Free;
+
+end;
+
+procedure TBackupMySQL.spdcaminhogbaseClick(Sender: TObject);
+begin
+  tipo := 2;
+  frmdiretorios := tfrmdiretorios.Create(self);
+  frmdiretorios.ShowModal;
+  frmdiretorios.Free;
+
+end;
+
+procedure TBackupMySQL.Memo1KeyPress(Sender: TObject; var Key: Char);
+begin
+  key := #0;
+end;
+
+procedure TBackupMySQL.executa;
+Var
+BackupMySQL : TBackupMySQL;
+sArquivo:string;
+begin
+
+Try
+
+   BackupMySQL := TBackupMySQL.Create(self);
+   BackupMySQL.FUsuario := EdtUsuario.Text;
+   BackupMySQL.FSenha :=  EdtSenha.Text;
+   //BackupMySQL.FNomeArquivo := EdtNomeArquivo.Text;
+
+   sArquivo := 'bkp'+formatdatetime('YYYYMMDDHHMMSS',now())+'.sql';
+   BackupMySQL.FNomeArquivo := sArquivo;
+   BackupMySQL.FPastaBackup := EdtPastaBackup.Text;
+   BackupMySQL.FNomeBancoDados := EdtNomeBancoDados.Text;
+   BackupMySQL.FCaminhoGbase := EdtCaminhoGbase.Text;
+   BackupMySQL.FArqAtu := EdtArqAtu.Text;
+
+
+   GravaIniConfig('Backup', 'FUsuario', BackupMySQL.FUsuario);
+   GravaIniConfig('Backup','FSenha',  cript(BackupMySQL.FSenha,'bios2805','cript')   );
+   GravaIniConfig('Backup','FNomeBancoDados',BackupMySQL.FNomeBancoDados);
+   GravaIniConfig('Backup','FPastaBackup',BackupMySQL.FPastaBackup);
+   GravaIniConfig('Backup','FCaminhoGbase',BackupMySQL.FCaminhoGbase);
+   GravaIniConfig('Backup','FArqAtu',BackupMySQL.FArqAtu);
+
+   BackupMySQL.ExecutarBackup;
+Finally
+   FreeAndNil(BackupMySQL);
+End;
+
+
+
 end;
 
 end.

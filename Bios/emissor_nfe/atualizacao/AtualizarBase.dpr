@@ -2,7 +2,8 @@ program AtualizarBase;
 
 uses
   Forms,
-  uAtualizar in 'uAtualizar.pas' {BackupMySQL};
+  uAtualizar in 'uAtualizar.pas' {BackupMySQL},
+  udiretorios in 'udiretorios.pas' {frmdiretorios};
 
 {$R *.res}
 
