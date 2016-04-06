@@ -1467,6 +1467,20 @@ object frmPesqVProd: TfrmPesqVProd
               Height = 13
               Caption = 'Ex'
             end
+            object Label66: TLabel
+              Left = 257
+              Top = 143
+              Width = 53
+              Height = 13
+              Caption = 'COD. ESP.'
+              FocusControl = DBEdit6
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clRed
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              Font.Style = []
+              ParentFont = False
+            end
             object cbxnomeicms: TDBLookupComboBox
               Left = 134
               Top = 7
@@ -1654,6 +1668,16 @@ object frmPesqVProd: TfrmPesqVProd
               DataField = 'EX'
               DataSource = frmDados.Dts_vProdutos
               TabOrder = 13
+              OnKeyPress = ediqtdeKeyPress
+            end
+            object DBEdit6: TDBEdit
+              Left = 327
+              Top = 140
+              Width = 111
+              Height = 21
+              DataField = 'cest'
+              DataSource = frmDados.Dts_vProdutos
+              TabOrder = 19
               OnKeyPress = ediqtdeKeyPress
             end
           end

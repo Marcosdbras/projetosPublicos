@@ -5,7 +5,9 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, DBXpress, DB, SqlExpr, Controls, Forms,
   FMTBcd, DBClient, Provider, Dialogs, ADODB, RpDefine, RpCon, RpConDS,
-  RpConBDE, RpRave, DBTables, WinSkinData, DBGrids, Graphics;
+  RpConBDE, RpRave, DBTables, WinSkinData, DBGrids, Graphics, xmldom,
+  XMLIntf, msxmldom, XMLDoc, IdBaseComponent, IdComponent, IdTCPConnection,
+  IdTCPClient, IdHTTP;
 
 
 
@@ -4460,6 +4462,18 @@ type
     cds_logtableHISTORICO: TMemoField;
     Dbx_VendabCODICMS: TIntegerField;
     Cds_VendabCODICMS: TIntegerField;
+    Dbx_dProdutoscest: TStringField;
+    Cds_dProdutoscest: TStringField;
+    Dbx_vProdutoscest: TStringField;
+    Cds_vProdutoscest: TStringField;
+    Dbx_dVendacest: TStringField;
+    Cds_dVendacest: TStringField;
+    lHTTP: TIdHTTP;
+    XMLEnvio: TXMLDocument;
+    IdHTTP1: TIdHTTP;
+    XMLDocument1: TXMLDocument;
+    Dbx_Indicechaveconsultacep: TStringField;
+    Cds_Indicechaveconsultacep: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure cds_Tipo_PgtoAfterPost(DataSet: TDataSet);

@@ -514,6 +514,10 @@ begin
 
   porcibpt := 0;
   vlribpt  := 0;
+  vlrestadual := 0;
+  vlrmunicipal := 0;
+
+
 
   if frmdados.Cds_Vendab.RecordCount = 0 then
      begin
@@ -3280,7 +3284,7 @@ begin
        if not bfalta then
           begin
 
-            sibpt := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';';
+            sibpt := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';';
 
             iResposta:=ECF_TerminaFechamentoCupom(pchar(sibpt+' '+frmdados.Cds_Indice.FieldByName('txt').asString));
             //VerificaRetornoFuncaoImpressora_sweda( iResposta );
@@ -3515,7 +3519,7 @@ begin
 
        if not bfalta then
           begin
-              sibpt := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';';
+              sibpt := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';';
 
 
             iResposta:=Bematech_FI_TerminaFechamentoCupom(pchar(sibpt+' '+frmdados.Cds_Indice.FieldByName('txt').asString));
@@ -3751,7 +3755,7 @@ begin
        if not bfalta then
           begin
 
-              sibpt := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';';
+              sibpt := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';';
 
 
             iResposta:=Bematech_FI_TerminaFechamentoCupom(pchar( sibpt +'  '+ frmdados.Cds_Indice.FieldByName('txt').asString));
@@ -5202,7 +5206,7 @@ iLin := iLin + 1;
 sayprint.Say(iLin,0,   'Itens    '+formatfloat('00000',ftotI));
 
 iLin := iLin + 1;
-sayprint.Say(iLin,0,  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';' );
+sayprint.Say(iLin,0,  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';' );
 
 if bReimp then
    begin

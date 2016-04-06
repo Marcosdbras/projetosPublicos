@@ -47,8 +47,8 @@ Application.HelpFile := '';
 
     Application.Title := 'Frente de Caixa';
     Application.CreateForm(TfrmDados, frmDados);
-    Application.CreateForm(Tfrmfrenteecf, frmfrenteecf);
-    Atualizar;
+  Application.CreateForm(Tfrmfrenteecf, frmfrenteecf);
+  Atualizar;
     frmSplash.Hide;
     frmSplash.Free;
     Application.Run;

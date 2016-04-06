@@ -288,7 +288,7 @@ type
     fprve, fprcu, fsubtotalc, fquaa:real;
     sClassificar:string;
     bimpnf, bindtot:boolean;
-    sncm:string;
+    sncm, scest:string;
 
   public
     { Public declarations }
@@ -970,6 +970,7 @@ with frmdados do
                           icoimp := 0;
                           icmodbcst := 0;
                           sncm := '';
+                          scest := '';
                           bindtot := false;
 
 
@@ -1011,6 +1012,7 @@ with frmdados do
                           icoimp  := dbx_vProdutos.fieldbyname('coimp').asInteger;
                           icmodbcst  := dbx_vProdutos.fieldbyname('cmodbcst').asInteger;
                           sncm := dbx_vProdutos.fieldbyname('ncm').asString;
+                          scest := dbx_vProdutos.fieldbyname('cest').asString;
                           if dbx_vProdutos.fieldbyname('indtot').asString = 'T' then
                              bindtot := true
                           else
@@ -1063,6 +1065,7 @@ with frmdados do
                        icmodbcst := 0;
 
                        sncm := '';
+                       scest := '';
                        bindtot := false;
 
 
@@ -1104,6 +1107,7 @@ with frmdados do
                    icmodbcst  := dbx_vProdutos.fieldbyname('cmodbcst').asInteger;
 
                    sncm := dbx_vProdutos.fieldbyname('ncm').asString;
+                   scest := dbx_vProdutos.fieldbyname('cest').asString;
 
                    if dbx_vProdutos.fieldbyname('indtot').asString = 'T' then
                       bindtot := true
@@ -1161,7 +1165,8 @@ with frmdados do
               icmodbcst  := dbx_vProdutos.fieldbyname('cmodbcst').asInteger;
 
               sncm := dbx_vProdutos.fieldbyname('ncm').asString;
-
+              scest := dbx_vProdutos.fieldbyname('cest').asString;
+              
               if dbx_vProdutos.fieldbyname('indtot').asString = 'T' then
                  bindtot := true
               else
@@ -1218,6 +1223,7 @@ with frmdados do
          icmodbcst  := dbx_vProdutos.fieldbyname('cmodbcst').asInteger;
 
          sncm := dbx_vProdutos.fieldbyname('ncm').asString;
+         scest := dbx_vProdutos.fieldbyname('cest').asString;
 
          if dbx_vProdutos.fieldbyname('indtot').asString = 'T' then
             bindtot := true
@@ -1314,6 +1320,7 @@ begin
          icmodbcst := 0;
 
          sncm := '';
+         scest := '';
          bindtot := false;
 
 
@@ -1708,6 +1715,14 @@ with frmdados do
                  dbx_Exec.SQL.Add('ncm, ');
               //endi
 
+
+              //29.1
+              if scest <> '' then
+                 dbx_Exec.SQL.Add('cest, ');
+              //endi
+
+
+
               //30
               if icgru > 0 then
                  dbx_Exec.SQL.Add('cgru, ');
@@ -1876,6 +1891,14 @@ with frmdados do
               if sncm <> '' then
                  dbx_Exec.SQL.Add(sncm+',');
               //endi
+
+
+              //29.1
+              if scest <> '' then
+                 dbx_Exec.SQL.Add(scest+',');
+              //endi
+
+
 
               //30
               if icgru > 0 then
@@ -2085,6 +2108,13 @@ with frmdados do
               Dbx_Exec.SQL.Clear;
               Dbx_Exec.SQL.Add('Update dvenda set  ncm = '+quotedstr(sncm)+' where (codigo = '+sCodigo+')');
               Dbx_Exec.ExecSQL;
+
+
+              Dbx_Exec.Active := false;
+              Dbx_Exec.SQL.Clear;
+              Dbx_Exec.SQL.Add('Update dvenda set  cest = '+quotedstr(scest)+' where (codigo = '+sCodigo+')');
+              Dbx_Exec.ExecSQL;
+
 
 
               Dbx_Exec.Active := false;
@@ -2390,6 +2420,8 @@ icoimp                   := frmdados.Cds_dVenda.fieldbyname('codoimp').asInteger
 icmodbcst                   := frmdados.Cds_dVenda.fieldbyname('codmodbcst').asInteger;
 
 sncm                   := frmdados.Cds_dVenda.fieldbyname('ncm').asString;
+scest                   := frmdados.Cds_dVenda.fieldbyname('cest').asString;
+
 
 if frmdados.Cds_dVenda.fieldbyname('indtot').asString = 'T' then
    bindtot := true
@@ -3677,9 +3709,12 @@ begin
       Writeln(f,'SUBTOTAL='+floattostr(frmdados.cds_dvenda.fieldbyname('subtotal').asfloat));
       //Writeln(f,'CAUX='+frmdados.cds_dvenda.fieldbyname('caux').asString);
 
+
       if frmdados.Cds_vprodutos.Locate('cdescprod',frmdados.cds_dvenda.fieldbyname('cpro').AsInteger,[]) then
          begin
            Writeln(f,'NCM='+frmdados.cds_vprodutos.fieldbyname('ncm').asString);
+           Writeln(f,'CEST='+frmdados.cds_vprodutos.fieldbyname('cest').asString);
+
          end;
       //endi
 

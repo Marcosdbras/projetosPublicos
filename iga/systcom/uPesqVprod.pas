@@ -214,6 +214,8 @@ type
     DBLookupComboBox4: TDBLookupComboBox;
     Button1: TButton;
     Button2: TButton;
+    Label66: TLabel;
+    DBEdit6: TDBEdit;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -2877,6 +2879,7 @@ begin
       Writeln(f,'CBAR='+frmdados.Cds_vProdutos.fieldbyname('cbar').asString);
       Writeln(f,'CAUX='+frmdados.Cds_vProdutos.fieldbyname('caux').asString);
       Writeln(f,'NCM='+frmdados.Cds_vProdutos.fieldbyname('ncm').asString);
+      Writeln(f,'CEST='+frmdados.Cds_vProdutos.fieldbyname('cest').asString);
       if frmdados.Cds_AliqImpFis.Locate('codigo',frmdados.Cds_vProdutos.fieldbyname('SGLIMPFIS').AsInteger,[]) then
          begin
            Writeln(f,'ICMS='+frmdados.cds_aliqimpfis.fieldbyname('sigla').asString);

@@ -1858,6 +1858,10 @@ object frmDados: TfrmDados
       FixedChar = True
       Size = 1
     end
+    object Dbx_Indicechaveconsultacep: TStringField
+      FieldName = 'chaveconsultacep'
+      Size = 40
+    end
   end
   object Dsp_Indice: TDataSetProvider
     DataSet = Dbx_Indice
@@ -3122,6 +3126,10 @@ object frmDados: TfrmDados
       Required = True
       FixedChar = True
       Size = 1
+    end
+    object Cds_Indicechaveconsultacep: TStringField
+      FieldName = 'chaveconsultacep'
+      Size = 40
     end
   end
   object Dts_Indice: TDataSource
@@ -5531,6 +5539,10 @@ object frmDados: TfrmDados
       FieldName = 'CSOSN'
       Size = 10
     end
+    object Dbx_dProdutoscest: TStringField
+      FieldName = 'cest'
+      Size = 40
+    end
   end
   object Dsp_dProdutos: TDataSetProvider
     DataSet = Dbx_dProdutos
@@ -5879,6 +5891,10 @@ object frmDados: TfrmDados
       FieldName = 'CSOSN'
       Size = 10
     end
+    object Cds_dProdutoscest: TStringField
+      FieldName = 'cest'
+      Size = 40
+    end
   end
   object Dst_dProdutos: TDataSource
     DataSet = Cds_dProdutos
@@ -6169,6 +6185,10 @@ object frmDados: TfrmDados
     object Dbx_dVendaSUBS: TStringField
       FieldName = 'SUBS'
       Size = 150
+    end
+    object Dbx_dVendacest: TStringField
+      FieldName = 'cest'
+      Size = 40
     end
   end
   object Dsp_dVenda: TDataSetProvider
@@ -6553,6 +6573,10 @@ object frmDados: TfrmDados
     object Cds_dVendaSUBS: TStringField
       FieldName = 'SUBS'
       Size = 150
+    end
+    object Cds_dVendacest: TStringField
+      FieldName = 'cest'
+      Size = 40
     end
   end
   object Dst_dVenda: TDataSource
@@ -10524,6 +10548,10 @@ object frmDados: TfrmDados
       FieldName = 'EX'
       Size = 10
     end
+    object Dbx_vProdutoscest: TStringField
+      FieldName = 'cest'
+      Size = 40
+    end
   end
   object Dsp_vProdutos: TDataSetProvider
     DataSet = Dbx_vProdutos
@@ -11108,6 +11136,10 @@ object frmDados: TfrmDados
     object Cds_vProdutosEX: TStringField
       FieldName = 'EX'
       Size = 10
+    end
+    object Cds_vProdutoscest: TStringField
+      FieldName = 'cest'
+      Size = 40
     end
   end
   object Dts_vProdutos: TDataSource
@@ -21759,8 +21791,8 @@ object frmDados: TfrmDados
     SQL.Strings = (
       'Select * from logtable')
     SQLConnection = Sql_Dados
-    Left = 895
-    Top = 211
+    Left = 1207
+    Top = 619
     object IntegerField174: TIntegerField
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -21791,8 +21823,8 @@ object frmDados: TfrmDados
   object dsp_logtable: TDataSetProvider
     DataSet = dbx_logtable
     UpdateMode = upWhereKeyOnly
-    Left = 911
-    Top = 227
+    Left = 1199
+    Top = 611
   end
   object cds_logtable: TClientDataSet
     Aggregates = <>
@@ -21806,8 +21838,8 @@ object frmDados: TfrmDados
     AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
-    Left = 925
-    Top = 243
+    Left = 1197
+    Top = 635
     object IntegerField179: TIntegerField
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -21837,7 +21869,67 @@ object frmDados: TfrmDados
   end
   object dts_logtable: TDataSource
     DataSet = cds_logtable
-    Left = 935
-    Top = 259
+    Left = 1183
+    Top = 619
+  end
+  object lHTTP: TIdHTTP
+    AllowCookies = True
+    ProxyParams.BasicAuthentication = False
+    ProxyParams.ProxyPort = 0
+    Request.ContentLength = -1
+    Request.ContentRangeEnd = -1
+    Request.ContentRangeStart = -1
+    Request.ContentRangeInstanceLength = -1
+    Request.Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    Request.BasicAuthentication = False
+    Request.UserAgent = 'Mozilla/3.0 (compatible; Indy Library)'
+    Request.Ranges.Units = 'bytes'
+    Request.Ranges = <>
+    HTTPOptions = [hoForceEncodeParams]
+    Left = 760
+    Top = 362
+  end
+  object XMLEnvio: TXMLDocument
+    XML.Strings = (
+      '<?xml version="1.0" encoding="utf-8" ?><response>'
+      
+        '<cep>69960-000</cep><uf>AC</uf><cidade>feijo</cidade><bairro></b' +
+        'airro><tipo_logradouro></tipo_logradouro><logradouro></logradour' +
+        'o><resultado></resultado><resultado_txt></resultado_txt><ibge_uf' +
+        '>12</ibge_uf><ibge_municipio>1200302</ibge_municipio><erro>0</er' +
+        'ro><msgerro></msgerro></response>')
+    Left = 792
+    Top = 362
+    DOMVendorDesc = 'MSXML'
+  end
+  object IdHTTP1: TIdHTTP
+    AllowCookies = True
+    ProxyParams.BasicAuthentication = False
+    ProxyParams.ProxyPort = 0
+    Request.ContentLength = -1
+    Request.ContentRangeEnd = -1
+    Request.ContentRangeStart = -1
+    Request.ContentRangeInstanceLength = -1
+    Request.Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    Request.BasicAuthentication = False
+    Request.UserAgent = 'Mozilla/3.0 (compatible; Indy Library)'
+    Request.Ranges.Units = 'bytes'
+    Request.Ranges = <>
+    HTTPOptions = [hoForceEncodeParams]
+    Left = 872
+    Top = 300
+  end
+  object XMLDocument1: TXMLDocument
+    XML.Strings = (
+      '<?xml version="1.0" encoding="utf-8" ?><response>'
+      
+        '<cep>69960-000</cep><uf>AC</uf><cidade>feijo</cidade><bairro></b' +
+        'airro><tipo_logradouro></tipo_logradouro><logradouro></logradour' +
+        'o><resultado></resultado><resultado_txt></resultado_txt><ibge_uf' +
+        '>12</ibge_uf><ibge_municipio>1200302</ibge_municipio><erro>0</er' +
+        'ro><msgerro></msgerro></response>')
+    Left = 904
+    Top = 300
+    DOMVendorDesc = 'MSXML'
   end
 end

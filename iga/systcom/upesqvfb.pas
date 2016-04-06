@@ -1423,6 +1423,7 @@ vardir := extractfilepath(application.ExeName);
       if Cds_vprodutos.Locate('cdescprod',cds_vendabb.fieldbyname('cpro').AsInteger,[]) then
          begin
            Writeln(f,'NCM='+cds_vprodutos.fieldbyname('ncm').asString);
+           Writeln(f,'CEST='+cds_vprodutos.fieldbyname('cest').asString);
          end;
       //endi
 
