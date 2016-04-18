@@ -930,8 +930,9 @@ begin
          scaminho := odpExec.FileName;
          frmdados.importarnfc;
          deletefile(scaminho);
-         // testar mais tarde -> skin.SkinFile := vardir+'skin.skn';
-         application.MessageBox('Pedido importado com sucesso','caption',mb_ok);
+         skin.SkinFile := vardir+'skin.skn';
+         application.MessageBox('Pedido importado com sucesso','Aviso',mb_ok);
+         skin.SkinFile := '';
        end;
     //endi
 
@@ -945,6 +946,8 @@ begin
        begin
          frmpesqnf.pctdados.ActivePageIndex := 0;
        end;
+
+    //endi
 
 
     fechatabelas;

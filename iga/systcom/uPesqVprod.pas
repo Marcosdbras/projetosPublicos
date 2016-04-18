@@ -216,6 +216,8 @@ type
     Button2: TButton;
     Label66: TLabel;
     DBEdit6: TDBEdit;
+    BitBtn1: TBitBtn;
+    SpeedButton4: TSpeedButton;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -344,6 +346,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure DBLookupComboBox4Exit(Sender: TObject);
     procedure DBLookupComboBox4Enter(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
 
 
 
@@ -374,7 +377,7 @@ var
 implementation
 
 uses uGeral, uPrincipal, uDados, urelest, urelestoq, uMRProd, uetiqav, ufatorprod,
-  uetiqjato, ugeraqtdeetiq;
+  uetiqjato, ugeraqtdeetiq, baixarncm;
 
 {$R *.DFM}
 
@@ -2963,6 +2966,15 @@ end;
 procedure TfrmPesqVProd.DBLookupComboBox4Enter(Sender: TObject);
 begin
 tabela := 'Temp';
+end;
+
+procedure TfrmPesqVProd.SpeedButton4Click(Sender: TObject);
+begin
+  frmbaixarncm := tfrmbaixarncm.Create(self);
+  frmbaixarncm.ShowModal;
+  frmbaixarncm.Free;
+
+  
 end;
 
 end.

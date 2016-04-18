@@ -5,7 +5,9 @@ interface
 uses
   SysUtils, Classes, DB, DBClient, Windows, Controls, Forms, Dialogs,
   FMTBcd, Provider, SqlExpr, DBXpress, ZAbstractRODataset,
-  ZAbstractDataset, ZDataset, ZConnection, ZAbstractConnection, IniFiles;
+  ZAbstractDataset, ZDataset, ZConnection, ZAbstractConnection, IniFiles,
+  xmldom, XMLIntf, msxmldom, XMLDoc, IdBaseComponent, IdComponent,
+  IdTCPConnection, IdTCPClient, IdHTTP;
 
 type
   Tfrmdados = class(TDataModule)
@@ -1453,6 +1455,8 @@ type
     sql_nfpcest: TStringField;
     cds_nfpcest: TStringField;
     cds_produtoscest: TStringField;
+    IdHTTP1: TIdHTTP;
+    XMLDocument1: TXMLDocument;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);

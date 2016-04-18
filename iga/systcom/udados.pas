@@ -4630,6 +4630,7 @@ type
 
 
 
+
   private
     { Private declarations }
     novonivel:integer;
@@ -4649,6 +4650,7 @@ function totaliza_formula_geral(filtro:string):real;
 
 function totaliza_embalagem(filtro:string):real;
 
+procedure atualizancm(ncm:string);
 
   end;
 
@@ -4662,7 +4664,7 @@ implementation
         upesqnf, ufecenf, uIndice, upesqos, ufecos, uPesqtipopgtov, upesqrecbto,
         upesqpag, ufrenteecf, uasenha, uconfint, upesqost, ufecost, uComanda,
         utradental, ucomandap, utra, ufectra, uagenda, upesqrecbtop,
-        upesqprod, uPesqtipopgtovp, upesqprodpfor, umultpagto, ufatorprod;
+        upesqprod, uPesqtipopgtovp, upesqprodpfor, umultpagto, ufatorprod, funcoes_ibpt;
 {$R *.dfm}
 
 procedure TfrmDados.DataModuleCreate(Sender: TObject);
@@ -12653,6 +12655,147 @@ end;
 procedure TfrmDados.cds_logtableBeforePost(DataSet: TDataSet);
 begin
 Iniciatransacao;
+end;
+
+procedure tfrmdados.atualizancm(ncm:string);
+var
+  {
+  porcibpt, vlribpt, vlrestadual, vlrmunicipal, porcestadual, porcmunicipal:Currency;
+
+  schave, sversao, sfonte:string;
+
+
+  svigenciainicio:String;
+
+
+  svigenciafim:String;
+  }
+  
+
+
+
+  faliqnac, faliqimp:Currency;
+  sncmnbs, sorigem, sex:string;
+  itabela:Integer;
+  ssita:string;
+  icodsita:integer;
+
+  stipo:String;
+  sdescricao:String;
+  festadual:real;
+  fmunicipal:real;
+
+
+  saliqnac:String;
+  saliqimp:String;
+  sestadual:String;
+  smunicipal:String;
+
+begin
+
+  if ncm = '' then
+     exit; 
+
+  try
+
+      XMLDocument1.Active := False;
+      XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsibpt.php?chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString+'&campo=codigo'+'&valor='+ncm+'&uf='+ lowercase( frmdados.cds_config.fieldbyname('campo16').AsString  ));
+      XMLDocument1.Active := True;
+
+      sex       := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['ex'].Text;
+      sversao       := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['versao'].Text;
+      stipo      := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['tipo'].Text;
+      sdescricao   := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['descricao'].Text;
+      svigenciainicio       := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['vigenciainicio'].Text;
+      svigenciafim   := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['vigenciafim'].Text;
+      schave := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['chave'].Text;
+      sversao := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['versao'].Text;
+      sfonte :=  XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['fonte'].Text;
+
+
+      saliqnac      :=  XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['nacionalfederal'].Text;
+      saliqimp           := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['importadosfederal'].Text;
+      sestadual    := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['estadual'].Text;
+      smunicipal := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['municipal'].Text;
+
+
+      saliqnac      :=  Decimal_Is_Coma( saliqnac );
+      saliqimp           := Decimal_Is_Coma( saliqimp );
+      sestadual    := Decimal_Is_Coma(sestadual);
+      smunicipal := Decimal_Is_Coma(smunicipal);
+
+      faliqnac      :=  strtofloat( saliqnac );
+      faliqimp           := strtofloat( saliqimp );
+      festadual    := strtofloat( sestadual );
+      fmunicipal := strtofloat( smunicipal );
+
+
+
+
+      dbx_exec.Active := false;
+      dbx_exec.SQL.Clear;
+      dbx_exec.SQL.Add('insert into ibpt (codncmnbs, ex, tipo, descricao, nacionalfederal, importadosfederal, estadual, municipal, vigenciainicio, vigenciafim, chave, versao, fonte)');
+      dbx_exec.SQL.Add(' values (:codncmnbs, :ex, :tipo, :descricao, :nacionalfederal, :importadosfederal, :estadual, :municipal, :vigenciainicio, :vigenciafim, :chave, :versao, :fonte)');
+
+      dbx_exec.Params.ParamByName('codncmnbs').AsString :=  ncm;
+      dbx_exec.Params.ParamByName('ex').AsString :=  sex;
+      dbx_exec.Params.ParamByName('versao').AsString :=  sversao;
+      dbx_exec.Params.ParamByName('tipo').AsString :=  stipo;
+      dbx_exec.Params.ParamByName('descricao').AsString :=  sdescricao;
+
+      dbx_exec.Params.ParamByName('vigenciainicio').AsString :=  svigenciainicio;
+      dbx_exec.Params.ParamByName('vigenciafim').AsString :=    svigenciafim;
+
+      dbx_exec.Params.ParamByName('chave').AsString :=    schave;
+      dbx_exec.Params.ParamByName('fonte').AsString :=    sfonte;
+
+      dbx_exec.Params.ParamByName('nacionalfederal').AsFloat :=    faliqnac;
+      dbx_exec.Params.ParamByName('importadosfederal').AsFloat :=      faliqimp;
+      dbx_exec.Params.ParamByName('estadual').AsFloat :=      festadual;
+      dbx_exec.Params.ParamByName('municipal').AsFloat :=      fmunicipal;
+
+      dbx_exec.ExecSQL;
+
+
+
+
+
+
+
+
+  except
+
+
+      sex       := '';
+      sversao       := '';
+      stipo      := '';
+      sdescricao   := '';
+      svigenciainicio       := '';
+      svigenciafim   := '';
+      schave := '';
+      sversao := '';
+      sfonte :=  '';
+
+
+
+      faliqnac      :=  0;
+      faliqimp           := 0;
+      festadual    := 0;
+      fmunicipal := 0;
+
+
+
+
+
+
+
+  end;
+
+
+
+
+
+
 end;
 
 end.

@@ -2788,6 +2788,30 @@ begin
   //endi
 
 
+   with frmdados do
+     begin
+
+       Cds_Indice.Active := false;
+       Dbx_Indice.Active := false;
+       Dbx_Indice.SQL.Clear;
+       Dbx_Indice.SQL.Add('Select * from Indice');
+       Dbx_Indice.Active := true;
+       Cds_Indice.Active := true;
+
+
+       Cds_Config.Active := false;
+       Dbx_Config.Active := false;
+       Dbx_Config.SQL.Clear;
+       Dbx_Config.SQL.Add('Select * from Config');
+       Dbx_Config.Active := true;
+       Cds_Config.Active := true;
+
+
+     end;
+
+
+
+
 
   case itipoimpf of
        0:begin

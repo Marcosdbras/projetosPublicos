@@ -380,6 +380,8 @@ type
     edicest: TEdit;
     BitBtn4: TBitBtn;
     Label134: TLabel;
+    btninicio: TBitBtn;
+    btnfim: TBitBtn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Limpar;
     procedure btnnovaClick(Sender: TObject);
@@ -540,6 +542,9 @@ type
     procedure edibcicmsExit(Sender: TObject);
     procedure edibcicmsKeyPress(Sender: TObject; var Key: Char);
     procedure edicestKeyPress(Sender: TObject; var Key: Char);
+    procedure ajustatributacao;
+    procedure btninicioClick(Sender: TObject);
+    procedure btnfimClick(Sender: TObject);
   private
     { Private declarations }
     sOpcao:string;
@@ -550,6 +555,7 @@ type
     bInsereD:boolean;
     fbscalcst:real;
     ficmscalcst:real;
+    bhelp:boolean;
 
 
 
@@ -3282,7 +3288,7 @@ end;
 procedure Tfrmpesqnf.FormCreate(Sender: TObject);
 begin
 binsered := false;
-
+bhelp := false;
 
 frmdados.cds_clientes.Active := false;
 frmdados.sql_clientes.Active := false;
@@ -3496,331 +3502,11 @@ begin
 end;
 
 procedure Tfrmpesqnf.btnajustatribClick(Sender: TObject);
-var
-  tiponf, tipoicms:integer;
 begin
-  carregadadosprincipais;
-
-
-  if application.MessageBox('Deseja Realmente ajustar tributação de acordo com o cadastro de produtos? Isto poderá apagar os ajustes antes realizados.','Atenção',mb_YesNo + mb_DefButton2) = idNo then
-     begin
-       exit;
-     end;
-  //endi
-
-
-  filtraprod;
-
-  //limparprod;
-
-  //totprod;
-
-  //filtracupom;
-
-  with frmdados do
-    begin
-
-      cds_nfp.First;
-
-      while not cds_nfp.Eof do
-        begin
-          if cds_produtos.Locate('codigo',cds_nfp.fieldbyname('cpro').asInteger,[]) then
-             begin
-
-               //showmessage(inttostr(cds_produtos.FieldByName('csitb').AsInteger)  );
-
-               cds_nfp.Edit;
-               cds_nfp.FieldByName('cod6prodnf').AsInteger := cds_produtos.fieldbyname('cmodbscalc').asInteger;
-               cds_nfp.FieldByName('cod7prodnf').AsInteger := cds_produtos.fieldbyname('cmodbscalcst').asInteger;
-               cds_nfp.FieldByName('cod8prodnf').AsInteger := cds_produtos.fieldbyname('cvii').asInteger;
-               cds_nfp.FieldByName('cod12prodnf').AsInteger := cds_produtos.fieldbyname('coimp').asInteger;
-               cds_nfp.FieldByName('cod13prodnf').AsInteger := cds_produtos.fieldbyname('cund').asInteger;
-               cds_nfp.FieldByName('cod3prodnf').AsInteger := cds_produtos.fieldbyname('ccfncm').asInteger;
-
-               cds_nfp.FieldByName('compoetnf').asString := cds_produtos.fieldbyname('compoetnf').asString;
-               cds_nfp.FieldByName('bscalcst').asfloat := cds_produtos.fieldbyname('bscalcst').asfloat;
-               cds_nfp.FieldByName('icmscalcst').AsFloat := cds_produtos.fieldbyname('icmscalcst').asfloat;
-               cds_nfp.FieldByName('simplesncm').AsString := cds_produtos.fieldbyname('simplesncm').asString;
-               cds_nfp.FieldByName('cest').AsString := cds_produtos.fieldbyname('cest').asString;
-
-               if cds_nfp.FieldByName('simplesncm').asString = '' then
-                  cds_nfp.FieldByName('simplesncm').asString := '99999999';
-               //endi
-
-
-               cds_nfp.FieldByName('cod4prodnf').AsInteger := cds_produtos.fieldbyname('csita').asInteger;
-               if cds_nfp.fieldbyname('cod4prodnf').asInteger = 0 then
-                  begin
-                    cds_sita.Filtered := false;
-                    cds_sita.Filter := 'cpadrao = 1';
-                    cds_sita.Filtered := true;
-                    cds_nfp.FieldByName('cod4prodnf').asInteger := cds_sita.FieldByName('codigo').asInteger;
-                    cds_sita.Filtered := false;
-                  end;
-               //endi
-
-
-               filtracupom;
-               //if (rgbctipoemi.ItemIndex = 1) then
-               if frmdados.cds_cupom.RecordCount = 0 then
-                   begin
-
-                     cds_natop.Locate('codigo',cds_temp.fieldbyname('cod6nf').AsInteger,[]);
-
-                     tiponf := cds_natop.fieldbyname('ccfop').AsInteger;
-                     tipoicms := cds_natop.fieldbyname('cicms').AsInteger;
-
-                     if tipoicms = 0 then
-                         begin
-                           cds_nfp.FieldByName('cod1prodnf').AsInteger := cds_produtos.fieldbyname('cicms').asInteger;
-                         end
-                     else
-                         begin
-                           cds_nfp.FieldByName('cod1prodnf').AsInteger := cds_natop.fieldbyname('cicms').asInteger;
-                         end;
-                     //endi
-
-                     //if  cds_produtos.fieldbyname('ccfop').asInteger = 0 then
-
-                     cds_nfp.FieldByName('cod11prodnf').AsInteger := cds_produtos.fieldbyname('ccfop').asInteger;
-                     if  cds_nfp.FieldByName('cod11prodnf').AsInteger = 0 then
-                         begin
-
-
-                          if tiponf = 0 then
-                             begin
-
-                               if cds_icms.Locate('codigo',cds_nfp.FieldByName('cod1prodnf').AsInteger,[]) then
-                                  begin
-                                    //showmessage(cds_icms.fieldbyname('descricao').AsString);
-                                    if frmpesqnf.lblestado.Caption = frmpesqnf.lblestadoemi.Caption then
-                                       begin
-                                         cds_nfp.FieldByName('cod11prodnf').asInteger := cds_icms.fieldbyname('ccfop').asInteger;
-                                       end
-                                    else
-                                       begin
-                                         cds_nfp.FieldByName('cod11prodnf').asInteger := cds_icms.fieldbyname('ccfopf').asInteger;
-                                       end;
-                                    //endi
-                                  end;
-                               //endi
-
-                             end
-                          else
-                             begin
-
-
-                               if frmpesqnf.lblestado.Caption = frmpesqnf.lblestadoemi.Caption then
-                                  begin
-                                    cds_nfp.FieldByName('cod11prodnf').asInteger := cds_natop.fieldbyname('ccfop').asInteger;
-                                  end
-                               else
-                                  begin
-                                    cds_nfp.FieldByName('cod11prodnf').asInteger := cds_natop.fieldbyname('ccfopf').asInteger;
-                                  end;
-                               //endi
-
-
-
-
-                             end;
-
-
-
-                         end;
-                     //endi
-
-
-
-                     if tipoicms = 0 then
-                        begin
-
-                          cds_nfp.FieldByName('cod5prodnf').AsInteger := cds_produtos.fieldbyname('csitb').asInteger;
-
-                          if  cds_nfp.FieldByName('cod5prodnf').AsInteger = 0 then
-                              begin
-
-                                if cds_icms.Locate('codigo',cds_nfp.FieldByName('cod1prodnf').AsInteger,[]) then
-                                   begin
-                                     cds_nfp.FieldByName('cod5prodnf').asInteger := cds_icms.fieldbyname('csitb').asInteger;
-                                   end;
-                                //endi
-
-                              end;
-                          //endi
-
-                        end
-                     else
-                        begin
-
-                          if cds_icms.Locate('codigo',tipoicms,[]) then
-                             cds_nfp.FieldByName('cod5prodnf').AsInteger := cds_icms.fieldbyname('csitb').AsInteger;
-                          //endi
-
-                        end;
-                     //endi
-                     
-                     if tipoicms = 0 then
-                        begin
-                          cds_nfp.FieldByName('cod14prodnf').AsInteger := cds_produtos.fieldbyname('ccsosn').asInteger;
-                          if  cds_nfp.FieldByName('cod14prodnf').AsInteger = 0 then
-                              begin
-                                if cds_icms.Locate('codigo',cds_nfp.FieldByName('cod1prodnf').AsInteger,[]) then
-                                   begin
-                                     cds_nfp.FieldByName('cod14prodnf').asInteger := cds_icms.fieldbyname('ccsosn').asInteger;
-                                   end;
-                                //endi
-                              end;
-                          //endi
-                        end
-                     else
-                        begin
-
-                          if cds_icms.Locate('codigo',tipoicms,[]) then
-                             cds_nfp.FieldByName('cod14prodnf').AsInteger := cds_icms.fieldbyname('ccsosn').AsInteger;
-                          //endi
-
-                        end;
-                     //endi
-
-                     cds_nfp.FieldByName('cod2prodnf').AsInteger := cds_produtos.fieldbyname('cipi').asInteger;
-                     if cds_nfp.fieldbyname('cod2prodnf').asInteger = 0 then
-                        begin
-                          cds_ipi.Filtered := false;
-                          cds_ipi.Filter := 'cpadrao = 1';
-                          cds_ipi.Filtered := true;
-                          cds_nfp.FieldByName('cod2prodnf').asInteger := cds_ipi.FieldByName('codigo').asInteger;
-                          cds_ipi.Filtered := false;
-                        end;
-                     //endi
-
-                     cds_nfp.FieldByName('cod9prodnf').AsInteger := cds_produtos.fieldbyname('cpis').asInteger;
-                     if cds_nfp.fieldbyname('cod9prodnf').asInteger = 0 then
-                        begin
-                          cds_pis.Filtered := false;
-                          cds_pis.Filter := 'cpadrao = 1';
-                          cds_pis.Filtered := true;
-                          cds_nfp.FieldByName('cod9prodnf').asInteger := cds_pis.FieldByName('codigo').asInteger;
-                          cds_pis.Filtered := false;
-                        end;
-                     //endi
-
-                     cds_nfp.FieldByName('cod10prodnf').AsInteger := cds_produtos.fieldbyname('ccofins').asInteger;
-                     if cds_nfp.fieldbyname('cod10prodnf').asInteger = 0 then
-                        begin
-                          cds_cofins.Filtered := false;
-                          cds_cofins.Filter := 'cpadrao = 1';
-                          cds_cofins.Filtered := true;
-                          cds_nfp.FieldByName('cod10prodnf').asInteger := cds_cofins.FieldByName('codigo').asInteger;
-                          cds_cofins.Filtered := false;
-                        end;
-                     //endi
-
-
-                   end
-               else
-                   begin
-
-
-                     cds_cfop.Filtered := false;
-                     if lblestado.Caption = lblestadoemi.Caption then
-                        begin
-                          cds_cfop.Filter := 'ccupom = 0 and ctipoest = 0';
-                        end
-                     else
-                        begin
-                          cds_cfop.Filter := 'ccupom = 0 and ctipoest = 1';
-                        end;
-                     //endi
-                     cds_cfop.Filtered := true;
-                     cds_nfp.FieldByName('cod11prodnf').asInteger := cds_cfop.fieldbyname('codigo').asInteger;
-                     cds_nfp.FieldByName('cod5prodnf').asInteger := cds_cfop.fieldbyname('csitb').asInteger;
-                     cds_nfp.FieldByName('cod1prodnf').asInteger := cds_cfop.fieldbyname('cicms').asInteger;
-                     cds_nfp.FieldByName('cod14prodnf').asInteger := cds_cfop.fieldbyname('ccsosn').asInteger;
-                     cds_nfp.FieldByName('cod2prodnf').asInteger := cds_cfop.fieldbyname('cipi').asInteger;
-                     cds_nfp.FieldByName('cod9prodnf').asInteger := cds_cfop.fieldbyname('cpis').asInteger;
-                     cds_nfp.FieldByName('cod10prodnf').asInteger := cds_cfop.fieldbyname('ccofins').asInteger;
-                     cds_cfop.Filtered := false;
-
-
-
-                   end;
-               //endi
-               {
-               if cds_nfp.fieldbyname('cod11prodnf').asInteger = 0 then
-                  begin
-
-                    if (rgbctipoemi.ItemIndex = 0) then
-                        begin
-                          cds_cfop.Filtered := false;
-                          if lblestado.Caption = lblestadoemi.Caption then
-                             begin
-                               cds_cfop.Filter := 'ccupom = 0 and ctipoest = 0';
-                             end
-                          else
-                             begin
-                               cds_cfop.Filter := 'ccupom = 0 and ctipoest = 1';
-                             end;
-                          //endi
-                          cds_cfop.Filtered := true;
-                          cds_nfp.FieldByName('cod11prodnf').asInteger := cds_cfop.fieldbyname('codigo').asInteger;
-                          cds_nfp.FieldByName('cod5prodnf').asInteger := cds_cfop.fieldbyname('csitb').asInteger;
-                          cds_nfp.FieldByName('cod1prodnf').asInteger := cds_cfop.fieldbyname('cicms').asInteger;
-                          cds_nfp.FieldByName('cod14prodnf').asInteger := cds_cfop.fieldbyname('ccsosn').asInteger;
-                          //cds_nfp.FieldByName('cod2prodnf').asInteger := cds_cfop.fieldbyname('cipi').asInteger;
-                          //cds_nfp.FieldByName('cod9prodnf').asInteger := cds_cfop.fieldbyname('cpis').asInteger;
-                          //cds_nfp.FieldByName('cod10prodnf').asInteger := cds_cfop.fieldbyname('ccofins').asInteger;
-                        end
-                    else
-                        begin
-                          cds_cfop.Filtered := false;
-                          if lblestado.Caption = lblestadoemi.Caption then
-                             begin
-                               cds_cfop.Filter := 'cpadrao = 1 and ctipoest = 0';
-                             end
-                          else
-                             begin
-                               cds_cfop.Filter := 'cpadrao = 1 and ctipoest = 1';
-                             end;
-                          //endi
-                          cds_cfop.Filtered := true;
-                          cds_nfp.FieldByName('cod11prodnf').asInteger := cds_cfop.fieldbyname('codigo').asInteger;
-                        end;
-                    //endi
-
-                    cds_cfop.Filtered := false;
-                  end
-               else
-                  begin
-                    cds_nfp.FieldByName('cod11prodnf').AsInteger := cds_produtos.fieldbyname('ccfop').asInteger;
-                  end;
-               //end
-               }
-
-
-
-
-               //cds_nfp.FieldByName('cod11prodnf').asInteger := cds_Temp.fieldbyname('cod11prodnf').asInteger;
-
-               cds_nfp.Post;
-             end;
-          //endi
-
-
-
-          cds_nfp.Next;
-        end;
-      //endw
-
-      carregafichaprod;
-
-
-
-    end;
- //endth
-
+ajustatributacao;
 
 end;
+
 
 procedure Tfrmpesqnf.rgbctipoemi1Click(Sender: TObject);
 begin
@@ -4868,6 +4554,398 @@ begin
        exit;
      end;
   //endif
+
+end;
+
+
+procedure tfrmpesqnf.ajustatributacao;
+var
+  tiponf, tipoicms:integer;
+begin
+
+
+  carregadadosprincipais;
+
+
+
+  if cbxdescemi_cod3nf.Text = '' then
+     begin
+        application.MessageBox('Nome do emitente não foi informado, está operação não será realizada.','Atenção',mb_ok);
+
+        exit;
+     end;
+
+  if cbxdescnatop_cod6nf.Text = '' then
+     begin
+       application.MessageBox('Natureza da operação não foi informado, está operação não será realizada.','Atenção',mb_ok);
+       exit;
+     end;
+
+
+
+
+
+  if application.MessageBox('Deseja Realmente ajustar tributação de acordo com o cadastro de produtos? Isto poderá apagar os ajustes antes realizados.','Atenção',mb_YesNo + mb_DefButton2) = idYes then
+     begin
+
+
+
+            filtraprod;
+
+            //limparprod;
+
+            //totprod;
+
+            //filtracupom;
+
+            with frmdados do
+              begin
+
+                cds_nfp.First;
+
+                while not cds_nfp.Eof do
+                  begin
+                    if cds_produtos.Locate('codigo',cds_nfp.fieldbyname('cpro').asInteger,[]) then
+                       begin
+
+                         //showmessage(inttostr(cds_produtos.FieldByName('csitb').AsInteger)  );
+
+                         cds_nfp.Edit;
+                         cds_nfp.FieldByName('cod6prodnf').AsInteger := cds_produtos.fieldbyname('cmodbscalc').asInteger;
+                         cds_nfp.FieldByName('cod7prodnf').AsInteger := cds_produtos.fieldbyname('cmodbscalcst').asInteger;
+                         cds_nfp.FieldByName('cod8prodnf').AsInteger := cds_produtos.fieldbyname('cvii').asInteger;
+                         cds_nfp.FieldByName('cod12prodnf').AsInteger := cds_produtos.fieldbyname('coimp').asInteger;
+                         cds_nfp.FieldByName('cod13prodnf').AsInteger := cds_produtos.fieldbyname('cund').asInteger;
+                         cds_nfp.FieldByName('cod3prodnf').AsInteger := cds_produtos.fieldbyname('ccfncm').asInteger;
+
+                         cds_nfp.FieldByName('compoetnf').asString := cds_produtos.fieldbyname('compoetnf').asString;
+                         cds_nfp.FieldByName('bscalcst').asfloat := cds_produtos.fieldbyname('bscalcst').asfloat;
+                         cds_nfp.FieldByName('icmscalcst').AsFloat := cds_produtos.fieldbyname('icmscalcst').asfloat;
+                         cds_nfp.FieldByName('simplesncm').AsString := cds_produtos.fieldbyname('simplesncm').asString;
+                         cds_nfp.FieldByName('cest').AsString := cds_produtos.fieldbyname('cest').asString;
+
+                         if cds_nfp.FieldByName('simplesncm').asString = '' then
+                            cds_nfp.FieldByName('simplesncm').asString := '99999999';
+                         //endi
+
+
+                         cds_nfp.FieldByName('cod4prodnf').AsInteger := cds_produtos.fieldbyname('csita').asInteger;
+                         if cds_nfp.fieldbyname('cod4prodnf').asInteger = 0 then
+                            begin
+                              cds_sita.Filtered := false;
+                              cds_sita.Filter := 'cpadrao = 1';
+                              cds_sita.Filtered := true;
+                              cds_nfp.FieldByName('cod4prodnf').asInteger := cds_sita.FieldByName('codigo').asInteger;
+                              cds_sita.Filtered := false;
+                            end;
+                         //endi
+
+
+                         filtracupom;
+                         //if (rgbctipoemi.ItemIndex = 1) then
+                         if frmdados.cds_cupom.RecordCount = 0 then
+                             begin
+
+                               cds_natop.Locate('codigo',cds_temp.fieldbyname('cod6nf').AsInteger,[]);
+
+                               tiponf := cds_natop.fieldbyname('ccfop').AsInteger;
+                               tipoicms := cds_natop.fieldbyname('cicms').AsInteger;
+
+                               if tipoicms = 0 then
+                                   begin
+                                     cds_nfp.FieldByName('cod1prodnf').AsInteger := cds_produtos.fieldbyname('cicms').asInteger;
+                                   end
+                               else
+                                   begin
+                                     cds_nfp.FieldByName('cod1prodnf').AsInteger := cds_natop.fieldbyname('cicms').asInteger;
+                                   end;
+                               //endi
+
+                               //if  cds_produtos.fieldbyname('ccfop').asInteger = 0 then
+
+                               cds_nfp.FieldByName('cod11prodnf').AsInteger := cds_produtos.fieldbyname('ccfop').asInteger;
+                               if  cds_nfp.FieldByName('cod11prodnf').AsInteger = 0 then
+                                   begin
+
+
+                                    if tiponf = 0 then
+                                       begin
+
+                                         if cds_icms.Locate('codigo',cds_nfp.FieldByName('cod1prodnf').AsInteger,[]) then
+                                            begin
+                                              //showmessage(cds_icms.fieldbyname('descricao').AsString);
+                                              if frmpesqnf.lblestado.Caption = frmpesqnf.lblestadoemi.Caption then
+                                                 begin
+                                                   cds_nfp.FieldByName('cod11prodnf').asInteger := cds_icms.fieldbyname('ccfop').asInteger;
+                                                 end
+                                              else
+                                                 begin
+                                                   cds_nfp.FieldByName('cod11prodnf').asInteger := cds_icms.fieldbyname('ccfopf').asInteger;
+                                                 end;
+                                              //endi
+                                            end;
+                                         //endi
+
+                                       end
+                                    else
+                                       begin
+
+
+                                         if frmpesqnf.lblestado.Caption = frmpesqnf.lblestadoemi.Caption then
+                                            begin
+                                              cds_nfp.FieldByName('cod11prodnf').asInteger := cds_natop.fieldbyname('ccfop').asInteger;
+                                            end
+                                         else
+                                            begin
+                                              cds_nfp.FieldByName('cod11prodnf').asInteger := cds_natop.fieldbyname('ccfopf').asInteger;
+                                            end;
+                                         //endi
+
+
+
+
+                                       end;
+
+
+
+                                   end;
+                               //endi
+
+
+
+                               if tipoicms = 0 then
+                                  begin
+
+                                    cds_nfp.FieldByName('cod5prodnf').AsInteger := cds_produtos.fieldbyname('csitb').asInteger;
+
+                                    if  cds_nfp.FieldByName('cod5prodnf').AsInteger = 0 then
+                                        begin
+
+                                          if cds_icms.Locate('codigo',cds_nfp.FieldByName('cod1prodnf').AsInteger,[]) then
+                                             begin
+                                               cds_nfp.FieldByName('cod5prodnf').asInteger := cds_icms.fieldbyname('csitb').asInteger;
+                                             end;
+                                          //endi
+
+                                        end;
+                                    //endi
+
+                                  end
+                               else
+                                  begin
+
+                                    if cds_icms.Locate('codigo',tipoicms,[]) then
+                                       cds_nfp.FieldByName('cod5prodnf').AsInteger := cds_icms.fieldbyname('csitb').AsInteger;
+                                    //endi
+
+                                  end;
+                               //endi
+
+                               if tipoicms = 0 then
+                                  begin
+                                    cds_nfp.FieldByName('cod14prodnf').AsInteger := cds_produtos.fieldbyname('ccsosn').asInteger;
+                                    if  cds_nfp.FieldByName('cod14prodnf').AsInteger = 0 then
+                                        begin
+                                          if cds_icms.Locate('codigo',cds_nfp.FieldByName('cod1prodnf').AsInteger,[]) then
+                                             begin
+                                               cds_nfp.FieldByName('cod14prodnf').asInteger := cds_icms.fieldbyname('ccsosn').asInteger;
+                                             end;
+                                          //endi
+                                        end;
+                                    //endi
+                                  end
+                               else
+                                  begin
+
+                                    if cds_icms.Locate('codigo',tipoicms,[]) then
+                                       cds_nfp.FieldByName('cod14prodnf').AsInteger := cds_icms.fieldbyname('ccsosn').AsInteger;
+                                    //endi
+
+                                  end;
+                               //endi
+
+                               cds_nfp.FieldByName('cod2prodnf').AsInteger := cds_produtos.fieldbyname('cipi').asInteger;
+                               if cds_nfp.fieldbyname('cod2prodnf').asInteger = 0 then
+                                  begin
+                                    cds_ipi.Filtered := false;
+                                    cds_ipi.Filter := 'cpadrao = 1';
+                                    cds_ipi.Filtered := true;
+                                    cds_nfp.FieldByName('cod2prodnf').asInteger := cds_ipi.FieldByName('codigo').asInteger;
+                                    cds_ipi.Filtered := false;
+                                  end;
+                               //endi
+
+                               cds_nfp.FieldByName('cod9prodnf').AsInteger := cds_produtos.fieldbyname('cpis').asInteger;
+                               if cds_nfp.fieldbyname('cod9prodnf').asInteger = 0 then
+                                  begin
+                                    cds_pis.Filtered := false;
+                                    cds_pis.Filter := 'cpadrao = 1';
+                                    cds_pis.Filtered := true;
+                                    cds_nfp.FieldByName('cod9prodnf').asInteger := cds_pis.FieldByName('codigo').asInteger;
+                                    cds_pis.Filtered := false;
+                                  end;
+                               //endi
+
+                               cds_nfp.FieldByName('cod10prodnf').AsInteger := cds_produtos.fieldbyname('ccofins').asInteger;
+                               if cds_nfp.fieldbyname('cod10prodnf').asInteger = 0 then
+                                  begin
+                                    cds_cofins.Filtered := false;
+                                    cds_cofins.Filter := 'cpadrao = 1';
+                                    cds_cofins.Filtered := true;
+                                    cds_nfp.FieldByName('cod10prodnf').asInteger := cds_cofins.FieldByName('codigo').asInteger;
+                                    cds_cofins.Filtered := false;
+                                  end;
+                               //endi
+
+
+                             end
+                         else
+                             begin
+
+
+                               cds_cfop.Filtered := false;
+                               if lblestado.Caption = lblestadoemi.Caption then
+                                  begin
+                                    cds_cfop.Filter := 'ccupom = 0 and ctipoest = 0';
+                                  end
+                               else
+                                  begin
+                                    cds_cfop.Filter := 'ccupom = 0 and ctipoest = 1';
+                                  end;
+                               //endi
+                               cds_cfop.Filtered := true;
+                               cds_nfp.FieldByName('cod11prodnf').asInteger := cds_cfop.fieldbyname('codigo').asInteger;
+                               cds_nfp.FieldByName('cod5prodnf').asInteger := cds_cfop.fieldbyname('csitb').asInteger;
+                               cds_nfp.FieldByName('cod1prodnf').asInteger := cds_cfop.fieldbyname('cicms').asInteger;
+                               cds_nfp.FieldByName('cod14prodnf').asInteger := cds_cfop.fieldbyname('ccsosn').asInteger;
+                               cds_nfp.FieldByName('cod2prodnf').asInteger := cds_cfop.fieldbyname('cipi').asInteger;
+                               cds_nfp.FieldByName('cod9prodnf').asInteger := cds_cfop.fieldbyname('cpis').asInteger;
+                               cds_nfp.FieldByName('cod10prodnf').asInteger := cds_cfop.fieldbyname('ccofins').asInteger;
+                               cds_cfop.Filtered := false;
+
+
+
+                             end;
+                         //endi
+                         {
+                         if cds_nfp.fieldbyname('cod11prodnf').asInteger = 0 then
+                            begin
+
+                              if (rgbctipoemi.ItemIndex = 0) then
+                                  begin
+                                    cds_cfop.Filtered := false;
+                                    if lblestado.Caption = lblestadoemi.Caption then
+                                       begin
+                                         cds_cfop.Filter := 'ccupom = 0 and ctipoest = 0';
+                                       end
+                                    else
+                                       begin
+                                         cds_cfop.Filter := 'ccupom = 0 and ctipoest = 1';
+                                       end;
+                                    //endi
+                                    cds_cfop.Filtered := true;
+                                    cds_nfp.FieldByName('cod11prodnf').asInteger := cds_cfop.fieldbyname('codigo').asInteger;
+                                    cds_nfp.FieldByName('cod5prodnf').asInteger := cds_cfop.fieldbyname('csitb').asInteger;
+                                    cds_nfp.FieldByName('cod1prodnf').asInteger := cds_cfop.fieldbyname('cicms').asInteger;
+                                    cds_nfp.FieldByName('cod14prodnf').asInteger := cds_cfop.fieldbyname('ccsosn').asInteger;
+                                    //cds_nfp.FieldByName('cod2prodnf').asInteger := cds_cfop.fieldbyname('cipi').asInteger;
+                                    //cds_nfp.FieldByName('cod9prodnf').asInteger := cds_cfop.fieldbyname('cpis').asInteger;
+                                    //cds_nfp.FieldByName('cod10prodnf').asInteger := cds_cfop.fieldbyname('ccofins').asInteger;
+                                  end
+                              else
+                                  begin
+                                    cds_cfop.Filtered := false;
+                                    if lblestado.Caption = lblestadoemi.Caption then
+                                       begin
+                                         cds_cfop.Filter := 'cpadrao = 1 and ctipoest = 0';
+                                       end
+                                    else
+                                       begin
+                                         cds_cfop.Filter := 'cpadrao = 1 and ctipoest = 1';
+                                       end;
+                                    //endi
+                                    cds_cfop.Filtered := true;
+                                    cds_nfp.FieldByName('cod11prodnf').asInteger := cds_cfop.fieldbyname('codigo').asInteger;
+                                  end;
+                              //endi
+
+                              cds_cfop.Filtered := false;
+                            end
+                         else
+                            begin
+                              cds_nfp.FieldByName('cod11prodnf').AsInteger := cds_produtos.fieldbyname('ccfop').asInteger;
+                            end;
+                         //end
+                         }
+
+
+
+
+                         //cds_nfp.FieldByName('cod11prodnf').asInteger := cds_Temp.fieldbyname('cod11prodnf').asInteger;
+
+                         cds_nfp.Post;
+                       end;
+                    //endi
+
+
+
+                    cds_nfp.Next;
+                  end;
+                //endw
+
+                carregafichaprod;
+
+
+
+              end;
+           //endth
+
+            if bhelp then
+               begin
+
+                    pctdados.ActivePageIndex := 2;
+                    pctprod.ActivePageIndex := 1;
+                    application.MessageBox('Passos seguintes'+#13+#13+
+                                           ' 1) Caso necessário ajuste a tributação de cada produto de acordo com a operação'+#13+#13+
+                                           ' 2) Clique em emitir NFE '+#13+#13+
+                                           ' Lembre-se que para navegar pelos tributos de cada produto'+#13+#13+
+                                           ' você pode utilizar os botões de navegação'+#13+#13,
+                                           'Assistente para emissão de nota fiscal',
+                                            mb_ok);
+
+
+
+
+
+               end;
+            //endi
+
+     end;
+  //endi
+
+
+end;
+
+procedure Tfrmpesqnf.btninicioClick(Sender: TObject);
+begin
+  frmdados.cds_nf.First;
+end;
+
+procedure Tfrmpesqnf.btnfimClick(Sender: TObject);
+begin
+frmdados.cds_nf.Last;
+pctdados.ActivePageIndex := 1;
+application.MessageBox('Primeiros passos'+#13+#13+
+                       ' 1) Informe Natureza da Operação'+#13+#13+
+                       ' 2) Verifique se os dados do destinatário estão corretos'+#13+#13+
+                       ' 3) Escolha o emitente'+#13+#13+
+                       ' 4) clique em salvar localizado logo abaixo'+#13+#13+
+                       ' 5) Clique em ajusta tributação na parte superior da tela'+#13+#13+
+                       ' Lembre-se que dados que estão em vermelho'+#13+#13+
+                       'são de preenchimento obrigatório',
+                       'Assistente para emissão de nota fiscal',
+                        mb_ok);
+bhelp := true;
 
 end;
 

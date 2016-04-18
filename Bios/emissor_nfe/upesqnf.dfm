@@ -54,12 +54,12 @@ object frmpesqnf: Tfrmpesqnf
     TabOrder = 0
     object lbltitdest: TLabel
       Left = 10
-      Top = 11
+      Top = 16
       Width = 132
       Height = 20
       Caption = 'DESTINAT'#193'RIO'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clNavy
       Font.Height = -16
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
@@ -68,19 +68,19 @@ object frmpesqnf: Tfrmpesqnf
     object lbldest: TLabel
       Left = 11
       Top = 41
-      Width = 726
+      Width = 838
       Height = 20
       AutoSize = False
       Caption = 'lbldest'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clNavy
       Font.Height = -16
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentFont = False
     end
     object btnimportar: TBitBtn
-      Left = 352
+      Left = 198
       Top = 2
       Width = 152
       Height = 33
@@ -97,9 +97,9 @@ object frmpesqnf: Tfrmpesqnf
       NumGlyphs = 2
     end
     object btnajustatrib: TBitBtn
-      Left = 509
-      Top = 2
-      Width = 152
+      Left = 755
+      Top = 3
+      Width = 139
       Height = 33
       Caption = '&AJUSTA TR&IBUTA'#199#195'O'
       Font.Charset = DEFAULT_CHARSET
@@ -113,11 +113,11 @@ object frmpesqnf: Tfrmpesqnf
       NumGlyphs = 2
     end
     object btnemitenfe: TBitBtn
-      Left = 822
-      Top = 2
-      Width = 152
+      Left = 896
+      Top = 3
+      Width = 127
       Height = 33
-      Caption = '&EMISS'#195'O NFE'
+      Caption = '&EMITIR NFE'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -129,9 +129,9 @@ object frmpesqnf: Tfrmpesqnf
       NumGlyphs = 2
     end
     object BitBtn1: TBitBtn
-      Left = 666
-      Top = 2
-      Width = 152
+      Left = 483
+      Top = 3
+      Width = 139
       Height = 33
       Caption = '&NOVA NFE'
       Font.Charset = DEFAULT_CHARSET
@@ -142,6 +142,64 @@ object frmpesqnf: Tfrmpesqnf
       ParentFont = False
       TabOrder = 1
       OnClick = BitBtn1Click
+      NumGlyphs = 2
+    end
+    object btninicio: TBitBtn
+      Left = 364
+      Top = 3
+      Width = 117
+      Height = 33
+      Caption = 'INICIO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 4
+      OnClick = btninicioClick
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF003FF0000000F0
+        000033F77777773777773FFF0CCC0FF09990333F73F37337F33733FFF0C0FFF0
+        99903333F7373337F337333FFF0FFFF0999033333F73FFF7FFF73333FFF000F0
+        0000333333F77737777733333F07B70FFFFF3333337F337F33333333330BBB0F
+        FFFF3333337F337F333333333307B70FFFFF33333373FF733F333333333000FF
+        0FFF3333333777337FF3333333333FF000FF33FFFFF3333777FF300000333300
+        000F377777F33377777F30EEE0333000000037F337F33777777730EEE0333330
+        00FF37F337F3333777F330EEE033333000FF37FFF7F3333777F3300000333330
+        00FF3777773333F77733333333333000033F3333333337777333}
+      NumGlyphs = 2
+    end
+    object btnfim: TBitBtn
+      Left = 624
+      Top = 3
+      Width = 129
+      Height = 33
+      Caption = 'DICAS'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 5
+      OnClick = btnfimClick
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF003FFFFFFFFFFF
+        FFFF33333333333FFFFF3FFFFFFFFF00000F333333333377777F33FFFFFFFF09
+        990F33333333337F337F333FFFFFFF09990F33333333337F337F3333FFFFFF09
+        990F33333333337FFF7F33333FFFFF00000F3333333333777773333333FFFFFF
+        FFFF3FFFFF3333333F330000033FFFFF0FFF77777F3333337FF30EEE0333FFF0
+        00FF7F337FFF333777FF0EEE00033F00000F7F33777F3777777F0EEE0E033000
+        00007FFF7F7FF777777700000E00033000FF777773777F3777F3330EEE0E0330
+        00FF337FFF7F7F3777F33300000E033000FF337777737F37773333330EEE0300
+        03FF33337FFF77777333333300000333333F3333777773333333}
       NumGlyphs = 2
     end
   end
@@ -387,7 +445,7 @@ object frmpesqnf: Tfrmpesqnf
       Top = 49
       Width = 865
       Height = 429
-      ActivePage = tbsficha
+      ActivePage = tbslista
       Align = alClient
       Images = imgprincipal
       Style = tsButtons
@@ -1690,7 +1748,7 @@ object frmpesqnf: Tfrmpesqnf
             end
           end
           object tbstributacao: TTabSheet
-            Caption = '&5) TRIBUTA'#199#195'O'
+            Caption = '&TRIBUTA'#199#195'O'
             ImageIndex = 1
             OnShow = tbstributacaoShow
             object pnlnavegatribnf: TPanel

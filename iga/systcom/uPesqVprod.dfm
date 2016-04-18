@@ -2269,7 +2269,7 @@ object frmPesqVProd: TfrmPesqVProd
       end
     end
     object pnlsalvarficha: TPanel
-      Left = 379
+      Left = 531
       Top = 8
       Width = 150
       Height = 34
@@ -2348,6 +2348,14 @@ object frmPesqVProd: TfrmPesqVProd
         ShowHint = True
         Visible = False
       end
+      object BitBtn1: TBitBtn
+        Left = 120
+        Top = 8
+        Width = 75
+        Height = 25
+        Caption = 'BitBtn1'
+        TabOrder = 0
+      end
     end
     object edicodprod: TEdit
       Left = 689
@@ -2403,7 +2411,7 @@ object frmPesqVProd: TfrmPesqVProd
     object pnllista: TPanel
       Left = 2
       Top = 8
-      Width = 367
+      Width = 463
       Height = 35
       BevelOuter = bvNone
       TabOrder = 3
@@ -2692,6 +2700,34 @@ object frmPesqVProd: TfrmPesqVProd
         ParentShowHint = False
         ShowHint = True
         OnClick = spdExpClick
+      end
+      object SpeedButton4: TSpeedButton
+        Left = 360
+        Top = 2
+        Width = 81
+        Height = 32
+        Caption = 'NCM'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlue
+        Font.Height = -15
+        Font.Name = 'Comic Sans MS'
+        Font.Style = [fsBold]
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000120B0000120B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333303333
+          333333333337F33333333333333033333333333333373F333333333333090333
+          33333333337F7F33333333333309033333333333337373F33333333330999033
+          3333333337F337F33333333330999033333333333733373F3333333309999903
+          333333337F33337F33333333099999033333333373333373F333333099999990
+          33333337FFFF3FF7F33333300009000033333337777F77773333333333090333
+          33333333337F7F33333333333309033333333333337F7F333333333333090333
+          33333333337F7F33333333333309033333333333337F7F333333333333090333
+          33333333337F7F33333333333300033333333333337773333333}
+        NumGlyphs = 2
+        ParentFont = False
+        OnClick = SpeedButton4Click
       end
     end
     object dbgProdutos: TDBGrid

@@ -159,74 +159,10 @@ begin
 
         try
 
-            frmdados.XMLDocument1.Active := False;
-            frmdados.XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsibpt.php?chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString+'&campo=codigo'+'&valor='+sncmnbs+'&uf='+ lowercase( sunidadefederativa));
-            frmdados.XMLDocument1.Active := True;
-
-            sex       := frmdados.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['ex'].Text;
-            sversao       := frmdados.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['versao'].Text;
-            stipo      := frmdados.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['tipo'].Text;
-            sdescricao   := frmdados.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['descricao'].Text;
-            svigenciainicio       := frmdados.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['vigenciainicio'].Text;
-            svigenciafim   := frmdados.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['vigenciafim'].Text;
-            schave := frmdados.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['chave'].Text;
-            sversao := frmdados.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['versao'].Text;
-            sfonte :=  frmdados.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['fonte'].Text;
-
-
-            saliqnac      :=  frmdados.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['nacionalfederal'].Text;
-            saliqimp           := frmdados.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['importadosfederal'].Text;
-            sestadual    := frmdados.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['estadual'].Text;
-            smunicipal := frmdados.XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['municipal'].Text;
-
-
-            saliqnac      :=  Decimal_Is_Coma( saliqnac );
-            saliqimp           := Decimal_Is_Coma( saliqimp );
-            sestadual    := Decimal_Is_Coma(sestadual);
-            smunicipal := Decimal_Is_Coma(smunicipal);
-
-            faliqnac      :=  strtofloat( saliqnac );
-            faliqimp           := strtofloat( saliqimp );
-            festadual    := strtofloat( sestadual );
-            fmunicipal := strtofloat( smunicipal );
-
+            frmdados.atualizancm(sncmnbs);
 
             calcibpt(valorliquido,total, sorigem, faliqnac, faliqimp, itabela, sex,  sversao, festadual, fmunicipal );
-
-
-            with frmdados do
-              begin
-                dbx_exec.Active := false;
-                dbx_exec.SQL.Clear;
-                dbx_exec.SQL.Add('insert into ibpt (codigo, ex, tipo, descricao, nacionalfederal, importadosfederal, estadual, municipal, vigenciainicio, vigenciafim, chave, versao, fonte)');
-                dbx_exec.SQL.Add(' values (:codigo, :ex, :tipo, :descricao, :nacionalfederal, :importadosfederal, :estadual, :municipal, :vigenciainicio, :vigenciafim, :chave, :versao, :fonte)');
-
-                dbx_exec.Params.ParamByName('codigo').AsString :=  sncmnbs;
-                dbx_exec.Params.ParamByName('ex').AsString :=  sex;
-                dbx_exec.Params.ParamByName('versao').AsString :=  sversao;
-                dbx_exec.Params.ParamByName('tipo').AsString :=  stipo;
-                dbx_exec.Params.ParamByName('descricao').AsString :=  sdescricao;
-
-                dbx_exec.Params.ParamByName('vigenciainicio').AsString :=  svigenciainicio;
-                dbx_exec.Params.ParamByName('vigenciafim').AsString :=    svigenciafim;
-
-                dbx_exec.Params.ParamByName('chave').AsString :=    schave;
-                dbx_exec.Params.ParamByName('fonte').AsString :=    sfonte;
-
-                dbx_exec.Params.ParamByName('nacionalfederal').AsFloat :=    faliqnac;
-                dbx_exec.Params.ParamByName('importadosfederal').AsFloat :=      faliqimp;
-                dbx_exec.Params.ParamByName('estadual').AsFloat :=      festadual;
-                dbx_exec.Params.ParamByName('municipal').AsFloat :=      fmunicipal;
-
-                dbx_exec.ExecSQL;
-
-              end;
-
-
-
-
-
-
+            
 
         except
 

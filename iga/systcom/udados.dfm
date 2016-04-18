@@ -3,7 +3,8 @@ object frmDados: TfrmDados
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 1
+  Left = 3
+  Top = 17
   Height = 713
   Width = 1343
   object Sql_Dados: TSQLConnection
@@ -21886,8 +21887,8 @@ object frmDados: TfrmDados
     Request.Ranges.Units = 'bytes'
     Request.Ranges = <>
     HTTPOptions = [hoForceEncodeParams]
-    Left = 760
-    Top = 362
+    Left = 1208
+    Top = 474
   end
   object XMLEnvio: TXMLDocument
     XML.Strings = (
@@ -21916,8 +21917,8 @@ object frmDados: TfrmDados
     Request.Ranges.Units = 'bytes'
     Request.Ranges = <>
     HTTPOptions = [hoForceEncodeParams]
-    Left = 872
-    Top = 300
+    Left = 1192
+    Top = 404
   end
   object XMLDocument1: TXMLDocument
     XML.Strings = (
