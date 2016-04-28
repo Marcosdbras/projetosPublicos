@@ -233,6 +233,10 @@ label2.caption := datamodexe;
 
 //quando o sistema expirar deve mudar para true
 
+
+
+
+
 if bloqueio.Dias_RestantesU > 30 then
    pnlcentral.Visible := false;
 
@@ -762,8 +766,12 @@ end;
 
 procedure Tfrmprincipal.FormCreate(Sender: TObject);
 begin
-bloqueio.executar;
-atualizacaoBaseRemota;
+
+  atualizacaoBaseRemota;
+
+   // se cliente estiver como ativo = 1 não bloqueia
+  bloqueio.executar;
+
 end;
 
 procedure Tfrmprincipal.Memo1KeyPress(Sender: TObject; var Key: Char);

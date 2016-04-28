@@ -8,55 +8,311 @@
   resources were bound to the produced executable.
 */
 
-#define dxGDIPlusAPI_scxGdipInvalidOperation 64752
-#define bdeconst_SLookupTableError 64768
-#define bdeconst_STruncationError 64769
-#define bdeconst_SResultName 64770
-#define bdeconst_SIndexDoesNotExist 64771
-#define bdeconst_SNoTableName 64772
-#define bdeconst_SNoDataSetField 64773
-#define bdeconst_SNoCachedUpdates 64774
-#define bdeconst_SInvalidAliasName 64775
-#define bdeconst_SNoFieldAccess 64776
-#define bdeconst_SUntitled 64777
-#define bdeconst_SLocalTransDirty 64778
-#define OleConst_SLinkProperties 64779
-#define OleConst_SInvalidLinkSource 64780
-#define OleConst_SCannotBreakLink 64781
-#define OleConst_SPropDlgCaption 64782
-#define RxMemDS_SMemNoRecords 64783
-#define bdeconst_SDatabaseOpen 64784
-#define bdeconst_SDatabaseClosed 64785
-#define bdeconst_SDatabaseHandleSet 64786
-#define bdeconst_SSessionActive 64787
-#define bdeconst_SHandleError 64788
-#define bdeconst_STableMismatch 64789
-#define bdeconst_SNoReferenceTableName 64790
-#define bdeconst_SCompositeIndexError 64791
-#define bdeconst_SEmptySQLStatement 64792
-#define bdeconst_SNoParameterValue 64793
-#define bdeconst_SNoParameterType 64794
-#define bdeconst_SLoginError 64795
-#define bdeconst_SInitError 64796
-#define bdeconst_SIDAPILangID 64797
-#define bdeconst_SBDEError 64798
-#define bdeconst_SLookupSourceError 64799
-#define JConsts_sJPEGError 64800
-#define JConsts_sJPEGImageFile 64801
-#define RzTabs_sRzIncorrectNumberOfPoints 64802
-#define RzTabs_sRzTabRegionCapacityError 64803
-#define RzTabs_sRzSavingDCError 64804
-#define RzTabs_sRzCreateRegionError 64805
-#define RzTabs_sRzPageIndexOutOfRange 64806
-#define RzTabs_sRzInvalidVisibilityChange 64807
-#define bdeconst_SAutoSessionExclusive 64808
-#define bdeconst_SAutoSessionExists 64809
-#define bdeconst_SAutoSessionActive 64810
-#define bdeconst_SDuplicateDatabaseName 64811
-#define bdeconst_SDuplicateSessionName 64812
-#define bdeconst_SInvalidSessionName 64813
-#define bdeconst_SDatabaseNameMissing 64814
-#define bdeconst_SSessionNameMissing 64815
+#define dxGDIPlusAPI_scxGdipInvalidOperation 64496
+#define bdeconst_SLookupTableError 64512
+#define bdeconst_STruncationError 64513
+#define bdeconst_SResultName 64514
+#define bdeconst_SIndexDoesNotExist 64515
+#define bdeconst_SNoTableName 64516
+#define bdeconst_SNoDataSetField 64517
+#define bdeconst_SNoCachedUpdates 64518
+#define bdeconst_SInvalidAliasName 64519
+#define bdeconst_SNoFieldAccess 64520
+#define bdeconst_SUntitled 64521
+#define bdeconst_SLocalTransDirty 64522
+#define OleConst_SLinkProperties 64523
+#define OleConst_SInvalidLinkSource 64524
+#define OleConst_SCannotBreakLink 64525
+#define OleConst_SPropDlgCaption 64526
+#define RxMemDS_SMemNoRecords 64527
+#define bdeconst_SDatabaseOpen 64528
+#define bdeconst_SDatabaseClosed 64529
+#define bdeconst_SDatabaseHandleSet 64530
+#define bdeconst_SSessionActive 64531
+#define bdeconst_SHandleError 64532
+#define bdeconst_STableMismatch 64533
+#define bdeconst_SNoReferenceTableName 64534
+#define bdeconst_SCompositeIndexError 64535
+#define bdeconst_SEmptySQLStatement 64536
+#define bdeconst_SNoParameterValue 64537
+#define bdeconst_SNoParameterType 64538
+#define bdeconst_SLoginError 64539
+#define bdeconst_SInitError 64540
+#define bdeconst_SIDAPILangID 64541
+#define bdeconst_SBDEError 64542
+#define bdeconst_SLookupSourceError 64543
+#define JConsts_sJPEGError 64544
+#define JConsts_sJPEGImageFile 64545
+#define RzTabs_sRzIncorrectNumberOfPoints 64546
+#define RzTabs_sRzTabRegionCapacityError 64547
+#define RzTabs_sRzSavingDCError 64548
+#define RzTabs_sRzCreateRegionError 64549
+#define RzTabs_sRzPageIndexOutOfRange 64550
+#define RzTabs_sRzInvalidVisibilityChange 64551
+#define bdeconst_SAutoSessionExclusive 64552
+#define bdeconst_SAutoSessionExists 64553
+#define bdeconst_SAutoSessionActive 64554
+#define bdeconst_SDuplicateDatabaseName 64555
+#define bdeconst_SDuplicateSessionName 64556
+#define bdeconst_SInvalidSessionName 64557
+#define bdeconst_SDatabaseNameMissing 64558
+#define bdeconst_SSessionNameMissing 64559
+#define IdResourceStringsSSPI_RSHTTPSSPIDeligationPolicy 64560
+#define IdResourceStringsSSPI_RSHTTPSSPIPolicyNTLMOnly 64561
+#define IdResourceStringsSSPI_RSHTTPSSPINoRenegotiation 64562
+#define IdResourceStringsSSPI_RSHTTPSSPINoContext 64563
+#define IdResourceStringsSSPI_RSHTTPSSPIPKU2UCertFailure 64564
+#define IdResourceStringsSSPI_RSHTTPSSPIMutualAuthFailed 64565
+#define IdResourceStringsSSPI_RSHTTPSSPIUnknwonError 64566
+#define IdResourceStringsSSPI_RSHTTPSSPIErrorMsg 64567
+#define IdResourceStringsSSPI_RSHTTPSSPIInterfaceInitFailed 64568
+#define IdResourceStringsSSPI_RSHTTPSSPINoPkgInfoSpecified 64569
+#define IdResourceStringsSSPI_RSHTTPSSPINoCredentialHandle 64570
+#define IdResourceStringsSSPI_RSHTTPSSPICanNotChangeCredentials 64571
+#define IdResourceStringsSSPI_RSHTTPSSPIUnknwonCredentialUse 64572
+#define IdResourceStringsSSPI_RSHTTPSSPIDoAuquireCredentialHandle 64573
+#define IdResourceStringsSSPI_RSHTTPSSPICompleteTokenNotSupported 64574
+#define JConsts_sChangeJPGSize 64575
+#define IdResourceStringsSSPI_RSHTTPSSPINoKerbKey 64576
+#define IdResourceStringsSSPI_RSHTTPSSPICertWrongUsage 64577
+#define IdResourceStringsSSPI_RSHTTPSSPIDowngradeDetected 64578
+#define IdResourceStringsSSPI_RSHTTPSSPISmartcardCertRevoked 64579
+#define IdResourceStringsSSPI_RSHTTPSSPIIssuingCAUntrusted 64580
+#define IdResourceStringsSSPI_RSHTTPSSPIRevocationOffline 64581
+#define IdResourceStringsSSPI_RSHTTPSSPIPKInitClientFailure 64582
+#define IdResourceStringsSSPI_RSHTTPSSPISmartcardExpired 64583
+#define IdResourceStringsSSPI_RSHTTPSSPINoS4UProtSupport 64584
+#define IdResourceStringsSSPI_RSHTTPSSPICrossRealmDeligationFailure 64585
+#define IdResourceStringsSSPI_RSHTTPSSPIRevocationOfflineKDC 64586
+#define IdResourceStringsSSPI_RSHTTPSSPICAUntrustedKDC 64587
+#define IdResourceStringsSSPI_RSHTTPSSPIKDCCertExpired 64588
+#define IdResourceStringsSSPI_RSHTTPSSPIKDCCertRevoked 64589
+#define IdResourceStringsSSPI_RSHTTPSSPISignatureNeeded 64590
+#define IdResourceStringsSSPI_RSHTTPSSPIInvalidParameter 64591
+#define IdResourceStringsSSPI_RSHTTPSSPICryptoSysInvalid 64592
+#define IdResourceStringsSSPI_RSHTTPSSPIMaxTicketRef 64593
+#define IdResourceStringsSSPI_RSHTTPSSPIMustBeKDC 64594
+#define IdResourceStringsSSPI_RSHTTPSSPIStrongCryptoNotSupported 64595
+#define IdResourceStringsSSPI_RSHTTPSSPIKDCReplyTooManyPrincipals 64596
+#define IdResourceStringsSSPI_RSHTTPSSPINoPAData 64597
+#define IdResourceStringsSSPI_RSHTTPSSPIPKInitNameMismatch 64598
+#define IdResourceStringsSSPI_RSHTTPSSPISmartcardLogonReq 64599
+#define IdResourceStringsSSPI_RSHTTPSSPISysShutdownInProg 64600
+#define IdResourceStringsSSPI_RSHTTPSSPIKDCInvalidRequest 64601
+#define IdResourceStringsSSPI_RSHTTPSSPIKDCUnableToRefer 64602
+#define IdResourceStringsSSPI_RSHTTPSSPIKDCETypeUnknown 64603
+#define IdResourceStringsSSPI_RSHTTPSSPIUnsupPreauth 64604
+#define IdResourceStringsSSPI_RSHTTPSSPIDeligationReq 64605
+#define IdResourceStringsSSPI_RSHTTPSSPIBadBindings 64606
+#define IdResourceStringsSSPI_RSHTTPSSPIMultipleAccounts 64607
+#define IdResourceStringsSSPI_RSHTTPSSPIRengotiate 64608
+#define IdResourceStringsSSPI_RSHTTPSSPIWrongPrincipal 64609
+#define IdResourceStringsSSPI_RSHTTPSSPINoLSACode 64610
+#define IdResourceStringsSSPI_RSHTTPSSPITimeScew 64611
+#define IdResourceStringsSSPI_RSHTTPSSPIUntrustedRoot 64612
+#define IdResourceStringsSSPI_RSHTTPSSPIIllegalMessage 64613
+#define IdResourceStringsSSPI_RSHTTPSSPICertUnknown 64614
+#define IdResourceStringsSSPI_RSHTTPSSPICertExpired 64615
+#define IdResourceStringsSSPI_RSHTTPSSPIEncryptionFailure 64616
+#define IdResourceStringsSSPI_RSHTTPSSPIDecryptionFailure 64617
+#define IdResourceStringsSSPI_RSHTTPSSPIAlgorithmMismatch 64618
+#define IdResourceStringsSSPI_RSHTTPSSPISecurityQOSFailure 64619
+#define IdResourceStringsSSPI_RSHTTPSSPISecCtxWasDelBeforeUpdated 64620
+#define IdResourceStringsSSPI_RSHTTPSSPIClientNoTGTReply 64621
+#define IdResourceStringsSSPI_RSHTTPSSPILocalNoIPAddr 64622
+#define IdResourceStringsSSPI_RSHTTPSSPIWrongCredHandle 64623
+#define IdResourceStringsSSPI_RSHTTPSSPILoginDenied 64624
+#define IdResourceStringsSSPI_RSHTTPSSPIUnknownCredentials 64625
+#define IdResourceStringsSSPI_RSHTTPSSPINoCredentials 64626
+#define IdResourceStringsSSPI_RSHTTPSSPIMessageAltered 64627
+#define IdResourceStringsSSPI_RSHTTPSSPIOutOfSequence 64628
+#define IdResourceStringsSSPI_RSHTTPSSPINoAuthAuthority 64629
+#define IdResourceStringsSSPI_RSHTTPSSPIContinueNeeded 64630
+#define IdResourceStringsSSPI_RSHTTPSSPICompleteNeeded 64631
+#define IdResourceStringsSSPI_RSHTTPSSPICompleteContinueNeeded 64632
+#define IdResourceStringsSSPI_RSHTTPSSPILocalLogin 64633
+#define IdResourceStringsSSPI_RSHTTPSSPIBadPackageID 64634
+#define IdResourceStringsSSPI_RSHTTPSSPIContextExpired 64635
+#define IdResourceStringsSSPI_RSHTTPSSPIIncompleteMessage 64636
+#define IdResourceStringsSSPI_RSHTTPSSPIIncompleteCredentialNotInit 64637
+#define IdResourceStringsSSPI_RSHTTPSSPIBufferTooSmall 64638
+#define IdResourceStringsSSPI_RSHTTPSSPIIncompleteCredentialsInit 64639
+#define IdResourceStringsOpenSSL_RSOSSLConnectExit 64640
+#define IdResourceStringsOpenSSL_RSOSSLHandshakeStart 64641
+#define IdResourceStringsOpenSSL_RSOSSLHandshakeDone 64642
+#define IdResourceStringsSSPI_RSHTTPSSPISuccess 64643
+#define IdResourceStringsSSPI_RSHTTPSSPINotEnoughMem 64644
+#define IdResourceStringsSSPI_RSHTTPSSPIInvalidHandle 64645
+#define IdResourceStringsSSPI_RSHTTPSSPIFuncNotSupported 64646
+#define IdResourceStringsSSPI_RSHTTPSSPIUnknownTarget 64647
+#define IdResourceStringsSSPI_RSHTTPSSPIInternalError 64648
+#define IdResourceStringsSSPI_RSHTTPSSPISecPackageNotFound 64649
+#define IdResourceStringsSSPI_RSHTTPSSPINotOwner 64650
+#define IdResourceStringsSSPI_RSHTTPSSPIPackageCannotBeInstalled 64651
+#define IdResourceStringsSSPI_RSHTTPSSPIInvalidToken 64652
+#define IdResourceStringsSSPI_RSHTTPSSPICannotPack 64653
+#define IdResourceStringsSSPI_RSHTTPSSPIQOPNotSupported 64654
+#define IdResourceStringsSSPI_RSHTTPSSPINoImpersonation 64655
+#define IdResourceStringsProtocols_RSURINoProto 64656
+#define IdResourceStringsProtocols_RSURINoHost 64657
+#define IdResourceStringsOpenSSL_RSOSSFailedToLoad 64658
+#define IdResourceStringsOpenSSL_RSOSSLModeNotSet 64659
+#define IdResourceStringsOpenSSL_RSOSSLCouldNotLoadSSLLibrary 64660
+#define IdResourceStringsOpenSSL_RSOSSLStatusString 64661
+#define IdResourceStringsOpenSSL_RSOSSLAlert 64662
+#define IdResourceStringsOpenSSL_RSOSSLReadAlert 64663
+#define IdResourceStringsOpenSSL_RSOSSLWriteAlert 64664
+#define IdResourceStringsOpenSSL_RSOSSLAcceptLoop 64665
+#define IdResourceStringsOpenSSL_RSOSSLAcceptError 64666
+#define IdResourceStringsOpenSSL_RSOSSLAcceptFailed 64667
+#define IdResourceStringsOpenSSL_RSOSSLAcceptExit 64668
+#define IdResourceStringsOpenSSL_RSOSSLConnectLoop 64669
+#define IdResourceStringsOpenSSL_RSOSSLConnectError 64670
+#define IdResourceStringsOpenSSL_RSOSSLConnectFailed 64671
+#define IdResourceStringsProtocols_RSHTTPUnknownProtocol 64672
+#define IdResourceStringsProtocols_RSHTTPMethodRequiresVersion 64673
+#define IdResourceStringsProtocols_RSHTTPAuthInvalidHash 64674
+#define IdResourceStringsProtocols_RSSSLAcceptError 64675
+#define IdResourceStringsProtocols_RSSSLConnectError 64676
+#define IdResourceStringsProtocols_RSSSLSettingCipherError 64677
+#define IdResourceStringsProtocols_RSSSLCreatingSessionError 64678
+#define IdResourceStringsProtocols_RSSSLCreatingContextError 64679
+#define IdResourceStringsProtocols_RSSSLLoadingRootCertError 64680
+#define IdResourceStringsProtocols_RSSSLLoadingCertError 64681
+#define IdResourceStringsProtocols_RSSSLLoadingKeyError 64682
+#define IdResourceStringsProtocols_RSSSLLoadingDHParamsError 64683
+#define IdResourceStringsProtocols_RSSSLGetMethodError 64684
+#define IdResourceStringsProtocols_RSSSLFDSetError 64685
+#define IdResourceStringsProtocols_RSSSLDataBindingError 64686
+#define IdResourceStringsProtocols_RSSSLEOFViolation 64687
+#define IdResourceStringsCore_RSRequiresLargeStream 64688
+#define IdResourceStringsCore_RSDataTooLarge 64689
+#define IdResourceStringsCore_RSConnectTimeout 64690
+#define IdResourceStringsCore_RSAlreadyConnected 64691
+#define IdResourceStringsCore_RSMaximumNumberOfCaptureLineExceeded 64692
+#define IdResourceStringsCore_RSInterceptIsDifferent 64693
+#define IdResourceStringsCore_RSTransparentProxyCannotBind 64694
+#define IdResourceStringsCore_RSTransparentProxyCanNotSupportUDP 64695
+#define IdResourceStringsCore_RSBufferMissingTerminator 64696
+#define IdResourceStringsCore_RSBufferInvalidStartPos 64697
+#define IdResourceStringsCore_RSReplyInvalidCode 64698
+#define IdResourceStringsCore_RSReplyCodeAlreadyExists 64699
+#define IdResourceStringsProtocols_RSIOHandlerPropInvalid 64700
+#define IdResourceStringsProtocols_RSFIPSAlgorithmNotAllowed 64701
+#define IdResourceStringsProtocols_RSHTTPChunkStarted 64702
+#define IdResourceStringsProtocols_RSHTTPNotAcceptable 64703
+#define IdResourceStringsCore_RSSocksServerNetUnreachableError 64704
+#define IdResourceStringsCore_RSSocksServerHostUnreachableError 64705
+#define IdResourceStringsCore_RSSocksServerConnectionRefusedError 64706
+#define IdResourceStringsCore_RSSocksServerTTLExpiredError 64707
+#define IdResourceStringsCore_RSSocksServerCommandError 64708
+#define IdResourceStringsCore_RSSocksServerAddressError 64709
+#define IdResourceStringsCore_RSInterceptCircularLink 64710
+#define IdResourceStringsCore_RSNotEnoughDataInBuffer 64711
+#define IdResourceStringsCore_RSTooMuchDataInBuffer 64712
+#define IdResourceStringsCore_RSFileNotFound 64713
+#define IdResourceStringsCore_RSNotConnected 64714
+#define IdResourceStringsCore_RSObjectTypeNotSupported 64715
+#define IdResourceStringsCore_RSIdNoDataToRead 64716
+#define IdResourceStringsCore_RSReadTimeout 64717
+#define IdResourceStringsCore_RSReadLnWaitMaxAttemptsExceeded 64718
+#define IdResourceStringsCore_RSReadLnMaxLineLengthExceeded 64719
+#define IdResourceStrings_RSInvalidServiceName 64720
+#define IdResourceStrings_RSInvalidIPv6Address 64721
+#define IdResourceStrings_RSIPVersionUnsupported 64722
+#define IdResourceStrings_RSNotAllBytesSent 64723
+#define IdResourceStrings_RSPackageSizeTooBig 64724
+#define IdResourceStrings_RSSetSizeExceeded 64725
+#define IdResourceStringsCore_RSSocksUDPNotSupported 64726
+#define IdResourceStringsCore_RSSocksRequestFailed 64727
+#define IdResourceStringsCore_RSSocksRequestServerFailed 64728
+#define IdResourceStringsCore_RSSocksRequestIdentFailed 64729
+#define IdResourceStringsCore_RSSocksUnknownError 64730
+#define IdResourceStringsCore_RSSocksServerRespondError 64731
+#define IdResourceStringsCore_RSSocksAuthMethodError 64732
+#define IdResourceStringsCore_RSSocksAuthError 64733
+#define IdResourceStringsCore_RSSocksServerGeneralError 64734
+#define IdResourceStringsCore_RSSocksServerPermissionError 64735
+#define IdResourceStrings_RSStackETIMEDOUT 64736
+#define IdResourceStrings_RSStackECONNREFUSED 64737
+#define IdResourceStrings_RSStackELOOP 64738
+#define IdResourceStrings_RSStackENAMETOOLONG 64739
+#define IdResourceStrings_RSStackEHOSTDOWN 64740
+#define IdResourceStrings_RSStackEHOSTUNREACH 64741
+#define IdResourceStrings_RSStackENOTEMPTY 64742
+#define IdResourceStrings_RSStackHOST_NOT_FOUND 64743
+#define IdResourceStrings_RSStackClassUndefined 64744
+#define IdResourceStrings_RSStackAlreadyCreated 64745
+#define IdResourceStrings_RSAntiFreezeOnlyOne 64746
+#define IdResourceStrings_RSCannotSetIPVersionWhenConnected 64747
+#define IdResourceStrings_RSCannotBindRange 64748
+#define IdResourceStrings_RSConnectionClosedGracefully 64749
+#define IdResourceStrings_RSCouldNotBindSocket 64750
+#define IdResourceStrings_RSInvalidPortRange 64751
+#define IdResourceStrings_RSStackESOCKTNOSUPPORT 64752
+#define IdResourceStrings_RSStackEOPNOTSUPP 64753
+#define IdResourceStrings_RSStackEPFNOSUPPORT 64754
+#define IdResourceStrings_RSStackEAFNOSUPPORT 64755
+#define IdResourceStrings_RSStackEADDRINUSE 64756
+#define IdResourceStrings_RSStackEADDRNOTAVAIL 64757
+#define IdResourceStrings_RSStackENETDOWN 64758
+#define IdResourceStrings_RSStackENETUNREACH 64759
+#define IdResourceStrings_RSStackENETRESET 64760
+#define IdResourceStrings_RSStackECONNABORTED 64761
+#define IdResourceStrings_RSStackECONNRESET 64762
+#define IdResourceStrings_RSStackENOBUFS 64763
+#define IdResourceStrings_RSStackEISCONN 64764
+#define IdResourceStrings_RSStackENOTCONN 64765
+#define IdResourceStrings_RSStackESHUTDOWN 64766
+#define IdResourceStrings_RSStackETOOMANYREFS 64767
+#define IdResourceStrings_RSStackError 64768
+#define IdResourceStrings_RSStackEINTR 64769
+#define IdResourceStrings_RSStackEBADF 64770
+#define IdResourceStrings_RSStackEACCES 64771
+#define IdResourceStrings_RSStackEFAULT 64772
+#define IdResourceStrings_RSStackEINVAL 64773
+#define IdResourceStrings_RSStackEMFILE 64774
+#define IdResourceStrings_RSStackEWOULDBLOCK 64775
+#define IdResourceStrings_RSStackEINPROGRESS 64776
+#define IdResourceStrings_RSStackEALREADY 64777
+#define IdResourceStrings_RSStackENOTSOCK 64778
+#define IdResourceStrings_RSStackEDESTADDRREQ 64779
+#define IdResourceStrings_RSStackEMSGSIZE 64780
+#define IdResourceStrings_RSStackEPROTOTYPE 64781
+#define IdResourceStrings_RSStackENOPROTOOPT 64782
+#define IdResourceStrings_RSStackEPROTONOSUPPORT 64783
+#define XMLConst_SLine 64784
+#define IdResourceStrings_RSInvalidSourceArray 64785
+#define IdResourceStrings_RSInvalidDestinationArray 64786
+#define IdResourceStrings_RSCharIndexOutOfBounds 64787
+#define IdResourceStrings_RSInvalidCharCount 64788
+#define IdResourceStrings_RSInvalidDestinationIndex 64789
+#define IdResourceStrings_RSInvalidCodePage 64790
+#define IdResourceStrings_RSFailedTimeZoneInfo 64791
+#define IdResourceStrings_RSWinsockCallError 64792
+#define IdResourceStrings_RSWinsockLoadError 64793
+#define IdResourceStrings_RSStatusResolving 64794
+#define IdResourceStrings_RSStatusConnecting 64795
+#define IdResourceStrings_RSStatusConnected 64796
+#define IdResourceStrings_RSStatusDisconnecting 64797
+#define IdResourceStrings_RSStatusDisconnected 64798
+#define IdResourceStrings_RSStatusText 64799
+#define XMLConst_SNoMatchingDOMVendor 64800
+#define XMLConst_SNoDOMNodeEx 64801
+#define XMLConst_SDOMNotSupported 64802
+#define XMLConst_SNodeExpected 64803
+#define XMLConst_SMSDOMNotInstalled 64804
+#define XMLConst_SNotActive 64805
+#define XMLConst_SNodeNotFound 64806
+#define XMLConst_SMissingNode 64807
+#define XMLConst_SNoAttributes 64808
+#define XMLConst_SInvalidNodeType 64809
+#define XMLConst_SMismatchedRegItems 64810
+#define XMLConst_SNotSingleTextNode 64811
+#define XMLConst_SNoDOMParseOptions 64812
+#define XMLConst_SNodeReadOnly 64813
+#define XMLConst_SNoRefresh 64814
+#define XMLConst_SMissingFileName 64815
 #define ZMessages_SUnsupportedDataType 64816
 #define ZMessages_SErrorConvertionField 64817
 #define ZMessages_SUnknownError 64818
@@ -72,7 +328,7 @@
 #define ZMessages_SRefreshRowOnlySupportedWithUpdateObject 64828
 #define ZMessages_SInvalidUpdateCount 64829
 #define ZMessages_SRowBufferWidthExceeded 64830
-#define JConsts_sChangeJPGSize 64831
+#define XMLConst_SDuplicateRegistration 64831
 #define ZMessages_SOperationIsNotAllowed2 64832
 #define ZMessages_SOperationIsNotAllowed4 64833
 #define ZMessages_SNoMoreRecords 64834
@@ -828,6 +1084,262 @@ BEGIN
 	bdeconst_SInvalidSessionName,	"Invalid session name %s"
 	bdeconst_SDatabaseNameMissing,	"Database name missing"
 	bdeconst_SSessionNameMissing,	"Session name missing"
+	IdResourceStringsSSPI_RSHTTPSSPIDeligationPolicy,	"Client policy does not allow credential delegation to target server."
+	IdResourceStringsSSPI_RSHTTPSSPIPolicyNTLMOnly,	"Client policy does not allow credential delegation to target server with NLTM only authentication."
+	IdResourceStringsSSPI_RSHTTPSSPINoRenegotiation,	"The recipient rejected the renegotiation request."
+	IdResourceStringsSSPI_RSHTTPSSPINoContext,	"The required security context does not exist."
+	IdResourceStringsSSPI_RSHTTPSSPIPKU2UCertFailure,	"The PKU2U protocol encountered an error while attempting to utilize the associated certificates."
+	IdResourceStringsSSPI_RSHTTPSSPIMutualAuthFailed,	"The identity of the server computer could not be verified."
+	IdResourceStringsSSPI_RSHTTPSSPIUnknwonError,	"Unknown error"
+	IdResourceStringsSSPI_RSHTTPSSPIErrorMsg,	"SSPI %s returns error #%d(0x%x): %s"
+	IdResourceStringsSSPI_RSHTTPSSPIInterfaceInitFailed,	"SSPI interface has failed to initialise properly"
+	IdResourceStringsSSPI_RSHTTPSSPINoPkgInfoSpecified,	"No PSecPkgInfo specified"
+	IdResourceStringsSSPI_RSHTTPSSPINoCredentialHandle,	"No credential handle acquired"
+	IdResourceStringsSSPI_RSHTTPSSPICanNotChangeCredentials,	"Can not change credentials after handle aquired. Use Release first"
+	IdResourceStringsSSPI_RSHTTPSSPIUnknwonCredentialUse,	"Unknown credentials use"
+	IdResourceStringsSSPI_RSHTTPSSPIDoAuquireCredentialHandle,	"Do AcquireCredentialsHandle first"
+	IdResourceStringsSSPI_RSHTTPSSPICompleteTokenNotSupported,	"CompleteAuthToken is not supported"
+	JConsts_sChangeJPGSize,	"Cannot change the size of a JPEG image"
+	IdResourceStringsSSPI_RSHTTPSSPINoKerbKey,	"SEC_E_NO_KERB_KEY"
+	IdResourceStringsSSPI_RSHTTPSSPICertWrongUsage,	"The certificate is not valid for the requested usage."
+	IdResourceStringsSSPI_RSHTTPSSPIDowngradeDetected,	"The system detected a possible attempt to compromise security. Please ensure that you can contact the server that authenticated you."
+	IdResourceStringsSSPI_RSHTTPSSPISmartcardCertRevoked,	"The smartcard certificate used for authentication has been revoked. Please contact your system administrator. There may be additional information in the event log."
+	IdResourceStringsSSPI_RSHTTPSSPIIssuingCAUntrusted,	"An untrusted certificate authority was detected While processing the smartcard certificate used for authentication. Please contact your system administrator."
+	IdResourceStringsSSPI_RSHTTPSSPIRevocationOffline,	"The revocation status of the smartcard certificate used for authentication could not be determined. Please contact your system administrator."
+	IdResourceStringsSSPI_RSHTTPSSPIPKInitClientFailure,	"The smartcard certificate used for authentication was not trusted. Please contact your system administrator."
+	IdResourceStringsSSPI_RSHTTPSSPISmartcardExpired,	"The smartcard certificate used for authentication has expired. Please contact your system administrator."
+	IdResourceStringsSSPI_RSHTTPSSPINoS4UProtSupport,	"The Kerberos subsystem encountered an error. A service for user protocol request was made against a domain controller which does not support service for user."
+	IdResourceStringsSSPI_RSHTTPSSPICrossRealmDeligationFailure,	"An attempt was made by this server to make a Kerberos constrained delegation request for a target outside of the server's realm. This is not supported, and indicates a misconfiguration on this server's allowed to delegate to list. Please contact your administrator."
+	IdResourceStringsSSPI_RSHTTPSSPIRevocationOfflineKDC,	"The revocation status of the domain controller certificate used for smartcard authentication could not be determined. There is additional information in the system event log. Please contact your system administrator."
+	IdResourceStringsSSPI_RSHTTPSSPICAUntrustedKDC,	"An untrusted certificate authority was detected while processing the domain controller certificate used for authentication. There is additional information in the system event log. Please contact your system administrator."
+	IdResourceStringsSSPI_RSHTTPSSPIKDCCertExpired,	"The domain controller certificate used for smartcard logon has expired. Please contact your system administrator with the contents of your system event log."
+	IdResourceStringsSSPI_RSHTTPSSPIKDCCertRevoked,	"The domain controller certificate used for smartcard logon has been revoked. Please contact your system administrator with the contents of your system event log."
+	IdResourceStringsSSPI_RSHTTPSSPISignatureNeeded,	"A signature operation must be performed before the user can authenticate."
+	IdResourceStringsSSPI_RSHTTPSSPIInvalidParameter,	"One or more of the parameters passed to the function was invalid."
+	IdResourceStringsSSPI_RSHTTPSSPICryptoSysInvalid,	"The crypto system or checksum function is invalid because a required function is unavailable."
+	IdResourceStringsSSPI_RSHTTPSSPIMaxTicketRef,	"The number of maximum ticket referrals has been exceeded."
+	IdResourceStringsSSPI_RSHTTPSSPIMustBeKDC,	"The local machine must be a Kerberos KDC (domain controller) and it is not."
+	IdResourceStringsSSPI_RSHTTPSSPIStrongCryptoNotSupported,	"The other end of the security negotiation is requires strong crypto but it is not supported on the local machine."
+	IdResourceStringsSSPI_RSHTTPSSPIKDCReplyTooManyPrincipals,	"The KDC reply contained more than one principal name."
+	IdResourceStringsSSPI_RSHTTPSSPINoPAData,	"Expected to find PA data for a hint of what etype to use, but it was not found."
+	IdResourceStringsSSPI_RSHTTPSSPIPKInitNameMismatch,	"The client certificate does not contain a valid UPN, or does not match the client name in the logon request. Please contact your administrator."
+	IdResourceStringsSSPI_RSHTTPSSPISmartcardLogonReq,	"Smartcard logon is required and was not used."
+	IdResourceStringsSSPI_RSHTTPSSPISysShutdownInProg,	"A system shutdown is in progress."
+	IdResourceStringsSSPI_RSHTTPSSPIKDCInvalidRequest,	"An invalid request was sent to the KDC."
+	IdResourceStringsSSPI_RSHTTPSSPIKDCUnableToRefer,	"The KDC was unable to generate a referral for the service requested."
+	IdResourceStringsSSPI_RSHTTPSSPIKDCETypeUnknown,	"The encryption type requested is not supported by the KDC."
+	IdResourceStringsSSPI_RSHTTPSSPIUnsupPreauth,	"An unsupported preauthentication mechanism was presented to the Kerberos package."
+	IdResourceStringsSSPI_RSHTTPSSPIDeligationReq,	"The requested operation cannot be completed. The computer must be trusted for delegation and the current user account must be configured to allow delegation."
+	IdResourceStringsSSPI_RSHTTPSSPIBadBindings,	"Client's supplied SSPI channel bindings were incorrect."
+	IdResourceStringsSSPI_RSHTTPSSPIMultipleAccounts,	"The received certificate was mapped to multiple accounts."
+	IdResourceStringsSSPI_RSHTTPSSPIRengotiate,	"The context data must be renegotiated with the peer."
+	IdResourceStringsSSPI_RSHTTPSSPIWrongPrincipal,	"The target principal name is incorrect."
+	IdResourceStringsSSPI_RSHTTPSSPINoLSACode,	"There is no LSA mode context associated with this context."
+	IdResourceStringsSSPI_RSHTTPSSPITimeScew,	"The clocks on the client and server machines are skewed."
+	IdResourceStringsSSPI_RSHTTPSSPIUntrustedRoot,	"The certificate chain was issued by an untrusted authority."
+	IdResourceStringsSSPI_RSHTTPSSPIIllegalMessage,	"The message received was unexpected or badly formatted."
+	IdResourceStringsSSPI_RSHTTPSSPICertUnknown,	"An unknown error occurred while processing the certificate."
+	IdResourceStringsSSPI_RSHTTPSSPICertExpired,	"The received certificate has expired."
+	IdResourceStringsSSPI_RSHTTPSSPIEncryptionFailure,	"The specified data could not be encrypted."
+	IdResourceStringsSSPI_RSHTTPSSPIDecryptionFailure,	"The specified data could not be decrypted."
+	IdResourceStringsSSPI_RSHTTPSSPIAlgorithmMismatch,	"The client and server cannot communicate, because they do not possess a common algorithm."
+	IdResourceStringsSSPI_RSHTTPSSPISecurityQOSFailure,	"The security context could not be established due to a failure in the requested quality of service (e.g. mutual authentication or delegation)."
+	IdResourceStringsSSPI_RSHTTPSSPISecCtxWasDelBeforeUpdated,	"A security context was deleted before the context was completed. This is considered a logon failure."
+	IdResourceStringsSSPI_RSHTTPSSPIClientNoTGTReply,	"The client is trying to negotiate a context and the server requires user-to-user but didn't send a TGT reply."
+	IdResourceStringsSSPI_RSHTTPSSPILocalNoIPAddr,	"Unable to accomplish the requested task because the local machine does not have any IP addresses."
+	IdResourceStringsSSPI_RSHTTPSSPIWrongCredHandle,	"The supplied credential handle does not match the credential associated with the security context."
+	IdResourceStringsSSPI_RSHTTPSSPILoginDenied,	"The logon attempt failed"
+	IdResourceStringsSSPI_RSHTTPSSPIUnknownCredentials,	"The credentials supplied to the package were not recognized"
+	IdResourceStringsSSPI_RSHTTPSSPINoCredentials,	"No credentials are available in the security package"
+	IdResourceStringsSSPI_RSHTTPSSPIMessageAltered,	"The message or signature supplied for verification has been altered"
+	IdResourceStringsSSPI_RSHTTPSSPIOutOfSequence,	"The message supplied for verification is out of sequence"
+	IdResourceStringsSSPI_RSHTTPSSPINoAuthAuthority,	"No authority could be contacted for authentication."
+	IdResourceStringsSSPI_RSHTTPSSPIContinueNeeded,	"The function completed successfully, but must be called again to complete the context"
+	IdResourceStringsSSPI_RSHTTPSSPICompleteNeeded,	"The function completed successfully, but CompleteToken must be called"
+	IdResourceStringsSSPI_RSHTTPSSPICompleteContinueNeeded,	"The function completed successfully, but both CompleteToken and this function must be called to complete the context"
+	IdResourceStringsSSPI_RSHTTPSSPILocalLogin,	"The logon was completed, but no network authority was available. The logon was made using locally known information"
+	IdResourceStringsSSPI_RSHTTPSSPIBadPackageID,	"The requested security package does not exist"
+	IdResourceStringsSSPI_RSHTTPSSPIContextExpired,	"The context has expired and can no longer be used."
+	IdResourceStringsSSPI_RSHTTPSSPIIncompleteMessage,	"The supplied message is incomplete.  The signature was not verified."
+	IdResourceStringsSSPI_RSHTTPSSPIIncompleteCredentialNotInit,	"The credentials supplied were not complete, and could not be verified. The context could not be initialized."
+	IdResourceStringsSSPI_RSHTTPSSPIBufferTooSmall,	"The buffers supplied to a function was too small."
+	IdResourceStringsSSPI_RSHTTPSSPIIncompleteCredentialsInit,	"The credentials supplied were not complete, and could not be verified. Additional information can be returned from the context."
+	IdResourceStringsOpenSSL_RSOSSLConnectExit,	"Connect Exit"
+	IdResourceStringsOpenSSL_RSOSSLHandshakeStart,	"Handshake Start"
+	IdResourceStringsOpenSSL_RSOSSLHandshakeDone,	"Handshake Done"
+	IdResourceStringsSSPI_RSHTTPSSPISuccess,	"Successfull API call"
+	IdResourceStringsSSPI_RSHTTPSSPINotEnoughMem,	"Not enough memory is available to complete this request"
+	IdResourceStringsSSPI_RSHTTPSSPIInvalidHandle,	"The handle specified is invalid"
+	IdResourceStringsSSPI_RSHTTPSSPIFuncNotSupported,	"The function requested is not supported"
+	IdResourceStringsSSPI_RSHTTPSSPIUnknownTarget,	"The specified target is unknown or unreachable"
+	IdResourceStringsSSPI_RSHTTPSSPIInternalError,	"The Local Security Authority cannot be contacted"
+	IdResourceStringsSSPI_RSHTTPSSPISecPackageNotFound,	"The requested security package does not exist"
+	IdResourceStringsSSPI_RSHTTPSSPINotOwner,	"The caller is not the owner of the desired credentials"
+	IdResourceStringsSSPI_RSHTTPSSPIPackageCannotBeInstalled,	"The security package failed to initialize, and cannot be installed"
+	IdResourceStringsSSPI_RSHTTPSSPIInvalidToken,	"The token supplied to the function is invalid"
+	IdResourceStringsSSPI_RSHTTPSSPICannotPack,	"The security package is not able to marshall the logon buffer, so the logon attempt has failed"
+	IdResourceStringsSSPI_RSHTTPSSPIQOPNotSupported,	"The per-message Quality of Protection is not supported by the security package"
+	IdResourceStringsSSPI_RSHTTPSSPINoImpersonation,	"The security context does not allow impersonation of the client"
+	IdResourceStringsProtocols_RSURINoProto,	"Protocol field is empty"
+	IdResourceStringsProtocols_RSURINoHost,	"Host field is empty"
+	IdResourceStringsOpenSSL_RSOSSFailedToLoad,	"Failed to load %s."
+	IdResourceStringsOpenSSL_RSOSSLModeNotSet,	"Mode has not been set."
+	IdResourceStringsOpenSSL_RSOSSLCouldNotLoadSSLLibrary,	"Could not load SSL library."
+	IdResourceStringsOpenSSL_RSOSSLStatusString,	"SSL status: \"%s\""
+	IdResourceStringsOpenSSL_RSOSSLAlert,	"%s Alert"
+	IdResourceStringsOpenSSL_RSOSSLReadAlert,	"%s Read Alert"
+	IdResourceStringsOpenSSL_RSOSSLWriteAlert,	"%s Write Alert"
+	IdResourceStringsOpenSSL_RSOSSLAcceptLoop,	"Accept Loop"
+	IdResourceStringsOpenSSL_RSOSSLAcceptError,	"Accept Error"
+	IdResourceStringsOpenSSL_RSOSSLAcceptFailed,	"Accept Failed"
+	IdResourceStringsOpenSSL_RSOSSLAcceptExit,	"Accept Exit"
+	IdResourceStringsOpenSSL_RSOSSLConnectLoop,	"Connect Loop"
+	IdResourceStringsOpenSSL_RSOSSLConnectError,	"Connect Error"
+	IdResourceStringsOpenSSL_RSOSSLConnectFailed,	"Connect Failed"
+	IdResourceStringsProtocols_RSHTTPUnknownProtocol,	"Unknown Protocol"
+	IdResourceStringsProtocols_RSHTTPMethodRequiresVersion,	"Request method requires HTTP version 1.1"
+	IdResourceStringsProtocols_RSHTTPAuthInvalidHash,	"Unsupported hash algorithm. This implementation supports only MD5 encoding."
+	IdResourceStringsProtocols_RSSSLAcceptError,	"Error accepting connection with SSL."
+	IdResourceStringsProtocols_RSSSLConnectError,	"Error connecting with SSL."
+	IdResourceStringsProtocols_RSSSLSettingCipherError,	"SetCipher failed."
+	IdResourceStringsProtocols_RSSSLCreatingSessionError,	"Error creating SSL session."
+	IdResourceStringsProtocols_RSSSLCreatingContextError,	"Error creating SSL context."
+	IdResourceStringsProtocols_RSSSLLoadingRootCertError,	"Could not load root certificate."
+	IdResourceStringsProtocols_RSSSLLoadingCertError,	"Could not load certificate."
+	IdResourceStringsProtocols_RSSSLLoadingKeyError,	"Could not load key, check password."
+	IdResourceStringsProtocols_RSSSLLoadingDHParamsError,	"Could not load DH Parameters."
+	IdResourceStringsProtocols_RSSSLGetMethodError,	"Error getting SSL method."
+	IdResourceStringsProtocols_RSSSLFDSetError,	"Error setting File Descriptor for SSL"
+	IdResourceStringsProtocols_RSSSLDataBindingError,	"Error binding data to SSL socket."
+	IdResourceStringsProtocols_RSSSLEOFViolation,	"EOF was observed that violates the protocol"
+	IdResourceStringsCore_RSRequiresLargeStream,	"Set LargeStream to True to send streams greater than 2GB"
+	IdResourceStringsCore_RSDataTooLarge,	"Data is too large for stream"
+	IdResourceStringsCore_RSConnectTimeout,	"Connect timed out."
+	IdResourceStringsCore_RSAlreadyConnected,	"Already connected."
+	IdResourceStringsCore_RSMaximumNumberOfCaptureLineExceeded,	"Maximum number of line allowed exceeded"
+	IdResourceStringsCore_RSInterceptIsDifferent,	"The IOHandler already has a different Intercept assigned"
+	IdResourceStringsCore_RSTransparentProxyCannotBind,	"Transparent proxy cannot bind."
+	IdResourceStringsCore_RSTransparentProxyCanNotSupportUDP,	"UDP Not supported by this proxy."
+	IdResourceStringsCore_RSBufferMissingTerminator,	"Buffer terminator must be specified."
+	IdResourceStringsCore_RSBufferInvalidStartPos,	"Buffer start position is invalid."
+	IdResourceStringsCore_RSReplyInvalidCode,	"Reply Code is not valid: %s"
+	IdResourceStringsCore_RSReplyCodeAlreadyExists,	"Reply Code already exists: %s"
+	IdResourceStringsProtocols_RSIOHandlerPropInvalid,	"IOHandler value is not valid"
+	IdResourceStringsProtocols_RSFIPSAlgorithmNotAllowed,	"Algorithm %s not permitted in FIPS mode"
+	IdResourceStringsProtocols_RSHTTPChunkStarted,	"Chunk Started"
+	IdResourceStringsProtocols_RSHTTPNotAcceptable,	"Not Acceptable"
+	IdResourceStringsCore_RSSocksServerNetUnreachableError,	"Network unreachable."
+	IdResourceStringsCore_RSSocksServerHostUnreachableError,	"Host unreachable."
+	IdResourceStringsCore_RSSocksServerConnectionRefusedError,	"Connection refused."
+	IdResourceStringsCore_RSSocksServerTTLExpiredError,	"TTL expired."
+	IdResourceStringsCore_RSSocksServerCommandError,	"Command not supported."
+	IdResourceStringsCore_RSSocksServerAddressError,	"Address type not supported."
+	IdResourceStringsCore_RSInterceptCircularLink,	"%d: Circular links are not allowed"
+	IdResourceStringsCore_RSNotEnoughDataInBuffer,	"Not enough data in buffer. (%d/%d)"
+	IdResourceStringsCore_RSTooMuchDataInBuffer,	"Too much data in buffer."
+	IdResourceStringsCore_RSFileNotFound,	"File \"%s\" not found"
+	IdResourceStringsCore_RSNotConnected,	"Not Connected"
+	IdResourceStringsCore_RSObjectTypeNotSupported,	"Object type not supported."
+	IdResourceStringsCore_RSIdNoDataToRead,	"No data to read."
+	IdResourceStringsCore_RSReadTimeout,	"Read timed out."
+	IdResourceStringsCore_RSReadLnWaitMaxAttemptsExceeded,	"Max line read attempts exceeded."
+	IdResourceStringsCore_RSReadLnMaxLineLengthExceeded,	"Max line length exceeded."
+	IdResourceStrings_RSInvalidServiceName,	"%s is not a valid service."
+	IdResourceStrings_RSInvalidIPv6Address,	"%s is not a valid IPv6 address"
+	IdResourceStrings_RSIPVersionUnsupported,	"The requested IPVersion / Address family is not supported."
+	IdResourceStrings_RSNotAllBytesSent,	"Not all bytes sent."
+	IdResourceStrings_RSPackageSizeTooBig,	"Package Size Too Big."
+	IdResourceStrings_RSSetSizeExceeded,	"Set Size Exceeded."
+	IdResourceStringsCore_RSSocksUDPNotSupported,	"UDP is not support in this SOCKS version."
+	IdResourceStringsCore_RSSocksRequestFailed,	"Request rejected or failed."
+	IdResourceStringsCore_RSSocksRequestServerFailed,	"Request rejected because SOCKS server cannot connect."
+	IdResourceStringsCore_RSSocksRequestIdentFailed,	"Request rejected because the client program and identd report different user-ids."
+	IdResourceStringsCore_RSSocksUnknownError,	"Unknown socks error."
+	IdResourceStringsCore_RSSocksServerRespondError,	"Socks server did not respond."
+	IdResourceStringsCore_RSSocksAuthMethodError,	"Invalid socks authentication method."
+	IdResourceStringsCore_RSSocksAuthError,	"Authentication error to socks server."
+	IdResourceStringsCore_RSSocksServerGeneralError,	"General SOCKS server failure."
+	IdResourceStringsCore_RSSocksServerPermissionError,	"Connection not allowed by ruleset."
+	IdResourceStrings_RSStackETIMEDOUT,	"Connection timed out."
+	IdResourceStrings_RSStackECONNREFUSED,	"Connection refused."
+	IdResourceStrings_RSStackELOOP,	"Too many levels of symbolic links."
+	IdResourceStrings_RSStackENAMETOOLONG,	"File name too long."
+	IdResourceStrings_RSStackEHOSTDOWN,	"Host is down."
+	IdResourceStrings_RSStackEHOSTUNREACH,	"No route to host."
+	IdResourceStrings_RSStackENOTEMPTY,	"Directory not empty"
+	IdResourceStrings_RSStackHOST_NOT_FOUND,	"Host not found."
+	IdResourceStrings_RSStackClassUndefined,	"Stack Class is undefined."
+	IdResourceStrings_RSStackAlreadyCreated,	"Stack already created."
+	IdResourceStrings_RSAntiFreezeOnlyOne,	"Only one TIdAntiFreeze can exist per application."
+	IdResourceStrings_RSCannotSetIPVersionWhenConnected,	"Cannot change IPVersion when connected"
+	IdResourceStrings_RSCannotBindRange,	"Can not bind in port range (%d - %d)"
+	IdResourceStrings_RSConnectionClosedGracefully,	"Connection Closed Gracefully."
+	IdResourceStrings_RSCouldNotBindSocket,	"Could not bind socket. Address and port are already in use."
+	IdResourceStrings_RSInvalidPortRange,	"Invalid Port Range (%d - %d)"
+	IdResourceStrings_RSStackESOCKTNOSUPPORT,	"Socket type not supported."
+	IdResourceStrings_RSStackEOPNOTSUPP,	"Operation not supported on socket."
+	IdResourceStrings_RSStackEPFNOSUPPORT,	"Protocol family not supported."
+	IdResourceStrings_RSStackEAFNOSUPPORT,	"Address family not supported by protocol family."
+	IdResourceStrings_RSStackEADDRINUSE,	"Address already in use."
+	IdResourceStrings_RSStackEADDRNOTAVAIL,	"Cannot assign requested address."
+	IdResourceStrings_RSStackENETDOWN,	"Network is down."
+	IdResourceStrings_RSStackENETUNREACH,	"Network is unreachable."
+	IdResourceStrings_RSStackENETRESET,	"Net dropped connection or reset."
+	IdResourceStrings_RSStackECONNABORTED,	"Software caused connection abort."
+	IdResourceStrings_RSStackECONNRESET,	"Connection reset by peer."
+	IdResourceStrings_RSStackENOBUFS,	"No buffer space available."
+	IdResourceStrings_RSStackEISCONN,	"Socket is already connected."
+	IdResourceStrings_RSStackENOTCONN,	"Socket is not connected."
+	IdResourceStrings_RSStackESHUTDOWN,	"Cannot send or receive after socket is closed."
+	IdResourceStrings_RSStackETOOMANYREFS,	"Too many references, cannot splice."
+	IdResourceStrings_RSStackError,	"Socket Error # %d\r\n%s"
+	IdResourceStrings_RSStackEINTR,	"Interrupted system call."
+	IdResourceStrings_RSStackEBADF,	"Bad file number."
+	IdResourceStrings_RSStackEACCES,	"Access denied."
+	IdResourceStrings_RSStackEFAULT,	"Buffer fault."
+	IdResourceStrings_RSStackEINVAL,	"Invalid argument."
+	IdResourceStrings_RSStackEMFILE,	"Too many open files."
+	IdResourceStrings_RSStackEWOULDBLOCK,	"Operation would block."
+	IdResourceStrings_RSStackEINPROGRESS,	"Operation now in progress."
+	IdResourceStrings_RSStackEALREADY,	"Operation already in progress."
+	IdResourceStrings_RSStackENOTSOCK,	"Socket operation on non-socket."
+	IdResourceStrings_RSStackEDESTADDRREQ,	"Destination address required."
+	IdResourceStrings_RSStackEMSGSIZE,	"Message too long."
+	IdResourceStrings_RSStackEPROTOTYPE,	"Protocol wrong type for socket."
+	IdResourceStrings_RSStackENOPROTOOPT,	"Bad protocol option."
+	IdResourceStrings_RSStackEPROTONOSUPPORT,	"Protocol not supported."
+	XMLConst_SLine,	"Line"
+	IdResourceStrings_RSInvalidSourceArray,	"Invalid source array"
+	IdResourceStrings_RSInvalidDestinationArray,	"Invalid destination array"
+	IdResourceStrings_RSCharIndexOutOfBounds,	"Character index out of bounds (%d)"
+	IdResourceStrings_RSInvalidCharCount,	"Invalid count (%d)"
+	IdResourceStrings_RSInvalidDestinationIndex,	"Invalid destination index (%d)"
+	IdResourceStrings_RSInvalidCodePage,	"Invalid codepage (%d)"
+	IdResourceStrings_RSFailedTimeZoneInfo,	"Failed attempting to retrieve time zone information."
+	IdResourceStrings_RSWinsockCallError,	"Error on call to Winsock2 library function %s"
+	IdResourceStrings_RSWinsockLoadError,	"Error on loading Winsock2 library (%s)"
+	IdResourceStrings_RSStatusResolving,	"Resolving hostname %s."
+	IdResourceStrings_RSStatusConnecting,	"Connecting to %s."
+	IdResourceStrings_RSStatusConnected,	"Connected."
+	IdResourceStrings_RSStatusDisconnecting,	"Disconnecting."
+	IdResourceStrings_RSStatusDisconnected,	"Disconnected."
+	IdResourceStrings_RSStatusText,	"%s"
+	XMLConst_SNoMatchingDOMVendor,	"No matching DOM Vendor: \"%s\""
+	XMLConst_SNoDOMNodeEx,	"Selected DOM Vendor does not support this property or method"
+	XMLConst_SDOMNotSupported,	"Property or Method \"%s\" is not supported by DOM Vendor \"%s\""
+	XMLConst_SNodeExpected,	"Node cannot be null"
+	XMLConst_SMSDOMNotInstalled,	"Microsoft MSXML is not installed"
+	XMLConst_SNotActive,	"No active document"
+	XMLConst_SNodeNotFound,	"Node \"%s\" not found"
+	XMLConst_SMissingNode,	"IDOMNode required"
+	XMLConst_SNoAttributes,	"Attributes are not supported on this node type"
+	XMLConst_SInvalidNodeType,	"Invalid node type"
+	XMLConst_SMismatchedRegItems,	"Mismatched paramaters to RegisterChildNodes"
+	XMLConst_SNotSingleTextNode,	"Element does not contain a single text node"
+	XMLConst_SNoDOMParseOptions,	"DOM Implementation does not support IDOMParseOptions"
+	XMLConst_SNodeReadOnly,	"Node is readonly"
+	XMLConst_SNoRefresh,	"Refresh is only supported if the FileName or XML properties are set"
+	XMLConst_SMissingFileName,	"FileName cannot be blank"
 	ZMessages_SUnsupportedDataType,	"Unsupported data type"
 	ZMessages_SErrorConvertionField,	"Conversion error for field \"%s\" to SQLType \"%s\""
 	ZMessages_SUnknownError,	"Unknown error"
@@ -843,7 +1355,7 @@ BEGIN
 	ZMessages_SRefreshRowOnlySupportedWithUpdateObject,	"The refreshrow method is only supported with an update object"
 	ZMessages_SInvalidUpdateCount,	"%d record(s) updated. Only one record should have been updated."
 	ZMessages_SRowBufferWidthExceeded,	"Row buffer width exceeded. Try using fewer or longer columns in SQL query."
-	JConsts_sChangeJPGSize,	"Cannot change the size of a JPEG image"
+	XMLConst_SDuplicateRegistration,	"\"%s\" DOMImplementation already registered"
 	ZMessages_SOperationIsNotAllowed2,	"Operation is not allowed in READ ONLY mode"
 	ZMessages_SOperationIsNotAllowed4,	"Operation is not allowed for closed dataset"
 	ZMessages_SNoMoreRecords,	"No more records in the Resultset"

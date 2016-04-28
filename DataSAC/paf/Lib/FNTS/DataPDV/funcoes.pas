@@ -13,7 +13,13 @@ uses
   OpenSSLUtils,
   MD5,
   Messages,
-  StrUtils;
+  StrUtils,
+
+  ShellAPI,
+  WinProcs,
+  StdCtrls,
+  Dialogs,
+  Controls;
 
 type
   TAlinhamento = (taEsquerda, taDireita, taCentralizado); // tipos de alinhamentos
@@ -91,6 +97,9 @@ type
 
 
   function centraliza(texto: String; tamanho: Integer): String;
+  function Decimal_Is_Coma(var Valor:String):String;
+  function FindReplace (Var Enc:String; Var subs: String; Var Texto: String): string;
+
 
 
 implementation
@@ -1542,6 +1551,46 @@ begin
   Result := textoCentralizado;
 
 end;
+
+
+
+function Decimal_Is_Coma(var Valor:String):String;
+var sEnc, sSubs, sInfAnt:string;
+begin
+  try
+    sEnc := '.';
+    sSubs := ',';
+    sInfAnt := Valor;
+    result := findreplace(sEnc,sSubs,sinfAnt);
+  except
+    result := Valor;
+  end;
+end;
+
+
+function FindReplace (Var Enc:String; Var subs: String; Var Texto: String): string;
+Var
+i, Posicao: Integer;
+Linha: string;
+Begin
+For i:= 0 to length(texto) do
+begin
+Linha := Texto;
+Repeat
+Posicao:=Pos(Enc,Linha);
+If Posicao > 0 then
+Begin
+Delete(Linha,Posicao,Length(Enc));
+Insert(Subs,Linha,Posicao);
+Texto:=Linha;
+end;
+until Posicao = 0;
+end;
+
+result := texto;
+end;
+
+
 
 
 end.
