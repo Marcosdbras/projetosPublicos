@@ -8755,6 +8755,10 @@ object frmproduto: Tfrmproduto
       Caption = 'Atualizar Pre'#231'os de Vendas Remarcados'
       OnClick = AtualizarPreosdeVendasRemarcados1Click
     end
+    object BaixarTabelaNCM1: TMenuItem
+      Caption = 'Baixar Tabela NCM'
+      OnClick = BaixarTabelaNCM1Click
+    end
   end
   object AdvMenuOfficeStyler1: TAdvMenuOfficeStyler
     AntiAlias = aaNone

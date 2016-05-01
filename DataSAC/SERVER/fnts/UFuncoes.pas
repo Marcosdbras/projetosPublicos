@@ -39,6 +39,9 @@ Function IsInteger(sString:string):Integer;
 function PathSysIni(ini: TTipoIni): string;
 procedure GravaIni(Sessao, Chave: String; Valor: string; TipoIni: TTipoIni);
 function LerIni(Sessao, Chave: String; ValorPadrao: string;TipoIni: TTipoIni): string;
+function Decimal_Is_Coma(var Valor:String):String;
+function FindReplace (Var Enc:String; Var subs: String; Var Texto: String): string;
+
 
 const
   Kernel_INISessao_Telas = 'PLANOFUNDO';
@@ -259,6 +262,43 @@ begin
 
   Result := ExtractFilePath(Application.ExeName) + 'DataSAC.ini';
 
+end;
+
+
+function Decimal_Is_Coma(var Valor:String):String;
+var sEnc, sSubs, sInfAnt:string;
+begin
+  try
+    sEnc := '.';
+    sSubs := ',';
+    sInfAnt := Valor;
+    result := findreplace(sEnc,sSubs,sinfAnt);
+  except
+    result := Valor;
+  end;
+end;
+
+
+function FindReplace (Var Enc:String; Var subs: String; Var Texto: String): string;
+Var
+i, Posicao: Integer;
+Linha: string;
+Begin
+For i:= 0 to length(texto) do
+begin
+Linha := Texto;
+Repeat
+Posicao:=Pos(Enc,Linha);
+If Posicao > 0 then
+Begin
+Delete(Linha,Posicao,Length(Enc));
+Insert(Subs,Linha,Posicao);
+Texto:=Linha;
+end;
+until Posicao = 0;
+end;
+
+result := texto;
 end;
 
 

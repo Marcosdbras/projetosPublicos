@@ -364,7 +364,7 @@ object frmPrincipal: TfrmPrincipal
       Height = 339
       AdvOfficePagerStyler = AdvOfficePagerOfficeStyler1
       Align = alClient
-      ActivePage = AdvOfficePager13
+      ActivePage = TabECF
       ButtonSettings.CloseButtonPicture.Data = {
         424DA20400000000000036040000280000000900000009000000010008000000
         00006C000000C30E0000C30E00000001000000010000427B8400DEEFEF00FFFF
@@ -1535,6 +1535,7 @@ object frmPrincipal: TfrmPrincipal
           Height = 59
           Caption = 'Meio de Comunica'#231#227'o SEFAZ'
           TabOrder = 2
+          Visible = False
           object Label51: TLabel
             Left = 8
             Top = 25
@@ -1547,6 +1548,7 @@ object frmPrincipal: TfrmPrincipal
             Width = 51
             Height = 13
             Caption = 'Fabricante'
+            Visible = False
           end
           object cb_eq_fiscal_on: TComboBox
             Left = 58
@@ -1556,6 +1558,7 @@ object frmPrincipal: TfrmPrincipal
             ItemHeight = 13
             TabOrder = 0
             Text = 'Nenhum'
+            Visible = False
             Items.Strings = (
               'Nenhum'
               'S@T Daruma')
@@ -1664,12 +1667,14 @@ object frmPrincipal: TfrmPrincipal
           Height = 46
           Caption = 'Informa'#231#227'o extra da finaliza'#231#227'o de venda'
           TabOrder = 9
+          Visible = False
           object Label53: TLabel
             Left = 5
             Top = 21
             Width = 20
             Height = 13
             Caption = 'Tipo'
+            Visible = False
           end
           object cb_tipo_fec: TComboBox
             Left = 56
@@ -1679,6 +1684,7 @@ object frmPrincipal: TfrmPrincipal
             ItemHeight = 13
             TabOrder = 0
             Text = 'Confer'#234'ncia Forma Pgto e Valores'
+            Visible = False
             Items.Strings = (
               'Confer'#234'ncia Forma Pgto e Valores'
               'Confer'#234'ncia Forma Pgto e Valores / N'#250'mero da Comanda')

@@ -2,8 +2,8 @@ unit funcoes;
 
 interface
 
-procedure calcibpt(valorliquidoitem, total:Currency; origem:string; aliqnac:Currency; aliqimp:Currency; tabela:Integer; ex:string;  versao:string );
-procedure buscarcalcibpt(Codprod:string; valorliquido,total:Currency);
+//procedure calcibpt(valorliquidoitem, total:Currency; origem:string; aliqnac:Currency; aliqimp:Currency; tabela:Integer; ex:string;  versao:string );
+//procedure buscarcalcibpt(Codprod:string; valorliquido,total:Currency);
 
 
 
@@ -18,6 +18,7 @@ implementation
 
 
 //Procedure ibpt7
+{
 procedure  calcibpt(valorliquidoitem, total:Currency; origem:string; aliqnac:Currency; aliqimp:Currency; tabela:Integer; ex:string;  versao:string );
 begin
   if (origem = '0') or (origem = '3') or  (origem = '4') or (origem = '5') then
@@ -32,9 +33,10 @@ begin
  porcibpt := vlribpt /  total * 100;
 
 end;
-
+}
 
 //procedure ibpt8
+{
 procedure buscarcalcibpt(Codprod:string; valorliquido, total:Currency);
 var
   faliqnac, faliqimp:Currency;
@@ -58,18 +60,6 @@ begin
   frmmodulo.qrProdutoIBPT.SQL.Add('select codigo, cst, csosn, classificacao_fiscal, sita, EX from C000025 where codigo = ' +quotedstr(Codprod) );
   frmmodulo.qrProdutoIBPT.Open;
 
-  {
-
-  if frmmodulo.qrFilial.FieldByName('CRT').AsInteger = 3 then
-     begin
-       //sorigem := copy(frmmodulo.qrProdutoIBPT.fieldbyname('cst').AsString,1,1);
-     end
-  else
-     begin
-       //sorigem := copy(frmmodulo.qrProdutoIBPT.fieldbyname('csosn').AsString,1,1);
-     end;
-
-  }
 
   sorigem := frmmodulo.qrProdutoIBPT.fieldbyname('sita').AsString;
 
@@ -117,6 +107,6 @@ end;
 
 
 
-
+}
 
 end.

@@ -10360,35 +10360,101 @@ object frmmodulo: Tfrmmodulo
   object qrNCM: TZQuery
     Connection = Conexao
     SQL.Strings = (
-      'select * from ibpt')
+      'select * from ncm')
     Params = <>
     Left = 600
     Top = 176
+    object qrNCMDESCRICAO: TStringField
+      DisplayWidth = 40
+      FieldName = 'DESCRICAO'
+      Size = 230
+    end
     object qrNCMCODNCMNBS: TStringField
       DisplayLabel = 'NCM'
-      DisplayWidth = 40
+      DisplayWidth = 15
       FieldName = 'CODNCMNBS'
-      Size = 40
-    end
-    object qrNCMALIQNAC: TFloatField
-      DisplayLabel = 'ALIQ. NAC.'
-      DisplayWidth = 10
-      FieldName = 'ALIQNAC'
-    end
-    object qrNCMALIQIMP: TFloatField
-      DisplayLabel = 'ALIQ. IMP.'
-      DisplayWidth = 10
-      FieldName = 'ALIQIMP'
     end
     object qrNCMEX: TStringField
       DisplayLabel = 'EXCE'#199#195'O'
-      DisplayWidth = 10
+      DisplayWidth = 5
       FieldName = 'EX'
-      Size = 250
+      Size = 10
+    end
+    object qrNCMNACIONALFEDERAL: TFloatField
+      DisplayLabel = 'ALIQ. NAC.'
+      DisplayWidth = 5
+      FieldName = 'NACIONALFEDERAL'
+    end
+    object qrNCMIMPORTADOSFEDERAL: TFloatField
+      DisplayLabel = 'ALIQ. IMP'
+      DisplayWidth = 5
+      FieldName = 'IMPORTADOSFEDERAL'
+    end
+    object qrNCMESTADUAL: TFloatField
+      DisplayLabel = 'ALIQ. EST.'
+      DisplayWidth = 5
+      FieldName = 'ESTADUAL'
+    end
+    object qrNCMMUNICIPAL: TFloatField
+      DisplayLabel = 'ALIQ. MUN.'
+      DisplayWidth = 5
+      FieldName = 'MUNICIPAL'
+    end
+    object qrNCMTIPO: TStringField
+      DisplayWidth = 10
+      FieldName = 'TIPO'
+      Visible = False
+      Size = 10
+    end
+    object qrNCMVIGENCIAINICIO: TStringField
+      DisplayWidth = 10
+      FieldName = 'VIGENCIAINICIO'
+      Visible = False
+      Size = 10
+    end
+    object qrNCMVIGENCIAFIM: TStringField
+      DisplayWidth = 10
+      FieldName = 'VIGENCIAFIM'
+      Visible = False
+      Size = 10
+    end
+    object qrNCMCHAVE: TStringField
+      DisplayWidth = 10
+      FieldName = 'CHAVE'
+      Visible = False
+      Size = 10
+    end
+    object qrNCMVERSAO: TStringField
+      DisplayWidth = 10
+      FieldName = 'VERSAO'
+      Visible = False
+      Size = 10
+    end
+    object qrNCMFONTE: TStringField
+      DisplayWidth = 10
+      FieldName = 'FONTE'
+      Visible = False
+      Size = 10
+    end
+    object qrNCMALIQNAC: TFloatField
+      DisplayWidth = 10
+      FieldName = 'ALIQNAC'
+      Visible = False
+    end
+    object qrNCMALIQIMP: TFloatField
+      DisplayWidth = 10
+      FieldName = 'ALIQIMP'
+      Visible = False
     end
     object qrNCMTABELA: TIntegerField
       DisplayWidth = 10
       FieldName = 'TABELA'
+      Visible = False
+    end
+    object qrNCMID: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'ID'
+      Visible = False
     end
   end
   object ZQuery1: TZQuery
@@ -11357,5 +11423,89 @@ object frmmodulo: Tfrmmodulo
       FieldName = 'BAIXADO'
       Size = 1
     end
+  end
+  object lHTTP: TIdHTTP
+    AllowCookies = True
+    ProxyParams.BasicAuthentication = False
+    ProxyParams.ProxyPort = 0
+    Request.ContentLength = -1
+    Request.ContentRangeEnd = -1
+    Request.ContentRangeStart = -1
+    Request.ContentRangeInstanceLength = -1
+    Request.Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    Request.BasicAuthentication = False
+    Request.UserAgent = 'Mozilla/3.0 (compatible; Indy Library)'
+    Request.Ranges.Units = 'bytes'
+    Request.Ranges = <>
+    HTTPOptions = [hoForceEncodeParams]
+    Left = 1008
+    Top = 474
+  end
+  object IdHTTP1: TIdHTTP
+    AllowCookies = True
+    ProxyParams.BasicAuthentication = False
+    ProxyParams.ProxyPort = 0
+    Request.ContentLength = -1
+    Request.ContentRangeEnd = -1
+    Request.ContentRangeStart = -1
+    Request.ContentRangeInstanceLength = -1
+    Request.Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    Request.BasicAuthentication = False
+    Request.UserAgent = 'Mozilla/3.0 (compatible; Indy Library)'
+    Request.Ranges.Units = 'bytes'
+    Request.Ranges = <>
+    HTTPOptions = [hoForceEncodeParams]
+    Left = 1112
+    Top = 404
+  end
+  object XMLEnvio: TXMLDocument
+    XML.Strings = (
+      '<?xml version="1.0" encoding="utf-8" ?><response>'
+      
+        '<cep>69960-000</cep><uf>AC</uf><cidade>feijo</cidade><bairro></b' +
+        'airro><tipo_logradouro></tipo_logradouro><logradouro></logradour' +
+        'o><resultado></resultado><resultado_txt></resultado_txt><ibge_uf' +
+        '>12</ibge_uf><ibge_municipio>1200302</ibge_municipio><erro>0</er' +
+        'ro><msgerro></msgerro></response>')
+    Left = 1016
+    Top = 378
+    DOMVendorDesc = 'MSXML'
+  end
+  object XMLDocument1: TXMLDocument
+    XML.Strings = (
+      '<?xml version="1.0" encoding="utf-8" ?><response>'
+      
+        '<cep>69960-000</cep><uf>AC</uf><cidade>feijo</cidade><bairro></b' +
+        'airro><tipo_logradouro></tipo_logradouro><logradouro></logradour' +
+        'o><resultado></resultado><resultado_txt></resultado_txt><ibge_uf' +
+        '>12</ibge_uf><ibge_municipio>1200302</ibge_municipio><erro>0</er' +
+        'ro><msgerro></msgerro></response>')
+    Left = 1128
+    Top = 316
+    DOMVendorDesc = 'MSXML'
+  end
+  object qrconsulta: TZQuery
+    Connection = Conexao
+    SQL.Strings = (
+      'select * from c000061')
+    Params = <>
+    Left = 160
+    Top = 413
+  end
+  object qrIndice: TZQuery
+    Connection = Conexao
+    SQL.Strings = (
+      'select * from c000061')
+    Params = <>
+    Left = 248
+    Top = 429
+  end
+  object qrexec: TZQuery
+    Connection = Conexao
+    SQL.Strings = (
+      'select * from c000061')
+    Params = <>
+    Left = 464
+    Top = 413
   end
 end

@@ -21,11 +21,23 @@ type
     LOC: TwwIncrementalSearch;
     Label1: TLabel;
     GRID: TwwDBGrid;
+    qrNcmCODNCMNBS: TStringField;
+    qrNcmDESCRICAO: TStringField;
+    qrNcmNACIONALFEDERAL: TFloatField;
+    qrNcmIMPORTADOSFEDERAL: TFloatField;
+    qrNcmESTADUAL: TFloatField;
+    qrNcmMUNICIPAL: TFloatField;
+    qrNcmVERSAO: TStringField;
+    qrNcmEX: TStringField;
+    qrNcmTIPO: TStringField;
+    qrNcmVIGENCIAINICIO: TStringField;
+    qrNcmVIGENCIAFIM: TStringField;
+    qrNcmCHAVE: TStringField;
+    qrNcmFONTE: TStringField;
     qrNcmALIQNAC: TFloatField;
     qrNcmALIQIMP: TFloatField;
-    qrNcmCODNCMNBS: TStringField;
-    qrNcmEX: TStringField;
     qrNcmTABELA: TIntegerField;
+    qrNcmID: TIntegerField;
     procedure bretornarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Retornar1Click(Sender: TObject);
@@ -64,7 +76,7 @@ begin
   voltar := false;
   frmmodulo.qrNCM.close;
   frmmodulo.qrNCM.SQL.clear;
-  frmmodulo.qrNCM.SQL.add('select * from ibpt order by codncmnbs');
+  frmmodulo.qrNCM.SQL.add('select * from ncm order by codncmnbs');
   frmmodulo.qrNCM.open;
 end;
 

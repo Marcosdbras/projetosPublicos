@@ -112,7 +112,7 @@ begin
 
        frmconexao_ibpt.qrIBPT.Close;
        frmconexao_ibpt.qrIBPT.SQL.Clear;
-       frmconexao_ibpt.qrIBPT.SQL.Add('select * from ncm where codncmnbs = '+quotedstr(sncmnbs));
+       frmconexao_ibpt.qrIBPT.SQL.Add('select * from ibpt where codncmnbs = '+quotedstr(sncmnbs));
        frmconexao_ibpt.qrIBPT.Open;
 
      end
@@ -122,7 +122,7 @@ begin
 
        frmconexao_ibpt.qrIBPT.Close;
        frmconexao_ibpt.qrIBPT.SQL.Clear;
-       frmconexao_ibpt.qrIBPT.SQL.Add('select * from ncm where codncmnbs = '+quotedstr(sncmnbs)+' and ex = '+ quotedstr( sex ) );
+       frmconexao_ibpt.qrIBPT.SQL.Add('select * from ibpt where codncmnbs = '+quotedstr(sncmnbs)+' and ex = '+ quotedstr( sex ) );
        frmconexao_ibpt.qrIBPT.Open;
 
 

@@ -622,7 +622,7 @@ uses modulo, senha, filial, papelparede, cliente,
   Tef, unFuncoesTEF, cartao, cnae, cor, tamanho, Lista_ABC_Marca_Grupo,
   lista_frete, fluxo_caixa, DRE, mensagem_inventario, industrializacao, Ncm,
   xloc_csosn, sobre, Unit1, FMapa, xloc_cnae, UFuncoes, backup, restore,
-  GeracaoSPED, pedido, atualizabd, lancamentos;
+  GeracaoSPED, pedido, atualizabd, lancamentos, funcoes_ibpt;
 
 
 {$R *.dfm}
@@ -1747,7 +1747,14 @@ begin
   ptopo2.panels[3].Text := '---';
 
 
-
+  with frmmodulo do
+    begin
+       qrfilial.Active := false;
+       qrfilial.SQL.Clear;
+       qrfilial.SQL.Add('select * from C000004');
+       qrfilial.Active := true;
+       sunidadefederativa := qrFilial.fieldbyname('uf').AsString;
+    end;
 
   arquivo :=  vardir+'script_atualiza_banco.sql';
 
@@ -1755,7 +1762,7 @@ begin
   if fileexists(arquivo) then
      begin
        //showmessage('clique em ok para iniciar atualização.');
-       frmatualizabd := tfrmatualizabd.create(self);
+       //frmatualizabd := tfrmatualizabd.create(self);
        //frmatualizabd.showmodal;
        //frmatualizabd.free;
 

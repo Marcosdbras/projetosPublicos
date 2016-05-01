@@ -524,7 +524,7 @@ implementation
 uses modulo, principal, compra, cfop, cst, modelo_fiscal, xloc_cliente,
   compra_item, lista_notaentrada, lista_notacompra, notafiscal,
   compra_menu, lista_notasaida, memorando_menu, notafiscal_cancelar, unNFe2,
-  status, nfe_legenda, email, math, funcoes;
+  status, nfe_legenda, email, math, funcoes_ibpt;
 
 const
   SELDIRHELP = 1000;

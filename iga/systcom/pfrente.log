@@ -774,3 +774,13 @@ Unsuccessful execution caused by a system error that precludes
 successful execution of subsequent statements
 Error Code: 401
 ----------------------------------------------------------------------
+18/04/2016 15:24:52:Sqp_dados: Parameter 'VARNOME' not found
+----------------------------------------------------------------------
+18/04/2016 15:27:03:Sqp_dados: Parameter 'VARNOME' not found
+----------------------------------------------------------------------
+18/04/2016 15:27:17:I/O error during "@1" operation for file "@2"
+Error while trying to open file
+O sistema não pode encontrar o caminho especificado. 
+Unsuccessful execution caused by a system error that precludes successful execution of subsequent statements
+Error Code: 24
+----------------------------------------------------------------------

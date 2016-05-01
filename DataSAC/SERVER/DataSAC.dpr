@@ -402,9 +402,12 @@ uses
   pedido_obs in 'fnts\pedido_obs.pas' {frmpedido_obs},
   pedido_financeira in 'fnts\pedido_financeira.pas' {frmpedido_financeira},
   xloc_produtos in 'fnts\xloc_produtos.pas' {frmxloc_produtos},
-  funcoes in 'fnts\funcoes.pas',
   atualizabd in 'fnts\atualizabd.pas' {frmatualizabd},
-  lancamentos in 'fnts\lancamentos.pas' {frmlancamentos};
+  lancamentos in 'fnts\lancamentos.pas' {frmlancamentos},
+  baixarncm in 'fnts\baixarncm.pas' {frmbaixarncm},
+  funcoes_ibpt in 'fnts\funcoes_ibpt.pas',
+  conexao_ibpt in 'fnts\conexao_ibpt.pas' {frmconexao_ibpt: TDataModule},
+  funcoes in 'fnts\funcoes.pas';
 
 var
 Hand : THandle;

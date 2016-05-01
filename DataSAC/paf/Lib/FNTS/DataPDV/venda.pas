@@ -3098,6 +3098,16 @@ begin
 
       porcibpt := 0;
       vlribpt  := 0;
+      vlrestadual := 0;
+      vlrmunicipal := 0;
+      porcestadual := 0;
+      porcmunicipal := 0;
+      schave  := '';
+      sversao  := '';
+      sfonte  := '';
+      svigenciainicio  := '';
+      svigenciafim   := '';
+      sunidadefederativa   := '';
 
 
       // alimentar as variaveis de totais
@@ -5412,7 +5422,7 @@ begin
           if not bCadastra_Placa then
           begin
             sMsg := cECF_Termina_Fechamento(iECF_Modelo,
-              'MD5:'+sPAF_MD5+#10+ ' Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT '+ #10  +
+              'MD5:'+sPAF_MD5+#10+ 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';'+ #10  +
               sPre_Venda_Numero+sDav_numero+sPosto_rodape+sMesa_numero+#10
               + SEPARADOR + sIdentificarVendedor +
              'Cliente: '+texto_justifica(sCli_nome,37,' ',taEsquerda)+#10+
@@ -5423,7 +5433,7 @@ begin
           else
           begin
             sMsg := cECF_Termina_Fechamento(iECF_Modelo,
-              'MD5:'+sPAF_MD5+#10+  ' Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT '+  #10 +
+              'MD5:'+sPAF_MD5+#10+ 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';' +  #10 +
               sPre_Venda_Numero+sDav_numero+sPosto_rodape+sMesa_numero+#10+
               SEPARADOR + sIdentificarVendedor +
              'Cliente: '+texto_justifica(sCli_nome,37,' ',taEsquerda)+#10+
@@ -5442,7 +5452,7 @@ begin
             if not bCadastra_Placa then
             begin
               sMsg := cECF_Termina_Fechamento(iECF_Modelo,
-                'MD5:'+sPAF_MD5+#10+' Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT '+  #10 +
+                'MD5:'+sPAF_MD5+#10+ 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';'  +  #10 +
                 sPre_Venda_Numero+sDav_numero+sPosto_rodape+sMesa_numero+#10+
                 SEPARADOR + sIdentificarVendedor +
                'Cliente: '+texto_justifica(sCli_nome,37,' ',taEsquerda)+#10+
@@ -5453,7 +5463,7 @@ begin
             else
             begin
               sMsg := cECF_Termina_Fechamento(iECF_Modelo,
-                'MD5:'+sPAF_MD5+#10+' Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT '+    #10 +
+                'MD5:'+sPAF_MD5+#10+'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';'+    #10 +
                 sPre_Venda_Numero+sDav_numero+sPosto_rodape+sMesa_numero+#10+
                 SEPARADOR + sIdentificarVendedor +
                'Cliente: '+texto_justifica(sCli_nome,37,' ',taEsquerda)+#10+
@@ -5469,14 +5479,14 @@ begin
             if not bCadastra_Placa then
             begin
               sMsg := cECF_Termina_Fechamento(iECF_Modelo,
-                      'MD5:'+sPAF_MD5+#10+ ' Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT '+   #10 +
+                      'MD5:'+sPAF_MD5+#10+ 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';'  +   #10 +
                       sPre_Venda_Numero+sDav_numero+sPosto_rodape+sMesa_numero+#10
                       + SEPARADOR + sIdentificarVendedor);
             end
             else
             begin
               sMsg := cECF_Termina_Fechamento(iECF_Modelo,
-                'MD5:'+sPAF_MD5+#10+  ' Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT '+    #10 +
+                'MD5:'+sPAF_MD5+#10+ 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';' +    #10 +
                 sPre_Venda_Numero+sDav_numero+sPosto_rodape+sMesa_numero+#10+
                 SEPARADOR + sIdentificarVendedor +
                'Placa..: '+texto_justifica(sCli_Placa,10,' ',taEsquerda)+
@@ -5572,13 +5582,13 @@ begin
         //BlockInput(true);
         if not bCadastra_Placa then
         begin
-          sMsg := cECF_Termina_Fechamento(iECF_Modelo,'MD5:'+sPAF_MD5+#10+' Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT '+#10 +sPre_Venda_Numero+sDav_numero+sPosto_rodape+sMesa_numero
+          sMsg := cECF_Termina_Fechamento(iECF_Modelo,'MD5:'+sPAF_MD5+#10+ 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';'   +#10 +sPre_Venda_Numero+sDav_numero+sPosto_rodape+sMesa_numero
             + SEPARADOR + sIdentificarVendedor);
         end
         else
         begin
           sMsg := cECF_Termina_Fechamento(iECF_Modelo,
-            'MD5:'+sPAF_MD5+#10+ ' Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT '+  #10 +
+            'MD5:'+sPAF_MD5+#10+ 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';' +  #10 +
             sPre_Venda_Numero+sDav_numero+sPosto_rodape+sMesa_numero+#10+
            SEPARADOR + sIdentificarVendedor +
            'Placa..: '+texto_justifica(sCli_Placa,10,' ',taEsquerda)+
@@ -7065,6 +7075,19 @@ begin
 
         porcibpt := 0;
         vlribpt  := 0;
+
+        vlrestadual := 0;
+        vlrmunicipal := 0;
+        porcestadual := 0;
+        porcmunicipal := 0;
+        schave  := '';
+        sversao  := '';
+        sfonte  := '';
+        svigenciainicio  := '';
+        svigenciafim   := '';
+        sunidadefederativa   := '';
+
+
 
 
       // alimentar as variaveis de totais

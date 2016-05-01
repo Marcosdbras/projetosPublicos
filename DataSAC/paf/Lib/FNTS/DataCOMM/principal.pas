@@ -75,6 +75,8 @@ type
     procedure iconeLButtonDblClick(Sender: TObject);
   private
     { Private declarations }
+    erro:string;
+
     Function Cript(Action, Src: String): String;
     function codifica(tabela:string;qtde_digitos:integer):string;
     function Zerar(texto:string;qtde:integer):string; // Acrescentar Zeros a esquerda em uma String
@@ -223,7 +225,7 @@ begin
     on E:Exception do
     begin
       Result := 0;
-      memo1.lines.add('ERRO CREDIARIO - Mensagem: '+E.message);
+      memo1.lines.add('ERRO CREDIARIO - Mensagem: '+E.message+chr(10)+chr(13)+erro);
      end;
   end;
 end;
@@ -883,7 +885,7 @@ begin
             except
               on E:Exception do
               begin
-                Memo1.Lines.Add('Erro na gravacao do Cupom - Mensagem: '+E.Message);
+                Memo1.Lines.Add('Erro na gravacao do Cupom - Mensagem: '+E.Message+chr(10)+chr(13)+erro);
               end;
             end;
             Application.ProcessMessages;
@@ -1091,7 +1093,7 @@ begin
             except
               on e:exception do
               begin
-                Memo1.Lines.Add('Erro na gravacao da reducao z - Mensagem: '+e.Message);
+                Memo1.Lines.Add('Erro na gravacao da reducao z - Mensagem: '+e.Message+chr(10)+chr(13)+erro);
               end;
             end;
 
@@ -1241,7 +1243,7 @@ begin
                        except
                          on E:Exception do
                          begin
-                           memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' ERRO - INC - PRODUTO - '+qrservidor.fieldbyname('codregistro').asstring);
+                           memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' ERRO - INC - PRODUTO - '+qrservidor.fieldbyname('codregistro').asstring+chr(10)+chr(13)+erro);
                            memo1.Lines.Add(e.Message);
                            qrPDV.close;
                            qrPDV.sql.clear;
@@ -1351,7 +1353,7 @@ begin
                            except
                              on E:Exception do
                              begin
-                              memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' ERRO - ALT - PRODUTO - '+qrservidor.fieldbyname('codregistro').asstring);
+                              memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' ERRO - ALT - PRODUTO - '+qrservidor.fieldbyname('codregistro').asstring+chr(10)+chr(13)+erro);
                               memo1.Lines.add(e.Message);
                               bflag := false;
                              end;
@@ -1508,7 +1510,7 @@ begin
 
                  except
                     ON E:EXCEPTION DO
-                     memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' - ERRO: '+E.MESSAGE);
+                     memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' - ERRO: '+E.MESSAGE+chr(10)+chr(13)+erro);
                  end;
                END;
                application.ProcessMessages;
@@ -1783,7 +1785,7 @@ begin
                          bflag := FALSE;
 
                          if POS('FOREIGN', AnsiUpperCase(E.Message)) > 0 then
-                           memo1.lines.add('*** Cliente acima não pode ser apagado, pois existe cupom em seu nome!');
+                           memo1.lines.add('*** Cliente acima não pode ser apagado, pois existe cupom em seu nome!'+chr(10)+chr(13)+erro);
 
                        end;
                      end;
@@ -1802,7 +1804,7 @@ begin
                    qrservidor_tabela.ExecSQL;
                    memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' - ATUALIZOU CLIENTE - '+qrServidor.fieldbyname('codREGISTRO').asstring);
                  except
-                   ON E:EXCEPTION DO  memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' - ERRO: '+E.MESSAGE);
+                   ON E:EXCEPTION DO  memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' - ERRO: '+E.MESSAGE+chr(10)+chr(13)+erro);
                  end;
                END;
                application.ProcessMessages;
@@ -1812,7 +1814,7 @@ begin
 
              end;
           except
-             ON E:EXCEPTION DO  memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' - ERRO: '+E.MESSAGE);
+             ON E:EXCEPTION DO  memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' - ERRO: '+E.MESSAGE+chr(10)+chr(13)+erro);
           end;
 
           qrservidor.close;
@@ -1928,40 +1930,51 @@ begin
 
                  qrservidor_tabela.Close;
                  qrservidor_tabela.SQL.Clear;
-                 qrservidor_tabela.SQL.Add('select * from ibpt order by codigo');
+                 qrservidor_tabela.SQL.Add('select * from ncm order by id');
                  qrservidor_tabela.Open;
 
                  qrpdv.Close;
                  qrpdv.SQL.Clear;
-                 qrpdv.SQL.Add('delete from ibpt');
+                 qrpdv.SQL.Add('delete from ncm');
                  qrpdv.ExecSQL;
 
                  while not qrservidor_tabela.Eof do
                     begin
                       qrPDV.close;
                       qrPDV.sql.clear;
-                      qrpdv.sql.Add('select id from ibpt');
-                      qrPDV.SQL.Add('where id = '+inttostr(StrToInt(qrServidor_Tabela.fieldbyname('id').asstring)));
+                      qrpdv.sql.Add('select id from ncm');
+                      qrPDV.SQL.Add('where codncmnbs = '+inttostr(StrToInt(qrServidor_Tabela.fieldbyname('codncmnbs').asstring)));
                       qrPDV.open;
                       if qrPDV.RecordCount = 0 then
                          begin
                            try
-                             memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' - INC - IBPT - '+qrservidor_tabela.fieldbyname('id').asstring);
+                             memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' - INC - NCM - '+qrservidor_tabela.fieldbyname('id').asstring);
                              qrpdv.close;
                              qrpdv.sql.clear;
-                             qrpdv.sql.add('insert into ibpt ');
-                             qrpdv.SQL.Add('(codigo, ex, tabela, aliqnac, aliqimp, versao, id, codncmnbs)');
-                             qrpdv.SQL.Add('values');
-                             qrpdv.SQL.Add('(:codigo, :ex, :tabela, :aliqnac, :aliqimp, :versao, :id, :codncmnbs)');
+                             qrpdv.sql.add('insert into ncm ');
+                             qrpdv.SQL.Add('(codncmnbs,   id, ex, tipo,   descricao,  nacionalfederal, importadosfederal,   estadual, municipal, '+
+                                           ' vigenciainicio, vigenciafim, chave, fonte, aliqnac,  aliqimp,  versao, tabela )');
+                             qrpdv.SQL.Add(' values ');
+                             qrpdv.SQL.Add('(:codncmnbs, :id, :ex, :tipo, :descricao, :nacionalfederal, :importadosfederal, :estadual, :municipal,'+
+                                           ' :vigenciainicio, :vigenciafim, :chave, :fonte, :aliqnac, :aliqimp, :versao, :tabela  )');
 
-                             qrpdv.parambyname('CODIGO').asstring := qrservidor_tabela.fieldbyname('CODIGO').asstring;
-                             qrpdv.parambyname('EX').asstring := qrservidor_tabela.fieldbyname('EX').asstring;
-                             qrpdv.parambyname('TABELA').asstring := qrservidor_tabela.fieldbyname('TABELA').asstring;
-                             qrpdv.parambyname('ALIQNAC').Asfloat := qrservidor_tabela.fieldbyname('ALIQNAC').asfloat;
-                             qrpdv.parambyname('ALIQIMP').Asfloat := qrservidor_tabela.fieldbyname('ALIQIMP').asfloat;
-                             qrpdv.parambyname('VERSAO').asstring := qrservidor_tabela.fieldbyname('VERSAO').asstring;
+
                              qrpdv.parambyname('codncmnbs').asstring := qrservidor_tabela.fieldbyname('codncmnbs').asstring;
                              qrpdv.parambyname('id').asinteger := qrservidor_tabela.fieldbyname('id').asinteger;
+                             qrpdv.parambyname('EX').asstring := qrservidor_tabela.fieldbyname('EX').asstring;
+                             qrpdv.parambyname('tipo').asstring := qrservidor_tabela.fieldbyname('tipo').asstring;
+                             qrpdv.parambyname('descricao').asstring := qrservidor_tabela.fieldbyname('descricao').asstring;
+                             qrpdv.parambyname('nacionalfederal').Asfloat := qrservidor_tabela.fieldbyname('nacionalfederal').asfloat;
+                             qrpdv.parambyname('importadosfederal').Asfloat := qrservidor_tabela.fieldbyname('importadosfederal').asfloat;
+                             qrpdv.parambyname('estadual').Asfloat := qrservidor_tabela.fieldbyname('estadual').asfloat;
+                             qrpdv.parambyname('municipal').Asfloat := qrservidor_tabela.fieldbyname('municipal').asfloat;
+                             qrpdv.parambyname('vigenciainicio').asstring := qrservidor_tabela.fieldbyname('vigenciainicio').asstring;
+                             qrpdv.parambyname('vigenciafim').asstring := qrservidor_tabela.fieldbyname('vigenciafim').asstring;
+                             qrpdv.parambyname('chave').asstring := qrservidor_tabela.fieldbyname('chave').asstring;
+                             qrpdv.parambyname('versao').asstring := qrservidor_tabela.fieldbyname('versao').asstring;
+                             qrpdv.parambyname('fonte').asstring := qrservidor_tabela.fieldbyname('fonte').asstring;
+                             qrpdv.parambyname('TABELA').asinteger := qrservidor_tabela.fieldbyname('TABELA').asinteger;
+                             qrpdv.parambyname('ALIQIMP').Asfloat := qrservidor_tabela.fieldbyname('ALIQIMP').asfloat;
 
 
                              qrpdv.ExecSQL;
@@ -1971,7 +1984,7 @@ begin
                                on E:Exception do
                                   begin
                                     memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' ERRO - INC - IBPT - '+qrservidor_tabela.fieldbyname('id').asstring);
-                                    Memo1.LINES.Add('Mensagem: '+E.message);
+                                    Memo1.LINES.Add('Mensagem: '+E.message+chr(10)+chr(13)+erro);
                                   end;
 
                            end;
@@ -2004,7 +2017,7 @@ begin
                                on E:Exception do
                                   begin
                                     memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' ERRO - ALT - IBPT - '+qrservidor_tabela.fieldbyname('id').asstring);
-                                    Memo1.LINES.Add('Mensagem: '+E.message);
+                                    Memo1.LINES.Add('Mensagem: '+E.message+chr(10)+chr(13)+erro);
                                   end;
 
                            end;
@@ -2078,7 +2091,7 @@ begin
                                on E:Exception do
                                   begin
                                     memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' ERRO - INC - IBPT - '+qrservidor_tabela.fieldbyname('id').asstring);
-                                    Memo1.LINES.Add('Mensagem: '+E.message);
+                                    Memo1.LINES.Add('Mensagem: '+E.message+chr(10)+chr(13)+erro);
                                   end;
 
                            end;
@@ -2124,6 +2137,49 @@ begin
            qrPDV.open;
            if qrPDV.RecordCount = 0 then
            begin
+
+               if  length(qrservidor_tabela.fieldbyname('cst').asstring) > 3 then
+                   erro := ' ERRO: Tamanho cst maior que 3 caracteres '+chr(10)+chr(13);
+
+               if  length(qrservidor_tabela.fieldbyname('st').asstring) > 1 then
+                   erro := ' ERRO: Tamanho st maior que 1 caracteres '+chr(10)+chr(13);
+
+               if  length(qrservidor_tabela.fieldbyname('iat').asstring) > 1 then
+                   erro := ' ERRO: Tamanho iat maior que 1 caracteres '+chr(10)+chr(13);
+
+                if  length(qrservidor_tabela.fieldbyname('ippt').asstring) > 1 then
+                   erro := ' ERRO: Tamanho ippt maior que 1 caracteres '+chr(10)+chr(13);
+
+                if  length(qrservidor_tabela.fieldbyname('referencia').asstring) > 20 then
+                   erro := ' ERRO: Tamanho referência maior que 20 caracteres '+chr(10)+chr(13);
+
+                if  length(qrservidor_tabela.fieldbyname('tamanho').asstring) > 5 then
+                   erro := ' ERRO: Tamanho do campo tamanho maior que 5 caracteres '+chr(10)+chr(13);
+
+                if  length(qrservidor_tabela.fieldbyname('cor').asstring) > 5 then
+                   erro := ' ERRO: Tamanho do campo cor maior que 5 caracteres '+chr(10)+chr(13);
+
+                if  length(qrservidor_tabela.fieldbyname('descricao_cor').asstring) > 50 then
+                   erro := ' ERRO: Tamanho do campo descricao da cor maior que 50 caracteres '+chr(10)+chr(13);
+
+                if  length(qrservidor_tabela.fieldbyname('descricao_marca').asstring) > 50 then
+                   erro := ' ERRO: Tamanho do campo descricao da marca maior que 50 caracteres '+chr(10)+chr(13);
+
+                if  length(qrservidor_tabela.fieldbyname('classificacao_fiscal').asstring) > 40 then
+                   erro := ' ERRO: Tamanho do campo classificação fiscal maior que 40 caracteres '+chr(10)+chr(13);
+
+                if  length(qrservidor_tabela.fieldbyname('csosn').asstring) > 40 then
+                   erro := ' ERRO: Tamanho do campo csosn maior que 40 caracteres '+chr(10)+chr(13);
+
+                if  length(qrservidor_tabela.fieldbyname('sita').asstring) > 4 then
+                   erro := ' ERRO: Tamanho do campo situação A maior que 4 caracteres '+chr(10)+chr(13);
+
+                 if  length(qrservidor_tabela.fieldbyname('ex').asstring) > 20 then
+                   erro := ' ERRO: Tamanho do campo exceção maior que 20 caracteres '+chr(10)+chr(13);
+
+
+
+
              try
                memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' - INC - PRODUTO - '+qrservidor_tabela.fieldbyname('codigo').asstring);
                qrpdv.close;
@@ -2196,15 +2252,11 @@ begin
                qrpdv.parambyname('INICIO_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('data_promocao').asdatetime;
                qrpdv.parambyname('FINAL_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('fim_promocao').asdatetime;
                qrpdv.parambyname('CST').asstring := qrservidor_tabela.fieldbyname('cst').asstring;
-
                qrpdv.parambyname('CLASSIFICACAO_FISCAL').asstring := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').asstring;
                qrpdv.parambyname('CSOSN').asstring := qrservidor_tabela.fieldbyname('CSOSN').asstring;
                qrpdv.parambyname('SITA').asstring := qrservidor_tabela.fieldbyname('SITA').asstring;
-
                qrpdv.parambyname('ex').asstring := qrservidor_tabela.fieldbyname('ex').asstring;
                qrpdv.parambyname('TABELA').asinteger := qrservidor_tabela.fieldbyname('TABELA').asinteger;
-
-
                qrpdv.parambyname('ALIQUOTA').asfloat := qrservidor_tabela.fieldbyname('aliquota').asfloat;
                qrpdv.parambyname('DESCONTO_MAXIMO').asfloat := 0;
                qrpdv.parambyname('SITUACAO').AsInteger := qrservidor_tabela.fieldbyname('SITUACAO').AsInteger;
@@ -2232,8 +2284,8 @@ begin
              except
                on E:Exception do
                begin
-                 memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' ERRO - INC - PRODUTO - '+qrservidor_tabela.fieldbyname('codigo').asstring);
-                 Memo1.LINES.Add('Mensagem: '+E.message);
+                 memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' ERRO - INC - PRODUTO - '+qrservidor_tabela.fieldbyname('codigo').asstring+chr(10)+chr(13)+erro);
+                 Memo1.LINES.Add('Mensagem: '+E.message+chr(10)+chr(13)+erro);
                end;
              end;
            end
@@ -2315,8 +2367,8 @@ begin
              except
                 on e:Exception do
                 begin
-                  memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' ERRO - ALT - PRODUTO - '+qrservidor_tabela.fieldbyname('codigo').asstring);
-                  Memo1.LINES.Add('Mensagem: '+E.message);
+                  memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' ERRO - ALT - PRODUTO - '+qrservidor_tabela.fieldbyname('codigo').asstring+chr(10)+chr(13)+erro);
+                  Memo1.LINES.Add('Mensagem: '+E.message+chr(10)+chr(13)+erro);
                 end;
              end;
            end;
@@ -2409,7 +2461,7 @@ begin
                  on e:exception do
                  begin
                    memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' ERRO - INC - CLIENTE - '+qrservidor_tabela.fieldbyname('codigo').asstring);
-                   Memo1.LINES.Add('Mensagem: '+E.message);
+                   Memo1.LINES.Add('Mensagem: '+E.message+chr(10)+chr(13)+erro);
                  end;
                end;
              end
@@ -2464,7 +2516,7 @@ begin
                  on e:Exception do
                  begin
                    memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' ERRO - ALT - CLIENTE - '+qrservidor_tabela.fieldbyname('codigo').asstring);
-                   Memo1.LINES.Add('Mensagem: '+E.message);
+                   Memo1.LINES.Add('Mensagem: '+E.message+chr(10)+chr(13)+erro);
                  end;
                end;
              end;

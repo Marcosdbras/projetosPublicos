@@ -701,6 +701,7 @@ type
     Label100: TLabel;
     Label101: TLabel;
     Bevel21: TBevel;
+    BaixarTabelaNCM1: TMenuItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure enomeEnter(Sender: TObject);
@@ -895,6 +896,7 @@ type
     procedure wwDBComboBox4KeyPress(Sender: TObject; var Key: Char);
     procedure wwDBComboBox3KeyPress(Sender: TObject; var Key: Char);
     procedure ecombo_piscofinsKeyPress(Sender: TObject; var Key: Char);
+    procedure BaixarTabelaNCM1Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -928,7 +930,7 @@ uses modulo, principal, loc_grupo,
   xloc_produto, produto_atualizapreco, xloc_cst, industrializacao,
   inventario, baixa_estoque, servico, loc_aliquota, Produto_consultaserial,
   produto_movimentar, unNFe2, produto_serial_ficha, fornecedor_codigo, Ncm,
-  xloc_csosn;
+  xloc_csosn, baixarncm;
 
 {$R *.dfm}
 
@@ -4602,7 +4604,7 @@ begin
 
           frmmodulo.qrNCM.Close;
           frmmodulo.qrNCM.SQL.Clear;
-          frmmodulo.qrNCM.SQL.Add('select * from ibpt where CODNCMNBS = :CODNCMNBS');
+          frmmodulo.qrNCM.SQL.Add('select * from ncm where CODNCMNBS = :CODNCMNBS');
           frmmodulo.qrNCM.Params.ParamByName('CODNCMNBS').AsString := eNCM.text;
           frmmodulo.qrNCM.Open;
 
@@ -4780,6 +4782,13 @@ procedure Tfrmproduto.ecombo_piscofinsKeyPress(Sender: TObject;
 begin
 if key = #13 then
 perform(wm_nextdlgctl,0,0);
+end;
+
+procedure Tfrmproduto.BaixarTabelaNCM1Click(Sender: TObject);
+begin
+  frmbaixarncm := tfrmbaixarncm.Create(self);
+  frmbaixarncm.ShowModal;
+  frmbaixarncm.Free;
 end;
 
 end.

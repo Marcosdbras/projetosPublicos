@@ -82,7 +82,7 @@ type
     XMLDocument1: TXMLDocument;
     lHTTP: TIdHTTP;
     IdHTTP1: TIdHTTP;
-    sqlConfig: TIBCQuery;
+    sqlIndice: TIBCQuery;
     procedure BalancaLePeso(Peso: Double; Resposta: String);
   private
     { Private declarations }
@@ -171,14 +171,14 @@ begin
 
   try
 
-      sqlConfig.Active := false;
-      sqlConfig.SQL.Clear;
-      sqlConfig.SQL.Add('select * from config');
-      sqlConfig.Active := true;
+      sqlIndice.Active := false;
+      sqlIndice.SQL.Clear;
+      sqlIndice.SQL.Add('select * from Indice');
+      sqlIndice.Active := true;
       
 
       XMLDocument1.Active := False;
-      XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsibpt.php?chave='+sqlConfig.fieldbyname('CHAVECONSULTA').asString+'&campo=codigo'+'&valor='+ncm+'&uf='+ lowercase( sunidadefederativa  ));
+      XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsibpt.php?chave='+sqlIndice.fieldbyname('CHAVECONSULTA').asString+'&campo=codigo'+'&valor='+ncm+'&uf='+ lowercase( sEmpresa_UF  ));
       XMLDocument1.Active := True;
 
       sex       := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['ex'].Text;

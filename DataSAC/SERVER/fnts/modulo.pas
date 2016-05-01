@@ -10,7 +10,9 @@ uses
   frxExportText, frxExportImage, frxExportRTF, frxExportXLS, frxExportHTML,
   frxExportPDF, graphics, windows, messages, forms, IBCustomDataSet,
   IBQuery, IBDatabase, DBAccess, IBC, MemDS, ExtCtrls, dialogs,
-  ZAbstractConnection, DBXpress, SqlExpr;
+  ZAbstractConnection, DBXpress, SqlExpr, xmldom, XMLIntf, msxmldom,
+  XMLDoc, IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient,
+  IdHTTP;
 
 type
   Tfrmmodulo = class(TDataModule)
@@ -2229,11 +2231,6 @@ type
     qrprodutoibpt: TZQuery;
     qribpt: TZQuery;
     SQLConnection: TSQLConnection;
-    qrNCMEX: TStringField;
-    qrNCMTABELA: TIntegerField;
-    qrNCMALIQNAC: TFloatField;
-    qrNCMALIQIMP: TFloatField;
-    qrNCMCODNCMNBS: TStringField;
     ZQuery2: TZQuery;
     ZQuery2CODIGO: TStringField;
     ZQuery2CUPOM: TStringField;
@@ -2248,6 +2245,30 @@ type
     ZQuery2ID: TIntegerField;
     ZQuery2CODIGO_COMANDA: TStringField;
     ZQuery2BAIXADO: TStringField;
+    lHTTP: TIdHTTP;
+    IdHTTP1: TIdHTTP;
+    XMLEnvio: TXMLDocument;
+    XMLDocument1: TXMLDocument;
+    qrconsulta: TZQuery;
+    qrIndice: TZQuery;
+    qrexec: TZQuery;
+    qrNCMCODNCMNBS: TStringField;
+    qrNCMEX: TStringField;
+    qrNCMTIPO: TStringField;
+    qrNCMDESCRICAO: TStringField;
+    qrNCMNACIONALFEDERAL: TFloatField;
+    qrNCMIMPORTADOSFEDERAL: TFloatField;
+    qrNCMESTADUAL: TFloatField;
+    qrNCMMUNICIPAL: TFloatField;
+    qrNCMVIGENCIAINICIO: TStringField;
+    qrNCMVIGENCIAFIM: TStringField;
+    qrNCMCHAVE: TStringField;
+    qrNCMVERSAO: TStringField;
+    qrNCMFONTE: TStringField;
+    qrNCMALIQNAC: TFloatField;
+    qrNCMALIQIMP: TFloatField;
+    qrNCMTABELA: TIntegerField;
+    qrNCMID: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
     procedure qrLogBeforePost(DataSet: TDataSet);
     procedure qrsubgrupoBeforePost(DataSet: TDataSet);
@@ -2269,6 +2290,9 @@ type
     { Private declarations }
   public
     { Public declarations }
+     procedure atualizancm(ncm:string);
+
+
   end;
 
 var
@@ -2404,7 +2428,7 @@ var
 
 implementation
 
-uses principal, ecf, produto;
+uses principal, ecf, produto, funcoes_ibpt, UFuncoes;
 
 {$R *.dfm}
 
@@ -3019,5 +3043,145 @@ procedure Tfrmmodulo.qragendaBeforePost(DataSet: TDataSet);
 begin
   qragenda.FieldValues['codigo'] := frmprincipal.codifica('000034');
 end;
+
+
+
+procedure tfrmmodulo.atualizancm(ncm:string);
+var
+
+
+
+
+  faliqnac, faliqimp:Currency;
+  sncmnbs, sorigem, sex:string;
+  itabela:Integer;
+  ssita:string;
+  icodsita:integer;
+
+  stipo:String;
+  sdescricao:String;
+  festadual:real;
+  fmunicipal:real;
+
+
+  saliqnac:String;
+  saliqimp:String;
+  sestadual:String;
+  smunicipal:String;
+
+begin
+
+  if ncm = '' then
+     exit;
+
+  try
+
+      qrIndice.Active := false;
+      qrIndice.SQL.Clear;
+      qrIndice.SQL.Add('select * from indice');
+      qrIndice.Active := true;
+
+      XMLDocument1.Active := False;
+      XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsibpt.php?chave='+qrIndice.fieldbyname('CHAVECONSULTA').asString+'&campo=codigo'+'&valor='+ncm+'&uf='+ lowercase( sunidadefederativa  ));
+      XMLDocument1.Active := True;
+
+      sex       := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['ex'].Text;
+      sversao       := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['versao'].Text;
+      stipo      := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['tipo'].Text;
+      sdescricao   := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['descricao'].Text;
+      svigenciainicio       := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['vigenciainicio'].Text;
+      svigenciafim   := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['vigenciafim'].Text;
+      schave := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['chave'].Text;
+      sversao := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['versao'].Text;
+      sfonte :=  XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['fonte'].Text;
+
+
+      saliqnac      :=  XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['nacionalfederal'].Text;
+      saliqimp           := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['importadosfederal'].Text;
+      sestadual    := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['estadual'].Text;
+      smunicipal := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['municipal'].Text;
+
+
+      saliqnac      :=  Decimal_Is_Coma( saliqnac );
+      saliqimp           := Decimal_Is_Coma( saliqimp );
+      sestadual    := Decimal_Is_Coma(sestadual);
+      smunicipal := Decimal_Is_Coma(smunicipal);
+
+      faliqnac      :=  strtofloat( saliqnac );
+      faliqimp           := strtofloat( saliqimp );
+      festadual    := strtofloat( sestadual );
+      fmunicipal := strtofloat( smunicipal );
+
+
+
+
+      qrexec.Active := false;
+      qrexec.SQL.Clear;
+      qrexec.SQL.Add('insert into ncm (codncmnbs, ex, tipo, descricao, nacionalfederal, importadosfederal, estadual, municipal, vigenciainicio, vigenciafim, chave, versao, fonte)');
+      qrexec.SQL.Add(' values (:codncmnbs, :ex, :tipo, :descricao, :nacionalfederal, :importadosfederal, :estadual, :municipal, :vigenciainicio, :vigenciafim, :chave, :versao, :fonte)');
+
+      qrexec.Params.ParamByName('codncmnbs').AsString :=  ncm;
+      qrexec.Params.ParamByName('ex').AsString :=  sex;
+      qrexec.Params.ParamByName('versao').AsString :=  sversao;
+      qrexec.Params.ParamByName('tipo').AsString :=  stipo;
+      qrexec.Params.ParamByName('descricao').AsString :=  sdescricao;
+
+      qrexec.Params.ParamByName('vigenciainicio').AsString :=  svigenciainicio;
+      qrexec.Params.ParamByName('vigenciafim').AsString :=    svigenciafim;
+
+      qrexec.Params.ParamByName('chave').AsString :=    schave;
+      qrexec.Params.ParamByName('fonte').AsString :=    sfonte;
+
+      qrexec.Params.ParamByName('nacionalfederal').AsFloat :=    faliqnac;
+      qrexec.Params.ParamByName('importadosfederal').AsFloat :=      faliqimp;
+      qrexec.Params.ParamByName('estadual').AsFloat :=      festadual;
+      qrexec.Params.ParamByName('municipal').AsFloat :=      fmunicipal;
+
+      qrexec.ExecSQL;
+
+
+
+
+
+
+
+
+  except
+
+
+      sex       := '';
+      sversao       := '';
+      stipo      := '';
+      sdescricao   := '';
+      svigenciainicio       := '';
+      svigenciafim   := '';
+      schave := '';
+      sversao := '';
+      sfonte :=  '';
+
+
+
+      faliqnac      :=  0;
+      faliqimp           := 0;
+      festadual    := 0;
+      fmunicipal := 0;
+
+
+
+
+
+
+
+  end;
+
+
+
+
+
+
+end;
+
+
+
 
 end.

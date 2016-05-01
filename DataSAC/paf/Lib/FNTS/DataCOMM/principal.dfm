@@ -282,8 +282,8 @@ object frmPrincipal: TfrmPrincipal
       object Memo1: TMemo
         Left = 0
         Top = 0
-        Width = 705
-        Height = 328
+        Width = 764
+        Height = 413
         Align = alClient
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -291,6 +291,7 @@ object frmPrincipal: TfrmPrincipal
         Font.Name = 'Courier New'
         Font.Style = []
         ParentFont = False
+        ScrollBars = ssVertical
         TabOrder = 0
       end
     end
