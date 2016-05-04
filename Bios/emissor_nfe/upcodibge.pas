@@ -52,17 +52,14 @@ begin
  //memoRes.Clear;
  //memoRes.Text := IdHTTP1.Get('http://www.buscarcep.com.br/?cep='+StringReplace(ediCep.Text,'-','',[rfReplaceAll])+'&formato=xml');
  //memoRes.Text := IdHTTP1.Get('http://www.buscarcep.com.br/?cep='+StringReplace(ediCep.Text,'-','',[rfReplaceAll])+'&formato=xml&chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString);
-
- XMLDocument1.Active := False;
  //XMLDocument1.LoadFromFile('http://www.buscarcep.com.br/?cep='+StringReplace(ediCep.Text,'-','',[rfReplaceAll])+'&formato=xml');
  //XMLDocument1.LoadFromFile('http://www.buscarcep.com.br/?cep='+StringReplace(ediCep.Text,'-','',[rfReplaceAll])+'&formato=xml&chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString);
  //showmessage('http://www.buscarcep.com.br/?cep='+StringReplace(ediCep.Text,'-','',[rfReplaceAll])+'&formato=xml&chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString);
- XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wscep.php?chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString+'&campo=CEP'+'&valor='+ediCep.Text);
-
-
-
- XMLDocument1.Active := True;
  //XMLDocument1.SaveToFile('c:\resposta.xml');
+
+ XMLDocument1.Active := False;
+ XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wscep.php?chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString+'&campo=CEP'+'&valor='+ediCep.Text);
+ XMLDocument1.Active := True;
 
  ediCepResp.Text      := XMLDocument1.ChildNodes['wscep'].ChildNodes['response'].ChildNodes['cep'].Text;
  ediUF.Text           := XMLDocument1.ChildNodes['wscep'].ChildNodes['response'].ChildNodes['uf'].Text;
@@ -76,6 +73,8 @@ begin
  ediCidadeIBGE.Text   := XMLDocument1.ChildNodes['wscep'].ChildNodes['response'].ChildNodes['ibgemunicipio'].Text;
 
  edidigito.Text := DigitoCidade(ediCidadeIBGE.Text);
+
+ XMLDocument1.Active := false;
 
 end;
 

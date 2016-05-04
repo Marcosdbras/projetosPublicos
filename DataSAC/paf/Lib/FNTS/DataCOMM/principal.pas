@@ -2138,6 +2138,8 @@ begin
            if qrPDV.RecordCount = 0 then
            begin
 
+             {
+
                if  length(qrservidor_tabela.fieldbyname('cst').asstring) > 3 then
                    erro := ' ERRO: Tamanho cst maior que 3 caracteres '+chr(10)+chr(13);
 
@@ -2178,7 +2180,7 @@ begin
                    erro := ' ERRO: Tamanho do campo exceção maior que 20 caracteres '+chr(10)+chr(13);
 
 
-
+                }
 
              try
                memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' - INC - PRODUTO - '+qrservidor_tabela.fieldbyname('codigo').asstring);

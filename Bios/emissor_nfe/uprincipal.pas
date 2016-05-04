@@ -1242,16 +1242,35 @@ var
 
   lParamList: TStringList;
   lResponse : TStringStream;
-  smostrar:string;
+  smostrar, chave, cnpj, nome, bloqueado:string;
 
 begin
 
-  frmdados.cds_emitente.Active := false;
-  frmdados.sql_emitente.Active := false;
-  frmdados.sql_emitente.SQL.Clear;
-  frmdados.sql_emitente.SQL.Add('select * from emitente where coalesce(id,0) > 0 ');
-  frmdados.sql_emitente.active  := true;
-  frmdados.cds_emitente.Active := true;
+
+
+  with frmdados do
+    begin
+
+       cds_emitente.Active := false;
+       sql_emitente.Active := false;
+       sql_emitente.SQL.Clear;
+       sql_emitente.SQL.Add('select * from emitente where coalesce(id,0) > 0 ');
+       sql_emitente.active  := true;
+       cds_emitente.Active := true;
+
+       sql_indice.Active := false;
+       sql_indice.SQL.Clear;
+       sql_indice.SQL.Add('select * from indice');
+       sql_indice.Active := true;
+
+       chave:=sql_indice.fieldbyname('chaveconsultacep').AsString;
+
+
+
+
+    end;
+
+
 
   while not frmdados.cds_emitente.Eof do
     begin
@@ -1343,7 +1362,78 @@ begin
             end;
 
 
-            sleep(1000);
+
+
+
+
+         //--------------------
+
+
+            try
+
+
+               cnpj:=tirapontos(tirabarras(tiratracos(frmdados.cds_emitente.fieldbyname('cnpj').AsString)));
+
+               XMLDocument1.Active := False;
+               XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php?chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString+'&campo=cnpj&valor='+cnpj+'&modo=C');
+               XMLDocument1.Active := True;
+
+               nome      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['nome'].Text;
+               bloqueado      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['bloqueado'].Text;
+
+               XMLDocument1.Active := false;
+            except
+
+            end;
+
+
+
+
+
+
+
+
+
+            //exemplo de requisição utilizando post e retorno para memo
+            {
+
+
+
+            lParamList := TStringList.Create;
+            lResponse := TStringStream.Create('');
+
+            lParamList.Add('modo=C');
+            lParamList.Add('valor='+tirapontos(tirabarras(tiratracos(frmdados.cds_emitente.fieldbyname('cnpj').AsString))));
+            lParamList.Add('campo=cnpj');
+            lParamList.Add('chave='+frmdados.sql_indice.fieldbyname('chaveconsultacep').AsString);
+
+
+            try
+                lHTTP := TIdHTTP.Create(nil);
+                try
+                  lHTTP.Post('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php', lParamList, lResponse);
+                  lResponse.Position := 0;
+                  reResp.Lines.LoadFromStream(lResponse);
+                finally
+
+                  lHTTP.Free;
+                  lParamList.Free;
+                  lResponse.Free();
+
+                end;
+
+
+            except
+              reResp.Lines.Add( 'Conexão com servidor inativa');
+            end;
+            }
+
+            //exemplo de requisição utilizando get e retorno para componente xml
+
+
+            //----------------------
+
+
             frmdados.cds_emitente.Next;
 
 
