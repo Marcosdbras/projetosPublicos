@@ -1,6 +1,6 @@
 object frmpesqnf: Tfrmpesqnf
-  Left = -23
-  Top = 88
+  Left = 23
+  Top = 69
   Width = 1036
   Height = 636
   Caption = 'Pesquisa de Notas Fiscais'
@@ -12,7 +12,7 @@ object frmpesqnf: Tfrmpesqnf
   Font.Style = []
   FormStyle = fsMDIChild
   OldCreateOrder = False
-  Position = poScreenCenter
+  Position = poMainFormCenter
   Visible = True
   OnClose = FormClose
   OnCreate = FormCreate
@@ -129,7 +129,7 @@ object frmpesqnf: Tfrmpesqnf
       NumGlyphs = 2
     end
     object BitBtn1: TBitBtn
-      Left = 483
+      Left = 614
       Top = 3
       Width = 139
       Height = 33
@@ -144,37 +144,8 @@ object frmpesqnf: Tfrmpesqnf
       OnClick = BitBtn1Click
       NumGlyphs = 2
     end
-    object btninicio: TBitBtn
-      Left = 364
-      Top = 3
-      Width = 117
-      Height = 33
-      Caption = 'INICIO'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 4
-      OnClick = btninicioClick
-      Glyph.Data = {
-        76010000424D7601000000000000760000002800000020000000100000000100
-        04000000000000010000120B0000120B00001000000000000000000000000000
-        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF003FF0000000F0
-        000033F77777773777773FFF0CCC0FF09990333F73F37337F33733FFF0C0FFF0
-        99903333F7373337F337333FFF0FFFF0999033333F73FFF7FFF73333FFF000F0
-        0000333333F77737777733333F07B70FFFFF3333337F337F33333333330BBB0F
-        FFFF3333337F337F333333333307B70FFFFF33333373FF733F333333333000FF
-        0FFF3333333777337FF3333333333FF000FF33FFFFF3333777FF300000333300
-        000F377777F33377777F30EEE0333000000037F337F33777777730EEE0333330
-        00FF37F337F3333777F330EEE033333000FF37FFF7F3333777F3300000333330
-        00FF3777773333F77733333333333000033F3333333337777333}
-      NumGlyphs = 2
-    end
     object btnfim: TBitBtn
-      Left = 624
+      Left = 483
       Top = 3
       Width = 129
       Height = 33
@@ -185,7 +156,7 @@ object frmpesqnf: Tfrmpesqnf
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 5
+      TabOrder = 4
       OnClick = btnfimClick
       Glyph.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100
@@ -1347,8 +1318,8 @@ object frmpesqnf: Tfrmpesqnf
           OnKeyPress = edidescricaoKeyPress
         end
         object rgbctipoemi1: TRadioGroup
-          Left = 609
-          Top = 357
+          Left = 721
+          Top = 173
           Width = 96
           Height = 36
           Caption = 'EMISS'#195'O'
@@ -4050,6 +4021,64 @@ object frmpesqnf: Tfrmpesqnf
         Text = 'EDILOCALIZAR'
         OnChange = edilocalizarChange
         OnKeyPress = edilocalizarKeyPress
+      end
+      object btninicio: TBitBtn
+        Left = 625
+        Top = 7
+        Width = 117
+        Height = 33
+        Caption = 'INICIO'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 1
+        OnClick = btninicioClick
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000120B0000120B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF003FF0000000F0
+          000033F77777773777773FFF0CCC0FF09990333F73F37337F33733FFF0C0FFF0
+          99903333F7373337F337333FFF0FFFF0999033333F73FFF7FFF73333FFF000F0
+          0000333333F77737777733333F07B70FFFFF3333337F337F33333333330BBB0F
+          FFFF3333337F337F333333333307B70FFFFF33333373FF733F333333333000FF
+          0FFF3333333777337FF3333333333FF000FF33FFFFF3333777FF300000333300
+          000F377777F33377777F30EEE0333000000037F337F33777777730EEE0333330
+          00FF37F337F3333777F330EEE033333000FF37FFF7F3333777F3300000333330
+          00FF3777773333F77733333333333000033F3333333337777333}
+        NumGlyphs = 2
+      end
+      object BitBtn5: TBitBtn
+        Left = 745
+        Top = 7
+        Width = 117
+        Height = 33
+        Caption = 'FIM'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 2
+        OnClick = BitBtn5Click
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000120B0000120B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF003FF0000000F0
+          000033F77777773777773FFF0CCC0FF09990333F73F37337F33733FFF0C0FFF0
+          99903333F7373337F337333FFF0FFFF0999033333F73FFF7FFF73333FFF000F0
+          0000333333F77737777733333F07B70FFFFF3333337F337F33333333330BBB0F
+          FFFF3333337F337F333333333307B70FFFFF33333373FF733F333333333000FF
+          0FFF3333333777337FF3333333333FF000FF33FFFFF3333777FF300000333300
+          000F377777F33377777F30EEE0333000000037F337F33777777730EEE0333330
+          00FF37F337F3333777F330EEE033333000FF37FFF7F3333777F3300000333330
+          00FF3777773333F77733333333333000033F3333333337777333}
+        NumGlyphs = 2
       end
     end
   end

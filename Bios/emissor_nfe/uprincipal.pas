@@ -237,8 +237,21 @@ label2.caption := datamodexe;
 
 
 
-if bloqueio.Dias_RestantesU > 30 then
-   pnlcentral.Visible := false;
+if bbloqueado then
+   begin
+
+      if bloqueio.Dias_RestantesU > 30 then
+         pnlcentral.Visible := false;
+
+   end
+else
+   begin
+
+      pnlcentral.Visible := false;
+
+   end;
+//endi
+
 
 //tenviaxml := threadenviaxml.Create(true);
 //tenviaxml.FreeOnTerminate := true;
@@ -770,7 +783,16 @@ begin
   atualizacaoBaseRemota;
 
    // se cliente estiver como ativo = 1 não bloqueia
-  bloqueio.executar;
+
+
+if bbloqueado then
+   begin
+
+     bloqueio.executar;
+
+   end;
+//endi
+
 
 end;
 
@@ -1243,10 +1265,11 @@ var
   lParamList: TStringList;
   lResponse : TStringStream;
   smostrar, chave, cnpj, nome, bloqueado:string;
+  x:integer;
 
 begin
 
-
+  x:=0;
 
   with frmdados do
     begin
@@ -1270,7 +1293,7 @@ begin
 
     end;
 
-
+  setlength(abloqueio, frmdados.cds_emitente.RecordCount);
 
   while not frmdados.cds_emitente.Eof do
     begin
@@ -1379,14 +1402,16 @@ begin
                XMLDocument1.Active := True;
 
                nome      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['nome'].Text;
-               bloqueado      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['bloqueado'].Text;
+               cnpj      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['cnpj'].Text;
+               bloqueado := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['bloqueado'].Text;
+
+               abloqueio[x] := bloqueado+cnpj;
+               x := x + 1;
 
                XMLDocument1.Active := false;
             except
 
             end;
-
-
 
 
 
@@ -1445,6 +1470,20 @@ begin
 
     end;
   //endw
+
+
+  for x := 0 to length(abloqueio)-1 do
+    begin
+      if copy(abloqueio[x],1,1) = '0' then
+         begin
+           bbloqueado := false;
+         end;
+      //endif
+
+    end;
+  //endfor
+
+
 
   frmdados.sql_emitente.Active := false;
   frmdados.cds_emitente.Active := false;

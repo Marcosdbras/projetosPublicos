@@ -123,11 +123,16 @@ Type
    sgDataF              : string = '';
    sgDataIb             : string = '';
    sgDatafb             : string = '';
+   sNumSerieHD          : string = '';
+   bbloqueado            : boolean = true;
    itipoimpf            : integer;
    texto_retorno_gaveta : string;
-   iultcod              :integer;
+   iultcod              : integer;
 
    ilegal1, ilegal2, ilegal3:boolean;
+
+   abloqueio: array of string;
+
 
    iNIvelUsuario:Integer;
    iResposta:integer;
@@ -135,7 +140,7 @@ Type
    icusu, iTag:integer;
    exec:integer;
    bEofBaixa:boolean;
-   sNumSerieHD          : string = '';
+
    bAltDesc,
    bAltVend,
    bAltP,

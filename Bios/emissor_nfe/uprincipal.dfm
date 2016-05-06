@@ -339,6 +339,7 @@ object frmprincipal: Tfrmprincipal
     Lines.Strings = (
       'reResp')
     TabOrder = 4
+    Visible = False
   end
   object MMMenu: TMainMenu
     Left = 200

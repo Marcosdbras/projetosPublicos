@@ -1,0 +1,4 @@
+DataSAC / frmlista_venda2 -> VENDAS / COMISSÃO ok
+
+http://www.devmedia.com.br/arrays-dinamicos-no-delphi/26960
+http://www.bosontreinamentos.com.br/mysql/mysql-default-valores-padrao-em-colunas-24/

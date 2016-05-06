@@ -380,8 +380,9 @@ type
     edicest: TEdit;
     BitBtn4: TBitBtn;
     Label134: TLabel;
-    btninicio: TBitBtn;
     btnfim: TBitBtn;
+    btninicio: TBitBtn;
+    BitBtn5: TBitBtn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Limpar;
     procedure btnnovaClick(Sender: TObject);
@@ -545,6 +546,7 @@ type
     procedure ajustatributacao;
     procedure btninicioClick(Sender: TObject);
     procedure btnfimClick(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
   private
     { Private declarations }
     sOpcao:string;
@@ -3277,8 +3279,53 @@ end;
 
 
 procedure Tfrmpesqnf.btnemitenfeClick(Sender: TObject);
+var x:integer;
+ ibloqueio:integer;
+ scnpj:string;
 begin
+ ibloqueio := 0;
+
+
 carregadadosprincipais;
+for x := 0 to length(abloqueio)-1 do
+  begin
+    if copy(abloqueio[x],2,length(abloqueio[x])) = tirapontos(tirabarras(tiratracos(lblcnpjemi.Caption))) then
+       begin
+         ibloqueio := strtoint(copy(abloqueio[x],1,1));
+         scnpj := copy(abloqueio[x],2,length(abloqueio[x]));
+       end;
+    //endi
+
+  end;
+//endfor
+if ibloqueio > 0 then
+   begin
+     application.MessageBox(pchar('CNPJ '+scnpj+' está bloqueado para emissão de nota fiscal eletrônica'+chr(13)+
+                                   'por gentileza entre em contato com o administrador pelo site '+chr(13)+
+                                   'www.marcosbras.com ou ligue 11-96393-0108 / 11-97043-3730 ou '+chr(13)+
+                                   '11-3042-3730'),'Atenção',mb_ok);
+     exit;
+   end;
+//endi
+if cbxdescemi_cod3nf.Text = '' then
+   begin
+     application.MessageBox(pchar('Não é possível emitir NFE, pois, não ocorreu a escolha do emitente'+chr(13)+
+                                  'por gentileza clique em edição e selecione-o' ),'Atenção',mb_ok);
+     exit;
+
+   end;
+//endi
+
+if cbxdescnatop_cod6nf.Text = '' then
+   begin
+     application.MessageBox(pchar('Não é possível emitir NFE, pois, não ocorreu a escolha da informação nat. da operação'+chr(13)+
+                                  'por gentileza clique em edição e selecione-o' ),'Atenção',mb_ok);
+     exit;
+
+   end;
+//endi
+
+
 
 frmfecnf := tfrmfecnf.create(self);
 frmfecnf.showmodal;
@@ -4929,24 +4976,31 @@ end;
 procedure Tfrmpesqnf.btninicioClick(Sender: TObject);
 begin
   frmdados.cds_nf.First;
+  
 end;
 
 procedure Tfrmpesqnf.btnfimClick(Sender: TObject);
 begin
-frmdados.cds_nf.Last;
+
 pctdados.ActivePageIndex := 1;
 application.MessageBox('Primeiros passos'+#13+#13+
-                       ' 1) Informe Natureza da Operação'+#13+#13+
-                       ' 2) Verifique se os dados do destinatário estão corretos'+#13+#13+
-                       ' 3) Escolha o emitente'+#13+#13+
-                       ' 4) clique em salvar localizado logo abaixo'+#13+#13+
-                       ' 5) Clique em ajusta tributação na parte superior da tela'+#13+#13+
+                       ' 1) Clique no botão NOVA NFE ao lado'+#13+#13+
+                       ' 2) Informe Natureza da Operação'+#13+#13+
+                       ' 3) Verifique se os dados do destinatário estão corretos'+#13+#13+
+                       ' 4) Escolha o emitente'+#13+#13+
+                       ' 5) clique em salvar localizado logo abaixo'+#13+#13+
+                       ' 6) Clique em ajusta tributação na parte superior da tela'+#13+#13+
                        ' Lembre-se que dados que estão em vermelho'+#13+#13+
                        'são de preenchimento obrigatório',
                        'Assistente para emissão de nota fiscal',
                         mb_ok);
 bhelp := true;
 
+end;
+
+procedure Tfrmpesqnf.BitBtn5Click(Sender: TObject);
+begin
+  frmdados.cds_nf.Last;
 end;
 
 end.
