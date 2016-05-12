@@ -190,6 +190,15 @@ object frmpesqprodutos: Tfrmpesqprodutos
         33333337FFFF7733333333300000033333333337777773333333}
       NumGlyphs = 2
     end
+    object BitBtn3: TBitBtn
+      Left = 40
+      Top = 128
+      Width = 75
+      Height = 25
+      Caption = 'BitBtn3'
+      TabOrder = 3
+      OnClick = BitBtn3Click
+    end
   end
   object pnlcentro: TPanel
     Left = 161
@@ -254,7 +263,6 @@ object frmpesqprodutos: Tfrmpesqprodutos
               Expanded = False
               FieldName = 'cbar'
               Title.Caption = 'COD. BAR.'
-              Width = 64
               Visible = True
             end
             item

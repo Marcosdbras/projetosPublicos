@@ -111,7 +111,9 @@ uses
   ucancelar in 'ucancelar.pas' {frmcancelamento},
   ucorrecao in 'ucorrecao.pas' {frmcorrecao},
   uenviaxml in 'uenviaxml.pas',
-  upcodibge in 'upcodibge.pas' {frmpcodibge};
+  upcodibge in 'upcodibge.pas' {frmpcodibge},
+  baixarncm in 'baixarncm.pas' {frmbaixarncm},
+  ubaixancm in 'ubaixancm.pas' {frmbaixarncminternet};
 
 {$R *.res}
 
@@ -123,8 +125,8 @@ begin
 
   Application.Title := 'Emissor de Nota Fsical Eletrônica';
   Application.CreateForm(TfrmDados, frmDados);
-  Application.CreateForm(Tfrmprincipal, frmprincipal);
   Application.CreateForm(Tfrmconexao_ibpt, frmconexao_ibpt);
+  Application.CreateForm(Tfrmprincipal, frmprincipal);
   Atualizar;
   frmSplash.Hide;
   frmSplash.Free;

@@ -103,6 +103,7 @@ type
     Label6: TLabel;
     edicest: TEdit;
     BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Limpar;
     procedure btnnovaClick(Sender: TObject);
@@ -143,6 +144,7 @@ type
     procedure retirarfiltro;
     procedure edicestKeyPress(Sender: TObject; var Key: Char);
     procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
 
 
   private
@@ -159,7 +161,8 @@ var
   frmpesqprodutos: Tfrmpesqprodutos;
 
 implementation
-   uses ugeral, udados, ufiltroprodutos, urelprodutos, upcodcest;
+   uses ugeral, udados, ufiltroprodutos, urelprodutos, upcodcest,
+  baixarncm, ubaixancm;
 {$R *.dfm}
 
 procedure Tfrmpesqprodutos.FormClose(Sender: TObject;
@@ -1042,9 +1045,20 @@ end;
 
 procedure Tfrmpesqprodutos.BitBtn2Click(Sender: TObject);
 begin
-  frmpcodcest := tfrmpcodcest.create(self);
-  frmpcodcest.showmodal;
-  frmpcodcest.free;
+ frmpcodcest := tfrmpcodcest.create(self);
+ frmpcodcest.showmodal;
+ frmpcodcest.free;
+
+
+
+end;
+
+procedure Tfrmpesqprodutos.BitBtn3Click(Sender: TObject);
+begin
+       frmbaixarncm := tfrmbaixarncm(self);
+       frmbaixarncm.Showmodal;
+       frmbaixarncm.free;
+
 end;
 
 end.

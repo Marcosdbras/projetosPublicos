@@ -4,7 +4,7 @@ object frmconfig: Tfrmconfig
   BorderStyle = bsToolWindow
   Caption = 'CONFIGURA'#199#213'ES | Painel'
   ClientHeight = 409
-  ClientWidth = 668
+  ClientWidth = 815
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -22,17 +22,17 @@ object frmconfig: Tfrmconfig
   object Bevel1: TBevel
     Left = 0
     Top = 373
-    Width = 668
+    Width = 815
     Height = 3
     Align = alTop
   end
   object PageView3: TPageView
     Left = 0
     Top = 0
-    Width = 668
+    Width = 815
     Height = 373
-    ActivePage = PageSheet10
-    ActivePageIndex = 1
+    ActivePage = PageSheet17
+    ActivePageIndex = 10
     AdaptiveColors = True
     Align = alTop
     BackgroundColor = clBtnFace
@@ -49,7 +49,7 @@ object frmconfig: Tfrmconfig
     object PageSheet7: TPageSheet
       Left = 0
       Top = 21
-      Width = 668
+      Width = 815
       Height = 352
       Caption = 'Geral'
       DisplayMode = tdGlyph
@@ -461,7 +461,7 @@ object frmconfig: Tfrmconfig
     object PageSheet10: TPageSheet
       Left = 0
       Top = 21
-      Width = 668
+      Width = 815
       Height = 352
       Caption = 'Faturamento'
       DisplayMode = tdGlyph
@@ -972,7 +972,7 @@ object frmconfig: Tfrmconfig
     object PageSheet11: TPageSheet
       Left = 0
       Top = 21
-      Width = 668
+      Width = 815
       Height = 352
       Caption = 'Financeiro'
       DisplayMode = tdGlyph
@@ -1341,7 +1341,7 @@ object frmconfig: Tfrmconfig
     object PageSheet12: TPageSheet
       Left = 0
       Top = 21
-      Width = 668
+      Width = 815
       Height = 352
       Caption = 'Nota Fiscal'
       DisplayMode = tdGlyph
@@ -2039,7 +2039,7 @@ object frmconfig: Tfrmconfig
     object PageSheet13: TPageSheet
       Left = 0
       Top = 21
-      Width = 668
+      Width = 815
       Height = 352
       Caption = 'Emitente'
       DisplayMode = tdGlyph
@@ -2731,7 +2731,7 @@ object frmconfig: Tfrmconfig
     object PageSheet14: TPageSheet
       Left = 0
       Top = 21
-      Width = 668
+      Width = 815
       Height = 352
       Caption = 'Equipamentos'
       DisplayMode = tdGlyph
@@ -2955,7 +2955,7 @@ object frmconfig: Tfrmconfig
     object PageSheet16: TPageSheet
       Left = 0
       Top = 21
-      Width = 668
+      Width = 815
       Height = 352
       Caption = 'Plano de Contas'
       DisplayMode = tdGlyph
@@ -2968,7 +2968,7 @@ object frmconfig: Tfrmconfig
       object PageView1: TPageView
         Left = 0
         Top = 0
-        Width = 668
+        Width = 815
         Height = 201
         ActivePage = PageSheet1
         ActivePageIndex = 0
@@ -2988,7 +2988,7 @@ object frmconfig: Tfrmconfig
         object PageSheet1: TPageSheet
           Left = 0
           Top = 20
-          Width = 668
+          Width = 815
           Height = 181
           Caption = 'Vendas'
           DisplayMode = tdGlyph
@@ -3001,7 +3001,7 @@ object frmconfig: Tfrmconfig
           object GroupBox16: TGroupBox
             Left = 0
             Top = 0
-            Width = 668
+            Width = 815
             Height = 46
             Align = alTop
             Caption = 'VENDA '#192' VISTA'
@@ -3081,7 +3081,7 @@ object frmconfig: Tfrmconfig
           object GroupBox17: TGroupBox
             Left = 0
             Top = 92
-            Width = 668
+            Width = 815
             Height = 46
             Align = alTop
             Caption = 'DUPLICATAS'
@@ -3161,7 +3161,7 @@ object frmconfig: Tfrmconfig
           object GroupBox30: TGroupBox
             Left = 0
             Top = 46
-            Width = 668
+            Width = 815
             Height = 46
             Align = alTop
             Caption = 'VENDAS '#192' PRAZO'
@@ -3242,7 +3242,7 @@ object frmconfig: Tfrmconfig
         object PageSheet2: TPageSheet
           Left = 0
           Top = 20
-          Width = 668
+          Width = 815
           Height = 181
           Caption = 'Ordem de Servi'#231'o'
           DisplayMode = tdGlyph
@@ -3255,7 +3255,7 @@ object frmconfig: Tfrmconfig
           object GroupBox18: TGroupBox
             Left = 0
             Top = 0
-            Width = 668
+            Width = 815
             Height = 46
             Align = alTop
             Caption = 'O.S. '#192' VISTA'
@@ -3335,7 +3335,7 @@ object frmconfig: Tfrmconfig
           object GroupBox19: TGroupBox
             Left = 0
             Top = 46
-            Width = 668
+            Width = 815
             Height = 46
             Align = alTop
             Caption = 'O.S. '#192' PRAZO'
@@ -3416,7 +3416,7 @@ object frmconfig: Tfrmconfig
         object PageSheet3: TPageSheet
           Left = 0
           Top = 20
-          Width = 668
+          Width = 815
           Height = 181
           Caption = 'Entradas'
           DisplayMode = tdGlyph
@@ -3429,7 +3429,7 @@ object frmconfig: Tfrmconfig
           object GroupBox20: TGroupBox
             Left = 0
             Top = 46
-            Width = 668
+            Width = 815
             Height = 46
             Align = alTop
             Caption = 'ENTRADAS DIVERSAS'
@@ -3509,7 +3509,7 @@ object frmconfig: Tfrmconfig
           object GroupBox22: TGroupBox
             Left = 0
             Top = 0
-            Width = 668
+            Width = 815
             Height = 46
             Align = alTop
             Caption = 'RECEBIMENTO DE CREDI'#193'RIO'
@@ -3590,7 +3590,7 @@ object frmconfig: Tfrmconfig
         object PageSheet4: TPageSheet
           Left = 0
           Top = 20
-          Width = 668
+          Width = 815
           Height = 181
           Caption = 'Sa'#237'das'
           DisplayMode = tdGlyph
@@ -3603,7 +3603,7 @@ object frmconfig: Tfrmconfig
           object GroupBox21: TGroupBox
             Left = 0
             Top = 0
-            Width = 668
+            Width = 815
             Height = 46
             Align = alTop
             Caption = 'SA'#205'DAS DIVERSAS'
@@ -3686,7 +3686,7 @@ object frmconfig: Tfrmconfig
     object PageSheet8: TPageSheet
       Left = 0
       Top = 21
-      Width = 668
+      Width = 815
       Height = 352
       Caption = 'Estoque'
       DisplayMode = tdGlyph
@@ -3786,7 +3786,7 @@ object frmconfig: Tfrmconfig
     object PageSheet6: TPageSheet
       Left = 0
       Top = 21
-      Width = 668
+      Width = 815
       Height = 352
       Caption = 'Cor/Logo'
       DisplayMode = tdGlyph
@@ -4155,7 +4155,7 @@ object frmconfig: Tfrmconfig
     object PageSheet9: TPageSheet
       Left = 0
       Top = 21
-      Width = 668
+      Width = 815
       Height = 352
       Caption = 'FTP'
       DisplayMode = tdGlyph
@@ -4461,6 +4461,54 @@ object frmconfig: Tfrmconfig
           ParentFont = False
           TabOrder = 0
         end
+      end
+    end
+    object PageSheet17: TPageSheet
+      Left = 0
+      Top = 21
+      Width = 815
+      Height = 352
+      Caption = 'Assist'#234'ncia T'#233'cnica'
+      DisplayMode = tdGlyph
+      ImageIndex = 0
+      Margin = 0
+      PageIndex = 10
+      TabColor = clWindow
+      TabWidth = 0
+      TransparentColor = clNone
+      object Label52: TLabel
+        Left = 10
+        Top = 2
+        Width = 213
+        Height = 13
+        Caption = 'Condi'#231#245'es Gerais para aprova'#231#227'o do servi'#231'o'
+      end
+      object Label53: TLabel
+        Left = 13
+        Top = 175
+        Width = 174
+        Height = 13
+        Caption = 'Estado de Conserva'#231#227'o do aparelho'
+      end
+      object Memo1: TMemo
+        Left = 8
+        Top = 16
+        Width = 793
+        Height = 143
+        Lines.Strings = (
+          '')
+        ScrollBars = ssVertical
+        TabOrder = 0
+      end
+      object Memo2: TMemo
+        Left = 8
+        Top = 192
+        Width = 793
+        Height = 153
+        Lines.Strings = (
+          '')
+        ScrollBars = ssVertical
+        TabOrder = 1
       end
     end
   end

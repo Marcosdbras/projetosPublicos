@@ -41,17 +41,141 @@ procedure GravaIni(Sessao, Chave: String; Valor: string; TipoIni: TTipoIni);
 function LerIni(Sessao, Chave: String; ValorPadrao: string;TipoIni: TTipoIni): string;
 function Decimal_Is_Coma(var Valor:String):String;
 function FindReplace (Var Enc:String; Var subs: String; Var Texto: String): string;
-
+function datacriexe:string;
+function datamodexe:string;
+function FileAgeCreate(const FileName: string): Integer;
+Function  tirapontos(pValor:string):string;
+Function  tiratracos(pValor:string):string;
+Function  tirabarras(pValor:string):string;
 
 const
   Kernel_INISessao_Telas = 'PLANOFUNDO';
 
-
+var
+  bbloqueado:boolean = true;
+  abloqueio: array of string;
 
 
 implementation
 
 uses Classes, principal;
+
+
+function tirapontos(pValor:string):string;
+var pPosI:integer;
+var pPosF:integer;
+var pNovoValor:string;
+begin
+   result := '';
+   pNovoValor:='';
+   pPosI:=1;
+   while true do
+     begin
+       pPosF := pos('.',pValor);
+       if pPosF > 0 then
+          begin
+            pNovoValor:=pNovoValor+copy(pValor,pPosI,pPosF - 1);
+            pValor:=copy(pValor,pPosF+1,length(pValor));
+          end
+       else
+          begin
+            result:=pNovoValor+pValor;
+            exit;
+          end;
+     end;
+ //endw
+end;
+
+function tiratracos(pValor:string):string;
+var pPosI:integer;
+var pPosF:integer;
+var pNovoValor:string;
+begin
+   result := '';
+   pNovoValor:='';
+   pPosI:=1;
+   while true do
+     begin
+       pPosF := pos('-',pValor);
+       if pPosF > 0 then
+          begin
+            pNovoValor:=pNovoValor+copy(pValor,pPosI,pPosF - 1);
+            pValor:=copy(pValor,pPosF+1,length(pValor));
+          end
+       else
+          begin
+            result:=pNovoValor+pValor;
+            exit;
+          end;
+     end;
+ //endw
+end;
+
+
+function tirabarras(pValor:string):string;
+var pPosI:integer;
+var pPosF:integer;
+var pNovoValor:string;
+begin
+   result := '';
+   pNovoValor:='';
+   pPosI:=1;
+   while true do
+     begin
+       pPosF := pos('/',pValor);
+       if pPosF > 0 then
+          begin
+            pNovoValor:=pNovoValor+copy(pValor,pPosI,pPosF - 1);
+            pValor:=copy(pValor,pPosF+1,length(pValor));
+          end
+       else
+          begin
+            result:=pNovoValor+pValor;
+            exit;
+          end;
+     end;
+ //endw
+end;
+
+
+
+function datacriexe:string;
+var  FlDt: Integer;
+begin
+  FlDt := FileAgeCreate(ParamStr(0));
+  result := DateToStr(FileDateToDateTime(FlDt));
+end;
+
+function datamodexe:string;
+var  FlDt: Integer;
+begin
+  FlDt := FileAge(ParamStr(0));
+  result := DateToStr(FileDateToDateTime(FlDt));
+
+end;
+
+function FileAgeCreate(const FileName: string): Integer;
+var
+  Handle: THandle;
+  FindData: TWin32FindData;
+  LocalFileTime: TFileTime;
+begin
+  Handle := FindFirstFile(PChar(FileName), FindData);
+  if Handle <> INVALID_HANDLE_VALUE then
+  begin
+    Windows.FindClose(Handle);
+    if (FindData.dwFileAttributes and FILE_ATTRIBUTE_DIRECTORY) = 0 then
+    begin
+      FileTimeToLocalFileTime(FindData.ftCreationTime, LocalFileTime);
+      if FileTimeToDosDateTime(LocalFileTime, LongRec(Result).Hi,
+        LongRec(Result).Lo) then Exit;
+    end;
+  end;
+  Result := -1;
+end;
+
+
+
 
 
 function PadL(s:string; n:integer): string;

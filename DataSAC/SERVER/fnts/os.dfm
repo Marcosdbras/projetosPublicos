@@ -1,7 +1,7 @@
 object frmOS: TfrmOS
-  Left = 213
-  Top = 306
-  Width = 799
+  Left = 225
+  Top = 138
+  Width = 872
   Height = 575
   Caption = 'O.S. | Ordem de Servi'#231'o'
   Color = clBtnFace
@@ -20,31 +20,31 @@ object frmOS: TfrmOS
   object Bevel2: TBevel
     Left = 0
     Top = 508
-    Width = 791
+    Width = 864
     Height = 3
     Align = alBottom
   end
   object Bevel3: TBevel
     Left = 0
     Top = 62
-    Width = 791
+    Width = 864
     Height = 3
     Align = alTop
   end
   object Bevel10: TBevel
     Left = 0
     Top = 185
-    Width = 791
+    Width = 864
     Height = 3
     Align = alTop
   end
   object PageView1: TPageView
     Left = 0
     Top = 188
-    Width = 791
+    Width = 864
     Height = 320
-    ActivePage = PageSheet7
-    ActivePageIndex = 4
+    ActivePage = PageSheet3
+    ActivePageIndex = 0
     AdaptiveColors = True
     Align = alClient
     BackgroundColor = 12508128
@@ -62,7 +62,7 @@ object frmOS: TfrmOS
     object PageSheet3: TPageSheet
       Left = 0
       Top = 19
-      Width = 791
+      Width = 864
       Height = 301
       Caption = 'F2 | Laudo'
       DisplayMode = tdTextOnly
@@ -128,17 +128,16 @@ object frmOS: TfrmOS
         Caption = 'Situa'#231#227'o:'
       end
       object Bevel4: TBevel
-        Left = 334
-        Top = 0
-        Width = 3
-        Height = 301
-        Align = alRight
+        Left = 333
+        Top = 4
+        Width = 1
+        Height = 285
       end
       object GroupBox3: TGroupBox
         Left = 5
-        Top = 8
+        Top = 5
         Width = 324
-        Height = 254
+        Height = 255
         Caption = 'Detectado (Parecer) / Previs'#227'o de Atendimento'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -149,7 +148,7 @@ object frmOS: TfrmOS
         TabOrder = 0
         object Label10: TLabel
           Left = 8
-          Top = 24
+          Top = 26
           Width = 27
           Height = 13
           Caption = 'Data:'
@@ -162,7 +161,7 @@ object frmOS: TfrmOS
         end
         object Label11: TLabel
           Left = 5
-          Top = 53
+          Top = 55
           Width = 40
           Height = 13
           Caption = 'T'#233'cnico:'
@@ -175,20 +174,20 @@ object frmOS: TfrmOS
         end
         object Label12: TLabel
           Left = 7
-          Top = 105
-          Width = 98
+          Top = 104
+          Width = 115
           Height = 13
           Caption = 'Defeitos Detectados'
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
         object Label41: TLabel
           Left = 5
-          Top = 77
+          Top = 79
           Width = 51
           Height = 13
           Caption = 'Setor/Lab:'
@@ -201,7 +200,7 @@ object frmOS: TfrmOS
         end
         object Label43: TLabel
           Left = 176
-          Top = 24
+          Top = 26
           Width = 27
           Height = 13
           Caption = 'Hora:'
@@ -214,7 +213,7 @@ object frmOS: TfrmOS
         end
         object DBDateEdit2: TDBDateEdit
           Left = 62
-          Top = 20
+          Top = 22
           Width = 91
           Height = 21
           DataField = 'DETECTADO_DATA'
@@ -255,7 +254,7 @@ object frmOS: TfrmOS
         end
         object enometecnico: TDBEdit
           Left = 130
-          Top = 49
+          Top = 51
           Width = 182
           Height = 21
           DataField = 'detectado_tecnico'
@@ -265,7 +264,7 @@ object frmOS: TfrmOS
         end
         object enomesetor: TDBEdit
           Left = 130
-          Top = 73
+          Top = 75
           Width = 182
           Height = 21
           DataField = 'setor'
@@ -275,7 +274,7 @@ object frmOS: TfrmOS
         end
         object DBEdit18: TDBEdit
           Left = 224
-          Top = 20
+          Top = 22
           Width = 87
           Height = 21
           DataField = 'DETECTADO_HORA'
@@ -287,7 +286,7 @@ object frmOS: TfrmOS
         end
         object EDETECTADO: TDBMemo
           Left = 5
-          Top = 120
+          Top = 119
           Width = 312
           Height = 128
           DataField = 'DETECTADO'
@@ -298,6 +297,7 @@ object frmOS: TfrmOS
           Font.Name = 'Courier New'
           Font.Style = []
           ParentFont = False
+          ScrollBars = ssVertical
           TabOrder = 4
           OnEnter = edetectadoEnter
           OnExit = edetectadoExit
@@ -305,7 +305,7 @@ object frmOS: TfrmOS
         end
         object etecnico: TRzDBButtonEdit
           Left = 61
-          Top = 49
+          Top = 51
           Width = 66
           Height = 21
           DataSource = dsos
@@ -318,7 +318,7 @@ object frmOS: TfrmOS
         end
         object esetor: TRzDBButtonEdit
           Left = 61
-          Top = 73
+          Top = 75
           Width = 66
           Height = 21
           DataSource = dsos
@@ -331,16 +331,16 @@ object frmOS: TfrmOS
         end
       end
       object Panel1: TPanel
-        Left = 337
+        Left = 336
         Top = 0
-        Width = 454
+        Width = 528
         Height = 301
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 2
         object Label51: TLabel
-          Left = 8
-          Top = 2
+          Left = 52
+          Top = 111
           Width = 433
           Height = 13
           Alignment = taCenter
@@ -353,10 +353,25 @@ object frmOS: TfrmOS
           Font.Style = [fsBold]
           ParentFont = False
         end
+        object Label49: TLabel
+          Left = 55
+          Top = 2
+          Width = 431
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Estado de conserva'#231#227'o do Equipamento'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
         object gconclusao: TGroupBox
           Left = 4
           Top = 224
-          Width = 446
+          Width = 520
           Height = 65
           Caption = 'Conclus'#227'o'
           Font.Charset = ANSI_CHARSET
@@ -497,7 +512,7 @@ object frmOS: TfrmOS
           object DBEdit11: TDBEdit
             Left = 75
             Top = 37
-            Width = 358
+            Width = 431
             Height = 21
             DataField = 'RETIRADO_POR'
             DataSource = dsos
@@ -508,10 +523,10 @@ object frmOS: TfrmOS
           end
         end
         object EINTERVENCAO: TDBMemo
-          Left = 5
-          Top = 18
-          Width = 442
-          Height = 191
+          Left = 1
+          Top = 128
+          Width = 525
+          Height = 90
           DataField = 'INTERVENCOES'
           DataSource = dsos
           Font.Charset = ANSI_CHARSET
@@ -520,9 +535,29 @@ object frmOS: TfrmOS
           Font.Name = 'Courier New'
           Font.Style = []
           ParentFont = False
+          ScrollBars = ssVertical
           TabOrder = 1
           OnEnter = eintervencaoEnter
           OnExit = eintervencaoExit
+        end
+        object EOBS: TDBMemo
+          Left = 2
+          Top = 17
+          Width = 523
+          Height = 90
+          DataField = 'OBS'
+          DataSource = dsos
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Courier New'
+          Font.Style = []
+          ParentFont = False
+          ScrollBars = ssVertical
+          TabOrder = 2
+          OnEnter = eobsEnter
+          OnExit = eobsExit
+          OnKeyPress = eobsKeyPress
         end
       end
       object combosituacao: TwwDBComboBox
@@ -561,7 +596,7 @@ object frmOS: TfrmOS
     object PageSheet1: TPageSheet
       Left = 0
       Top = 19
-      Width = 791
+      Width = 864
       Height = 301
       Caption = 'F3 | Servi'#231'os'
       DisplayMode = tdTextOnly
@@ -661,7 +696,7 @@ object frmOS: TfrmOS
       object Bevel11: TBevel
         Left = 0
         Top = 262
-        Width = 791
+        Width = 864
         Height = 3
         Align = alTop
       end
@@ -701,7 +736,7 @@ object frmOS: TfrmOS
       object gridservico: TwwDBGrid
         Left = 0
         Top = 0
-        Width = 791
+        Width = 864
         Height = 262
         DittoAttributes.ShortCutDittoField = 0
         DittoAttributes.ShortCutDittoRecord = 0
@@ -885,7 +920,7 @@ object frmOS: TfrmOS
     object PageSheet2: TPageSheet
       Left = 0
       Top = 19
-      Width = 791
+      Width = 864
       Height = 301
       Caption = 'F4 | Produtos'
       DisplayMode = tdTextOnly
@@ -985,28 +1020,28 @@ object frmOS: TfrmOS
       object Bevel12: TBevel
         Left = 0
         Top = 260
-        Width = 791
+        Width = 864
         Height = 3
         Align = alTop
       end
       object Bevel13: TBevel
         Left = 0
         Top = 263
-        Width = 791
+        Width = 864
         Height = 0
         Align = alTop
       end
       object Bevel14: TBevel
         Left = 0
         Top = 25
-        Width = 791
+        Width = 864
         Height = 3
         Align = alTop
       end
       object wwDBGrid2: TwwDBGrid
         Left = 0
         Top = 28
-        Width = 791
+        Width = 864
         Height = 232
         DittoAttributes.ShortCutDittoField = 0
         DittoAttributes.ShortCutDittoRecord = 0
@@ -1246,7 +1281,7 @@ object frmOS: TfrmOS
       object PESTOQUE: TPanel
         Left = 0
         Top = 0
-        Width = 791
+        Width = 864
         Height = 25
         Align = alTop
         BevelOuter = bvNone
@@ -1273,7 +1308,7 @@ object frmOS: TfrmOS
     object PageSheet5: TPageSheet
       Left = 0
       Top = 19
-      Width = 791
+      Width = 864
       Height = 301
       Caption = 'F5 | Deslocamento'
       Color = clBtnFace
@@ -1578,7 +1613,7 @@ object frmOS: TfrmOS
     object PageSheet7: TPageSheet
       Left = 0
       Top = 19
-      Width = 791
+      Width = 864
       Height = 301
       Caption = 'F6 | Terceiros'
       DisplayMode = tdTextOnly
@@ -1860,7 +1895,7 @@ object frmOS: TfrmOS
   object pgravar: TFlatPanel
     Left = 0
     Top = 511
-    Width = 791
+    Width = 864
     Height = 37
     ParentColor = True
     ColorHighLight = clBtnFace
@@ -1869,7 +1904,7 @@ object frmOS: TfrmOS
     TabOrder = 3
     UseDockManager = True
     object Bevel1: TBevel
-      Left = 245
+      Left = 318
       Top = 1
       Width = 3
       Height = 35
@@ -2034,7 +2069,7 @@ object frmOS: TfrmOS
       Appearance.GradientChecked = ggVertical
     end
     object Panel2: TPanel
-      Left = 248
+      Left = 321
       Top = 1
       Width = 542
       Height = 35
@@ -2059,7 +2094,7 @@ object frmOS: TfrmOS
         Left = 404
         Top = 2
         Width = 134
-        Height = 29
+        Height = 31
         DataField = 'SUBTOTAL'
         DataSource = dsos
         DecimalPlaces = 15
@@ -2079,7 +2114,7 @@ object frmOS: TfrmOS
   object FlatPanel2: TFlatPanel
     Left = 0
     Top = 0
-    Width = 791
+    Width = 864
     Height = 62
     ParentColor = True
     ColorHighLight = clBtnFace
@@ -2395,7 +2430,7 @@ object frmOS: TfrmOS
         000049454E44AE426082}
       ParentFont = False
       TabOrder = 6
-      Version = '5.0.0.0'
+      Version = '5.4.0.0'
     end
     object enomeatendente: TDBEdit
       Left = 500
@@ -2410,7 +2445,7 @@ object frmOS: TfrmOS
     object COMBOTIPO: TwwDBComboBox
       Left = 688
       Top = 4
-      Width = 95
+      Width = 169
       Height = 21
       ShowButton = True
       Style = csDropDownList
@@ -2457,7 +2492,7 @@ object frmOS: TfrmOS
     object DBEdit10: TDBEdit
       Left = 551
       Top = 34
-      Width = 231
+      Width = 306
       Height = 21
       DataField = 'SOLICITANTE'
       DataSource = dsos
@@ -2483,7 +2518,7 @@ object frmOS: TfrmOS
   object Panel3: TPanel
     Left = 0
     Top = 65
-    Width = 791
+    Width = 864
     Height = 120
     Align = alTop
     BevelOuter = bvNone
@@ -2604,36 +2639,6 @@ object frmOS: TfrmOS
       Width = 2
       Height = 108
     end
-    object Label48: TLabel
-      Left = 376
-      Top = 0
-      Width = 409
-      Height = 13
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Defeito/Motivo apresentado'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label49: TLabel
-      Left = 382
-      Top = 58
-      Width = 409
-      Height = 13
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Observa'#231#245'es'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-    end
     object Label30: TLabel
       Left = 336
       Top = 86
@@ -2647,6 +2652,21 @@ object frmOS: TfrmOS
       Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
+      ParentFont = False
+    end
+    object Label48: TLabel
+      Left = 414
+      Top = 2
+      Width = 369
+      Height = 13
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Defeito/Motivo apresentado/Relato do cliente'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
       ParentFont = False
     end
     object AdvShapeButton2: TAdvShapeButton
@@ -2880,8 +2900,8 @@ object frmOS: TfrmOS
         3BD33FC6DF3F4F7E78F2F82840000DEB415980001AD6632800010600F885CA7C
         5180F7C60000000049454E44AE426082}
       ParentFont = False
-      TabOrder = 8
-      Version = '5.0.0.0'
+      TabOrder = 6
+      Version = '5.4.0.0'
     end
     object combomarca: TwwDBLookupCombo
       Left = 152
@@ -2968,42 +2988,6 @@ object frmOS: TfrmOS
         'S'
         'N')
     end
-    object EDEFEITO: TDBMemo
-      Left = 416
-      Top = 14
-      Width = 369
-      Height = 43
-      DataField = 'DEFEITO'
-      DataSource = dsos
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Courier New'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 6
-      OnEnter = edefeitoEnter
-      OnExit = edefeitoExit
-      OnKeyPress = edefeitoKeyPress
-    end
-    object EOBS: TDBMemo
-      Left = 416
-      Top = 72
-      Width = 369
-      Height = 39
-      DataField = 'OBS'
-      DataSource = dsos
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Courier New'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 7
-      OnEnter = eobsEnter
-      OnExit = eobsExit
-      OnKeyPress = eobsKeyPress
-    end
     object bdias: TRxCalcEdit
       Left = 370
       Top = 83
@@ -3023,6 +3007,25 @@ object frmOS: TfrmOS
       OnEnter = COMBOTIPOEnter
       OnExit = COMBOTIPOExit
       OnKeyPress = wwDBComboBox1KeyPress
+    end
+    object EDEFEITO: TDBMemo
+      Left = 413
+      Top = 18
+      Width = 447
+      Height = 94
+      DataField = 'DEFEITO'
+      DataSource = dsos
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Courier New'
+      Font.Style = []
+      ParentFont = False
+      ScrollBars = ssVertical
+      TabOrder = 7
+      OnEnter = edefeitoEnter
+      OnExit = edefeitoExit
+      OnKeyPress = edefeitoKeyPress
     end
   end
   object dsos: TDataSource
@@ -3101,12 +3104,11 @@ object frmOS: TfrmOS
     BeforePost = qros_servicoBeforePost
     AfterPost = qros_servicoAfterPost
     OnPostError = qros_servicoPostError
-    Active = True
     SQL.Strings = (
       'SELECT * FROM C000053')
     Params = <>
-    Left = 104
-    Top = 331
+    Left = 304
+    Top = 403
     object qros_servicoCODSERVICO: TStringField
       DisplayLabel = 'C'#243'digo'
       DisplayWidth = 7
@@ -3167,8 +3169,8 @@ object frmOS: TfrmOS
   end
   object dsos_produto: TDataSource
     DataSet = qros_produto
-    Left = 680
-    Top = 411
+    Left = 696
+    Top = 251
   end
   object qrproduto_grade: TZQuery
     Connection = frmmodulo.Conexao
@@ -3335,7 +3337,7 @@ object frmOS: TfrmOS
     SQL.Strings = (
       'select * from cl00002')
     Params = <>
-    Left = 352
+    Left = 88
     Top = 416
     object qrOS_contasreceberPRESTACAO: TIntegerField
       DisplayLabel = 'N'#186
@@ -3614,18 +3616,17 @@ object frmOS: TfrmOS
   end
   object qrproduto: TZQuery
     Connection = frmmodulo.Conexao
-    Active = True
     SQL.Strings = (
       'select * from c000025')
     Params = <>
-    Left = 600
-    Top = 223
+    Left = 384
+    Top = 247
   end
   object query: TZQuery
     Connection = frmmodulo.Conexao
     Params = <>
-    Left = 33
-    Top = 447
+    Left = 25
+    Top = 391
   end
   object qrcontasreceber: TZQuery
     Connection = frmmodulo.Conexao
@@ -3854,5 +3855,10 @@ object frmOS: TfrmOS
       Origin = 'C000007.COD_MUNICIPIO_IBGE'
       Size = 10
     end
+  end
+  object dsindice: TDataSource
+    DataSet = frmmodulo.qrIndice
+    Left = 520
+    Top = 363
   end
 end

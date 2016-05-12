@@ -1,8 +1,8 @@
 object frmPrincipal: TfrmPrincipal
   Left = 2
   Top = 1
-  Width = 798
-  Height = 568
+  Width = 1334
+  Height = 726
   Caption = 'DataSAC 2.5 - Retaguarda'
   Color = 15985594
   Font.Charset = ANSI_CHARSET
@@ -23,16 +23,16 @@ object frmPrincipal: TfrmPrincipal
   object pfundo: TPanel
     Left = 0
     Top = 16
-    Width = 790
-    Height = 506
+    Width = 1326
+    Height = 664
     Align = alClient
     Color = 15784647
     TabOrder = 0
     object imgFundo: TImage
       Left = 97
       Top = 73
-      Width = 692
-      Height = 304
+      Width = 1228
+      Height = 462
       Align = alClient
       AutoSize = True
       Center = True
@@ -43,13 +43,13 @@ object frmPrincipal: TfrmPrincipal
       Left = 1
       Top = 73
       Width = 96
-      Height = 304
+      Height = 462
       Align = alLeft
     end
     object psuper: TAdvOfficePager
       Left = 1
-      Top = 377
-      Width = 788
+      Top = 535
+      Width = 1324
       Height = 109
       AdvOfficePagerStyler = AdvOfficePagerOfficeStyler1
       Align = alBottom
@@ -349,7 +349,7 @@ object frmPrincipal: TfrmPrincipal
       object AdvOfficePage1: TAdvOfficePage
         Left = 1
         Top = 24
-        Width = 786
+        Width = 1322
         Height = 83
         Caption = 'Informa'#231#245'es da Empresa'
         ImageIndex = 4
@@ -806,7 +806,7 @@ object frmPrincipal: TfrmPrincipal
       object AdvOfficePage2: TAdvOfficePage
         Left = 1
         Top = 24
-        Width = 786
+        Width = 1322
         Height = 83
         Caption = 'Contas a Vencer Hoje'
         ImageIndex = 6
@@ -866,7 +866,7 @@ object frmPrincipal: TfrmPrincipal
         TabAppearance.BackGround.ColorTo = 15128792
         TabAppearance.BackGround.Direction = gdVertical
         object AdvPanel2: TAdvPanel
-          Left = 586
+          Left = 1122
           Top = 2
           Width = 198
           Height = 79
@@ -916,7 +916,7 @@ object frmPrincipal: TfrmPrincipal
         object wwDBGrid2: TwwDBGrid
           Left = 2
           Top = 2
-          Width = 584
+          Width = 1120
           Height = 79
           DittoAttributes.ShortCutDittoField = 0
           DittoAttributes.ShortCutDittoRecord = 0
@@ -951,7 +951,7 @@ object frmPrincipal: TfrmPrincipal
       object AdvOfficePage3: TAdvOfficePage
         Left = 1
         Top = 24
-        Width = 786
+        Width = 1322
         Height = 83
         Caption = 'Clientes Aniversariantes'
         ImageIndex = 7
@@ -1013,7 +1013,7 @@ object frmPrincipal: TfrmPrincipal
         object wwDBGrid1: TwwDBGrid
           Left = 2
           Top = 2
-          Width = 584
+          Width = 1120
           Height = 79
           DittoAttributes.ShortCutDittoField = 0
           DittoAttributes.ShortCutDittoRecord = 0
@@ -1047,7 +1047,7 @@ object frmPrincipal: TfrmPrincipal
           PaintOptions.ActiveRecordColor = clBlack
         end
         object AdvPanel3: TAdvPanel
-          Left = 586
+          Left = 1122
           Top = 2
           Width = 198
           Height = 79
@@ -1108,8 +1108,8 @@ object frmPrincipal: TfrmPrincipal
     end
     object pstatus: TAdvOfficeStatusBar
       Left = 1
-      Top = 486
-      Width = 788
+      Top = 644
+      Width = 1324
       Height = 19
       AnchorHint = False
       Images = ImageList1
@@ -1485,7 +1485,7 @@ object frmPrincipal: TfrmPrincipal
     object AdvPanel1: TAdvPanel
       Left = 1
       Top = 1
-      Width = 788
+      Width = 1324
       Height = 72
       Align = alTop
       BevelOuter = bvNone
@@ -2963,6 +2963,7 @@ object frmPrincipal: TfrmPrincipal
           454E44AE426082}
         Transparent = True
         TabOrder = 7
+        Visible = False
         OnClick = AdvGlowButton8Click
         Appearance.BorderColor = 14727579
         Appearance.BorderColorHot = 10079963
@@ -4896,6 +4897,7 @@ object frmPrincipal: TfrmPrincipal
           AB6A7BFDFAFF03DEE7AF0A104744970000000049454E44AE426082}
         Transparent = True
         TabOrder = 8
+        Visible = False
         OnClick = AdvGlowButton9Click
         Appearance.BorderColor = 14727579
         Appearance.BorderColorHot = 10079963
@@ -6858,6 +6860,7 @@ object frmPrincipal: TfrmPrincipal
           00000049454E44AE426082}
         Transparent = True
         TabOrder = 9
+        Visible = False
         OnClick = AdvGlowButton10Click
         Appearance.BorderColor = 14727579
         Appearance.BorderColorHot = 10079963
@@ -10779,7 +10782,7 @@ object frmPrincipal: TfrmPrincipal
       Top = 175
       Width = 89
       Height = 80
-      Caption = 'F3 - Desconectar Caixa'
+      Caption = 'Desconectar Caixa'
       NotesFont.Charset = DEFAULT_CHARSET
       NotesFont.Color = clWindowText
       NotesFont.Height = -11
@@ -10854,11 +10857,338 @@ object frmPrincipal: TfrmPrincipal
       Appearance.GradientChecked = ggVertical
       Layout = blGlyphTop
     end
+    object btnos: TAdvGlowButton
+      Left = 4
+      Top = 270
+      Width = 89
+      Height = 80
+      Caption = 'F9 - Ordem de Servi'#231'o'
+      NotesFont.Charset = DEFAULT_CHARSET
+      NotesFont.Color = clWindowText
+      NotesFont.Height = -11
+      NotesFont.Name = 'Tahoma'
+      NotesFont.Style = []
+      Picture.Data = {
+        89504E470D0A1A0A0000000D494844520000002300000024080600000003DC83
+        E10000000473424954080808087C086488000000097048597300000B1200000B
+        1201D2DD7EFC0000001C74455874536F6674776172650041646F626520466972
+        65776F726B7320435336E8BCB28C00000884494441545885B5987F5054D715C7
+        BFF7BDB7CBBAEC22011436A8801A1DD318C55FADA613B1505AA63111629B186C
+        9B3899DAD4A66326ADA9C946742426EA182763AD999A44DB4A358668359DFA03
+        8BD2A8D1A64E5042017F80CA0AABBBC8C2EEB23FDEBBF7F48FDD4737B86BD034
+        67E6CEBE39F7DC7B3FF7DC73CE7D6F1911E1EB127FEDCC5FC1DF763679AEB36E
+        30F6ECEB82F11D9D5B4E81B6AD9222B733AE95984B1A5BBF6C8CF225FDC6D6D6
+        D649AAAA0E9765B97DECD8B1E70603D25B5BBA58BBD9F836BC6D502CD671B2D5
+        B60140E95DC33436363E1B08042A354DCB2422489204AFD77B565194B513274E
+        DC99689CE7F0A3BF0CBB3FDF247ADBA024013CE80571BF18CC26A4441D7D7D7D
+        F55EAFB7331008201008C0E7F3A1BBBB7B92CFE7FB4B7D7DFD5BF1C6B8FFF6C8
+        D2BE6B0D9B4237DA4004080E700D206558F660606E1B33C78E1D3310D1BB44F4
+        6300202270CE61369B61369B4BA64C997250B7EDDC91FF98E675FF55F538A098
+        005901240320CB80621D0EE3B06FBC27C9E1D7CD05C72FDEB16700A0A0A0409D
+        3367CE4F88E81521844644608C21100820180C3E1E6B1BE8F84F53B8DBE10003
+        8416F18AD0002100CD7B03AAFBF3453C106CF6FFE3A14FFD07F3BF79C730BA14
+        1616AE21A2DD4208101184100887C3A9B136A39785CE3309B3017C28388E720D
+        3EA1458048009AD785B0F38CACB93F9B46D477C8BF7FB86DE03A0A00381C8E24
+        B7DB2D264F9EAC260212425C00224745445055B57DA0CDE8DF522B80F900D0B6
+        968D07B057304C0003C00026013C1800933A864A8A520660F32D9E713A9D0F10
+        D1E986868631896018633384108836F27ABD7B12BA1240DE4BD4E24A9EBD3BCC
+        4D40D4435C033807B8AA4228431F1E38460280AEAEAEA11E8F273F140A9D6A68
+        68281C6874E6CC991F08214A7418599669D4A851B36E07737ADBC2A53703CAAB
+        97FD36A8AA04E21110E2000F86414279BCEF78D913E8DC630CD4DC3F0D8866D3
+        912347E611D15E2282D56A25B3D9BC64D2A4495B00A0A9A9A9E4DAB56BBB82C1
+        600A80FE98B1582C48494979575194C5F9F9F93C16E4D47B4F2D0F7A1C6B825E
+        2704332159F262B4F90A64038129806C00241930A48D118A25AB95899EB18CA4
+        718C885053533383884EEB0B252727C364329DE19C739FCF3723180CF62FA407
+        31E71C43860C415A5A5A9D41919F9C3A6DBA13004EBEB36055C0D3BE22E47541
+        92233555130AAC720F722D0E180C1C2C9AF2B21C497F25C9003925771523221C
+        3E7CD84844CD4494A72FC418EBF782EE91818D730E83C1808C8C61574C2679BE
+        FFE397E786C2A115219F1B92A417770600504969B9CFD2BA2535C9B78E2930CA
+        86682D8A7A4A369A374900505C5C1C16423C2D8408E98BEBF1A103C56B00100C
+        06D1D1D191E3F5853F552DE356F45E6F851032340E681AA069048DD30588F077
+        1F78C9FB16177855C40474FF73B0AFAEBFCE949494FC93886609210E10912FBA
+        7B2F119D20A2178410071301699A8A6B8E7684739E40CA83CF20D4E7871AD622
+        99C3D1A86A985DFA5A533B00F0306646F591C2186927D520F6C5BD0EF6EDDB97
+        4544E944E42E2D2DBD0E00B9B9B958B76EDD1622FA79BC23134240D33852878D
+        40B2BF1137FFB5859816FA840C431E5BB0A1C9ADCF7D690DFB119351212BB85F
+        36C02F1BB007C0F3B6E7A8E78EDF6776EDDAB5541036109144827F01265A0C61
+        491D8E34436F4873B57EEB919FADAC1F38C7D9258CA5E4628224A13BE745EAD4
+        F577F572B5EBCFEFCCE3CCB84783819116BA0548D35418922CC8CEB65D4D4DB1
+        2C9C3973E6C7839977507753AC9CFBFB6673D2A5DD3F0D7FB615DCEB84904D10
+        9C83731E13470CC1BE5E5CBAD032CAE9741EADABAB5B3498B9EFC833A7DE5F6D
+        6D6FFAF701CFF5B68778C00366B4401A57064A9F000AFBFA3D139B819AA6C166
+        B3213333737D6161E1B2FF0B4CDD9FECE91DE7CF1EF238DBA6722D14A9234205
+        1107CB29046CD341428B0BA4AA2AD2D3D33172E4C8FD8AA22C2C2A2AF2C65B63
+        50C754B3F5E5ACF6A6FAA32E47EBD450300C2EE448FD100AB830406BFEE87742
+        684F732EB810023C7A6CFAD131C6E0743AD1DCDCFCA8CFE73B515B5B3BFEAE3C
+        7370CBB251CED6C69AEE8ED6715C68902419040014A9AD8CE1F72F54352F0180
+        8D1B371610D14E2144566C40C7665A525212C68C19D39D9696565E54547460D0
+        307BDF5C3AB6EB6A4BCDCD8EB65C220E267DD1910CD8F09BF75B7E1DAB5BBF7E
+        7D0E11550B21A6C51E992E7AA1CCCBCB436666E6D2E2E2E2FEF7E98430D56B97
+        4C703B2E1EE9EEBC7C2F09710B0880D79657B7D8E38D5DBD7AB54992A46D44F4
+        64BC7EFD5ECBCECEC6881123DECEC8C8787EFAF4E95A5C980FDE782EBFCB71F1
+        7077E7950C02C0181B68F2CAF2EA9635717711239595951500560E506B009EE5
+        9C9FE79C7F98999969B3D96C7F282B2B5B7CCB76D72D787062E7C573B5DDCEAB
+        89405E1C0C0800D8EDF655009E0210D2759CF36ABBDDFEC78A8A8A4F4C2653C8
+        E572A1BDBD7D2210279BB81A9AE7EB76A522FA2530407EB1BCBAE5CDC180C400
+        ED04F03080AB0090979737ACADAD6DD6F6EDDBF773CE73154581C7E3D90CC489
+        99D7E78FBF0FC07100C307CCBB687975CBB63B018995CACACA2C21C40756ABF5
+        DBC9C9C970B95C7ADA57DBEDF61F02713CB3BCBAE50280EF01E8E957122DF82A
+        200060B7DB9D369BADA0A7A7675B474707A2DF60870094EB3609B369E5772CE3
+        0D96B4677838F0D18A83AE135F05E496B957AE9CC71833565454EC8ED5332242
+        5555951180058039FA6B32DE73AF621C9AA5AABD2E73E8667B0EFEF727814E2F
+        0348039034602D3F806E7DFE98DF3E001EC698B05AAD4E93C9D4DBD5D595C439
+        0F44FB7C6CC78E1D1900E601F83E001B80F41828232247698A99F86E85239255
+        02800EE005E0067019C06E25AA3809C015DDE950DD3B0052A3100CC03D51B858
+        4954BED9001B5FB4490054443CA702F020129B370034DDF63AA8AAAA92A38F12
+        80640086C41B4F288488278251485E5E5E1E77D1FF02E48F357D3404DEC60000
+        000049454E44AE426082}
+      Transparent = True
+      TabOrder = 6
+      OnClick = btnosClick
+      Appearance.BorderColor = 14727579
+      Appearance.BorderColorHot = 10079963
+      Appearance.BorderColorDown = 4548219
+      Appearance.Color = 15653832
+      Appearance.ColorTo = 16178633
+      Appearance.ColorChecked = 7915518
+      Appearance.ColorCheckedTo = 11918331
+      Appearance.ColorDisabled = 15921906
+      Appearance.ColorDisabledTo = 15921906
+      Appearance.ColorDown = 7778289
+      Appearance.ColorDownTo = 4296947
+      Appearance.ColorHot = 15465983
+      Appearance.ColorHotTo = 11332863
+      Appearance.ColorMirror = 15586496
+      Appearance.ColorMirrorTo = 16245200
+      Appearance.ColorMirrorHot = 5888767
+      Appearance.ColorMirrorHotTo = 10807807
+      Appearance.ColorMirrorDown = 946929
+      Appearance.ColorMirrorDownTo = 5021693
+      Appearance.ColorMirrorChecked = 10480637
+      Appearance.ColorMirrorCheckedTo = 5682430
+      Appearance.ColorMirrorDisabled = 11974326
+      Appearance.ColorMirrorDisabledTo = 15921906
+      Appearance.GradientHot = ggVertical
+      Appearance.GradientMirrorHot = ggVertical
+      Appearance.GradientDown = ggVertical
+      Appearance.GradientMirrorDown = ggVertical
+      Appearance.GradientChecked = ggVertical
+      Layout = blGlyphTop
+    end
+    object pnlcentral: TPanel
+      Left = 104
+      Top = 86
+      Width = 1209
+      Height = 441
+      BevelInner = bvLowered
+      BevelOuter = bvLowered
+      Color = 16776176
+      TabOrder = 7
+      object Label6: TLabel
+        Left = 8
+        Top = 15
+        Width = 179
+        Height = 29
+        Caption = 'Prezado cliente, '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label8: TLabel
+        Left = 8
+        Top = 41
+        Width = 401
+        Height = 29
+        Caption = 'Este programa tem data de expira'#231#227'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label11: TLabel
+        Left = 8
+        Top = 69
+        Width = 819
+        Height = 29
+        Caption = 
+          'isto ocorre pelo fato da necessidade de  manter manuten'#231#227'o peri'#243 +
+          'dica desta'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label12: TLabel
+        Left = 8
+        Top = 97
+        Width = 773
+        Height = 29
+        Caption = 
+          'aplica'#231#227'o, gerando custo para os desenvolvedores, parceiros e cl' +
+          'ientes.'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label13: TLabel
+        Left = 8
+        Top = 127
+        Width = 704
+        Height = 29
+        Caption = 
+          'Por gentileza entre em contato com suporte t'#233'cnico nos telefones' +
+          ':'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label14: TLabel
+        Left = 8
+        Top = 157
+        Width = 529
+        Height = 29
+        Caption = 'DDD (11) 97043-3730 /  96393-0108  /   3042-3730'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label15: TLabel
+        Left = 8
+        Top = 341
+        Width = 309
+        Height = 29
+        Caption = 'Obrigado pela compreens'#227'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label16: TLabel
+        Left = 8
+        Top = 395
+        Width = 233
+        Height = 29
+        Caption = 'Respons'#225'vel T'#233'cnico'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label17: TLabel
+        Left = 8
+        Top = 368
+        Width = 134
+        Height = 29
+        Caption = 'Marcos Br'#225's'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label18: TLabel
+        Left = 9
+        Top = 182
+        Width = 418
+        Height = 29
+        Caption = 'ou acesse o site www.marcosbras.com'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lbldatacriexe: TLabel
+        Left = 1000
+        Top = 112
+        Width = 50
+        Height = 11
+        Caption = 'lbldatacriexe'
+        Visible = False
+      end
+      object lbldatamodexe: TLabel
+        Left = 1000
+        Top = 128
+        Width = 59
+        Height = 11
+        Caption = 'lbldatamodexe'
+        Visible = False
+      end
+      object lblmensagem: TLabel
+        Left = 1000
+        Top = 144
+        Width = 54
+        Height = 11
+        Caption = 'lblmensagem'
+        Visible = False
+      end
+      object Button1: TButton
+        Left = 296
+        Top = 369
+        Width = 558
+        Height = 57
+        Caption = 'FECHAR MENSAGEM E CONTINUAR UTILIZAR AT'#201' EXPIRAR'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
+      object Memo1: TMemo
+        Left = 8
+        Top = 212
+        Width = 841
+        Height = 129
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlue
+        Font.Height = -19
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        Lines.Strings = (
+          'Memo1')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 1
+      end
+      object reResp: TMemo
+        Left = 856
+        Top = 214
+        Width = 321
+        Height = 124
+        Lines.Strings = (
+          'reResp')
+        TabOrder = 2
+      end
+    end
   end
   object ptopo2: TAdvOfficeStatusBar
     Left = 0
     Top = 0
-    Width = 790
+    Width = 1326
     Height = 16
     AnchorHint = False
     Align = alTop
@@ -13131,10 +13461,12 @@ object frmPrincipal: TfrmPrincipal
       end
       object NotasdeVendas1: TMenuItem
         Caption = 'Notas de Vendas'
+        Visible = False
         OnClick = NotasdeVendas1Click
       end
       object NotaFiscal2: TMenuItem
         Caption = 'Nota Fiscal Eletr'#244'nica'
+        Visible = False
         object EmissoNFe201: TMenuItem
           Caption = '&Emiss'#227'o (NF-e 2.0)'
           OnClick = EmissoNFe201Click
@@ -13154,14 +13486,17 @@ object frmPrincipal: TfrmPrincipal
       end
       object ECFMovimentoDirio1: TMenuItem
         Caption = 'ECF - Movimento Di'#225'rio'
+        Visible = False
         OnClick = ECFMovimentoDirio1Click
       end
       object SintegraRegistroFiscal1: TMenuItem
         Caption = 'Sintegra - Registro Fiscal'
+        Visible = False
         OnClick = SintegraRegistroFiscal1Click
       end
       object ECFSpedFiscal1: TMenuItem
         Caption = 'ECF - Sped Fiscal'
+        Visible = False
         OnClick = ECFSpedFiscal1Click
       end
       object ControledeEntrega1: TMenuItem
@@ -13263,6 +13598,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object Caixa3: TMenuItem
         Caption = 'Caixa'
+        Visible = False
         OnClick = Caixa3Click
       end
       object EtiquetasdeProdutos1: TMenuItem
@@ -13273,23 +13609,26 @@ object frmPrincipal: TfrmPrincipal
         Caption = 'Ordem de Servi'#231'o'
         OnClick = BROSClick
       end
-      object ServiosPeridicos1: TMenuItem
-        Caption = 'Servi'#231'os Peri'#243'dicos'
-        OnClick = ServiosPeridicos1Click
-      end
       object PercentualVendasGrupoMarcas1: TMenuItem
         Caption = 'Percentual/Vendas (Grupo/Marca)'
         OnClick = PercentualVendasGrupoMarcas1Click
       end
+      object ServiosPeridicos1: TMenuItem
+        Caption = 'Servi'#231'os Peri'#243'dicos'
+        OnClick = ServiosPeridicos1Click
+      end
       object Fretes1: TMenuItem
         Caption = 'Fretes'
+        Visible = False
       end
       object FluxodeCaixa1: TMenuItem
         Caption = 'Fluxo de Caixa'
+        Visible = False
         OnClick = FluxodeCaixa1Click
       end
       object DRE1: TMenuItem
         Caption = 'DRE'
+        Visible = False
         OnClick = DRE1Click
       end
     end
@@ -13467,7 +13806,7 @@ object frmPrincipal: TfrmPrincipal
     Demostracao = True
     Informacoes_adicionais = False
     Mostrar_Tela_Primeira_Vez = True
-    Dias_Demostracao = 15
+    Dias_Demostracao = 35
     Local_Registro = '\Software\Appro'
     Chave_Criptografia = 'LockApplication'
     Titulo_das_janelas = 'Sistema'
@@ -13488,5 +13827,65 @@ object frmPrincipal: TfrmPrincipal
     EMAIL_Dias_enviar = 180
     Left = 1040
     Top = 360
+  end
+  object XMLEnvio: TXMLDocument
+    XML.Strings = (
+      '<?xml version="1.0" encoding="utf-8" ?><response>'
+      
+        '<cep>69960-000</cep><uf>AC</uf><cidade>feijo</cidade><bairro></b' +
+        'airro><tipo_logradouro></tipo_logradouro><logradouro></logradour' +
+        'o><resultado></resultado><resultado_txt></resultado_txt><ibge_uf' +
+        '>12</ibge_uf><ibge_municipio>1200302</ibge_municipio><erro>0</er' +
+        'ro><msgerro></msgerro></response>')
+    Left = 952
+    Top = 122
+    DOMVendorDesc = 'MSXML'
+  end
+  object XMLDocument1: TXMLDocument
+    XML.Strings = (
+      '<?xml version="1.0" encoding="utf-8" ?><response>'
+      
+        '<cep>69960-000</cep><uf>AC</uf><cidade>feijo</cidade><bairro></b' +
+        'airro><tipo_logradouro></tipo_logradouro><logradouro></logradour' +
+        'o><resultado></resultado><resultado_txt></resultado_txt><ibge_uf' +
+        '>12</ibge_uf><ibge_municipio>1200302</ibge_municipio><erro>0</er' +
+        'ro><msgerro></msgerro></response>')
+    Left = 976
+    Top = 180
+    DOMVendorDesc = 'MSXML'
+  end
+  object IdHTTP1: TIdHTTP
+    AllowCookies = True
+    ProxyParams.BasicAuthentication = False
+    ProxyParams.ProxyPort = 0
+    Request.ContentLength = -1
+    Request.ContentRangeEnd = -1
+    Request.ContentRangeStart = -1
+    Request.ContentRangeInstanceLength = -1
+    Request.Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    Request.BasicAuthentication = False
+    Request.UserAgent = 'Mozilla/3.0 (compatible; Indy Library)'
+    Request.Ranges.Units = 'bytes'
+    Request.Ranges = <>
+    HTTPOptions = [hoForceEncodeParams]
+    Left = 880
+    Top = 268
+  end
+  object lHTTP: TIdHTTP
+    AllowCookies = True
+    ProxyParams.BasicAuthentication = False
+    ProxyParams.ProxyPort = 0
+    Request.ContentLength = -1
+    Request.ContentRangeEnd = -1
+    Request.ContentRangeStart = -1
+    Request.ContentRangeInstanceLength = -1
+    Request.Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    Request.BasicAuthentication = False
+    Request.UserAgent = 'Mozilla/3.0 (compatible; Indy Library)'
+    Request.Ranges.Units = 'bytes'
+    Request.Ranges = <>
+    HTTPOptions = [hoForceEncodeParams]
+    Left = 976
+    Top = 266
   end
 end

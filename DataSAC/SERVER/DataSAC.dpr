@@ -423,12 +423,22 @@ if Hand = 0 then
 // Se ainda não existe, inicializada
 begin
   Application.Initialize;
+  frmSplash :=tfrmSplash.Create(application);
+  frmSplash.Show;
+  frmSplash.Update;
+
   Application.Title := 'DataSAC - Retaguarda';
-  Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(Tfrmsplash, frmsplash);
-  frmsplash.showmodal;
-  application.ProcessMessages;
   Application.CreateForm(Tfrmmodulo, frmmodulo);
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+
+
+
+    frmSplash.Hide;
+  frmSplash.Free;
+
+  //frmsplash.showmodal;
+  //application.ProcessMessages;
+  //Application.CreateForm(Tfrmmodulo, frmmodulo);
 
 
   Application.Run;

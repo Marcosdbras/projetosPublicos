@@ -4501,8 +4501,6 @@ type
     procedure AtualizaDados;
     procedure Cds_IndiceAfterApplyUpdates(Sender: TObject;
       var OwnerData: OleVariant);
-    procedure Cds_IndiceAfterDelete(DataSet: TDataSet);
-    procedure Cds_IndiceBeforeDelete(DataSet: TDataSet);
     procedure Cds_IndiceNewRecord(DataSet: TDataSet);
     procedure Cds_ProdutosAfterScroll(DataSet: TDataSet);
     procedure ler_dprod;
@@ -4626,6 +4624,8 @@ type
     procedure atualiza_bd;
     procedure roda_script_banco;
     procedure cds_logtableBeforePost(DataSet: TDataSet);
+    procedure Cds_sVendaAfterDelete(DataSet: TDataSet);
+    procedure Cds_sVendaBeforeDelete(DataSet: TDataSet);
 
 
 
@@ -7429,16 +7429,6 @@ begin
 finalizatransacao;
 end;
 
-procedure TfrmDados.Cds_IndiceAfterDelete(DataSet: TDataSet);
-begin
-AtualizaDados;
-end;
-
-procedure TfrmDados.Cds_IndiceBeforeDelete(DataSet: TDataSet);
-begin
-IniciaTransacao;
-end;
-
 procedure TfrmDados.Cds_IndiceNewRecord(DataSet: TDataSet);
 var
   ResultSet : tCustomSqlDataSet;
@@ -9117,6 +9107,14 @@ end;
 
 procedure tfrmdados.Permite_Excluir(DataSet: TDataSet);
 begin
+     if not bpedidoE then
+        begin
+          cds_svenda.Cancel;
+        end;
+     //endi
+
+
+
      if not bIndiceE then
         begin
         end;
@@ -9267,6 +9265,8 @@ begin
      //endi
      if not bsVendaE then
         begin
+
+
         end;
      //endi
      if not bdVendaE then
@@ -9526,6 +9526,8 @@ begin
         begin
         end;
      //endi
+
+
 
 end;
 
@@ -12796,6 +12798,17 @@ begin
 
 
 
+end;
+
+procedure TfrmDados.Cds_sVendaAfterDelete(DataSet: TDataSet);
+begin
+Permite_Excluir(DataSet);
+ AtualizaDados;
+end;
+
+procedure TfrmDados.Cds_sVendaBeforeDelete(DataSet: TDataSet);
+begin
+  IniciaTransacao;
 end;
 
 end.

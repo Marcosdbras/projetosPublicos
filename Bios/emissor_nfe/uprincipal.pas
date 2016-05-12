@@ -100,6 +100,8 @@ type
     reResp: TMemo;
     IdHTTP1: TIdHTTP;
     XMLDocument1: TXMLDocument;
+    N10: TMenuItem;
+    BaixarNCM1: TMenuItem;
 
     //Response: TStringStream;
     //Arquivo: TIdMultipartFormDataStream;
@@ -156,6 +158,7 @@ type
     procedure fechatabelas();
     procedure atualizacaoBaseRemota;
     procedure atualizaEmitente;
+    procedure BaixarNCM1Click(Sender: TObject);
     
 
   private
@@ -176,7 +179,7 @@ implementation
   upesqcofins, upesqcfop, upesqnatop, upesqunidade, upesqtiposerv,
   upesqrcserv, upesqprodutos, upesqtransportadora, upesqcmobra,
   upesqclientes, upesqregtrib, upesqemitente, upesqfornecedores, upesqnf,
-  upesqcsosn, uindice, upcodibge, upesqnfemi;
+  upesqcsosn, uindice, upcodibge, upesqnfemi, baixarncm;
 {$R *.dfm}
 
 procedure Tfrmprincipal.FormShow(Sender: TObject);
@@ -1489,6 +1492,23 @@ begin
   frmdados.cds_emitente.Active := false;
 
   //--------------------------------------------------------------------
+
+
+
+end;
+
+procedure Tfrmprincipal.BaixarNCM1Click(Sender: TObject);
+begin
+  fechatodos;
+  if frmbaixarncm = nil then
+     begin
+
+       frmbaixarncm := tfrmbaixarncm(self);
+       frmbaixarncm.Show;
+
+     end;
+  //endi
+
 
 
 

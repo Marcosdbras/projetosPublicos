@@ -93,8 +93,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = cds_Tipo_PgtoAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 119
@@ -329,8 +327,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_VenctoAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_VenctoAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -1878,8 +1874,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 379
@@ -4066,8 +4060,8 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_sVendaBeforePost
     AfterPost = Cds_sVendaAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
+    BeforeDelete = Cds_sVendaBeforeDelete
+    AfterDelete = Cds_sVendaAfterDelete
     OnCalcFields = Cds_sVendaCalcFields
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -5208,8 +5202,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_ProdutosAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_ProdutosAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -5560,8 +5552,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_dProdutosAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 755
@@ -6206,7 +6196,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_dVendaBeforePost
     AfterPost = Cds_dVendaAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
     AfterDelete = Cds_dVendaAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -6804,8 +6793,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_InvsysAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 947
@@ -6914,8 +6901,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_invsysfAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 64
@@ -7038,8 +7023,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_InvsyspAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_InvsyspAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -7098,8 +7081,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_GrupoAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 240
@@ -7157,8 +7138,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_MarcaAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 327
@@ -7298,8 +7277,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_RepresentantesAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 435
@@ -7560,8 +7537,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_FuncionariosBeforePost
     AfterPost = Cds_FuncionariosAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     BeforeScroll = Cds_FuncionariosBeforeScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -7752,8 +7727,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_UnidadeAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 636
@@ -7859,8 +7832,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_invsysfconAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 730
@@ -8079,8 +8050,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 835
@@ -8289,8 +8258,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_ComprasAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 931
@@ -8423,8 +8390,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_Ent_ProdAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_Ent_ProdAfterApplyUpdates
     Left = 64
@@ -8900,8 +8865,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_ClientesBeforePost
     AfterPost = Cds_ClientesAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_ClientesAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -9371,8 +9334,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_ClasseAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 251
@@ -9510,8 +9471,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_ClassepAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_ClassepAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -9653,8 +9612,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_PagarAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_PagarAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -9868,8 +9825,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_SituRecAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 547
@@ -9928,8 +9883,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_SituPagarAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 643
@@ -10041,8 +9994,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_TempAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 739
@@ -10568,8 +10519,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_vProdutosBeforePost
     AfterPost = Cds_vProdutosAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_vProdutosAfterScroll
     OnCalcFields = Cds_vProdutosCalcFields
     OnNewRecord = Cds_IndiceNewRecord
@@ -11242,8 +11191,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_vVendaAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 59
@@ -11392,8 +11339,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_MovRegAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 155
@@ -11601,8 +11546,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_VendabBeforePost
     AfterPost = Cds_VendabAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 249
@@ -12048,8 +11991,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_ConfigAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 345
@@ -12468,8 +12409,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_vDvendasAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 441
@@ -12601,8 +12540,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_Tipo_ProdAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 544
@@ -12680,8 +12617,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 635
@@ -12763,8 +12698,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 723
@@ -12832,8 +12765,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 811
@@ -12945,8 +12876,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 923
@@ -13056,8 +12985,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 51
@@ -13121,8 +13048,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 131
@@ -13187,8 +13112,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_SITBAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -13264,8 +13187,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 283
@@ -13361,8 +13282,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 371
@@ -13472,8 +13391,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 467
@@ -13560,8 +13477,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 571
@@ -13636,8 +13551,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 675
@@ -13796,8 +13709,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_Vencto_NFAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 776
@@ -14056,8 +13967,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 866
@@ -14235,8 +14144,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_ModuloAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -14537,8 +14444,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_NFPBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 58
@@ -14905,8 +14810,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 154
@@ -15120,8 +15023,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_dMobraAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 249
@@ -15352,8 +15253,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 345
@@ -15689,8 +15588,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnCalcFields = Cds_NFCalcFields
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -16236,8 +16133,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 535
@@ -16428,8 +16323,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 631
@@ -16559,8 +16452,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 739
@@ -16649,8 +16540,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 835
@@ -16835,8 +16724,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_cmobraAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -16945,8 +16832,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 65
@@ -17023,8 +16908,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 171
@@ -17260,8 +17143,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_EquipCliAfterEdit
     BeforePost = Cds_EquipCliBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     OnPostError = Cds_EquipCliPostError
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -17482,8 +17363,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 355
@@ -17560,8 +17439,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 466
@@ -17647,8 +17524,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 578
@@ -17736,8 +17611,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 682
@@ -17826,8 +17699,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 773
@@ -17913,8 +17784,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 869
@@ -17985,8 +17854,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 965
@@ -18053,8 +17920,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1016
@@ -18130,8 +17995,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1034
@@ -18217,8 +18080,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1031
@@ -18304,8 +18165,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1113
@@ -18391,8 +18250,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1136
@@ -18478,8 +18335,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1041
@@ -18556,8 +18411,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1153
@@ -18636,8 +18489,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1124
@@ -18711,8 +18562,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1053
@@ -18806,8 +18655,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_Mat_RestaurarAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -18910,8 +18757,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1271
@@ -19040,8 +18885,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1113
@@ -19165,8 +19008,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_Mat_RestaurarAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -19224,8 +19065,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1271
@@ -19332,8 +19171,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_livrocaixaAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -19467,8 +19304,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1226
@@ -19605,8 +19440,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1080
@@ -19689,8 +19522,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_ClientesBeforePost
     AfterPost = Cds_ClientesAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_ClientesAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -19780,8 +19611,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_ClientesBeforePost
     AfterPost = Cds_ClientesAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_ClientesAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -19859,8 +19688,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1658
@@ -19928,8 +19755,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1846
@@ -19999,8 +19824,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_vVendaAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1728
@@ -20300,8 +20123,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_ModuloAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -20366,8 +20187,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_ModuloAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -20844,8 +20663,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = Cds_vProdFornAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -20964,8 +20781,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 205
@@ -21163,8 +20978,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = cds_Tipo_PgtoAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = cds_cond_pgtoAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -21239,8 +21052,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = cds_Tipo_PgtoAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1151
@@ -21327,8 +21138,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_MarcaAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     AfterScroll = cds_tipo_embalagemAfterScroll
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -21417,8 +21226,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_MarcaAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 203
@@ -21506,8 +21313,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_MarcaAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnCalcFields = cds_composicao_prodCalcFields
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
@@ -21583,8 +21388,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_MarcaAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 451
@@ -21647,8 +21450,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = cds_Tipo_PgtoAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1296
@@ -21735,8 +21536,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_IndiceAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1210
@@ -21835,8 +21634,6 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = cds_logtableBeforePost
     AfterPost = Cds_ClientesAfterPost
-    BeforeDelete = Cds_IndiceBeforeDelete
-    AfterDelete = Cds_IndiceAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 1197

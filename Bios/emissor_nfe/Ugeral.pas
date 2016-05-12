@@ -109,7 +109,18 @@ Type
  {variáveis globais}
 
  Var
+
+   sversao,
+   svigenciainicio,
+   svigenciafim,
+   schave,
+   sfonte:string;
+
+
+
    hfile:thandle = Invalid_Handle_Value;
+
+
 
    form_ativo           : string = '';
    Tabela               : String = '';
@@ -870,7 +881,8 @@ Type
 
 
 implementation
-uses upesqcf,
+uses baixarncm,
+     upesqcf,
      upesqcfop,
      upesqclientes,
      upesqcmobra,
@@ -1374,6 +1386,10 @@ end;
 
 procedure fechatodos;
 begin
+ if Frmbaixarncm <> nil then
+    Frmbaixarncm.close;
+ //endi
+
  if Frmpesqcf <> nil then
     Frmpesqcf.close;
  //endi

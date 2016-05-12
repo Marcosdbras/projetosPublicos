@@ -11438,8 +11438,8 @@ object frmmodulo: Tfrmmodulo
     Request.Ranges.Units = 'bytes'
     Request.Ranges = <>
     HTTPOptions = [hoForceEncodeParams]
-    Left = 1008
-    Top = 474
+    Left = 1120
+    Top = 458
   end
   object IdHTTP1: TIdHTTP
     AllowCookies = True
@@ -11467,8 +11467,8 @@ object frmmodulo: Tfrmmodulo
         'o><resultado></resultado><resultado_txt></resultado_txt><ibge_uf' +
         '>12</ibge_uf><ibge_municipio>1200302</ibge_municipio><erro>0</er' +
         'ro><msgerro></msgerro></response>')
-    Left = 1016
-    Top = 378
+    Left = 1104
+    Top = 258
     DOMVendorDesc = 'MSXML'
   end
   object XMLDocument1: TXMLDocument
@@ -11495,10 +11495,25 @@ object frmmodulo: Tfrmmodulo
   object qrIndice: TZQuery
     Connection = Conexao
     SQL.Strings = (
-      'select * from c000061')
+      'select * from indice')
     Params = <>
     Left = 248
     Top = 429
+    object qrIndiceID: TIntegerField
+      FieldName = 'ID'
+    end
+    object qrIndiceCHAVECONSULTA: TStringField
+      FieldName = 'CHAVECONSULTA'
+      Size = 150
+    end
+    object qrIndiceOBSOS: TMemoField
+      FieldName = 'OBSOS'
+      BlobType = ftMemo
+    end
+    object qrIndiceCONDOS: TMemoField
+      FieldName = 'CONDOS'
+      BlobType = ftMemo
+    end
   end
   object qrexec: TZQuery
     Connection = Conexao

@@ -2269,6 +2269,10 @@ type
     qrNCMALIQIMP: TFloatField;
     qrNCMTABELA: TIntegerField;
     qrNCMID: TIntegerField;
+    qrIndiceID: TIntegerField;
+    qrIndiceCHAVECONSULTA: TStringField;
+    qrIndiceOBSOS: TMemoField;
+    qrIndiceCONDOS: TMemoField;
     procedure DataModuleCreate(Sender: TObject);
     procedure qrLogBeforePost(DataSet: TDataSet);
     procedure qrsubgrupoBeforePost(DataSet: TDataSet);

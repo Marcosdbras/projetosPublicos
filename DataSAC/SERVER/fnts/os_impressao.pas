@@ -51,6 +51,8 @@ type
     qros_servicoCODOS: TStringField;
     qros_servicoCODCLIENTE: TStringField;
     fsos_produto: TfrxDBDataset;
+    fsindice: TfrxDBDataset;
+    CondiesGeraisde1: TMenuItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure bcancelarClick(Sender: TObject);
     procedure bgravarClick(Sender: TObject);
@@ -69,6 +71,7 @@ type
     procedure RazoOSAberta1Click(Sender: TObject);
     procedure RazoOSFechada1Click(Sender: TObject);
     procedure FormulrioContnuoCartaPersonalizado1Click(Sender: TObject);
+    procedure CondiesGeraisde1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -116,6 +119,7 @@ begin
   7 : RazoOSAberta1Click(frmOS_impressao);
   8 : RazoOSFechada1Click(frmOS_impressao);
   9 : FormulrioContnuoCartaPersonalizado1Click(frmos_impressao);
+ 10 : CondiesGeraisde1Click(frmos_impressao);
   END;
 
 
@@ -1205,6 +1209,13 @@ begin
    end;
 
    closefile(arquivo);
+
+end;
+
+procedure Tfrmos_impressao.CondiesGeraisde1Click(Sender: TObject);
+begin
+  fxos.LoadFromFile('\DATASAC\server\rel\f000065A.fr3');
+  fxos.ShowReport;
 
 end;
 

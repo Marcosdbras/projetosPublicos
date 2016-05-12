@@ -180,14 +180,9 @@ type
     Label44: TLabel;
     Label45: TLabel;
     Bevel9: TBevel;
-    Label48: TLabel;
-    EDEFEITO: TDBMemo;
-    EOBS: TDBMemo;
-    Label49: TLabel;
     Bevel10: TBevel;
     combosituacao: TwwDBComboBox;
     Label50: TLabel;
-    Bevel4: TBevel;
     EINTERVENCAO: TDBMemo;
     Label51: TLabel;
     bexcluir_servico: TAdvGlowButton;
@@ -285,6 +280,12 @@ type
     qrclienteHISTORICO: TBlobField;
     qrclientePREVISAO: TDateTimeField;
     qrclienteCOD_MUNICIPIO_IBGE: TIBStringField;
+    dsindice: TDataSource;
+    EOBS: TDBMemo;
+    Label49: TLabel;
+    Label48: TLabel;
+    EDEFEITO: TDBMemo;
+    Bevel4: TBevel;
     procedure DBDateEdit1Exit(Sender: TObject);
     procedure DBDateEdit1KeyPress(Sender: TObject; var Key: Char);
     procedure EVENDEDOREnter(Sender: TObject);
@@ -879,7 +880,14 @@ begin
     end;
 
 
-  ///  aqui
+  with frmmodulo do
+    begin
+      qrindice.Active := false;
+      qrindice.SQL.Clear;
+      qrindice.SQL.Add('select * from indice');
+      qrindice.Active := true;
+
+    end;
 
 
   qrcontasreceber.close;

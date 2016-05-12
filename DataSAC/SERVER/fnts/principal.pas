@@ -14,7 +14,9 @@ uses
   AdvOfficePager, AdvOfficePagerStylers, AdvPanel, Wwdbigrd, Wwdbgrid,
   MemDS, StrUtils, Mask, RzEdit, RzPanel, IBServices, DBAccess, IBC,
   AdvReflectionLabel, pngimage,   TFlatHintUnit, AdvReflectionImage, NxScrollControl,
-  NxLinkMenu, frxpngimage, ExtDlgs, AdvSmoothButton, LockApplication, inifiles;
+  NxLinkMenu, frxpngimage, ExtDlgs, AdvSmoothButton, LockApplication, inifiles,
+  xmldom, XMLIntf, IdBaseComponent, IdComponent, IdTCPConnection,
+  IdTCPClient, IdHTTP, msxmldom, XMLDoc;
   
 type
 
@@ -276,6 +278,28 @@ type
     btndesconectarcaixa: TAdvGlowButton;
     DesconectarCaixa1: TMenuItem;
     Lanamentos1: TMenuItem;
+    btnos: TAdvGlowButton;
+    pnlcentral: TPanel;
+    Label6: TLabel;
+    Label8: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Button1: TButton;
+    Memo1: TMemo;
+    lbldatacriexe: TLabel;
+    lbldatamodexe: TLabel;
+    lblmensagem: TLabel;
+    reResp: TMemo;
+    XMLEnvio: TXMLDocument;
+    XMLDocument1: TXMLDocument;
+    IdHTTP1: TIdHTTP;
+    lHTTP: TIdHTTP;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -447,6 +471,10 @@ type
     procedure DesconectarCaixa1Click(Sender: TObject);
     procedure btndesconectarcaixaClick(Sender: TObject);
     procedure Lanamentos1Click(Sender: TObject);
+    procedure btnosClick(Sender: TObject);
+
+    procedure atualizacaoBaseRemota;
+    procedure atualizaEmitente;
 
   private
     { Private declarations }
@@ -1756,6 +1784,87 @@ begin
        sunidadefederativa := qrFilial.fieldbyname('uf').AsString;
     end;
 
+
+   vardir := extractfilepath(application.ExeName);
+
+
+   memo1.Lines.Clear;
+
+   memo1.Lines.Add('1) Acesse o site www.marcosbras.com ');
+   memo1.Lines.Add('2) Clique nos links contate-nos / Chaves & Desbloqueio');
+   memo1.Lines.Add('3) No final da página localize a frase');
+   memo1.Lines.Add('   Você precisa fazer o login para publicar um comentário.');
+   memo1.Lines.Add('4) Clique em LOGIN');
+   memo1.Lines.Add('5) Se você já está cadastrado utilize seu nome de usuário e senha / FAZER LOGIN para se autenticar');
+   memo1.Lines.Add('   ou clique em PERDEU A SENHA se este for o motivo');
+   memo1.Lines.Add('6) Caso não tenha cadastro clique em REGISTRA-SE');
+   memo1.Lines.Add('7) Após se autenticar localize a frase DEIXE UMA RESPOSTA ou COMENTÁRIO e');
+   memo1.Lines.Add('   informe ID DA INSTALAÇÃO '+ IntToStr(bloqueio.IDInstalacao));
+   memo1.Lines.Add('   identificação do pagamento / CNPJ da empresa / Nome do contato / email e telefone');
+   memo1.Lines.Add('8) Depois clique em PUBLICAR COMENTÁRIO ');
+   memo1.Lines.Add('9) Aguarde contato via email');
+   memo1.Lines.Add('Em caso de dúvida envie mensagem para contato@marcosbras.com');
+
+    memo1.Lines.Add( 'Dias Restantes : ' + IntToStr(frmprincipal.bloqueio.Dias_RestantesU) );
+   memo1.Lines.Add( 'Data Vencimento : ' + frmprincipal.bloqueio.Data_VencimentoU );
+   memo1.Lines.Add('Chave : ' + frmprincipal.bloqueio.Chave_RegistradaU);
+   memo1.Lines.Add('E-mail : ' + frmprincipal.bloqueio.Email_ClienteU);
+   memo1.Lines.Add( 'Versão : ' + IntToStr(frmprincipal.bloqueio.Versao_Sistema) );
+   memo1.Lines.Add(  'ID da instalação : '+ IntToStr(bloqueio.IDInstalacao) );
+
+   if bloqueio.Sistema_DemoU then
+         memo1.Lines.Add(  'DEMO')
+   else
+         memo1.Lines.Add( 'REGISTRADO');
+
+
+
+
+lblmensagem.Caption := '';
+
+
+lbldatacriexe.caption := datacriexe;
+lbldatamodexe.caption := datamodexe;         
+
+
+//quando o sistema expirar deve mudar para true
+
+
+
+
+
+if bbloqueado then
+   begin
+
+      if bloqueio.Dias_RestantesU > 30 then
+         pnlcentral.Visible := false;
+
+   end
+else
+   begin
+
+      pnlcentral.Visible := false;
+
+   end;
+//endi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   arquivo :=  vardir+'script_atualiza_banco.sql';
 
 
@@ -2368,7 +2477,17 @@ entrada,nomecfg : string;
 Hand : THandle;
 begin
 //  LockApplication1.executar;
-bloqueio.executar;
+
+atualizacaoBaseRemota;
+
+
+if bbloqueado then
+   begin
+
+     bloqueio.executar;
+
+   end;
+//endi
 
 
 
@@ -5520,5 +5639,196 @@ begin
   frmlancamentos.showmodal;
   frmlancamentos.free;
 end;
+
+procedure TfrmPrincipal.btnosClick(Sender: TObject);
+begin
+  BOSClick(Sender);
+end;
+
+
+procedure tfrmprincipal.atualizacaoBaseRemota;
+begin
+  try
+
+      try
+        atualizaEmitente;
+
+      except
+        reResp.Lines.Add('erro ao sincronizar dados');
+      end;
+
+  finally
+     //tenviaxml.Terminate;
+      reResp.Lines.Add('fim da sincronização');
+  end;
+
+
+end;
+
+
+
+procedure tfrmprincipal.atualizaEmitente;
+
+var
+
+  lParamList: TStringList;
+  lResponse : TStringStream;
+  smostrar, chave, cnpj, nome, bloqueado:string;
+  x:integer;
+
+begin
+
+  x:=0;
+
+  with frmmodulo do
+    begin
+
+       qrfilial.Active := false;
+       qrfilial.SQL.Clear;
+       qrfilial.SQL.Add('select * from c000004 ');
+       qrfilial.active  := true;
+
+       qrindice.Active := false;
+       qrindice.SQL.Clear;
+       qrindice.SQL.Add('select * from indice');
+       qrindice.Active := true;
+
+       chave:=qrindice.fieldbyname('chaveconsulta').AsString;
+
+    end;
+
+  setlength(abloqueio, frmmodulo.qrfilial.RecordCount);
+
+  while not frmmodulo.qrfilial.Eof do
+    begin
+
+
+        try
+            lParamList := TStringList.Create;
+            lResponse := TStringStream.Create('');
+
+            lParamList.Add('modo=I');
+            lParamList.Add('cnpj='+tirapontos(tirabarras(tiratracos(frmmodulo.qrfilial.fieldbyname('cnpj').AsString))));
+            lParamList.Add('nome='+frmmodulo.qrfilial.FieldByName('filial').AsString);
+            lParamList.Add('email='+frmmodulo.qrfilial.FieldByName('email_empresa').AsString);
+            lParamList.Add('fantasia='+frmmodulo.qrfilial.FieldByName('fantasia').AsString);
+            lParamList.Add('telefones='+frmmodulo.qrfilial.FieldByName('telefone').AsString);
+            lParamList.Add('ie='+frmmodulo.qrfilial.FieldByName('ie').AsString);
+            lParamList.Add('site=');
+            lParamList.Add('contato='+frmmodulo.qrfilial.FieldByName('responsavel').AsString);
+            lParamList.Add('endereco='+frmmodulo.qrfilial.FieldByName('endereco').AsString);
+            lParamList.Add('nro='+frmmodulo.qrfilial.FieldByName('numero').AsString);
+            lParamList.Add('compl='+frmmodulo.qrfilial.FieldByName('complemento').AsString);
+            lParamList.Add('bairro='+frmmodulo.qrfilial.FieldByName('bairro').AsString);
+            lParamList.Add('cep='+frmmodulo.qrfilial.FieldByName('cep').AsString);
+            lParamList.Add('im=');
+            lParamList.Add('obs=');
+
+
+                 lParamList.Add('Estado='+frmmodulo.qrfilial.FieldByName('uf').AsString);
+
+
+                 lParamList.Add('cidade='+frmmodulo.qrfilial.FieldByName('cidade').AsString);
+
+
+                 lParamList.Add('regtrib=');
+
+            lParamList.Add('prog=DataSAC');
+
+
+            try
+                lHTTP := TIdHTTP.Create(nil);
+                try
+                  lHTTP.Post('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php', lParamList, lResponse);
+                  lResponse.Position := 0;
+                  reResp.Lines.LoadFromStream(lResponse);
+                finally
+
+                  lHTTP.Free;
+                  lParamList.Free;
+                  lResponse.Free();
+
+                end;
+
+
+            except
+              reResp.Lines.Add( 'Conexão com servidor inativa');
+            end;
+
+
+
+
+
+
+         //--------------------
+
+
+            try
+
+
+               cnpj:=tirapontos(tirabarras(tiratracos(frmmodulo.qrfilial.fieldbyname('cnpj').AsString)));
+
+               XMLDocument1.Active := False;
+               XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php?chave='+frmmodulo.qrindice.fieldbyname('chaveconsulta').asString+'&campo=cnpj&valor='+cnpj+'&modo=C');
+               XMLDocument1.Active := True;
+
+               nome      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['nome'].Text;
+               cnpj      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['cnpj'].Text;
+               bloqueado := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['bloqueado'].Text;
+
+               abloqueio[x] := bloqueado+cnpj;
+               x := x + 1;
+
+               XMLDocument1.Active := false;
+            except
+
+            end;
+
+
+
+
+
+
+
+
+
+            //----------------------
+
+
+            frmmodulo.qrfilial.Next;
+
+
+        finally
+           reResp.Lines.Add( 'Atuallizado com sucesso');
+
+
+        end;
+
+    end;
+  //endw
+
+
+  for x := 0 to length(abloqueio)-1 do
+    begin
+      if copy(abloqueio[x],1,1) = '0' then
+         begin
+           bbloqueado := false;
+         end;
+      //endif
+
+    end;
+  //endfor
+
+
+
+
+  //--------------------------------------------------------------------
+
+
+
+end;
+
+
+
 
 end.

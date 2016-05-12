@@ -286,19 +286,41 @@ end;
 // -------------------------------------------------------------------------- //
 procedure TfrmOs_menu.bincluirClick(Sender: TObject);
 begin
-  frmmodulo.qros.insert;
-  frmmodulo.qros.fieldbyname('codigo').asstring       := frmprincipal.codifica('000051');
-  frmmodulo.qros.FieldByName('data').asdatetime       := date;
-  frmmodulo.qros.FieldByName('situacao').asstring     := 'ABERTA - Aguardando Confirmação';
-  frmmodulo.qros.FieldByName('cupomfiscal').asinteger := 0;
-  frmmodulo.qros.FieldByName('TIPO').asSTRING         := 'INTERNA';
-  frmmodulo.qros.FieldByName('ATENDIMENTO').asSTRING  := 'AVULSO';
+  with frmmodulo do
+    begin
+      qrindice.Active := false;
+      qrindice.SQL.Clear;
+      qrindice.SQL.Add('select * from indice');
+      qrindice.Active := true;
+
+      qros.insert;
+      qros.fieldbyname('codigo').asstring       := frmprincipal.codifica('000051');
+      qros.FieldByName('data').asdatetime       := date;
+      qros.FieldByName('situacao').asstring     := 'ABERTA - Aguardando Confirmação';
+      qros.FieldByName('cupomfiscal').asinteger := 0;
+      qros.FieldByName('TIPO').asSTRING         := 'INTERNA';
+      qros.FieldByName('ATENDIMENTO').asSTRING  := 'AVULSO';
+      qros.FieldByName('obs').AsString := qrindice.fieldbyname('condos').AsString;
+
+
+
+    end;
+
+
+
+
+
+
+
+
+
   cupom_fiscal := false;
   lancando_contasreceber := false;
 
   if ramo = 1 then frmos := tfrmos.create(self);
-  if ramo = 3 then frmos_auto := tfrmos_auto.create(self);
   if ramo = 1 then frmos.showmodal;
+
+  if ramo = 3 then frmos_auto := tfrmos_auto.create(self);
   if ramo = 3 then frmos_auto.showmodal;
 end;
 

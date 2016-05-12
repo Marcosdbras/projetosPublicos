@@ -505,6 +505,13 @@ object frmprincipal: Tfrmprincipal
     end
     object utilitario1: TMenuItem
       Caption = 'Utilit'#225'rios'
+      object BaixarNCM1: TMenuItem
+        Caption = 'Baixar NCM '
+        OnClick = BaixarNCM1Click
+      end
+      object N10: TMenuItem
+        Caption = '-'
+      end
       object ExportarDados1: TMenuItem
         Caption = '&Exportar Dados TXT'
         OnClick = ExportarDados1Click

@@ -358,6 +358,11 @@ type
     DBCheckBox9: TDBCheckBox;
     RadioButton4: TRadioButton;
     DBComboBox2: TDBComboBox;
+    PageSheet17: TPageSheet;
+    Memo1: TMemo;
+    Label52: TLabel;
+    Label53: TLabel;
+    Memo2: TMemo;
 
     procedure bcancelarClick(Sender: TObject);
     procedure bgravarClick(Sender: TObject);
@@ -452,9 +457,22 @@ begin
    frmmodulo.qrconfig.FieldByName('orcamento_tiponota').asinteger := combo_orcamento.ItemIndex;
    frmmodulo.qrconfig.FieldByName('nf_tipo').asinteger := combo_nf.ItemIndex;
    frmmodulo.qrconfig.FieldByName('entrega_impressao').asinteger :=  combo_entrega.ItemIndex;
-     frmmodulo.qrconfig.FieldByName('recibo_tiponota').asinteger := combo_recibo.ItemIndex;
+   frmmodulo.qrconfig.FieldByName('recibo_tiponota').asinteger := combo_recibo.ItemIndex;
+
+   with frmmodulo do
+      begin
+        qrindice.Active := false;
+        qrindice.SQL.Clear;
+        qrindice.SQL.Add('update indice set obsos = '+quotedstr(memo1.Lines.Text )  );
+        qrindice.ExecSQL;
+
+        qrindice.Active := false;
+        qrindice.SQL.Clear;
+        qrindice.SQL.Add('update indice set obsos = '+quotedstr(memo2.Lines.Text )  );
+        qrindice.ExecSQL;
 
 
+      end;
 
   if frmmodulo.qrconfig.state = dsedit then
   begin
@@ -474,6 +492,27 @@ end;
 
 procedure Tfrmconfig.FormShow(Sender: TObject);
 begin
+
+  with frmmodulo do
+    begin
+      qrindice.Active := false;
+      qrindice.SQL.Clear;
+      qrindice.SQL.Add('select * from indice');
+
+      qrindice.Active := true;
+
+
+    end;
+
+  memo1.Clear;
+  memo1.Lines.Add(frmmodulo.qrIndice.FieldByName('obsos').AsString);
+
+
+  memo2.Clear;
+  memo2.Lines.Add(frmmodulo.qrIndice.FieldByName('condos').AsString);
+
+
+
 
   FRMMODULO.QRFORMAPGTO.OPEN;
 
