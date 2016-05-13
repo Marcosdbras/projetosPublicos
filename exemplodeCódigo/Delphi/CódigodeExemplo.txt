@@ -1,3 +1,19 @@
+  Application.Initialize;
+  frmSplash :=tfrmSplash.Create(application);
+  frmSplash.Show;
+  frmSplash.Update;
+
+  Application.Title := 'Emissor de Nota Fsical Eletrônica';
+  Application.CreateForm(TfrmDados, frmDados);
+  Application.CreateForm(Tfrmprincipal, frmprincipal);
+  Application.CreateForm(Tfrmconexao_ibpt, frmconexao_ibpt);
+  Atualizar;
+  
+
+  frmSplash.Hide;
+  frmSplash.Free;
+  Application.Run;
+======================================================================================
 procedure TForm1.ListBox1Click(Sender: TObject);
 begin
   DirectoryOutline1.Drive :=

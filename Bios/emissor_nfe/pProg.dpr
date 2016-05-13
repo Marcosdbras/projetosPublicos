@@ -28,7 +28,7 @@ uses
   ufiltrositb in 'ufiltrositb.pas' {FrmFiltroSitb},
   urelsitb in 'urelsitb.pas' {frmrelsitb},
   upesqcf in 'upesqcf.pas' {frmpesqcf},
-  ufiltrocf in 'ufiltrocf.pas' {FrmFiltroCf},
+  ubaixarncmi in 'ubaixarncmi.pas' {Frmbaixarncmi},
   urelcf in 'urelcf.pas' {frmrelcf},
   ufiltromodbc in 'ufiltromodbc.pas' {FrmFiltromodbc},
   upesqmodbc in 'upesqmodbc.pas' {frmpesqmodbc},

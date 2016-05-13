@@ -1457,6 +1457,8 @@ type
     cds_produtoscest: TStringField;
     IdHTTP1: TIdHTTP;
     XMLDocument1: TXMLDocument;
+    sql_indiceufpadrao: TSmallintField;
+    cds_indiceufpadrao: TSmallintField;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);
@@ -8561,7 +8563,7 @@ begin
   try
 
       XMLDocument1.Active := False;
-      XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsibpt.php?chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString+'&campo=codigo'+'&valor='+ncm+'&uf='+ lowercase( frmdados.cds_config.fieldbyname('campo16').AsString  ));
+      XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsibpt.php?chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString+'&campo=codigo'+'&valor='+ncm+'&uf='+ lowercase( sufpadrao  ));
       XMLDocument1.Active := True;
 
       sex       := XMLDocument1.ChildNodes['wsibpt'].ChildNodes['response'].ChildNodes['ex'].Text;

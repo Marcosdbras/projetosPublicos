@@ -103,7 +103,6 @@ type
     Label6: TLabel;
     edicest: TEdit;
     BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Limpar;
     procedure btnnovaClick(Sender: TObject);
@@ -162,7 +161,7 @@ var
 
 implementation
    uses ugeral, udados, ufiltroprodutos, urelprodutos, upcodcest,
-  baixarncm, ubaixancm;
+  baixarncm, ubaixancm, ubaixarncmi;
 {$R *.dfm}
 
 procedure Tfrmpesqprodutos.FormClose(Sender: TObject;
@@ -1055,10 +1054,15 @@ end;
 
 procedure Tfrmpesqprodutos.BitBtn3Click(Sender: TObject);
 begin
-       frmbaixarncm := tfrmbaixarncm(self);
-       frmbaixarncm.Showmodal;
-       frmbaixarncm.free;
+       try
+       frmbaixarncmi := tfrmbaixarncmi(self);
+       //frmbaixarncmi.Visible := false;
 
+       frmbaixarncmi.Showmodal;
+
+       finally
+       frmbaixarncmi.free;
+       end;
 end;
 
 end.

@@ -783,6 +783,8 @@ end;
 procedure Tfrmprincipal.FormCreate(Sender: TObject);
 begin
 
+
+
   atualizacaoBaseRemota;
 
    // se cliente estiver como ativo = 1 não bloqueia
@@ -1498,15 +1500,78 @@ begin
 end;
 
 procedure Tfrmprincipal.BaixarNCM1Click(Sender: TObject);
+var
+  sncm:string;
 begin
+
+  if application.MessageBox('Este procedimento vai tornar o sistema insdisponível por alguns minutos'+#13+
+                            'Deseja realmente sincronizar NCM agora?','Atenção',mb_yesno)=mryes
+  then
+    begin
+      lblmensagem.Caption  := 'Sincronizando ncm...';
+
+      with frmdados do
+         begin
+
+            sql_indice.Active := false;
+            sql_indice.SQL.Clear;
+            sql_indice.SQL.Add('select * from indice');
+            sql_indice.Active := true;
+
+            sql_estados.Active := false;
+            sql_estados.SQL.Clear;
+            sql_estados.SQL.Add('select * from estados where codigo = '+inttostr(sql_indice.fieldbyname('ufpadrao').AsInteger));
+            sql_estados.Active := true;
+
+            sufpadrao := sql_estados.fieldbyname('sigla').AsString;
+
+            sql_exec2.Active := false;
+            sql_exec2.SQL.Clear;
+            sql_exec2.SQL.Add('select * from produtos order by descricao');
+            sql_exec2.Active := true;
+
+            while not sql_exec2.Eof do
+               begin
+
+                 sncm := sql_exec2.fieldbyname('simplesncm').AsString;
+
+                 sql_consulta.Close;
+                 sql_consulta.SQL.Clear;
+                 sql_consulta.SQL.Add('select * from ibpt where codigo = '+quotedstr(sncm)    );
+                 sql_consulta.Open;
+
+                 if frmdados.sql_consulta.RecordCount = 0 then
+                    begin
+
+                      atualizancm(sncm);
+
+
+
+                    end;
+
+
+                 sql_exec2.Next;
+               end;
+            //endi
+
+
+         end;
+      //endth
+
+      lblmensagem.Caption  := '';
+    end;
+  //endi
+
+  {
   fechatodos;
   if frmbaixarncm = nil then
      begin
 
        frmbaixarncm := tfrmbaixarncm(self);
-       frmbaixarncm.Show;
+       frmbaixarncm.Showmodal;
+       frmbaixarncm.Free;
 
-     end;
+     end; }
   //endi
 
 

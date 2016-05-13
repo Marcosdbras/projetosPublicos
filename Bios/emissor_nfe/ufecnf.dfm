@@ -48,7 +48,7 @@ object frmfecnf: Tfrmfecnf
     Caption = 'DATA SA'#205'DA/ENTRADA'
   end
   object Label27: TLabel
-    Left = 491
+    Left = 463
     Top = 132
     Width = 66
     Height = 13
@@ -76,7 +76,7 @@ object frmfecnf: Tfrmfecnf
     Caption = 'R$'
   end
   object Label23: TLabel
-    Left = 491
+    Left = 464
     Top = 155
     Width = 44
     Height = 13
@@ -257,25 +257,25 @@ object frmfecnf: Tfrmfecnf
     Caption = 'FINALIDADE'
   end
   object Label39: TLabel
-    Left = 491
+    Left = 463
     Top = 179
     Width = 107
     Height = 13
     Caption = 'CONSUMIDOR FINAL'
   end
   object Label5: TLabel
-    Left = 491
+    Left = 463
     Top = 105
     Width = 59
     Height = 13
     Caption = 'OPERA'#199#195'O'
   end
   object Label40: TLabel
-    Left = 491
+    Left = 463
     Top = 79
-    Width = 92
+    Width = 148
     Height = 13
-    Caption = 'REFER'#202'NCIA NFE'
+    Caption = 'CHAVE ACESSO NFE DEVOL.'
   end
   object Bevel2: TBevel
     Left = 854
@@ -921,7 +921,7 @@ object frmfecnf: Tfrmfecnf
     OnKeyPress = edidatasaiKeyPress
   end
   object edihorasai: TMaskEdit
-    Left = 600
+    Left = 612
     Top = 126
     Width = 72
     Height = 21
@@ -943,7 +943,7 @@ object frmfecnf: Tfrmfecnf
     OnKeyPress = edivaldescKeyPress
   end
   object EDILIQUIDO: TEdit
-    Left = 600
+    Left = 612
     Top = 150
     Width = 73
     Height = 21
@@ -1076,7 +1076,7 @@ object frmfecnf: Tfrmfecnf
     OnKeyPress = ediproxnotaKeyPress
   end
   object ckbenviae: TCheckBox
-    Left = 143
+    Left = 125
     Top = 177
     Width = 122
     Height = 17
@@ -1160,9 +1160,9 @@ object frmfecnf: Tfrmfecnf
       'Devolu'#231#227'o/Retorno')
   end
   object cbxindfinal: TComboBox
-    Left = 600
+    Left = 612
     Top = 175
-    Width = 249
+    Width = 236
     Height = 21
     ItemHeight = 13
     ItemIndex = 0
@@ -1174,9 +1174,9 @@ object frmfecnf: Tfrmfecnf
       'SIM')
   end
   object cbxindpres: TComboBox
-    Left = 600
+    Left = 612
     Top = 101
-    Width = 249
+    Width = 236
     Height = 21
     ItemHeight = 13
     ItemIndex = 0
@@ -1191,9 +1191,9 @@ object frmfecnf: Tfrmfecnf
       'Opera'#231#227'o n'#227'o presencial, outros')
   end
   object edirefnfe: TEdit
-    Left = 600
+    Left = 612
     Top = 74
-    Width = 249
+    Width = 236
     Height = 21
     TabOrder = 2
     Text = 'edirefnfe'
@@ -1201,9 +1201,9 @@ object frmfecnf: Tfrmfecnf
     OnKeyPress = edirefnfeKeyPress
   end
   object ckbdadosadic: TCheckBox
-    Left = 280
+    Left = 249
     Top = 178
-    Width = 209
+    Width = 201
     Height = 17
     Caption = 'SUPRIMIR DADOS ADIC. AUTOMAT.'
     TabOrder = 31

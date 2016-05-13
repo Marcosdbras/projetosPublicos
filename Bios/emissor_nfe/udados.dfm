@@ -4,7 +4,7 @@ object frmdados: Tfrmdados
   Left = 1
   Top = 1
   Height = 736
-  Width = 1325
+  Width = 1354
   object cds_Paises: TClientDataSet
     Aggregates = <>
     FieldDefs = <
@@ -4219,6 +4219,10 @@ object frmdados: Tfrmdados
         Name = 'id'
         Attributes = [faRequired]
         DataType = ftInteger
+      end
+      item
+        Name = 'ufpadrao'
+        DataType = ftSmallint
       end>
     IndexDefs = <
       item
@@ -4273,6 +4277,9 @@ object frmdados: Tfrmdados
     object cds_indiceid: TIntegerField
       FieldName = 'id'
       Required = True
+    end
+    object cds_indiceufpadrao: TSmallintField
+      FieldName = 'ufpadrao'
     end
   end
   object dts_indice: TDataSource
@@ -6578,6 +6585,9 @@ object frmdados: Tfrmdados
     object sql_indiceid: TIntegerField
       FieldName = 'id'
       Required = True
+    end
+    object sql_indiceufpadrao: TSmallintField
+      FieldName = 'ufpadrao'
     end
   end
   object sql_fatura: TZQuery

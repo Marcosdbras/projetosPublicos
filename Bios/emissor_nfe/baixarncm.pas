@@ -17,6 +17,7 @@ type
     Label5: TLabel;
     sql_exec: TZQuery;
     procedure BitBtn1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -71,6 +72,14 @@ begin
  bitbtn1.Caption := 'Sincronizado com sucesso';
   update;
 
+end;
+
+procedure Tfrmbaixarncm.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  Action:=caFree;
+  frmbaixarncm:=nil;
+  form_ativo := '';
 end;
 
 end.

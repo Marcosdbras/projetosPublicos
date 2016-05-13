@@ -12,7 +12,7 @@ object frmbaixarncm: Tfrmbaixarncm
   Font.Style = []
   OldCreateOrder = False
   Position = poDefault
-  Visible = True
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel

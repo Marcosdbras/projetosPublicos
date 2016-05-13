@@ -1,10 +1,10 @@
 object frmindice: Tfrmindice
-  Left = 383
-  Top = 273
+  Left = 374
+  Top = 203
   BorderIcons = []
   BorderStyle = bsDialog
   Caption = 'Configura Indice'
-  ClientHeight = 372
+  ClientHeight = 398
   ClientWidth = 468
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -25,7 +25,7 @@ object frmindice: Tfrmindice
     Left = 8
     Top = 32
     Width = 449
-    Height = 305
+    Height = 353
   end
   object Label1: TLabel
     Left = 16
@@ -89,6 +89,13 @@ object frmindice: Tfrmindice
     Width = 80
     Height = 13
     Caption = 'Hor'#225'rio de Ver'#227'o'
+  end
+  object Label10: TLabel
+    Left = 19
+    Top = 336
+    Width = 51
+    Height = 13
+    Caption = 'UF Padr'#227'o'
   end
   object btnsalvar: TBitBtn
     Left = 302
@@ -190,5 +197,18 @@ object frmindice: Tfrmindice
     Items.Strings = (
       'SIM'
       'NAO')
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 18
+    Top = 355
+    Width = 145
+    Height = 21
+    DataField = 'ufpadrao'
+    DataSource = frmdados.dts_indice
+    KeyField = 'codigo'
+    ListField = 'sigla'
+    ListSource = frmdados.dts_Estados
+    NullValueKey = 46
+    TabOrder = 11
   end
 end

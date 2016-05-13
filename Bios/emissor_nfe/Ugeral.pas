@@ -114,7 +114,8 @@ Type
    svigenciainicio,
    svigenciafim,
    schave,
-   sfonte:string;
+   sfonte,
+   sufpadrao:string;
 
 
 

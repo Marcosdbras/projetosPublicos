@@ -29,6 +29,8 @@ type
     Label8: TLabel;
     cbxhverao: TComboBox;
     Label9: TLabel;
+    Label10: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
     procedure edinnfKeyPress(Sender: TObject; var Key: Char);
     procedure edicaminhoarqnfeKeyPress(Sender: TObject; var Key: Char);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
