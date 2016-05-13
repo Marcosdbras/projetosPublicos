@@ -139,7 +139,6 @@ type
     Reparar1: TMenuItem;
     reparo1: TMenuItem;
     SkinData1: TSkinData;
-    SkinStore1: TSkinStore;
     Button7: TButton;
     spdordem: TSpeedButton;
     ResumodeCaixa1: TMenuItem;
@@ -257,6 +256,7 @@ type
     procedure CondiesdePagamento1Click(Sender: TObject);
     procedure Mltiplospagtospagar1Click(Sender: TObject);
     procedure cpm1Click(Sender: TObject);
+    procedure SkinData1SkinChanged(Sender: TObject);
 
 
   private
@@ -305,8 +305,8 @@ vardir := ExtractFilePath(Application.ExeName);
 
 
 
-//skindata1.SkinFile := vardir+'SKIN.SKN';
-//skindata1.Active := true;
+skindata1.SkinFile := vardir+'SKIN.SKN';
+skindata1.Active := true;
 //frmprincipal.Update;
 
 //if fileExists(vardir+'Servidor.txt') then
@@ -5251,6 +5251,11 @@ if frmPesqMatprima=nil then
    end;
 //endi
 
+end;
+
+procedure Tfrmprincipal.SkinData1SkinChanged(Sender: TObject);
+begin
+   showmessage('');
 end;
 
 end.
