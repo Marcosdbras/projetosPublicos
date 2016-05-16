@@ -6,7 +6,7 @@ object frmDados: TfrmDados
   Left = 65532
   Top = 65532
   Height = 746
-  Width = 1032
+  Width = 1349
   object Sql_Dados: TSQLConnection
     ConnectionName = 'UIB FireBird15 Connection'
     DriverName = 'UIB FireBird15'

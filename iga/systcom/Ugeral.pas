@@ -100,6 +100,13 @@ Type
   Function  Scroll(P:TScrollBox;B:Boolean):Boolean;
   procedure logTables(tabelalog:string; codusu:integer; operacao:string; Historico:string);
 
+  function datacriexe:string;
+  function datamodexe:string;
+
+  function FileAgeCreate(const FileName: string): Integer;
+  
+
+
 
  {variáveis globais}
 
@@ -118,6 +125,12 @@ Type
    sgDataIb             : string = '';
    sgDatafb             : string = '';
    titulo               : string = '';
+   sNumSerieHD          : string = '';
+   bbloqueado           : boolean = true;
+
+
+   abloqueio: array of string;
+
    itipoimpf            : integer;
    texto_retorno_gaveta : string;
    iultcod              :integer;
@@ -130,7 +143,7 @@ Type
    icusu, iTag:integer;
    exec:integer;
    bEofBaixa:boolean;
-   sNumSerieHD          : string = '';
+
    bAltDesc,
    bAltVend,
    bAltP,
@@ -4434,6 +4447,42 @@ begin
     end;
 
 
+end;
+
+
+function datacriexe:string;
+var  FlDt: Integer;
+begin
+  FlDt := FileAgeCreate(ParamStr(0));
+  result := DateToStr(FileDateToDateTime(FlDt));
+end;
+
+function datamodexe:string;
+var  FlDt: Integer;
+begin
+  FlDt := FileAge(ParamStr(0));
+  result := DateToStr(FileDateToDateTime(FlDt));
+
+end;
+
+function FileAgeCreate(const FileName: string): Integer;
+var
+  Handle: THandle;
+  FindData: TWin32FindData;
+  LocalFileTime: TFileTime;
+begin
+  Handle := FindFirstFile(PChar(FileName), FindData);
+  if Handle <> INVALID_HANDLE_VALUE then
+  begin
+    Windows.FindClose(Handle);
+    if (FindData.dwFileAttributes and FILE_ATTRIBUTE_DIRECTORY) = 0 then
+    begin
+      FileTimeToLocalFileTime(FindData.ftCreationTime, LocalFileTime);
+      if FileTimeToDosDateTime(LocalFileTime, LongRec(Result).Hi,
+        LongRec(Result).Lo) then Exit;
+    end;
+  end;
+  Result := -1;
 end;
 
 

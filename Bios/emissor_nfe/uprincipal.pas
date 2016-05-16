@@ -237,9 +237,6 @@ label2.caption := datamodexe;
 //quando o sistema expirar deve mudar para true
 
 
-
-
-
 if bbloqueado then
    begin
 

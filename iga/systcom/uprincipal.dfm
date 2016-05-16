@@ -1371,7 +1371,7 @@ object frmprincipal: Tfrmprincipal
       Left = 136
       Top = 72
       Width = 473
-      Height = 145
+      Height = 33
       Lines.Strings = (
         'mmoscriptgeral')
       TabOrder = 9
@@ -1379,18 +1379,227 @@ object frmprincipal: Tfrmprincipal
     end
     object mmoestruturadados: TMemo
       Left = 136
-      Top = 224
+      Top = 112
       Width = 473
-      Height = 145
+      Height = 49
       Lines.Strings = (
         'mmoscriptgeral')
       TabOrder = 10
       Visible = False
     end
+    object reResp: TMemo
+      Left = 136
+      Top = 168
+      Width = 475
+      Height = 49
+      Lines.Strings = (
+        'reResp')
+      TabOrder = 11
+      Visible = False
+    end
+    object pnlcentralaviso: TPanel
+      Left = -2
+      Top = 4
+      Width = 1321
+      Height = 577
+      BevelOuter = bvNone
+      TabOrder = 12
+      object Label3: TLabel
+        Left = 8
+        Top = 15
+        Width = 179
+        Height = 29
+        Caption = 'Prezado cliente, '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label4: TLabel
+        Left = 8
+        Top = 77
+        Width = 401
+        Height = 29
+        Caption = 'Este programa tem data de expira'#231#227'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label5: TLabel
+        Left = 8
+        Top = 112
+        Width = 819
+        Height = 29
+        Caption = 
+          'isto ocorre pelo fato da necessidade de  manter manuten'#231#227'o peri'#243 +
+          'dica desta'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label6: TLabel
+        Left = 8
+        Top = 149
+        Width = 773
+        Height = 29
+        Caption = 
+          'aplica'#231#227'o, gerando custo para os desenvolvedores, parceiros e cl' +
+          'ientes.'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label7: TLabel
+        Left = 8
+        Top = 184
+        Width = 704
+        Height = 29
+        Caption = 
+          'Por gentileza entre em contato com suporte t'#233'cnico nos telefones' +
+          ':'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label8: TLabel
+        Left = 8
+        Top = 222
+        Width = 529
+        Height = 29
+        Caption = 'DDD (11) 97043-3730 /  96393-0108  /   3042-3730'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label9: TLabel
+        Left = 8
+        Top = 427
+        Width = 309
+        Height = 29
+        Caption = 'Obrigado pela compreens'#227'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label10: TLabel
+        Left = 8
+        Top = 501
+        Width = 233
+        Height = 29
+        Caption = 'Respons'#225'vel T'#233'cnico'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label11: TLabel
+        Left = 8
+        Top = 469
+        Width = 134
+        Height = 29
+        Caption = 'Marcos Br'#225's'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label12: TLabel
+        Left = 9
+        Top = 254
+        Width = 418
+        Height = 29
+        Caption = 'ou acesse o site www.marcosbras.com'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -24
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lbldatacriaexe: TLabel
+        Left = 64
+        Top = 312
+        Width = 65
+        Height = 13
+        Caption = 'lbldatacriaexe'
+        Visible = False
+      end
+      object lbldatamodexe: TLabel
+        Left = 67
+        Top = 336
+        Width = 68
+        Height = 13
+        Caption = 'lbldatamodexe'
+        Visible = False
+      end
+      object lblmensagem: TLabel
+        Left = 67
+        Top = 360
+        Width = 61
+        Height = 13
+        Caption = 'lblmensagem'
+        Visible = False
+      end
+      object btnfechar: TButton
+        Left = 408
+        Top = 518
+        Width = 585
+        Height = 57
+        Caption = 'FECHAR MENSAGEM E CONTINUAR EMITINDO AT'#201' EXPIRAR'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        OnClick = btnfecharClick
+      end
+      object Memo1: TMemo
+        Left = 408
+        Top = 304
+        Width = 585
+        Height = 209
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlue
+        Font.Height = -19
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        Lines.Strings = (
+          'Memo1')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 1
+      end
+    end
   end
   object MainMenu1: TMainMenu
-    Left = 368
-    Top = 120
+    Left = 360
+    Top = 176
     object Cadastro1: TMenuItem
       Caption = '&Cadastro'
       object Funcionrio1: TMenuItem
@@ -1847,12 +2056,12 @@ object frmprincipal: Tfrmprincipal
   end
   object AplEvento: TApplicationEvents
     OnException = AplEventoException
-    Left = 464
-    Top = 115
+    Left = 432
+    Top = 155
   end
   object OpenDialog1: TOpenDialog
-    Left = 545
-    Top = 202
+    Left = 489
+    Top = 218
   end
   object SaveDialog1: TSaveDialog
     Left = 361
@@ -3333,5 +3542,79 @@ object frmprincipal: Tfrmprincipal
     Comprimento = 0
     Left = 417
     Top = 298
+  end
+  object lHTTP: TIdHTTP
+    AllowCookies = True
+    ProxyParams.BasicAuthentication = False
+    ProxyParams.ProxyPort = 0
+    Request.ContentLength = -1
+    Request.ContentRangeEnd = -1
+    Request.ContentRangeStart = -1
+    Request.ContentRangeInstanceLength = -1
+    Request.Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    Request.BasicAuthentication = False
+    Request.UserAgent = 'Mozilla/3.0 (compatible; Indy Library)'
+    Request.Ranges.Units = 'bytes'
+    Request.Ranges = <>
+    HTTPOptions = [hoForceEncodeParams]
+    Left = 520
+    Top = 304
+  end
+  object XMLEnvio: TXMLDocument
+    XML.Strings = (
+      '<?xml version="1.0" encoding="utf-8" ?><response>'
+      
+        '<cep>69960-000</cep><uf>AC</uf><cidade>feijo</cidade><bairro></b' +
+        'airro><tipo_logradouro></tipo_logradouro><logradouro></logradour' +
+        'o><resultado></resultado><resultado_txt></resultado_txt><ibge_uf' +
+        '>12</ibge_uf><ibge_municipio>1200302</ibge_municipio><erro>0</er' +
+        'ro><msgerro></msgerro></response>')
+    Left = 552
+    Top = 304
+    DOMVendorDesc = 'MSXML'
+  end
+  object IdHTTP1: TIdHTTP
+    AllowCookies = True
+    ProxyParams.BasicAuthentication = False
+    ProxyParams.ProxyPort = 0
+    Request.ContentLength = -1
+    Request.ContentRangeEnd = -1
+    Request.ContentRangeStart = -1
+    Request.ContentRangeInstanceLength = -1
+    Request.Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    Request.BasicAuthentication = False
+    Request.UserAgent = 'Mozilla/3.0 (compatible; Indy Library)'
+    Request.Ranges.Units = 'bytes'
+    Request.Ranges = <>
+    HTTPOptions = [hoForceEncodeParams]
+    Left = 520
+    Top = 360
+  end
+  object XMLDocument1: TXMLDocument
+    Left = 552
+    Top = 360
+    DOMVendorDesc = 'MSXML'
+  end
+  object bloquear: TLockApplication
+    IDSistema = 251
+    Demostracao = True
+    Informacoes_adicionais = False
+    Mostrar_Tela_Primeira_Vez = True
+    Dias_Demostracao = 35
+    Local_Registro = '\Software\Appro'
+    Chave_Criptografia = 'LockApplication'
+    Titulo_das_janelas = 'Sistema'
+    Email_de_contato = 'eletronica-repa@bol.com.br'
+    Site_da_Empresa = 'http://www.data.com'
+    Telefones_de_Contato = '(011)97043-3730 tim'
+    Versao_Trial = 1
+    SMTP_Porta = 25
+    EMAIL_Enviar = False
+    EMAIL_Remetente = 'teste@data.com.br'
+    EMAIL_Destino = 'eletronica-repa@bol.com.br'
+    EMAIL_Assunto = 'Licen'#231'a ir'#225' expirar'
+    EMAIL_Dias_enviar = 180
+    Left = 721
+    Top = 354
   end
 end

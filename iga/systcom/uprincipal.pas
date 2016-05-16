@@ -7,7 +7,8 @@ uses
   Dialogs, Menus, ExtCtrls, StdCtrls, Buttons, ToolWin, ComCtrls, Grids,
   DBGrids, DB, DBClient, Mask, AppEvnts, SqlExpr, SOAPHTTPTrans,
   IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdHTTP,
-  WinSkinStore, WinSkinData, abarra;
+  WinSkinStore, WinSkinData, abarra, xmldom, XMLIntf, msxmldom, XMLDoc,
+  LockApplication;
 
 type
   Tfrmprincipal = class(TForm)
@@ -156,6 +157,28 @@ type
     cpm1: TMenuItem;
     mmoscriptgeral: TMemo;
     mmoestruturadados: TMemo;
+    lHTTP: TIdHTTP;
+    XMLEnvio: TXMLDocument;
+    IdHTTP1: TIdHTTP;
+    XMLDocument1: TXMLDocument;
+    reResp: TMemo;
+    bloquear: TLockApplication;
+    pnlcentralaviso: TPanel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    btnfechar: TButton;
+    Memo1: TMemo;
+    lbldatacriaexe: TLabel;
+    lbldatamodexe: TLabel;
+    lblmensagem: TLabel;
     procedure FormShow(Sender: TObject);
     procedure Indice1Click(Sender: TObject);
     procedure DBGrid1KeyPress(Sender: TObject; var Key: Char);
@@ -257,6 +280,12 @@ type
     procedure Mltiplospagtospagar1Click(Sender: TObject);
     procedure cpm1Click(Sender: TObject);
     procedure SkinData1SkinChanged(Sender: TObject);
+    procedure atualizacaoBaseRemota;
+    procedure atualizaEmitente;
+    procedure btnfecharClick(Sender: TObject);
+
+
+
 
 
   private
@@ -299,9 +328,68 @@ end;
 dbgrid1.Columns[1].FieldName := 'os';
 frmdados.Cds_Dados.Active := true; }
 
-bEofBaixa := false;
+   bEofBaixa := false;
 
-vardir := ExtractFilePath(Application.ExeName);
+   vardir := ExtractFilePath(Application.ExeName);
+
+   memo1.Lines.Clear;
+
+   memo1.Lines.Add('1) Acesse o site www.marcosbras.com ');
+   memo1.Lines.Add('2) Clique nos links contate-nos / Chaves & Desbloqueio');
+   memo1.Lines.Add('3) No final da página localize a frase');
+   memo1.Lines.Add('   Você precisa fazer o login para publicar um comentário.');
+   memo1.Lines.Add('4) Clique em LOGIN');
+   memo1.Lines.Add('5) Se você já está cadastrado utilize seu nome de usuário e senha / FAZER LOGIN para se autenticar');
+   memo1.Lines.Add('   ou clique em PERDEU A SENHA se este for o motivo');
+   memo1.Lines.Add('6) Caso não tenha cadastro clique em REGISTRA-SE');
+   memo1.Lines.Add('7) Após se autenticar localize a frase DEIXE UMA RESPOSTA ou COMENTÁRIO e');
+   memo1.Lines.Add('   informe ID DA INSTALAÇÃO '+ IntToStr(bloquear.IDInstalacao));
+   memo1.Lines.Add('   identificação do pagamento / CNPJ da empresa / Nome do contato / email e telefone');
+   memo1.Lines.Add('8) Depois clique em PUBLICAR COMENTÁRIO ');
+   memo1.Lines.Add('9) Aguarde contato via email');
+   memo1.Lines.Add('Em caso de dúvida envie mensagem para contato@marcosbras.com');
+
+    memo1.Lines.Add( 'Dias Restantes : ' + IntToStr(frmprincipal.bloquear.Dias_RestantesU) );
+   memo1.Lines.Add( 'Data Vencimento : ' + frmprincipal.bloquear.Data_VencimentoU );
+   memo1.Lines.Add('Chave : ' + frmprincipal.bloquear.Chave_RegistradaU);
+   memo1.Lines.Add('E-mail : ' + frmprincipal.bloquear.Email_ClienteU);
+   memo1.Lines.Add( 'Versão : ' + IntToStr(frmprincipal.bloquear.Versao_Sistema) );
+   memo1.Lines.Add(  'ID da instalação : '+ IntToStr(bloquear.IDInstalacao) );
+
+   if bloquear.Sistema_DemoU then
+         memo1.Lines.Add(  'DEMO')
+   else
+         memo1.Lines.Add( 'REGISTRADO');
+
+   lblmensagem.Caption := '';
+
+   pnlcentralaviso.Align := alclient;
+
+
+   lbldatacriaexe.caption := datacriexe;
+   lbldatamodexe.caption := datamodexe;
+
+
+    if bbloqueado then
+       begin
+          if bloquear.Dias_RestantesU > 30 then
+             begin
+               pnlcentralaviso.Visible := false;
+             end
+          //endi
+       end
+    else
+       begin
+          pnlcentralaviso.Visible := false;
+       end;
+    //endi
+
+
+    if pnlcentralaviso.Visible then
+       pnlcentral.Visible := false;
+    //endi   
+
+
 
 
 
@@ -4011,6 +4099,18 @@ begin
   SetScreenResolution(1024, 768);
 end;
 
+atualizacaoBaseRemota;
+
+if bbloqueado then
+   begin
+
+     bloquear.executar;
+
+   end;
+//endi
+
+
+
 
 
 
@@ -5256,6 +5356,188 @@ end;
 procedure Tfrmprincipal.SkinData1SkinChanged(Sender: TObject);
 begin
    showmessage('');
+end;
+
+
+procedure tfrmprincipal.atualizacaoBaseRemota;
+begin
+  try
+
+      try
+        atualizaEmitente;
+
+      except
+        reResp.Lines.Add('erro ao sincronizar dados');
+      end;
+
+  finally
+     //tenviaxml.Terminate;
+      reResp.Lines.Add('fim da sincronização');
+  end;
+
+
+end;
+
+
+procedure tfrmprincipal.atualizaEmitente;
+
+var
+
+  lParamList: TStringList;
+  lResponse : TStringStream;
+  smostrar, chave, cnpj, nome, bloqueado:string;
+  x:integer;
+
+begin
+
+  x:=0;
+
+  with frmdados do
+    begin
+
+       cds_config.Active := false;
+       dbx_config.Active := false;
+       dbx_config.SQL.Clear;
+       dbx_config.SQL.Add('select * from config');
+       dbx_config.active  := true;
+       cds_config.Active := true;
+
+       cds_indice.Active := false;
+       dbx_indice.Active := false;
+       dbx_indice.SQL.Clear;
+       dbx_indice.SQL.Add('select * from indice');
+       dbx_indice.active  := true;
+       cds_indice.Active := true;
+
+
+
+       chave:=frmdados.cds_indice.fieldbyname('chaveconsultacep').asString;
+
+
+
+
+    end;
+
+  setlength(abloqueio, frmdados.cds_config.RecordCount);
+
+  while not frmdados.cds_config.Eof do
+    begin
+
+
+        try
+            lParamList := TStringList.Create;
+            lResponse := TStringStream.Create('');
+
+            lParamList.Add('modo=I');
+            lParamList.Add('nome='+frmdados.cds_config.FieldByName('campo1').AsString);
+            lParamList.Add('fantasia='+frmdados.cds_config.FieldByName('campo2').AsString);
+            lParamList.Add('cnpj='+tirapontos(tirabarras(tiratracos(frmdados.cds_config.fieldbyname('campo3').AsString))));
+            lParamList.Add('ie='+frmdados.cds_config.FieldByName('campo4').AsString);
+            lParamList.Add('cidade='+frmdados.cds_config.FieldByName('campo5').AsString);
+            lParamList.Add('Estado='+frmdados.cds_config.FieldByName('campo16').AsString);
+            lParamList.Add('endereco='+frmdados.cds_config.FieldByName('campo6').AsString);
+            lParamList.Add('nro='+frmdados.cds_config.FieldByName('nro').AsString);
+            lParamList.Add('bairro='+frmdados.cds_config.FieldByName('bairro').AsString);
+            lParamList.Add('compl='+frmdados.cds_config.FieldByName('campo17').AsString);
+            lParamList.Add('cep='+frmdados.cds_config.FieldByName('cep').AsString);
+            lParamList.Add('telefones='+frmdados.cds_config.FieldByName('fone').AsString);
+            lParamList.Add('email='+frmdados.cds_config.FieldByName('campo8').AsString);
+            lParamList.Add('obs='+frmdados.cds_config.FieldByName('campo7').AsString);
+            lParamList.Add('site=');
+            lParamList.Add('contato=');
+            lParamList.Add('im=');
+            lParamList.Add('regtrib=');
+            lParamList.Add('prog=SYSTCOM');
+
+
+            try
+                lHTTP := TIdHTTP.Create(nil);
+                try
+                  lHTTP.Post('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php', lParamList, lResponse);
+                  lResponse.Position := 0;
+                  reResp.Lines.LoadFromStream(lResponse);
+                finally
+
+                  lHTTP.Free;
+                  lParamList.Free;
+                  lResponse.Free();
+
+                end;
+
+
+            except
+              reResp.Lines.Add( 'Conexão com servidor inativa');
+            end;
+
+
+
+
+
+
+         //--------------------
+
+
+            try
+
+
+               cnpj:=tirapontos(tirabarras(tiratracos(frmdados.cds_config.fieldbyname('campo3').AsString)));
+
+               XMLDocument1.Active := False;
+               XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php?chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString+'&campo=cnpj&valor='+cnpj+'&modo=C');
+               XMLDocument1.Active := True;
+
+               nome      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['nome'].Text;
+               cnpj      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['cnpj'].Text;
+               bloqueado := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['bloqueado'].Text;
+
+               abloqueio[x] := bloqueado+cnpj;
+               x := x + 1;
+
+               XMLDocument1.Active := false;
+            except
+
+            end;
+
+
+
+            frmdados.cds_config.Next;
+
+
+        finally
+           reResp.Lines.Add( 'Atuallizado com sucesso');
+
+
+        end;
+
+    end;
+  //endw
+
+
+  for x := 0 to length(abloqueio)-1 do
+    begin
+      if copy(abloqueio[x],1,1) = '0' then
+         begin
+           bbloqueado := false;
+         end;
+      //endif
+
+    end;
+  //endfor
+
+
+
+
+  //--------------------------------------------------------------------
+
+
+
+end;
+
+
+
+procedure Tfrmprincipal.btnfecharClick(Sender: TObject);
+begin
+  pnlcentral.Visible := false;
 end;
 
 end.
