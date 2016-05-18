@@ -25,7 +25,7 @@ object frmconfig: Tfrmconfig
   object Bevel1: TBevel
     Left = 0
     Top = 0
-    Width = 904
+    Width = 912
     Height = 45
     Align = alTop
   end

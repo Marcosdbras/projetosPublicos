@@ -2269,9 +2269,9 @@ object frmPesqVProd: TfrmPesqVProd
       end
     end
     object pnlsalvarficha: TPanel
-      Left = 531
+      Left = 491
       Top = 8
-      Width = 150
+      Width = 75
       Height = 34
       BevelOuter = bvNone
       TabOrder = 4

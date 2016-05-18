@@ -187,7 +187,28 @@ if key = 27 then
 end;
 
 procedure Tfrmconfig.spdconfirmaClick(Sender: TObject);
+var cnpj:string;
 begin
+  if DBEdit3.Text = '' then
+     begin
+       showmessage('É necessário preenchimento do CNPJ');
+       DBEdit3.SetFocus;
+       exit;
+     end
+  else
+     begin
+       cnpj := tirapontos(tirabarras(tiratracos( DBEdit3.Text )));
+       if not ValidaCNPJ(cnpj) then
+          if not ValidaCPF(cnpj) then
+             begin
+               showmessage(DBEdit3.text+' não é CNPJ ou CPF válido');
+               DBEdit3.SetFocus;
+               exit;
+             end;
+
+     end;
+  //
+
   if frmdados.Cds_Config.State in [dsinsert, dsedit] then
      frmdados.Cds_Config.Post;
   //endi
