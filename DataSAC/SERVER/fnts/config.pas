@@ -468,7 +468,7 @@ begin
 
         qrindice.Active := false;
         qrindice.SQL.Clear;
-        qrindice.SQL.Add('update indice set obsos = '+quotedstr(memo2.Lines.Text )  );
+        qrindice.SQL.Add('update indice set condos = '+quotedstr(memo2.Lines.Text )  );
         qrindice.ExecSQL;
 
 

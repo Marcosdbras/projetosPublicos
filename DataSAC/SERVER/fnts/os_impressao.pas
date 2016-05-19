@@ -104,10 +104,6 @@ procedure Tfrmos_impressao.bgravarClick(Sender: TObject);
 begin
 
 
-
-
-
-
   case combo_modelo.ItemIndex of
   0 : TPRazaoClick(frmOS_impressao);
   1 : TPCartaClick(frmOS_impressao);

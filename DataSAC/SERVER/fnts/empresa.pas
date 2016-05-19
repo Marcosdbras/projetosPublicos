@@ -209,7 +209,7 @@ var
 
 implementation
 
-uses modulo, principal, loc_regiao, regiao, loc_funci, xloc_EMPRESA,
+uses ufuncoes, modulo, principal, loc_regiao, regiao, loc_funci, xloc_EMPRESA,
   xloc_cidade, xloc_cnae;
 
 {$R *.dfm}
@@ -319,7 +319,7 @@ end;
 
 procedure Tfrmempresa.bgravarClick(Sender: TObject);
 var situacao, tipo : integer;
-DATA: STRING;
+DATA, cnpj: STRING;
 begin
   if dbedit2.text = '' then
   begin
@@ -328,6 +328,25 @@ begin
     exit;
   end;
 
+  if DBEdit15.Text = '' then
+     begin
+       showmessage('É necessário preenchimento do CNPJ');
+       DBEdit15.SetFocus;
+       exit;
+     end
+  else
+     begin
+       cnpj := tirapontos(tirabarras(tiratracos( DBEdit15.Text )));
+       if not ValidaCNPJ(cnpj) then
+          if not ValidaCPF(cnpj) then
+             begin
+               //showmessage(DBEdit15.Text+' não é CNPJ ou CPF válido');
+               DBEdit15.SetFocus;
+               exit;
+             end;
+
+     end;
+  //
 
 
   if (frmmodulo.QRFILIAL.State = dsinsert) or (frmmodulo.QRFILIAL.State = dsedit) then

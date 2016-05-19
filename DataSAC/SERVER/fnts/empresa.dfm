@@ -1,8 +1,8 @@
 object frmempresa: Tfrmempresa
-  Left = 380
-  Top = 136
+  Left = 369
+  Top = 32
   Width = 608
-  Height = 672
+  Height = 676
   BorderIcons = [biSystemMenu]
   Caption = 'EMPRESAS/EMITENTES | Ficha de Cadastro'
   Color = clBtnFace
@@ -20,14 +20,14 @@ object frmempresa: Tfrmempresa
   TextHeight = 13
   object Bevel1: TBevel
     Left = 0
-    Top = 612
+    Top = 616
     Width = 600
     Height = 2
     Align = alBottom
   end
   object Panel2: TPanel
     Left = 0
-    Top = 614
+    Top = 618
     Width = 600
     Height = 31
     Align = alBottom

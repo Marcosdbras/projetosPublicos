@@ -375,7 +375,9 @@ object frmos_impressao: Tfrmos_impressao
     Height = 21
     Style = csDropDownList
     ItemHeight = 13
+    ItemIndex = 10
     TabOrder = 0
+    Text = '11 - Condi'#231#245'es Gerais de Servi'#231'o'
     OnKeyPress = combo_modeloKeyPress
     Items.Strings = (
       '01 - Formul'#225'rio Cont'#237'nuo - Raz'#227'o'
@@ -716,7 +718,7 @@ object frmos_impressao: Tfrmos_impressao
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39209.612085312510000000
-    ReportOptions.LastChange = 42500.803115231480000000
+    ReportOptions.LastChange = 42508.870414363400000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -782,7 +784,7 @@ object frmos_impressao: Tfrmos_impressao
       end
       object Memo11: TfrxMemoView
         Left = 3.779530000000000000
-        Top = 32.236239999999990000
+        Top = 32.236240000000000000
         Width = 427.086890000000000000
         Height = 11.338590000000000000
         ShowHint = False
@@ -801,14 +803,14 @@ object frmos_impressao: Tfrmos_impressao
       end
       object Shape18: TfrxShapeView
         Top = 169.756030000000000000
-        Width = 529.134199999999900000
+        Width = 529.134200000000000000
         Height = 181.417440000000000000
         ShowHint = False
       end
       object Memo52: TfrxMemoView
         Left = 3.779530000000000000
         Top = 183.433210000000000000
-        Width = 521.575140000000100000
+        Width = 521.575140000000000000
         Height = 151.181200000000000000
         ShowHint = False
         DataField = 'OBS'
@@ -1104,7 +1106,7 @@ object frmos_impressao: Tfrmos_impressao
       end
       object Memo13: TfrxMemoView
         Left = 438.425480000000000000
-        Top = 32.236239999999990000
+        Top = 32.236240000000000000
         Width = 275.905690000000000000
         Height = 11.338590000000000000
         ShowHint = False
@@ -1142,7 +1144,7 @@ object frmos_impressao: Tfrmos_impressao
       object Memo16: TfrxMemoView
         Left = 275.905690000000000000
         Top = 45.354360000000000000
-        Width = 56.692950000000010000
+        Width = 56.692950000000000000
         Height = 11.338590000000000000
         ShowHint = False
         DataSet = frmmodulo.fxemitente
@@ -1381,7 +1383,7 @@ object frmos_impressao: Tfrmos_impressao
       object Memo29: TfrxMemoView
         Left = 3.779530000000000000
         Top = 102.047310000000000000
-        Width = 94.488249999999950000
+        Width = 94.488249999999900000
         Height = 11.338590000000000000
         ShowHint = False
         DataSet = frmmodulo.fxemitente
@@ -1399,7 +1401,7 @@ object frmos_impressao: Tfrmos_impressao
       object Memo30: TfrxMemoView
         Left = 264.567100000000000000
         Top = 102.047310000000000000
-        Width = 90.708719999999990000
+        Width = 90.708720000000000000
         Height = 11.338590000000000000
         ShowHint = False
         DataSet = frmmodulo.fxemitente
@@ -1512,7 +1514,7 @@ object frmos_impressao: Tfrmos_impressao
         Left = 362.834880000000000000
         Top = 88.929190000000000000
         Width = 351.496290000000000000
-        Height = 34.015770000000010000
+        Height = 34.015770000000000000
         ShowHint = False
         DataField = 'DEFEITO'
         DataSet = fsos
@@ -1549,7 +1551,7 @@ object frmos_impressao: Tfrmos_impressao
       object Memo37: TfrxMemoView
         Left = 3.779530000000000000
         Top = 124.724490000000000000
-        Width = 75.590599999999970000
+        Width = 75.590600000000000000
         Height = 11.338590000000000000
         ShowHint = False
         DataSet = frmmodulo.fxemitente
@@ -1661,7 +1663,7 @@ object frmos_impressao: Tfrmos_impressao
         Left = 362.834880000000000000
         Top = 135.283550000000000000
         Width = 351.496290000000000000
-        Height = 34.015770000000010000
+        Height = 34.015770000000000000
         ShowHint = False
         DataSet = fsos
         DataSetName = 'fsos'
@@ -2190,7 +2192,7 @@ object frmos_impressao: Tfrmos_impressao
       end
       object Memo51: TfrxMemoView
         Top = 169.417440000000000000
-        Width = 525.354670000000100000
+        Width = 525.354670000000000000
         Height = 18.897650000000000000
         ShowHint = False
         DataSet = frmmodulo.fxemitente
@@ -2230,325 +2232,6 @@ object frmos_impressao: Tfrmos_impressao
         Width = 188.976500000000000000
         Height = 11.338590000000000000
         ShowHint = False
-      end
-    end
-    object Page2: TfrxReportPage
-      PaperWidth = 210.000000000000000000
-      PaperHeight = 297.000000000000000000
-      PaperSize = 9
-      PrintIfEmpty = False
-      object MasterData1: TfrxMasterData
-        Height = 11.338590000000000000
-        Top = 18.897650000000000000
-        Width = 793.701300000000000000
-        DataSet = fsos_servico
-        DataSetName = 'fsos_servico'
-        PrintChildIfInvisible = True
-        RowCount = 20
-        object Memo45: TfrxMemoView
-          Width = 30.236240000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataField = 'CODSERVICO'
-          DataSet = fsos_servico
-          DataSetName = 'fsos_servico'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[fsos_servico."CODSERVICO"]')
-          ParentFont = False
-        end
-        object Memo47: TfrxMemoView
-          Left = 30.236240000000000000
-          Width = 147.401670000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataField = 'SERVICO'
-          DataSet = fsos_servico
-          DataSetName = 'fsos_servico'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[fsos_servico."SERVICO"]')
-          ParentFont = False
-        end
-        object Memo48: TfrxMemoView
-          Left = 181.417440000000000000
-          Width = 170.078850000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataField = 'COMPLEMENTO'
-          DataSet = fsos_servico
-          DataSetName = 'fsos_servico'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[fsos_servico."COMPLEMENTO"]')
-          ParentFont = False
-        end
-        object Memo49: TfrxMemoView
-          Left = 362.834880000000000000
-          Width = 45.354360000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataField = 'VALOR'
-          DataSet = fsos_servico
-          DataSetName = 'fsos_servico'
-          DisplayFormat.DecimalSeparator = ','
-          DisplayFormat.FormatStr = '###,###,##0.00'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          Memo.UTF8 = (
-            '[fsos_servico."VALOR"]')
-          ParentFont = False
-        end
-        object Memo50: TfrxMemoView
-          Left = 411.968770000000000000
-          Width = 94.488250000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataField = 'TECNICO'
-          DataSet = fsos_servico
-          DataSetName = 'fsos_servico'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[fsos_servico."TECNICO"]')
-          ParentFont = False
-        end
-      end
-    end
-    object Page3: TfrxReportPage
-      PaperWidth = 210.000000000000000000
-      PaperHeight = 297.000000000000000000
-      PaperSize = 9
-      object MasterData2: TfrxMasterData
-        Height = 11.338590000000000000
-        Top = 18.897650000000000000
-        Width = 793.701300000000000000
-        DataSet = fsos_produto
-        DataSetName = 'fsos_produto'
-        PrintChildIfInvisible = True
-        RowCount = 10
-        object Memo65: TfrxMemoView
-          Width = 34.015770000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataField = 'CODPRODUTO'
-          DataSet = fsos_produto
-          DataSetName = 'fsos_produto'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[fsos_produto."CODPRODUTO"]')
-          ParentFont = False
-        end
-        object Memo66: TfrxMemoView
-          Left = 34.015770000000000000
-          Width = 287.244280000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataSet = fsos_produto
-          DataSetName = 'fsos_produto'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[fsos_produto."produto"]  [fsos_produto."SERIAL"]')
-          ParentFont = False
-        end
-        object Memo67: TfrxMemoView
-          Left = 325.039580000000000000
-          Width = 18.897650000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataField = 'UNIDADE'
-          DataSet = fsos_produto
-          DataSetName = 'fsos_produto'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[fsos_produto."UNIDADE"]')
-          ParentFont = False
-        end
-        object Memo68: TfrxMemoView
-          Left = 359.055350000000000000
-          Width = 45.354360000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataField = 'QTDE'
-          DataSet = fsos_produto
-          DataSetName = 'fsos_produto'
-          DisplayFormat.DecimalSeparator = ','
-          DisplayFormat.FormatStr = '###,###,##0.00'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          Memo.UTF8 = (
-            '[fsos_produto."QTDE"]')
-          ParentFont = False
-        end
-        object Memo69: TfrxMemoView
-          Left = 408.189240000000000000
-          Width = 52.913420000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataField = 'UNITARIO'
-          DataSet = fsos_produto
-          DataSetName = 'fsos_produto'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          Memo.UTF8 = (
-            '[fsos_produto."UNITARIO"]')
-          ParentFont = False
-        end
-        object Memo70: TfrxMemoView
-          Left = 464.882190000000000000
-          Width = 52.913420000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataField = 'TOTAL'
-          DataSet = fsos_produto
-          DataSetName = 'fsos_produto'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          Memo.UTF8 = (
-            '[fsos_produto."TOTAL"]')
-          ParentFont = False
-        end
-      end
-    end
-    object Page4: TfrxReportPage
-      PaperWidth = 210.000000000000000000
-      PaperHeight = 297.000000000000000000
-      PaperSize = 9
-      object MasterData3: TfrxMasterData
-        Height = 11.338590000000000000
-        Top = 18.897650000000000000
-        Width = 793.701300000000000000
-        DataSet = fsos_receber
-        DataSetName = 'fsos_receber'
-        PrintChildIfInvisible = True
-        RowCount = 4
-        object Memo99: TfrxMemoView
-          Left = 3.779530000000000000
-          Width = 52.913420000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataField = 'DATA_VENCIMENTO'
-          DataSet = fsos_receber
-          DataSetName = 'fsos_receber'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[fsos_receber."DATA_VENCIMENTO"]')
-          ParentFont = False
-        end
-        object Memo102: TfrxMemoView
-          Left = 173.858380000000000000
-          Width = 49.133890000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataField = 'VALOR_ORIGINAL'
-          DataSet = fsos_receber
-          DataSetName = 'fsos_receber'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          Memo.UTF8 = (
-            '[fsos_receber."VALOR_ORIGINAL"]')
-          ParentFont = False
-        end
-        object Memo104: TfrxMemoView
-          Left = 56.692950000000000000
-          Width = 56.692950000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataField = 'DOCUMENTO'
-          DataSet = fsos_receber
-          DataSetName = 'fsos_receber'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[fsos_receber."DOCUMENTO"]')
-          ParentFont = False
-        end
-        object Memo105: TfrxMemoView
-          Left = 113.385900000000000000
-          Width = 60.472480000000000000
-          Height = 11.338590000000000000
-          ShowHint = False
-          DataField = 'TIPO'
-          DataSet = fsos_receber
-          DataSetName = 'fsos_receber'
-          DisplayFormat.DecimalSeparator = ','
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[fsos_receber."TIPO"]')
-          ParentFont = False
-        end
       end
     end
   end

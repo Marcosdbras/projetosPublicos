@@ -630,7 +630,7 @@ object frmconfig: Tfrmconfig
             '08 - RAZ'#195'O (LASER)'
             '09 - FORMUL'#193'RIO CONT'#205'NUO - CARTA'
             '10 - -----------------------------------------'
-            '11 - RAZ'#195'O (AUTO-PE'#199'AS)'
+            '11 - CONDI'#199#213'ES GERAIS DO SERVI'#199'O / RAZ'#195'O (AUTO-PE'#199'AS)'
             '12 - FORMUL'#193'RIO CONT'#205'NUO - CARTA (PERSONALIZADO)'
             '13 - CUPOM FISCAL + NOTA FISCAL')
         end
@@ -4495,8 +4495,14 @@ object frmconfig: Tfrmconfig
         Top = 16
         Width = 793
         Height = 143
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Comic Sans MS'
+        Font.Style = []
         Lines.Strings = (
           '')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 0
       end
@@ -4505,8 +4511,14 @@ object frmconfig: Tfrmconfig
         Top = 192
         Width = 793
         Height = 153
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Comic Sans MS'
+        Font.Style = []
         Lines.Strings = (
           '')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 1
       end

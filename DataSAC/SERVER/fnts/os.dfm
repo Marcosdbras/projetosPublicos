@@ -583,6 +583,7 @@ object frmOS: TfrmOS
           'ABERTA - Aguardando Confirma'#231#227'o'
           'ABERTA - Executando Servi'#231'os'
           'FECHADA - Executa o Fechamento')
+        ItemIndex = 0
         ParentFont = False
         Sorted = False
         TabOrder = 1
@@ -1904,7 +1905,7 @@ object frmOS: TfrmOS
     TabOrder = 3
     UseDockManager = True
     object Bevel1: TBevel
-      Left = 318
+      Left = 344
       Top = 1
       Width = 3
       Height = 35
@@ -1913,9 +1914,9 @@ object frmOS: TfrmOS
     object bgravar: TAdvGlowButton
       Left = 6
       Top = 2
-      Width = 107
+      Width = 163
       Height = 30
-      Caption = 'F10 | Gravar'
+      Caption = 'F10 | Gravar e Imprime Ordem de Servi'#231'o'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -1991,9 +1992,9 @@ object frmOS: TfrmOS
       Appearance.GradientChecked = ggVertical
     end
     object bcancelar: TAdvGlowButton
-      Left = 123
+      Left = 173
       Top = 2
-      Width = 108
+      Width = 148
       Height = 30
       Caption = 'ESC | Cancelar'
       Font.Charset = ANSI_CHARSET
@@ -2069,16 +2070,17 @@ object frmOS: TfrmOS
       Appearance.GradientChecked = ggVertical
     end
     object Panel2: TPanel
-      Left = 321
+      Left = 347
       Top = 1
-      Width = 542
+      Width = 516
       Height = 35
       Align = alRight
       BevelOuter = bvNone
+      Caption = 'frm'
       Enabled = False
       TabOrder = 2
       object Label42: TLabel
-        Left = 222
+        Left = 197
         Top = 10
         Width = 172
         Height = 13
@@ -2091,7 +2093,7 @@ object frmOS: TfrmOS
         ParentFont = False
       end
       object RxDBCalcEdit1: TRxDBCalcEdit
-        Left = 404
+        Left = 379
         Top = 2
         Width = 134
         Height = 31
@@ -3104,6 +3106,7 @@ object frmOS: TfrmOS
     BeforePost = qros_servicoBeforePost
     AfterPost = qros_servicoAfterPost
     OnPostError = qros_servicoPostError
+    Active = True
     SQL.Strings = (
       'SELECT * FROM C000053')
     Params = <>
