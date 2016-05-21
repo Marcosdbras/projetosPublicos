@@ -1,4 +1,4 @@
-unit ufrenteecf;
+unit ufrenteecf;    
                         
 interface
 
@@ -609,10 +609,19 @@ begin
   //endi
 
 
-  //itipoimpf := frmdados.Cds_Indice.FieldByName('tipoimpf').asInteger;
 
 
+ if pos('\\',frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString) > 0 then
 
+    begin
+      sayprint.Porta :=    PrnNet;
+      sayprint.OutputFile := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
+
+    end;
+ //endi
+
+
+  itipoimpf := frmdados.Cds_Indice.FieldByName('tipoimpf').asInteger;
   case itipoimpf of
        0:begin
            // Nenhuma

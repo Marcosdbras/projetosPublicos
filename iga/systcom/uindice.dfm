@@ -551,66 +551,67 @@ object frmIndice: TfrmIndice
     Top = 244
     Width = 433
     Height = 89
+    VertScrollBar.Position = 201
     TabOrder = 2
     object Label55: TLabel
       Left = 8
-      Top = 2
+      Top = -199
       Width = 227
       Height = 13
       Caption = 'Caminho bco dados systcom Produtos Vendidos'
     end
     object Label57: TLabel
       Left = 8
-      Top = 39
+      Top = -162
       Width = 26
       Height = 13
       Caption = 'Login'
     end
     object Label58: TLabel
       Left = 160
-      Top = 39
+      Top = -162
       Width = 31
       Height = 13
       Caption = 'Senha'
     end
     object Label61: TLabel
       Left = 8
-      Top = 89
+      Top = -112
       Width = 184
       Height = 13
       Caption = 'Caminho bco dados systcom financeiro'
     end
     object Label62: TLabel
       Left = 8
-      Top = 128
+      Top = -73
       Width = 126
       Height = 13
       Caption = 'Caminho bco dados DBF'#180's'
     end
     object Label19: TLabel
       Left = 8
-      Top = 172
+      Top = -29
       Width = 127
       Height = 13
       Caption = 'Caminho Transmiss'#227'o NFE'
     end
     object Label82: TLabel
       Left = 8
-      Top = 210
+      Top = 9
       Width = 124
       Height = 13
       Caption = 'Retorno Transmiss'#227'o NFE'
     end
     object Label84: TLabel
       Left = 11
-      Top = 250
+      Top = 49
       Width = 103
       Height = 13
       Caption = 'Caminho Emissor ECF'
     end
     object btntesteado: TButton
       Left = 296
-      Top = 51
+      Top = -150
       Width = 113
       Height = 25
       Caption = 'Testar Conex'#227'o Ado'
@@ -619,7 +620,7 @@ object frmIndice: TfrmIndice
     end
     object edicaminhoado: TDBEdit
       Left = 8
-      Top = 17
+      Top = -184
       Width = 401
       Height = 21
       DataField = 'CAMINHOBCOADO'
@@ -629,7 +630,7 @@ object frmIndice: TfrmIndice
     end
     object ediloginado: TDBEdit
       Left = 8
-      Top = 54
+      Top = -147
       Width = 145
       Height = 21
       DataField = 'LOGINADO'
@@ -639,7 +640,7 @@ object frmIndice: TfrmIndice
     end
     object edisenhaado: TDBEdit
       Left = 160
-      Top = 55
+      Top = -146
       Width = 129
       Height = 21
       DataField = 'SENHAADO'
@@ -650,7 +651,7 @@ object frmIndice: TfrmIndice
     end
     object edicaminhoado_2: TDBEdit
       Left = 8
-      Top = 103
+      Top = -98
       Width = 400
       Height = 21
       DataField = 'CAMINHOBCOADO_2'
@@ -660,7 +661,7 @@ object frmIndice: TfrmIndice
     end
     object EDICAMINHODBF_1: TDBEdit
       Left = 8
-      Top = 145
+      Top = -56
       Width = 400
       Height = 21
       DataField = 'CAMINHODBF_1'
@@ -670,7 +671,7 @@ object frmIndice: TfrmIndice
     end
     object DBEdit1: TDBEdit
       Left = 8
-      Top = 186
+      Top = -15
       Width = 401
       Height = 21
       CharCase = ecUpperCase
@@ -681,7 +682,7 @@ object frmIndice: TfrmIndice
     end
     object DBEdit9: TDBEdit
       Left = 8
-      Top = 225
+      Top = 24
       Width = 401
       Height = 21
       CharCase = ecUpperCase
@@ -692,7 +693,7 @@ object frmIndice: TfrmIndice
     end
     object DBEdit10: TDBEdit
       Left = 9
-      Top = 265
+      Top = 64
       Width = 401
       Height = 21
       CharCase = ecUpperCase
