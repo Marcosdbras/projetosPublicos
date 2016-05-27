@@ -3930,7 +3930,7 @@ object frmfrenteecf: Tfrmfrenteecf
     Top = 11
   end
   object SayPrint: TSayPrint
-    Porta = PrnNet
+    Porta = Lpt1
     Impressora = imEpsom
     EjectPage = False
     DelayPauseHide = 0

@@ -1,0 +1,57 @@
+Itens para o check list
+ 
+Marque (S)im ou (N)ão para responder
+
+Suporte e atualizações
+
+	1) Foi realizado backup antes da atualização?................. (  ) 
+
+	2) Verificou via serviço e painel de controle 
+	   do windows se firebird ou mysql está instalado 
+ 	   e rodando no computador?................................... (  )
+
+	3) Foi realizado atualização da base de dados sistema 
+	   DataSAC, Systcom ou NFE?................................... (  )
+
+	4) Inseriu caminho do firebird no path do sistema............. (  )
+
+
+Instalações novas
+
+Passo 1
+
+   A) Instalou firebird ou mysql..........................................(  )
+
+Passo 2
+
+   A) Instalou base de dados..............................................(  )
+
+
+   B) Instalou base de dados: 
+    
+   SYSTCOM em"c:\bd_auxsystcom"...........................................(  )
+
+   NFE em"Base"...........................................................(  )
+
+   DataSAC em"c:\bd_datasac"..............................................(  )
+
+   S@T....................................................................(  )
+
+
+Pass 3
+
+   A) Instalou sistema:
+
+   SYSTCOM em"c:\auxsystcom"..............................................(  )
+
+   NFE"c:\nfe"............................................................(  )
+
+   DataSAC em"c:\datasac".................................................(  )
+
+   S@T....................................................................(  )
+
+
+Passo 4
+
+A) Houve desbloqueio do sistema"Gerenciador lockappication"...............(  )
+   

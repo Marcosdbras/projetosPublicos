@@ -21,7 +21,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 OutputDir=C:\Projetos\iga\instaladores\systcom
-OutputBaseFilename=Setup_Base_de_Dados_SYSTCOM
+OutputBaseFilename=SO_PARA_INSTALACOES_NOVAS_SYSTCOM_BD
 Compression=lzma
 SolidCompression=yes
 

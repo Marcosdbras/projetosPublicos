@@ -280,8 +280,6 @@ type
     Label83: TLabel;
     ckbmostracodaux: TCheckBox;
     ckbmostramarca: TCheckBox;
-    Label84: TLabel;
-    DBEdit10: TDBEdit;
     DBRadioGroup2: TDBRadioGroup;
     Bevel3: TBevel;
     cbxsitcliinat: TDBLookupComboBox;
@@ -292,6 +290,8 @@ type
     ckbimpconcomitate: TCheckBox;
     ckbmostrainfofinadd: TCheckBox;
     ckbop: TCheckBox;
+    rgbporta: TRadioGroup;
+    DBEdit10: TDBEdit;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -335,6 +335,7 @@ type
     procedure edicsitrChange(Sender: TObject);
     procedure btnconfintClick(Sender: TObject);
     procedure btncomandaClick(Sender: TObject);
+    procedure rgbportaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -1460,6 +1461,36 @@ begin
 frmqtdecoma := tfrmqtdecoma.create(self);
 frmqtdecoma.showmodal;
 frmqtdecoma.free;
+end;
+
+procedure TfrmIndice.rgbportaClick(Sender: TObject);
+begin
+  case rgbporta.ItemIndex of
+    0:begin
+        dbedit10.Text := 'Lpt1';
+      end;
+    1:begin
+        dbedit10.Text := 'Lpt2';
+      end;
+    2:begin
+        dbedit10.Text := 'Lpt3';
+      end;
+    3:begin
+        dbedit10.Text := 'Lpt4';
+      end;
+    4:begin
+        dbedit10.Text := 'c:\auxsystcom';
+      end;
+    5:begin
+        dbedit10.Text := '\\computador-rede\impressora';
+      end;
+
+
+
+
+  end;
+
+
 end;
 
 end.

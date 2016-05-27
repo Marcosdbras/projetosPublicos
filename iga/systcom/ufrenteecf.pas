@@ -611,26 +611,55 @@ begin
 
 
 
- if pos('\\',frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString) > 0 then
-
-    begin
-      sayprint.Porta :=    PrnNet;
-      sayprint.OutputFile := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
-
-    end;
- //endi
 
 
-  itipoimpf := frmdados.Cds_Indice.FieldByName('tipoimpf').asInteger;
+
+
   case itipoimpf of
        0:begin
            // Nenhuma
+
+           if pos('\\',frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString) > 0 then
+              begin
+
+                sayprint.Porta :=    PrnNet;
+                sayprint.NetImpress := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
+
+              end
+           else
+              begin
+
+                 if pos(':',frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString) > 0 then
+                    begin
+
+                      sayprint.Porta :=    PrnFile;
+                      sayprint.OutputFile := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
+
+                    end
+                 else
+                    begin
+
+
+                      sayprint.Porta :=    Lpt1;
+
+
+
+                    end;
+                 //endi
+
+
+              end;
+
+
+           //endi
+
+
+
            if ( frmdados.Cds_Indice.FieldByName('impconcomitante').asString = 'T' ) then
               begin
 
               end;
            //endi
-
 
 
          end;
