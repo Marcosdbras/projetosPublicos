@@ -12672,7 +12672,7 @@ var
 
   svigenciafim:String;
   }
-  
+
 
 
 
@@ -12693,10 +12693,12 @@ var
   sestadual:String;
   smunicipal:String;
 
+  codigo:integer;
+
 begin
 
   if ncm = '' then
-     exit; 
+     exit;
 
   try
 
@@ -12732,13 +12734,22 @@ begin
       fmunicipal := strtofloat( smunicipal );
 
 
+      dbx_exec.Active := false;
+      dbx_exec.SQL.Clear;
+      dbx_exec.SQL.Add('select max(codigo) as codigo from ibpt');
+      dbx_exec.Active := true;
+
+
+      codigo := dbx_exec.fieldbyname('codigo').AsInteger + 1;
+
 
 
       dbx_exec.Active := false;
       dbx_exec.SQL.Clear;
-      dbx_exec.SQL.Add('insert into ibpt (codncmnbs, ex, tipo, descricao, nacionalfederal, importadosfederal, estadual, municipal, vigenciainicio, vigenciafim, chave, versao, fonte)');
-      dbx_exec.SQL.Add(' values (:codncmnbs, :ex, :tipo, :descricao, :nacionalfederal, :importadosfederal, :estadual, :municipal, :vigenciainicio, :vigenciafim, :chave, :versao, :fonte)');
+      dbx_exec.SQL.Add('insert into ibpt (codigo, codncmnbs, ex, tipo, descricao, nacionalfederal, importadosfederal, estadual, municipal, vigenciainicio, vigenciafim, chave, versao, fonte)');
+      dbx_exec.SQL.Add(' values (:codigo, :codncmnbs, :ex, :tipo, :descricao, :nacionalfederal, :importadosfederal, :estadual, :municipal, :vigenciainicio, :vigenciafim, :chave, :versao, :fonte)');
 
+      dbx_exec.Params.ParamByName('codigo').AsInteger :=  codigo;
       dbx_exec.Params.ParamByName('codncmnbs').AsString :=  ncm;
       dbx_exec.Params.ParamByName('ex').AsString :=  sex;
       dbx_exec.Params.ParamByName('versao').AsString :=  sversao;

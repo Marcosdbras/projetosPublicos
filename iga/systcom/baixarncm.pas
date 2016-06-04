@@ -69,6 +69,8 @@ bitbtn1.Enabled := false;
      end;
   //endi
 
+
+
   animate1.Active := false;
     animate1.Visible := false;
   label2.Visible := false;

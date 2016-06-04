@@ -2294,11 +2294,11 @@ object frmpesqnf: Tfrmpesqnf
                 object Label126: TLabel
                   Left = 0
                   Top = 38
-                  Width = 583
+                  Width = 621
                   Height = 13
                   Caption = 
-                    ' nesta ficha ou no cadastro do produto, por'#233'm, h'#225' necessidade da' +
-                    's al'#237'quotas serem maiores que zero.'
+                    ' nesta ficha ou no cadastro do produto, por'#233'm, *** h'#225' necessidad' +
+                    'e das al'#237'quotas serem maiores que zero. ***'
                   Font.Charset = DEFAULT_CHARSET
                   Font.Color = clRed
                   Font.Height = -11
@@ -2321,7 +2321,7 @@ object frmpesqnf: Tfrmpesqnf
                 end
                 object Label131: TLabel
                   Left = 312
-                  Top = 62
+                  Top = 100
                   Width = 394
                   Height = 13
                   Caption = 'Quando preencher estas informa'#231#245'es o CSOSN deve estar configura-'
@@ -2333,11 +2333,37 @@ object frmpesqnf: Tfrmpesqnf
                   ParentFont = False
                 end
                 object Label132: TLabel
-                  Left = 316
-                  Top = 78
+                  Left = 314
+                  Top = 116
                   Width = 74
                   Height = 13
                   Caption = 'do como 900'
+                  Font.Charset = DEFAULT_CHARSET
+                  Font.Color = clRed
+                  Font.Height = -11
+                  Font.Name = 'MS Sans Serif'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                end
+                object Label135: TLabel
+                  Left = 312
+                  Top = 62
+                  Width = 371
+                  Height = 13
+                  Caption = 'MENU: CADASTRO\TRIBUTA'#199#195'O\IPI OU ICMS e altere aliquota'
+                  Font.Charset = DEFAULT_CHARSET
+                  Font.Color = clRed
+                  Font.Height = -11
+                  Font.Name = 'MS Sans Serif'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                end
+                object Label136: TLabel
+                  Left = 314
+                  Top = 76
+                  Width = 169
+                  Height = 13
+                  Caption = 'para um valor maior que zero.'
                   Font.Charset = DEFAULT_CHARSET
                   Font.Color = clRed
                   Font.Height = -11

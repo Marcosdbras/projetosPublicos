@@ -596,9 +596,18 @@ object frmPesqVfb: TfrmPesqVfb
       Top = 87
       Width = 134
       Height = 33
-      Caption = 'Exportar'
+      Caption = 'Exportar para NFE'
       TabOrder = 4
       OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 595
+      Top = 122
+      Width = 134
+      Height = 33
+      Caption = 'Exportar para S@T'
+      TabOrder = 5
+      OnClick = Button2Click
     end
   end
   object Dbx_Vendab: TSQLQuery

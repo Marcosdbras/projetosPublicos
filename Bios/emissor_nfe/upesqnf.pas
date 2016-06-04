@@ -383,6 +383,8 @@ type
     btnfim: TBitBtn;
     btninicio: TBitBtn;
     BitBtn5: TBitBtn;
+    Label135: TLabel;
+    Label136: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Limpar;
     procedure btnnovaClick(Sender: TObject);

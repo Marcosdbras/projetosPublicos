@@ -691,6 +691,7 @@ type
     dts_sita: TDataSource;
     SQLQuery1: TSQLQuery;
     Cds_sVendanomecli: TStringField;
+    Button2: TButton;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -720,7 +721,9 @@ type
     procedure Dts_sVendaDataChange(Sender: TObject; Field: TField);
     procedure btncancelapClick(Sender: TObject);
     procedure exportarped;
+    procedure exportarpedsat;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -1460,10 +1463,159 @@ vardir := extractfilepath(application.ExeName);
 end;
 
 
+procedure TfrmPesqVfb.exportarpedsat;
+var f:textfile;
+vardir:string;
+codigo, nome:string;
+begin
+
+vardir := extractfilepath(application.ExeName);
+
+  codigo := '';
+  nome := '';
+
+  Cds_Clientes.Active   := false;
+  Dbx_Clientes.Active := false;
+  Dbx_Clientes.SQL.Clear;
+  Dbx_Clientes.SQL.Add('select * from clientes');
+  Dbx_Clientes.Active := true;
+  Cds_Clientes.Active := true;
+
+  if Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
+     begin
+       codigo := Cds_Clientes.fieldbyname('codigo').AsString;
+       nome := Cds_Clientes.fieldbyname('nome').AsString;;
+
+     end;
+
+
+
+  cds_sita.Active := false;
+  dbx_sita.Active := false;
+  dbx_sita.sql.Clear;
+  dbx_sita.SQL.Add('select * from sita');
+  cds_sita.Active := true;
+  cds_sita.Active := true;
+
+  cds_vprodutos.Active := false;
+  dbx_vprodutos.Active := false;
+  dbx_vprodutos.sql.Clear;
+  dbx_vprodutos.SQL.Add('select * from vprodutos');
+  cds_vprodutos.Active := true;
+  cds_vprodutos.Active := true;
+
+  cds_AliqImpFis.Active := false;
+  dbx_AliqImpFis.Active := false;
+  dbx_AliqImpFis.sql.Clear;
+  dbx_AliqImpFis.SQL.Add('select * from AliqImpFis');
+  cds_AliqImpFis.Active := true;
+  cds_AliqImpFis.Active := true;
+
+  cds_unidade.Active := false;
+  dbx_unidade.Active := false;
+  dbx_unidade.sql.Clear;
+  dbx_unidade.SQL.Add('select * from unidade');
+  cds_unidade.Active := true;
+  cds_unidade.Active := true;
+
+  AssignFile(f,vardir+'sat_nro' + inttostr( Cds_sVenda.fieldbyname('codigo').asInteger ) + nome + codigo +'.nfe');
+  rewrite(f);
+
+  Writeln(f,'01');
+  Write(f,'55');
+
+  if Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
+     begin
+       Writeln(f,'[cliente'+formatfloat('00000',cds_clientes.fieldbyname('codigo').asfloat)+']');
+       Writeln(f,'CNPJ='+cds_clientes.fieldbyname('cpf').asString);
+       Writeln(f,'IE='+cds_clientes.fieldbyname('ie').asString);
+       Writeln(f,'NomeRazao='+cds_clientes.fieldbyname('nome').asString);
+       Writeln(f,'Fantasia='+cds_clientes.fieldbyname('fantasia').asString);
+       Writeln(f,'Fone='+cds_clientes.fieldbyname('telefones').asString);
+       Writeln(f,'CEP='+cds_clientes.fieldbyname('cepent').asString);
+       Writeln(f,'Logradouro='+cds_clientes.fieldbyname('endent').asString);
+       Writeln(f,'Numero='+cds_clientes.fieldbyname('nroent').asString);
+       Writeln(f,'Complemento='+cds_clientes.fieldbyname('complent').asString);
+       Writeln(f,'Bairro='+cds_clientes.fieldbyname('bairroent').asString);
+       Writeln(f,'Cidade='+cds_clientes.fieldbyname('cidadeent').asString);
+       Writeln(f,'Estado='+cds_clientes.fieldbyname('estadoent').asString);
+     end;
+  //endi
+
+
+  cds_Vendabb.Active := false;
+  //cds_Vendabcodsvenda.DefaultExpression := frmdados.cds_sVenda.fieldbyname('codigo').asString;
+  //cds_VendabImpNf.DefaultExpression := 'T';
+  dbx_Vendabb.Active := false;
+  dbx_Vendabb.SQL.Clear;
+  dbx_Vendabb.SQL.Add('Select * from Vendab where codsvenda = '+ inttostr( cds_sVenda.fieldbyname('codigo').asInteger ) );
+  dbx_Vendabb.Active := true;
+  cds_Vendabb.Active := true;
+
+
+
+  while not cds_vendabb.Eof do
+    begin
+
+      Writeln(f,'[produto'+formatfloat('00000',Cds_vendabb.fieldbyname('codigo').asfloat)+']');
+      Writeln(f,'CPRO='+cds_vendabb.fieldbyname('cpro').asString);
+      Writeln(f,'NPRO='+cds_vendabb.fieldbyname('npro').asString);
+      Writeln(f,'QTDE='+floattostr(cds_vendabb.fieldbyname('qtde').asfloat));
+      Writeln(f,'PRVE='+floattostr(cds_vendabb.fieldbyname('prve').asfloat));
+      Writeln(f,'SUBTOTAL='+floattostr(cds_vendabb.fieldbyname('subtotal').asfloat));
+      //Writeln(f,'CAUX='+cds_vendabb.fieldbyname('caux').asString);
+
+      if Cds_vprodutos.Locate('cdescprod',cds_vendabb.fieldbyname('cpro').AsInteger,[]) then
+         begin
+           Writeln(f,'NCM='+cds_vprodutos.fieldbyname('ncm').asString);
+           Writeln(f,'CEST='+cds_vprodutos.fieldbyname('cest').asString);
+         end;
+      //endi
+
+      if Cds_AliqImpFis.Locate('codigo',cds_vendabb.fieldbyname('codicms').AsInteger,[]) then
+         begin
+           Writeln(f,'ICMS='+cds_aliqimpfis.fieldbyname('sigla').asString);
+         end;
+      //endi
+
+      if Cds_unidade.Locate('codigo',cds_vendabb.fieldbyname('cuin').AsInteger,[]) then
+         begin
+           Writeln(f,'UNIDADE='+cds_unidade.fieldbyname('descricao').asString);
+         end;
+      //endi
+
+
+      if Cds_sita.Locate('codigo',cds_vendabb.fieldbyname('codsita').AsInteger,[]) then
+         begin
+           Writeln(f,'ORIGEM='+cds_sita.fieldbyname('sigla').asString);
+         end;
+      //endi
+
+
+
+      Cds_vendabb.Next;
+
+    end;
+  //endi
+
+  CloseFile(f);
+
+  showmessage('Exportação concluida');
+
+end;
+
+
+
+
 
 procedure TfrmPesqVfb.Button1Click(Sender: TObject);
 begin
 exportarped;
+end;
+
+procedure TfrmPesqVfb.Button2Click(Sender: TObject);
+begin
+exportarpedsat;
 end;
 
 end.

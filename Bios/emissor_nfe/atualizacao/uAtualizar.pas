@@ -61,6 +61,7 @@ type
     procedure spdcaminhogbaseClick(Sender: TObject);
     procedure Memo1KeyPress(Sender: TObject; var Key: Char);
     procedure executa;
+    procedure carregainformacao;
 
   private
     { Private declarations }
@@ -71,6 +72,7 @@ type
     FPastaBackup : String;
     FCaminhoGbase:String;
     FArqAtu:String;
+    sArquivo:string;
 
     ArqIni: TIniFile;
     Resultado, ResultadoTXT, script:String;
@@ -91,6 +93,19 @@ implementation
 
 procedure TBackupMySQL.ExecutarClick(Sender: TObject);
 begin
+
+   carregainformacao;
+
+   if not fileexists(FCaminhoGbase+'\mysql.exe') then
+      begin
+        showmessage('Não encontrei caminho do gerenciador da base de dados, operação abortada!');
+        exit;
+      end;
+   //endi
+
+
+
+
   separaScript;
   executa;
 end;
@@ -98,7 +113,12 @@ end;
 procedure TBackupMySQL.ExecutarBackup;
 Var
   xArquivoBat : TStringList;
+
+  vardir:string;
 begin
+
+  vardir := extractfilepath(application.ExeName);
+
   Try
     xArquivoBat := TStringList.Create;
     xArquivoBat.Add('@echo off');
@@ -113,7 +133,7 @@ begin
     xArquivoBat.Add('echo #################################################');
     xArquivoBat.Add('echo #################################################');
     xArquivoBat.Add('cd '+FCaminhoGbase);
-    xArquivoBat.Add('mysqldump.exe -u'+ FUsuario + ' -p'+FSenha +' --databases '+ FNomeBancoDados+' > '+FPastaBackup+FNomeArquivo);
+    xArquivoBat.Add('mysqldump.exe -u'+ FUsuario + ' -p'+FSenha +' --databases '+ FNomeBancoDados+' > '+FPastaBackup+'\'+FNomeArquivo);
     xArquivoBat.Add('pause');
 
 
@@ -138,8 +158,8 @@ begin
       end;
     //endi
 
-      xArquivoBat.SaveToFile('BackupMySQL.bat');
-      WinExec('BackupMySQL.bat', SW_NORMAL);
+      xArquivoBat.SaveToFile(vardir+'BackupMySQL.bat');
+      WinExec(pchar(vardir+'BackupMySQL.bat'), SW_NORMAL);
 
 
   Finally
@@ -153,7 +173,7 @@ end;
 procedure TBackupMySQL.FormShow(Sender: TObject);
 var sTopico, sCampo, sUsuario, sSenha, sNomeBancoDados, sPastaBackup, sCaminhogbase, sArqAtu:string;
 begin
-  vardir := extractfilepath(application.ExeName);
+
   LerIniConfig;
 
 end;
@@ -171,6 +191,9 @@ var
   ArqIni: TIniFile;
 
 begin
+
+  vardir := extractfilepath(application.ExeName);
+
 
   ArqIni := TIniFile.Create(vardir+'config.ini');
 
@@ -193,33 +216,63 @@ var
 
   ArqIni: TIniFile;
   sSenha:string;
+
+  vardir:string;
 begin
+
+  vardir := extractfilepath(application.ExeName);
+  
+
 
   ArqIni := TIniFile.Create(vardir+'config.ini');
 
   try
 
 
-  edtusuario.Text := ArqIni.ReadString('Backup', 'FUsuario', 'root');
+    edtusuario.Text := ArqIni.ReadString('Backup', 'FUsuario', 'root');
 
+    sSenha :=    cript(arqini.ReadString('Base','PassWord','sqlremoto'),'bios2805','descript');
+    if sSenha = '' then
+       sSenha := 'sqlremoto';
+    //endi
 
-  sSenha :=    cript(arqini.ReadString('Base','PassWord','sqlremoto'),'bios2805','descript');
+    edtsenha.Text :=   sSenha ;
 
-
-  edtsenha.Text :=   sSenha ;
-
-  edtnomebancodados.Text :=  ArqIni.ReadString('Backup', 'FNomeBancoDados', 'NFE');
-
-  edtpastabackup.Text :=  ArqIni.ReadString('Backup', 'FPastaBackup', 'C:\NFE\');
-
-  edtcaminhogbase.Text := ArqIni.ReadString('Backup', 'FCaminhoGbase', 'C:\Arquivos de programas\MySQL\MySQL Server 5.1\bin');
-
-  edtArqAtu.Text :=  ArqIni.ReadString('Backup', 'FArqAtu', 'script_nfe_v10.sql');
-
-
+    edtnomebancodados.Text :=  ArqIni.ReadString('Backup', 'FNomeBancoDados', 'NFE');
+    if edtnomebancodados.Text = '' then
+       begin
+         edtnomebancodados.Text := 'NFE';
+       end;
+    //endi
 
 
 
+    edtpastabackup.Text :=  ArqIni.ReadString('Backup', 'FPastaBackup', 'C:\NFE\BACKUP');
+    if edtpastabackup.Text = '' then
+       begin
+          edtpastabackup.Text := 'C:\NFE\BACKUP';
+       end;
+    //endi
+
+
+    edtcaminhogbase.Text := ArqIni.ReadString('Backup', 'FCaminhoGbase', 'C:\Arquivos de programas\MySQL\MySQL Server 5.1\bin');
+    if  edtcaminhogbase.Text = '' then
+       begin
+         edtcaminhogbase.Text := 'C:\Arquivos de programas\MySQL\MySQL Server 5.1\bin';
+
+       end;
+    //endif
+
+
+    edtArqAtu.Text :=  ArqIni.ReadString('Backup', 'FArqAtu', 'script_nfe_v10.sql');
+    if  edtArqAtu.Text = '' then
+       begin
+         edtArqAtu.Text :=  'script_nfe_v10.sql';
+       end;
+    //endi
+
+
+    
 
   finally
 
@@ -301,13 +354,18 @@ end;
 
 procedure TBackupMySQL.atualizacoes;
 begin
- XMLDocument1.Active := False;
- XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsatualizacoes.php?chave=17JBJpoO2tCCCsMwbqmEGVqcZEO3FL1&sistema=E_NFE_DESK');
- XMLDocument1.Active := True;
+ try
 
- script      := XMLDocument1.ChildNodes['wsatualizacoes'].ChildNodes['response'].ChildNodes['script'].Text;
- Resultado    := XMLDocument1.ChildNodes['wsatualizacoes'].ChildNodes['response'].ChildNodes['resultado'].Text;
- ResultadoTXT := XMLDocument1.ChildNodes['wsatualizacoes'].ChildNodes['response'].ChildNodes['resultadotxt'].Text;
+   XMLDocument1.Active := False;
+   XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsatualizacoes.php?chave=17JBJpoO2tCCCsMwbqmEGVqcZEO3FL1&sistema=E_NFE_DESK');
+   XMLDocument1.Active := True;
+
+   script      := XMLDocument1.ChildNodes['wsatualizacoes'].ChildNodes['response'].ChildNodes['script'].Text;
+   Resultado    := XMLDocument1.ChildNodes['wsatualizacoes'].ChildNodes['response'].ChildNodes['resultado'].Text;
+   ResultadoTXT := XMLDocument1.ChildNodes['wsatualizacoes'].ChildNodes['response'].ChildNodes['resultadotxt'].Text;
+
+ except
+ end;
 
 
 end;
@@ -326,6 +384,7 @@ procedure TBackupMySQL.separaScript;
 var arq,vardir:string;
 begin
  vardir := extractfilepath(application.ExeName);
+
 
  //arquivo para executar
  arq := copy(script,0,pos(';',script)-1);
@@ -360,24 +419,14 @@ begin
 end;
 
 procedure TBackupMySQL.executa;
-Var
-BackupMySQL : TBackupMySQL;
-sArquivo:string;
+
+
 begin
 
 Try
 
-   BackupMySQL := TBackupMySQL.Create(self);
-   BackupMySQL.FUsuario := EdtUsuario.Text;
-   BackupMySQL.FSenha :=  EdtSenha.Text;
-   //BackupMySQL.FNomeArquivo := EdtNomeArquivo.Text;
-
-   sArquivo := 'bkp'+formatdatetime('YYYYMMDDHHMMSS',now())+'.sql';
-   BackupMySQL.FNomeArquivo := sArquivo;
-   BackupMySQL.FPastaBackup := EdtPastaBackup.Text;
-   BackupMySQL.FNomeBancoDados := EdtNomeBancoDados.Text;
-   BackupMySQL.FCaminhoGbase := EdtCaminhoGbase.Text;
-   BackupMySQL.FArqAtu := EdtArqAtu.Text;
+   
+   //carregainformacao;
 
 
    GravaIniConfig('Backup', 'FUsuario', BackupMySQL.FUsuario);
@@ -389,11 +438,27 @@ Try
 
    BackupMySQL.ExecutarBackup;
 Finally
-   FreeAndNil(BackupMySQL);
+   { 
+     FreeAndNil(BackupMySQL);}
 End;
 
 
 
+end;
+
+
+procedure tbackupmysql.carregainformacao;
+begin
+   BackupMySQL.FUsuario := EdtUsuario.Text;
+   BackupMySQL.FSenha :=  EdtSenha.Text;
+
+   sArquivo := 'bkp'+formatdatetime('YYYYMMDDHHMMSS',now())+'.sql';
+   BackupMySQL.FNomeArquivo := sArquivo;
+
+   BackupMySQL.FPastaBackup := EdtPastaBackup.Text;
+   BackupMySQL.FNomeBancoDados := EdtNomeBancoDados.Text;
+   BackupMySQL.FCaminhoGbase := EdtCaminhoGbase.Text;
+   BackupMySQL.FArqAtu := EdtArqAtu.Text;
 end;
 
 end.
