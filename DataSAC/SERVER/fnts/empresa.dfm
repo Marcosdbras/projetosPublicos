@@ -1,6 +1,6 @@
 object frmempresa: Tfrmempresa
-  Left = 369
-  Top = 32
+  Left = 212
+  Top = 17
   Width = 608
   Height = 676
   BorderIcons = [biSystemMenu]

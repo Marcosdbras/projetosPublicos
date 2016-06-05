@@ -433,8 +433,8 @@ begin
     end
     else
     begin
-      Showmessage('CNPJ Inválido!');
-      dbedit15.SetFocus;
+      //Showmessage('CNPJ Inválido!');
+      //dbedit15.SetFocus;
     end;
   end;
   END;
