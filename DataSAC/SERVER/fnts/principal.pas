@@ -475,6 +475,8 @@ type
 
     procedure atualizacaoBaseRemota;
     procedure atualizaEmitente;
+    procedure atualizaosi;
+    procedure atualizaosa;
 
   private
     { Private declarations }
@@ -5668,7 +5670,6 @@ end;
 
 
 procedure tfrmprincipal.atualizaEmitente;
-
 var
 
   lParamList: TStringList;
@@ -5723,18 +5724,10 @@ begin
             lParamList.Add('cep='+frmmodulo.qrfilial.FieldByName('cep').AsString);
             lParamList.Add('im=');
             lParamList.Add('obs=');
-
-
-                 lParamList.Add('Estado='+frmmodulo.qrfilial.FieldByName('uf').AsString);
-
-
-                 lParamList.Add('cidade='+frmmodulo.qrfilial.FieldByName('cidade').AsString);
-
-
-                 lParamList.Add('regtrib=');
-
+            lParamList.Add('Estado='+frmmodulo.qrfilial.FieldByName('uf').AsString);
+            lParamList.Add('cidade='+frmmodulo.qrfilial.FieldByName('cidade').AsString);
+            lParamList.Add('regtrib=');
             lParamList.Add('prog=DataSAC');
-
 
             try
                 lHTTP := TIdHTTP.Create(nil);
@@ -5828,6 +5821,314 @@ begin
 
 end;
 
+
+
+
+procedure tfrmprincipal.atualizaosi;
+var
+
+  lParamList: TStringList;
+  lResponse : TStringStream;
+  smostrar, chave, cnpj, nome, bloqueado:string;
+  x:integer;
+
+begin
+
+  x:=0;
+
+  with frmmodulo do
+    begin
+
+       qrfilial.Active := false;
+       qrfilial.SQL.Clear;
+       qrfilial.SQL.Add('select * from c000004 ');
+       qrfilial.active  := true;
+
+       qrindice.Active := false;
+       qrindice.SQL.Clear;
+       qrindice.SQL.Add('select * from indice');
+       qrindice.Active := true;
+
+       chave:=qrindice.fieldbyname('chaveconsulta').AsString;
+
+    end;
+
+  setlength(abloqueio, frmmodulo.qrfilial.RecordCount);
+
+  while not frmmodulo.qrfilial.Eof do
+    begin
+
+
+        try
+            lParamList := TStringList.Create;
+            lResponse := TStringStream.Create('');
+
+            lParamList.Add('modo=I');
+            lParamList.Add('cnpj='+tirapontos(tirabarras(tiratracos(frmmodulo.qrfilial.fieldbyname('cnpj').AsString))));
+            lParamList.Add('nome='+frmmodulo.qrfilial.FieldByName('filial').AsString);
+            lParamList.Add('email='+frmmodulo.qrfilial.FieldByName('email_empresa').AsString);
+            lParamList.Add('fantasia='+frmmodulo.qrfilial.FieldByName('fantasia').AsString);
+            lParamList.Add('telefones='+frmmodulo.qrfilial.FieldByName('telefone').AsString);
+            lParamList.Add('ie='+frmmodulo.qrfilial.FieldByName('ie').AsString);
+            lParamList.Add('site=');
+            lParamList.Add('contato='+frmmodulo.qrfilial.FieldByName('responsavel').AsString);
+            lParamList.Add('endereco='+frmmodulo.qrfilial.FieldByName('endereco').AsString);
+            lParamList.Add('nro='+frmmodulo.qrfilial.FieldByName('numero').AsString);
+            lParamList.Add('compl='+frmmodulo.qrfilial.FieldByName('complemento').AsString);
+            lParamList.Add('bairro='+frmmodulo.qrfilial.FieldByName('bairro').AsString);
+            lParamList.Add('cep='+frmmodulo.qrfilial.FieldByName('cep').AsString);
+            lParamList.Add('im=');
+            lParamList.Add('obs=');
+            lParamList.Add('Estado='+frmmodulo.qrfilial.FieldByName('uf').AsString);
+            lParamList.Add('cidade='+frmmodulo.qrfilial.FieldByName('cidade').AsString);
+            lParamList.Add('regtrib=');
+            lParamList.Add('prog=DataSAC');
+
+            try
+                lHTTP := TIdHTTP.Create(nil);
+                try
+                  lHTTP.Post('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php', lParamList, lResponse);
+                  lResponse.Position := 0;
+                  reResp.Lines.LoadFromStream(lResponse);
+                finally
+
+                  lHTTP.Free;
+                  lParamList.Free;
+                  lResponse.Free();
+
+                end;
+
+
+            except
+              reResp.Lines.Add( 'Conexão com servidor inativa');
+            end;
+
+
+
+
+
+
+         //--------------------
+
+
+            try
+
+
+               cnpj:=tirapontos(tirabarras(tiratracos(frmmodulo.qrfilial.fieldbyname('cnpj').AsString)));
+
+               XMLDocument1.Active := False;
+               XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php?chave='+frmmodulo.qrindice.fieldbyname('chaveconsulta').asString+'&campo=cnpj&valor='+cnpj+'&modo=C');
+               XMLDocument1.Active := True;
+
+               nome      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['nome'].Text;
+               cnpj      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['cnpj'].Text;
+               bloqueado := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['bloqueado'].Text;
+
+               abloqueio[x] := bloqueado+cnpj;
+               x := x + 1;
+
+               XMLDocument1.Active := false;
+            except
+
+            end;
+
+
+
+
+
+
+
+
+
+            //----------------------
+
+
+            frmmodulo.qrfilial.Next;
+
+
+        finally
+           reResp.Lines.Add( 'Atuallizado com sucesso');
+
+
+        end;
+
+    end;
+  //endw
+
+
+  for x := 0 to length(abloqueio)-1 do
+    begin
+      if copy(abloqueio[x],1,1) = '0' then
+         begin
+           bbloqueado := false;
+         end;
+      //endif
+
+    end;
+  //endfor
+
+
+
+
+  //--------------------------------------------------------------------
+
+
+
+end;
+
+
+
+procedure tfrmprincipal.atualizaosa;
+var
+
+  lParamList: TStringList;
+  lResponse : TStringStream;
+  smostrar, chave, cnpj, nome, bloqueado:string;
+  x:integer;
+
+begin
+
+  x:=0;
+
+  with frmmodulo do
+    begin
+
+       qrfilial.Active := false;
+       qrfilial.SQL.Clear;
+       qrfilial.SQL.Add('select * from c000004 ');
+       qrfilial.active  := true;
+
+       qrindice.Active := false;
+       qrindice.SQL.Clear;
+       qrindice.SQL.Add('select * from indice');
+       qrindice.Active := true;
+
+       chave:=qrindice.fieldbyname('chaveconsulta').AsString;
+
+    end;
+
+  setlength(abloqueio, frmmodulo.qrfilial.RecordCount);
+
+  while not frmmodulo.qrfilial.Eof do
+    begin
+
+
+        try
+            lParamList := TStringList.Create;
+            lResponse := TStringStream.Create('');
+
+            lParamList.Add('modo=I');
+            lParamList.Add('cnpj='+tirapontos(tirabarras(tiratracos(frmmodulo.qrfilial.fieldbyname('cnpj').AsString))));
+            lParamList.Add('nome='+frmmodulo.qrfilial.FieldByName('filial').AsString);
+            lParamList.Add('email='+frmmodulo.qrfilial.FieldByName('email_empresa').AsString);
+            lParamList.Add('fantasia='+frmmodulo.qrfilial.FieldByName('fantasia').AsString);
+            lParamList.Add('telefones='+frmmodulo.qrfilial.FieldByName('telefone').AsString);
+            lParamList.Add('ie='+frmmodulo.qrfilial.FieldByName('ie').AsString);
+            lParamList.Add('site=');
+            lParamList.Add('contato='+frmmodulo.qrfilial.FieldByName('responsavel').AsString);
+            lParamList.Add('endereco='+frmmodulo.qrfilial.FieldByName('endereco').AsString);
+            lParamList.Add('nro='+frmmodulo.qrfilial.FieldByName('numero').AsString);
+            lParamList.Add('compl='+frmmodulo.qrfilial.FieldByName('complemento').AsString);
+            lParamList.Add('bairro='+frmmodulo.qrfilial.FieldByName('bairro').AsString);
+            lParamList.Add('cep='+frmmodulo.qrfilial.FieldByName('cep').AsString);
+            lParamList.Add('im=');
+            lParamList.Add('obs=');
+            lParamList.Add('Estado='+frmmodulo.qrfilial.FieldByName('uf').AsString);
+            lParamList.Add('cidade='+frmmodulo.qrfilial.FieldByName('cidade').AsString);
+            lParamList.Add('regtrib=');
+            lParamList.Add('prog=DataSAC');
+
+            try
+                lHTTP := TIdHTTP.Create(nil);
+                try
+                  lHTTP.Post('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php', lParamList, lResponse);
+                  lResponse.Position := 0;
+                  reResp.Lines.LoadFromStream(lResponse);
+                finally
+
+                  lHTTP.Free;
+                  lParamList.Free;
+                  lResponse.Free();
+
+                end;
+
+
+            except
+              reResp.Lines.Add( 'Conexão com servidor inativa');
+            end;
+
+
+
+
+
+
+         //--------------------
+
+
+            try
+
+
+               cnpj:=tirapontos(tirabarras(tiratracos(frmmodulo.qrfilial.fieldbyname('cnpj').AsString)));
+
+               XMLDocument1.Active := False;
+               XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php?chave='+frmmodulo.qrindice.fieldbyname('chaveconsulta').asString+'&campo=cnpj&valor='+cnpj+'&modo=C');
+               XMLDocument1.Active := True;
+
+               nome      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['nome'].Text;
+               cnpj      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['cnpj'].Text;
+               bloqueado := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['bloqueado'].Text;
+
+               abloqueio[x] := bloqueado+cnpj;
+               x := x + 1;
+
+               XMLDocument1.Active := false;
+            except
+
+            end;
+
+
+
+
+
+
+
+
+
+            //----------------------
+
+
+            frmmodulo.qrfilial.Next;
+
+
+        finally
+           reResp.Lines.Add( 'Atuallizado com sucesso');
+
+
+        end;
+
+    end;
+  //endw
+
+
+  for x := 0 to length(abloqueio)-1 do
+    begin
+      if copy(abloqueio[x],1,1) = '0' then
+         begin
+           bbloqueado := false;
+         end;
+      //endif
+
+    end;
+  //endfor
+
+
+
+
+  //--------------------------------------------------------------------
+
+
+
+end;
 
 
 

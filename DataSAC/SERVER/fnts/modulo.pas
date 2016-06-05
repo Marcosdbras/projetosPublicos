@@ -2444,6 +2444,7 @@ var
   Hand : THandle;
   caminho : string;
   texto : string;
+  complus:string;
 begin
 
   //econexao2.Connect;
@@ -2453,7 +2454,7 @@ begin
 
   //econexao.Connected := true;
 
-
+  complus := 'não';
   sUsa_NFE := '2';
 
 
@@ -2526,11 +2527,20 @@ begin
     if copy(entrada,1,7) = 'loc-001' then conexaolocal.database := trim(copy(entrada,9,50));
     if copy(entrada,1,7) = 'loc-002' then conexaolocal.hostname := trim(copy(entrada,9,50));
 
-
-
     //complus -  banco de dados adicional
- //   if copy(entrada,1,7) = 'adi-001' then conexao_adic.database := trim(copy(entrada,9,50));
- //   if copy(entrada,1,7) = 'adi-002' then conexao_adic.hostname := trim(copy(entrada,9,50));
+    if copy(entrada,1,7) = 'adi-001' then conexao_adic.database := trim(copy(entrada,9,50));
+    if copy(entrada,1,7) = 'adi-002' then conexao_adic.hostname := trim(copy(entrada,9,50));
+
+    if copy(entrada,1,7) = 'complus' then
+       if copy(entrada,9,3) <> 'não' then
+          begin
+
+            complus := 'sim';
+            
+          end;
+       //endi
+    //endi
+
 
 
 
@@ -2613,8 +2623,11 @@ begin
   conexao.Connected  := true;
   conexaolocal.Connected  := true;
   Conexao.AutoCommit := false;
-  conexao_adic.connected  := true;
 
+  if complus = 'sim' then
+     conexao_adic.connected  := true;
+  //endi
+  
   {IBConexao.Connected := false;
   IBConexao.DatabaseName := conexao.HostName+':'+conexao.Database;
   IBConexao.Connected := true;}
