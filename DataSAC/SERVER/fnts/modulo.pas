@@ -2273,6 +2273,12 @@ type
     qrIndiceCHAVECONSULTA: TStringField;
     qrIndiceOBSOS: TMemoField;
     qrIndiceCONDOS: TMemoField;
+    qrosSTATUSREG: TStringField;
+    qrosDAV: TStringField;
+    qrosDAV_IMPRESSO: TIntegerField;
+    qrosDAV_ATUAL: TStringField;
+    qrosCODUSU: TStringField;
+    qratualiza: TZQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure qrLogBeforePost(DataSet: TDataSet);
     procedure qrsubgrupoBeforePost(DataSet: TDataSet);
@@ -2295,6 +2301,7 @@ type
   public
     { Public declarations }
      procedure atualizancm(ncm:string);
+     procedure atualizaosi;
 
 
   end;
@@ -3197,6 +3204,235 @@ begin
 
 
 end;
+
+
+
+
+procedure tfrmmodulo.atualizaosi;
+var
+
+  lParamList: TStringList;
+  lResponse : TStringStream;
+  svalor, chave:string;
+  x:integer;
+
+begin
+
+  x:=0;
+
+
+  qrexec.Active := false;
+  qrexec.SQL.Clear;
+  qrexec.SQL.Add('select * from c000051 where (statusreg = '+quotedstr('I')+') or (statusreg = '+quotedstr('A')+')'  );
+  qrexec.active  := true;
+
+  qrindice.Active := false;
+  qrindice.SQL.Clear;
+  qrindice.SQL.Add('select * from indice');
+  qrindice.Active := true;
+
+  chave:=qrindice.fieldbyname('chaveconsulta').AsString;
+
+
+
+
+  while not qrexec.Eof do
+    begin
+
+
+        try
+            lParamList := TStringList.Create;
+            lResponse := TStringStream.Create('');
+
+            lParamList.Add('chave='+chave);
+            lParamList.Add('modo='+qrexec.FieldByName('statusreg').AsString);
+            lParamList.Add('codigo_local='+ inttostr( qrexec.FieldByName('codigo').Asinteger ));
+            lParamList.Add('data='+formatdatetime('yyyy-mm-dd',qrexec.FieldByName('data').AsDatetime));
+            lParamList.Add('codatendente='+qrexec.FieldByName('codatendente').AsString);
+            lParamList.Add('tipo='+qrexec.FieldByName('tipo').AsString);
+            lParamList.Add('codcliente='+qrexec.FieldByName('codcliente').AsString);
+            lParamList.Add('solicitante='+qrexec.FieldByName('solicitante').AsString);
+            lParamList.Add('marca='+qrexec.FieldByName('marca').AsString);
+            lParamList.Add('modelo='+qrexec.FieldByName('modelo').AsString);
+            lParamList.Add('serial='+qrexec.FieldByName('serial').AsString);
+            lParamList.Add('atendimento='+qrexec.FieldByName('atendimento').AsString);
+            lParamList.Add('defeito='+qrexec.FieldByName('defeito').AsString);
+            lParamList.Add('obs='+qrexec.FieldByName('obs').AsString);
+            lParamList.Add('detectado='+qrexec.FieldByName('detectado').AsString);
+            lParamList.Add('detectado_data='+qrexec.FieldByName('detectado_data').AsString);
+            lParamList.Add('detectado_codtecnico='+qrexec.FieldByName('detectado_codtecnico').AsString);
+            lParamList.Add('situacao='+qrexec.FieldByName('situacao').AsString);
+            lParamList.Add('conclusao_data='+qrexec.FieldByName('conclusao_data').AsString);
+            lParamList.Add('conclusao_entregue='+qrexec.FieldByName('conclusao_entregue').AsString);
+            lParamList.Add('retirado_por='+qrexec.FieldByName('retirado_por').AsString);
+            lParamList.Add('codveiculo='+qrexec.FieldByName('codveiculo').AsString);
+            lParamList.Add('km_inicial='+qrexec.FieldByName('km_inicial').AsString);
+            lParamList.Add('km_final='+qrexec.FieldByName('km_final').AsString);
+            lParamList.Add('codterceiro='+qrexec.FieldByName('codterceiro').AsString);
+            lParamList.Add('terceiro_contato='+qrexec.FieldByName('terceiro_contato').AsString);
+            lParamList.Add('terceiro_obs='+qrexec.FieldByName('terceiro_obs').AsString);
+            lParamList.Add('codsetor='+qrexec.FieldByName('codsetor').AsString);
+            lParamList.Add('cupomfiscal='+qrexec.FieldByName('cupomfiscal').AsString);
+            lParamList.Add('st='+qrexec.FieldByName('st').AsString);
+            lParamList.Add('chassi='+qrexec.FieldByName('chassi').AsString);
+            lParamList.Add('cor='+qrexec.FieldByName('cor').AsString);
+            lParamList.Add('combustivel='+qrexec.FieldByName('combustivel').AsString);
+            lParamList.Add('numero_cupom_fiscal='+qrexec.FieldByName('numero_cupom_fiscal').AsString);
+            lParamList.Add('codcaixa='+qrexec.FieldByName('codcaixa').AsString);
+            lParamList.Add('detectado_hora='+qrexec.FieldByName('detectado_hora').AsString);
+            lParamList.Add('hora='+qrexec.FieldByName('hora').AsString);
+            lParamList.Add('intervencoes='+qrexec.FieldByName('intervencoes').AsString);
+            lParamList.Add('dav='+qrexec.FieldByName('dav').AsString);
+            lParamList.Add('dav_impresso='+qrexec.FieldByName('dav_impresso').AsString);
+            lParamList.Add('dav_atual='+qrexec.FieldByName('dav_atual').AsString);
+
+            svalor := floattostr(qrexec.FieldByName('servico_subtotal').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('servico_subtotal='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('servico_desconto').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('servico_desconto='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('servico_total').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('servico_total='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('produto_subtotal').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('produto_subtotal='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('produto_desconto').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('produto_desconto='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('produto_total').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('produto_total='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('desloc_combustivel').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('desloc_combustivel='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('desloc_refeicao').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('desloc_refeicao='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('desloc_hospedagem').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('desloc_hospedagem='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('desloc_total').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('desloc_total='+svalor);
+
+
+            svalor := floattostr(qrexec.FieldByName('terceiro_valor').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('terceiro_valor='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('terceiro_comissao').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('terceiro_comissao='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('terceiro_total').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('terceiro_total='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('subtotal').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('subtotal='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('desconto').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('desconto='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('acrescimo').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('acrescimo='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('total').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('total='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('meio_dinheiro').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('meio_dinheiro='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('meio_chequeav').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('meio_chequeav='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('meio_chequeav').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('meio_chequeav='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('meio_cartaocred').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('meio_cartaocred='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('meio_cartaodeb').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('meio_cartaodeb='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('meio_crediario').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('meio_crediario='+svalor);
+
+            svalor := floattostr(qrexec.FieldByName('combustivel_nivel').Asfloat);
+            svalor := decimal_is_point(svalor);
+            lParamList.Add('combustivel_nivel='+svalor);
+
+            lParamList.Add('prog=DataSAC');
+
+            // Alteração ou exclusão de registro
+            lParamList.Add('valor='+inttostr(qrexec.FieldByName('codigo').Asinteger));
+            lParamList.Add('campo=codigo_local');
+
+            try
+                lHTTP := TIdHTTP.Create(nil);
+                try
+                  lHTTP.Post('http://aplicativos-marcosbras.rhcloud.com/wsos.php', lParamList, lResponse);
+                  lResponse.Position := 0;
+                  frmprincipal.reResp.Lines.LoadFromStream(lResponse);
+                finally
+
+                  lHTTP.Free;
+                  lParamList.Free;
+                  lResponse.Free();
+
+                end;
+
+                qratualiza.Active := false;
+                qratualiza.SQL.Clear;
+                qratualiza.SQL.Add('update c000051 set statusreg = '+ quotedstr('S')+' where codigo = '+quotedstr(qrexec.FieldByName('codigo').AsString)  );
+                qratualiza.ExecSQL;
+
+                conexao.Commit;
+                
+            except
+              frmprincipal.reResp.Lines.Add( 'Conexão com servidor inativa');
+            end;
+
+
+            qrexec.Next;
+
+
+        finally
+           frmprincipal.reResp.Lines.Add( 'Atuallizado com sucesso');
+
+
+        end;
+
+    end;
+  //endw
+
+
+
+
+
+end;
+
 
 
 

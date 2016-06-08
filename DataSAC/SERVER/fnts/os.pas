@@ -1189,12 +1189,21 @@ begin
   FRMMODULO.Conexao.Commit;
 
 
-    frmos_impressao := tfrmos_impressao.create(self);
-    frmos_impressao.showmodal;
+  frmos_impressao := tfrmos_impressao.create(self);
+  frmos_impressao.showmodal;
 
   frmos_menu.bfiltrar.click;
 
   FINALIZADO := TRUE;
+
+  try
+    frmmodulo.atualizaosi;
+  except
+  end;
+
+
+
+
   CLOSE;
 
 end;

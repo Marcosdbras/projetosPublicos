@@ -301,17 +301,10 @@ begin
       qros.FieldByName('TIPO').asSTRING         := 'INTERNA';
       qros.FieldByName('ATENDIMENTO').asSTRING  := 'AVULSO';
       qros.FieldByName('obs').AsString := qrindice.fieldbyname('condos').AsString;
-
+      qros.FieldByName('statusreg').AsString := 'I';
 
 
     end;
-
-
-
-
-
-
-
 
 
   cupom_fiscal := false;
@@ -339,6 +332,9 @@ end;
 // -------------------------------------------------------------------------- //
 procedure TfrmOs_menu.balterarClick(Sender: TObject);
 begin
+
+
+
   if frmmodulo.qros.fieldbyname('situacao').asstring = 'FECHADA' then
   begin
     Application.MessageBox('Esta Ordem de Serviço está fechada! Impossível alterá-la','Atenção',mb_ok+MB_ICONWARNING);
@@ -352,6 +348,7 @@ begin
     begin
       frmos := tfrmos.create(self);
       frmmodulo.qros.edit;
+      frmmodulo.qros.FieldByName('statusreg').AsString := 'A';
       frmos.ShowModal;
     end;
 
@@ -359,8 +356,11 @@ begin
     begin
       frmos_auto := tfrmos_auto.create(self);
       frmmodulo.qros.edit;
+      frmmodulo.qros.FieldByName('statusreg').AsString := 'A';
       frmos_auto.ShowModal;
     end;
+
+ 
   end;
 
 end;

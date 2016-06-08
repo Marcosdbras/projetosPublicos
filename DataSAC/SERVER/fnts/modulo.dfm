@@ -9,9 +9,10 @@ object frmmodulo: Tfrmmodulo
     AutoCommit = False
     ReadOnly = True
     TransactIsolationLevel = tiReadCommitted
+    Connected = True
     SQLHourGlass = True
     Port = 0
-    Database = 'C:\DATASAC\SERVER\bd\BASE.FDB'
+    Database = 'C:\BD_DATASAC\SERVER\bd\BASE.FDB'
     User = 'SYSDBA'
     Password = 'masterkey'
     Protocol = 'firebird-2.5'
@@ -1414,6 +1415,7 @@ object frmmodulo: Tfrmmodulo
   end
   object qrfunci: TZQuery
     Connection = Conexao
+    Active = True
     SQL.Strings = (
       'select * from c000008')
     Params = <>
@@ -4867,6 +4869,25 @@ object frmmodulo: Tfrmmodulo
     object qrosINTERVENCOES: TBlobField
       FieldName = 'INTERVENCOES'
       Visible = False
+    end
+    object qrosSTATUSREG: TStringField
+      FieldName = 'STATUSREG'
+      Size = 1
+    end
+    object qrosDAV: TStringField
+      FieldName = 'DAV'
+      Size = 10
+    end
+    object qrosDAV_IMPRESSO: TIntegerField
+      FieldName = 'DAV_IMPRESSO'
+    end
+    object qrosDAV_ATUAL: TStringField
+      FieldName = 'DAV_ATUAL'
+      Size = 15
+    end
+    object qrosCODUSU: TStringField
+      FieldName = 'CODUSU'
+      Size = 6
     end
   end
   object qrsetor: TZQuery
@@ -11522,5 +11543,13 @@ object frmmodulo: Tfrmmodulo
     Params = <>
     Left = 464
     Top = 413
+  end
+  object qratualiza: TZQuery
+    Connection = Conexao
+    SQL.Strings = (
+      'select * from c000061')
+    Params = <>
+    Left = 872
+    Top = 405
   end
 end

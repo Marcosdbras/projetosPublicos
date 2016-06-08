@@ -10978,7 +10978,7 @@ object frmPrincipal: TfrmPrincipal
     object pnlcentral: TPanel
       Left = 104
       Top = 86
-      Width = 1209
+      Width = 865
       Height = 441
       BevelInner = bvLowered
       BevelOuter = bvLowered
@@ -11174,15 +11174,15 @@ object frmPrincipal: TfrmPrincipal
         ScrollBars = ssVertical
         TabOrder = 1
       end
-      object reResp: TMemo
-        Left = 856
-        Top = 214
-        Width = 321
-        Height = 124
-        Lines.Strings = (
-          'reResp')
-        TabOrder = 2
-      end
+    end
+    object reResp: TMemo
+      Left = 976
+      Top = 88
+      Width = 337
+      Height = 441
+      Lines.Strings = (
+        'reResp')
+      TabOrder = 8
     end
   end
   object ptopo2: TAdvOfficeStatusBar

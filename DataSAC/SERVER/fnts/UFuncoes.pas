@@ -40,6 +40,8 @@ function PathSysIni(ini: TTipoIni): string;
 procedure GravaIni(Sessao, Chave: String; Valor: string; TipoIni: TTipoIni);
 function LerIni(Sessao, Chave: String; ValorPadrao: string;TipoIni: TTipoIni): string;
 function Decimal_Is_Coma(var Valor:String):String;
+function Decimal_Is_point(var Valor:String):String;
+
 function FindReplace (Var Enc:String; Var subs: String; Var Texto: String): string;
 function datacriexe:string;
 function datamodexe:string;
@@ -852,6 +854,22 @@ begin
     result := Valor;
   end;
 end;
+
+
+
+function Decimal_Is_point(var Valor:String):String;
+var sEnc, sSubs, sInfAnt:string;
+begin
+  try
+    sEnc := ',';
+    sSubs := '.';
+    sInfAnt := Valor;
+    result := findreplace(sEnc,sSubs,sinfAnt);
+  except
+    result := Valor;
+  end;
+end;
+
 
 
 function FindReplace (Var Enc:String; Var subs: String; Var Texto: String): string;
