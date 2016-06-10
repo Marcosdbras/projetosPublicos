@@ -104,7 +104,7 @@ Type
   function datamodexe:string;
 
   function FileAgeCreate(const FileName: string): Integer;
-  
+  function AjustaStr ( str: String; tam: Integer ): String;
 
 
 
@@ -4483,6 +4483,16 @@ begin
     end;
   end;
   Result := -1;
+end;
+
+
+function AjustaStr ( str: String; tam: Integer ): String;
+begin
+  while Length ( str ) < tam do
+  str := str + ' ';
+  if Length ( str ) > tam then
+  str := Copy ( str, 1, tam );
+  Result := str;
 end;
 
 

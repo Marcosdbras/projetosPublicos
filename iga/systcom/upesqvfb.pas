@@ -692,6 +692,10 @@ type
     SQLQuery1: TSQLQuery;
     Cds_sVendanomecli: TStringField;
     Button2: TButton;
+    dbx_config: TSQLQuery;
+    dbx_ipi: TSQLQuery;
+    dbx_cofins: TSQLQuery;
+    dbx_pis: TSQLQuery;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -1467,12 +1471,34 @@ procedure TfrmPesqVfb.exportarpedsat;
 var f:textfile;
 vardir:string;
 codigo, nome:string;
+ssigla:string;
+faliq:real;
 begin
 
 vardir := extractfilepath(application.ExeName);
 
   codigo := '';
   nome := '';
+
+  Dbx_config.Active := false;
+  Dbx_config.SQL.Clear;
+  Dbx_config.SQL.Add('select * from config');
+  Dbx_config.Active := true;
+
+  dbx_ipi.Active := false;
+  dbx_ipi.sql.Clear;
+  dbx_ipi.SQL.Add('select * from ipi');
+  dbx_ipi.Active := true;
+
+  dbx_pis.Active := false;
+  dbx_pis.sql.Clear;
+  dbx_pis.SQL.Add('select * from pis');
+  dbx_pis.Active := true;
+
+  dbx_cofins.Active := false;
+  dbx_cofins.sql.Clear;
+  dbx_cofins.SQL.Add('select * from ipi');
+  dbx_cofins.Active := true;
 
   Cds_Clientes.Active   := false;
   Dbx_Clientes.Active := false;
@@ -1484,11 +1510,9 @@ vardir := extractfilepath(application.ExeName);
   if Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
      begin
        codigo := Cds_Clientes.fieldbyname('codigo').AsString;
-       nome := Cds_Clientes.fieldbyname('nome').AsString;;
+       nome := Cds_Clientes.fieldbyname('nome').AsString;
 
      end;
-
-
 
   cds_sita.Active := false;
   dbx_sita.Active := false;
@@ -1521,77 +1545,192 @@ vardir := extractfilepath(application.ExeName);
   AssignFile(f,vardir+'sat_nro' + inttostr( Cds_sVenda.fieldbyname('codigo').asInteger ) + nome + codigo +'.nfe');
   rewrite(f);
 
-  Writeln(f,'01');
-  Write(f,'55');
+  Write(f,'01'); //1 - id_reg
+  Write(f,'59'); //2 - mod_nfe
+  Write(f,'001'); //3 - serie_nfe
+  Write(f,'S');  //4  - tipo_docto
+  Write(f, AjustaStr ( 'VENDA',30 )   );   //5 - desc_operacao
+  Write(f,formatfloat('000000',Cds_sVenda.fieldbyname('codigo').asfloat)  );   //6 - numero_nfe
+  Write(f,formatdatetime('dd/mm/yyyy',date)  );   //7 - data_emissao
+  Write(f,formatdatetime('dd/mm/yyyy',date));   //8  - data_saida
+  Write(f,'1');   //9 - tipo_ambiente
+  Write(f,'1');   //10 - ind_forma_pgto
+  Write(f,  AjustaStr ( tirapontos(tiratracos(tirabarras(dbx_config.fieldbyname('campo3').AsString))), 25 )  );   //11 - cnpj_emitente
+
+  Write(f, AjustaStr ( dbx_config.fieldbyname('campo1').AsString,50 ) );   //12 - razao_emitente
+  Write(f,  AjustaStr ( dbx_config.fieldbyname('campo2').AsString,30 )  );   //13 - fantasia_emiten
+  Write(f, AjustaStr ( dbx_config.fieldbyname('campo6').AsString,50 ) );   //14 - logradouro_emit
+  Write(f,AjustaStr ( dbx_config.fieldbyname('nro').AsString,6 ));   //15 - numero_log_emit
+  Write(f, AjustaStr ( dbx_config.fieldbyname('bairro').AsString,30 )   );   //16 - bairro_emitente
+  Write(f,  AjustaStr ( '00000000',8 )  );   //17 - codcid_emitente
+  Write(f, AjustaStr ( '00000000',8 )   );   //18 - codest_emitente
+  Write(f, AjustaStr ( dbx_config.fieldbyname('campo16').AsString,2 ) );   //117 - uf_origem
+  Write(f,  AjustaStr ( dbx_config.fieldbyname('cep').AsString ,8 ) );   //19 - cep_emitente
+  Write(f, AjustaStr ( '000000',6 )  );   //20 - codpais_emitent
+
+  Write(f,AjustaStr ( 'BRASIL',30 ));   //21 - nomepais_emit
+  Write(f, AjustaStr (  dbx_config.FieldByName('fone').AsString  ,30 )  );   //22 - fone_emitente
+  Write(f,AjustaStr ( dbx_config.FieldByName('campo4').AsString,30 ) );   //23 - ie_emitente
+  Write(f, AjustaStr ( ' ',30 ) );   //24 - ie_st_emitente
 
   if Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
      begin
-       Writeln(f,'[cliente'+formatfloat('00000',cds_clientes.fieldbyname('codigo').asfloat)+']');
-       Writeln(f,'CNPJ='+cds_clientes.fieldbyname('cpf').asString);
-       Writeln(f,'IE='+cds_clientes.fieldbyname('ie').asString);
-       Writeln(f,'NomeRazao='+cds_clientes.fieldbyname('nome').asString);
-       Writeln(f,'Fantasia='+cds_clientes.fieldbyname('fantasia').asString);
-       Writeln(f,'Fone='+cds_clientes.fieldbyname('telefones').asString);
-       Writeln(f,'CEP='+cds_clientes.fieldbyname('cepent').asString);
-       Writeln(f,'Logradouro='+cds_clientes.fieldbyname('endent').asString);
-       Writeln(f,'Numero='+cds_clientes.fieldbyname('nroent').asString);
-       Writeln(f,'Complemento='+cds_clientes.fieldbyname('complent').asString);
-       Writeln(f,'Bairro='+cds_clientes.fieldbyname('bairroent').asString);
-       Writeln(f,'Cidade='+cds_clientes.fieldbyname('cidadeent').asString);
-       Writeln(f,'Estado='+cds_clientes.fieldbyname('estadoent').asString);
+
+       Write(f,AjustaStr ( Cds_Clientes.fieldbyname('cpf').AsString,25 ) );   //25 - cnpj_dest
+       Write(f,AjustaStr ( Cds_Clientes.fieldbyname('nome').AsString,50 ) );   //26 - razao_dest
+       Write(f,AjustaStr ( Cds_Clientes.fieldbyname('endent').AsString  ,50 ) );   //27 - logradouro_dest
+       Write(f,AjustaStr ( Cds_Clientes.fieldbyname('nroent').AsString   ,6 ) );   //28 - numlog_dest
+       Write(f,AjustaStr ( Cds_Clientes.fieldbyname('bairroent').AsString,30 ) );   //29 - bairro_dest
+
+       Write(f,AjustaStr ( '00000000',8 ) );   //30 - codcid_dest
+       Write(f,AjustaStr ( '00000000',8 ) );   //31 - codest_dest
+       Write(f,AjustaStr (  tiratracos( Cds_Clientes.fieldbyname('cep').AsString )  ,8 ) );   //32 - cep_dest
+       Write(f,AjustaStr ( '000000',6 ) );   //33 - codpais_dest
+       Write(f,AjustaStr ( 'BRASIL'   ,30 ) );   //34 - nomepais_dest
+       Write(f,AjustaStr ( Cds_Clientes.fieldbyname('telefoneent').AsString ,30 ) );   //35 - fone_dest
+       Write(f,AjustaStr ( Cds_Clientes.fieldbyname('ie').AsString  ,30 ) );   //36 - ie_dest
+       Write(f,AjustaStr (  Cds_Clientes.fieldbyname('complent').AsString  ,30 ) );   //108 - compl_dest
+       Write(f,AjustaStr (  Cds_Clientes.fieldbyname('email').AsString ,60 ) );   //115  -  email_dest
+
      end;
   //endi
 
+  Writeln(f);
 
   cds_Vendabb.Active := false;
-  //cds_Vendabcodsvenda.DefaultExpression := frmdados.cds_sVenda.fieldbyname('codigo').asString;
-  //cds_VendabImpNf.DefaultExpression := 'T';
   dbx_Vendabb.Active := false;
   dbx_Vendabb.SQL.Clear;
   dbx_Vendabb.SQL.Add('Select * from Vendab where codsvenda = '+ inttostr( cds_sVenda.fieldbyname('codigo').asInteger ) );
   dbx_Vendabb.Active := true;
   cds_Vendabb.Active := true;
 
-
-
   while not cds_vendabb.Eof do
     begin
 
-      Writeln(f,'[produto'+formatfloat('00000',Cds_vendabb.fieldbyname('codigo').asfloat)+']');
-      Writeln(f,'CPRO='+cds_vendabb.fieldbyname('cpro').asString);
-      Writeln(f,'NPRO='+cds_vendabb.fieldbyname('npro').asString);
-      Writeln(f,'QTDE='+floattostr(cds_vendabb.fieldbyname('qtde').asfloat));
-      Writeln(f,'PRVE='+floattostr(cds_vendabb.fieldbyname('prve').asfloat));
-      Writeln(f,'SUBTOTAL='+floattostr(cds_vendabb.fieldbyname('subtotal').asfloat));
-      //Writeln(f,'CAUX='+cds_vendabb.fieldbyname('caux').asString);
+
+      Write(f,AjustaStr ( '02',2 ) );  //37 - id_reg
+      Write(f,AjustaStr ( Cds_vendabb.fieldbyname('codigo').asString,6 ) );   //38 - item_no
+      Write(f,AjustaStr ( cds_vendabb.fieldbyname('cpro').asString,60 ) );   //39 - codprod
+
 
       if Cds_vprodutos.Locate('cdescprod',cds_vendabb.fieldbyname('cpro').AsInteger,[]) then
          begin
-           Writeln(f,'NCM='+cds_vprodutos.fieldbyname('ncm').asString);
-           Writeln(f,'CEST='+cds_vprodutos.fieldbyname('cest').asString);
+           Write(f,AjustaStr ( cds_vprodutos.fieldbyname('ncm').asString ,8 ) );   //40 - ncm_item
+           //Write(f,cds_vprodutos.fieldbyname('cest').asString);
          end;
-      //endi
-
-      if Cds_AliqImpFis.Locate('codigo',cds_vendabb.fieldbyname('codicms').AsInteger,[]) then
-         begin
-           Writeln(f,'ICMS='+cds_aliqimpfis.fieldbyname('sigla').asString);
-         end;
-      //endi
+      //endif
+      Write(f,AjustaStr ( cds_vendabb.fieldbyname('npro').asString,50 ) );   //102 - desc_item
+      Write(f,AjustaStr ( ' ',4 ) );   //41 - cfop_item
 
       if Cds_unidade.Locate('codigo',cds_vendabb.fieldbyname('cuin').AsInteger,[]) then
          begin
-           Writeln(f,'UNIDADE='+cds_unidade.fieldbyname('descricao').asString);
+           Write(f,AjustaStr ( cds_unidade.fieldbyname('descricao').asString ,6 ) );   //42 - und_item
          end;
       //endi
 
+      Write(f,AjustaStr(formatfloat ( '000000.000',cds_vendabb.fieldbyname('qtde').asfloat),10 ) );   //43 - qde_item
+      Write(f,AjustaStr(formatfloat ( '000000.000',cds_vendabb.fieldbyname('prve').asfloat),10 ) );   //44 - vunitario_item
+      Write(f, '000000.000');   //122 - dsc_item
+      Write(f,AjustaStr ( formatfloat ( '00000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat )  ,15 ) ); //45 - vtotal_item
+
+      Write(f,AjustaStr ( formatfloat ( '000000.000'     ,cds_vendabb.fieldbyname('qtde').asfloat )  ,10 ) ); //46 - qde_trib_item
+      Write(f,AjustaStr ( formatfloat ( '000000.000'     ,cds_vendabb.fieldbyname('prve').asfloat )  ,10 ) ); //47 - valor_trib_item
 
       if Cds_sita.Locate('codigo',cds_vendabb.fieldbyname('codsita').AsInteger,[]) then
          begin
-           Writeln(f,'ORIGEM='+cds_sita.fieldbyname('sigla').asString);
+           Write(f,AjustaStr ( cds_sita.fieldbyname('sigla').asString ,1 ) );   //48 - origem_merc
          end;
       //endi
 
+      Write(f,AjustaStr ( '00',2 ) );   //49 - tipotribicms
+      Write(f,AjustaStr ( '0',1) );   //50   - modbc
 
+      // ICMS
+      if Cds_AliqImpFis.Locate('codigo',cds_vendabb.fieldbyname('codicms').AsInteger,[]) then
+         begin
+           ssigla := cds_aliqimpfis.fieldbyname('sigla').asString;
+           faliq := cds_aliqimpfis.fieldbyname('aliquota').asfloat;
+         end;
+      //endi
+      Write(f,AjustaStr ( formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat ),17 ) );   //51 - baseicms
+      Write(f,AjustaStr ( formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq / 100 ),17 ) );   //52  -  valoricms
+      Write(f,AjustaStr ( formatfloat ( '0.00',faliq ),4 ) );   //53 - aliquotaicms
+      Write(f,AjustaStr ( ssigla ,3 ) );   //54 -  cst
+
+      //PIS
+      if dbx_pis.Locate('codigo',cds_vendabb.fieldbyname('codpis').AsInteger,[]) then
+         begin
+           ssigla := dbx_pis.fieldbyname('sigla').asString;
+           faliq := dbx_pis.fieldbyname('aliquota').asfloat;
+         end;
+      //endi
+      Write(f,AjustaStr (  formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat ),17 ) );   //55 - basepis
+      Write(f,AjustaStr (  formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq / 100 ),17 ) );   //56 - valorpis
+      Write(f,AjustaStr (  formatfloat ( '0.00',faliq ),4 ) );   //57 -  aliquotapis
+      Write(f,AjustaStr (  ssigla,3 ) );   //58 - cstpis
+
+      //COFINS
+      if dbx_cofins.Locate('codigo',cds_vendabb.fieldbyname('codcofins').AsInteger,[]) then
+         begin
+           ssigla := dbx_cofins.fieldbyname('sigla').asString;
+           faliq := dbx_cofins.fieldbyname('aliquota').asfloat;
+         end;
+      //endi
+      Write(f,AjustaStr ( formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat ),17 ) );   //59 - basecofins
+      Write(f,AjustaStr ( formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq / 100 ),17 ) );   //60 - valorcofins
+      Write(f,AjustaStr ( formatfloat ( '0.00',faliq ),4 ) );   //61 - aliquotacofins
+      Write(f,AjustaStr ( ssigla,3 ) );   //123 - cstcofins
+
+      //Substituição tributária
+      Write(f,AjustaStr ( '0000000000000.000',17 ) );   //103 -  basest
+      Write(f,AjustaStr ( '0000000000000.000',17 ) );   //104 - valorst
+
+
+      //IPI
+      Write(f,AjustaStr ( '0.00',4 ) );   //109 - aliquotaipi
+      Write(f,AjustaStr ( '000',3 ) );   //  110 - cstipi
+      Write(f,AjustaStr ( '0000000000000.000',17 ) );   // 111 - baseipi
+      Write(f,AjustaStr ( '0000000000000.000',17 ) );   //112 - valoripi
+
+
+      Write(f,AjustaStr ( '00.00',5 ) );   // 134 - redbc
+      Write(f,AjustaStr ( '00.00',5 ) );   //  135 - redbcst
+      Write(f,AjustaStr ( '00.00',5 ) );   //136 - mvast
+
+      Write(f,AjustaStr ( '0',1 ) );   //137 - modbc_st
+      Write(f,AjustaStr ( '0000000000000.000',17 ) );   // 138 - valorfrete
+      Write(f,AjustaStr ( '0000000000000.000',17 ) );   // 139 - valordesp
+      Write(f,AjustaStr ( '0000000000000.000',17 ) );   //140 - valorseguro
+      Write(f,AjustaStr ( '0000',4) );                 // 142 - csosn
+      Write(f,AjustaStr ( '0.00',4 ) );   // 143 - csosn_aliqcred
+      Write(f,AjustaStr ( '0000000000000.000',17) );   // 145 - csosn_valorcred
+      Write(f,AjustaStr ( ' ', 2) );   //  141 - infoprdadic
+      Writeln(f);
+
+
+
+      Write(f,AjustaStr ( ' ',99 ) );   //
+      Write(f,AjustaStr ( ' ',99 ) );   //
+      Write(f,AjustaStr ( ' ',99 ) );   //
+      Write(f,AjustaStr ( ' ',99 ) );   //
+      Write(f,AjustaStr ( ' ',99 ) );   //
+      Write(f,AjustaStr ( ' ',99 ) );   //
+      Write(f,AjustaStr ( ' ',99 ) );   //
+      Write(f,AjustaStr ( ' ',99 ) );   //
+      Write(f,AjustaStr ( ' ',99 ) );   //
+
+      Write(f,AjustaStr ( ' ',99 ) );   //93
+      Write(f,AjustaStr ( ' ',99 ) );   //94
+      Write(f,AjustaStr ( ' ',99 ) );   //95
+      Write(f,AjustaStr ( ' ',99 ) );   //96
+      Write(f,AjustaStr ( ' ',99 ) );   //97
+      Write(f,AjustaStr ( ' ',99 ) );   //98
+      Write(f,AjustaStr ( ' ',99 ) );   //99
+      Write(f,AjustaStr ( ' ',99 ) );   //100
+      Write(f,AjustaStr ( ' ',99 ) );   //101
+
+      Write(f,AjustaStr ( ' ',99 ) );   //102
+      Write(f,AjustaStr ( ' ',99 ) );   //103
 
       Cds_vendabb.Next;
 

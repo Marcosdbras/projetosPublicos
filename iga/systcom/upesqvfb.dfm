@@ -3354,4 +3354,40 @@ object frmPesqVfb: TfrmPesqVfb
     Left = 345
     Top = 138
   end
+  object dbx_config: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'select * from svenda')
+    SQLConnection = frmDados.Sql_Dados
+    Left = 337
+    Top = 210
+  end
+  object dbx_ipi: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'select * from svenda')
+    SQLConnection = frmDados.Sql_Dados
+    Left = 225
+    Top = 370
+  end
+  object dbx_cofins: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'select * from svenda')
+    SQLConnection = frmDados.Sql_Dados
+    Left = 297
+    Top = 370
+  end
+  object dbx_pis: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'select * from svenda')
+    SQLConnection = frmDados.Sql_Dados
+    Left = 369
+    Top = 378
+  end
 end
