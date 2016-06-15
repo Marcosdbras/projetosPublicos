@@ -251,7 +251,8 @@ uses
   uimpproducao3 in 'uimpproducao3.pas' {Form2},
   uimpproducao in 'uimpproducao.pas' {FrmImpProducao},
   baixarncm in 'baixarncm.pas' {frmbaixarncm},
-  funcoes_ibpt in 'funcoes_ibpt.pas';
+  funcoes_ibpt in 'funcoes_ibpt.pas',
+  upcodibge in 'upcodibge.pas' {frmpcodibge};
 
 {$R *.res}
 
@@ -264,7 +265,6 @@ begin
   Application.Title := '- Systcom - Sistema de Informação';
   Application.CreateForm(TfrmDados, frmDados);
   Application.CreateForm(Tfrmprincipal, frmprincipal);
-  Application.CreateForm(Tfrmbaixarncm, frmbaixarncm);
   Atualizar;
   frmSplash.Hide;
   frmSplash.Free;

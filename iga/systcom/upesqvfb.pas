@@ -696,6 +696,10 @@ type
     dbx_ipi: TSQLQuery;
     dbx_cofins: TSQLQuery;
     dbx_pis: TSQLQuery;
+    cbxambiente: TRadioGroup;
+    dbx_indice: TSQLQuery;
+    Dbx_sVendacpfcnpj: TStringField;
+    Cds_sVendacpfcnpj: TStringField;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -796,11 +800,16 @@ begin
    Cds_sVendanomecli.LookupResultField := 'nome';
 
 
-
+   dbx_indice.Active := false;
+   dbx_indice.SQL.Clear;
+   dbx_indice.SQL.Add('select * from indice');
+   dbx_indice.Active := true;
 
    spdlimpar.Click;
    edicodigo.Text := '';
    ediid.Text := '1';
+
+   cbxambiente.ItemIndex := dbx_indice.fieldbyname('ambientesat').AsInteger;
 
 
    //showmessage(frmdados.Cds_Clientes.FieldByName('codigo').asString);
@@ -1469,7 +1478,7 @@ end;
 
 procedure TfrmPesqVfb.exportarpedsat;
 var f:textfile;
-vardir:string;
+vardir, svalor:string;
 codigo, nome:string;
 ssigla:string;
 faliq:real;
@@ -1553,20 +1562,32 @@ vardir := extractfilepath(application.ExeName);
   Write(f,formatfloat('000000',Cds_sVenda.fieldbyname('codigo').asfloat)  );   //6 - numero_nfe
   Write(f,formatdatetime('dd/mm/yyyy',date)  );   //7 - data_emissao
   Write(f,formatdatetime('dd/mm/yyyy',date));   //8  - data_saida
-  Write(f,'1');   //9 - tipo_ambiente
-  Write(f,'1');   //10 - ind_forma_pgto
-  Write(f,  AjustaStr ( tirapontos(tiratracos(tirabarras(dbx_config.fieldbyname('campo3').AsString))), 25 )  );   //11 - cnpj_emitente
 
+  if strtofloat(tirapontos(lblaprazo.Caption)) > 0 then
+     Write(f,'2')   //10 - ind_forma_pgto
+  else
+     Write(f,'1');
+  //endi
+
+  if cbxambiente.ItemIndex = 0 then
+     Write(f,'1')   //9 - tipo_ambiente
+  else
+     Write(f,'2');
+  //endi
+
+  Write(f,  AjustaStr ( tirapontos(tiratracos(tirabarras(dbx_config.fieldbyname('campo3').AsString))), 25 )  );   //11 - cnpj_emitente
   Write(f, AjustaStr ( dbx_config.fieldbyname('campo1').AsString,50 ) );   //12 - razao_emitente
   Write(f,  AjustaStr ( dbx_config.fieldbyname('campo2').AsString,30 )  );   //13 - fantasia_emiten
   Write(f, AjustaStr ( dbx_config.fieldbyname('campo6').AsString,50 ) );   //14 - logradouro_emit
   Write(f,AjustaStr ( dbx_config.fieldbyname('nro').AsString,6 ));   //15 - numero_log_emit
   Write(f, AjustaStr ( dbx_config.fieldbyname('bairro').AsString,30 )   );   //16 - bairro_emitente
-  Write(f,  AjustaStr ( '00000000',8 )  );   //17 - codcid_emitente
-  Write(f, AjustaStr ( '00000000',8 )   );   //18 - codest_emitente
+
+
+  Write(f,  AjustaStr ( dbx_config.fieldbyname('codigoibge').AsString,8 )  );   //17 - codcid_emitente
+  Write(f, AjustaStr ( dbx_config.fieldbyname('codigoibgeuf').AsString,8 )   );   //18 - codest_emitente
   Write(f, AjustaStr ( dbx_config.fieldbyname('campo16').AsString,2 ) );   //117 - uf_origem
   Write(f,  AjustaStr ( dbx_config.fieldbyname('cep').AsString ,8 ) );   //19 - cep_emitente
-  Write(f, AjustaStr ( '000000',6 )  );   //20 - codpais_emitent
+  Write(f, AjustaStr ( dbx_config.fieldbyname('codigoibgepais').AsString,6 )  );   //20 - codpais_emitent
 
   Write(f,AjustaStr ( 'BRASIL',30 ));   //21 - nomepais_emit
   Write(f, AjustaStr (  dbx_config.FieldByName('fone').AsString  ,30 )  );   //22 - fone_emitente
@@ -1581,7 +1602,6 @@ vardir := extractfilepath(application.ExeName);
        Write(f,AjustaStr ( Cds_Clientes.fieldbyname('endent').AsString  ,50 ) );   //27 - logradouro_dest
        Write(f,AjustaStr ( Cds_Clientes.fieldbyname('nroent').AsString   ,6 ) );   //28 - numlog_dest
        Write(f,AjustaStr ( Cds_Clientes.fieldbyname('bairroent').AsString,30 ) );   //29 - bairro_dest
-
        Write(f,AjustaStr ( '00000000',8 ) );   //30 - codcid_dest
        Write(f,AjustaStr ( '00000000',8 ) );   //31 - codest_dest
        Write(f,AjustaStr (  tiratracos( Cds_Clientes.fieldbyname('cep').AsString )  ,8 ) );   //32 - cep_dest
@@ -1591,6 +1611,27 @@ vardir := extractfilepath(application.ExeName);
        Write(f,AjustaStr ( Cds_Clientes.fieldbyname('ie').AsString  ,30 ) );   //36 - ie_dest
        Write(f,AjustaStr (  Cds_Clientes.fieldbyname('complent').AsString  ,30 ) );   //108 - compl_dest
        Write(f,AjustaStr (  Cds_Clientes.fieldbyname('email').AsString ,60 ) );   //115  -  email_dest
+
+     end
+  else
+     begin
+
+       Write(f,AjustaStr ( Cds_svenda.fieldbyname('cpfcnpj').AsString,25 ) );   //25 - cnpj_dest
+       Write(f,AjustaStr ( ' ',50 ) );   //26 - razao_dest
+       Write(f,AjustaStr ( ' ',50 ) );   //27 - logradouro_dest
+       Write(f,AjustaStr ( ' ',6 ) );   //28 - numlog_dest
+       Write(f,AjustaStr ( ' ',30 ) );   //29 - bairro_dest
+       Write(f,AjustaStr ( ' ',8 ) );   //30 - codcid_dest
+       Write(f,AjustaStr ( ' ',8 ) );   //31 - codest_dest
+       Write(f,AjustaStr ( ' ',8 ) );   //32 - cep_dest
+       Write(f,AjustaStr ( ' ',6 ) );   //33 - codpais_dest
+       Write(f,AjustaStr ( ' ',30 ) );   //34 - nomepais_dest
+       Write(f,AjustaStr ( ' ',30 ) );   //35 - fone_dest
+       Write(f,AjustaStr ( ' ',30 ) );   //36 - ie_dest
+       Write(f,AjustaStr ( ' ',30 ) );   //108 - compl_dest
+       Write(f,AjustaStr ( ' ',60 ) );   //115  -  email_dest
+
+
 
      end;
   //endi
@@ -1620,7 +1661,7 @@ vardir := extractfilepath(application.ExeName);
          end;
       //endif
       Write(f,AjustaStr ( cds_vendabb.fieldbyname('npro').asString,50 ) );   //102 - desc_item
-      Write(f,AjustaStr ( ' ',4 ) );   //41 - cfop_item
+      Write(f,AjustaStr ( '5102',4 ) );   //41 - cfop_item
 
       if Cds_unidade.Locate('codigo',cds_vendabb.fieldbyname('cuin').AsInteger,[]) then
          begin
@@ -1628,13 +1669,24 @@ vardir := extractfilepath(application.ExeName);
          end;
       //endi
 
-      Write(f,AjustaStr(formatfloat ( '000000.000',cds_vendabb.fieldbyname('qtde').asfloat),10 ) );   //43 - qde_item
-      Write(f,AjustaStr(formatfloat ( '000000.000',cds_vendabb.fieldbyname('prve').asfloat),10 ) );   //44 - vunitario_item
-      Write(f, '000000.000');   //122 - dsc_item
-      Write(f,AjustaStr ( formatfloat ( '00000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat )  ,15 ) ); //45 - vtotal_item
+      svalor := formatfloat ( '000000.000',cds_vendabb.fieldbyname('qtde').asfloat);
+      Write(f,AjustaStr(  decimal_is_point( svalor )  ,10 )) ;   //43 - qde_item
 
-      Write(f,AjustaStr ( formatfloat ( '000000.000'     ,cds_vendabb.fieldbyname('qtde').asfloat )  ,10 ) ); //46 - qde_trib_item
-      Write(f,AjustaStr ( formatfloat ( '000000.000'     ,cds_vendabb.fieldbyname('prve').asfloat )  ,10 ) ); //47 - valor_trib_item
+      svalor := formatfloat ( '000000.000',cds_vendabb.fieldbyname('prve').asfloat);
+      Write(f,AjustaStr(   decimal_is_point(  svalor ) ,10));   //44 - vunitario_item
+
+      Write(f, '000000.000');   //122 - dsc_item
+
+
+      svalor := formatfloat ( '00000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat );
+      Write(f,AjustaStr ( decimal_is_point( svalor ),15 )); //45 - vtotal_item
+
+      svalor := formatfloat ( '000000.000'     ,cds_vendabb.fieldbyname('qtde').asfloat );
+      Write(f,AjustaStr (  decimal_is_point( svalor ),10)); //46 - qde_trib_item
+
+
+      svalor := formatfloat ( '000000.000'     ,cds_vendabb.fieldbyname('prve').asfloat );
+      Write(f,AjustaStr ( decimal_is_point(svalor)  ,10 ) ); //47 - valor_trib_item
 
       if Cds_sita.Locate('codigo',cds_vendabb.fieldbyname('codsita').AsInteger,[]) then
          begin
@@ -1652,9 +1704,16 @@ vardir := extractfilepath(application.ExeName);
            faliq := cds_aliqimpfis.fieldbyname('aliquota').asfloat;
          end;
       //endi
-      Write(f,AjustaStr ( formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat ),17 ) );   //51 - baseicms
-      Write(f,AjustaStr ( formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq / 100 ),17 ) );   //52  -  valoricms
-      Write(f,AjustaStr ( formatfloat ( '0.00',faliq ),4 ) );   //53 - aliquotaicms
+
+      svalor := formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat );
+      Write(f,AjustaStr ( decimal_is_point( svalor ) ,17 ) );   //51 - baseicms
+
+      svalor := formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq / 100 );
+      Write(f,AjustaStr ( decimal_is_point( svalor ) ,17 ) );   //52  -  valoricms
+
+      svalor := formatfloat ( '0.00',faliq );
+      Write(f,AjustaStr ( decimal_is_point( svalor ),4 ) );   //53 - aliquotaicms
+
       Write(f,AjustaStr ( ssigla ,3 ) );   //54 -  cst
 
       //PIS
@@ -1664,9 +1723,17 @@ vardir := extractfilepath(application.ExeName);
            faliq := dbx_pis.fieldbyname('aliquota').asfloat;
          end;
       //endi
-      Write(f,AjustaStr (  formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat ),17 ) );   //55 - basepis
-      Write(f,AjustaStr (  formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq / 100 ),17 ) );   //56 - valorpis
-      Write(f,AjustaStr (  formatfloat ( '0.00',faliq ),4 ) );   //57 -  aliquotapis
+
+      svalor := formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat );
+      Write(f,AjustaStr (  decimal_is_point( svalor ),17 ) );   //55 - basepis
+
+      svalor := formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq / 100 );
+      Write(f,AjustaStr (  decimal_is_point( svalor ),17 ) );   //56 - valorpis
+
+      svalor := formatfloat ( '0.00',faliq );
+      Write(f,AjustaStr (  decimal_is_point( svalor ),4 ) );   //57 -  aliquotapis
+
+
       Write(f,AjustaStr (  ssigla,3 ) );   //58 - cstpis
 
       //COFINS
@@ -1676,9 +1743,16 @@ vardir := extractfilepath(application.ExeName);
            faliq := dbx_cofins.fieldbyname('aliquota').asfloat;
          end;
       //endi
-      Write(f,AjustaStr ( formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat ),17 ) );   //59 - basecofins
-      Write(f,AjustaStr ( formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq / 100 ),17 ) );   //60 - valorcofins
-      Write(f,AjustaStr ( formatfloat ( '0.00',faliq ),4 ) );   //61 - aliquotacofins
+
+      svalor := formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat );
+      Write(f,AjustaStr ( decimal_is_point(svalor) ,17 ) );   //59 - basecofins
+
+      svalor := formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq / 100 );
+      Write(f,AjustaStr ( decimal_is_point(svalor) ,17 ) );   //60 - valorcofins
+
+      svalor := formatfloat ( '0.00',faliq );
+      Write(f,AjustaStr ( decimal_is_point(svalor) ,4 ) );   //61 - aliquotacofins
+
       Write(f,AjustaStr ( ssigla,3 ) );   //123 - cstcofins
 
       //Substituição tributária
@@ -1687,10 +1761,25 @@ vardir := extractfilepath(application.ExeName);
 
 
       //IPI
-      Write(f,AjustaStr ( '0.00',4 ) );   //109 - aliquotaipi
-      Write(f,AjustaStr ( '000',3 ) );   //  110 - cstipi
-      Write(f,AjustaStr ( '0000000000000.000',17 ) );   // 111 - baseipi
-      Write(f,AjustaStr ( '0000000000000.000',17 ) );   //112 - valoripi
+      if dbx_ipi.Locate('codigo',cds_vendabb.fieldbyname('codipi').AsInteger,[]) then
+         begin
+           ssigla := dbx_pis.fieldbyname('sigla').asString;
+           faliq := dbx_pis.fieldbyname('aliquota').asfloat;
+         end;
+      //endi
+
+      svalor := formatfloat ( '0.00',faliq );
+      Write(f,AjustaStr ( decimal_is_point(svalor) ,4 ) );   //109 - aliquotaipi
+
+
+      Write(f,AjustaStr ( ssigla,3 ) );   //  110 - cstipi
+
+      svalor :=  formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat );
+      Write(f,AjustaStr (  decimal_is_point(svalor) ,17 ) );   // 111 - baseipi
+
+
+      svalor := formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq / 100 );
+      Write(f,AjustaStr (  decimal_is_point(svalor) ,17 ) );   //112 - valoripi
 
 
       Write(f,AjustaStr ( '00.00',5 ) );   // 134 - redbc
@@ -1707,35 +1796,79 @@ vardir := extractfilepath(application.ExeName);
       Write(f,AjustaStr ( ' ', 2) );   //  141 - infoprdadic
       Writeln(f);
 
-
-
-      Write(f,AjustaStr ( ' ',99 ) );   //
-      Write(f,AjustaStr ( ' ',99 ) );   //
-      Write(f,AjustaStr ( ' ',99 ) );   //
-      Write(f,AjustaStr ( ' ',99 ) );   //
-      Write(f,AjustaStr ( ' ',99 ) );   //
-      Write(f,AjustaStr ( ' ',99 ) );   //
-      Write(f,AjustaStr ( ' ',99 ) );   //
-      Write(f,AjustaStr ( ' ',99 ) );   //
-      Write(f,AjustaStr ( ' ',99 ) );   //
-
-      Write(f,AjustaStr ( ' ',99 ) );   //93
-      Write(f,AjustaStr ( ' ',99 ) );   //94
-      Write(f,AjustaStr ( ' ',99 ) );   //95
-      Write(f,AjustaStr ( ' ',99 ) );   //96
-      Write(f,AjustaStr ( ' ',99 ) );   //97
-      Write(f,AjustaStr ( ' ',99 ) );   //98
-      Write(f,AjustaStr ( ' ',99 ) );   //99
-      Write(f,AjustaStr ( ' ',99 ) );   //100
-      Write(f,AjustaStr ( ' ',99 ) );   //101
-
-      Write(f,AjustaStr ( ' ',99 ) );   //102
-      Write(f,AjustaStr ( ' ',99 ) );   //103
-
       Cds_vendabb.Next;
 
     end;
   //endi
+
+  Write(f,AjustaStr ( '03',2 ) );   //  62 - id_reg
+  Write(f,AjustaStr ( ' ',17 ) );   //  63 - total_baseicms
+  Write(f,AjustaStr ( ' ',17 ) );   //   64 - total_valoricms
+  Write(f,AjustaStr ( ' ',17 ) );   //   65 - total_basest
+  Write(f,AjustaStr ( ' ',17 ) );   //   66 - total_valorst
+  Write(f,AjustaStr ( ' ',17 ) );   //   67 - total_produtos
+  Write(f,AjustaStr ( ' ',17 ) );   //   68 - total_frete
+  Write(f,AjustaStr ( ' ',17 ) );   //   69 - total_seguro
+  Write(f,AjustaStr ( ' ',17 ) );   //   70  - total_desconto
+  Write(f,AjustaStr ( ' ',17 ) );   //  77 - total_II
+  Write(f,AjustaStr ( ' ',17 ) );   //  78 - total_ipi
+  Write(f,AjustaStr ( ' ',17 ) );   //  79  - total_pis
+  Write(f,AjustaStr ( ' ',17 ) );   //  80 - total_cofins
+  Write(f,AjustaStr ( ' ',17 ) );   //  81 - total_dsp_acess
+  Write(f,AjustaStr ( ' ',17 ) );   //  82 - total_nfe
+  Writeln(f);
+
+  Write(f,AjustaStr ( '04',2 ) );   //  83 - id_reg
+  Write(f,AjustaStr ( ' ',25 ) );   //  84 - cnpj_transp
+  Write(f,AjustaStr ( ' ',50 ) );   //  85 - nome_transp
+  Write(f,AjustaStr ( ' ',30 ) );     //  86 - ie_transp
+  Write(f,AjustaStr ( ' ',50 ) );     // 87 - endereco_transp
+  Write(f,AjustaStr ( ' ',30 ) );     //  88 - municipio_trans
+  Write(f,AjustaStr ( ' ',2 ) );     // 89 - uf_transp
+  Write(f,AjustaStr ( ' ',40 ) );     // 90 - antt_transp
+  Write(f,AjustaStr ( ' ',1 ) );     //  114 - fretecob
+  Write(f,AjustaStr ( ' ',10 ) );     //   118 - veiculoplaca
+  Write(f,AjustaStr ( ' ',2 ) );     //   119 - veiculouf
+  Write(f,AjustaStr ( ' ',20 ) );     //    120 - veiculorntc
+  Write(f,AjustaStr ( ' ',2 ) );     //     132 - uf_embarq
+  Write(f,AjustaStr ( ' ',60 ) );     //   133 - loc_embarq
+  Writeln(f);
+
+  Write(f,AjustaStr ( '05',2 ) );     // 91 - id_reg
+  Write(f,AjustaStr ( ' ',6 ) );     // 92 - qde_vol
+  Write(f,AjustaStr ( ' ',30 ) );     //  93 - especie_vol
+  Write(f,AjustaStr ( ' ',30 ) );     //  94 - marca_vol
+  Write(f,AjustaStr ( ' ',30 ) );     //  95 - num_vol
+  Write(f,AjustaStr ( ' ',8 ) );     //  96 - pesoliq_vol
+  Write(f,AjustaStr ( ' ',8 ) );     //    97 - pesobruto_vol
+  Writeln(f);
+
+  Write(f,AjustaStr ( '06',2 ) );     // 98 - id_reg
+  Write(f,AjustaStr ( ' ',10 ) );     //  99 - num_dup
+  Write(f,AjustaStr ( ' ',10 ) );     //  100 - dvenc_dup
+  Write(f,AjustaStr ( ' ',17 ) );     //  101 - valor_dup
+  Write(f,AjustaStr ( ' O',2));        //  Tp_Pgto
+  Writeln(f);
+
+  Write(f,AjustaStr ( '07',2 ) );     //  105 - id_reg
+  Write(f,AjustaStr ( ' ',6 ) );     //   106 - item_obs
+  Write(f,AjustaStr ( ' ',500 ) );     //  107 - desc_obs
+  Writeln(f);
+
+  Write(f,AjustaStr ( '08',2 ) );     // 124 - id_reg
+  Write(f,AjustaStr ( ' ',10 ) );     //  125 - N_DI
+  Write(f,AjustaStr ( ' ',10 ) );     // 126 - DATA_REGISTRO
+  Write(f,AjustaStr ( ' ',60 ) );     //  127 - LOCAL_DESEMB
+  Write(f,AjustaStr ( ' ',2 ) );     // 131 - UF_DESEMB
+  Write(f,AjustaStr ( ' ',10 ) );     // 128 - DATA_DESEMB
+  Write(f,AjustaStr ( ' ',60 ) );     // 129 - COD_EXP
+  Write(f,AjustaStr ( ' ',60 ) );     // 130 - COD_FAB
+  Write(f,AjustaStr ( ' ',17 ) );     //  146 - BASE_II
+  Write(f,AjustaStr ( ' ',17 ) );     //  147 - VALOR_II
+  Write(f,AjustaStr ( ' ',17 ) );     //   148 - DSP_ADUANEIRA
+  Write(f,AjustaStr ( ' ',17 ) );     //  149 - VALOR_IOF
+  Writeln(f);
+
 
   CloseFile(f);
 

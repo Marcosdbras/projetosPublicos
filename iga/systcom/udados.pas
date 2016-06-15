@@ -4474,6 +4474,16 @@ type
     XMLDocument1: TXMLDocument;
     Dbx_Indicechaveconsultacep: TStringField;
     Cds_Indicechaveconsultacep: TStringField;
+    Cds_Indiceambientesat: TIntegerField;
+    Dbx_Indiceambientesat: TIntegerField;
+    Dbx_Configcodigoibge: TStringField;
+    Cds_Configcodigoibge: TStringField;
+    Dbx_sVendacpfcnpj: TStringField;
+    Cds_sVendacpfcnpj: TStringField;
+    Dbx_Configcodigoibgeuf: TStringField;
+    Cds_Configcodigoibgeuf: TStringField;
+    Dbx_Configcodigoibgepais: TStringField;
+    Cds_Configcodigoibgepais: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure cds_Tipo_PgtoAfterPost(DataSet: TDataSet);

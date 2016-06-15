@@ -211,4 +211,16 @@ object frmindice: Tfrmindice
     NullValueKey = 46
     TabOrder = 11
   end
+  object cbxambientesat: TRadioGroup
+    Left = 176
+    Top = 336
+    Width = 273
+    Height = 41
+    Caption = ' Ambiente S@T '
+    Columns = 2
+    Items.Strings = (
+      'Produ'#231#227'o'
+      'Homologa'#231#227'o')
+    TabOrder = 12
+  end
 end

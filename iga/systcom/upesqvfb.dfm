@@ -609,6 +609,17 @@ object frmPesqVfb: TfrmPesqVfb
       TabOrder = 5
       OnClick = Button2Click
     end
+    object cbxambiente: TRadioGroup
+      Left = 596
+      Top = 157
+      Width = 133
+      Height = 57
+      Caption = ' Ambiente '
+      Items.Strings = (
+        'Produ'#231#227'o'
+        'Homologa'#231#227'o')
+      TabOrder = 6
+    end
   end
   object Dbx_Vendab: TSQLQuery
     MaxBlobSize = -1
@@ -1827,6 +1838,9 @@ object frmPesqVfb: TfrmPesqVfb
     object Dbx_sVendaIDTERMINAL: TIntegerField
       FieldName = 'IDTERMINAL'
     end
+    object Dbx_sVendacpfcnpj: TStringField
+      FieldName = 'cpfcnpj'
+    end
   end
   object Dsp_sVenda: TDataSetProvider
     DataSet = Dbx_sVenda
@@ -2815,6 +2829,9 @@ object frmPesqVfb: TfrmPesqVfb
       Size = 80
       Lookup = True
     end
+    object Cds_sVendacpfcnpj: TStringField
+      FieldName = 'cpfcnpj'
+    end
   end
   object Dts_sVenda: TDataSource
     DataSet = Cds_sVenda
@@ -2828,8 +2845,8 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'Select * from vencimentos')
     SQLConnection = frmDados.Sql_Dados
-    Left = 528
-    Top = 342
+    Left = 472
+    Top = 270
     object Dbx_VenctoCODIGO: TIntegerField
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -2988,15 +3005,15 @@ object frmPesqVfb: TfrmPesqVfb
   object Dsp_Vencto: TDataSetProvider
     DataSet = Dbx_Vencto
     UpdateMode = upWhereKeyOnly
-    Left = 544
-    Top = 358
+    Left = 488
+    Top = 286
   end
   object Cds_Vencto: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'Dsp_Vencto'
-    Left = 560
-    Top = 374
+    Left = 504
+    Top = 302
     object Cds_VenctoCODIGO: TIntegerField
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -3172,8 +3189,8 @@ object frmPesqVfb: TfrmPesqVfb
   end
   object Dts_Vencto: TDataSource
     DataSet = Cds_Vencto
-    Left = 576
-    Top = 390
+    Left = 520
+    Top = 318
   end
   object dbx_clientes: TSQLQuery
     MaxBlobSize = -1
@@ -3369,8 +3386,8 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'select * from svenda')
     SQLConnection = frmDados.Sql_Dados
-    Left = 225
-    Top = 370
+    Left = 233
+    Top = 130
   end
   object dbx_cofins: TSQLQuery
     MaxBlobSize = -1
@@ -3378,8 +3395,8 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'select * from svenda')
     SQLConnection = frmDados.Sql_Dados
-    Left = 297
-    Top = 370
+    Left = 225
+    Top = 202
   end
   object dbx_pis: TSQLQuery
     MaxBlobSize = -1
@@ -3387,7 +3404,16 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'select * from svenda')
     SQLConnection = frmDados.Sql_Dados
-    Left = 369
-    Top = 378
+    Left = 713
+    Top = 114
+  end
+  object dbx_indice: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'select * from svenda')
+    SQLConnection = frmDados.Sql_Dados
+    Left = 585
+    Top = 106
   end
 end

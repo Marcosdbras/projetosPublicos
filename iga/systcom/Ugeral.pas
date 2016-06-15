@@ -23,6 +23,7 @@ Type
       procedure Execute; override;
   end;
 
+  function DigitoCidade( Codigo : String ) : String;
   Function  Botoes(P:TPanel;B:Boolean):Boolean;
   Function  Estado(sUF:string;Mensagem:Boolean):Boolean;
   Function  SM(Mensagem:String):Boolean;
@@ -1000,6 +1001,42 @@ implementation
       upesqpais, uPesqNatOpNF, uPesqModBcSt, uPesqModBc, uemailmark, upesqoimp, upesqvii, upesqir_ii,
       upesqcofins, upesqpis, upesqtipotab, upesqmat_rest, upesqost, uCaixaDet, upesq, uPesqSprodb,
       upesqprodpfor, upesqcondpgto, umultpagto, upesqmatprima;
+
+
+function DigitoCidade( Codigo : String ) : String;
+var
+  i, Valor, Soma: integer;
+  Digito: string;
+const
+  PESO = '1212120';
+  NAO_VALIDAR = '|2201919|2202251|2201988|2611533|3117836|3152131|4305871|5203939|5203962|';
+begin
+  if Length(Codigo) < 6 then
+   begin
+     Result := 'Tamanho Inválido';
+     exit;
+   end;
+  if pos('|' + copy(Codigo, 1, 6), NAO_VALIDAR) > 0 then
+  begin
+    Result := copy(NAO_VALIDAR,pos('|' + Codigo, NAO_VALIDAR)+1,7);
+    exit;
+  end;
+  soma := 0;
+  for i := 1 to 6 do
+  begin
+    valor := StrToInt(copy(Codigo, i, 1)) * StrToInt(copy(PESO, i, 1));
+    if valor > 9 then
+      soma := soma + StrToInt(copy(IntToStr(valor), 1, 1)) + StrToInt(copy(IntToStr(valor), 2, 1))
+    else
+      soma := soma + valor;
+  end;
+  digito := IntToStr((10 - (soma mod 10)));
+  if ((soma mod 10) = 0) then
+    digito := '0';
+  Result := copy(codigo,1,6) + Digito;
+end;
+
+
 
 
 procedure EnDecryptFile(INFName, OutFName : String; Chave : Word);

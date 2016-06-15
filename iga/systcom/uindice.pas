@@ -292,6 +292,7 @@ type
     ckbop: TCheckBox;
     rgbporta: TRadioGroup;
     DBEdit10: TDBEdit;
+    DBRadioGroup3: TDBRadioGroup;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);

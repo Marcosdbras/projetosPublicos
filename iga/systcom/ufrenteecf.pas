@@ -7427,7 +7427,9 @@ begin
            dbx_exec.SQL.Add('datafec,');
            dbx_exec.SQL.Add('cusub,');
            dbx_exec.SQL.Add('idterminal,');
+           dbx_exec.SQL.Add('cpfcnpj,');
            dbx_exec.SQL.Add('nco');
+
 
 
            dbx_exec.SQL.Add(') values (');
@@ -7477,7 +7479,10 @@ begin
 
            dbx_exec.SQL.Add(inttostr(iid)+',');
 
+           dbx_exec.SQL.Add(quotedstr(scpf)+',');
+
            dbx_exec.SQL.Add(inttostr(iControle));
+           
            dbx_exec.SQL.Add(')');
 
            //showmessage(dbx_exec.SQL.Text);

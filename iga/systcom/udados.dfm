@@ -1859,6 +1859,9 @@ object frmDados: TfrmDados
       FieldName = 'chaveconsultacep'
       Size = 40
     end
+    object Dbx_Indiceambientesat: TIntegerField
+      FieldName = 'ambientesat'
+    end
   end
   object Dsp_Indice: TDataSetProvider
     DataSet = Dbx_Indice
@@ -3126,6 +3129,9 @@ object frmDados: TfrmDados
       FieldName = 'chaveconsultacep'
       Size = 40
     end
+    object Cds_Indiceambientesat: TIntegerField
+      FieldName = 'ambientesat'
+    end
   end
   object Dts_Indice: TDataSource
     DataSet = Cds_Indice
@@ -4044,6 +4050,9 @@ object frmDados: TfrmDados
     end
     object Dbx_sVendaCCONDPGTO: TIntegerField
       FieldName = 'CCONDPGTO'
+    end
+    object Dbx_sVendacpfcnpj: TStringField
+      FieldName = 'cpfcnpj'
     end
   end
   object Dsp_sVenda: TDataSetProvider
@@ -5159,6 +5168,9 @@ object frmDados: TfrmDados
       LookupResultField = 'DESCRICAO'
       KeyFields = 'CCONDPGTO'
       Lookup = True
+    end
+    object Cds_sVendacpfcnpj: TStringField
+      FieldName = 'cpfcnpj'
     end
   end
   object Dts_sVenda: TDataSource
@@ -11976,6 +11988,17 @@ object frmDados: TfrmDados
       FixedChar = True
       Size = 1
     end
+    object Dbx_Configcodigoibge: TStringField
+      FieldName = 'codigoibge'
+      Size = 10
+    end
+    object Dbx_Configcodigoibgeuf: TStringField
+      FieldName = 'codigoibgeuf'
+    end
+    object Dbx_Configcodigoibgepais: TStringField
+      FieldName = 'codigoibgepais'
+      Size = 10
+    end
   end
   object Dsp_Config: TDataSetProvider
     DataSet = Dbx_Config
@@ -12302,6 +12325,17 @@ object frmDados: TfrmDados
       Required = True
       FixedChar = True
       Size = 1
+    end
+    object Cds_Configcodigoibge: TStringField
+      FieldName = 'codigoibge'
+      Size = 10
+    end
+    object Cds_Configcodigoibgeuf: TStringField
+      FieldName = 'codigoibgeuf'
+    end
+    object Cds_Configcodigoibgepais: TStringField
+      FieldName = 'codigoibgepais'
+      Size = 10
     end
   end
   object Dts_Config: TDataSource

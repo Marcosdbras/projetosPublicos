@@ -1,7 +1,7 @@
 object frmconfig: Tfrmconfig
-  Left = 83
-  Top = 53
-  Width = 920
+  Left = 112
+  Top = 106
+  Width = 898
   Height = 611
   BorderIcons = []
   Caption = 'Informa'#231#245'es da Empresa'
@@ -25,7 +25,7 @@ object frmconfig: Tfrmconfig
   object Bevel1: TBevel
     Left = 0
     Top = 0
-    Width = 912
+    Width = 890
     Height = 45
     Align = alTop
   end
@@ -98,7 +98,7 @@ object frmconfig: Tfrmconfig
     FocusControl = DBEdit3
   end
   object Label4: TLabel
-    Left = 176
+    Left = 169
     Top = 128
     Width = 16
     Height = 13
@@ -106,12 +106,12 @@ object frmconfig: Tfrmconfig
     FocusControl = DBEdit4
   end
   object Label5: TLabel
-    Left = 352
+    Left = 458
     Top = 128
     Width = 33
     Height = 13
     Caption = 'Cidade'
-    FocusControl = DBEdit5
+    FocusControl = edicidade
   end
   object Label6: TLabel
     Left = 8
@@ -119,7 +119,7 @@ object frmconfig: Tfrmconfig
     Width = 46
     Height = 13
     Caption = 'Endere'#231'o'
-    FocusControl = DBEdit6
+    FocusControl = ediendereco
   end
   object Label8: TLabel
     Left = 8
@@ -130,12 +130,12 @@ object frmconfig: Tfrmconfig
     FocusControl = DBEdit8
   end
   object Label15: TLabel
-    Left = 573
-    Top = 128
+    Left = 5
+    Top = 214
     Width = 33
     Height = 13
     Caption = 'Estado'
-    FocusControl = DBEdit15
+    FocusControl = ediestado
   end
   object Bevel3: TBevel
     Left = 640
@@ -208,6 +208,7 @@ object frmconfig: Tfrmconfig
     Width = 78
     Height = 13
     Caption = 'Codigo UF IBGE'
+    Visible = False
   end
   object Label9: TLabel
     Left = 831
@@ -234,6 +235,7 @@ object frmconfig: Tfrmconfig
     Height = 13
     Caption = 'Cod. Munic'#237'pio IBGE'
     FocusControl = DBLookupComboBox3
+    Visible = False
   end
   object Label12: TLabel
     Left = 313
@@ -258,6 +260,7 @@ object frmconfig: Tfrmconfig
     Height = 13
     Caption = 'C'#243'digo Pa'#237's IBGE'
     FocusControl = DBLookupComboBox5
+    Visible = False
   end
   object Label16: TLabel
     Left = 402
@@ -265,18 +268,18 @@ object frmconfig: Tfrmconfig
     Width = 27
     Height = 13
     Caption = 'Bairro'
-    FocusControl = DBEdit11
+    FocusControl = edibairro
   end
   object Label17: TLabel
-    Left = 8
-    Top = 213
+    Left = 311
+    Top = 128
     Width = 21
     Height = 13
     Caption = 'CEP'
-    FocusControl = DBEdit12
+    FocusControl = edicep
   end
   object Label18: TLabel
-    Left = 133
+    Left = 83
     Top = 213
     Width = 24
     Height = 13
@@ -290,6 +293,41 @@ object frmconfig: Tfrmconfig
     Height = 13
     Caption = 'Outras Informa'#231#245'es'
     FocusControl = DBEdit13
+  end
+  object Label20: TLabel
+    Left = 312
+    Top = 262
+    Width = 61
+    Height = 13
+    Caption = 'C'#243'digo IBGE'
+  end
+  object SpeedButton2: TSpeedButton
+    Left = 425
+    Top = 144
+    Width = 23
+    Height = 22
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      04000000000000010000120B0000120B00001000000000000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+      333333333333FF3333333333333C0C333333333333F777F3333333333CC0F0C3
+      333333333777377F33333333C30F0F0C333333337F737377F333333C00FFF0F0
+      C33333F7773337377F333CC0FFFFFF0F0C3337773F33337377F3C30F0FFFFFF0
+      F0C37F7373F33337377F00FFF0FFFFFF0F0C7733373F333373770FFFFF0FFFFF
+      F0F073F33373F333373730FFFFF0FFFFFF03373F33373F333F73330FFFFF0FFF
+      00333373F33373FF77333330FFFFF000333333373F333777333333330FFF0333
+      3333333373FF7333333333333000333333333333377733333333333333333333
+      3333333333333333333333333333333333333333333333333333}
+    NumGlyphs = 2
+    OnClick = SpeedButton2Click
+  end
+  object Label21: TLabel
+    Left = 401
+    Top = 260
+    Width = 71
+    Height = 13
+    Caption = 'C'#243'digo do Pais'
   end
   object DBEdit1: TDBEdit
     Left = 10
@@ -314,7 +352,7 @@ object frmconfig: Tfrmconfig
   object DBEdit3: TDBEdit
     Left = 8
     Top = 144
-    Width = 161
+    Width = 153
     Height = 21
     DataField = 'CAMPO3'
     DataSource = frmDados.Dts_Config
@@ -322,26 +360,26 @@ object frmconfig: Tfrmconfig
     OnKeyPress = DBEdit1KeyPress
   end
   object DBEdit4: TDBEdit
-    Left = 176
+    Left = 168
     Top = 144
-    Width = 169
+    Width = 137
     Height = 21
     DataField = 'CAMPO4'
     DataSource = frmDados.Dts_Config
     TabOrder = 3
     OnKeyPress = DBEdit1KeyPress
   end
-  object DBEdit5: TDBEdit
-    Left = 352
+  object edicidade: TDBEdit
+    Left = 456
     Top = 144
-    Width = 212
+    Width = 176
     Height = 21
     DataField = 'CAMPO5'
     DataSource = frmDados.Dts_Config
     TabOrder = 4
     OnKeyPress = DBEdit1KeyPress
   end
-  object DBEdit6: TDBEdit
+  object ediendereco: TDBEdit
     Left = 8
     Top = 187
     Width = 297
@@ -364,16 +402,16 @@ object frmconfig: Tfrmconfig
   object DBEdit8: TDBEdit
     Left = 8
     Top = 276
-    Width = 321
+    Width = 297
     Height = 21
     DataField = 'CAMPO8'
     DataSource = frmDados.Dts_Config
     TabOrder = 13
     OnKeyPress = DBEdit1KeyPress
   end
-  object DBEdit15: TDBEdit
-    Left = 573
-    Top = 144
+  object ediestado: TDBEdit
+    Left = 5
+    Top = 230
     Width = 59
     Height = 21
     DataField = 'CAMPO16'
@@ -389,16 +427,18 @@ object frmconfig: Tfrmconfig
     DataField = 'codufibge'
     DataSource = frmDados.Dts_Config
     TabOrder = 17
+    Visible = False
     OnKeyPress = DBEdit1KeyPress
   end
   object DBLookupComboBox2: TDBLookupComboBox
     Left = 187
     Top = 325
-    Width = 94
+    Width = 134
     Height = 21
     DataField = 'siglaufibge'
     DataSource = frmDados.Dts_Config
     TabOrder = 16
+    Visible = False
     OnKeyPress = DBEdit1KeyPress
   end
   object DBLookupComboBox3: TDBLookupComboBox
@@ -409,6 +449,7 @@ object frmconfig: Tfrmconfig
     DataField = 'codmibge'
     DataSource = frmDados.Dts_Config
     TabOrder = 18
+    Visible = False
     OnKeyPress = DBEdit1KeyPress
   end
   object DBLookupComboBox4: TDBLookupComboBox
@@ -419,6 +460,7 @@ object frmconfig: Tfrmconfig
     DataField = 'codmc_ibge'
     DataSource = frmDados.Dts_Config
     TabOrder = 19
+    Visible = False
     OnKeyPress = DBEdit1KeyPress
   end
   object DBEdit9: TDBEdit
@@ -444,11 +486,12 @@ object frmconfig: Tfrmconfig
   object DBLookupComboBox5: TDBLookupComboBox
     Left = 8
     Top = 325
-    Width = 113
+    Width = 169
     Height = 21
     DataField = 'npais'
     DataSource = frmDados.Dts_Config
     TabOrder = 14
+    Visible = False
     OnKeyPress = DBEdit1KeyPress
   end
   object DBLookupComboBox6: TDBLookupComboBox
@@ -459,9 +502,10 @@ object frmconfig: Tfrmconfig
     DataField = 'cpaisibge'
     DataSource = frmDados.Dts_Config
     TabOrder = 15
+    Visible = False
     OnKeyPress = DBEdit1KeyPress
   end
-  object DBEdit11: TDBEdit
+  object edibairro: TDBEdit
     Left = 400
     Top = 186
     Width = 123
@@ -471,10 +515,10 @@ object frmconfig: Tfrmconfig
     TabOrder = 8
     OnKeyPress = DBEdit1KeyPress
   end
-  object DBEdit12: TDBEdit
-    Left = 8
-    Top = 229
-    Width = 121
+  object edicep: TDBEdit
+    Left = 311
+    Top = 144
+    Width = 114
     Height = 21
     DataField = 'CEP'
     DataSource = frmDados.Dts_Config
@@ -482,9 +526,9 @@ object frmconfig: Tfrmconfig
     OnKeyPress = DBEdit1KeyPress
   end
   object DBEdit13: TDBEdit
-    Left = 133
+    Left = 80
     Top = 230
-    Width = 172
+    Width = 225
     Height = 21
     DataField = 'FONE'
     DataSource = frmDados.Dts_Config
@@ -508,6 +552,34 @@ object frmconfig: Tfrmconfig
       '1'
       '2'
       '3')
+  end
+  object edicodigoibge: TDBEdit
+    Left = 313
+    Top = 276
+    Width = 80
+    Height = 21
+    DataField = 'codigoibge'
+    DataSource = frmDados.Dts_Config
+    TabOrder = 21
+  end
+  object edicodigoibgeuf: TDBEdit
+    Left = 400
+    Top = 276
+    Width = 49
+    Height = 21
+    DataField = 'codigoibgeuf'
+    DataSource = frmDados.Dts_Config
+    TabOrder = 22
+    Visible = False
+  end
+  object DBEdit5: TDBEdit
+    Left = 401
+    Top = 276
+    Width = 121
+    Height = 21
+    DataField = 'codigoibgepais'
+    DataSource = frmDados.Dts_Config
+    TabOrder = 23
   end
   object opdAbrirfig: TOpenPictureDialog
     Left = 793

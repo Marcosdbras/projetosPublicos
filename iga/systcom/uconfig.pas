@@ -21,14 +21,14 @@ type
     Label4: TLabel;
     DBEdit4: TDBEdit;
     Label5: TLabel;
-    DBEdit5: TDBEdit;
+    edicidade: TDBEdit;
     Label6: TLabel;
-    DBEdit6: TDBEdit;
+    ediendereco: TDBEdit;
     DBEdit7: TDBEdit;
     Label8: TLabel;
     DBEdit8: TDBEdit;
     Label15: TLabel;
-    DBEdit15: TDBEdit;
+    ediestado: TDBEdit;
     Bevel3: TBevel;
     spdimpfig: TSpeedButton;
     spdcancimp: TSpeedButton;
@@ -50,13 +50,19 @@ type
     DBLookupComboBox5: TDBLookupComboBox;
     DBLookupComboBox6: TDBLookupComboBox;
     Label16: TLabel;
-    DBEdit11: TDBEdit;
+    edibairro: TDBEdit;
     Label17: TLabel;
-    DBEdit12: TDBEdit;
+    edicep: TDBEdit;
     Label18: TLabel;
     DBEdit13: TDBEdit;
     Label19: TLabel;
     DBRadioGroup1: TDBRadioGroup;
+    Label20: TLabel;
+    edicodigoibge: TDBEdit;
+    SpeedButton2: TSpeedButton;
+    edicodigoibgeuf: TDBEdit;
+    DBEdit5: TDBEdit;
+    Label21: TLabel;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -72,6 +78,7 @@ type
     procedure mostrararq_ext;
     procedure spdcancimpClick(Sender: TObject);
     procedure DBEdit1KeyPress(Sender: TObject; var Key: Char);
+    procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -83,7 +90,7 @@ var
 
 implementation
 
-uses uGeral, uPrincipal, uDados;
+uses uGeral, uPrincipal, uDados, upcodibge;
 
 {$R *.DFM}
 
@@ -355,6 +362,13 @@ if (key = #13) then
    end;
 //endif
 
+end;
+
+procedure Tfrmconfig.SpeedButton2Click(Sender: TObject);
+begin
+  frmpcodibge := tfrmpcodibge.Create(self);
+  frmpcodibge.ShowModal;
+  frmpcodibge.Free;
 end;
 
 end.
