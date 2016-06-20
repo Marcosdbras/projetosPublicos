@@ -11183,6 +11183,7 @@ object frmPrincipal: TfrmPrincipal
       Lines.Strings = (
         'reResp')
       TabOrder = 8
+      Visible = False
     end
   end
   object ptopo2: TAdvOfficeStatusBar

@@ -1785,7 +1785,11 @@ begin
        qrfilial.SQL.Clear;
        qrfilial.SQL.Add('select * from C000004');
        qrfilial.Active := true;
+
+       //-- Variáveis globais proveniente de funcoes_ibpt
        sunidadefederativa := qrFilial.fieldbyname('uf').AsString;
+       scpfcnpj := qrFilial.fieldbyname('cnpj').AsString;
+
     end;
 
 

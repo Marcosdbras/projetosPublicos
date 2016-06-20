@@ -1,7 +1,7 @@
 object frmprincipal: Tfrmprincipal
   Left = 0
   Top = 0
-  Width = 1024
+  Width = 1144
   Height = 728
   Caption = 'Sistema de Informa'#231#227'o - Systcom'
   Color = clBtnFace
@@ -1108,18 +1108,11 @@ object frmprincipal: Tfrmprincipal
   object pnlsuperior: TPanel
     Left = 0
     Top = 33
-    Width = 1016
+    Width = 1136
     Height = 33
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
-    object imgsuperior: TImage
-      Left = 0
-      Top = 0
-      Width = 1016
-      Height = 33
-      Align = alClient
-    end
     object Label1: TLabel
       Left = 8
       Top = 10
@@ -1171,6 +1164,14 @@ object frmprincipal: Tfrmprincipal
       NumGlyphs = 2
       OnClick = spdloginClick
     end
+    object imgsuperior: TImage
+      Left = 0
+      Top = 0
+      Width = 1136
+      Height = 33
+      Align = alClient
+      Visible = False
+    end
     object edisenha: TEdit
       Left = 184
       Top = 6
@@ -1210,6 +1211,7 @@ object frmprincipal: Tfrmprincipal
         Width = 278
         Height = 21
         Align = alClient
+        Visible = False
       end
       object lbllogin: TLabel
         Left = 120
@@ -1225,7 +1227,7 @@ object frmprincipal: Tfrmprincipal
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
-    Width = 1016
+    Width = 1136
     Height = 33
     ButtonHeight = 30
     ButtonWidth = 33
@@ -1252,7 +1254,7 @@ object frmprincipal: Tfrmprincipal
   object Stb: TStatusBar
     Left = 0
     Top = 663
-    Width = 1016
+    Width = 1136
     Height = 19
     Panels = <
       item
@@ -1265,14 +1267,14 @@ object frmprincipal: Tfrmprincipal
   object pnlcentral: TPanel
     Left = 105
     Top = 66
-    Width = 911
+    Width = 1031
     Height = 597
     Align = alClient
     TabOrder = 4
     object imgprincipal: TImage
       Left = 1
       Top = 1
-      Width = 909
+      Width = 1029
       Height = 595
       Align = alClient
       AutoSize = True

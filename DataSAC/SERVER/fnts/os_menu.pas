@@ -286,6 +286,17 @@ end;
 // -------------------------------------------------------------------------- //
 procedure TfrmOs_menu.bincluirClick(Sender: TObject);
 begin
+ if application.MessageBox('Tem certeza que deseja incluir Ordem de Serviço?'+chr(13)+
+                           'Se você escolher prosseguir o sistema utilizará um número da sequencia numérica de OS'+chr(13)+
+                           'Tornando este processo irreversível','Atenção',mb_yesno+MB_DEFBUTTON2) <> 6
+ then
+   begin
+      exit;
+   end;
+
+
+
+
   with frmmodulo do
     begin
       qrindice.Active := false;

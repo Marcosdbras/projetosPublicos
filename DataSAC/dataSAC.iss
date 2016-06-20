@@ -36,8 +36,8 @@ Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortugue
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\DataSAC\Server\DataSAC.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\DataSAC\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\DataSAC\Server\DataSAC.exe"; DestDir: "c:\datasac\server"; Flags: ignoreversion
+Source: "C:\DataSAC\*"; DestDir: "c:\datasac"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

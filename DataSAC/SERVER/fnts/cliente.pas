@@ -599,7 +599,7 @@ begin
   else
     combo_pessoa.ItemIndex := 0;
 
-  if frmpedido <> nil then
+  if (frmpedido <> nil) or (frmxloc_cliente <> nil) then
      begin
        bincluirClick(Sender);
        dbedit2.SetFocus;

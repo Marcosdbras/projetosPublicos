@@ -1,6 +1,6 @@
 object frmOs_menu: TfrmOs_menu
-  Left = 323
-  Top = 112
+  Left = 350
+  Top = 103
   Width = 798
   Height = 574
   Caption = 'Ordem de Servi'#231'o - Rela'#231#227'o'
@@ -601,7 +601,7 @@ object frmOs_menu: TfrmOs_menu
         AE426082}
       ParentFont = False
       TabOrder = 3
-      Version = '5.0.0.0'
+      Version = '5.4.0.0'
     end
     object AdvShapeButton2: TAdvShapeButton
       Left = 276
@@ -639,7 +639,7 @@ object frmOs_menu: TfrmOs_menu
         39329F180C106000424A8C649FADB6270000000049454E44AE426082}
       ParentFont = False
       TabOrder = 4
-      Version = '5.0.0.0'
+      Version = '5.4.0.0'
     end
     object AdvShapeButton3: TAdvShapeButton
       Left = 484
@@ -683,7 +683,7 @@ object frmOs_menu: TfrmOs_menu
         CDE61250B30000000049454E44AE426082}
       ParentFont = False
       TabOrder = 5
-      Version = '5.0.0.0'
+      Version = '5.4.0.0'
     end
     object loc: TwwIncrementalSearch
       Left = 79

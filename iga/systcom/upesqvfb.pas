@@ -1482,6 +1482,7 @@ vardir, svalor:string;
 codigo, nome:string;
 ssigla:string;
 faliq:real;
+ivalor:integer;
 begin
 
 vardir := extractfilepath(application.ExeName);
@@ -1591,13 +1592,13 @@ vardir := extractfilepath(application.ExeName);
 
   Write(f,AjustaStr ( 'BRASIL',30 ));   //21 - nomepais_emit
   Write(f, AjustaStr (  dbx_config.FieldByName('fone').AsString  ,30 )  );   //22 - fone_emitente
-  Write(f,AjustaStr ( dbx_config.FieldByName('campo4').AsString,30 ) );   //23 - ie_emitente
+  Write(f,AjustaStr ( tirapontos(tiratracos(tirabarras(dbx_config.FieldByName('campo4').AsString))),30 ) );   //23 - ie_emitente
   Write(f, AjustaStr ( ' ',30 ) );   //24 - ie_st_emitente
 
   if Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
      begin
 
-       Write(f,AjustaStr ( Cds_Clientes.fieldbyname('cpf').AsString,25 ) );   //25 - cnpj_dest
+       Write(f,AjustaStr ( tirapontos(tiratracos(tirabarras(Cds_Clientes.fieldbyname('cpf').AsString))),25 ) );   //25 - cnpj_dest
        Write(f,AjustaStr ( Cds_Clientes.fieldbyname('nome').AsString,50 ) );   //26 - razao_dest
        Write(f,AjustaStr ( Cds_Clientes.fieldbyname('endent').AsString  ,50 ) );   //27 - logradouro_dest
        Write(f,AjustaStr ( Cds_Clientes.fieldbyname('nroent').AsString   ,6 ) );   //28 - numlog_dest
@@ -1608,7 +1609,7 @@ vardir := extractfilepath(application.ExeName);
        Write(f,AjustaStr ( '000000',6 ) );   //33 - codpais_dest
        Write(f,AjustaStr ( 'BRASIL'   ,30 ) );   //34 - nomepais_dest
        Write(f,AjustaStr ( Cds_Clientes.fieldbyname('telefoneent').AsString ,30 ) );   //35 - fone_dest
-       Write(f,AjustaStr ( Cds_Clientes.fieldbyname('ie').AsString  ,30 ) );   //36 - ie_dest
+       Write(f,AjustaStr ( tirapontos(tiratracos(tirabarras(Cds_Clientes.fieldbyname('ie').AsString ))) ,30 ) );   //36 - ie_dest
        Write(f,AjustaStr (  Cds_Clientes.fieldbyname('complent').AsString  ,30 ) );   //108 - compl_dest
        Write(f,AjustaStr (  Cds_Clientes.fieldbyname('email').AsString ,60 ) );   //115  -  email_dest
 
@@ -1616,7 +1617,7 @@ vardir := extractfilepath(application.ExeName);
   else
      begin
 
-       Write(f,AjustaStr ( Cds_svenda.fieldbyname('cpfcnpj').AsString,25 ) );   //25 - cnpj_dest
+       Write(f,AjustaStr ( tirapontos(tiratracos(tirabarras(Cds_svenda.fieldbyname('cpfcnpj').AsString))),25 ) );   //25 - cnpj_dest
        Write(f,AjustaStr ( ' ',50 ) );   //26 - razao_dest
        Write(f,AjustaStr ( ' ',50 ) );   //27 - logradouro_dest
        Write(f,AjustaStr ( ' ',6 ) );   //28 - numlog_dest
@@ -1669,24 +1670,24 @@ vardir := extractfilepath(application.ExeName);
          end;
       //endi
 
-      svalor := formatfloat ( '000000.000',cds_vendabb.fieldbyname('qtde').asfloat);
-      Write(f,AjustaStr(  decimal_is_point( svalor )  ,10 )) ;   //43 - qde_item
+      svalor := formatfloat ( '0000000000',cds_vendabb.fieldbyname('qtde').asfloat * 100);
+      Write(f,AjustaStr(  svalor  ,10 )) ;   //43 - qde_item
 
-      svalor := formatfloat ( '000000.000',cds_vendabb.fieldbyname('prve').asfloat);
-      Write(f,AjustaStr(   decimal_is_point(  svalor ) ,10));   //44 - vunitario_item
+      svalor := formatfloat ( '0000000000',cds_vendabb.fieldbyname('prve').asfloat * 100);
+      Write(f,AjustaStr(    svalor  ,10));   //44 - vunitario_item
 
-      Write(f, '000000.000');   //122 - dsc_item
-
-
-      svalor := formatfloat ( '00000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat );
-      Write(f,AjustaStr ( decimal_is_point( svalor ),15 )); //45 - vtotal_item
-
-      svalor := formatfloat ( '000000.000'     ,cds_vendabb.fieldbyname('qtde').asfloat );
-      Write(f,AjustaStr (  decimal_is_point( svalor ),10)); //46 - qde_trib_item
+      Write(f, '0000000000');   //122 - dsc_item
 
 
-      svalor := formatfloat ( '000000.000'     ,cds_vendabb.fieldbyname('prve').asfloat );
-      Write(f,AjustaStr ( decimal_is_point(svalor)  ,10 ) ); //47 - valor_trib_item
+      svalor := formatfloat ( '000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 100 );
+      Write(f,AjustaStr ( svalor ,15 )); //45 - vtotal_item
+
+      svalor := formatfloat ( '0000000000'     ,cds_vendabb.fieldbyname('qtde').asfloat * 100);
+      Write(f,AjustaStr (  svalor ,10)); //46 - qde_trib_item
+
+
+      svalor := formatfloat ( '0000000000'     ,cds_vendabb.fieldbyname('prve').asfloat * 100 );
+      Write(f,AjustaStr ( svalor  ,10 ) ); //47 - valor_trib_item
 
       if Cds_sita.Locate('codigo',cds_vendabb.fieldbyname('codsita').AsInteger,[]) then
          begin
@@ -1705,14 +1706,14 @@ vardir := extractfilepath(application.ExeName);
          end;
       //endi
 
-      svalor := formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat );
-      Write(f,AjustaStr ( decimal_is_point( svalor ) ,17 ) );   //51 - baseicms
+      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 100);
+      Write(f,AjustaStr (  svalor  ,17 ) );   //51 - baseicms
 
-      svalor := formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq / 100 );
-      Write(f,AjustaStr ( decimal_is_point( svalor ) ,17 ) );   //52  -  valoricms
+      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq  );
+      Write(f,AjustaStr (  svalor  ,17 ) );   //52  -  valoricms
 
-      svalor := formatfloat ( '0.00',faliq );
-      Write(f,AjustaStr ( decimal_is_point( svalor ),4 ) );   //53 - aliquotaicms
+      svalor := formatfloat ( '0000',faliq * 100);
+      Write(f,AjustaStr (  svalor ,4 ) );   //53 - aliquotaicms
 
       Write(f,AjustaStr ( ssigla ,3 ) );   //54 -  cst
 
@@ -1724,14 +1725,14 @@ vardir := extractfilepath(application.ExeName);
          end;
       //endi
 
-      svalor := formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat );
-      Write(f,AjustaStr (  decimal_is_point( svalor ),17 ) );   //55 - basepis
+      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat );
+      Write(f,AjustaStr (  svalor ,17 ) );   //55 - basepis
 
-      svalor := formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq / 100 );
-      Write(f,AjustaStr (  decimal_is_point( svalor ),17 ) );   //56 - valorpis
+      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq );
+      Write(f,AjustaStr (  svalor ,17 ) );   //56 - valorpis
 
-      svalor := formatfloat ( '0.00',faliq );
-      Write(f,AjustaStr (  decimal_is_point( svalor ),4 ) );   //57 -  aliquotapis
+      svalor := formatfloat ( '0000',faliq * 100);
+      Write(f,AjustaStr (   svalor ,4 ) );   //57 -  aliquotapis
 
 
       Write(f,AjustaStr (  ssigla,3 ) );   //58 - cstpis
@@ -1744,20 +1745,20 @@ vardir := extractfilepath(application.ExeName);
          end;
       //endi
 
-      svalor := formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat );
-      Write(f,AjustaStr ( decimal_is_point(svalor) ,17 ) );   //59 - basecofins
+      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 100 );
+      Write(f,AjustaStr ( svalor ,17 ) );   //59 - basecofins
 
-      svalor := formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq / 100 );
-      Write(f,AjustaStr ( decimal_is_point(svalor) ,17 ) );   //60 - valorcofins
+      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq );
+      Write(f,AjustaStr ( svalor ,17 ) );   //60 - valorcofins
 
-      svalor := formatfloat ( '0.00',faliq );
-      Write(f,AjustaStr ( decimal_is_point(svalor) ,4 ) );   //61 - aliquotacofins
+      svalor := formatfloat ( '0000',faliq * 100);
+      Write(f,AjustaStr ( svalor ,4 ) );   //61 - aliquotacofins
 
       Write(f,AjustaStr ( ssigla,3 ) );   //123 - cstcofins
 
       //Substituição tributária
-      Write(f,AjustaStr ( '0000000000000.000',17 ) );   //103 -  basest
-      Write(f,AjustaStr ( '0000000000000.000',17 ) );   //104 - valorst
+      Write(f,AjustaStr ( '00000000000000000',17 ) );   //103 -  basest
+      Write(f,AjustaStr ( '00000000000000000',17 ) );   //104 - valorst
 
 
       //IPI
@@ -1768,31 +1769,31 @@ vardir := extractfilepath(application.ExeName);
          end;
       //endi
 
-      svalor := formatfloat ( '0.00',faliq );
-      Write(f,AjustaStr ( decimal_is_point(svalor) ,4 ) );   //109 - aliquotaipi
+      svalor := formatfloat ( '0000',faliq * 100);
+      Write(f,AjustaStr ( svalor ,4 ) );   //109 - aliquotaipi
 
 
       Write(f,AjustaStr ( ssigla,3 ) );   //  110 - cstipi
 
-      svalor :=  formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat );
-      Write(f,AjustaStr (  decimal_is_point(svalor) ,17 ) );   // 111 - baseipi
+      svalor :=  formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 100);
+      Write(f,AjustaStr (  svalor ,17 ) );   // 111 - baseipi
 
 
-      svalor := formatfloat ( '0000000000000.000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq / 100 );
-      Write(f,AjustaStr (  decimal_is_point(svalor) ,17 ) );   //112 - valoripi
+      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq );
+      Write(f,AjustaStr (  svalor ,17 ) );   //112 - valoripi
 
 
-      Write(f,AjustaStr ( '00.00',5 ) );   // 134 - redbc
-      Write(f,AjustaStr ( '00.00',5 ) );   //  135 - redbcst
-      Write(f,AjustaStr ( '00.00',5 ) );   //136 - mvast
+      Write(f,AjustaStr ( '00000',5 ) );   // 134 - redbc
+      Write(f,AjustaStr ( '00000',5 ) );   //  135 - redbcst
+      Write(f,AjustaStr ( '00000',5 ) );   //136 - mvast
 
       Write(f,AjustaStr ( '0',1 ) );   //137 - modbc_st
-      Write(f,AjustaStr ( '0000000000000.000',17 ) );   // 138 - valorfrete
-      Write(f,AjustaStr ( '0000000000000.000',17 ) );   // 139 - valordesp
-      Write(f,AjustaStr ( '0000000000000.000',17 ) );   //140 - valorseguro
+      Write(f,AjustaStr ( '00000000000000000',17 ) );   // 138 - valorfrete
+      Write(f,AjustaStr ( '00000000000000000',17 ) );   // 139 - valordesp
+      Write(f,AjustaStr ( '00000000000000000',17 ) );   //140 - valorseguro
       Write(f,AjustaStr ( '0000',4) );                 // 142 - csosn
-      Write(f,AjustaStr ( '0.00',4 ) );   // 143 - csosn_aliqcred
-      Write(f,AjustaStr ( '0000000000000.000',17) );   // 145 - csosn_valorcred
+      Write(f,AjustaStr ( '0000',4 ) );   // 143 - csosn_aliqcred
+      Write(f,AjustaStr ( '00000000000000000',17) );   // 145 - csosn_valorcred
       Write(f,AjustaStr ( ' ', 2) );   //  141 - infoprdadic
       Writeln(f);
 

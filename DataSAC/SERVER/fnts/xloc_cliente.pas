@@ -125,6 +125,8 @@ begin
   frmxloc_cliente := nil;
   parametro_pesquisa := '';
   ACTION := CAFREE;
+
+
 end;
 
 procedure Tfrmxloc_cliente.Fechar1Click(Sender: TObject);

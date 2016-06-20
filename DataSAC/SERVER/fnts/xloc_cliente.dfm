@@ -47,27 +47,27 @@ object frmxloc_cliente: Tfrmxloc_cliente
     object Label1: TLabel
       Left = 6
       Top = 3
-      Width = 114
+      Width = 108
       Height = 12
       Caption = 'F3 | LOCALIZAR POR'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -9
       Font.Name = 'Verdana'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
     end
     object Label2: TLabel
       Left = 136
       Top = 3
-      Width = 94
+      Width = 87
       Height = 12
       Caption = 'F4 | REFER'#202'NCIA'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -9
       Font.Name = 'Verdana'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
     end
     object Bevel1: TBevel
@@ -105,14 +105,14 @@ object frmxloc_cliente: Tfrmxloc_cliente
     object Label6: TLabel
       Left = 264
       Top = 3
-      Width = 253
+      Width = 231
       Height = 12
-      Caption = 'F5 | INFORME OS PAR'#194'METROS DA PESQUISA'
+      Caption = 'F5 | PARA DIGITAR INFORMA'#199#195'O DESEJADA'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clBlack
       Font.Height = -9
       Font.Name = 'Verdana'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
     end
     object Label3: TLabel
@@ -122,7 +122,7 @@ object frmxloc_cliente: Tfrmxloc_cliente
       Height = 12
       Caption = 'F5'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clBlack
       Font.Height = -9
       Font.Name = 'Verdana'
       Font.Style = [fsBold]
@@ -182,27 +182,27 @@ object frmxloc_cliente: Tfrmxloc_cliente
     object Label9: TLabel
       Left = 302
       Top = 39
-      Width = 234
+      Width = 217
       Height = 12
       Caption = '| PARA LOCALIZAR E INSERIR CONTE'#218'DO '
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -9
       Font.Name = 'Verdana'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
     end
     object Label17: TLabel
       Left = 7
       Top = 41
-      Width = 161
+      Width = 148
       Height = 12
       Caption = 'INFORME TIPO DE PESQUISA'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -9
       Font.Name = 'Verdana'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
     end
     object combo_localizar: TComboBox
@@ -270,12 +270,12 @@ object frmxloc_cliente: Tfrmxloc_cliente
       Top = 6
       Width = 114
       Height = 46
-      Caption = 'F2 | Cadastrar '
+      Caption = 'F2 | Cadastrar Cliente '
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Style = [fsBold]
       ImageIndex = 49
       FocusType = ftHot
       NotesFont.Charset = DEFAULT_CHARSET

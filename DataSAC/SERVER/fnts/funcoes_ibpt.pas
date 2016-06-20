@@ -19,6 +19,8 @@ var
 
   sunidadefederativa:string;
 
+  scpfcnpj:string;
+
 
 implementation
      uses SysUtils, modulo, conexao_ibpt;

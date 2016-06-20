@@ -37,7 +37,7 @@ SolidCompression=yes
 Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 
 [Files]
-Source: "C:\bd_datasac\*"; DestDir: "{win}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\bd_datasac\*"; DestDir: "c:\bd_DataSAC\"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 
