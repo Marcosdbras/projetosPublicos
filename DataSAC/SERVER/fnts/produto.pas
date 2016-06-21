@@ -896,6 +896,9 @@ type
     procedure wwDBComboBox3KeyPress(Sender: TObject; var Key: Char);
     procedure ecombo_piscofinsKeyPress(Sender: TObject; var Key: Char);
     procedure BaixarTabelaNCM1Click(Sender: TObject);
+    procedure DBEdit32Exit(Sender: TObject);
+    procedure DBEdit32Enter(Sender: TObject);
+    procedure DBEdit32KeyPress(Sender: TObject; var Key: Char);
 
   private
     { Private declarations }
@@ -960,6 +963,7 @@ begin
 
   ptampapreco.Align := alClient;
   ptampainfnutricional.Align := alClient;
+
 
   frmmodulo.qrreceita.close;
   frmmodulo.qrreceita.sql.clear;
@@ -1063,6 +1067,11 @@ begin
      ecsosn.Enabled  := false;
      Label95.Enabled := false;
   end;
+
+  qrpreco.close;
+  qrpreco.SQL.clear;
+  qrpreco.sql.Add('select * from c000026 where codproduto = '''+qrproduto.fieldbyname('codigo').asstring+'''');
+  qrpreco.open;
 
   ecusto.DisplayFormat := mascara_valor;
   evenda.DisplayFormat := mascara_valor;
@@ -4159,7 +4168,7 @@ end;
 
 procedure Tfrmproduto.DBEdit22KeyPress(Sender: TObject; var Key: Char);
 begin
-  if key = #13 then batu.setfocus;
+  if key = #13 then dbedit32.SetFocus;  
 end;
 
 procedure Tfrmproduto.RzDBNumericEdit1KeyPress(Sender: TObject;
@@ -4788,6 +4797,29 @@ begin
   frmbaixarncm := tfrmbaixarncm.Create(self);
   frmbaixarncm.ShowModal;
   frmbaixarncm.Free;
+end;
+
+procedure Tfrmproduto.DBEdit32Exit(Sender: TObject);
+begin
+  tedit(sender).Color := clwindow;
+  if (qrpreco.State = dsedit) or (qrpreco.State = dsinsert) then
+    begin
+      qrpreco.fieldbyname('LUCRO_P').asfloat :=
+      qrpreco.fieldbyname('LUCRO').asfloat/
+      qrpreco.fieldbyname('VALOR_ULTIMA_COMPRA').asfloat*100;
+      bpreco_vendaClick(frmproduto);
+    end;
+
+end;
+
+procedure Tfrmproduto.DBEdit32Enter(Sender: TObject);
+begin
+tedit(sender).Color := $00A0FAF8;
+end;
+
+procedure Tfrmproduto.DBEdit32KeyPress(Sender: TObject; var Key: Char);
+begin
+if key = #13 then batu.setfocus;
 end;
 
 end.
