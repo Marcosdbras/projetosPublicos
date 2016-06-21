@@ -696,12 +696,11 @@ type
     wwDBComboBox1: TwwDBComboBox;
     Bevel20: TBevel;
     Label97: TLabel;
+    Label101: TLabel;
+    BaixarTabelaNCM1: TMenuItem;
     Label98: TLabel;
     Label99: TLabel;
     Label100: TLabel;
-    Label101: TLabel;
-    Bevel21: TBevel;
-    BaixarTabelaNCM1: TMenuItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure enomeEnter(Sender: TObject);
@@ -4179,7 +4178,7 @@ begin
   if key = #13 then
   begin
       PageView1.ActivePageIndex := 0;
-      dbedit13.SetFocus;
+      DBEdit29.SetFocus;
   end;
 end;
 

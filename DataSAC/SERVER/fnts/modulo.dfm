@@ -9,7 +9,6 @@ object frmmodulo: Tfrmmodulo
     AutoCommit = False
     ReadOnly = True
     TransactIsolationLevel = tiReadCommitted
-    Connected = True
     SQLHourGlass = True
     Port = 0
     Database = 'C:\BD_DATASAC\SERVER\bd\BASE.FDB'
@@ -1415,7 +1414,6 @@ object frmmodulo: Tfrmmodulo
   end
   object qrfunci: TZQuery
     Connection = Conexao
-    Active = True
     SQL.Strings = (
       'select * from c000008')
     Params = <>

@@ -1,7 +1,7 @@
 object frmproduto: Tfrmproduto
   Left = 130
   Top = 116
-  Width = 997
+  Width = 993
   Height = 521
   BorderIcons = [biSystemMenu]
   Caption = 'PRODUTOS | Ficha de Cadastro'
@@ -22,14 +22,14 @@ object frmproduto: Tfrmproduto
   object Bevel7: TBevel
     Left = 0
     Top = 205
-    Width = 989
+    Width = 985
     Height = 3
     Align = alBottom
   end
   object Bevel10: TBevel
     Left = 0
     Top = 458
-    Width = 989
+    Width = 985
     Height = 3
     Align = alBottom
   end
@@ -145,7 +145,7 @@ object frmproduto: Tfrmproduto
   object Panel2: TPanel
     Left = 0
     Top = 461
-    Width = 989
+    Width = 985
     Height = 33
     Align = alBottom
     BevelOuter = bvNone
@@ -1197,7 +1197,7 @@ object frmproduto: Tfrmproduto
   object PageView1: TPageView
     Left = 0
     Top = 208
-    Width = 989
+    Width = 985
     Height = 250
     ActivePage = PageSheet9
     ActivePageIndex = 0
@@ -1218,7 +1218,7 @@ object frmproduto: Tfrmproduto
     object PageSheet9: TPageSheet
       Left = 0
       Top = 21
-      Width = 989
+      Width = 985
       Height = 229
       Caption = ' Estoque'
       DisplayMode = tdGlyph
@@ -1231,7 +1231,7 @@ object frmproduto: Tfrmproduto
       object PageView2: TPageView
         Left = 0
         Top = 0
-        Width = 989
+        Width = 985
         Height = 250
         ActivePage = PageSheet10
         ActivePageIndex = 0
@@ -1253,7 +1253,7 @@ object frmproduto: Tfrmproduto
         object PageSheet10: TPageSheet
           Left = 0
           Top = 21
-          Width = 989
+          Width = 985
           Height = 229
           Caption = 'Posi'#231#227'o do Estoque / Informa'#231#245'es'
           DisplayMode = tdGlyph
@@ -1266,7 +1266,7 @@ object frmproduto: Tfrmproduto
           object pficha2: TPanel
             Left = 0
             Top = 0
-            Width = 989
+            Width = 985
             Height = 229
             Align = alClient
             BevelOuter = bvNone
@@ -2169,7 +2169,7 @@ object frmproduto: Tfrmproduto
         object PageSheet11: TPageSheet
           Left = 0
           Top = 21
-          Width = 989
+          Width = 985
           Height = 229
           Caption = 'Entradas'
           DisplayMode = tdGlyph
@@ -2182,7 +2182,7 @@ object frmproduto: Tfrmproduto
           object Bevel8: TBevel
             Left = 0
             Top = 155
-            Width = 989
+            Width = 985
             Height = 2
             Align = alTop
           end
@@ -2345,7 +2345,7 @@ object frmproduto: Tfrmproduto
           object wwDBGrid4: TwwDBGrid
             Left = 0
             Top = 0
-            Width = 989
+            Width = 985
             Height = 155
             DittoAttributes.ShortCutDittoField = 0
             DittoAttributes.ShortCutDittoRecord = 0
@@ -2390,7 +2390,7 @@ object frmproduto: Tfrmproduto
         object PageSheet12: TPageSheet
           Left = 0
           Top = 21
-          Width = 989
+          Width = 985
           Height = 229
           Caption = 'Sa'#237'das'
           DisplayMode = tdGlyph
@@ -2403,14 +2403,14 @@ object frmproduto: Tfrmproduto
           object Bevel9: TBevel
             Left = 0
             Top = 155
-            Width = 989
+            Width = 985
             Height = 2
             Align = alTop
           end
           object wwDBGrid5: TwwDBGrid
             Left = 0
             Top = 0
-            Width = 989
+            Width = 985
             Height = 155
             DittoAttributes.ShortCutDittoField = 0
             DittoAttributes.ShortCutDittoRecord = 0
@@ -2621,7 +2621,7 @@ object frmproduto: Tfrmproduto
     object PageSheet7: TPageSheet
       Left = 0
       Top = 21
-      Width = 989
+      Width = 985
       Height = 229
       Caption = 'C'#225'lculo Pre'#231'o'
       DisplayMode = tdGlyph
@@ -2634,7 +2634,7 @@ object frmproduto: Tfrmproduto
       object ppreco: TPanel
         Left = 0
         Top = 0
-        Width = 989
+        Width = 985
         Height = 229
         Align = alClient
         BevelOuter = bvNone
@@ -2642,7 +2642,7 @@ object frmproduto: Tfrmproduto
         object pficha1: TPanel
           Left = 0
           Top = 0
-          Width = 989
+          Width = 985
           Height = 229
           Align = alClient
           BevelOuter = bvNone
@@ -3832,13 +3832,12 @@ object frmproduto: Tfrmproduto
           object ptampapreco: TFlatPanel
             Left = 0
             Top = 0
-            Width = 989
+            Width = 57
             Height = 229
             ParentColor = True
             Visible = False
             ColorHighLight = clBtnFace
             ColorShadow = clBtnFace
-            Align = alClient
             TabOrder = 1
             UseDockManager = True
             object Label38: TLabel
@@ -3935,7 +3934,7 @@ object frmproduto: Tfrmproduto
     object PageSheet2: TPageSheet
       Left = 0
       Top = 21
-      Width = 989
+      Width = 985
       Height = 229
       Caption = 'Grade'
       DisplayMode = tdGlyph
@@ -3948,7 +3947,7 @@ object frmproduto: Tfrmproduto
       object pficha4: TPanel
         Left = 0
         Top = 0
-        Width = 989
+        Width = 985
         Height = 229
         Align = alClient
         BevelOuter = bvNone
@@ -3956,7 +3955,7 @@ object frmproduto: Tfrmproduto
         object pgrade: TPanel
           Left = 0
           Top = 0
-          Width = 989
+          Width = 985
           Height = 229
           Align = alClient
           BevelOuter = bvNone
@@ -4139,7 +4138,7 @@ object frmproduto: Tfrmproduto
     object PageSheet3: TPageSheet
       Left = 0
       Top = 21
-      Width = 989
+      Width = 985
       Height = 229
       Caption = 'Seriais'
       DisplayMode = tdGlyph
@@ -4152,7 +4151,7 @@ object frmproduto: Tfrmproduto
       object pficha5: TPanel
         Left = 0
         Top = 0
-        Width = 989
+        Width = 985
         Height = 229
         Align = alClient
         BevelOuter = bvNone
@@ -4160,14 +4159,14 @@ object frmproduto: Tfrmproduto
         object Bevel19: TBevel
           Left = 0
           Top = 178
-          Width = 989
+          Width = 985
           Height = 2
           Align = alBottom
         end
         object wwDBGrid2: TwwDBGrid
           Left = 0
           Top = 41
-          Width = 989
+          Width = 985
           Height = 137
           DittoAttributes.ShortCutDittoField = 0
           DittoAttributes.ShortCutDittoRecord = 0
@@ -4208,7 +4207,7 @@ object frmproduto: Tfrmproduto
         object Panel6: TPanel
           Left = 0
           Top = 180
-          Width = 989
+          Width = 985
           Height = 49
           Align = alBottom
           BevelOuter = bvNone
@@ -4360,7 +4359,7 @@ object frmproduto: Tfrmproduto
         object Panel5: TPanel
           Left = 0
           Top = 0
-          Width = 989
+          Width = 985
           Height = 41
           Align = alTop
           TabOrder = 2
@@ -4472,7 +4471,7 @@ object frmproduto: Tfrmproduto
     object PageSheet4: TPageSheet
       Left = 0
       Top = 21
-      Width = 989
+      Width = 985
       Height = 229
       Caption = 'Composi'#231#227'o'
       DisplayMode = tdGlyph
@@ -4485,7 +4484,7 @@ object frmproduto: Tfrmproduto
       object pficha6: TPanel
         Left = 0
         Top = 0
-        Width = 989
+        Width = 985
         Height = 229
         Align = alClient
         BevelOuter = bvNone
@@ -4493,7 +4492,7 @@ object frmproduto: Tfrmproduto
         object pcomposicao: TPanel
           Left = 0
           Top = 0
-          Width = 989
+          Width = 985
           Height = 229
           Align = alClient
           BevelOuter = bvNone
@@ -4793,7 +4792,7 @@ object frmproduto: Tfrmproduto
     object PageSheet5: TPageSheet
       Left = 0
       Top = 21
-      Width = 989
+      Width = 985
       Height = 229
       Caption = 'Inf.Nutricionais'
       DisplayMode = tdGlyph
@@ -4806,7 +4805,7 @@ object frmproduto: Tfrmproduto
       object pficha7: TPanel
         Left = 0
         Top = 0
-        Width = 989
+        Width = 985
         Height = 229
         Align = alClient
         BevelOuter = bvNone
@@ -4814,7 +4813,7 @@ object frmproduto: Tfrmproduto
         object pnutricional: TPanel
           Left = 0
           Top = 0
-          Width = 989
+          Width = 985
           Height = 229
           Align = alClient
           BevelOuter = bvNone
@@ -5780,7 +5779,7 @@ object frmproduto: Tfrmproduto
     object PageSheet8: TPageSheet
       Left = 0
       Top = 21
-      Width = 989
+      Width = 985
       Height = 229
       Caption = 'Foto'
       DisplayMode = tdGlyph
@@ -5793,7 +5792,7 @@ object frmproduto: Tfrmproduto
       object pficha8: TPanel
         Left = 0
         Top = 0
-        Width = 989
+        Width = 985
         Height = 229
         Align = alClient
         BevelOuter = bvNone
@@ -5801,7 +5800,7 @@ object frmproduto: Tfrmproduto
         object PFOTO: TPanel
           Left = 0
           Top = 0
-          Width = 989
+          Width = 985
           Height = 229
           Align = alClient
           BevelOuter = bvNone
@@ -6006,7 +6005,7 @@ object frmproduto: Tfrmproduto
     object PageSheet1: TPageSheet
       Left = 0
       Top = 21
-      Width = 989
+      Width = 985
       Height = 229
       Caption = 'Rentabilidade'
       DisplayMode = tdGlyph
@@ -6019,7 +6018,7 @@ object frmproduto: Tfrmproduto
       object pficha9: TPanel
         Left = 0
         Top = 0
-        Width = 989
+        Width = 985
         Height = 229
         Align = alClient
         BevelOuter = bvNone
@@ -6042,14 +6041,14 @@ object frmproduto: Tfrmproduto
           ParentFont = False
         end
         object Bevel11: TBevel
-          Left = 456
+          Left = 452
           Top = 0
           Width = 3
           Height = 229
           Align = alRight
         end
         object Panel3: TPanel
-          Left = 459
+          Left = 455
           Top = 0
           Width = 530
           Height = 229
@@ -6586,7 +6585,7 @@ object frmproduto: Tfrmproduto
     object PageSheet6: TPageSheet
       Left = 0
       Top = 21
-      Width = 989
+      Width = 985
       Height = 229
       Caption = 'Movimento'
       DisplayMode = tdGlyph
@@ -6599,7 +6598,7 @@ object frmproduto: Tfrmproduto
       object graf_venda: TChart
         Left = 0
         Top = 0
-        Width = 989
+        Width = 985
         Height = 118
         BackWall.Brush.Color = clWhite
         BackWall.Brush.Style = bsClear
@@ -6627,7 +6626,7 @@ object frmproduto: Tfrmproduto
       object Chart1: TChart
         Left = 0
         Top = 118
-        Width = 989
+        Width = 985
         Height = 117
         BackWall.Brush.Color = clWhite
         BackWall.Brush.Style = bsClear
@@ -6656,7 +6655,7 @@ object frmproduto: Tfrmproduto
     object PageSheet13: TPageSheet
       Left = 0
       Top = 21
-      Width = 989
+      Width = 985
       Height = 229
       Caption = 'Tributa'#231#227'o'
       DisplayMode = tdGlyph
@@ -7059,17 +7058,11 @@ object frmproduto: Tfrmproduto
   object pficha3: TPanel
     Left = 0
     Top = 0
-    Width = 989
+    Width = 985
     Height = 205
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 12
-    object Bevel21: TBevel
-      Left = 856
-      Top = 78
-      Width = 125
-      Height = 85
-    end
     object Bevel3: TBevel
       Left = 428
       Top = 78
@@ -7241,13 +7234,13 @@ object frmproduto: Tfrmproduto
       Transparent = True
     end
     object Bevel20: TBevel
-      Left = 672
-      Top = 78
+      Left = 800
+      Top = 77
       Width = 177
-      Height = 86
+      Height = 89
     end
     object Label97: TLabel
-      Left = 713
+      Left = 841
       Top = 98
       Width = 106
       Height = 23
@@ -7259,29 +7252,8 @@ object frmproduto: Tfrmproduto
       Font.Style = []
       ParentFont = False
     end
-    object Label98: TLabel
-      Left = 865
-      Top = 85
-      Width = 91
-      Height = 13
-      Caption = 'F2 - Incluir / Salvar'
-    end
-    object Label99: TLabel
-      Left = 865
-      Top = 101
-      Width = 55
-      Height = 13
-      Caption = 'F3 - Alterar'
-    end
-    object Label100: TLabel
-      Left = 865
-      Top = 117
-      Width = 63
-      Height = 13
-      Caption = 'F6 - Localizar'
-    end
     object Label101: TLabel
-      Left = 713
+      Left = 841
       Top = 122
       Width = 73
       Height = 23
@@ -7510,7 +7482,7 @@ object frmproduto: Tfrmproduto
     object GroupBox7: TGroupBox
       Left = 436
       Top = 72
-      Width = 229
+      Width = 359
       Height = 94
       Caption = 'Pre'#231'os'
       TabOrder = 16
@@ -7544,10 +7516,31 @@ object frmproduto: Tfrmproduto
         Font.Style = []
         ParentFont = False
       end
+      object Label98: TLabel
+        Left = 211
+        Top = 20
+        Width = 91
+        Height = 13
+        Caption = 'F2 - Incluir / Salvar'
+      end
+      object Label99: TLabel
+        Left = 211
+        Top = 43
+        Width = 55
+        Height = 13
+        Caption = 'F3 - Alterar'
+      end
+      object Label100: TLabel
+        Left = 211
+        Top = 64
+        Width = 63
+        Height = 13
+        Caption = 'F6 - Localizar'
+      end
       object ecusto: TRzDBNumericEdit
         Left = 48
         Top = 22
-        Width = 61
+        Width = 89
         Height = 21
         DataSource = dsproduto2
         DataField = 'PRECOCUSTO'
@@ -7569,7 +7562,7 @@ object frmproduto: Tfrmproduto
       object evenda: TRzDBNumericEdit
         Left = 48
         Top = 56
-        Width = 61
+        Width = 89
         Height = 21
         DataSource = dsproduto2
         DataField = 'PRECOVENDA'
@@ -7590,9 +7583,9 @@ object frmproduto: Tfrmproduto
       end
       object AdvGlowButton1: TAdvGlowButton
         Left = 144
-        Top = 21
+        Top = 20
         Width = 58
-        Height = 56
+        Height = 58
         Caption = 'F7'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -7737,7 +7730,7 @@ object frmproduto: Tfrmproduto
     object GroupBox9: TGroupBox
       Left = 675
       Top = 166
-      Width = 110
+      Width = 303
       Height = 32
       Caption = #218'ltima Venda'
       TabOrder = 19
@@ -7795,13 +7788,13 @@ object frmproduto: Tfrmproduto
     object gestoque: TGroupBox
       Left = 436
       Top = 166
-      Width = 547
+      Width = 542
       Height = 35
       TabOrder = 17
       Visible = False
       object Label11: TLabel
         Left = 6
-        Top = 12
+        Top = 14
         Width = 83
         Height = 12
         Alignment = taRightJustify
@@ -8000,9 +7993,9 @@ object frmproduto: Tfrmproduto
       TabOrder = 4
     end
     object pexporta: TFlatPanel
-      Left = 216
-      Top = 120
-      Width = 353
+      Left = 64
+      Top = 128
+      Width = 361
       Height = 25
       Caption = 'Exportando produto...'
       ParentColor = True
