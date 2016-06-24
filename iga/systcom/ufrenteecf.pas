@@ -456,6 +456,13 @@ begin
   icicms := 0;
   icsita :=0;
 
+
+  icipi := 0;
+  iccfop := 0;
+  icpis := 0;
+  iccofins := 0;
+  icsitb := 0;
+
   icfun := 0;
   fpcomf := 0;
   iccli := 0;
@@ -1103,6 +1110,14 @@ with frmdados do
                                     icuni := 0;
                                     icicms := 0;
                                     icsita := 0;
+
+                                    icipi := 0;
+                                    iccfop := 0;
+                                    icpis := 0;
+                                    iccofins := 0;
+                                    icsitb := 0;
+
+
                                     fQtdeEstq := 0;
                                     sActDesc := 'T';
                                     pnlnpro.Caption := sDescricao;
@@ -1508,10 +1523,13 @@ procedure Tfrmfrenteecf.spdsalvar233Click(Sender: TObject);
       Unidade : String;
 
     var
-      x:integer;
+      x,
+      item:integer;
 
 
-
+    var
+      pdesc,
+      vdesc:real;
 
 begin
 
@@ -1571,6 +1589,11 @@ sQtde := floattostr(fqtde);
 sSubtotal := floattostr(fqtde*fprve);
 sSubtotalC := floattostr(fqtde*fprcu);
 sData_Op := datetostr(date);
+
+pdesc := strtofloat(tirapontos(edipdesc.Text));
+vdesc := strtofloat(tirapontos(edipdesc.Text)) * (fqtde*fprve) / 100;
+
+
 SetLength (sUltimoitem,4);
 
 //  Verifica o Tipo da Quantidade:
@@ -1992,11 +2015,17 @@ with frmdados do
 
    if bImprimiuecf then
       begin
+        dbx_exec.Active := false;
+        dbx_exec.SQL.Clear;
+        dbx_exec.SQL.Add('select max(item) as titens from vendab where controle = '+inttostr(iControle));
+        dbx_exec.Active := true;
 
+        item := dbx_exec.fieldbyname('titens').AsInteger + 1;
 
         dbx_Exec.Active := false;
         dbx_Exec.SQL.Clear;
         dbx_Exec.SQL.Add('Insert into Vendab(');
+
 
         if iccli > 0 then
            dbx_Exec.SQL.Add('ccli, ');
@@ -2056,9 +2085,32 @@ with frmdados do
            dbx_Exec.SQL.Add('codsita, ');
         //endi
 
+        //---22.06.2016
+        if icipi > 0 then
+           dbx_Exec.SQL.Add('codipi,');
+        //endi
 
+        if iccfop > 0 then
+           dbx_Exec.SQL.Add('codcfop,');
+        //endi
 
+        if icpis > 0 then
+           dbx_Exec.SQL.Add('codpis,');
+        //endi
 
+        if iccofins > 0 then
+           dbx_Exec.SQL.Add('codcofins,');
+        //endi
+
+        if icsitb > 0 then
+           dbx_Exec.SQL.Add('codsitb,');
+        //endi
+
+        dbx_exec.SQL.Add('item,');
+
+        dbx_exec.SQL.Add('pdesc,');
+
+        dbx_exec.SQL.Add('vdesc,');
 
         dbx_Exec.SQL.Add('controle');
 
@@ -2123,6 +2175,33 @@ with frmdados do
            dbx_Exec.SQL.Add(inttostr(icsita)+',');
         //endi
 
+
+        //---22.06.2016
+        if icipi > 0 then
+           dbx_Exec.SQL.Add(inttostr(icipi)+',');
+        //endi
+
+        if iccfop > 0 then
+           dbx_Exec.SQL.Add(inttostr(iccfop)+',');
+        //endi
+
+        if icpis > 0 then
+           dbx_Exec.SQL.Add(inttostr(icpis)+',');
+        //endi
+
+        if iccofins > 0 then
+           dbx_Exec.SQL.Add(inttostr(iccofins)+',');
+        //endi
+
+        if icsitb > 0 then
+           dbx_Exec.SQL.Add(inttostr(icsitb)+',');
+        //endi 
+
+        dbx_exec.SQL.Add(inttostr(item)+',');
+
+        dbx_exec.SQL.Add(floattostr(pdesc)+',');
+
+        dbx_exec.SQL.Add(floattostr(vdesc)+',');
 
         dbx_Exec.SQL.Add(inttostr(iControle));
 

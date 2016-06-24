@@ -700,6 +700,8 @@ type
     dbx_indice: TSQLQuery;
     Dbx_sVendacpfcnpj: TStringField;
     Cds_sVendacpfcnpj: TStringField;
+    dbx_sitb: TSQLQuery;
+    dbx_cfop: TSQLQuery;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -1436,7 +1438,7 @@ vardir := extractfilepath(application.ExeName);
       Writeln(f,'SUBTOTAL='+floattostr(cds_vendabb.fieldbyname('subtotal').asfloat));
       //Writeln(f,'CAUX='+cds_vendabb.fieldbyname('caux').asString);
 
-      if Cds_vprodutos.Locate('cdescprod',cds_vendabb.fieldbyname('cpro').AsInteger,[]) then
+      if Cds_vprodutos.Locate('codigo',cds_vendabb.fieldbyname('cpro').AsInteger,[]) then
          begin
            Writeln(f,'NCM='+cds_vprodutos.fieldbyname('ncm').asString);
            Writeln(f,'CEST='+cds_vprodutos.fieldbyname('cest').asString);
@@ -1481,8 +1483,14 @@ var f:textfile;
 vardir, svalor:string;
 codigo, nome:string;
 ssigla:string;
-faliq:real;
-ivalor:integer;
+
+faliq, ftotalprod:real;
+
+ivalor,
+proxsat,
+itotalprod,
+itotalnfe:integer;
+
 begin
 
 vardir := extractfilepath(application.ExeName);
@@ -1495,11 +1503,16 @@ vardir := extractfilepath(application.ExeName);
   Dbx_config.SQL.Add('select * from config');
   Dbx_config.Active := true;
 
+  dbx_sitb.Active := false;
+  dbx_sitb.sql.Clear;
+  dbx_sitb.SQL.Add('select * from sitb');
+  dbx_sitb.Active := true;
+
   dbx_ipi.Active := false;
   dbx_ipi.sql.Clear;
   dbx_ipi.SQL.Add('select * from ipi');
   dbx_ipi.Active := true;
-
+  
   dbx_pis.Active := false;
   dbx_pis.sql.Clear;
   dbx_pis.SQL.Add('select * from pis');
@@ -1507,7 +1520,7 @@ vardir := extractfilepath(application.ExeName);
 
   dbx_cofins.Active := false;
   dbx_cofins.sql.Clear;
-  dbx_cofins.SQL.Add('select * from ipi');
+  dbx_cofins.SQL.Add('select * from cofins');
   dbx_cofins.Active := true;
 
   Cds_Clientes.Active   := false;
@@ -1560,7 +1573,20 @@ vardir := extractfilepath(application.ExeName);
   Write(f,'001'); //3 - serie_nfe
   Write(f,'S');  //4  - tipo_docto
   Write(f, AjustaStr ( 'VENDA',30 )   );   //5 - desc_operacao
-  Write(f,formatfloat('000000',Cds_sVenda.fieldbyname('codigo').asfloat)  );   //6 - numero_nfe
+
+  //---
+  with frmdados do
+    begin
+      dbx_exec.Active := false;
+      dbx_exec.SQL.Clear;
+      dbx_exec.SQL.Add('select max(proxsat) as proxnumsat from indice');
+      dbx_exec.Active := true;
+
+      proxsat := dbx_exec.fieldbyname('proxnumsat').AsInteger + 1;
+
+    end;
+
+  Write(f,formatfloat('000000',proxsat)  );   //6 - numero_nfe
   Write(f,formatdatetime('dd/mm/yyyy',date)  );   //7 - data_emissao
   Write(f,formatdatetime('dd/mm/yyyy',date));   //8  - data_saida
 
@@ -1646,16 +1672,21 @@ vardir := extractfilepath(application.ExeName);
   dbx_Vendabb.Active := true;
   cds_Vendabb.Active := true;
 
+  itotalprod := 0;
+  itotalnfe := 0;
+
+  ftotalprod := 0;
+
   while not cds_vendabb.Eof do
     begin
 
 
       Write(f,AjustaStr ( '02',2 ) );  //37 - id_reg
-      Write(f,AjustaStr ( Cds_vendabb.fieldbyname('codigo').asString,6 ) );   //38 - item_no
+      Write(f,AjustaStr ( Cds_vendabb.fieldbyname('item').asString,6 ) );   //38 - item_no
       Write(f,AjustaStr ( cds_vendabb.fieldbyname('cpro').asString,60 ) );   //39 - codprod
 
 
-      if Cds_vprodutos.Locate('cdescprod',cds_vendabb.fieldbyname('cpro').AsInteger,[]) then
+      if Cds_vprodutos.Locate('codigo',cds_vendabb.fieldbyname('cpro').AsInteger,[]) then
          begin
            Write(f,AjustaStr ( cds_vprodutos.fieldbyname('ncm').asString ,8 ) );   //40 - ncm_item
            //Write(f,cds_vprodutos.fieldbyname('cest').asString);
@@ -1670,23 +1701,26 @@ vardir := extractfilepath(application.ExeName);
          end;
       //endi
 
-      svalor := formatfloat ( '0000000000',cds_vendabb.fieldbyname('qtde').asfloat * 100);
+      svalor := formatfloat ( '0000000000',cds_vendabb.fieldbyname('qtde').asfloat * 1000);
       Write(f,AjustaStr(  svalor  ,10 )) ;   //43 - qde_item
 
-      svalor := formatfloat ( '0000000000',cds_vendabb.fieldbyname('prve').asfloat * 100);
+      svalor := formatfloat ( '0000000000',cds_vendabb.fieldbyname('prve').asfloat * 1000);
       Write(f,AjustaStr(    svalor  ,10));   //44 - vunitario_item
 
       Write(f, '0000000000');   //122 - dsc_item
 
 
-      svalor := formatfloat ( '000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 100 );
+      svalor := formatfloat ( '000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 1000 );
       Write(f,AjustaStr ( svalor ,15 )); //45 - vtotal_item
 
-      svalor := formatfloat ( '0000000000'     ,cds_vendabb.fieldbyname('qtde').asfloat * 100);
+      ftotalprod := ftotalprod + (cds_vendabb.fieldbyname('qtde').asfloat * cds_vendabb.fieldbyname('prve').asfloat) ;
+      svalor := formatfloat ( '000000000000000', ftotalprod * 1000 );
+      itotalprod := strtoint(svalor);
+
+      svalor := formatfloat ( '0000000000'     ,cds_vendabb.fieldbyname('qtde').asfloat * 1000);
       Write(f,AjustaStr (  svalor ,10)); //46 - qde_trib_item
 
-
-      svalor := formatfloat ( '0000000000'     ,cds_vendabb.fieldbyname('prve').asfloat * 100 );
+      svalor := formatfloat ( '0000000000'     ,cds_vendabb.fieldbyname('prve').asfloat * 1000 );
       Write(f,AjustaStr ( svalor  ,10 ) ); //47 - valor_trib_item
 
       if Cds_sita.Locate('codigo',cds_vendabb.fieldbyname('codsita').AsInteger,[]) then
@@ -1702,18 +1736,28 @@ vardir := extractfilepath(application.ExeName);
       if Cds_AliqImpFis.Locate('codigo',cds_vendabb.fieldbyname('codicms').AsInteger,[]) then
          begin
            ssigla := cds_aliqimpfis.fieldbyname('sigla').asString;
-           faliq := cds_aliqimpfis.fieldbyname('aliquota').asfloat;
+           faliq := cds_aliqimpfis.fieldbyname('aliquota').asfloat * 1000;
          end;
       //endi
 
-      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 100);
+      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 1000);
       Write(f,AjustaStr (  svalor  ,17 ) );   //51 - baseicms
 
       svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq  );
       Write(f,AjustaStr (  svalor  ,17 ) );   //52  -  valoricms
 
-      svalor := formatfloat ( '0000',faliq * 100);
+      svalor := formatfloat ( '0000',faliq );
       Write(f,AjustaStr (  svalor ,4 ) );   //53 - aliquotaicms
+
+
+       try
+         ivalor := strtoint(ssigla);
+       except
+         ivalor := 0;
+       end;
+
+       ssigla := formatfloat('000',ivalor);
+
 
       Write(f,AjustaStr ( ssigla ,3 ) );   //54 -  cst
 
@@ -1721,7 +1765,7 @@ vardir := extractfilepath(application.ExeName);
       if dbx_pis.Locate('codigo',cds_vendabb.fieldbyname('codpis').AsInteger,[]) then
          begin
            ssigla := dbx_pis.fieldbyname('sigla').asString;
-           faliq := dbx_pis.fieldbyname('aliquota').asfloat;
+           faliq := dbx_pis.fieldbyname('aliquota').asfloat * 1000;
          end;
       //endi
 
@@ -1731,8 +1775,16 @@ vardir := extractfilepath(application.ExeName);
       svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq );
       Write(f,AjustaStr (  svalor ,17 ) );   //56 - valorpis
 
-      svalor := formatfloat ( '0000',faliq * 100);
+      svalor := formatfloat ( '0000',faliq );
       Write(f,AjustaStr (   svalor ,4 ) );   //57 -  aliquotapis
+
+       try
+         ivalor := strtoint(ssigla);
+       except
+         ivalor := 0;
+       end;
+
+       ssigla := formatfloat('000',ivalor);
 
 
       Write(f,AjustaStr (  ssigla,3 ) );   //58 - cstpis
@@ -1741,18 +1793,29 @@ vardir := extractfilepath(application.ExeName);
       if dbx_cofins.Locate('codigo',cds_vendabb.fieldbyname('codcofins').AsInteger,[]) then
          begin
            ssigla := dbx_cofins.fieldbyname('sigla').asString;
-           faliq := dbx_cofins.fieldbyname('aliquota').asfloat;
+           faliq := dbx_cofins.fieldbyname('aliquota').asfloat * 1000;
          end;
       //endi
 
-      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 100 );
+      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 1000 );
       Write(f,AjustaStr ( svalor ,17 ) );   //59 - basecofins
 
       svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq );
       Write(f,AjustaStr ( svalor ,17 ) );   //60 - valorcofins
 
-      svalor := formatfloat ( '0000',faliq * 100);
+      svalor := formatfloat ( '0000',faliq );
       Write(f,AjustaStr ( svalor ,4 ) );   //61 - aliquotacofins
+
+
+       try
+         ivalor := strtoint(ssigla);
+       except
+         ivalor := 0;
+       end;
+
+       ssigla := formatfloat('000',ivalor);
+
+
 
       Write(f,AjustaStr ( ssigla,3 ) );   //123 - cstcofins
 
@@ -1764,18 +1827,29 @@ vardir := extractfilepath(application.ExeName);
       //IPI
       if dbx_ipi.Locate('codigo',cds_vendabb.fieldbyname('codipi').AsInteger,[]) then
          begin
-           ssigla := dbx_pis.fieldbyname('sigla').asString;
-           faliq := dbx_pis.fieldbyname('aliquota').asfloat;
+           ssigla := dbx_ipi.fieldbyname('sigla').asString;
+           faliq := dbx_ipi.fieldbyname('aliq').asfloat * 1000;
          end;
       //endi
 
-      svalor := formatfloat ( '0000',faliq * 100);
+      svalor := formatfloat ( '0000',faliq );
       Write(f,AjustaStr ( svalor ,4 ) );   //109 - aliquotaipi
+
+
+       try
+         ivalor := strtoint(ssigla);
+       except
+         ivalor := 0;
+       end;
+
+       ssigla := formatfloat('000',ivalor);
+
+
 
 
       Write(f,AjustaStr ( ssigla,3 ) );   //  110 - cstipi
 
-      svalor :=  formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 100);
+      svalor :=  formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 1000);
       Write(f,AjustaStr (  svalor ,17 ) );   // 111 - baseipi
 
 
@@ -1791,7 +1865,23 @@ vardir := extractfilepath(application.ExeName);
       Write(f,AjustaStr ( '00000000000000000',17 ) );   // 138 - valorfrete
       Write(f,AjustaStr ( '00000000000000000',17 ) );   // 139 - valordesp
       Write(f,AjustaStr ( '00000000000000000',17 ) );   //140 - valorseguro
-      Write(f,AjustaStr ( '0000',4) );                 // 142 - csosn
+
+      //---------
+
+      // CSOSN
+      if Cds_vprodutos.Locate('codigo',cds_vendabb.fieldbyname('cpro').AsInteger,[]) then
+         begin
+           try
+             ivalor := strtoint(Cds_vprodutos.fieldbyname('csosn').asString);
+           except
+             ivalor := 0;
+           end;
+         end;
+      //endi
+
+      svalor := formatfloat ( '0000',ivalor);
+      Write(f,AjustaStr ( svalor ,4) );                 // 142 - csosn
+
       Write(f,AjustaStr ( '0000',4 ) );   // 143 - csosn_aliqcred
       Write(f,AjustaStr ( '00000000000000000',17) );   // 145 - csosn_valorcred
       Write(f,AjustaStr ( ' ', 2) );   //  141 - infoprdadic
@@ -1803,20 +1893,28 @@ vardir := extractfilepath(application.ExeName);
   //endi
 
   Write(f,AjustaStr ( '03',2 ) );   //  62 - id_reg
-  Write(f,AjustaStr ( ' ',17 ) );   //  63 - total_baseicms
-  Write(f,AjustaStr ( ' ',17 ) );   //   64 - total_valoricms
-  Write(f,AjustaStr ( ' ',17 ) );   //   65 - total_basest
-  Write(f,AjustaStr ( ' ',17 ) );   //   66 - total_valorst
-  Write(f,AjustaStr ( ' ',17 ) );   //   67 - total_produtos
-  Write(f,AjustaStr ( ' ',17 ) );   //   68 - total_frete
-  Write(f,AjustaStr ( ' ',17 ) );   //   69 - total_seguro
-  Write(f,AjustaStr ( ' ',17 ) );   //   70  - total_desconto
-  Write(f,AjustaStr ( ' ',17 ) );   //  77 - total_II
-  Write(f,AjustaStr ( ' ',17 ) );   //  78 - total_ipi
-  Write(f,AjustaStr ( ' ',17 ) );   //  79  - total_pis
-  Write(f,AjustaStr ( ' ',17 ) );   //  80 - total_cofins
-  Write(f,AjustaStr ( ' ',17 ) );   //  81 - total_dsp_acess
-  Write(f,AjustaStr ( ' ',17 ) );   //  82 - total_nfe
+  Write(f,AjustaStr ( '00000000000000000',17 ) );   //  63 - total_baseicms
+  Write(f,AjustaStr ( '00000000000000000',17 ) );   //   64 - total_valoricms
+  Write(f,AjustaStr ( '00000000000000000',17 ) );   //   65 - total_basest
+  Write(f,AjustaStr ( '00000000000000000',17 ) );   //   66 - total_valorst
+
+  //---
+  svalor := formatfloat('00000000000000000',itotalprod);
+  Write(f,AjustaStr ( svalor,17 ) );   //   67 - total_produtos
+
+  Write(f,AjustaStr ( '00000000000000000',17 ) );   //   68 - total_frete
+  Write(f,AjustaStr ( '00000000000000000',17 ) );   //   69 - total_seguro
+  Write(f,AjustaStr ( '00000000000000000',17 ) );   //   70  - total_desconto
+  Write(f,AjustaStr ( '00000000000000000',17 ) );   //  77 - total_II
+  Write(f,AjustaStr ( '00000000000000000',17 ) );   //  78 - total_ipi
+  Write(f,AjustaStr ( '00000000000000000',17 ) );   //  79  - total_pis
+  Write(f,AjustaStr ( '00000000000000000',17 ) );   //  80 - total_cofins
+  Write(f,AjustaStr ( '00000000000000000',17 ) );   //  81 - total_dsp_acess
+
+
+  //---
+  svalor := formatfloat('00000000000000000',itotalprod);
+  Write(f,AjustaStr ( svalor,17 ) );   //  82 - total_nfe
   Writeln(f);
 
   Write(f,AjustaStr ( '04',2 ) );   //  83 - id_reg
@@ -1847,8 +1945,17 @@ vardir := extractfilepath(application.ExeName);
   Write(f,AjustaStr ( '06',2 ) );     // 98 - id_reg
   Write(f,AjustaStr ( ' ',10 ) );     //  99 - num_dup
   Write(f,AjustaStr ( ' ',10 ) );     //  100 - dvenc_dup
-  Write(f,AjustaStr ( ' ',17 ) );     //  101 - valor_dup
-  Write(f,AjustaStr ( ' O',2));        //  Tp_Pgto
+
+
+  //---
+  svalor := formatfloat('00000000000000000',itotalprod);
+  Write(f,AjustaStr ( svalor,17 ) );     //  101 - valor_dup
+
+  if strtofloat(tirapontos(lblaprazo.Caption)) > 0 then
+     Write(f,AjustaStr ( 'O',2))        //  Tp_Pgto
+  else
+     Write(f,AjustaStr ( 'D',2));        //  Tp_Pgto
+  //endi
   Writeln(f);
 
   Write(f,AjustaStr ( '07',2 ) );     //  105 - id_reg
@@ -1870,8 +1977,20 @@ vardir := extractfilepath(application.ExeName);
   Write(f,AjustaStr ( ' ',17 ) );     //  149 - VALOR_IOF
   Writeln(f);
 
-
   CloseFile(f);
+
+  with frmdados do
+    begin
+      dbx_exec.Active := false;
+      dbx_exec.SQL.Clear;
+      dbx_exec.SQL.Add('update indice set proxsat = '+inttostr(proxsat));
+      dbx_exec.ExecSQL;
+
+    end;
+
+
+
+
 
   showmessage('Exportação concluida');
 

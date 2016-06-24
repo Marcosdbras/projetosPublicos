@@ -1,8 +1,8 @@
 object frmPesqVfb: TfrmPesqVfb
-  Left = 56
-  Top = 99
-  Width = 957
-  Height = 587
+  Left = 202
+  Top = 115
+  Width = 947
+  Height = 568
   BorderIcons = []
   Caption = 'Pesquisa de Vendas Efetuadas - Balc'#227'o'
   Color = clBtnFace
@@ -22,7 +22,7 @@ object frmPesqVfb: TfrmPesqVfb
   object pnlsuperior: TPanel
     Left = 0
     Top = 0
-    Width = 949
+    Width = 939
     Height = 42
     Align = alTop
     TabOrder = 0
@@ -52,8 +52,8 @@ object frmPesqVfb: TfrmPesqVfb
   end
   object pnlinferior: TPanel
     Left = 0
-    Top = 519
-    Width = 949
+    Top = 500
+    Width = 939
     Height = 41
     Align = alBottom
     TabOrder = 1
@@ -62,7 +62,7 @@ object frmPesqVfb: TfrmPesqVfb
     Left = 0
     Top = 42
     Width = 201
-    Height = 477
+    Height = 458
     Align = alLeft
     TabOrder = 2
     object Bevel1: TBevel
@@ -302,14 +302,14 @@ object frmPesqVfb: TfrmPesqVfb
   object pnldir: TPanel
     Left = 201
     Top = 42
-    Width = 748
-    Height = 477
+    Width = 738
+    Height = 458
     Align = alClient
     TabOrder = 3
     object Bevel2: TBevel
       Left = 1
       Top = 1
-      Width = 746
+      Width = 736
       Height = 48
       Align = alTop
     end
@@ -3415,5 +3415,23 @@ object frmPesqVfb: TfrmPesqVfb
     SQLConnection = frmDados.Sql_Dados
     Left = 585
     Top = 106
+  end
+  object dbx_sitb: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'select * from svenda')
+    SQLConnection = frmDados.Sql_Dados
+    Left = 233
+    Top = 130
+  end
+  object dbx_cfop: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'select * from svenda')
+    SQLConnection = frmDados.Sql_Dados
+    Left = 233
+    Top = 130
   end
 end

@@ -3,10 +3,10 @@ object frmDados: TfrmDados
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 65532
-  Top = 65532
-  Height = 746
-  Width = 1349
+  Left = 2
+  Top = 1
+  Height = 568
+  Width = 798
   object Sql_Dados: TSQLConnection
     ConnectionName = 'UIB FireBird15 Connection'
     DriverName = 'UIB FireBird15'

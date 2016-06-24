@@ -1,8 +1,8 @@
 object frmfrenteecf: Tfrmfrenteecf
-  Left = 1
-  Top = 0
-  Width = 1035
-  Height = 738
+  Left = 2
+  Top = 1
+  Width = 798
+  Height = 568
   VertScrollBar.Position = 56
   BorderIcons = [biSystemMenu]
   Caption = 'Frente de Caixa - ecf'
@@ -3285,8 +3285,8 @@ object frmfrenteecf: Tfrmfrenteecf
       OnKeyPress = edivalorKeyPress
     end
     object pnlparcelar: TPanel
-      Left = 43
-      Top = 33
+      Left = 187
+      Top = 297
       Width = 234
       Height = 161
       BevelOuter = bvNone
