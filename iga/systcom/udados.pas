@@ -4484,6 +4484,14 @@ type
     Cds_Configcodigoibgeuf: TStringField;
     Dbx_Configcodigoibgepais: TStringField;
     Cds_Configcodigoibgepais: TStringField;
+    Dbx_Indiceimportacaosat: TStringField;
+    Dbx_Indiceexportacaosat: TStringField;
+    Dbx_Indiceerrosat: TStringField;
+    Dbx_Indiceproxsat: TIntegerField;
+    Cds_Indiceimportacaosat: TStringField;
+    Cds_Indiceexportacaosat: TStringField;
+    Cds_Indiceerrosat: TStringField;
+    Cds_Indiceproxsat: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure cds_Tipo_PgtoAfterPost(DataSet: TDataSet);

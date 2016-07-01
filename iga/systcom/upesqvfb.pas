@@ -702,6 +702,7 @@ type
     Cds_sVendacpfcnpj: TStringField;
     dbx_sitb: TSQLQuery;
     dbx_cfop: TSQLQuery;
+    dbx_consulta: TSQLQuery;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -1484,7 +1485,9 @@ vardir, svalor:string;
 codigo, nome:string;
 ssigla:string;
 
-faliq, ftotalprod:real;
+faliq,
+ftotalprod,
+fvalorimposto:real;
 
 ivalor,
 proxsat,
@@ -1565,7 +1568,7 @@ vardir := extractfilepath(application.ExeName);
   cds_unidade.Active := true;
   cds_unidade.Active := true;
 
-  AssignFile(f,vardir+'sat_nro' + inttostr( Cds_sVenda.fieldbyname('codigo').asInteger ) + nome + codigo +'.nfe');
+  AssignFile(f,dbx_indice.fieldbyname('exportacaosat').AsString +'\sat_nro' + inttostr( Cds_sVenda.fieldbyname('codigo').asInteger ) + nome + codigo +'.sat');
   rewrite(f);
 
   Write(f,'01'); //1 - id_reg
@@ -1740,10 +1743,23 @@ vardir := extractfilepath(application.ExeName);
          end;
       //endi
 
-      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 1000);
-      Write(f,AjustaStr (  svalor  ,17 ) );   //51 - baseicms
+      fvalorimposto := cds_vendabb.fieldbyname('subtotal').asfloat * faliq;
 
-      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq  );
+
+      if fvalorimposto > 0 then
+         begin
+           svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 1000);
+           Write(f,AjustaStr (  svalor  ,17 ) );   //51 - baseicms
+         end
+      else
+         begin
+
+           Write(f,AjustaStr ( '00000000000000000'  ,17 ) );   //51 - baseicms
+
+         end;
+      //endi
+
+      svalor := formatfloat ( '00000000000000000',fvalorimposto  );
       Write(f,AjustaStr (  svalor  ,17 ) );   //52  -  valoricms
 
       svalor := formatfloat ( '0000',faliq );
@@ -1769,10 +1785,22 @@ vardir := extractfilepath(application.ExeName);
          end;
       //endi
 
-      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat );
-      Write(f,AjustaStr (  svalor ,17 ) );   //55 - basepis
+      fvalorimposto := cds_vendabb.fieldbyname('subtotal').asfloat * faliq;
 
-      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq );
+
+      if fvalorimposto > 0 then
+         begin
+           svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 1000);
+           Write(f,AjustaStr (  svalor ,17 ) );   //55 - basepis
+         end
+      else
+         begin
+
+           Write(f,AjustaStr (  '00000000000000000' ,17 ) );   //55 - basepis
+
+         end;
+
+      svalor := formatfloat ( '00000000000000000', fvalorimposto );
       Write(f,AjustaStr (  svalor ,17 ) );   //56 - valorpis
 
       svalor := formatfloat ( '0000',faliq );
@@ -1797,10 +1825,21 @@ vardir := extractfilepath(application.ExeName);
          end;
       //endi
 
-      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 1000 );
-      Write(f,AjustaStr ( svalor ,17 ) );   //59 - basecofins
+      fvalorimposto :=  cds_vendabb.fieldbyname('subtotal').asfloat * faliq;
 
-      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq );
+      if fvalorimposto > 0 then
+         begin
+           svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 1000 );
+           Write(f,AjustaStr ( svalor ,17 ) );   //59 - basecofins
+         end
+      else
+         begin
+
+           Write(f,AjustaStr ( '00000000000000000' ,17 ) );   //59 - basecofins
+
+         end;
+
+      svalor := formatfloat ( '00000000000000000', fvalorimposto );
       Write(f,AjustaStr ( svalor ,17 ) );   //60 - valorcofins
 
       svalor := formatfloat ( '0000',faliq );
@@ -1849,11 +1888,22 @@ vardir := extractfilepath(application.ExeName);
 
       Write(f,AjustaStr ( ssigla,3 ) );   //  110 - cstipi
 
-      svalor :=  formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 1000);
-      Write(f,AjustaStr (  svalor ,17 ) );   // 111 - baseipi
 
+      fvalorimposto :=  cds_vendabb.fieldbyname('subtotal').asfloat * faliq;
 
-      svalor := formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * faliq );
+      if fvalorimposto > 0  then
+         begin
+           svalor :=  formatfloat ( '00000000000000000',cds_vendabb.fieldbyname('subtotal').asfloat * 1000);
+           Write(f,AjustaStr (  svalor ,17 ) );   // 111 - baseipi
+         end
+      else
+         begin
+
+           Write(f,AjustaStr (  '00000000000000000' ,17 ) );   // 111 - baseipi
+
+         end;
+
+      svalor := formatfloat ( '00000000000000000', fvalorimposto );
       Write(f,AjustaStr (  svalor ,17 ) );   //112 - valoripi
 
 
@@ -1872,7 +1922,19 @@ vardir := extractfilepath(application.ExeName);
       if Cds_vprodutos.Locate('codigo',cds_vendabb.fieldbyname('cpro').AsInteger,[]) then
          begin
            try
-             ivalor := strtoint(Cds_vprodutos.fieldbyname('csosn').asString);
+             dbx_consulta.Active := false;
+             dbx_consulta.SQL.Clear;
+             dbx_consulta.SQL.Add('select * from conversaosat where decsosn = '+Cds_vprodutos.fieldbyname('csosn').asString);
+             dbx_consulta.Active := true;
+             if dbx_consulta.RecordCount > 0 then
+                begin
+                  ivalor := strtoint(dbx_consulta.fieldbyname('paracsosn').asString);
+                end
+             else
+                begin
+                  ivalor := strtoint(Cds_vprodutos.fieldbyname('csosn').asString);
+                end;
+             //endi
            except
              ivalor := 0;
            end;

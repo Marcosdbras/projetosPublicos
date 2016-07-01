@@ -3,8 +3,8 @@ object frmDados: TfrmDados
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 2
-  Top = 1
+  Left = 267
+  Top = 17
   Height = 568
   Width = 798
   object Sql_Dados: TSQLConnection
@@ -1862,6 +1862,21 @@ object frmDados: TfrmDados
     object Dbx_Indiceambientesat: TIntegerField
       FieldName = 'ambientesat'
     end
+    object Dbx_Indiceimportacaosat: TStringField
+      FieldName = 'importacaosat'
+      Size = 200
+    end
+    object Dbx_Indiceexportacaosat: TStringField
+      FieldName = 'exportacaosat'
+      Size = 200
+    end
+    object Dbx_Indiceerrosat: TStringField
+      FieldName = 'errosat'
+      Size = 200
+    end
+    object Dbx_Indiceproxsat: TIntegerField
+      FieldName = 'proxsat'
+    end
   end
   object Dsp_Indice: TDataSetProvider
     DataSet = Dbx_Indice
@@ -3131,6 +3146,21 @@ object frmDados: TfrmDados
     end
     object Cds_Indiceambientesat: TIntegerField
       FieldName = 'ambientesat'
+    end
+    object Cds_Indiceimportacaosat: TStringField
+      FieldName = 'importacaosat'
+      Size = 200
+    end
+    object Cds_Indiceexportacaosat: TStringField
+      FieldName = 'exportacaosat'
+      Size = 200
+    end
+    object Cds_Indiceerrosat: TStringField
+      FieldName = 'errosat'
+      Size = 200
+    end
+    object Cds_Indiceproxsat: TIntegerField
+      FieldName = 'proxsat'
     end
   end
   object Dts_Indice: TDataSource

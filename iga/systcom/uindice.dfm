@@ -117,6 +117,13 @@ object frmIndice: TfrmIndice
     NumGlyphs = 2
     OnClick = SpeedButton1Click
   end
+  object Label88: TLabel
+    Left = 9
+    Top = 81
+    Width = 63
+    Height = 13
+    Caption = 'Exportar SAT'
+  end
   object sbxmsg: TScrollBox
     Left = 5
     Top = 52
@@ -1074,9 +1081,9 @@ object frmIndice: TfrmIndice
     object Label86: TLabel
       Left = 202
       Top = 1539
-      Width = 53
+      Width = 51
       Height = 13
-      Caption = 'Bloqueiado'
+      Caption = 'Bloqueado'
     end
     object ediperiodo: TDBEdit
       Left = 8
@@ -2433,6 +2440,34 @@ object frmIndice: TfrmIndice
       Caption = 'COFINS'
       FocusControl = DBEdit8
     end
+    object Label84: TLabel
+      Left = 9
+      Top = 253
+      Width = 77
+      Height = 13
+      Caption = 'Importa'#231#227'o SAT'
+    end
+    object Label87: TLabel
+      Left = 9
+      Top = 281
+      Width = 63
+      Height = 13
+      Caption = 'Exportar SAT'
+    end
+    object Label89: TLabel
+      Left = 15
+      Top = 308
+      Width = 48
+      Height = 13
+      Caption = 'Erros SAT'
+    end
+    object Label90: TLabel
+      Left = 8
+      Top = 331
+      Width = 74
+      Height = 13
+      Caption = 'Prox. num. SAT'
+    end
     object DBRadioGroup22: TDBRadioGroup
       Left = 8
       Top = 3
@@ -2575,6 +2610,50 @@ object frmIndice: TfrmIndice
         '1')
       Visible = False
     end
+    object DBEdit11: TDBEdit
+      Left = 94
+      Top = 250
+      Width = 296
+      Height = 21
+      DataField = 'importacaosat'
+      DataSource = frmDados.Dts_Indice
+      TabOrder = 13
+    end
+    object DBEdit12: TDBEdit
+      Left = 94
+      Top = 275
+      Width = 296
+      Height = 21
+      DataField = 'exportacaosat'
+      DataSource = frmDados.Dts_Indice
+      TabOrder = 14
+    end
+    object DBEdit14: TDBEdit
+      Left = 93
+      Top = 300
+      Width = 296
+      Height = 21
+      DataField = 'errosat'
+      DataSource = frmDados.Dts_Indice
+      TabOrder = 15
+    end
+    object DBEdit15: TDBEdit
+      Left = 93
+      Top = 324
+      Width = 52
+      Height = 21
+      DataField = 'proxsat'
+      DataSource = frmDados.Dts_Indice
+      TabOrder = 16
+    end
+  end
+  object DBEdit13: TDBEdit
+    Left = 94
+    Top = 75
+    Width = 296
+    Height = 21
+    DataSource = frmDados.Dts_Indice
+    TabOrder = 6
   end
   object tabIndice: TTable
     Left = 685

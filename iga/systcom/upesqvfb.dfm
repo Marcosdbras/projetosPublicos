@@ -3434,4 +3434,13 @@ object frmPesqVfb: TfrmPesqVfb
     Left = 233
     Top = 130
   end
+  object dbx_consulta: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'select * from svenda')
+    SQLConnection = frmDados.Sql_Dados
+    Left = 401
+    Top = 90
+  end
 end

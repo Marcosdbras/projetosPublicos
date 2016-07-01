@@ -293,6 +293,16 @@ type
     rgbporta: TRadioGroup;
     DBEdit10: TDBEdit;
     DBRadioGroup3: TDBRadioGroup;
+    Label84: TLabel;
+    DBEdit11: TDBEdit;
+    DBEdit12: TDBEdit;
+    Label87: TLabel;
+    Label88: TLabel;
+    DBEdit13: TDBEdit;
+    DBEdit14: TDBEdit;
+    Label89: TLabel;
+    DBEdit15: TDBEdit;
+    Label90: TLabel;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);

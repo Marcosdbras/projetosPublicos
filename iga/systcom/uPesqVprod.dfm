@@ -668,7 +668,7 @@ object frmPesqVProd: TfrmPesqVProd
         Top = 73
         Width = 727
         Height = 385
-        ActivePage = tbscarac
+        ActivePage = tbstributacao
         Align = alClient
         Images = imgfichadetalhe
         TabOrder = 1
@@ -1481,6 +1481,14 @@ object frmPesqVProd: TfrmPesqVProd
               Font.Style = []
               ParentFont = False
             end
+            object SpeedButton5: TSpeedButton
+              Left = 248
+              Top = 211
+              Width = 23
+              Height = 22
+              Caption = '?'
+              OnClick = SpeedButton5Click
+            end
             object cbxnomeicms: TDBLookupComboBox
               Left = 134
               Top = 7
@@ -1658,6 +1666,7 @@ object frmPesqVProd: TfrmPesqVProd
               DataField = 'CSOSN'
               DataSource = frmDados.Dts_vProdutos
               TabOrder = 17
+              OnExit = DBEdit4Exit
               OnKeyPress = ediqtdeKeyPress
             end
             object DBEdit5: TDBEdit

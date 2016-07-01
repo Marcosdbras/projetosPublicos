@@ -218,6 +218,7 @@ type
     DBEdit6: TDBEdit;
     BitBtn1: TBitBtn;
     SpeedButton4: TSpeedButton;
+    SpeedButton5: TSpeedButton;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -347,6 +348,8 @@ type
     procedure DBLookupComboBox4Exit(Sender: TObject);
     procedure DBLookupComboBox4Enter(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
+    procedure DBEdit4Exit(Sender: TObject);
+    procedure SpeedButton5Click(Sender: TObject);
 
 
 
@@ -2975,6 +2978,41 @@ begin
   frmbaixarncm.Free;
 
   
+end;
+
+procedure TfrmPesqVProd.DBEdit4Exit(Sender: TObject);
+begin
+  if (dbedit4.Text <> '101') and
+     (dbedit4.Text <> '103') and
+     (dbedit4.Text <> '103') and
+     (dbedit4.Text <> '201') and
+     (dbedit4.Text <> '202') and
+     (dbedit4.Text <> '203') and
+     (dbedit4.Text <> '300') and
+     (dbedit4.Text <> '400') and
+     (dbedit4.Text <> '500') and
+     (dbedit4.Text <> '900')
+  then
+     begin
+       showmessage('Valor digitado não permitido');
+       dbedit4.SetFocus;
+     end;
+  //endi
+end;
+
+procedure TfrmPesqVProd.SpeedButton5Click(Sender: TObject);
+begin
+  showmessage( '101'+chr(13)+
+               '103'+chr(13)+
+               '103'+chr(13)+
+               '201'+chr(13)+
+               '202'+chr(13)+
+               '203'+chr(13)+
+               '300'+chr(13)+
+               '400'+chr(13)+
+               '500'+chr(13)+
+               '900'
+             );
 end;
 
 end.
