@@ -1,4 +1,4 @@
-unit upesqvfb;
+unit upesqvfb; 
 
 interface
 
@@ -653,10 +653,6 @@ type
     lblnumped: TDBText;
     lblnco: TDBText;
     Button1: TButton;
-    dbx_clientes: TSQLQuery;
-    dsp_clientes: TDataSetProvider;
-    cds_clientes: TClientDataSet;
-    dts_clientes: TDataSource;
     Dbx_VendabCODICMS: TIntegerField;
     Dbx_VendabCODCOFINS: TIntegerField;
     Dbx_VendabCODPIS: TIntegerField;
@@ -1119,10 +1115,10 @@ begin
      //endi
 
 
-       if cds_svenda.fieldbyname('din').asfloat > cds_svenda.fieldbyname('totpagar').asfloat then
+       if cds_svenda.fieldbyname('din').asfloat > cds_svenda.fieldbyname('totgpagar').asfloat then
           begin
 
-            lbldin.Caption := formatfloat('###,###,#0.00',cds_svenda.fieldbyname('totpagar').asfloat);
+            lbldin.Caption := formatfloat('###,###,#0.00',cds_svenda.fieldbyname('totgpagar').asfloat);
 
           end
        else
@@ -1273,9 +1269,9 @@ lbltotale.Caption := '0,00';
 lbldin.Caption := '0,00';
 lbltotal.Caption := '0,00';
 
-if cds_svenda.fieldbyname('din').asfloat > cds_svenda.fieldbyname('totpagar').asfloat then
+if cds_svenda.fieldbyname('din').asfloat > cds_svenda.fieldbyname('totgpagar').asfloat then
    begin
-     lbldin.Caption := formatfloat('###,###,#0.00',cds_svenda.fieldbyname('totpagar').asfloat);
+     lbldin.Caption := formatfloat('###,###,#0.00',cds_svenda.fieldbyname('totgpagar').asfloat);
    end
 else
    begin
@@ -1351,17 +1347,11 @@ vardir := extractfilepath(application.ExeName);
   codigo := '';
   nome := '';
 
-  Cds_Clientes.Active   := false;
-  Dbx_Clientes.Active := false;
-  Dbx_Clientes.SQL.Clear;
-  Dbx_Clientes.SQL.Add('select * from clientes');
-  Dbx_Clientes.Active := true;
-  Cds_Clientes.Active := true;
 
-  if Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
+  if frmdados.Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
      begin
-       codigo := Cds_Clientes.fieldbyname('codigo').AsString;
-       nome := Cds_Clientes.fieldbyname('nome').AsString;;
+       codigo := frmdados.Cds_Clientes.fieldbyname('codigo').AsString;
+       nome := frmdados.Cds_Clientes.fieldbyname('nome').AsString;;
 
      end;
 
@@ -1398,21 +1388,21 @@ vardir := extractfilepath(application.ExeName);
   AssignFile(f,vardir+'venda_nro' + inttostr( Cds_sVenda.fieldbyname('codigo').asInteger ) + nome + codigo +'.txt');
   rewrite(f);
 
-  if Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
+  if frmdados.Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
      begin
-       Writeln(f,'[cliente'+formatfloat('00000',cds_clientes.fieldbyname('codigo').asfloat)+']');
-       Writeln(f,'CNPJ='+cds_clientes.fieldbyname('cpf').asString);
-       Writeln(f,'IE='+cds_clientes.fieldbyname('ie').asString);
-       Writeln(f,'NomeRazao='+cds_clientes.fieldbyname('nome').asString);
-       Writeln(f,'Fantasia='+cds_clientes.fieldbyname('fantasia').asString);
-       Writeln(f,'Fone='+cds_clientes.fieldbyname('telefones').asString);
-       Writeln(f,'CEP='+cds_clientes.fieldbyname('cepent').asString);
-       Writeln(f,'Logradouro='+cds_clientes.fieldbyname('endent').asString);
-       Writeln(f,'Numero='+cds_clientes.fieldbyname('nroent').asString);
-       Writeln(f,'Complemento='+cds_clientes.fieldbyname('complent').asString);
-       Writeln(f,'Bairro='+cds_clientes.fieldbyname('bairroent').asString);
-       Writeln(f,'Cidade='+cds_clientes.fieldbyname('cidadeent').asString);
-       Writeln(f,'Estado='+cds_clientes.fieldbyname('estadoent').asString);
+       Writeln(f,'[cliente'+formatfloat('00000',frmdados.cds_clientes.fieldbyname('codigo').asfloat)+']');
+       Writeln(f,'CNPJ='+frmdados.cds_clientes.fieldbyname('cpf').asString);
+       Writeln(f,'IE='+frmdados.cds_clientes.fieldbyname('ie').asString);
+       Writeln(f,'NomeRazao='+frmdados.cds_clientes.fieldbyname('nome').asString);
+       Writeln(f,'Fantasia='+frmdados.cds_clientes.fieldbyname('fantasia').asString);
+       Writeln(f,'Fone='+frmdados.cds_clientes.fieldbyname('telefones').asString);
+       Writeln(f,'CEP='+frmdados.cds_clientes.fieldbyname('cepent').asString);
+       Writeln(f,'Logradouro='+frmdados.cds_clientes.fieldbyname('endent').asString);
+       Writeln(f,'Numero='+frmdados.cds_clientes.fieldbyname('nroent').asString);
+       Writeln(f,'Complemento='+frmdados.cds_clientes.fieldbyname('complent').asString);
+       Writeln(f,'Bairro='+frmdados.cds_clientes.fieldbyname('bairroent').asString);
+       Writeln(f,'Cidade='+frmdados.cds_clientes.fieldbyname('cidadeent').asString);
+       Writeln(f,'Estado='+frmdados.cds_clientes.fieldbyname('estadoent').asString);
      end;
   //endi
 
@@ -1526,17 +1516,11 @@ vardir := extractfilepath(application.ExeName);
   dbx_cofins.SQL.Add('select * from cofins');
   dbx_cofins.Active := true;
 
-  Cds_Clientes.Active   := false;
-  Dbx_Clientes.Active := false;
-  Dbx_Clientes.SQL.Clear;
-  Dbx_Clientes.SQL.Add('select * from clientes');
-  Dbx_Clientes.Active := true;
-  Cds_Clientes.Active := true;
 
-  if Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
+  if frmdados.Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
      begin
-       codigo := Cds_Clientes.fieldbyname('codigo').AsString;
-       nome := Cds_Clientes.fieldbyname('nome').AsString;
+       codigo := frmdados.Cds_Clientes.fieldbyname('codigo').AsString;
+       nome := frmdados.Cds_Clientes.fieldbyname('nome').AsString;
 
      end;
 
@@ -1624,23 +1608,23 @@ vardir := extractfilepath(application.ExeName);
   Write(f,AjustaStr ( tirapontos(tiratracos(tirabarras(dbx_config.FieldByName('campo4').AsString))),30 ) );   //23 - ie_emitente
   Write(f, AjustaStr ( ' ',30 ) );   //24 - ie_st_emitente
 
-  if Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
+  if frmdados.Cds_Clientes.Locate('codigo',inttostr(Cds_sVenda.fieldbyname('ccli').asInteger),[]) then
      begin
 
-       Write(f,AjustaStr ( tirapontos(tiratracos(tirabarras(Cds_Clientes.fieldbyname('cpf').AsString))),25 ) );   //25 - cnpj_dest
-       Write(f,AjustaStr ( Cds_Clientes.fieldbyname('nome').AsString,50 ) );   //26 - razao_dest
-       Write(f,AjustaStr ( Cds_Clientes.fieldbyname('endent').AsString  ,50 ) );   //27 - logradouro_dest
-       Write(f,AjustaStr ( Cds_Clientes.fieldbyname('nroent').AsString   ,6 ) );   //28 - numlog_dest
-       Write(f,AjustaStr ( Cds_Clientes.fieldbyname('bairroent').AsString,30 ) );   //29 - bairro_dest
+       Write(f,AjustaStr ( tirapontos(tiratracos(tirabarras(frmdados.Cds_Clientes.fieldbyname('cpf').AsString))),25 ) );   //25 - cnpj_dest
+       Write(f,AjustaStr ( frmdados.Cds_Clientes.fieldbyname('nome').AsString,50 ) );   //26 - razao_dest
+       Write(f,AjustaStr ( frmdados.Cds_Clientes.fieldbyname('endent').AsString  ,50 ) );   //27 - logradouro_dest
+       Write(f,AjustaStr ( frmdados.Cds_Clientes.fieldbyname('nroent').AsString   ,6 ) );   //28 - numlog_dest
+       Write(f,AjustaStr ( frmdados.Cds_Clientes.fieldbyname('bairroent').AsString,30 ) );   //29 - bairro_dest
        Write(f,AjustaStr ( '00000000',8 ) );   //30 - codcid_dest
        Write(f,AjustaStr ( '00000000',8 ) );   //31 - codest_dest
-       Write(f,AjustaStr (  tiratracos( Cds_Clientes.fieldbyname('cep').AsString )  ,8 ) );   //32 - cep_dest
+       Write(f,AjustaStr (  tiratracos( frmdados.Cds_Clientes.fieldbyname('cepent').AsString )  ,8 ) );   //32 - cep_dest
        Write(f,AjustaStr ( '000000',6 ) );   //33 - codpais_dest
        Write(f,AjustaStr ( 'BRASIL'   ,30 ) );   //34 - nomepais_dest
-       Write(f,AjustaStr ( Cds_Clientes.fieldbyname('telefoneent').AsString ,30 ) );   //35 - fone_dest
-       Write(f,AjustaStr ( tirapontos(tiratracos(tirabarras(Cds_Clientes.fieldbyname('ie').AsString ))) ,30 ) );   //36 - ie_dest
-       Write(f,AjustaStr (  Cds_Clientes.fieldbyname('complent').AsString  ,30 ) );   //108 - compl_dest
-       Write(f,AjustaStr (  Cds_Clientes.fieldbyname('email').AsString ,60 ) );   //115  -  email_dest
+       Write(f,AjustaStr ( frmdados.Cds_Clientes.fieldbyname('telefoneent').AsString ,30 ) );   //35 - fone_dest
+       Write(f,AjustaStr ( tirapontos(tiratracos(tirabarras(frmdados.Cds_Clientes.fieldbyname('ie').AsString ))) ,30 ) );   //36 - ie_dest
+       Write(f,AjustaStr (  frmdados.Cds_Clientes.fieldbyname('complent').AsString  ,30 ) );   //108 - compl_dest
+       Write(f,AjustaStr (  frmdados.Cds_Clientes.fieldbyname('email').AsString ,60 ) );   //115  -  email_dest
 
      end
   else
@@ -1924,7 +1908,7 @@ vardir := extractfilepath(application.ExeName);
            try
              dbx_consulta.Active := false;
              dbx_consulta.SQL.Clear;
-             dbx_consulta.SQL.Add('select * from conversaosat where decsosn = '+Cds_vprodutos.fieldbyname('csosn').asString);
+             dbx_consulta.SQL.Add('select * from conversaosat where decsosn = '+ inttostr( Cds_vprodutos.fieldbyname('csosn').asInteger ) );
              dbx_consulta.Active := true;
              if dbx_consulta.RecordCount > 0 then
                 begin

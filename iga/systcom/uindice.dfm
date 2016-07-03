@@ -707,7 +707,7 @@ object frmIndice: TfrmIndice
       OnClick = rgbportaClick
     end
     object DBEdit10: TDBEdit
-      Left = 0
+      Left = 1
       Top = 369
       Width = 377
       Height = 21
@@ -717,21 +717,13 @@ object frmIndice: TfrmIndice
       TabOrder = 9
       OnKeyPress = DBEdit18KeyPress
     end
-    object DBRadioGroup3: TDBRadioGroup
+    object DBEdit13: TDBEdit
       Left = 1
-      Top = 397
-      Width = 374
-      Height = 49
-      Caption = 'Ambiente S@T'
-      DataField = 'ambientesat'
+      Top = 394
+      Width = 377
+      Height = 21
       DataSource = frmDados.Dts_Indice
-      Items.Strings = (
-        'Produ'#231#227'o'
-        'Homologa'#231#227'o')
       TabOrder = 10
-      Values.Strings = (
-        '0'
-        '1')
     end
   end
   object ScrollBox2: TScrollBox
@@ -2646,14 +2638,22 @@ object frmIndice: TfrmIndice
       DataSource = frmDados.Dts_Indice
       TabOrder = 16
     end
-  end
-  object DBEdit13: TDBEdit
-    Left = 94
-    Top = 75
-    Width = 296
-    Height = 21
-    DataSource = frmDados.Dts_Indice
-    TabOrder = 6
+    object DBRadioGroup3: TDBRadioGroup
+      Left = 8
+      Top = 352
+      Width = 382
+      Height = 49
+      Caption = 'Ambiente S@T'
+      DataField = 'ambientesat'
+      DataSource = frmDados.Dts_Indice
+      Items.Strings = (
+        'Produ'#231#227'o'
+        'Homologa'#231#227'o')
+      TabOrder = 17
+      Values.Strings = (
+        '0'
+        '1')
+    end
   end
   object tabIndice: TTable
     Left = 685

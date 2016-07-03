@@ -1,8 +1,8 @@
 object frmfechacaixaind: Tfrmfechacaixaind
   Left = 241
   Top = 267
-  Width = 415
-  Height = 187
+  Width = 439
+  Height = 209
   Caption = 'Fechar Caixa Individual'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -39,7 +39,7 @@ object frmfechacaixaind: Tfrmfechacaixaind
     Transparent = True
   end
   object btnabrir: TButton
-    Left = 242
+    Left = 265
     Top = 5
     Width = 79
     Height = 25
@@ -48,7 +48,7 @@ object frmfechacaixaind: Tfrmfechacaixaind
     OnClick = btnabrirClick
   end
   object btncancelar: TButton
-    Left = 326
+    Left = 349
     Top = 5
     Width = 75
     Height = 25

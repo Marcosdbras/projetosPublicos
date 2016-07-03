@@ -148,6 +148,42 @@ with frmdados do
   i := 0;
 
 
+
+if pos('\\',frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString) > 0 then
+      begin
+
+        printcaixa.Porta :=    PrnNet;
+        printcaixa.NetImpress := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
+
+      end
+   else
+      begin
+
+         if pos(':',frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString) > 0 then
+            begin
+
+              printcaixa.Porta :=    PrnFile;
+              printcaixa.OutputFile := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
+
+            end
+         else
+            begin
+
+
+              printcaixa.Porta :=    Lpt1;
+
+
+
+            end;
+         //endi
+
+
+      end;
+
+
+   //endi
+
+
   while  i < strtoint(edincopias.text) do
     begin
 

@@ -472,6 +472,12 @@ object frmPesqVfb: TfrmPesqVfb
         end
         item
           Expanded = False
+          FieldName = 'cpfcnpj'
+          Title.Caption = 'cpf - sat'
+          Visible = True
+        end
+        item
+          Expanded = False
           FieldName = 'nomecli'
           Title.Caption = 'Cliente'
           Width = 236
@@ -3191,35 +3197,6 @@ object frmPesqVfb: TfrmPesqVfb
     DataSet = Cds_Vencto
     Left = 520
     Top = 318
-  end
-  object dbx_clientes: TSQLQuery
-    MaxBlobSize = -1
-    Params = <>
-    SQL.Strings = (
-      'Select * from svenda')
-    SQLConnection = frmDados.Sql_Dados
-    Left = 627
-    Top = 166
-  end
-  object dsp_clientes: TDataSetProvider
-    DataSet = dbx_clientes
-    UpdateMode = upWhereKeyOnly
-    Left = 635
-    Top = 182
-  end
-  object cds_clientes: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'dsp_clientes'
-    OnCalcFields = Cds_sVendaCalcFields
-    Left = 659
-    Top = 198
-  end
-  object dts_clientes: TDataSource
-    DataSet = cds_clientes
-    OnDataChange = Dts_sVendaDataChange
-    Left = 675
-    Top = 214
   end
   object dbx_vprodutos: TSQLQuery
     MaxBlobSize = -1

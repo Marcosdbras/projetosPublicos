@@ -1,8 +1,8 @@
 object frmfrenteecf: Tfrmfrenteecf
   Left = 2
   Top = 1
-  Width = 798
-  Height = 568
+  Width = 1328
+  Height = 719
   VertScrollBar.Position = 56
   BorderIcons = [biSystemMenu]
   Caption = 'Frente de Caixa - ecf'
@@ -1945,7 +1945,7 @@ object frmfrenteecf: Tfrmfrenteecf
   object pnlinferior: TPanel
     Left = 0
     Top = 632
-    Width = 1016
+    Width = 1304
     Height = 44
     Align = alBottom
     BevelOuter = bvNone
@@ -2090,7 +2090,7 @@ object frmfrenteecf: Tfrmfrenteecf
       Width = 105
       Height = 30
       Hint = 'Fun'#231#227'o Adm.'
-      Caption = 'Imp. &Adm'
+      Caption = '&Menu'
       Flat = True
       Font.Charset = ANSI_CHARSET
       Font.Color = clYellow
@@ -2165,7 +2165,7 @@ object frmfrenteecf: Tfrmfrenteecf
       Width = 108
       Height = 30
       Hint = 'Fun'#231#227'o Adm.'
-      Caption = '&Manut. Venda'
+      Caption = '&Ajustes'
       Flat = True
       Font.Charset = ANSI_CHARSET
       Font.Color = clYellow
@@ -2278,7 +2278,7 @@ object frmfrenteecf: Tfrmfrenteecf
   object barra: TStatusBar
     Left = 0
     Top = 676
-    Width = 1016
+    Width = 1304
     Height = 19
     Color = clBlue
     Panels = <
@@ -3569,7 +3569,7 @@ object frmfrenteecf: Tfrmfrenteecf
   object btninferior2: TPanel
     Left = 0
     Top = 595
-    Width = 1016
+    Width = 1304
     Height = 37
     Align = alBottom
     BevelOuter = bvNone
