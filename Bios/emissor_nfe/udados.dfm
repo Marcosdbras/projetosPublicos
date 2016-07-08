@@ -6379,7 +6379,6 @@ object frmdados: Tfrmdados
   end
   object zconexao: TZConnection
     TransactIsolationLevel = tiReadCommitted
-    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'nfe'
