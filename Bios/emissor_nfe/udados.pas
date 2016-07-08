@@ -1459,6 +1459,8 @@ type
     XMLDocument1: TXMLDocument;
     sql_indiceufpadrao: TSmallintField;
     cds_indiceufpadrao: TSmallintField;
+    sql_indicepICMSInterPart: TFloatField;
+    cds_indicepICMSInterPart: TFloatField;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);
@@ -1605,7 +1607,6 @@ type
     procedure cds_ibptNewRecord(DataSet: TDataSet);
     procedure cds_ibptAfterPost(DataSet: TDataSet);
     procedure cds_ibptAfterDelete(DataSet: TDataSet);
-    procedure cds_produtosAfterScroll(DataSet: TDataSet);
     procedure cds_aliqinterAfterPost(DataSet: TDataSet);
     procedure cds_aliqinterNewRecord(DataSet: TDataSet);
     procedure cds_aliqinterAfterDelete(DataSet: TDataSet);
@@ -1626,6 +1627,7 @@ type
     procedure verificanfe;
     procedure verificanf;
     procedure atualizancm(ncm:string);
+    procedure dts_produtosDataChange(Sender: TObject; Field: TField);
     
   private
     { Private declarations }
@@ -8036,19 +8038,6 @@ begin
 cds_ibpt.ApplyUpdates(0);
 end;
 
-procedure Tfrmdados.cds_produtosAfterScroll(DataSet: TDataSet);
-begin
-   sql_aliqinter.Active := false;
-   cds_aliqinter.Active := false;
-   sql_aliqinter.SQL.Clear;
-   sql_aliqinter.SQL.Add('select * from aliqinter where codprod = '+  cds_produtos.fieldbyname('codigo').AsString );
-   sql_aliqinter.Active := true;
-   cds_aliqintercodprod.DefaultExpression :=  cds_produtos.fieldbyname('codigo').AsString;
-   cds_aliqinterst.DefaultExpression := 'N';
-   cds_aliqinter.Active := true;
-
-end;
-
 procedure Tfrmdados.cds_aliqinterAfterPost(DataSet: TDataSet);
 begin
 cds_aliqinter.ApplyUpdates(0);
@@ -8667,5 +8656,18 @@ end;
 
 
 
+
+procedure Tfrmdados.dts_produtosDataChange(Sender: TObject; Field: TField);
+begin
+   sql_aliqinter.Active := false;
+   cds_aliqinter.Active := false;
+   sql_aliqinter.SQL.Clear;
+   sql_aliqinter.SQL.Add('select * from aliqinter where codprod = '+  cds_produtos.fieldbyname('codigo').AsString );
+   sql_aliqinter.Active := true;
+   cds_aliqintercodprod.DefaultExpression :=  cds_produtos.fieldbyname('codigo').AsString;
+   cds_aliqinterst.DefaultExpression := 'N';
+   cds_aliqinter.Active := true;
+
+end;
 
 end.

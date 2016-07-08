@@ -4053,7 +4053,7 @@ object frmpesqnf: Tfrmpesqnf
         Top = 7
         Width = 117
         Height = 33
-        Caption = 'INICIO'
+        Caption = 'PRIMEIRO'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -4082,7 +4082,7 @@ object frmpesqnf: Tfrmpesqnf
         Top = 7
         Width = 117
         Height = 33
-        Caption = 'FIM'
+        Caption = #218'LTIMO '
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11

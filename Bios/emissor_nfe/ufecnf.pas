@@ -1646,10 +1646,16 @@ var
   sufemi, sufdest:string;
   sitens, scnpjcpfemi:string;
 
-
-
-
-
+  pICMSInterPart,
+  vICMSUFRemet,
+  vICMSUFDest,
+  pICMSOrigPart,
+  pdifpicms,
+  vicms,
+  
+  totvICMSUFDest,
+  
+  totvICMSUFRemet:real;
 
 begin
 
@@ -2345,7 +2351,7 @@ begin
               end;
            //endi
 
-           lblmensagem.Caption := 'Esperando encerramento do processo anterior... Pressione <<ESC>> para desistir';
+           lblmensagem.Caption := 'Esperando encerramento do processo anterior...';
            frmfecnf.Update;
            sleep(5000);
 
@@ -2870,12 +2876,21 @@ begin
       fvlrbasecalcicmsst := 0;
       ftotalbasecalcicmsst := 0;
       ftotalvlricmsst := 0;
+      totvICMSUFRemet := 0;
+      totvICMSUFDest  := 0;
+
+
+
       fvlricms := 0;
 
-
+      pICMSInterPart:= frmdados.cds_indice.fieldbyname('pICMSInterPart').AsFloat;
+      pICMSOrigPart := 100 - frmdados.cds_indice.fieldbyname('pICMSInterPart').AsFloat;
 
       while not cds_nfp.Eof do
         begin
+          vICMSUFRemet := 0;
+          vICMSUFDest  := 0;
+
           fbcipi:= 0;
           fbcicms:= 0;
           fvipi:= 0;
@@ -3457,6 +3472,75 @@ begin
 
 
 
+         //pICMSOrigPart
+         if sufemi <> sufdest then
+             begin
+
+               sql_consulta.Active := false;
+               sql_consulta.SQL.Clear;
+               sql_consulta.SQL.Add('select * from icms where codigo = '+ inttostr( cds_nfp.fieldbyname('cod1prodnf').asInteger )  );
+               sql_consulta.Active := true;
+
+               faliqintra := sql_consulta.fieldbyname('aliquota').AsFloat;
+
+               sql_consulta.Active := false;
+               sql_consulta.SQL.Clear;
+               sql_consulta.SQL.Add('select * from aliqinter where codprod = '+ inttostr( cds_nfp.fieldbyname('cpro').asInteger  )+' and '+ inttostr(icodufdest)  );
+               sql_consulta.Active := true;
+
+               faliqinter := sql_consulta.fieldbyname('aliq').AsFloat;
+
+               Writeln(f,'[ICMSUFDest'+formatfloat('000',iItem)+']');
+               Writeln(f,'vBCUFDest='+formatfloat('0.00',fbcicms));
+               Writeln(f,'pFCPUFDest=0.00');//percentual fundo de combate a pobreza
+               Writeln(f,'pICMSUFDest='+formatfloat('0.00',faliqintra));
+               Writeln(f,'pICMSInter='+formatfloat('0.00', faliqinter));
+               Writeln(f,'pICMSInterPart='+formatfloat('0.00',pICMSInterPart));
+               Writeln(f,'vFCPUFDest=0.00');//valor fundo de combate a pobreza
+
+
+
+               if faliqintra > faliqinter then
+                  begin
+
+                    pdifpicms := faliqintra - faliqinter;
+
+                  end
+               else
+                  begin
+                    if faliqinter > faliqintra  then
+                       begin
+
+                         pdifpicms := faliqinter - faliqintra;
+
+                       end
+                    else
+                       begin
+
+                         pdifpicms := faliqintra;
+
+                       end;
+                    //endi
+                  end;
+               //endi
+
+               vicms := fbcicms *  pdifpicms / 100;
+
+
+               vICMSUFDest :=  vicms * pICMSInterPart / 100;
+               totvICMSUFDest :=  totvICMSUFDest +  vICMSUFDest;
+               Writeln(f,'vICMSUFDest='+formatfloat('0.00', vICMSUFDest  ) );
+
+               vICMSUFRemet:= vicms * pICMSOrigPart / 100;
+               totvICMSUFRemet :=  totvICMSUFRemet + vICMSUFRemet;
+               Writeln(f,'vICMSUFRemet='+formatfloat('0.00',    vICMSUFRemet    )     );
+
+            end;
+          //endi
+
+
+
+
 
           ftotbcipi:= ftotbcipi+fbcipi;
           ftotbcicms:= ftotbcicms+fbcicms;
@@ -3475,7 +3559,14 @@ begin
    Writeln(f,'[Total]');
   Writeln(f,'BaseICMS='+formatfloat('0.00',ftotbcicms));
   Writeln(f,'ValorICMS='+formatfloat('0.00',ftoticms));
-  //Writeln(f,'ValorProduto='+formatfloat('0.00',ftotp  - strtofloat(tirapontos(edivaldesc.text))  ));
+
+
+
+   writeln(f,'vFCPUFDest=0.00');
+	 writeln(f,'vICMSUFDest='+formatfloat('0.00',totvICMSUFDest) );
+	 writeln(f,'vICMSUFRemet='+formatfloat('0.00',totvICMSUFRemet) );
+
+
   Writeln(f,'ValorProduto='+formatfloat('0.00',ftotp ));
 
 
@@ -3993,7 +4084,7 @@ begin
                         if iPos > 0 then
                            begin
                              bAut := true;
-                             lblmensagem.Caption := 'Nota fiscal eletrônica validada com sucesso, aguarde impressão ou rejeição da secretaria...';
+                             lblmensagem.Caption := 'Nota fiscal eletrônica validada com sucesso, aguardando resposta definitiva da SEFAZ...';
                              frmfecnf.Update;
                              sleep(5000);
                              scaminho := copy(Linha,iPos+4,length(Linha));

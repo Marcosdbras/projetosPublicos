@@ -4281,6 +4281,9 @@ object frmdados: Tfrmdados
     object cds_indiceufpadrao: TSmallintField
       FieldName = 'ufpadrao'
     end
+    object cds_indicepICMSInterPart: TFloatField
+      FieldName = 'pICMSInterPart'
+    end
   end
   object dts_indice: TDataSource
     DataSet = cds_indice
@@ -6376,6 +6379,7 @@ object frmdados: Tfrmdados
   end
   object zconexao: TZConnection
     TransactIsolationLevel = tiReadCommitted
+    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'nfe'
@@ -6587,6 +6591,9 @@ object frmdados: Tfrmdados
     end
     object sql_indiceufpadrao: TSmallintField
       FieldName = 'ufpadrao'
+    end
+    object sql_indicepICMSInterPart: TFloatField
+      FieldName = 'pICMSInterPart'
     end
   end
   object sql_fatura: TZQuery
@@ -9292,6 +9299,7 @@ object frmdados: Tfrmdados
   end
   object dts_produtos: TDataSource
     DataSet = cds_produtos
+    OnDataChange = dts_produtosDataChange
     Left = 952
     Top = 112
   end

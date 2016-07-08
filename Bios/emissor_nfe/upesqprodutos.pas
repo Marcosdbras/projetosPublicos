@@ -144,6 +144,7 @@ type
     procedure edicestKeyPress(Sender: TObject; var Key: Char);
     procedure BitBtn2Click(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
+    procedure DBGrid1KeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -1063,6 +1064,20 @@ begin
        finally
        frmbaixarncmi.free;
        end;
+end;
+
+procedure Tfrmpesqprodutos.DBGrid1KeyPress(Sender: TObject; var Key: Char);
+begin
+   if key = #13 then
+      begin
+        if frmdados.cds_aliqinter.State in [dsinsert, dsEdit] then
+           begin
+             frmdados.cds_aliqinter.Post; 
+
+           end;
+        //end
+      end;
+   //end
 end;
 
 end.

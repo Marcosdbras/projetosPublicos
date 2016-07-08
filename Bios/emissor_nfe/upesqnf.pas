@@ -3327,7 +3327,29 @@ if cbxdescnatop_cod6nf.Text = '' then
    end;
 //endi
 
+if lblestado.Caption <> lblestadoemi.Caption then
+   begin
+     if lblie.Caption = '' then
+        begin
 
+          application.MessageBox(pchar(
+                                       '- Instrução para operação interestadual sem preenchimento da inscrição estadual'+chr(13)+chr(13)+
+                                       '  * Aliquota interestadual para cada produto devem estar preenchidas assim como estado de destino'+chr(13)+
+                                       '    Clique em >Menu Produtos\Edição\Tributação\Aliquota Interestadual'+chr(13)+chr(13)+
+                                       '  * CSOSN de todos os produtos não pode ter permissão de ICMS'+chr(13)+
+                                       '    por exemplo, ao invés de colocar CSOSN 101 insira 102 '+chr(13)+chr(13)+
+                                       '  * Ao emitir nota de operação interestadual com destinatário sem inscrição estadual'+chr(13)+
+                                       '    coloque consumidor final em SIM'
+                                  ),'Atenção',mb_ok);
+
+
+        end;
+
+
+
+
+   end;
+//endi
 
 frmfecnf := tfrmfecnf.create(self);
 frmfecnf.showmodal;

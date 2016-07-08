@@ -254,7 +254,6 @@ object frmpesqprodutos: Tfrmpesqprodutos
               Expanded = False
               FieldName = 'cbar'
               Title.Caption = 'COD. BAR.'
-              Width = 64
               Visible = True
             end
             item
@@ -893,6 +892,7 @@ object frmpesqprodutos: Tfrmpesqprodutos
                   TitleFont.Height = -11
                   TitleFont.Name = 'MS Sans Serif'
                   TitleFont.Style = []
+                  OnKeyPress = DBGrid1KeyPress
                   Columns = <
                     item
                       Expanded = False
