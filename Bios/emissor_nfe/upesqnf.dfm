@@ -2061,9 +2061,9 @@ object frmpesqnf: Tfrmpesqnf
                   end
                   object BitBtn4: TBitBtn
                     Left = 580
-                    Top = 118
+                    Top = 120
                     Width = 25
-                    Height = 25
+                    Height = 21
                     TabOrder = 13
                     Visible = False
                     Glyph.Data = {

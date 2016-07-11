@@ -2234,6 +2234,11 @@ object frmdados: Tfrmdados
         Name = 'calciva'
         DataType = ftString
         Size = 1
+      end
+      item
+        Name = 'calcsubst_trib_ant'
+        DataType = ftString
+        Size = 1
       end>
     IndexDefs = <
       item
@@ -2312,6 +2317,10 @@ object frmdados: Tfrmdados
     end
     object cds_cfopcalciva: TStringField
       FieldName = 'calciva'
+      Size = 1
+    end
+    object cds_cfopcalcsubst_trib_ant: TStringField
+      FieldName = 'calcsubst_trib_ant'
       Size = 1
     end
   end
@@ -7626,6 +7635,10 @@ object frmdados: Tfrmdados
     end
     object sql_cfopcalciva: TStringField
       FieldName = 'calciva'
+      Size = 1
+    end
+    object sql_cfopcalcsubst_trib_ant: TStringField
+      FieldName = 'calcsubst_trib_ant'
       Size = 1
     end
   end

@@ -1461,6 +1461,8 @@ type
     cds_indiceufpadrao: TSmallintField;
     sql_indicepICMSInterPart: TFloatField;
     cds_indicepICMSInterPart: TFloatField;
+    sql_cfopcalcsubst_trib_ant: TStringField;
+    cds_cfopcalcsubst_trib_ant: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);

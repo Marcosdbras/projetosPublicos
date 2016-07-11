@@ -1643,8 +1643,12 @@ var
   x, iregp, iregs:integer;
   data:TDateTime;
   A,B,MVA, fporciva, faliqintra, faliqinter, ftotalbasecalcicmsst,  fvlrbasecalcicmsst, fvlricms, ftotalvlricmsst, fvlricmsst  :real;
-  sufemi, sufdest:string;
-  sitens, scnpjcpfemi:string;
+  sufemi,
+  sufdest:string;
+
+  sitens,
+  scnpjcpfemi,
+  scalcsubst_trib_ant:string;
 
   pICMSInterPart,
   vICMSUFRemet,
@@ -2998,20 +3002,36 @@ begin
 
                scfop := Cds_cfop.fieldbyname('sigla').asString;
                scalciva :=  Cds_cfop.fieldbyname('calciva').asString;
+               scalcsubst_trib_ant :=  Cds_cfop.fieldbyname('calcsubst_trib_ant').asString;
+
+               if scalcsubst_trib_ant = 'S' then
+                  begin
+
+                    if sufemi <> sufdest then
+                       begin
+
+
+
+
+                       end
+                    else
+                       begin
+
+
+
+
+                       end;
+                    //endi
+
+
+
+                  end;
+               //endi
+
 
                if scalciva = 'S' then
                   begin
 
-                    {
-
-                    sql_consulta.Active := false;
-                    sql_consulta.SQL.Clear;
-                    sql_consulta.SQL.Add('select * from produtos where codigo = '+ inttostr( cds_nfp.fieldbyname('cpro').asInteger )  );
-                    sql_consulta.Active := true;
-
-                    fporciva :=   frmdados.sql_consulta.fieldbyname('iva').AsFloat / 100;
-
-                    }
 
                     fporciva :=   cds_nfp.fieldbyname('iva').AsFloat / 100;
 
@@ -3029,7 +3049,7 @@ begin
 
                           sql_consulta.Active := false;
                           sql_consulta.SQL.Clear;
-                          sql_consulta.SQL.Add('select * from aliqinter where codprod = '+ inttostr( cds_nfp.fieldbyname('cpro').asInteger  )+' and '+ inttostr(icodufdest)  );
+                          sql_consulta.SQL.Add('select * from aliqinter where codprod = '+ inttostr( cds_nfp.fieldbyname('cpro').asInteger  )+' and codest='+ inttostr(icodufdest)  );
                           sql_consulta.Active := true;
 
                           faliqinter := sql_consulta.fieldbyname('aliq').AsFloat / 100;
@@ -3485,10 +3505,14 @@ begin
 
                sql_consulta.Active := false;
                sql_consulta.SQL.Clear;
-               sql_consulta.SQL.Add('select * from aliqinter where codprod = '+ inttostr( cds_nfp.fieldbyname('cpro').asInteger  )+' and '+ inttostr(icodufdest)  );
+               sql_consulta.SQL.Add('select * from aliqinter where codprod = '+ inttostr( cds_nfp.fieldbyname('cpro').asInteger  )+' and codest='+ inttostr(icodufdest)  );
                sql_consulta.Active := true;
 
                faliqinter := sql_consulta.fieldbyname('aliq').AsFloat;
+
+               //showmessage(inttostr(cds_nfp.fieldbyname('cpro').asInteger));
+               //showmessage(inttostr(icodufdest));
+               //showmessage(floattostr(faliqinter));
 
                Writeln(f,'[ICMSUFDest'+formatfloat('000',iItem)+']');
                Writeln(f,'vBCUFDest='+formatfloat('0.00',fbcicms));

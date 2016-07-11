@@ -549,6 +549,8 @@ type
     procedure btninicioClick(Sender: TObject);
     procedure btnfimClick(Sender: TObject);
     procedure BitBtn5Click(Sender: TObject);
+    procedure calculo_subst_trib;
+    procedure subst_trib;
   private
     { Private declarations }
     sOpcao:string;
@@ -560,6 +562,15 @@ type
     fbscalcst:real;
     ficmscalcst:real;
     bhelp:boolean;
+
+    faliqintra,
+    faliqinter,
+    faliqicms:real;
+
+    icodufdest:integer;
+
+    sufdest:string;
+
 
 
 
@@ -1451,7 +1462,8 @@ end;
 
 procedure Tfrmpesqnf.edibscalcstExit(Sender: TObject);
 begin
-edibscalcst.Text := formatfloat('###,###,##0.00', strtofloat(tirapontos(edibscalcst.text)));
+
+  edibscalcst.Text := formatfloat('###,###,##0.00', strtofloat(tirapontos(edibscalcst.text)));
 
 end;
 
@@ -2439,8 +2451,12 @@ end;
 procedure Tfrmpesqnf.tbstributacaoShow(Sender: TObject);
 begin
 sOpcaoprod := 'I';
+
+//subst_trib
+
 bloqtribprod;
 carregafichaprod;
+
 end;
 
 procedure Tfrmpesqnf.btnalterarprodClick(Sender: TObject);
@@ -3327,8 +3343,57 @@ if cbxdescnatop_cod6nf.Text = '' then
    end;
 //endi
 
+
+if not ValidaCNPJ(tirapontos(tiratracos(tirabarras(lblcnpj.Caption)))) then
+   if not ValidaCPF(tirapontos(tiratracos(tirabarras(lblcnpj.Caption)))) then
+      begin
+        application.MessageBox(pchar('CNPJ ou CPF inválido'+chr(13)+
+                                  'por gentileza corrija esta informação' ),'Atenção',mb_ok);
+        exit;
+      end;
+   //endi
+//endi
+
+
+
+
 if lblestado.Caption <> lblestadoemi.Caption then
    begin
+      if ValidaCNPJ(tirapontos(tiratracos(tirabarras(lblcnpj.Caption)))) then
+         begin
+           if lblie.Caption = 'ISENTO' then
+              begin
+
+                application.MessageBox(pchar('Verifique se o SEFAZ do destinatário suporta'+chr(13)+
+                                             'inscrição estadual definido como isento caso não aceite'+chr(13)+
+                                             'você deve apagar a palavra isento do campo correspondente'+chr(13)+
+                                             'no cadastro de cliente deixando o campo em branco'
+                                             ),'Atenção',mb_ok);
+
+
+
+              end
+
+           //end
+
+         end
+      else
+         begin
+
+
+           if ValidaCPF(tirapontos(tiratracos(tirabarras(lblcnpj.Caption)))) then
+              begin
+                application.MessageBox(pchar('Antes de emitir a nota informe consumidor final como SIM'
+
+                                             ),'Atenção',mb_ok);
+              end
+           //endi
+
+
+         end;
+      //endi
+
+
      if lblie.Caption = '' then
         begin
 
@@ -5026,5 +5091,103 @@ procedure Tfrmpesqnf.BitBtn5Click(Sender: TObject);
 begin
   frmdados.cds_nf.Last;
 end;
+
+
+procedure Tfrmpesqnf.calculo_subst_trib;
+var
+  A,
+  B,
+  MVA,
+  fporciva,
+
+  fvicms,
+  fvlricmsst,
+  fvlrbasecalcicmsst,
+  fbasecalc:real;
+
+
+begin
+
+
+  fporciva :=   strtofloat(tirapontos(EDIIVA.text)) / 100;
+  fbasecalc :=  frmdados.cds_nfp.fieldbyname('subtotal').asfloat;
+
+  A := 1 + fporciva;
+
+
+  if lblestadoemi.caption <> lblestado.caption then
+     begin
+
+        B :=  (1-faliqinter) / (1-faliqintra);
+
+     end
+  else
+     begin
+
+       fvicms :=   fbasecalc  *  faliqicms / 100
+
+     end;
+
+  MVA := ((A*B)-1)*100;
+
+  fvlricmsst :=  (A * fbasecalc * faliqintra)  -   (faliqinter * fbasecalc) - fvicms;
+
+  if   fvlricmsst > 0 then
+       fvlrbasecalcicmsst := (fbasecalc * fporciva ) + fbasecalc
+  else
+       fvlrbasecalcicmsst := 0;
+  //endi
+
+
+  EDIBSCALCST.Text := formatfloat('###,###,##0.00',  fvlrbasecalcicmsst);
+  EDIICMSCALCST.Text :=   formatfloat('###,###,##0.00',fvlricmsst);
+
+
+end;
+
+procedure tfrmpesqnf.subst_trib;
+begin
+
+with frmdados do
+  begin
+
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select * from icms where codigo = '+ inttostr( cds_nfp.fieldbyname('cod1prodnf').asInteger )  );
+    sql_consulta.Active := true;
+
+    faliqintra := sql_consulta.fieldbyname('aliquota').AsFloat / 100;
+
+    sufdest := '';
+    frmdados.sql_consulta.Active := false;
+    frmdados.sql_consulta.SQL.Clear;
+    frmdados.sql_consulta.SQL.Add('select * from estados where codigo = '+ inttostr( frmdados.cds_clientes.fieldbyname('cest').asInteger )  );
+    frmdados.sql_consulta.Active := true;
+
+    sufdest := frmdados.sql_consulta.fieldbyname('sigla').asString;
+    icodufdest :=  frmdados.sql_consulta.fieldbyname('codigo').asinteger;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select * from aliqinter where codprod = '+ inttostr( cds_nfp.fieldbyname('cpro').asInteger  )+' and '+ inttostr(icodufdest)  );
+    sql_consulta.Active := true;
+
+    faliqinter := sql_consulta.fieldbyname('aliq').AsFloat / 100;
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select * from icms where codigo = '+  inttostr( cds_nfp.fieldbyname('cod1prodnf').asInteger )  );
+    sql_consulta.Active := true;
+
+    faliqicms := sql_consulta.fieldbyname('aliquota').AsFloat;
+
+
+  end;
+//endth
+
+
+end;
+
 
 end.

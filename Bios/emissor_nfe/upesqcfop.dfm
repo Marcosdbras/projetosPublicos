@@ -1,8 +1,8 @@
 object frmpesqCFOP: TfrmpesqCFOP
-  Left = 174
-  Top = 108
+  Left = 179
+  Top = 82
   Width = 855
-  Height = 656
+  Height = 611
   Caption = 'Pesquisa de CFOP'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -29,7 +29,7 @@ object frmpesqCFOP: TfrmpesqCFOP
   end
   object pnlinferior: TPanel
     Left = 0
-    Top = 564
+    Top = 519
     Width = 847
     Height = 65
     Align = alBottom
@@ -108,7 +108,7 @@ object frmpesqCFOP: TfrmpesqCFOP
     Left = 0
     Top = 41
     Width = 161
-    Height = 523
+    Height = 478
     Align = alLeft
     TabOrder = 2
     object btnfiltrar: TBitBtn
@@ -185,7 +185,7 @@ object frmpesqCFOP: TfrmpesqCFOP
     Left = 161
     Top = 41
     Width = 686
-    Height = 523
+    Height = 478
     Align = alClient
     Caption = 'pnlcentro'
     TabOrder = 3
@@ -193,7 +193,7 @@ object frmpesqCFOP: TfrmpesqCFOP
       Left = 1
       Top = 49
       Width = 684
-      Height = 473
+      Height = 428
       ActivePage = tbsficha
       Align = alClient
       Images = imgprincipal
@@ -259,7 +259,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           Caption = 'DESCRI'#199#195'O'
         end
         object lblcodigo: TLabel
-          Left = 123
+          Left = 144
           Top = 28
           Width = 42
           Height = 13
@@ -273,7 +273,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           Caption = 'SIGLA'
         end
         object Label3: TLabel
-          Left = 362
+          Left = 380
           Top = 91
           Width = 25
           Height = 13
@@ -287,7 +287,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           Caption = 'CUPOM'
         end
         object Label6: TLabel
-          Left = 362
+          Left = 380
           Top = 122
           Width = 44
           Height = 13
@@ -302,7 +302,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           FocusControl = cbxdescsitb_cod5
         end
         object Label7: TLabel
-          Left = 362
+          Left = 380
           Top = 153
           Width = 26
           Height = 13
@@ -311,7 +311,7 @@ object frmpesqCFOP: TfrmpesqCFOP
         end
         object Label8: TLabel
           Left = 2
-          Top = 308
+          Top = 297
           Width = 25
           Height = 13
           Caption = 'OBS.'
@@ -324,7 +324,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           Caption = 'PADR'#195'O'
         end
         object Label21: TLabel
-          Left = 362
+          Left = 380
           Top = 183
           Width = 37
           Height = 13
@@ -340,7 +340,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           FocusControl = cbxdescipi_cod2p
         end
         object Label12: TLabel
-          Left = 362
+          Left = 380
           Top = 215
           Width = 17
           Height = 13
@@ -356,19 +356,26 @@ object frmpesqCFOP: TfrmpesqCFOP
           FocusControl = cbxdesccofins_cod10p
         end
         object Label14: TLabel
-          Left = 364
+          Left = 382
           Top = 245
           Width = 56
           Height = 13
           Caption = 'CALC. MVA'
         end
+        object Label15: TLabel
+          Left = 3
+          Top = 274
+          Width = 131
+          Height = 13
+          Caption = 'CALC. SUBST. TRIB. ANT.'
+        end
         object btnsalvar: TBitBtn
           Left = 130
-          Top = 384
+          Top = 362
           Width = 119
           Height = 33
           Caption = 'SALVA&R'
-          TabOrder = 15
+          TabOrder = 16
           OnClick = btnsalvarClick
           Glyph.Data = {
             76010000424D7601000000000000760000002800000020000000100000000100
@@ -387,11 +394,11 @@ object frmpesqCFOP: TfrmpesqCFOP
         end
         object btnnova: TBitBtn
           Left = 258
-          Top = 384
+          Top = 362
           Width = 119
           Height = 33
           Caption = '&NOVA'
-          TabOrder = 16
+          TabOrder = 17
           OnClick = btnnovaClick
           Glyph.Data = {
             76010000424D7601000000000000760000002800000020000000100000000100
@@ -409,9 +416,9 @@ object frmpesqCFOP: TfrmpesqCFOP
           NumGlyphs = 2
         end
         object edidescricao: TEdit
-          Left = 123
+          Left = 141
           Top = 56
-          Width = 513
+          Width = 470
           Height = 21
           CharCase = ecUpperCase
           TabOrder = 0
@@ -419,7 +426,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           OnKeyPress = edidescricaoKeyPress
         end
         object edisigla: TEdit
-          Left = 123
+          Left = 141
           Top = 87
           Width = 105
           Height = 21
@@ -430,11 +437,11 @@ object frmpesqCFOP: TfrmpesqCFOP
         end
         object btnexcluir: TBitBtn
           Left = 386
-          Top = 384
+          Top = 362
           Width = 119
           Height = 33
           Caption = '&EXCLUIR'
-          TabOrder = 17
+          TabOrder = 18
           OnClick = btnexcluirClick
           Glyph.Data = {
             76010000424D7601000000000000760000002800000020000000100000000100
@@ -452,7 +459,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           NumGlyphs = 2
         end
         object cbxtipo: TComboBox
-          Left = 427
+          Left = 445
           Top = 87
           Width = 206
           Height = 21
@@ -464,7 +471,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           OnKeyPress = cbxtipoKeyPress
         end
         object cbxccupom: TComboBox
-          Left = 123
+          Left = 141
           Top = 117
           Width = 233
           Height = 21
@@ -476,7 +483,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           OnKeyPress = cbxtipoKeyPress
         end
         object cbxctipoest: TComboBox
-          Left = 427
+          Left = 445
           Top = 117
           Width = 206
           Height = 21
@@ -488,7 +495,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           OnKeyPress = cbxtipoKeyPress
         end
         object cbxdescsitb_cod5: TDBLookupComboBox
-          Left = 123
+          Left = 141
           Top = 149
           Width = 233
           Height = 21
@@ -502,7 +509,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           OnKeyPress = edidescricaoKeyPress
         end
         object cbxdescicms_cod1: TDBLookupComboBox
-          Left = 427
+          Left = 445
           Top = 149
           Width = 206
           Height = 21
@@ -516,16 +523,16 @@ object frmpesqCFOP: TfrmpesqCFOP
           OnKeyPress = edidescricaoKeyPress
         end
         object MMOOBS: TMemo
-          Left = 123
-          Top = 307
+          Left = 140
+          Top = 296
           Width = 510
           Height = 57
           Lines.Strings = (
             'MMOOBS')
-          TabOrder = 14
+          TabOrder = 15
         end
         object CBXCPADRAO: TComboBox
-          Left = 123
+          Left = 141
           Top = 178
           Width = 233
           Height = 21
@@ -537,7 +544,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           OnKeyPress = cbxtipoKeyPress
         end
         object cbxdesccsosn_cod14p: TDBLookupComboBox
-          Left = 427
+          Left = 445
           Top = 178
           Width = 206
           Height = 21
@@ -551,17 +558,17 @@ object frmpesqCFOP: TfrmpesqCFOP
           OnKeyPress = edidescricaoKeyPress
         end
         object CKBAPLICALIQFAT: TCheckBox
-          Left = 2
-          Top = 281
+          Left = 326
+          Top = 273
           Width = 134
           Height = 17
           Alignment = taLeftJustify
           Caption = 'APROV. CRED. ICMS'
-          TabOrder = 13
+          TabOrder = 14
           OnKeyPress = CKBAPLICALIQFATKeyPress
         end
         object cbxdescipi_cod2p: TDBLookupComboBox
-          Left = 123
+          Left = 141
           Top = 210
           Width = 233
           Height = 21
@@ -575,7 +582,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           OnKeyPress = edidescricaoKeyPress
         end
         object cbxdescpis_cod9p: TDBLookupComboBox
-          Left = 427
+          Left = 445
           Top = 210
           Width = 206
           Height = 21
@@ -589,7 +596,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           OnKeyPress = edidescricaoKeyPress
         end
         object cbxdesccofins_cod10p: TDBLookupComboBox
-          Left = 123
+          Left = 141
           Top = 242
           Width = 233
           Height = 21
@@ -603,7 +610,7 @@ object frmpesqCFOP: TfrmpesqCFOP
           OnKeyPress = edidescricaoKeyPress
         end
         object cbxmva: TComboBox
-          Left = 428
+          Left = 446
           Top = 240
           Width = 109
           Height = 21
@@ -611,6 +618,20 @@ object frmpesqCFOP: TfrmpesqCFOP
           ItemHeight = 13
           TabOrder = 12
           Text = 'CBXMVA'
+          OnKeyPress = cbxmvaKeyPress
+          Items.Strings = (
+            'S'
+            'N')
+        end
+        object CBXCALCSUBST_TRIB_ANT: TComboBox
+          Left = 140
+          Top = 270
+          Width = 109
+          Height = 21
+          CharCase = ecUpperCase
+          ItemHeight = 13
+          TabOrder = 13
+          Text = 'CBXCALCSUBST_TRIB_ANT'
           OnKeyPress = cbxmvaKeyPress
           Items.Strings = (
             'S'

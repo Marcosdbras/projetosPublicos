@@ -62,6 +62,8 @@ type
     cbxdesccofins_cod10p: TDBLookupComboBox;
     Label14: TLabel;
     cbxmva: TComboBox;
+    Label15: TLabel;
+    CBXCALCSUBST_TRIB_ANT: TComboBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Limpar;
     procedure btnnovaClick(Sender: TObject);
@@ -140,6 +142,7 @@ begin
   edisigla.Text := '';
   cbxtipo.ItemIndex := 0;
   cbxmva.ItemIndex := 1;
+  CBXCALCSUBST_TRIB_ANT.ItemIndex := 1;
   cbxccupom.ItemIndex := 0;
   cbxctipoest.ItemIndex := 0;
   cbxcpadrao.ItemIndex := 0;
@@ -165,6 +168,7 @@ edidescricao.Enabled := true;
 edisigla.Enabled := true;
 cbxtipo.Enabled := true;
 cbxmva.Enabled := true;
+CBXCALCSUBST_TRIB_ANT.Enabled := true;
 cbxccupom.Enabled := true;
 cbxctipoest.Enabled := true;
 cbxcpadrao.Enabled := true;
@@ -197,6 +201,7 @@ if frmdados.cds_cfop.RecordCount > 0 then
      edisigla.Enabled := true;
      cbxtipo.Enabled := true;
      cbxmva.Enabled := true;
+     CBXCALCSUBST_TRIB_ANT.Enabled := true;
      cbxccupom.Enabled := true;
      cbxctipoest.Enabled := true;
      cbxcpadrao.Enabled := true;
@@ -225,6 +230,7 @@ else
      edidescricao.Enabled := false;
      cbxtipo.Enabled := false;
      cbxmva.Enabled := false;
+     CBXCALCSUBST_TRIB_ANT.Enabled := false;
      cbxccupom.Enabled := false;
      cbxctipoest.Enabled := false;
      cbxcpadrao.Enabled := false;
@@ -282,6 +288,9 @@ with frmdados do
     cds_cfop.FieldByName('sigla').asString := edisigla.Text;
     cds_cfop.FieldByName('ctipo').asInteger := cbxtipo.ItemIndex;
     cds_cfop.FieldByName('calciva').asString := cbxmva.Text;
+    cds_cfop.FieldByName('CALCSUBST_TRIB_ANT').asString := CBXCALCSUBST_TRIB_ANT.Text;
+
+    
 
     if ckbaplicaliqfat.Checked then
        cds_cfop.FieldByName('aplicaliqfat').asString := 'T'
@@ -328,6 +337,8 @@ with frmdados do
     edisigla.Text := cds_cfop.fieldbyname('sigla').asString;
     cbxtipo.ItemIndex := cds_cfop.FieldByName('ctipo').asInteger;
     cbxmva.Text := cds_cfop.FieldByName('calciva').asstring;
+    CBXCALCSUBST_TRIB_ANT.Text :=  cds_cfop.FieldByName('CALCSUBST_TRIB_ANT').asstring;
+
 
     if cds_cfop.fieldbyname('aplicaliqfat').AsString = 'T' then
        ckbaplicaliqfat.checked := true
