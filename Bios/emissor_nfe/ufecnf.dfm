@@ -1208,4 +1208,10 @@ object frmfecnf: Tfrmfecnf
     Caption = 'SUPRIMIR DADOS ADIC. AUTOMAT.'
     TabOrder = 31
   end
+  object Timer1: TTimer
+    Interval = 500
+    OnTimer = Timer1Timer
+    Left = 392
+    Top = 16
+  end
 end

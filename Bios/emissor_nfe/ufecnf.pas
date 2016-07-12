@@ -145,6 +145,7 @@ type
     edirefnfe: TEdit;
     Bevel2: TBevel;
     ckbdadosadic: TCheckBox;
+    Timer1: TTimer;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btncancelarClick(Sender: TObject);
     procedure limpar;
@@ -207,6 +208,7 @@ type
     procedure cbxdesctiponf_cod1nfKeyPress(Sender: TObject; var Key: Char);
     procedure cbxindfinalKeyPress(Sender: TObject; var Key: Char);
     procedure edirefnfeExit(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
 
   private
     { Private declarations }
@@ -1305,10 +1307,27 @@ with frmdados do
       end;
     //endi
 
-    totalizadup;
 
-    sql_duplicata.Active := true;
-    cds_duplicata.Active := true;
+   try
+      cds_duplicata.Active := false;
+      sql_duplicata.Active := false;
+      sql_duplicata.SQL.Clear;
+      sql_duplicata.SQL.Add('select * from duplicata where cnf = '+ inttostr(cds_nf.fieldbyname('codigo').asInteger));
+      sql_duplicata.Active := true;
+      cds_duplicata.Active := true;
+
+      if cds_duplicata.RecordCount  > 0 then
+        begin
+          rgbformapgto.ItemIndex := 1;
+        end;
+      //end
+   except
+   end;
+
+   totalizadup;
+
+   sql_duplicata.Active := true;
+   cds_duplicata.Active := true;
 
 
   end;
@@ -2187,6 +2206,10 @@ begin
   scnpjcpfemi := tirabarras(scnpjcpfemi);
   scnpjcpfemi := tiratracos(scnpjcpfemi);
 
+  ediproxnota.Text :=  formatfloat('00000',frmdados.cds_indice.fieldbyname('nnf').asInteger);
+
+
+
   with frmdados do
     begin
       cds_nfe.Active := false;
@@ -2238,20 +2261,30 @@ begin
      end;
   //endi
 
- if x > 0  then
-    begin
-      frmmens := tfrmmens.Create(self);
-      for x := 0 to length(smsg)-1 do
-         begin
-           frmmens.Memo1.Lines.Add(smsg[x]);
-         end;
-      //endf
-      frmmens.ShowModal;
-      frmmens.Free;
+  if validacpf( tirapontos(tirabarras(tiratracos(frmpesqnf.lblcnpj.Caption)))  ) then
+     if cbxindfinal.Text = 'NÃO' then
+        begin
+          //38
+          x := x + 1;
+          smsg[x] := '  - PARA EMITIR NOTA FISCAL PARA PESSOA FÍSICA, CONSUMIDOR FINAL DEVE ESTAR NA OPÇÃO SIM';
+        end;
+     //endi
+  //endi
 
-      exit;
-    end;
- //endi
+  if x > 0  then
+     begin
+       frmmens := tfrmmens.Create(self);
+       for x := 0 to length(smsg)-1 do
+          begin
+            frmmens.Memo1.Lines.Add(smsg[x]);
+          end;
+       //endf
+       frmmens.ShowModal;
+       frmmens.Free;
+
+       exit;
+     end;
+  //endi
 
   vardir := extractfilepath(application.ExeName);
 
@@ -2393,6 +2426,7 @@ begin
 
   lblmensagem.Caption := 'Aguarde, montando nota fiscal eletrônica';
   frmfecnf.Update;
+
 
   innf := strtoint( ediproxnota.text );
   icontadornfe := frmdados.cds_indice.fieldbyname('contadornfe').asInteger;
@@ -4488,6 +4522,15 @@ begin
            end;
       end;
    //endi
+end;
+
+procedure Tfrmfecnf.Timer1Timer(Sender: TObject);
+begin
+  if frmdados.cds_indice.FieldByName('contadornfe').asInteger <> strtoint(ediproxnota.Text) then
+     begin
+       //frmdados.cds_indice.FieldByName('contadornfe').asInteger := strtoint(ediproxnota.Text)
+     end;
+  //endi
 end;
 
 end.

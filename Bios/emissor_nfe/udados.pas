@@ -5690,6 +5690,9 @@ begin
      end;
   //endi
 
+  sql_produtos.Active := true;
+  cds_produtos.Active := true;
+
   sql_munic.Active := true;
   cds_munic.Active := true;
 
@@ -6327,16 +6330,20 @@ begin
   sql_unidade.Active := true;
   cds_unidade.Active := True;
 
+  //showmessage(sql_produtos.SQL.Text);
+
 
   if scpro <> '' then
      begin
        if not cds_produtos.Locate('codigo',strtoint(scpro),[])  then
           begin
+
             cds_produtos.Append;
 
           end
        else
           begin
+
             cds_produtos.Edit;
 
           end;
@@ -8661,14 +8668,23 @@ end;
 
 procedure Tfrmdados.dts_produtosDataChange(Sender: TObject; Field: TField);
 begin
-   sql_aliqinter.Active := false;
-   cds_aliqinter.Active := false;
-   sql_aliqinter.SQL.Clear;
-   sql_aliqinter.SQL.Add('select * from aliqinter where codprod = '+  cds_produtos.fieldbyname('codigo').AsString );
-   sql_aliqinter.Active := true;
-   cds_aliqintercodprod.DefaultExpression :=  cds_produtos.fieldbyname('codigo').AsString;
-   cds_aliqinterst.DefaultExpression := 'N';
-   cds_aliqinter.Active := true;
+   try
+
+     if cds_produtos.fieldbyname('codigo').AsInteger > 0 then
+       begin
+         sql_aliqinter.Active := false;
+         cds_aliqinter.Active := false;
+         sql_aliqinter.SQL.Clear;
+         sql_aliqinter.SQL.Add('select * from aliqinter where codprod = '+  inttostr( cds_produtos.fieldbyname('codigo').AsInteger ) );
+         sql_aliqinter.Active := true;
+         cds_aliqintercodprod.DefaultExpression :=  cds_produtos.fieldbyname('codigo').AsString;
+         cds_aliqinterst.DefaultExpression := 'N';
+         cds_aliqinter.Active := true;
+       end;
+     //endi
+
+   except
+   end;
 
 end;
 

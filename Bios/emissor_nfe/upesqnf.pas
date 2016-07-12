@@ -5170,7 +5170,7 @@ with frmdados do
 
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select * from aliqinter where codprod = '+ inttostr( cds_nfp.fieldbyname('cpro').asInteger  )+' and '+ inttostr(icodufdest)  );
+    sql_consulta.SQL.Add('select * from aliqinter where codprod = '+ inttostr( cds_nfp.fieldbyname('cpro').asInteger  )+' and codest='+ inttostr(icodufdest)  );
     sql_consulta.Active := true;
 
     faliqinter := sql_consulta.fieldbyname('aliq').AsFloat / 100;

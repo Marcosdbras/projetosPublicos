@@ -11,6 +11,7 @@ type
     imgSplash: TImage;
     Label1: TLabel;
     Label2: TLabel;
+    Label3: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
   private

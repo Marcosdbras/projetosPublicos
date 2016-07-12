@@ -741,7 +741,7 @@ object frmSplash: TfrmSplash
   end
   object Label1: TLabel
     Left = 40
-    Top = 366
+    Top = 358
     Width = 456
     Height = 29
     Caption = 'Sistema Emissor de Nota Fiscal Eletr'#244'nica'
@@ -754,11 +754,19 @@ object frmSplash: TfrmSplash
     Transparent = True
   end
   object Label2: TLabel
-    Left = 40
+    Left = 43
     Top = 400
     Width = 32
     Height = 13
     Caption = 'Label2'
+    Transparent = True
+  end
+  object Label3: TLabel
+    Left = 42
+    Top = 386
+    Width = 198
+    Height = 13
+    Caption = 'Respons'#225'vel t'#233'cnico: Marcos Daniel Br'#225's'
     Transparent = True
   end
 end
