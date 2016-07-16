@@ -219,6 +219,8 @@ type
     innf, icontadornfe, icodant:integer;
     faliqapicms, faliqapiss:real;
     sAcao, snped:string;
+
+    bmensagempro:boolean;
   public
     { Public declarations }
   end;
@@ -234,6 +236,8 @@ procedure Tfrmfecnf.FormClose(Sender: TObject; var Action: TCloseAction);
 var
   vardir:string;
 begin
+
+ frmdados.zconexao.AutoCommit := true;
 
   vardir := extractfilepath(application.ExeName);
   
@@ -320,6 +324,10 @@ var
   vardir, Linha:string;
   icontador, iPos:integer;
 begin
+
+frmdados.zconexao.AutoCommit := false;
+
+
 vardir := extractfilepath(application.ExeName);
 
 
@@ -607,13 +615,67 @@ end;
 
 procedure Tfrmfecnf.btnemitirClick(Sender: TObject);
 begin
+
+lblmensagem.Caption := '';
+frmfecnf.Update;
+
+with frmdados do
+ begin
+
+   sql_consulta.active := false;
+   sql_consulta.sql.clear;
+   sql_consulta.SQL.Add('select * from indice');
+   sql_consulta.active := true;
+
+ end;
+
+if frmdados.sql_consulta.FieldByName('processandonfe').AsString = 'S' then
+   begin
+
+     //lblmensagem.Caption := 'Aguarde processamento de requisição NFE efetuada de outro equipamento...';
+     lblmensagem.Caption := 'Outro equipamento está emitindo neste momento, tente novamente daqui alguns segundos...';
+     frmfecnf.Update;
+
+     bmensagempro := true;
+
+     with frmdados do
+       begin
+         sql_consulta.active := false;
+         sql_consulta.sql.clear;
+         sql_consulta.SQL.Add('select * from indice');
+         sql_consulta.active := true;
+       end;
+       //sleep(5000);
+       exit;
+
+   end;
+//endw
+
 if application.MessageBox('Deseja realmente emitir esta N.F.','Atenção',mb_yesno) <> 6 then
    exit;
 //endi
 
+with frmdados do
+  begin
+     sql_consulta.Active := false;
+     sql_consulta.SQL.Clear;
+     sql_consulta.SQL.Add('select max(nnf) as nnf from nfe');
+     sql_consulta.Active := true;
+
+     cds_indice.edit;
+     cds_indice.FieldByName('processandonfe').AsString := 'S';
+     cds_indice.post;
+
+
+     zconexao.Commit;
+
+  end;
+//endth
+
 sAcao := 'E';
 monta_nota;
 close;
+
 end;
 
 function Tfrmfecnf.imprimenfe(caminho:string):boolean;
@@ -733,8 +795,15 @@ begin
 
   if bNaut then
     begin
+
+      frmdados.cds_indice.Edit;
+      frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
+      frmdados.cds_indice.Post;
+      frmdados.zconexao.Commit;
+
       result := false;
       exit;
+
     end;
 
 
@@ -806,6 +875,8 @@ frmdados.sql_regtrib.Active := true;
 frmdados.cds_regtrib.Active := true;
 
 frmdados.cds_temp_imp.Active := true;
+
+bmensagempro := false;
 
 end;
 
@@ -1226,6 +1297,7 @@ begin
             if cds_duplicata.State in [dsinsert, dsedit] then
                begin
                  cds_duplicata.Post;
+                 zconexao.Commit;
                end;
             //endi
           end;
@@ -1301,6 +1373,7 @@ with frmdados do
         cds_duplicata.FieldByName('dtv').asString := sdtv;
         cds_duplicata.FieldByName('vdup').asfloat := fvlrparc;
         cds_duplicata.Post;
+        zconexao.Commit;
         i := i + 1;
 
 
@@ -1533,6 +1606,7 @@ with frmdados do
          cds_duplicata.FieldByName('prazo').AsInteger := strtoint(ediprazo.Text);
          cds_duplicata.FieldByName('vdup').AsFloat := strtofloat(tirapontos(edivalorp.Text));
          cds_duplicata.Post;
+         zconexao.Commit;
        end;
     //endi
   end;
@@ -1679,6 +1753,10 @@ var
   totvICMSUFDest,
   
   totvICMSUFRemet:real;
+
+  infennf:integer;
+
+
 
 begin
 
@@ -2206,9 +2284,7 @@ begin
   scnpjcpfemi := tirabarras(scnpjcpfemi);
   scnpjcpfemi := tiratracos(scnpjcpfemi);
 
-  ediproxnota.Text :=  formatfloat('00000',frmdados.cds_indice.fieldbyname('nnf').asInteger);
-
-
+  //ediproxnota.Text :=  formatfloat('00000',frmdados.cds_indice.fieldbyname('nnf').asInteger);
 
   with frmdados do
     begin
@@ -2216,13 +2292,9 @@ begin
       sql_nfe.Active := false;
       sql_nfe.SQL.Clear;
       sql_nfe.SQL.Add('select * from nfe where cnpjcpfeminfe = '+quotedstr(scnpjcpfemi)+' and  nnf = '+ediproxnota.Text);
-
       sql_nfe.Active := true;
       cds_nfe.Active := true;
-
     end;
-
-
 
   if frmdados.cds_nfe.RecordCount > 0 then
      begin
@@ -2303,7 +2375,58 @@ begin
   bSairLoop := false;
   bDesistiu := false;
 
+
   icontador := 0;
+
+
+
+  with frmdados do
+    begin
+       sql_consulta.Active := false;
+       sql_consulta.SQL.Clear;
+       sql_consulta.SQL.Add('select max(nnf) as nnf from nfe');
+       sql_consulta.Active := true;
+
+       infennf := sql_consulta.fieldbyname('nnf').asInteger;
+
+
+
+    end;
+
+   if infennf >= strtoint(ediproxnota.Text) then
+      begin
+
+        ediproxnota.Text := formatfloat('00000',infennf + 1);
+        frmfecnf.Update;
+
+      end
+   else
+      begin
+
+        if  bmensagempro then
+           begin
+
+             with frmdados do
+               begin
+
+                 sql_consulta.Active := false;
+                 sql_consulta.SQL.Clear;
+                 sql_consulta.SQL.Add('select max(proxnota) as nota from indice' );
+                 sql_consulta.Active := true;
+
+                 ediproxnota.Text := formatfloat('00000', sql_consulta.fieldbyname('nota').AsInteger );
+                 frmfecnf.Update;
+
+               end;
+             //endth
+
+           end;
+        //endi
+
+      end;
+   //endi
+
+  //showmessage(  'NFE registrada anteriormente, nº '+formatfloat('00000',infennf)  );
 
   while true do
     begin
@@ -2424,7 +2547,7 @@ begin
   //endi
 
 
-  lblmensagem.Caption := 'Aguarde, montando nota fiscal eletrônica';
+  lblmensagem.Caption := 'Aguarde, montando nota fiscal eletrônica número '+formatfloat('00000',strtoint(ediproxnota.Text));
   frmfecnf.Update;
 
 
@@ -2471,6 +2594,8 @@ begin
            cds_fatura.Post;
            cds_fatura.Active := false;
            sql_fatura.Active := false;
+
+           zconexao.Commit;
 
          end;
       //endif
@@ -3140,6 +3265,8 @@ begin
                           cds_temp_imp.FieldByName('id').AsString := 'CFOP'+cds_cfop.fieldbyname('codigo').AsString;
                           cds_temp_imp.FieldByName('obs').AsString := cds_cfop.fieldbyname('obs').AsString;
                           cds_temp_imp.Post;
+
+                          zconexao.Commit;
                         end;
                     //endi
 
@@ -3253,6 +3380,8 @@ begin
                                 cds_temp_imp.FieldByName('id').AsString := 'ICMS'+cds_icms.fieldbyname('codigo').AsString;
                                 cds_temp_imp.FieldByName('obs').AsString := cds_icms.fieldbyname('obs').AsString;
                                 cds_temp_imp.Post;
+
+                                zconexao.Commit;
                               end;
                            //endi
 
@@ -3322,7 +3451,7 @@ begin
           ftotoutrasdesp_unit := ftotoutrasdesp_unit + foutrasdesp_unit;
           ftotvalorseg_unit := ftotvalorseg_unit + fvalorseg_unit;
           ftotvalordesc_unit := ftotvalordesc_unit + fvalordesc_unit;
-          
+
 
           Writeln(f,'vFrete='+formatfloat('0.00',ffrete_unit ));
 
@@ -3633,14 +3762,14 @@ begin
   else
      Writeln(f,'BaseICMSSubstituicao='+formatfloat('0.00',  ftotalbasecalcicmsst  ));
 
-                    
+
 
 
   if strtofloat( tirapontos(edivlricmssubtrib.text)) > 0 then
      Writeln(f,'ValorICMSSubstituicao='+formatfloat('0.00',strtofloat( tirapontos(edivlricmssubtrib.text)) ))
   else
      Writeln(f,'ValorICMSSubstituicao='+formatfloat('0.00', ftotalvlricmsst  ));
-                    
+
 
 
 
@@ -4159,7 +4288,7 @@ begin
                     else
                        begin
                          bNaut := true;
-                         lblmensagem.Caption := 'Não Autorizado pela Sefaz...';
+                         lblmensagem.Caption := 'Erro no arquivo ou não autorizado pela Sefaz...';
                          frmfecnf.Update;
                          sleep(5000);
                          break;
@@ -4169,7 +4298,9 @@ begin
                //endi
                Application.ProcessMessages; {ESC key stops the loop}
                if GetKeyState(VK_Escape) AND 128 = 128 then
-                  break ;
+                  begin
+                    break ;
+                  end;
                //endi
                if (bAut) then
                   begin
@@ -4191,7 +4322,16 @@ begin
 
       Application.ProcessMessages; {ESC key stops the loop}
       if GetKeyState(VK_Escape) AND 128 = 128 then
+         begin
+
+        frmdados.cds_indice.Edit;
+        frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
+        frmdados.cds_indice.Post;
+        frmdados.zconexao.Commit;
+
+
          break ;
+         end;
       //endi
       if (bAut) then
           begin
@@ -4200,6 +4340,13 @@ begin
       //end
       if (bNaut) then
          begin
+
+          frmdados.cds_indice.Edit;
+          frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
+          frmdados.cds_indice.Post;
+          frmdados.zconexao.Commit;
+
+
            break;
          end;
       //end
@@ -4366,6 +4513,7 @@ begin
        frmdados.cds_nfe.Active := false;
        frmdados.sql_nfe.Active := false;
 
+       frmdados.zconexao.Commit;
 
        if (bAut) then
           begin
@@ -4375,6 +4523,8 @@ begin
             frmdados.cds_indice.FieldByName('nnf').asInteger := innf;
             frmdados.cds_indice.Post;
 
+            frmdados.zconexao.Commit;
+
 
           end;
        //endi
@@ -4383,20 +4533,13 @@ begin
        icontadornfe := icontadornfe + 1;
        frmdados.cds_indice.Edit;
        frmdados.cds_indice.FieldByName('contadornfe').asInteger := icontadornfe;
+       frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
        frmdados.cds_indice.Post;
+
+       frmdados.zconexao.Commit;
 
      end;
   //endif
-
-
-  //AssignFile(f,vardir+'c4.bat');
-  //Rewrite(f); //abre o arquivo para escrita
-  //Writeln(f,'cd '+frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString);
-  //Writeln(f,'copy '+'SAINFE.TXT'+' '+frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT');
-  //Writeln(f,'del '+vardir+'copiar.bat');
-  //Writeln(f,'del SAINFE.TXT');
-  //Closefile(f); //fecha o handle de arquivo
-  //WinExec(pchar(vardir+'c3.bat'), SW_HIDE);
 
 
   //limpararqdup;
@@ -4420,7 +4563,7 @@ begin
   //frmpesqnf.pctdados.ActivePageIndex := 0;
   //frmdados.cds_nf.Last;
 
-  
+
 
   frmdados.sql_nf.Active := true;
   frmdados.cds_nf.Active := true;

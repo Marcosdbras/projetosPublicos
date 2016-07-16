@@ -4232,6 +4232,15 @@ object frmdados: Tfrmdados
       item
         Name = 'ufpadrao'
         DataType = ftSmallint
+      end
+      item
+        Name = 'pICMSInterPart'
+        DataType = ftFloat
+      end
+      item
+        Name = 'processandonfe'
+        DataType = ftString
+        Size = 1
       end>
     IndexDefs = <
       item
@@ -4292,6 +4301,10 @@ object frmdados: Tfrmdados
     end
     object cds_indicepICMSInterPart: TFloatField
       FieldName = 'pICMSInterPart'
+    end
+    object cds_indiceprocessandonfe: TStringField
+      FieldName = 'processandonfe'
+      Size = 1
     end
   end
   object dts_indice: TDataSource
@@ -6602,6 +6615,10 @@ object frmdados: Tfrmdados
     end
     object sql_indicepICMSInterPart: TFloatField
       FieldName = 'pICMSInterPart'
+    end
+    object sql_indiceprocessandonfe: TStringField
+      FieldName = 'processandonfe'
+      Size = 1
     end
   end
   object sql_fatura: TZQuery
