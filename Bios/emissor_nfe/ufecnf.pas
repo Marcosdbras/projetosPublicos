@@ -331,7 +331,21 @@ frmdados.zconexao.AutoCommit := false;
 vardir := extractfilepath(application.ExeName);
 
 
-ediproxnota.Text :=  formatfloat('00000',frmdados.cds_indice.fieldbyname('nnf').asInteger);
+with frmdados do
+  begin
+
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(nnf) as numnota from indice');
+    sql_consulta.Active := true;
+
+    ediproxnota.Text :=  formatfloat('00000',sql_consulta.fieldbyname('numnota').asInteger);
+
+  end;
+
+
+
+
  Edit1.Text := '';
 
 edialiqapicms.Text := '0,00';
@@ -659,7 +673,7 @@ with frmdados do
   begin
      sql_consulta.Active := false;
      sql_consulta.SQL.Clear;
-     sql_consulta.SQL.Add('select max(nnf) as nnf from nfe');
+     sql_consulta.SQL.Add('select max(nnf) as numnota from nfe');
      sql_consulta.Active := true;
 
      cds_indice.edit;
@@ -2276,15 +2290,11 @@ begin
      end;
   //endi
 
-  //frmdados.sql_nfe.Active := true;
-  //frmdados.cds_nfe.Active := true;
-
 
   scnpjcpfemi := tirapontos(frmpesqnf.lblcnpjemi.Caption);
   scnpjcpfemi := tirabarras(scnpjcpfemi);
   scnpjcpfemi := tiratracos(scnpjcpfemi);
 
-  //ediproxnota.Text :=  formatfloat('00000',frmdados.cds_indice.fieldbyname('nnf').asInteger);
 
   with frmdados do
     begin
@@ -2384,10 +2394,10 @@ begin
     begin
        sql_consulta.Active := false;
        sql_consulta.SQL.Clear;
-       sql_consulta.SQL.Add('select max(nnf) as nnf from nfe');
+       sql_consulta.SQL.Add('select max(nnf) as numnota from nfe');
        sql_consulta.Active := true;
 
-       infennf := sql_consulta.fieldbyname('nnf').asInteger;
+       infennf := sql_consulta.fieldbyname('numnota').asInteger;
 
 
 
@@ -2411,10 +2421,10 @@ begin
 
                  sql_consulta.Active := false;
                  sql_consulta.SQL.Clear;
-                 sql_consulta.SQL.Add('select max(proxnota) as nota from indice' );
+                 sql_consulta.SQL.Add('select max(nnf) as numnota from indice' );
                  sql_consulta.Active := true;
 
-                 ediproxnota.Text := formatfloat('00000', sql_consulta.fieldbyname('nota').AsInteger );
+                 ediproxnota.Text := formatfloat('00000', sql_consulta.fieldbyname('numnota').AsInteger );
                  frmfecnf.Update;
 
                end;
@@ -2552,23 +2562,21 @@ begin
 
 
   innf := strtoint( ediproxnota.text );
-  icontadornfe := frmdados.cds_indice.fieldbyname('contadornfe').asInteger;
-
-  {
 
   with frmdados do
     begin
-      cds_cfop.Filtered := false;
-      cds_cfop.Filter := 'aplicaliqfat = '+quotedstr('T');
-      cds_cfop.Filtered := true;
 
-      cds_cfop.Filtered := false;
+      sql_consulta.Active := false;
+      sql_consulta.SQL.Clear;
+      sql_consulta.SQL.Add('select max(contadornfe) as cnfe from indice');
+      sql_consulta.Active := true;
+
+      icontadornfe := sql_consulta.fieldbyname('cnfe').asInteger;
 
 
     end;
-  //endth
 
-  }
+
 
   iureg := 0;
 
@@ -4513,7 +4521,7 @@ begin
        frmdados.cds_nfe.Active := false;
        frmdados.sql_nfe.Active := false;
 
-       frmdados.zconexao.Commit;
+
 
        if (bAut) then
           begin
@@ -4523,7 +4531,7 @@ begin
             frmdados.cds_indice.FieldByName('nnf').asInteger := innf;
             frmdados.cds_indice.Post;
 
-            frmdados.zconexao.Commit;
+
 
 
           end;
@@ -4536,7 +4544,7 @@ begin
        frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
        frmdados.cds_indice.Post;
 
-       frmdados.zconexao.Commit;
+
 
      end;
   //endif
@@ -4567,6 +4575,8 @@ begin
 
   frmdados.sql_nf.Active := true;
   frmdados.cds_nf.Active := true;
+
+  frmdados.zconexao.Commit;
 
 
 end;

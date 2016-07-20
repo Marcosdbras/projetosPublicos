@@ -128,6 +128,7 @@ var texto, saida:textfile;
     linha, sid:string;
     iposicaoi, iposicaof:integer;
     baut, bachou:boolean;
+    x:integer;
 begin
 
 lblmensagem.Caption := '';
@@ -278,7 +279,9 @@ lblaliquota_outras.left    := lblaliqicms.left;
                    end;
                 //endi
 
-                if pos('Id=',linha) > 0 then
+                x:= pos('Id=',linha);
+
+                if x > 0 then
                    begin
                      bachou := true;
                      if baut then
@@ -293,7 +296,7 @@ lblaliquota_outras.left    := lblaliqicms.left;
                 if baut and bachou then
                    begin
 
-                     lblchave.caption := copy(sid,78,44);
+                     lblchave.caption := copy(sid,x+7,44);
                      break;
                    end;
                 //endi
