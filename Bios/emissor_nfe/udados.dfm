@@ -8414,7 +8414,7 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from tiponf')
     Params = <>
-    Left = 440
+    Left = 434
     Top = 489
     object sql_tiponfcodigo: TIntegerField
       FieldName = 'codigo'
@@ -9434,5 +9434,13 @@ object frmdados: Tfrmdados
     Left = 752
     Top = 440
     DOMVendorDesc = 'MSXML'
+  end
+  object sql_conversaosatcfinal: TZQuery
+    Connection = zconexao
+    SQL.Strings = (
+      'select * from conversaosatcfinal')
+    Params = <>
+    Left = 528
+    Top = 624
   end
 end

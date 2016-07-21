@@ -1465,6 +1465,7 @@ type
     cds_cfopcalcsubst_trib_ant: TStringField;
     sql_indiceprocessandonfe: TStringField;
     cds_indiceprocessandonfe: TStringField;
+    sql_conversaosatcfinal: TZQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);

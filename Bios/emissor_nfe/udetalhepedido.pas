@@ -298,6 +298,7 @@ lblaliquota_outras.left    := lblaliqicms.left;
 
                      lblchave.caption := copy(sid,x+7,44);
                      break;
+                     
                    end;
                 //endi
 

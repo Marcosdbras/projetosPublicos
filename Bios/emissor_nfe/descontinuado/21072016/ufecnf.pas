@@ -216,7 +216,7 @@ type
     sb_valorliquidoitem,sb_valorliquidocupom:string;
 
 
-    innf, icontadornfe, icodant:integer;
+    innf, icontadornfe, icodant, innfimp:integer;
     faliqapicms, faliqapiss:real;
     sAcao, snped:string;
 
@@ -660,7 +660,7 @@ if frmdados.sql_consulta.FieldByName('processandonfe').AsString = 'S' then
          sql_consulta.active := true;
        end;
        //sleep(5000);
-       //exit;
+       exit;
 
    end;
 //endw
@@ -1755,8 +1755,7 @@ var
 
   sitens,
   scnpjcpfemi,
-  scalcsubst_trib_ant,
-  schavenfe:string;
+  scalcsubst_trib_ant:string;
 
   pICMSInterPart,
   vICMSUFRemet,
@@ -4281,17 +4280,11 @@ begin
                              bAut := true;
                              lblmensagem.Caption := 'Nota fiscal eletrônica validada com sucesso, aguardando resposta definitiva da SEFAZ...';
                              frmfecnf.Update;
-                             //sleep(5000);
+                             sleep(5000);
                              scaminho := copy(Linha,iPos+4,length(Linha));
-
-                             schavenfe := copy(Linha,iPos+28,44);
-
-
                              break;
                            end;
                         //endi
-
-
                       end;
                     //endw
                     CloseFile(f);
@@ -4354,9 +4347,14 @@ begin
       if (bAut) then
           begin
 
+            innfimp := innf;
+
+            innf := innf + 1;
+
             frmdados.cds_indice.Edit;
             frmdados.cds_indice.FieldByName('contadornfe').asInteger := icontadornfe;
             frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
+            frmdados.cds_indice.FieldByName('nnf').asInteger := innf;
             frmdados.cds_indice.Post;
             frmdados.zconexao.Commit;
             break;
@@ -4385,7 +4383,7 @@ begin
     begin
       if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT') then
          begin
-           CopyFile(PChar( frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT' ),PChar(frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT'),False);
+           CopyFile(PChar( frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT' ),PChar(frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innfimp)+'.TXT'),False);
            deletefile(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT');
            break;
          end;
@@ -4486,7 +4484,7 @@ begin
              frmdados.cds_nfe.FieldByName('cfreteporconta').asInteger := frmdados.cds_onusdofrete.fieldbyname('codigo').asInteger;
            end;
        //endi
-       frmdados.cds_nfe.FieldByName('nnf').asInteger :=  innf;
+       frmdados.cds_nfe.FieldByName('nnf').asInteger :=  innfimp;
        frmdados.cds_nfe.FieldByName('tvlrfrete').asfloat :=  strtofloat(tirapontos(edivlrfrete.text));
        frmdados.cds_nfe.FieldByName('dataemi').asString :=   datetostr(date);
        frmdados.cds_nfe.FieldByName('tvlrseg').asfloat :=    strtofloat(tirapontos(edivlrseg.text));
@@ -4526,29 +4524,21 @@ begin
        frmdados.cds_nfe.FieldByName('cidadecodtrans').asInteger :=  0;
        frmdados.cds_nfe.FieldByName('ufplacavei').asString :=  '';
        frmdados.cds_nfe.FieldByName('rntc').asString :=  '';
-       frmdados.cds_nfe.FieldByName('arquivonfe').asString := 'SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT' ;
+       frmdados.cds_nfe.FieldByName('arquivonfe').asString := 'SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innfimp)+'.TXT' ;
        frmdados.cds_nfe.FieldByName('cnf').asInteger :=  frmdados.cds_nf.fieldbyname('codigo').asInteger;
        frmdados.cds_nfe.FieldByName('contador').asInteger :=  icontadornfe;
-       frmdados.cds_nfe.FieldByName('chave').asString :=  schavenfe;
 
        frmdados.cds_nfe.Post;
        frmdados.cds_nfe.Active := false;
        frmdados.sql_nfe.Active := false;
-
-       innf := innf + 1;
-
-       frmdados.cds_indice.Edit;
-       frmdados.cds_indice.FieldByName('contadornfe').asInteger := icontadornfe;
-       frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
-       frmdados.cds_indice.FieldByName('nnf').asInteger := innf;
-       frmdados.cds_indice.Post;
-       frmdados.zconexao.Commit;
 
        //icontadornfe := icontadornfe + 1;
        //frmdados.cds_indice.Edit;
        //frmdados.cds_indice.FieldByName('contadornfe').asInteger := icontadornfe;
        //frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
        //frmdados.cds_indice.Post;
+
+
 
      end;
   //endif
