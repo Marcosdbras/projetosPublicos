@@ -1,8 +1,8 @@
 object frmprincipal: Tfrmprincipal
-  Left = 1
-  Top = 1
-  Width = 1292
-  Height = 736
+  Left = -4
+  Top = -4
+  Width = 1374
+  Height = 746
   Caption = 'Emissor NFE vers'#227'o 1.11'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -23,8 +23,8 @@ object frmprincipal: Tfrmprincipal
   object Image1: TImage
     Left = 0
     Top = 42
-    Width = 1337
-    Height = 591
+    Width = 1366
+    Height = 615
     Align = alClient
   end
   object Label1: TLabel
@@ -224,7 +224,7 @@ object frmprincipal: Tfrmprincipal
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1337
+    Width = 1366
     Height = 42
     Align = alTop
     BevelOuter = bvNone
@@ -304,8 +304,8 @@ object frmprincipal: Tfrmprincipal
   end
   object Panel2: TPanel
     Left = 0
-    Top = 633
-    Width = 1337
+    Top = 657
+    Width = 1366
     Height = 24
     Align = alBottom
     BevelOuter = bvNone
@@ -326,8 +326,8 @@ object frmprincipal: Tfrmprincipal
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 657
-    Width = 1337
+    Top = 681
+    Width = 1366
     Height = 19
     Panels = <>
   end
@@ -537,6 +537,10 @@ object frmprincipal: Tfrmprincipal
       object Reparar1: TMenuItem
         Caption = 'Corrigir Dados'
         OnClick = Reparar1Click
+      end
+      object Desbloqueiodeenvio1: TMenuItem
+        Caption = 'Desbloqueio de envio'
+        OnClick = Desbloqueiodeenvio1Click
       end
     end
     object Configurao1: TMenuItem

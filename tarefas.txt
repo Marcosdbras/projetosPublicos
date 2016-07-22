@@ -1,0 +1,6 @@
+cadastro natureza da operação
+
+colocar csosn padrao
+
+manter informaçao da nota quando ocorrer rejeição
+

@@ -647,7 +647,7 @@ if frmdados.sql_consulta.FieldByName('processandonfe').AsString = 'S' then
    begin
 
      //lblmensagem.Caption := 'Aguarde processamento de requisição NFE efetuada de outro equipamento...';
-     lblmensagem.Caption := 'Outro equipamento está emitindo neste momento, tente novamente daqui alguns segundos...';
+     application.MessageBox(pchar('Outro equipamento está emitindo neste momento, clique em ok e tente novamente daqui alguns segundos...'+chr(13)+'Se esta mensagem continuar a persistir clique em utilitários e desbloqueio de envio'),pchar('Atenção'),mb_ok);
      frmfecnf.Update;
 
      bmensagempro := true;
@@ -659,8 +659,7 @@ if frmdados.sql_consulta.FieldByName('processandonfe').AsString = 'S' then
          sql_consulta.SQL.Add('select * from indice');
          sql_consulta.active := true;
        end;
-       //sleep(5000);
-       //exit;
+       exit;
 
    end;
 //endw
@@ -4343,8 +4342,8 @@ begin
          begin
 
            frmdados.cds_indice.Edit;
-           frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
            frmdados.cds_indice.FieldByName('contadornfe').asInteger := icontadornfe;
+           frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
            frmdados.cds_indice.Post;
            frmdados.zconexao.Commit;
            break ;

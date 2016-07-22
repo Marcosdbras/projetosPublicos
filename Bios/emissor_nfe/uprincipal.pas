@@ -102,6 +102,7 @@ type
     XMLDocument1: TXMLDocument;
     N10: TMenuItem;
     BaixarNCM1: TMenuItem;
+    Desbloqueiodeenvio1: TMenuItem;
 
     //Response: TStringStream;
     //Arquivo: TIdMultipartFormDataStream;
@@ -159,6 +160,7 @@ type
     procedure atualizacaoBaseRemota;
     procedure atualizaEmitente;
     procedure BaixarNCM1Click(Sender: TObject);
+    procedure Desbloqueiodeenvio1Click(Sender: TObject);
     
 
   private
@@ -258,33 +260,6 @@ else
 //tenviaxml.Resume;
 
 
-with frmdados do
- begin
-
-
-   sql_consulta.active := false;
-   sql_consulta.sql.clear;
-   sql_consulta.SQL.Add('select * from indice');
-   sql_consulta.active := true;
-
-   if frmdados.sql_consulta.FieldByName('processandonfe').AsString = 'S' then
-      begin
-
-        if application.MessageBox(pchar('Houve um erro inesperado ao emitir nota, deseja corrigir?'),pchar('Atenção'),mb_yesno) = 6 then
-           begin
-             sql_exec.Active := false;
-             sql_exec.SQL.Clear;
-             sql_exec.SQL.Add('update indice set processandonfe = '+quotedstr('N'));
-             sql_exec.ExecSQL;
-
-           end;
-
-
-      end;
-
-
-
- end;
 
 
 
@@ -1603,6 +1578,38 @@ begin
 
 
 
+
+end;
+
+procedure Tfrmprincipal.Desbloqueiodeenvio1Click(Sender: TObject);
+begin
+ with frmdados do
+ begin
+
+
+   sql_consulta.active := false;
+   sql_consulta.sql.clear;
+   sql_consulta.SQL.Add('select * from indice');
+   sql_consulta.active := true;
+
+   //if frmdados.sql_consulta.FieldByName('processandonfe').AsString = 'S' then
+   //   begin
+
+  if application.MessageBox(pchar('Houve um erro inesperado ao emitir nota, deseja corrigir?'),pchar('Atenção'),mb_yesno) = 6 then
+     begin
+       sql_exec.Active := false;
+       sql_exec.SQL.Clear;
+       sql_exec.SQL.Add('update indice set processandonfe = '+quotedstr('N'));
+       sql_exec.ExecSQL;
+
+     end;
+
+
+   //   end;
+
+
+
+ end;
 
 end;
 
