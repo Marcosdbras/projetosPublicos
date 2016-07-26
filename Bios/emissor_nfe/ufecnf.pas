@@ -2894,9 +2894,21 @@ begin
             else
                 begin
 
+                  if sufemi <> sufdest then
+                     begin
 
-                  Writeln(f,'IE='+sied);
-                  Writeln(f,'indIEDest=1');
+                       Writeln(f,'IE='+sied);
+                       Writeln(f,'indIEDest=9');
+
+                     end
+                  else
+                     begin
+
+                       Writeln(f,'IE='+sied);
+                       Writeln(f,'indIEDest=1');
+
+                     end;
+                  //endi
 
 
                 end;
