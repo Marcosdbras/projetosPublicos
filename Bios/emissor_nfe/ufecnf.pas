@@ -6,6 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, Mask, DBCtrls, ComCtrls, ExtCtrls, Grids,
   DBGrids, DB;
+  //--------------------------
 
 type
   Tfrmfecnf = class(TForm)
@@ -646,8 +647,8 @@ with frmdados do
 if frmdados.sql_consulta.FieldByName('processandonfe').AsString = 'S' then
    begin
 
-     //lblmensagem.Caption := 'Aguarde processamento de requisiÁ„o NFE efetuada de outro equipamento...';
-     application.MessageBox(pchar('Outro equipamento est· emitindo neste momento, clique em ok e tente novamente daqui alguns segundos...'+chr(13)+'Se esta mensagem continuar a persistir clique em utilit·rios e desbloqueio de envio'),pchar('AtenÁ„o'),mb_ok);
+     //lblmensagem.Caption := 'Aguarde processamento de requisi√ß√£o NFE efetuada de outro equipamento...';
+     application.MessageBox(pchar('Outro equipamento est√° emitindo neste momento, clique em ok e tente novamente daqui alguns segundos...'+chr(13)+'Se esta mensagem continuar a persistir clique em utilit√°rios e desbloqueio de envio'),pchar('Aten√ß√£o'),mb_ok);
      frmfecnf.Update;
 
      bmensagempro := true;
@@ -664,7 +665,7 @@ if frmdados.sql_consulta.FieldByName('processandonfe').AsString = 'S' then
    end;
 //endw
 
-if application.MessageBox('Deseja realmente emitir esta N.F.','AtenÁ„o',mb_yesno) <> 6 then
+if application.MessageBox('Deseja realmente emitir esta N.F.','Aten√ß√£o',mb_yesno) <> 6 then
    exit;
 //endi
 
@@ -708,7 +709,7 @@ begin
 
   //     deletefile(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT');
 
-       //showmessage('Clique em OK para solicitar impress„o');
+       //showmessage('Clique em OK para solicitar impress√£o');
 
   //   end;
   //endi
@@ -745,7 +746,7 @@ begin
   while true do
         begin
           //aqui
-          lblmensagem.Caption := 'Realize a impress„o assim que possÌvel ...';
+          lblmensagem.Caption := 'Realize a impress√£o assim que poss√≠vel ...';
           frmfecnf.Update;
 
           if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT' ) then
@@ -759,7 +760,7 @@ begin
                    if ( iPos > 0) then
                       begin
                         bAut := true;
-                        lblmensagem.Caption := 'Impress„o realizada com sucesso, aguarde encerramento desta tela...';
+                        lblmensagem.Caption := 'Impress√£o realizada com sucesso, aguarde encerramento desta tela...';
                         frmfecnf.Update;
                         sleep(5000);
                         scaminho := copy(Linha,iPos,length(Linha));
@@ -777,9 +778,9 @@ begin
                   begin
                     bNaut := true;
                     if sAcao = 'V' then
-                       lblmensagem.Caption := 'VisualizaÁ„o concluÌda'
+                       lblmensagem.Caption := 'Visualiza√ß√£o conclu√≠da'
                     else
-                       lblmensagem.Caption := 'RejeiÁ„o do documento pela secretaria da fazenda, verifique os erros';
+                       lblmensagem.Caption := 'Rejei√ß√£o do documento pela secretaria da fazenda, verifique os erros';
                     //endi
                     frmfecnf.Update;
                     sleep(5000);
@@ -1029,9 +1030,9 @@ end;
 
                  Writeln(f,'vICMS='+formatfloat('0.00',fvicms));
 
-                 //tabela de justificaÁ„o da dosoneraÁ„o do ICMS,
+                 //tabela de justifica√ß√£o da dosonera√ß√£o do ICMS,
                  //verificar manual NFE para implementa-la
-                 // quando informaÁ„o do valor ICMS acima for
+                 // quando informa√ß√£o do valor ICMS acima for
                  // inserido esta tabela deve ser especificada
                  //if cds_modbcst.Locate('codigo',cds_nfp.fieldbyname('cod7prodnf').asInteger,[]) then
                  //   begin
@@ -1050,9 +1051,9 @@ end;
 
                  Writeln(f,'vICMS='+formatfloat('0.00',fvicms));
 
-                 //tabela de justificaÁ„o da dosoneraÁ„o do ICMS,
+                 //tabela de justifica√ß√£o da dosonera√ß√£o do ICMS,
                  //verificar manual NFE para implementa-la
-                 // quando informaÁ„o do valor ICMS acima for
+                 // quando informa√ß√£o do valor ICMS acima for
                  // inserido esta tabela deve ser especificada
                  //if cds_modbcst.Locate('codigo',cds_nfp.fieldbyname('cod7prodnf').asInteger,[]) then
                  //   begin
@@ -1071,9 +1072,9 @@ end;
 
                  Writeln(f,'vICMS='+formatfloat('0.00',fvicms));
 
-                 //tabela de justificaÁ„o da dosoneraÁ„o do ICMS,
+                 //tabela de justifica√ß√£o da dosonera√ß√£o do ICMS,
                  //verificar manual NFE para implementa-la
-                 // quando informaÁ„o do valor ICMS acima for
+                 // quando informa√ß√£o do valor ICMS acima for
                  // inserido esta tabela deve ser especificada
                  //if cds_modbcst.Locate('codigo',cds_nfp.fieldbyname('cod7prodnf').asInteger,[]) then
                  //   begin
@@ -1869,7 +1870,7 @@ begin
      begin
 
        x := 0;
-       smsg[x] := '* ERRO: DESTINAT¡RIO, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
+       smsg[x] := '* ERRO: DESTINAT√ÅRIO, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
 
        if frmpesqnf.cbxdescdest_cod4nf.Text = '' then
           begin
@@ -1891,7 +1892,7 @@ begin
           begin
             //3
             x := x + 1;
-            smsg[x] :=  '  - CAMPO: ENDERE«O EM BRANCO'+#13;
+            smsg[x] :=  '  - CAMPO: ENDERE√áO EM BRANCO'+#13;
           end;
        //endi
 
@@ -1971,7 +1972,7 @@ begin
           begin
             //26
             x := x + 1;
-            smsg[x] := '  - CAMPO: NATUREZA DA OPERA«√O EM BRANCO';
+            smsg[x] := '  - CAMPO: NATUREZA DA OPERA√á√ÉO EM BRANCO';
           end;
        //endi
 
@@ -1995,13 +1996,13 @@ begin
                 if x = 0 then
                    begin
 
-                     //smsg[x] :=  '* ERRO: DESTINAT¡RIO, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
+                     //smsg[x] :=  '* ERRO: DESTINAT√ÅRIO, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
                    end;
                 //endi
 
                 //10
                 //x := x + 1;
-                //smsg[x] :=   '  - CAMPO IE DO DESTINAT¡RIOS EM BRANCO';
+                //smsg[x] :=   '  - CAMPO IE DO DESTINAT√ÅRIOS EM BRANCO';
 
               end
            //endi
@@ -2013,13 +2014,13 @@ begin
 
                 if x = 0 then
                   begin
-                     smsg[x] := '* ERRO: DESTINAT¡RIO, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
+                     smsg[x] := '* ERRO: DESTINAT√ÅRIO, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
                    end;
                 //endi
 
                 //11
                 x:= x + 1;
-                smsg[x] :=  '  - CAMPO CNPJ OU CPF INV¡LIDO';
+                smsg[x] :=  '  - CAMPO CNPJ OU CPF INV√ÅLIDO';
 
               end;
            //endi
@@ -2058,13 +2059,13 @@ begin
           begin
             //12
             x := x + 2;
-            smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
           end
        else
           begin
             //12
             x := 0;
-            smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
           end;
        //endi
 
@@ -2088,7 +2089,7 @@ begin
           begin
             //15
             x := x + 1;
-            smsg[x] :=  '  - CAMPO: ENDERE«O EM BRANCO'+#13;
+            smsg[x] :=  '  - CAMPO: ENDERE√áO EM BRANCO'+#13;
           end;
        //endi
 
@@ -2184,7 +2185,7 @@ begin
                 if x = 0 then
                    begin
 
-                     smsg[x] :=  '* ERRO: EMITENTE, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
+                     smsg[x] :=  '* ERRO: EMITENTE, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
                    end;
                 //endi
 
@@ -2203,13 +2204,13 @@ begin
                 if x=0 then
                   begin
 
-                     smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
+                     smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
                    end;
                 //endi
 
                 //23
                 x:= x + 1;
-                smsg[x] :=  '  - CAMPO CNPJ OU CPF INV¡LIDO';
+                smsg[x] :=  '  - CAMPO CNPJ OU CPF INV√ÅLIDO';
 
               end;
            //endi
@@ -2237,13 +2238,13 @@ begin
           begin
             //29
             x := x + 2;
-            smsg[x] := '* ERRO: PRODUTOS, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: PRODUTOS, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
           end
        else
           begin
             //29
             x := 0;
-            smsg[x] := '* ERRO: PRODUTOS, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: PRODUTOS, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
           end;
        //endi
 
@@ -2313,19 +2314,19 @@ begin
           begin
             //35
             x := x + 2;
-            smsg[x] := '* ERRO: NOTA FISCAL, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: NOTA FISCAL, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
           end
        else
           begin
             //35
             x := 0;
-            smsg[x] := '* ERRO: NOTA FISCAL, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: NOTA FISCAL, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
           end;
        //endi
 
        //36
        x := x + 1;
-       smsg[x] := '  - HOUVE UM PROBLEMA: N⁄MERO DA NOTA J¡ EXISTE EM NOTA FISCAL EMITIDA';
+       smsg[x] := '  - HOUVE UM PROBLEMA: N√öMERO DA NOTA J√Å EXISTE EM NOTA FISCAL EMITIDA';
      end;
   //endi
   frmdados.cds_nfe.Active := false;
@@ -2337,18 +2338,18 @@ begin
           begin
             //37
             x := x + 1;
-            smsg[x] := '  - VOC  DEVE INSERIR NFE DE REFER NCIA PARA DEVOLU«√O ';
+            smsg[x] := '  - VOC√ä DEVE INSERIR NFE DE REFER√äNCIA PARA DEVOLU√á√ÉO ';
           end;
        //endi
      end;
   //endi
 
   if validacpf( tirapontos(tirabarras(tiratracos(frmpesqnf.lblcnpj.Caption)))  ) then
-     if cbxindfinal.Text = 'N√O' then
+     if cbxindfinal.Text = 'N√ÉO' then
         begin
           //38
           x := x + 1;
-          smsg[x] := '  - PARA EMITIR NOTA FISCAL PARA PESSOA FÕSICA, CONSUMIDOR FINAL DEVE ESTAR NA OP«√O SIM';
+          smsg[x] := '  - PARA EMITIR NOTA FISCAL PARA PESSOA F√çSICA, CONSUMIDOR FINAL DEVE ESTAR NA OP√á√ÉO SIM';
         end;
      //endi
   //endi
@@ -2434,7 +2435,7 @@ begin
       end;
    //endi
 
-  //showmessage(  'NFE registrada anteriormente, n∫ '+formatfloat('00000',infennf)  );
+  //showmessage(  'NFE registrada anteriormente, n¬∫ '+formatfloat('00000',infennf)  );
 
   while true do
     begin
@@ -2555,7 +2556,7 @@ begin
   //endi
 
 
-  lblmensagem.Caption := 'Aguarde, montando nota fiscal eletrÙnica n˙mero '+formatfloat('00000',strtoint(ediproxnota.Text));
+  lblmensagem.Caption := 'Aguarde, montando nota fiscal eletr√¥nica n√∫mero '+formatfloat('00000',strtoint(ediproxnota.Text));
   frmfecnf.Update;
 
 
@@ -3167,7 +3168,7 @@ begin
 
                if sufemi <> sufdest then
                   begin
-                    // cobranÁa ou crÈdito icms quanto for estado diferente
+                    // cobran√ßa ou cr√©dito icms quanto for estado diferente
                   end;
                //endi
 
@@ -3188,14 +3189,14 @@ begin
                     if sufemi <> sufdest then
                        begin
 
-                         // c·lculo de icms antecipado anteriormente estado diferente
+                         // c√°lculo de icms antecipado anteriormente estado diferente
 
 
                        end
                     else
                        begin
 
-                         // c·lculo de icms antecipado anteriormente mesmo estado 
+                         // c√°lculo de icms antecipado anteriormente mesmo estado 
 
 
                        end;
@@ -4178,13 +4179,13 @@ begin
                begin
                  if sobs = '' then
                     begin
-                      //sobs := 'LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL N∫ '+frmdados.cds_nf.FieldByName('ncupom').asString+' EMITIDO EM '+frmdados.cds_nf.FieldByName('datacupom').asString;
+                      //sobs := 'LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL N¬∫ '+frmdados.cds_nf.FieldByName('ncupom').asString+' EMITIDO EM '+frmdados.cds_nf.FieldByName('datacupom').asString;
                       sobs := 'LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL'+scupom;
 
                     end
                  else
                     begin
-                      //sobs := sobs +' / LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL N∫ '+frmdados.cds_nf.FieldByName('ncupom').asString+' EMITIDO EM '+frmdados.cds_nf.FieldByName('datacupom').asString ;
+                      //sobs := sobs +' / LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL N¬∫ '+frmdados.cds_nf.FieldByName('ncupom').asString+' EMITIDO EM '+frmdados.cds_nf.FieldByName('datacupom').asString ;
                       sobs := sobs +' / LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL'+scupom ;
                     end;
                  //endi
@@ -4214,7 +4215,7 @@ begin
             else
                begin
 
-                 { //mensagem quando n„o gerar credito icms
+                 { //mensagem quando n√£o gerar credito icms
                  if sobs = '' then
                     begin
                       sobs := '';
@@ -4260,7 +4261,7 @@ begin
   while true do
     begin
 
-      lblmensagem.Caption := 'Aguardando retorno processamento NFE - Pressione <<ESC>> para desistir da impress„o';
+      lblmensagem.Caption := 'Aguardando retorno processamento NFE - Pressione <<ESC>> para desistir da impress√£o';
       frmfecnf.Update;
 
       if not fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\ENTNFE.TXT' ) then
@@ -4276,7 +4277,7 @@ begin
 
            while true do
              begin
-               lblmensagem.Caption := 'Analisando retorno NFE - Pressione <<ESC>> para desistir da impress„o';
+               lblmensagem.Caption := 'Analisando retorno NFE - Pressione <<ESC>> para desistir da impress√£o';
                frmfecnf.Update;
 
                if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT' ) then
@@ -4290,7 +4291,7 @@ begin
                         if iPos > 0 then
                            begin
                              bAut := true;
-                             lblmensagem.Caption := 'Nota fiscal eletrÙnica validada com sucesso, aguardando resposta definitiva da SEFAZ...';
+                             lblmensagem.Caption := 'Nota fiscal eletr√¥nica validada com sucesso, aguardando resposta definitiva da SEFAZ...';
                              frmfecnf.Update;
                              //sleep(5000);
                              scaminho := copy(Linha,iPos+4,length(Linha));
@@ -4313,7 +4314,7 @@ begin
                     else
                        begin
                          bNaut := true;
-                         lblmensagem.Caption := 'Erro no arquivo ou n„o autorizado pela Sefaz...';
+                         lblmensagem.Caption := 'Erro no arquivo ou n√£o autorizado pela Sefaz...';
                          frmfecnf.Update;
                          sleep(5000);
                          break;
@@ -4679,14 +4680,14 @@ begin
    if (edirefnfe.Text<>'') and (cbxfinalidade.ItemIndex <>  3) then
       begin
 
-        showmessage('O preenchimento deste campo sÛ ter· efeito se o ***CAMPO FINALIDADE*** for igual a devoluÁ„o/retorno');
+        showmessage('O preenchimento deste campo s√≥ ter√° efeito se o ***CAMPO FINALIDADE*** for igual a devolu√ß√£o/retorno');
 
       end
    else
       begin
         if edirefnfe.Text <> '' then
            begin
-             showmessage('Lembrete: Os cÛdigos CFOPs das mercadorias para esta nota devem estar marcadas como devoluÁ„o ou retorno');
+             showmessage('Lembrete: Os c√≥digos CFOPs das mercadorias para esta nota devem estar marcadas como devolu√ß√£o ou retorno');
            end;
       end;
    //endi
