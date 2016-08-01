@@ -4,7 +4,7 @@ object frmfecnf: Tfrmfecnf
   Width = 1172
   Height = 671
   BorderIcons = []
-  Caption = 'Emiss'#227'o de NFE'
+  Caption = 'Emiss'#227'o de Nota Fiscal Eletronica'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
