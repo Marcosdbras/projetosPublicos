@@ -1589,7 +1589,7 @@ begin
 
    sql_consulta.active := false;
    sql_consulta.sql.clear;
-   sql_consulta.SQL.Add('select * from indice');
+   sql_consulta.SQL.Add('select * from nf');
    sql_consulta.active := true;
 
    //if frmdados.sql_consulta.FieldByName('processandonfe').AsString = 'S' then
@@ -1599,7 +1599,7 @@ begin
      begin
        sql_exec.Active := false;
        sql_exec.SQL.Clear;
-       sql_exec.SQL.Add('update indice set processandonfe = '+quotedstr('N'));
+       sql_exec.SQL.Add('update nf set status = '+quotedstr('I')+' where status = '+quotedstr('V'));
        sql_exec.ExecSQL;
 
      end;

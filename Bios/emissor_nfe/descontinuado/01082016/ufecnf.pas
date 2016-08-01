@@ -1,4 +1,4 @@
-unit ufecnf;     
+unit ufecnf;
 
 interface
 
@@ -6,7 +6,6 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, Mask, DBCtrls, ComCtrls, ExtCtrls, Grids,
   DBGrids, DB;
-  //--------------------------
 
 type
   Tfrmfecnf = class(TForm)
@@ -201,6 +200,9 @@ type
     procedure monta_nota;
 
     function imprimenfe(caminho:string):boolean;
+    function visualizanfe(caminho:string):boolean;
+
+
     procedure edinpedKeyPress(Sender: TObject; var Key: Char);
     procedure edialiqapissKeyPress(Sender: TObject; var Key: Char);
     procedure cbxfinalidadeKeyPress(Sender: TObject; var Key: Char);
@@ -213,15 +215,35 @@ type
 
   private
     { Private declarations }
-    fsb_valorliquidoitem, fsb_valorliquidocupom:Currency;
-    sb_valorliquidoitem,sb_valorliquidocupom:string;
+    fsb_valorliquidoitem,
+    fsb_valorliquidocupom:Currency;
+
+    sb_valorliquidoitem,
+    sb_valorliquidocupom:string;
+
+    innf,
+    icontadornfe,
+    icodant:integer;
+
+    faliqapicms,
+    faliqapiss,
+    ftotipi,
+    ftotbcipi,
+    ftotbcicms,
+    ftoticms,
+    ftotp:real;
+
+    
+    snped,
+    scaminho,
+    scnpjcpfemi,
+    schavenfe:string;
+
+    bmensagempro,
+    bAut,
+    bautImp:boolean;
 
 
-    innf, icontadornfe, icodant:integer;
-    faliqapicms, faliqapiss:real;
-    sAcao, snped:string;
-
-    bmensagempro:boolean;
   public
     { Public declarations }
   end;
@@ -238,7 +260,7 @@ var
   vardir:string;
 begin
 
- frmdados.zconexao.AutoCommit := true;
+ 
 
   vardir := extractfilepath(application.ExeName);
   
@@ -326,7 +348,7 @@ var
   icontador, iPos:integer;
 begin
 
-frmdados.zconexao.AutoCommit := false;
+
 
 
 vardir := extractfilepath(application.ExeName);
@@ -340,10 +362,19 @@ with frmdados do
     sql_consulta.SQL.Add('select max(nnf) as numnota from indice');
     sql_consulta.Active := true;
 
-    ediproxnota.Text :=  formatfloat('00000',sql_consulta.fieldbyname('numnota').asInteger);
+
+    if cds_nf.FieldByName('chave').AsString  = '' then
+       begin
+         ediproxnota.Text :=  formatfloat('00000',sql_consulta.fieldbyname('numnota').asInteger);
+       end
+    else
+       begin
+         ediproxnota.Text :=  formatfloat('00000',cds_nf.fieldbyname('nnf').asInteger);
+         ediproxnota.Enabled := false;
+       end;
+    //endi
 
   end;
-
 
 
 
@@ -631,67 +662,177 @@ end;
 procedure Tfrmfecnf.btnemitirClick(Sender: TObject);
 begin
 
+frmdados.cds_nf.Locate('codigo',icodant,[]);
+
 lblmensagem.Caption := '';
 frmfecnf.Update;
 
+//lblmensagem.Caption := 'Aguarde processamento de requisição NFE efetuada de outro equipamento...';
+//application.MessageBox(pchar('Outro equipamento está emitindo neste momento, clique em ok e tente novamente daqui alguns segundos...'+chr(13)+'Se esta mensagem continuar a persistir clique em utilitários e desbloqueio de envio'),pchar('Atenção'),mb_ok);
 
 if application.MessageBox('Deseja realmente emitir esta N.F.','Atenção',mb_yesno) <> 6 then
    exit;
 //endi
 
-
-
-with frmdados do
- begin
-
-   sql_consulta.active := false;
-   sql_consulta.sql.clear;
-   sql_consulta.SQL.Add('select count(*) as validados from nf where status = '+quotedstr('E'));
-   sql_consulta.active := true;
-
- end;
-
-if frmdados.sql_consulta.FieldByName('validados').AsInteger > 0 then
+if (frmdados.cds_nf.FieldByName('chave').AsString = '') or
+   (frmdados.cds_nf.FieldByName('status').AsString <> 'V')
+then
    begin
-
-     //lblmensagem.Caption := 'Aguarde processamento de requisiÃ§Ã£o NFE efetuada de outro equipamento...';
-     application.MessageBox(pchar('Outro equipamento está emitindo neste momento, clique em ok e tente novamente daqui alguns segundos...'+chr(13)+'Se esta mensagem continuar a persistir clique em utilitário e desbloqueio de envio'),pchar('Atenção'),mb_ok);
-     frmfecnf.Update;
-
-     bmensagempro := true;
-
-     with frmdados do
-       begin
-         sql_consulta.active := false;
-         sql_consulta.sql.clear;
-         sql_consulta.SQL.Add('select * from indice');
-         sql_consulta.active := true;
-       end;
-       exit;
-
+      application.MessageBox(pchar('Esta nota ainda não foi validada, clique no botão'+chr(13)+'correspondente e em seguida realize a emissão'),pchar('Atenção'),mb_ok);
+      exit;
    end;
-//endw
+//endi
 
-
-with frmdados do
+if not fileexists(  frmdados.cds_nf.FieldByName('caminhonfe').AsString ) then
   begin
-     sql_consulta.Active := false;
-     sql_consulta.SQL.Clear;
-     sql_consulta.SQL.Add('select max(nnf) as numnota from nfe');
-     sql_consulta.Active := true;
-
-     cds_indice.edit;
-     cds_indice.FieldByName('processandonfe').AsString := 'S';
-     cds_indice.post;
-
-
-     zconexao.Commit;
-
+    application.MessageBox(pchar('XML não encontrado nesta máquina, por favor clique no botão validar'+chr(13)+'e em seguida realize a emissão'),pchar('Atenção'),mb_ok);
+    exit;
   end;
-//endth
+//endi
 
-sAcao := 'E';
-monta_nota;
+scaminho := frmdados.cds_nf.FieldByName('caminhonfe').AsString;
+
+bautImp := imprimenfe(scaminho);
+
+  if (bautImp) then
+     begin
+
+       frmdados.sql_nfe.Active := true;
+       frmdados.cds_nfe.Active := true;
+
+       frmdados.cds_nfe.Filtered := false;
+       frmdados.cds_nfe.IndexName := 'codigo';
+       frmdados.cds_nfe.Last;
+
+       frmdados.cds_nfe.Append;
+       frmdados.cds_nfe.FieldByName('cemi').asInteger :=  frmdados.Cds_emitente.fieldbyname('codigo').asInteger;
+       frmdados.cds_nfe.FieldByName('tipodest').asString :=  frmdados.cds_nf.FieldByName('tipodest').AsString;
+       frmdados.cds_nfe.FieldByName('cdest').asInteger :=  frmdados.cds_nf.fieldbyname('cdest').asInteger ;
+       frmdados.cds_nfe.FieldByName('cnpjcpfdest').AsString := frmpesqnf.lblcnpj.Caption;
+
+
+       scnpjcpfemi := tirapontos(frmdados.Cds_emitente.fieldbyname('cnpj').asString);
+       scnpjcpfemi := tirabarras(scnpjcpfemi);
+       scnpjcpfemi := tiratracos(scnpjcpfemi);
+
+
+
+       frmdados.cds_nfe.FieldByName('cnpjcpfemi').AsString := scnpjcpfemi;
+
+
+       {
+
+       if frmdados.cds_nf.FieldByName('tipodest').AsString = 'C' then
+          begin
+            frmdados.cds_nfe.FieldByName('cdest').asInteger :=  frmdados.cds_clientes.fieldbyname('codigo').asInteger ;
+          end;
+       //endi
+
+       if frmdados.cds_nf.FieldByName('tipodest').AsString = 'F' then
+          begin
+            frmdados.cds_nfe.FieldByName('cdest').asInteger :=  frmdados.cds_fornecedores.fieldbyname('codigo').asInteger ;
+          end;
+       //endi
+
+       }
+
+
+       if cbxdesctransp_cod5nf.text <> '' then
+          frmdados.cds_nfe.FieldByName('ctransp').asInteger :=  frmdados.cds_transportador.fieldbyname('codigo').asInteger;
+       //endi
+
+       frmdados.cds_nfe.FieldByName('pdesc').asfloat :=  strtofloat(tirapontos(edipdesc.text));
+       frmdados.cds_nfe.FieldByName('vdesc').asfloat :=  strtofloat(tirapontos(edivaldesc.text));
+       frmdados.cds_nfe.FieldByName('total').asfloat :=  strtofloat(tirapontos(lbltotal.caption));
+       frmdados.cds_nfe.FieldByName('liquido').asfloat :=  strtofloat(tirapontos(ediliquido.text));
+       frmdados.cds_nfe.FieldByName('cnatop').asInteger :=  frmdados.cds_natop.fieldbyname('codigo').asInteger;
+       frmdados.cds_nfe.FieldByName('bscalcsubtrib').asfloat :=  strtofloat(tirapontos(edibscalcsubstrib.text));
+       frmdados.cds_nfe.FieldByName('vlricmssubtrib').asfloat :=  strtofloat(tirapontos(edivlricmssubtrib.text));
+       frmdados.cds_nfe.FieldByName('placavei').asString := ediplacavei.text;
+       frmdados.cds_nfe.FieldByName('ufvei').asString :=  ediufvei.Text;
+       if edihorasai.Text <> '  :  ' then
+          frmdados.cds_nfe.FieldByName('horasai').asString :=  edihorasai.Text;
+       //endi
+       if (edidatasai.Text <> '00/00/0000')  then
+           frmdados.cds_nfe.FieldByName('datasai').asString :=  edidatasai.Text;
+       //endi
+       frmdados.cds_nfe.FieldByName('quantidade').asString :=  ediquantidade.Text;
+       frmdados.cds_nfe.FieldByName('especie').asString :=  ediespecie.Text;
+       frmdados.cds_nfe.FieldByName('marca').asString :=  edimarca.Text;
+       frmdados.cds_nfe.FieldByName('numero').asString :=  edinumero.Text;
+       frmdados.cds_nfe.FieldByName('pesob').asString :=  edipesob.Text;
+       frmdados.cds_nfe.FieldByName('pesol').asString :=  edipesol.Text;
+       frmdados.cds_nfe.FieldByName('adicnf').asString :=  mmoadicnf.Text;
+       frmdados.cds_nfe.FieldByName('adicpostofiscal').asString :=  '';
+       frmdados.cds_nfe.FieldByName('ctiponf').asInteger :=  frmdados.cds_tiponf.fieldbyname('codigo').asInteger;
+       if  (cbxdescfreteporconta_cod2nf.text <> '') then
+           begin
+             frmdados.cds_nfe.FieldByName('cfreteporconta').asInteger := frmdados.cds_onusdofrete.fieldbyname('codigo').asInteger;
+           end;
+       //endi
+       frmdados.cds_nfe.FieldByName('nnf').asInteger :=  innf;
+       frmdados.cds_nfe.FieldByName('tvlrfrete').asfloat :=  strtofloat(tirapontos(edivlrfrete.text));
+       frmdados.cds_nfe.FieldByName('dataemi').asString :=   datetostr(date);
+       frmdados.cds_nfe.FieldByName('tvlrseg').asfloat :=    strtofloat(tirapontos(edivlrseg.text));
+       frmdados.cds_nfe.FieldByName('tvlrvii').asfloat :=  0;
+       frmdados.cds_nfe.FieldByName('tvlripi').asfloat :=  ftotipi;
+       frmdados.cds_nfe.FieldByName('tvlrpis').asfloat :=  0;
+       frmdados.cds_nfe.FieldByName('tvlrcofins').asfloat :=  0;
+       frmdados.cds_nfe.FieldByName('tvlrout').asfloat:= strtofloat( tirapontos(edivlrout.text) );
+       frmdados.cds_nfe.FieldByName('ndest').asString :=  '';
+       frmdados.cds_nfe.FieldByName('iesubstrib').asString :=  ediiesubtrib.Text;
+       frmdados.cds_nfe.FieldByName('modelonf').asString :=  '';
+       frmdados.cds_nfe.FieldByName('serienf').asString :=  '';
+       frmdados.cds_nfe.FieldByName('codigonf').asString :=  '';
+       frmdados.cds_nfe.FieldByName('tiponf').asString :=  '';
+       frmdados.cds_nfe.FieldByName('formapgtonf').asString :=  inttostr(rgbformapgto.ItemIndex);
+       frmdados.cds_nfe.FieldByName('cuftransp').asInteger :=  0;
+       frmdados.cds_nfe.FieldByName('vlrserv').asfloat :=  0;
+       frmdados.cds_nfe.FieldByName('vlrbsserv').asfloat :=  0;
+       frmdados.cds_nfe.FieldByName('aliqserv').asfloat := 0 ;
+       frmdados.cds_nfe.FieldByName('vlriss').asfloat :=  0;
+       frmdados.cds_nfe.FieldByName('bcipi').asfloat :=  ftotbcipi;
+       frmdados.cds_nfe.FieldByName('aliqipi').asfloat := 0 ;
+       frmdados.cds_nfe.FieldByName('ccofins').asInteger :=  0;
+       frmdados.cds_nfe.FieldByName('ncofins').asString :=  '';
+       frmdados.cds_nfe.FieldByName('bscofins').asfloat :=  0;
+       frmdados.cds_nfe.FieldByName('aliqcofins').asfloat :=  0;
+       frmdados.cds_nfe.FieldByName('vcofins').asfloat :=  0;
+       frmdados.cds_nfe.FieldByName('totbcicms').asfloat :=  ftotbcicms;
+       frmdados.cds_nfe.FieldByName('toticms').asfloat :=  ftoticms;
+       frmdados.cds_nfe.FieldByName('totp').asfloat :=  ftotp;
+       frmdados.cds_nfe.FieldByName('vlrdesc').asfloat :=  0;
+       frmdados.cds_nfe.FieldByName('totipi').asfloat :=  ftotipi;
+       frmdados.cds_nfe.FieldByName('vlrpis').asfloat :=  0;
+       frmdados.cds_nfe.FieldByName('vlrcofins').asfloat :=  0;
+       frmdados.cds_nfe.FieldByName('vlrtotal').asfloat :=  ftotp-strtofloat(edivaldesc.text)+ftotipi;
+       frmdados.cds_nfe.FieldByName('ccfoptrans').asInteger :=  0;
+       frmdados.cds_nfe.FieldByName('cidadecodtrans').asInteger :=  0;
+       frmdados.cds_nfe.FieldByName('ufplacavei').asString :=  '';
+       frmdados.cds_nfe.FieldByName('rntc').asString :=  '';
+       frmdados.cds_nfe.FieldByName('arquivonfe').asString := 'SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT' ;
+       frmdados.cds_nfe.FieldByName('cnf').asInteger :=  frmdados.cds_nf.fieldbyname('codigo').asInteger;
+       frmdados.cds_nfe.FieldByName('contador').asInteger :=  icontadornfe;
+       frmdados.cds_nfe.FieldByName('chave').asString :=  schavenfe;
+
+       frmdados.cds_nfe.Post;
+       frmdados.cds_nfe.Active := false;
+       frmdados.sql_nfe.Active := false;
+
+
+     end;
+  //endif
+
+
+
+
+
+
+
+
+
+
+//monta_nota;
 close;
 
 end;
@@ -699,8 +840,8 @@ end;
 function Tfrmfecnf.imprimenfe(caminho:string):boolean;
 var
   f:TextFile;
-  Vardir, Linha, semail_dest, semail_cc, sCaminho:String;
-  bAut, bNaut:boolean;
+  Vardir, Linha, semail_dest, semail_cc:String;
+  bNaut:boolean;
   iPos:integer;
 begin
   bAut := false;
@@ -724,14 +865,17 @@ begin
   AssignFile(f,vardir+'ENTNFE.TXT');
   Rewrite(f); //abre o arquivo para escrita
 
-  if sAcao = 'V' then
-     begin
-       Writeln(f,'NFE.IMPRIMIRDANFE("'+caminho+'")')
-     end
-  else
-     begin
-       Writeln(f,'NFE.EnviarNFe("'+caminho+'",1,1,1)');
-     end;
+  //if sAcao = 'V' then
+  //   begin
+  //     Writeln(f,'NFE.IMPRIMIRDANFE("'+caminho+'")')
+  //   end
+  //else
+  //   begin
+
+  Writeln(f,'NFE.EnviarNFe("'+caminho+'",1,1,1)');
+
+
+  //   end;
   //endi
 
   Closefile(f); //fecha o handle de arquivo
@@ -742,12 +886,10 @@ begin
   Writeln(f,'copy '+'ENTNFE.TXT'+' '+frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString);
   Writeln(f,'del '+vardir+'c2.bat');
   Closefile(f); //fecha o handle de arquivo
-  WinExec(pchar(vardir+'c2.bat'), SW_HIDE);
-
-
-
+  WinExec(pchar(vardir+'c2.bat'), SW_HIDE);  
 
   while true do
+
         begin
           //aqui
           lblmensagem.Caption := 'Realize a impressão assim que possível ...';
@@ -781,10 +923,173 @@ begin
                else
                   begin
                     bNaut := true;
-                    if sAcao = 'V' then
-                       lblmensagem.Caption := 'Visualização concluida'
-                    else
-                       lblmensagem.Caption := 'Rejeição do documento pela secretaria da fazenda, verifique os erros';
+                    //if sAcao = 'V' then
+                    //lblmensagem.Caption := 'Visualização concluída';
+                    //else
+
+                    //lblmensagem.Caption := 'Rejeição do documento pela secretaria da fazenda, verifique os erros';
+
+                    //endi
+                    frmfecnf.Update;
+                    sleep(5000);
+                    break;
+                  end;
+               //endi
+             end;
+          //endi
+          Application.ProcessMessages; {ESC key stops the loop}
+          if GetKeyState(VK_Escape) AND 128 = 128 then
+             break ;
+          //endi
+          if (bAut) then
+             begin
+               break;
+             end;
+          //endi
+          //if (bNaut) then
+          //   begin
+          //     break;
+          //   end;
+          //endi
+          sleep(5000);
+        end;
+  //endw
+
+  if bNaut then
+    begin
+
+      result := false;
+      exit;
+
+    end;
+
+
+
+
+
+//-------------
+
+ sleep(5000);
+
+  //Closefile(f);
+  AssignFile(f,vardir+'ENTNFE.TXT');
+  Rewrite(f); //abre o arquivo para escrita
+
+
+  if frmdados.cds_nf.FieldByName('tipodest').AsString  = 'C' then
+     if frmdados.cds_clientes.Locate('codigo',frmdados.cds_nf.fieldbyname('cdest').asInteger,[]) then
+        semail_dest := frmdados.cds_clientes.fieldbyname('email').AsString;
+     //endif
+  //endif
+
+  if frmdados.cds_nf.FieldByName('tipodest').AsString  = 'F' then
+     if frmdados.cds_fornecedores.Locate('codigo',frmdados.cds_nf.fieldbyname('cdest').asInteger,[]) then
+       semail_dest := frmdados.cds_fornecedores.fieldbyname('email').AsString;
+     //endif
+  //endif
+
+  if  ckbenviae.Checked then
+      if semail_dest <> '' then
+         Writeln(f,'NFE.ENVIAREMAIL("'+semail_dest+'","'+caminho+'",1');
+      //endif
+  //endif
+
+  Closefile(f); //fecha o handle de arquivo
+
+  AssignFile(f,vardir+'c7.bat');
+  Rewrite(f); //abre o arquivo para escrita
+  Writeln(f,'cd '+vardir);
+  Writeln(f,'copy '+'ENTNFE.TXT'+' '+frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString);
+  Writeln(f,'del '+vardir+'c7.bat');
+  Closefile(f); //fecha o handle de arquivo
+  WinExec(pchar(vardir+'c7.bat'), SW_HIDE);
+
+
+
+
+
+  result := true;
+end;
+
+
+
+function Tfrmfecnf.visualizanfe(caminho:string):boolean;
+var
+  f:TextFile;
+  Vardir, Linha, semail_dest, semail_cc:String;
+  bNaut:boolean;
+  iPos:integer;
+begin
+  bAut := false;
+  bNaut := false;
+
+  vardir := extractfilepath(application.ExeName);
+
+  AssignFile(f,vardir+'ENTNFE.TXT');
+  Rewrite(f); //abre o arquivo para escrita
+
+  //if sAcao = 'V' then
+  //   begin
+
+  Writeln(f,'NFE.IMPRIMIRDANFE("'+caminho+'")');
+
+  //   end
+  //else
+  //   begin
+  //Writeln(f,'NFE.EnviarNFe("'+caminho+'",1,1,1)');
+  //   end;
+  //endi
+
+  Closefile(f); //fecha o handle de arquivo
+
+  AssignFile(f,vardir+'c2.bat');
+  Rewrite(f); //abre o arquivo para escrita
+  Writeln(f,'cd '+vardir);
+  Writeln(f,'copy '+'ENTNFE.TXT'+' '+frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString);
+  Writeln(f,'del '+vardir+'c2.bat');
+  Closefile(f); //fecha o handle de arquivo
+  WinExec(pchar(vardir+'c2.bat'), SW_HIDE);
+
+  while true do
+        begin
+          //aqui
+          lblmensagem.Caption := 'Aguarde validação desta nota ...';
+          frmfecnf.Update;
+
+          if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT' ) then
+             begin
+               AssignFile(f,  frmdados.Cds_Indice.fieldbyname('caminhoarqnfe').asString+'\SAINFE.TXT');
+               Reset(f);
+               While not Eof(f) do
+                 begin
+                   Readln(f, Linha);
+                   iPos := pos('Autorizado',linha);
+                   if ( iPos > 0) then
+                      begin
+                        bAut := true;
+                        lblmensagem.Caption := 'Impressão realizada com sucesso, aguarde encerramento desta tela...';
+                        frmfecnf.Update;
+                        sleep(5000);
+                        scaminho := copy(Linha,iPos,length(Linha));
+                        break;
+                      end;
+                   //endi
+                 end;
+               //endw
+               CloseFile(f);
+               if (bAut) then
+                  begin
+                    break;
+                  end
+               else
+                  begin
+                    bNaut := true;
+                    //if sAcao = 'V' then
+
+                    lblmensagem.Caption := 'Validação concluída, prossiga com a emissão da nota...';
+
+                    //else
+                    //lblmensagem.Caption := 'Rejeição do documento pela secretaria da fazenda, verifique os erros';
                     //endi
                     frmfecnf.Update;
                     sleep(5000);
@@ -814,34 +1119,18 @@ begin
   if bNaut then
     begin
 
-      frmdados.cds_indice.Edit;
-      frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
-      frmdados.cds_indice.Post;
-
-
-      //retorno do sefaz com erro de validação
-      frmdados.cds_nf.Edit;
-      frmdados.cds_nf.FieldByName('status').AsString := 'I';
-      frmdados.cds_nf.Post;
-
-      frmdados.zconexao.Commit;
-
       result := false;
       exit;
 
     end;
 
 
-    //Autorizado uso e impressão pelo sefaz
-    frmdados.cds_nf.Edit;
-    frmdados.cds_nf.FieldByName('status').AsString := 'A';
-    frmdados.cds_nf.Post;
-    frmdados.zconexao.Commit;
+
 
 
 //-------------
 
-
+ sleep(5000);
 
   //Closefile(f);
   AssignFile(f,vardir+'ENTNFE.TXT');
@@ -862,22 +1151,11 @@ begin
 
   if  ckbenviae.Checked then
       if semail_dest <> '' then
-         begin
-           Writeln(f,'NFE.ENVIAREMAIL("'+semail_dest+'","'+caminho+'",1');
-         end;
+         Writeln(f,'NFE.ENVIAREMAIL("'+semail_dest+'","'+caminho+'",1');
       //endif
   //endif
 
   Closefile(f); //fecha o handle de arquivo
-
-
-  if  ckbenviae.Checked then
-      if semail_dest <> '' then
-         begin
-           sleep(5000);
-         end;
-      //endi
-  //endi
 
   AssignFile(f,vardir+'c7.bat');
   Rewrite(f); //abre o arquivo para escrita
@@ -887,8 +1165,19 @@ begin
   Closefile(f); //fecha o handle de arquivo
   WinExec(pchar(vardir+'c7.bat'), SW_HIDE);
 
+
+
+
+
   result := true;
 end;
+
+
+
+
+
+
+
 
 procedure Tfrmfecnf.FormCreate(Sender: TObject);
 begin
@@ -1052,9 +1341,9 @@ end;
 
                  Writeln(f,'vICMS='+formatfloat('0.00',fvicms));
 
-                 //tabela de justificaÃ§Ã£o da dosoneraÃ§Ã£o do ICMS,
+                 //tabela de justificação da dosoneração do ICMS,
                  //verificar manual NFE para implementa-la
-                 // quando informaÃ§Ã£o do valor ICMS acima for
+                 // quando informação do valor ICMS acima for
                  // inserido esta tabela deve ser especificada
                  //if cds_modbcst.Locate('codigo',cds_nfp.fieldbyname('cod7prodnf').asInteger,[]) then
                  //   begin
@@ -1073,9 +1362,9 @@ end;
 
                  Writeln(f,'vICMS='+formatfloat('0.00',fvicms));
 
-                 //tabela de justificaÃ§Ã£o da dosoneraÃ§Ã£o do ICMS,
+                 //tabela de justificação da dosoneração do ICMS,
                  //verificar manual NFE para implementa-la
-                 // quando informaÃ§Ã£o do valor ICMS acima for
+                 // quando informação do valor ICMS acima for
                  // inserido esta tabela deve ser especificada
                  //if cds_modbcst.Locate('codigo',cds_nfp.fieldbyname('cod7prodnf').asInteger,[]) then
                  //   begin
@@ -1094,9 +1383,9 @@ end;
 
                  Writeln(f,'vICMS='+formatfloat('0.00',fvicms));
 
-                 //tabela de justificaÃ§Ã£o da dosoneraÃ§Ã£o do ICMS,
+                 //tabela de justificação da dosoneração do ICMS,
                  //verificar manual NFE para implementa-la
-                 // quando informaÃ§Ã£o do valor ICMS acima for
+                 // quando informação do valor ICMS acima for
                  // inserido esta tabela deve ser especificada
                  //if cds_modbcst.Locate('codigo',cds_nfp.fieldbyname('cod7prodnf').asInteger,[]) then
                  //   begin
@@ -1333,7 +1622,7 @@ begin
             if cds_duplicata.State in [dsinsert, dsedit] then
                begin
                  cds_duplicata.Post;
-                 zconexao.Commit;
+                 
                end;
             //endi
           end;
@@ -1409,7 +1698,7 @@ with frmdados do
         cds_duplicata.FieldByName('dtv').asString := sdtv;
         cds_duplicata.FieldByName('vdup').asfloat := fvlrparc;
         cds_duplicata.Post;
-        zconexao.Commit;
+        
         i := i + 1;
 
 
@@ -1642,7 +1931,7 @@ with frmdados do
          cds_duplicata.FieldByName('prazo').AsInteger := strtoint(ediprazo.Text);
          cds_duplicata.FieldByName('vdup').AsFloat := strtofloat(tirapontos(edivalorp.Text));
          cds_duplicata.Post;
-         zconexao.Commit;
+         
        end;
     //endi
   end;
@@ -1739,10 +2028,9 @@ end;
 
 procedure Tfrmfecnf.BitBtn1Click(Sender: TObject);
 begin
-sAcao := 'V';
-monta_nota;
-frmdados.cds_nf.Locate('codigo',icodant,[]);
 
+frmdados.cds_nf.Locate('codigo',icodant,[]);
+monta_nota;
 
 
 end;
@@ -1758,13 +2046,13 @@ var
   iItem, iI, iPos, icontador, icodigo, icontdup, iureg:integer;
 
   ffrete_unit, foutrasdesp_unit, fvalorseg_unit, fvalordesc_unit, ftotfrete_unit, ftotoutrasdesp_unit, ftotvalorseg_unit,
-  ftotvalordesc_unit, fdiffrete_unit, fdifoutrasdesp_unit, fdifvalorseg_unit, fdifvalordesc_unit,  ftotp, fbcipi, fbcicms,
-  fvipi, fvicms, ftotbcipi, ftotbcicms, ftotipi, ftoticms, faliqicms, faliqipi,freducaobcicms, freducaobcipi, icodcfopt,
+  ftotvalordesc_unit, fdiffrete_unit, fdifoutrasdesp_unit, fdifvalorseg_unit, fdifvalordesc_unit, fbcipi, fbcicms,
+  fvipi, fvicms, faliqicms, faliqipi,freducaobcicms, freducaobcipi, icodcfopt,
   ftotcredicms, fbasecalc, perc:real;
 
-  Linha, scaminho, sobs, scnpj:String;
+  Linha, sobs, scnpj:String;
 
-  bAut, bNaut, bSairLoop, bDesistiu, bautImp:boolean;
+  bNaut, bSairLoop, bDesistiu:boolean;
   saplicaliqfat, smodelocp, sdtecp, scoocp, scaixacp, sseriecp, scupom, smensagem:string;
 
   smsg: array of string;
@@ -1776,9 +2064,7 @@ var
   sufdest:string;
 
   sitens,
-  scnpjcpfemi,
-  scalcsubst_trib_ant,
-  schavenfe:string;
+  scalcsubst_trib_ant:string;
 
   pICMSInterPart,
   vICMSUFRemet,
@@ -1786,9 +2072,9 @@ var
   pICMSOrigPart,
   pdifpicms,
   vicms,
-  
+
   totvICMSUFDest,
-  
+
   totvICMSUFRemet:real;
 
   infennf:integer;
@@ -1796,6 +2082,8 @@ var
 
 
 begin
+
+  schavenfe := '';
 
   fsb_valorliquidocupom := 0;
   fsb_valorliquidoitem := 0;
@@ -1892,7 +2180,7 @@ begin
      begin
 
        x := 0;
-       smsg[x] := '* ERRO: DESTINATÃRIO, VERIFIQUE INCONSISTÃŠNCIA(S) ABAIXO';
+       smsg[x] := '* ERRO: DESTINATÁRIO, VERIFIQUE INCONSISTÊNCIA(S) ABAIXO';
 
        if frmpesqnf.cbxdescdest_cod4nf.Text = '' then
           begin
@@ -1914,7 +2202,7 @@ begin
           begin
             //3
             x := x + 1;
-            smsg[x] :=  '  - CAMPO: ENDEREÃ‡O EM BRANCO'+#13;
+            smsg[x] :=  '  - CAMPO: ENDEREÇO EM BRANCO'+#13;
           end;
        //endi
 
@@ -1994,7 +2282,7 @@ begin
           begin
             //26
             x := x + 1;
-            smsg[x] := '  - CAMPO: NATUREZA DA OPERAÃ‡ÃƒO EM BRANCO';
+            smsg[x] := '  - CAMPO: NATUREZA DA OPERAÇÃO EM BRANCO';
           end;
        //endi
 
@@ -2018,13 +2306,13 @@ begin
                 if x = 0 then
                    begin
 
-                     //smsg[x] :=  '* ERRO: DESTINATÃRIO, VERIFIQUE INCONSISTÃŠNCIA(S) ABAIXO';
+                     //smsg[x] :=  '* ERRO: DESTINATÁRIO, VERIFIQUE INCONSISTÊNCIA(S) ABAIXO';
                    end;
                 //endi
 
                 //10
                 //x := x + 1;
-                //smsg[x] :=   '  - CAMPO IE DO DESTINATÃRIOS EM BRANCO';
+                //smsg[x] :=   '  - CAMPO IE DO DESTINATÁRIOS EM BRANCO';
 
               end
            //endi
@@ -2036,13 +2324,13 @@ begin
 
                 if x = 0 then
                   begin
-                     smsg[x] := '* ERRO: DESTINATÃRIO, VERIFIQUE INCONSISTÃŠNCIA(S) ABAIXO';
+                     smsg[x] := '* ERRO: DESTINATÁRIO, VERIFIQUE INCONSISTÊNCIA(S) ABAIXO';
                    end;
                 //endi
 
                 //11
                 x:= x + 1;
-                smsg[x] :=  '  - CAMPO CNPJ OU CPF INVÃLIDO';
+                smsg[x] :=  '  - CAMPO CNPJ OU CPF INVÁLIDO';
 
               end;
            //endi
@@ -2081,13 +2369,13 @@ begin
           begin
             //12
             x := x + 2;
-            smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSISTÃŠNCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSISTÊNCIA(S) ABAIXO';
           end
        else
           begin
             //12
             x := 0;
-            smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSISTÃŠNCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSISTÊNCIA(S) ABAIXO';
           end;
        //endi
 
@@ -2111,7 +2399,7 @@ begin
           begin
             //15
             x := x + 1;
-            smsg[x] :=  '  - CAMPO: ENDEREÃ‡O EM BRANCO'+#13;
+            smsg[x] :=  '  - CAMPO: ENDEREÇO EM BRANCO'+#13;
           end;
        //endi
 
@@ -2207,7 +2495,7 @@ begin
                 if x = 0 then
                    begin
 
-                     smsg[x] :=  '* ERRO: EMITENTE, VERIFIQUE INCONSISTÃŠNCIA(S) ABAIXO';
+                     smsg[x] :=  '* ERRO: EMITENTE, VERIFIQUE INCONSISTÊNCIA(S) ABAIXO';
                    end;
                 //endi
 
@@ -2226,13 +2514,13 @@ begin
                 if x=0 then
                   begin
 
-                     smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSISTÃŠNCIA(S) ABAIXO';
+                     smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSISTÊNCIA(S) ABAIXO';
                    end;
                 //endi
 
                 //23
                 x:= x + 1;
-                smsg[x] :=  '  - CAMPO CNPJ OU CPF INVÃLIDO';
+                smsg[x] :=  '  - CAMPO CNPJ OU CPF INVÁLIDO';
 
               end;
            //endi
@@ -2260,13 +2548,13 @@ begin
           begin
             //29
             x := x + 2;
-            smsg[x] := '* ERRO: PRODUTOS, VERIFIQUE INCONSISTÃŠNCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: PRODUTOS, VERIFIQUE INCONSISTÊNCIA(S) ABAIXO';
           end
        else
           begin
             //29
             x := 0;
-            smsg[x] := '* ERRO: PRODUTOS, VERIFIQUE INCONSISTÃŠNCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: PRODUTOS, VERIFIQUE INCONSISTÊNCIA(S) ABAIXO';
           end;
        //endi
 
@@ -2336,19 +2624,19 @@ begin
           begin
             //35
             x := x + 2;
-            smsg[x] := '* ERRO: NOTA FISCAL, VERIFIQUE INCONSISTÃŠNCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: NOTA FISCAL, VERIFIQUE INCONSISTÊNCIA(S) ABAIXO';
           end
        else
           begin
             //35
             x := 0;
-            smsg[x] := '* ERRO: NOTA FISCAL, VERIFIQUE INCONSISTÃŠNCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: NOTA FISCAL, VERIFIQUE INCONSISTÊNCIA(S) ABAIXO';
           end;
        //endi
 
        //36
        x := x + 1;
-       smsg[x] := '  - HOUVE UM PROBLEMA: NÃšMERO DA NOTA JÃ EXISTE EM NOTA FISCAL EMITIDA';
+       smsg[x] := '  - HOUVE UM PROBLEMA: NÚMERO DA NOTA JÁ EXISTE EM NOTA FISCAL EMITIDA';
      end;
   //endi
   frmdados.cds_nfe.Active := false;
@@ -2360,18 +2648,18 @@ begin
           begin
             //37
             x := x + 1;
-            smsg[x] := '  - VOCÃŠ DEVE INSERIR NFE DE REFERÃŠNCIA PARA DEVOLUÃ‡ÃƒO ';
+            smsg[x] := '  - VOCÊ DEVE INSERIR NFE DE REFERÊNCIA PARA DEVOLUÇÃO ';
           end;
        //endi
      end;
   //endi
 
   if validacpf( tirapontos(tirabarras(tiratracos(frmpesqnf.lblcnpj.Caption)))  ) then
-     if cbxindfinal.Text = 'NÃƒO' then
+     if cbxindfinal.Text = 'NÃO' then
         begin
           //38
           x := x + 1;
-          smsg[x] := '  - PARA EMITIR NOTA FISCAL PARA PESSOA FÃSICA, CONSUMIDOR FINAL DEVE ESTAR NA OPÃ‡ÃƒO SIM';
+          smsg[x] := '  - PARA EMITIR NOTA FISCAL PARA PESSOA FÍSICA, CONSUMIDOR FINAL DEVE ESTAR NA OPÇÃO SIM';
         end;
      //endi
   //endi
@@ -2420,22 +2708,15 @@ begin
        sql_consulta.SQL.Add('select max(nnf) as numnota from nfe');
        sql_consulta.Active := true;
 
-       infennf := sql_consulta.fieldbyname('numnota').asInteger; 
+       infennf := sql_consulta.fieldbyname('numnota').asInteger;
 
     end;
 
    if infennf >= strtoint(ediproxnota.Text) then
       begin
 
-        if application.MessageBox(pchar('Deseja atualizar número da próxima nota com informação recente?'+chr(13)+chr(13)+
-                                  'Caso sua resposta seja afirmativa o número que você digitou para próxima nota será desconsiderado'+chr(13)+
-                                  'Motivo: Número da próxima NF é menor que o número das últimas notas fiscais emitidas') ,'Atenção',mb_yesno) = 6 then
-           begin
-             ediproxnota.Text := formatfloat('00000',infennf + 1);
-             frmfecnf.Update;
-           end;
-
-
+        ediproxnota.Text := formatfloat('00000',infennf + 1);
+        frmfecnf.Update;
 
       end
    else
@@ -2452,17 +2733,8 @@ begin
                  sql_consulta.SQL.Add('select max(nnf) as numnota from indice' );
                  sql_consulta.Active := true;
 
-
-                 if application.MessageBox(pchar('Deseja atualizar número da próxima nota com informação recente?'+chr(13)+chr(13)+
-                                           'Caso sua resposta seja afirmativa o número que você digitou para próxima nota'+chr(13)+
-                                           'será desconsiderado'),'Atenção',mb_yesno) = 6 then
-                     begin
-
-                       ediproxnota.Text := formatfloat('00000', sql_consulta.fieldbyname('numnota').AsInteger );
-                       frmfecnf.Update;
-
-                     end;
-
+                 ediproxnota.Text := formatfloat('00000', sql_consulta.fieldbyname('numnota').AsInteger );
+                 frmfecnf.Update;
 
                end;
              //endth
@@ -2473,7 +2745,7 @@ begin
       end;
    //endi
 
-  //showmessage(  'NFE registrada anteriormente, número '+formatfloat('00000',infennf)  );
+  //showmessage(  'NFE registrada anteriormente, nº '+formatfloat('00000',infennf)  );
 
   while true do
     begin
@@ -2594,7 +2866,7 @@ begin
   //endi
 
 
-  lblmensagem.Caption := 'Aguarde, montando nota fiscal eletrÃ´nica nÃºmero '+formatfloat('00000',strtoint(ediproxnota.Text));
+  lblmensagem.Caption := 'Aguarde, montando nota fiscal eletrônica número '+formatfloat('00000',strtoint(ediproxnota.Text));
   frmfecnf.Update;
 
 
@@ -2640,7 +2912,7 @@ begin
            cds_fatura.Active := false;
            sql_fatura.Active := false;
 
-           zconexao.Commit;
+           
 
          end;
       //endif
@@ -3062,7 +3334,6 @@ begin
   ftotbcicms:= 0;
   ftotipi:= 0;
   ftoticms:= 0;
-  //ftotcredicms := 0;
 
   ffrete_unit := 0;
   foutrasdesp_unit := 0;
@@ -3075,32 +3346,11 @@ begin
       cds_nfp.Filter := 'cnf = '+inttostr(cds_nf.fieldbyname('codigo').asInteger);
       cds_nfp.Filtered := true;
 
-      //if cds_nfp.RecordCount > 0 then
-      //   begin
-
-
-
-      //ffrete_unit := strtofloat(  tirapontos( edivlrfrete.Text ) ) / cds_nfp.RecordCount;
-      //foutrasdesp_unit := strtofloat(  tirapontos( edivlrout.Text ) ) / cds_nfp.RecordCount;
-      //fvalorseg_unit   := strtofloat(  tirapontos( edivlrseg.Text ) ) / cds_nfp.RecordCount;
-      //fvalordesc_unit  := strtofloat(  tirapontos( edivaldesc.Text ) ) / ;
-
-      //ftotfrete_unit := ffrete_unit   * cds_nfp.RecordCount ;
-      //ftotoutrasdesp_unit := foutrasdesp_unit  * cds_nfp.RecordCount ;
-      //ftotvalorseg_unit := fvalorseg_unit   * cds_nfp.RecordCount ;
-      //ftotvalordesc_unit := fvalordesc_unit  * cds_nfp.RecordCount ;
-
-       //  end;
-      //endi
-
       fvlrbasecalcicmsst := 0;
       ftotalbasecalcicmsst := 0;
       ftotalvlricmsst := 0;
       totvICMSUFRemet := 0;
       totvICMSUFDest  := 0;
-
-
-
       fvlricms := 0;
 
       pICMSInterPart:= frmdados.cds_indice.fieldbyname('pICMSInterPart').AsFloat;
@@ -3206,7 +3456,7 @@ begin
 
                if sufemi <> sufdest then
                   begin
-                    // cobranÃ§a ou crÃ©dito icms quanto for estado diferente
+                    // cobrança ou crédito icms quanto for estado diferente
                   end;
                //endi
 
@@ -3227,14 +3477,14 @@ begin
                     if sufemi <> sufdest then
                        begin
 
-                         // cÃ¡lculo de icms antecipado anteriormente estado diferente
+                         // cálculo de icms antecipado anteriormente estado diferente
 
 
                        end
                     else
                        begin
 
-                         // cÃ¡lculo de icms antecipado anteriormente mesmo estado 
+                         // cálculo de icms antecipado anteriormente mesmo estado 
 
 
                        end;
@@ -3324,7 +3574,7 @@ begin
                           cds_temp_imp.FieldByName('obs').AsString := cds_cfop.fieldbyname('obs').AsString;
                           cds_temp_imp.Post;
 
-                          zconexao.Commit;
+                         
                         end;
                     //endi
 
@@ -3439,7 +3689,7 @@ begin
                                 cds_temp_imp.FieldByName('obs').AsString := cds_icms.fieldbyname('obs').AsString;
                                 cds_temp_imp.Post;
 
-                                zconexao.Commit;
+                               
                               end;
                            //endi
 
@@ -4217,13 +4467,13 @@ begin
                begin
                  if sobs = '' then
                     begin
-                      //sobs := 'LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL NÂº '+frmdados.cds_nf.FieldByName('ncupom').asString+' EMITIDO EM '+frmdados.cds_nf.FieldByName('datacupom').asString;
+                      //sobs := 'LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL Nº '+frmdados.cds_nf.FieldByName('ncupom').asString+' EMITIDO EM '+frmdados.cds_nf.FieldByName('datacupom').asString;
                       sobs := 'LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL'+scupom;
 
                     end
                  else
                     begin
-                      //sobs := sobs +' / LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL NÂº '+frmdados.cds_nf.FieldByName('ncupom').asString+' EMITIDO EM '+frmdados.cds_nf.FieldByName('datacupom').asString ;
+                      //sobs := sobs +' / LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL Nº '+frmdados.cds_nf.FieldByName('ncupom').asString+' EMITIDO EM '+frmdados.cds_nf.FieldByName('datacupom').asString ;
                       sobs := sobs +' / LANCAMENTO EFETUADO EM DECORRENCIA DE EMISSAO DE CUPOM FISCAL'+scupom ;
                     end;
                  //endi
@@ -4253,7 +4503,7 @@ begin
             else
                begin
 
-                 { //mensagem quando nÃ£o gerar credito icms
+                 { //mensagem quando não gerar credito icms
                  if sobs = '' then
                     begin
                       sobs := '';
@@ -4315,7 +4565,7 @@ begin
 
            while true do
              begin
-               lblmensagem.Caption := 'Analisando retorno NFE - Pressione <<ESC>> para desistir da impressão';
+               lblmensagem.Caption := 'Analisando retorno da validação, aguarde...';
                frmfecnf.Update;
 
                if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT' ) then
@@ -4329,28 +4579,40 @@ begin
                         if iPos > 0 then
                            begin
                              bAut := true;
-                             lblmensagem.Caption := 'Nota fiscal eletrônica validada com sucesso, aguardando resposta definitiva da SEFAZ...';
-                             frmfecnf.Update;
-                             //sleep(5000);
+
                              scaminho := copy(Linha,iPos+4,length(Linha));
 
                              schavenfe := copy(Linha,iPos+28,44);
 
                              frmdados.cds_nf.Edit;
-                             frmdados.cds_nf.FieldByName('caminhonfe').AsString := scaminho;
-                             frmdados.cds_nf.FieldByName('chave').AsString := schavenfe;
-                             frmdados.cds_nf.FieldByName('nnf').Asinteger := innf;
-
-
-                             //Validado no local pelo schema
-                             if sAcao = 'E' then
-                                frmdados.cds_nf.FieldByName('status').AsString := 'E'
-                             else
-                                frmdados.cds_nf.FieldByName('status').AsString := 'V';
-                             //endi
+                             frmdados.cds_nf.FieldByName('status').AsString := 'V';
                              frmdados.cds_nf.Post;
-                             frmdados.zconexao.Commit;
 
+                             if  frmdados.cds_nf.FieldByName('chave').AsString = '' then
+                                 begin  
+
+                                   frmdados.cds_nf.Edit;
+                                   frmdados.cds_nf.FieldByName('caminhonfe').AsString := scaminho;
+                                   frmdados.cds_nf.FieldByName('chave').AsString := schavenfe;
+                                   frmdados.cds_nf.FieldByName('nnf').Asinteger := innf;
+
+                                   frmdados.cds_nf.Post;
+
+                                   innf := innf + 1;
+                                   frmdados.cds_indice.Edit;
+                                   frmdados.cds_indice.FieldByName('contadornfe').asInteger := icontadornfe;
+                                   frmdados.cds_indice.FieldByName('nnf').asInteger := innf;
+                                   frmdados.cds_indice.Post;                                     
+
+                                   ediproxnota.Enabled := false;
+
+
+                                 end;
+                             //endi
+
+
+                             lblmensagem.Caption := 'Nota fiscal eletrônica validada com sucesso, aguardando resposta...';
+                             frmfecnf.Update;
 
                              break;
                            end;
@@ -4367,7 +4629,7 @@ begin
                     else
                        begin
                          bNaut := true;
-                         lblmensagem.Caption := 'Erro no arquivo ou não autorizado pela Sefaz...';
+                         lblmensagem.Caption := 'Erro na validação do arquivo...';
                          frmfecnf.Update;
                          sleep(5000);
                          break;
@@ -4407,23 +4669,13 @@ begin
       if GetKeyState(VK_Escape) AND 128 = 128 then
          begin
 
-           frmdados.cds_indice.Edit;
-           frmdados.cds_indice.FieldByName('contadornfe').asInteger := icontadornfe;
-           frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
-           frmdados.cds_indice.Post;
-           frmdados.zconexao.Commit;
            break ;
-           
+
          end;
       //endi
       if (bAut) then
           begin
 
-            frmdados.cds_indice.Edit;
-            frmdados.cds_indice.FieldByName('contadornfe').asInteger := icontadornfe;
-            frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
-            frmdados.cds_indice.Post;
-            frmdados.zconexao.Commit;
             break;
 
           end;
@@ -4431,11 +4683,6 @@ begin
       if (bNaut) then
          begin
 
-          frmdados.cds_indice.Edit;
-          frmdados.cds_indice.FieldByName('contadornfe').asInteger := icontadornfe;
-          frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
-          frmdados.cds_indice.Post;
-          frmdados.zconexao.Commit;
           break;
 
          end;
@@ -4458,166 +4705,14 @@ begin
       sleep(5000);
     end;
   //endw
-  if (bAut) then
-      begin
-        bautImp := imprimenfe(scaminho);
-      end;
-  //end
 
+  // impressão nfe
 
-  //AssignFile(f,vardir+'c3.bat');
-  //Rewrite(f); //abre o arquivo para escrita
-  //Writeln(f,'cd '+frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString);
-  //Writeln(f,'copy '+'SAINFE.TXT'+' '+frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT');
-  //Writeln(f,'del '+vardir+'copiar.bat');
-  //Writeln(f,'del SAINFE.TXT');
-  //Closefile(f); //fecha o handle de arquivo
-  //WinExec(pchar(vardir+'c3.bat'), SW_HIDE);
-
-
-  if (sAcao <> 'V') and (bautImp) then
-     begin
-
-       frmdados.sql_nfe.Active := true;
-       frmdados.cds_nfe.Active := true;
-
-       frmdados.cds_nfe.Filtered := false;
-       frmdados.cds_nfe.IndexName := 'codigo';
-       frmdados.cds_nfe.Last;
-
-       frmdados.cds_nfe.Append;
-       frmdados.cds_nfe.FieldByName('cemi').asInteger :=  frmdados.Cds_emitente.fieldbyname('codigo').asInteger;
-       frmdados.cds_nfe.FieldByName('tipodest').asString :=  frmdados.cds_nf.FieldByName('tipodest').AsString;
-       frmdados.cds_nfe.FieldByName('cdest').asInteger :=  frmdados.cds_nf.fieldbyname('cdest').asInteger ;
-       frmdados.cds_nfe.FieldByName('cnpjcpfdest').AsString := frmpesqnf.lblcnpj.Caption;
-
-
-       scnpjcpfemi := tirapontos(frmdados.Cds_emitente.fieldbyname('cnpj').asString);
-       scnpjcpfemi := tirabarras(scnpjcpfemi);
-       scnpjcpfemi := tiratracos(scnpjcpfemi);
-
-
-
-       frmdados.cds_nfe.FieldByName('cnpjcpfemi').AsString := scnpjcpfemi;
-
-
-       {
-
-       if frmdados.cds_nf.FieldByName('tipodest').AsString = 'C' then
-          begin
-            frmdados.cds_nfe.FieldByName('cdest').asInteger :=  frmdados.cds_clientes.fieldbyname('codigo').asInteger ;
-          end;
-       //endi
-
-       if frmdados.cds_nf.FieldByName('tipodest').AsString = 'F' then
-          begin
-            frmdados.cds_nfe.FieldByName('cdest').asInteger :=  frmdados.cds_fornecedores.fieldbyname('codigo').asInteger ;
-          end;
-       //endi
-
-       }
-
-
-       if cbxdesctransp_cod5nf.text <> '' then
-          frmdados.cds_nfe.FieldByName('ctransp').asInteger :=  frmdados.cds_transportador.fieldbyname('codigo').asInteger;
-       //endi
-
-       frmdados.cds_nfe.FieldByName('pdesc').asfloat :=  strtofloat(tirapontos(edipdesc.text));
-       frmdados.cds_nfe.FieldByName('vdesc').asfloat :=  strtofloat(tirapontos(edivaldesc.text));
-       frmdados.cds_nfe.FieldByName('total').asfloat :=  strtofloat(tirapontos(lbltotal.caption));
-       frmdados.cds_nfe.FieldByName('liquido').asfloat :=  strtofloat(tirapontos(ediliquido.text));
-       frmdados.cds_nfe.FieldByName('cnatop').asInteger :=  frmdados.cds_natop.fieldbyname('codigo').asInteger;
-       frmdados.cds_nfe.FieldByName('bscalcsubtrib').asfloat :=  strtofloat(tirapontos(edibscalcsubstrib.text));
-       frmdados.cds_nfe.FieldByName('vlricmssubtrib').asfloat :=  strtofloat(tirapontos(edivlricmssubtrib.text));
-       frmdados.cds_nfe.FieldByName('placavei').asString := ediplacavei.text;
-       frmdados.cds_nfe.FieldByName('ufvei').asString :=  ediufvei.Text;
-       if edihorasai.Text <> '  :  ' then
-          frmdados.cds_nfe.FieldByName('horasai').asString :=  edihorasai.Text;
-       //endi
-       if (edidatasai.Text <> '00/00/0000')  then
-           frmdados.cds_nfe.FieldByName('datasai').asString :=  edidatasai.Text;
-       //endi
-       frmdados.cds_nfe.FieldByName('quantidade').asString :=  ediquantidade.Text;
-       frmdados.cds_nfe.FieldByName('especie').asString :=  ediespecie.Text;
-       frmdados.cds_nfe.FieldByName('marca').asString :=  edimarca.Text;
-       frmdados.cds_nfe.FieldByName('numero').asString :=  edinumero.Text;
-       frmdados.cds_nfe.FieldByName('pesob').asString :=  edipesob.Text;
-       frmdados.cds_nfe.FieldByName('pesol').asString :=  edipesol.Text;
-       frmdados.cds_nfe.FieldByName('adicnf').asString :=  mmoadicnf.Text;
-       frmdados.cds_nfe.FieldByName('adicpostofiscal').asString :=  '';
-       frmdados.cds_nfe.FieldByName('ctiponf').asInteger :=  frmdados.cds_tiponf.fieldbyname('codigo').asInteger;
-       if  (cbxdescfreteporconta_cod2nf.text <> '') then
-           begin
-             frmdados.cds_nfe.FieldByName('cfreteporconta').asInteger := frmdados.cds_onusdofrete.fieldbyname('codigo').asInteger;
-           end;
-       //endi
-       frmdados.cds_nfe.FieldByName('nnf').asInteger :=  innf;
-       frmdados.cds_nfe.FieldByName('tvlrfrete').asfloat :=  strtofloat(tirapontos(edivlrfrete.text));
-       frmdados.cds_nfe.FieldByName('dataemi').asString :=   datetostr(date);
-       frmdados.cds_nfe.FieldByName('tvlrseg').asfloat :=    strtofloat(tirapontos(edivlrseg.text));
-       frmdados.cds_nfe.FieldByName('tvlrvii').asfloat :=  0;
-       frmdados.cds_nfe.FieldByName('tvlripi').asfloat :=  ftotipi;
-       frmdados.cds_nfe.FieldByName('tvlrpis').asfloat :=  0;
-       frmdados.cds_nfe.FieldByName('tvlrcofins').asfloat :=  0;
-       frmdados.cds_nfe.FieldByName('tvlrout').asfloat:= strtofloat( tirapontos(edivlrout.text) );
-       frmdados.cds_nfe.FieldByName('ndest').asString :=  '';
-       frmdados.cds_nfe.FieldByName('iesubstrib').asString :=  ediiesubtrib.Text;
-       frmdados.cds_nfe.FieldByName('modelonf').asString :=  '';
-       frmdados.cds_nfe.FieldByName('serienf').asString :=  '';
-       frmdados.cds_nfe.FieldByName('codigonf').asString :=  '';
-       frmdados.cds_nfe.FieldByName('tiponf').asString :=  '';
-       frmdados.cds_nfe.FieldByName('formapgtonf').asString :=  inttostr(rgbformapgto.ItemIndex);
-       frmdados.cds_nfe.FieldByName('cuftransp').asInteger :=  0;
-       frmdados.cds_nfe.FieldByName('vlrserv').asfloat :=  0;
-       frmdados.cds_nfe.FieldByName('vlrbsserv').asfloat :=  0;
-       frmdados.cds_nfe.FieldByName('aliqserv').asfloat := 0 ;
-       frmdados.cds_nfe.FieldByName('vlriss').asfloat :=  0;
-       frmdados.cds_nfe.FieldByName('bcipi').asfloat :=  ftotbcipi;
-       frmdados.cds_nfe.FieldByName('aliqipi').asfloat := 0 ;
-       frmdados.cds_nfe.FieldByName('ccofins').asInteger :=  0;
-       frmdados.cds_nfe.FieldByName('ncofins').asString :=  '';
-       frmdados.cds_nfe.FieldByName('bscofins').asfloat :=  0;
-       frmdados.cds_nfe.FieldByName('aliqcofins').asfloat :=  0;
-       frmdados.cds_nfe.FieldByName('vcofins').asfloat :=  0;
-       frmdados.cds_nfe.FieldByName('totbcicms').asfloat :=  ftotbcicms;
-       frmdados.cds_nfe.FieldByName('toticms').asfloat :=  ftoticms;
-       frmdados.cds_nfe.FieldByName('totp').asfloat :=  ftotp;
-       frmdados.cds_nfe.FieldByName('vlrdesc').asfloat :=  0;
-       frmdados.cds_nfe.FieldByName('totipi').asfloat :=  ftotipi;
-       frmdados.cds_nfe.FieldByName('vlrpis').asfloat :=  0;
-       frmdados.cds_nfe.FieldByName('vlrcofins').asfloat :=  0;
-       frmdados.cds_nfe.FieldByName('vlrtotal').asfloat :=  ftotp-strtofloat(edivaldesc.text)+ftotipi;
-       frmdados.cds_nfe.FieldByName('ccfoptrans').asInteger :=  0;
-       frmdados.cds_nfe.FieldByName('cidadecodtrans').asInteger :=  0;
-       frmdados.cds_nfe.FieldByName('ufplacavei').asString :=  '';
-       frmdados.cds_nfe.FieldByName('rntc').asString :=  '';
-       frmdados.cds_nfe.FieldByName('arquivonfe').asString := 'SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT' ;
-       frmdados.cds_nfe.FieldByName('cnf').asInteger :=  frmdados.cds_nf.fieldbyname('codigo').asInteger;
-       frmdados.cds_nfe.FieldByName('contador').asInteger :=  icontadornfe;
-       frmdados.cds_nfe.FieldByName('chave').asString :=  schavenfe;
-
-       frmdados.cds_nfe.Post;
-       frmdados.cds_nfe.Active := false;
-       frmdados.sql_nfe.Active := false;
-
-       innf := innf + 1;
-
-       frmdados.cds_indice.Edit;
-       frmdados.cds_indice.FieldByName('contadornfe').asInteger := icontadornfe;
-       frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
-       frmdados.cds_indice.FieldByName('nnf').asInteger := innf;
-       frmdados.cds_indice.Post;
-       frmdados.zconexao.Commit;
-
-       //icontadornfe := icontadornfe + 1;
-       //frmdados.cds_indice.Edit;
-       //frmdados.cds_indice.FieldByName('contadornfe').asInteger := icontadornfe;
-       //frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
-       //frmdados.cds_indice.Post;
-
-     end;
-  //endif
-
+  if baut then
+    begin
+      bautImp := visualizanfe(scaminho);
+    end;
+  //endi
 
   //limpararqdup;
   //totalizadup;
@@ -4626,27 +4721,24 @@ begin
   //totalizafat;
 
 
-  frmdados.cds_fatura.Active := false;
-  frmdados.sql_fatura.Active := false;
+  //frmdados.cds_fatura.Active := false;
+  //frmdados.sql_fatura.Active := false;
 
-  frmdados.cds_duplicata.Active := false;
-  frmdados.sql_duplicata.Active := false;
+  //frmdados.cds_duplicata.Active := false;
+  //frmdados.sql_duplicata.Active := false;
 
-  frmdados.cds_nf.Active := false;
-  frmdados.sql_nf.Active := false;
+  //frmdados.cds_nf.Active := false;
+  //frmdados.sql_nf.Active := false;
 
   //frmpesqnf.pctdados.ActivePageIndex := 0;
   //frmdados.cds_nf.Last;
 
-  frmdados.sql_nf.Active := true;
-  frmdados.cds_nf.Active := true;
-
+  //frmdados.sql_nf.Active := true;
+  //frmdados.cds_nf.Active := true;
 
   frmdados.cds_indice.Edit;
-  frmdados.cds_indice.FieldByName('processandonfe').asString := 'N';
+  frmdados.cds_indice.FieldByName('contadornfe').asInteger := icontadornfe;
   frmdados.cds_indice.Post;
-  frmdados.zconexao.Commit;
-
 
 end;
 
@@ -4733,14 +4825,14 @@ begin
    if (edirefnfe.Text<>'') and (cbxfinalidade.ItemIndex <>  3) then
       begin
 
-        showmessage('O preenchimento deste campo sÃ³ terÃ¡ efeito se o ***CAMPO FINALIDADE*** for igual a devoluÃ§Ã£o/retorno');
+        showmessage('O preenchimento deste campo só terá efeito se o ***CAMPO FINALIDADE*** for igual a devolução/retorno');
 
       end
    else
       begin
         if edirefnfe.Text <> '' then
            begin
-             showmessage('Lembrete: Os cÃ³digos CFOPs das mercadorias para esta nota devem estar marcadas como devoluÃ§Ã£o ou retorno');
+             showmessage('Lembrete: Os códigos CFOPs das mercadorias para esta nota devem estar marcadas como devolução ou retorno');
            end;
       end;
    //endi

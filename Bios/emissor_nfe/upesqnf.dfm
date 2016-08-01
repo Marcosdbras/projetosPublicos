@@ -51,10 +51,11 @@ object frmpesqnf: Tfrmpesqnf
     Width = 1028
     Height = 65
     Align = alTop
+    BevelOuter = bvNone
     TabOrder = 0
     object lbltitdest: TLabel
       Left = 10
-      Top = 16
+      Top = 40
       Width = 132
       Height = 20
       Caption = 'DESTINAT'#193'RIO'
@@ -66,9 +67,9 @@ object frmpesqnf: Tfrmpesqnf
       ParentFont = False
     end
     object lbldest: TLabel
-      Left = 11
+      Left = 163
       Top = 41
-      Width = 838
+      Width = 846
       Height = 20
       AutoSize = False
       Caption = 'lbldest'
@@ -80,8 +81,8 @@ object frmpesqnf: Tfrmpesqnf
       ParentFont = False
     end
     object btnimportar: TBitBtn
-      Left = 198
-      Top = 2
+      Left = 552
+      Top = 3
       Width = 152
       Height = 33
       Caption = '&IMPORTAR'
@@ -97,7 +98,7 @@ object frmpesqnf: Tfrmpesqnf
       NumGlyphs = 2
     end
     object btnajustatrib: TBitBtn
-      Left = 755
+      Left = 281
       Top = 3
       Width = 139
       Height = 33
@@ -113,7 +114,7 @@ object frmpesqnf: Tfrmpesqnf
       NumGlyphs = 2
     end
     object btnemitenfe: TBitBtn
-      Left = 896
+      Left = 422
       Top = 3
       Width = 127
       Height = 33
@@ -129,7 +130,7 @@ object frmpesqnf: Tfrmpesqnf
       NumGlyphs = 2
     end
     object BitBtn1: TBitBtn
-      Left = 614
+      Left = 140
       Top = 3
       Width = 139
       Height = 33
@@ -145,7 +146,7 @@ object frmpesqnf: Tfrmpesqnf
       NumGlyphs = 2
     end
     object btnfim: TBitBtn
-      Left = 483
+      Left = 9
       Top = 3
       Width = 129
       Height = 33
@@ -257,6 +258,7 @@ object frmpesqnf: Tfrmpesqnf
     Width = 161
     Height = 479
     Align = alLeft
+    BevelOuter = bvNone
     TabOrder = 2
     object btnfiltrar: TBitBtn
       Left = 7
@@ -451,6 +453,12 @@ object frmpesqnf: Tfrmpesqnf
               Expanded = False
               FieldName = 'nomedest'
               Title.Caption = 'DESTINAT'#193'RIO'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'chave'
+              Width = 330
               Visible = True
             end>
         end

@@ -3839,6 +3839,42 @@ object frmdados: Tfrmdados
       item
         Name = 'vlrcrediss'
         DataType = ftFloat
+      end
+      item
+        Name = 'picmsstant'
+        DataType = ftFloat
+      end
+      item
+        Name = 'iva'
+        DataType = ftFloat
+      end
+      item
+        Name = 'baseicmsstant'
+        DataType = ftFloat
+      end
+      item
+        Name = 'vlricmsstant'
+        DataType = ftFloat
+      end
+      item
+        Name = 'chave'
+        DataType = ftString
+        Size = 200
+      end
+      item
+        Name = 'status'
+        DataType = ftString
+        Size = 1
+      end
+      item
+        Name = 'caminhonfe'
+        DataType = ftString
+        Size = 200
+      end
+      item
+        Name = 'arquivonfe'
+        DataType = ftString
+        Size = 200
       end>
     IndexDefs = <
       item
@@ -4040,6 +4076,34 @@ object frmdados: Tfrmdados
     end
     object cds_nfvlrcrediss: TFloatField
       FieldName = 'vlrcrediss'
+    end
+    object cds_nfpicmsstant: TFloatField
+      FieldName = 'picmsstant'
+    end
+    object cds_nfiva: TFloatField
+      FieldName = 'iva'
+    end
+    object cds_nfbaseicmsstant: TFloatField
+      FieldName = 'baseicmsstant'
+    end
+    object cds_nfvlricmsstant: TFloatField
+      FieldName = 'vlricmsstant'
+    end
+    object cds_nfchave: TStringField
+      FieldName = 'chave'
+      Size = 200
+    end
+    object cds_nfstatus: TStringField
+      FieldName = 'status'
+      Size = 1
+    end
+    object cds_nfcaminhonfe: TStringField
+      FieldName = 'caminhonfe'
+      Size = 200
+    end
+    object cds_nfarquivonfe: TStringField
+      FieldName = 'arquivonfe'
+      Size = 200
     end
   end
   object dts_nf: TDataSource
@@ -6401,6 +6465,7 @@ object frmdados: Tfrmdados
   end
   object zconexao: TZConnection
     TransactIsolationLevel = tiReadCommitted
+    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'nfe'
@@ -8272,6 +8337,34 @@ object frmdados: Tfrmdados
     end
     object sql_nfvlrcrediss: TFloatField
       FieldName = 'vlrcrediss'
+    end
+    object sql_nfpicmsstant: TFloatField
+      FieldName = 'picmsstant'
+    end
+    object sql_nfiva: TFloatField
+      FieldName = 'iva'
+    end
+    object sql_nfbaseicmsstant: TFloatField
+      FieldName = 'baseicmsstant'
+    end
+    object sql_nfvlricmsstant: TFloatField
+      FieldName = 'vlricmsstant'
+    end
+    object sql_nfchave: TStringField
+      FieldName = 'chave'
+      Size = 200
+    end
+    object sql_nfstatus: TStringField
+      FieldName = 'status'
+      Size = 1
+    end
+    object sql_nfcaminhonfe: TStringField
+      FieldName = 'caminhonfe'
+      Size = 200
+    end
+    object sql_nfarquivonfe: TStringField
+      FieldName = 'arquivonfe'
+      Size = 200
     end
   end
   object sql_csosn: TZQuery
