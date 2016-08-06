@@ -7696,12 +7696,16 @@ begin
     reWrite(frmprincipal.arq);
 
 
+    Write(frmprincipal.arq, #27,#64); //RESET
+    Write(frmprincipal.arq, #27,#97,00);// alinhamento centralizado = 0
+    Write(frmprincipal.arq, #27,#116,04);// tabela de caracteres
+    Write(frmprincipal.arq,#27,#77,01 ); // Condesado
 
-    Writeln(frmprincipal.arq,chr(27)+chr(15)+s1);
+    Writeln(frmprincipal.arq, s1);
     Writeln(frmprincipal.arq, frmprincipal.scliente_nome );
     Writeln(frmprincipal.arq, frmprincipal.scliente_endereco+' - '+frmprincipal.scliente_cep );
     Writeln(frmprincipal.arq,  'VENDA N.o '+formatfloat('000000', frmmodulo.query.fieldbyname('totnumerocupom').AsInteger )+'                 Data/Hora '+cECF_Data_Hora(NENHUMA) );
-    Writeln(frmprincipal.arq,s1);
+    Writeln(frmprincipal.arq, s1);
 
 
 
