@@ -348,12 +348,36 @@ type
     { Private declarations }
      bConsumidor:boolean;
      qtregistro:integer;
-     
+
 
   public
     { Public declarations }
-    iavanca, colunas:integer;
-    inicodbal, pedirnumcom, numcomanda:string;
+    iavanca,
+    colunas:integer;
+
+    inicodbal,
+    pedirnumcom,
+    numcomanda:string;
+
+    // totalizadores externo
+    rValor_Total_Cartao_venda,
+    rvalor_total_cheque_venda,
+    rvalor_total_crediario_venda,
+    rvalor_total_convenio_venda,
+    rtotal_aprazo: real;
+
+    // identificadores de vendas
+    snome_venda,
+    sident_venda,
+    sCod_Cupom_venda,
+    snumerodest_venda,
+    sbairrodest_venda,
+    scepdest_venda,
+    stelefonedest_venda,
+    sIEdest_venda,
+    slogradourodest_venda,
+    scomplementodest_venda,
+    smaildest_venda :string;
 
     procedure EnviaComando(comando:string;timeout:integer);
     function Localizar_Produto(referencia:string):boolean;
@@ -370,19 +394,15 @@ var
   arqini:TInifile;
   rapuracao:real;
 
-
-
   // resolução da tela
- OldWidth : Integer;
- OldHeight : Integer;
+  OldWidth : Integer;
+  OldHeight : Integer;
 
-    a , b: word;
+  a , b: word;
 
   //totalizador média de tributo
   fsb_valorliquidoitem, fsb_valorliquidocupom:Currency;
   sb_valorliquidoitem,sb_valorliquidocupom:string;
-
-
 
 
   // totalizadoras
@@ -391,6 +411,7 @@ var
   rTotal_Acrescimo : real;
   iTotal_Itens : integer;
   iItem : Integer;
+
   // STATUS das funcoes
   bVenda : boolean; // venda aberta
   bTotalizado : boolean; // cupom totalizado
@@ -398,7 +419,6 @@ var
   bFinalizado : boolean; // Cupom Finalizado (Totalizado);
   // Outras
   bidentcpfcnpj:boolean;
-
 
   baltera_tipo_desconto:boolean; // permitir/bloquear a tecla F3 no desconto
   blimpa_edit_display : boolean;
@@ -1583,7 +1603,7 @@ begin
                 if iPesquisa_produto = 1 then
                 begin
                   frmProduto_consulta := TfrmProduto_consulta.create(self);
-                  // aqui
+                  
                   //frmproduto_consulta.ed_barra.text := ed_barra.text;
                   frmproduto_consulta.ed_barra.text := ANSIUPPERCASE(referencia);
                   frmProduto_consulta.showmodal;
@@ -1715,7 +1735,7 @@ begin
       rProd_aliquota := query.fieldbyname('aliquota').asfloat;
       rProd_Estoque  := query.fieldbyname('estoque').asfloat;
       if bTruncar_Valor then
-        rProd_preco    := Truncar_Valor(query.fieldbyname('preco_venda').asfloat)    //mudei aqui 09/12/2011
+        rProd_preco    := Truncar_Valor(query.fieldbyname('preco_venda').asfloat)    //mudei 09/12/2011
       else
         rProd_preco    := query.fieldbyname('preco_venda').asfloat;
 
@@ -5977,14 +5997,53 @@ begin
 
       end;
 
+
+
+    //totaliza valores a prazo - variáveis globais
+    rValor_Total_Cartao_venda := rValor_Total_Cartao;
+    rvalor_total_cheque_venda := rvalor_total_cheque;
+    rvalor_total_crediario_venda := rvalor_total_crediario;
+    rvalor_total_convenio_venda := rvalor_total_convenio;
+
+    rtotal_aprazo := rValor_Total_Cartao_venda+
+                     rvalor_total_cheque_venda+
+                     rvalor_total_crediario_venda+
+                     rvalor_total_convenio_venda;
+
+    //Identificação da venda - variáveis globais
+    snome_venda              :=   sConsumidor_Nome;
+    sident_venda             :=   sConsumidor_CPF;
+    sCod_Cupom_venda         :=   sCod_Cupom;
+
+
+
+
+
       with frmmodulo do
       begin
+
+        query.close;
+        query.sql.clear;
+        query.sql.add('select * from cliente where cpf = '+  quotedstr( sConsumidor_CPF )   );
+        query.open;
+        if query.RecordCount > 0 then
+           begin
+             snumerodest_venda  := query.fieldbyname('numero').asString;
+             sbairrodest_venda  := query.fieldbyname('bairro').asString;
+             scepdest_venda := query.fieldbyname('cep').asString;
+             stelefonedest_venda :=  query.fieldbyname('telefone').asString;
+             sIEdest_venda  := query.fieldbyname('IE').asString;
+             slogradourodest_venda := query.fieldbyname('endereco').asString;
+             scomplementodest_venda := query.fieldbyname('complemento').asString;
+             smaildest_venda :=   query.fieldbyname('email').asString;
+           end;
+        //endi
 
         // lancamento do cupom no banco de dados
 
         if  pedirnumcom = 'S' then
             begin
-               //aqui - lancamento centralizado no servidor se houver comunicação
+               //lancamento centralizado no servidor se houver comunicação
 
                {
                query.Close;
@@ -8864,7 +8923,7 @@ begin
 
        Imprime_display('Necessário informar comanda!',clred,tiErro);
        sleep(1500);
-        //aqui
+
        if pn_fechamento.Visible then
           begin
             Imprime_display_anterior;

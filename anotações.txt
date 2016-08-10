@@ -6,3 +6,11 @@ https://www.google.com.br/search?q=icone+ordem+de+servi%C3%A7o+png+transparente&
 https://www.google.com.br/search?q=icone+ordem+de+servi%C3%A7o+png+transparente&biw=1366&bih=610&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiYs_qh0NDMAhUCTZAKHQ8lCfYQ_AUIBigB&dpr=1#imgdii=udOdqCIqsM-3nM%3A%3BudOdqCIqsM-3nM%3A%3BIF0S92jdyBmTbM%3A&imgrc=udOdqCIqsM-3nM%3A
 
 https://www.fazenda.sp.gov.br/nfe/
+
+=======================================================================================
+Datasac 
+
+Na sincronização com pdv não está atualizando email, número, telefone, ie
+
+Quando emitir sat desconsiderar os itens cancelados
+

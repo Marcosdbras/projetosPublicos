@@ -100,6 +100,12 @@ type
   function Decimal_Is_Coma(var Valor:String):String;
   function FindReplace (Var Enc:String; Var subs: String; Var Texto: String): string;
 
+  function AjustaStr ( str: String; tam: Integer ): String;
+
+  Function  tirapontos(pValor:string):string;
+  Function  tiratracos(pValor:string):string;
+  Function  tirabarras(pValor:string):string;
+
 
 
 implementation
@@ -126,7 +132,90 @@ const
 'LFo6ChY+5/M8giZAB14A6dRzCZJMNOQfZQX8oD5reYw='+ #13#10 +
 '-----END RSA PRIVATE KEY-----';
 
+function tirapontos(pValor:string):string;
+var pPosI:integer;
+var pPosF:integer;
+var pNovoValor:string;
+begin
+   result := '';
+   pNovoValor:='';
+   pPosI:=1;
+   while true do
+     begin
+       pPosF := pos('.',pValor);
+       if pPosF > 0 then
+          begin
+            pNovoValor:=pNovoValor+copy(pValor,pPosI,pPosF - 1);
+            pValor:=copy(pValor,pPosF+1,length(pValor));
+          end
+       else
+          begin
+            result:=pNovoValor+pValor;
+            exit;
+          end;
+     end;
+ //endw
+end;
 
+function tiratracos(pValor:string):string;
+var pPosI:integer;
+var pPosF:integer;
+var pNovoValor:string;
+begin
+   result := '';
+   pNovoValor:='';
+   pPosI:=1;
+   while true do
+     begin
+       pPosF := pos('-',pValor);
+       if pPosF > 0 then
+          begin
+            pNovoValor:=pNovoValor+copy(pValor,pPosI,pPosF - 1);
+            pValor:=copy(pValor,pPosF+1,length(pValor));
+          end
+       else
+          begin
+            result:=pNovoValor+pValor;
+            exit;
+          end;
+     end;
+ //endw
+end;
+
+
+function tirabarras(pValor:string):string;
+var pPosI:integer;
+var pPosF:integer;
+var pNovoValor:string;
+begin
+   result := '';
+   pNovoValor:='';
+   pPosI:=1;
+   while true do
+     begin
+       pPosF := pos('/',pValor);
+       if pPosF > 0 then
+          begin
+            pNovoValor:=pNovoValor+copy(pValor,pPosI,pPosF - 1);
+            pValor:=copy(pValor,pPosF+1,length(pValor));
+          end
+       else
+          begin
+            result:=pNovoValor+pValor;
+            exit;
+          end;
+     end;
+ //endw
+end;
+
+function AjustaStr ( str: String; tam: Integer ): String;
+begin
+  while Length ( str ) < tam do
+  str := str + ' ';
+  if Length ( str ) > tam then
+  str := Copy ( str, 1, tam );
+  Result := str;
+end;
 
 function PadL(s:string; n:integer): string;
 begin

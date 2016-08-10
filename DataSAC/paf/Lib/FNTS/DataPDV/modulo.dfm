@@ -1471,4 +1471,14 @@ object frmModulo: TfrmModulo
     Left = 160
     Top = 88
   end
+  object sqlexec: TIBCQuery
+    Connection = conexao
+    Left = 344
+    Top = 104
+  end
+  object sqlconsulta: TIBCQuery
+    Connection = conexao
+    Left = 400
+    Top = 168
+  end
 end

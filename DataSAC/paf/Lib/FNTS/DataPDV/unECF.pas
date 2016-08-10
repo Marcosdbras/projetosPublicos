@@ -1,5 +1,5 @@
 unit unECF;
-
+              
 interface
 
 uses
@@ -39,7 +39,9 @@ var
   aRelatoriosGerenciais : array[1..50, 1..2] of String;
 
   s1,s2,s3,s4,s5,s0:string;
-  x:integer;
+  proxnota, x:integer;
+
+  vardir:string;
   
 
 procedure limpa_s;
@@ -1092,6 +1094,9 @@ function EPSON_NumeroCaixa: String;
 function EPSON_VersaoSoftwareBasico: String;
 function EPSON_DataHoraSoftwareBasico: String;
 function EPSON_GavetaAberta: Boolean;
+
+
+procedure gerasat;
 
 // -------------------------------------------------------------------------- //
 // -------------------------------------------------------------------------- //
@@ -2435,7 +2440,7 @@ begin
     frmmodulo.query.SQL.Clear;
     frmmodulo.query.SQL.Add('update totalizadores_ecf set totnaofiscal = '+result);
     frmmodulo.query.ExecSQL;
-    
+
 
   end;
 end;
@@ -2526,7 +2531,7 @@ begin
     frmmodulo.query.Close;
     frmmodulo.query.SQL.Clear;
     frmmodulo.query.SQL.Add('update totalizadores_ecf set totccupom = '+result);
-    frmmodulo.query.ExecSQL; 
+    frmmodulo.query.ExecSQL;
 
   end;
 end;
@@ -7575,9 +7580,9 @@ var
   iOpcao: Integer;
   szDados: String;
 
+
+
 begin
-
-
 
   Result := ERRO;
 
@@ -7662,8 +7667,9 @@ begin
   if COD_ECF = NENHUMA then
   begin
 
-    limpa_s;
+    //abre cupom
 
+    limpa_s;
 
     divisor_duplo;
 
@@ -7672,29 +7678,10 @@ begin
     frmmodulo.query.SQL.Add('select * from totalizadores_ecf');
     frmmodulo.query.Open;
 
+    vardir := extractfilename(application.Name);
 
-    //if frmprincipal.stipoimp = 'Serial' then
-    //   begin
-    //     if frmvenda.ComPort1.Connected then
-    //        begin
-
-    //          frmvenda.ComPort1.WriteStr(S1);
-    //          frmvenda.ComPort1.WriteStr('VENDA N.o '+formatfloat('000000', frmmodulo.query.fieldbyname('totnumerocupom').AsInteger ) );
-    //          frmvenda.ComPort1.WriteStr(S1);
-
-
-    //        end;
-         //endi
-    //   end;
-    //endi
-
-
-    //if frmprincipal.stipoimp = 'Paralela' then
-    // begin
-    // aqui - verificar por que está excedendo 7 espaços, chr(15) não está funcionando.
     assignfile(frmprincipal.arq,frmprincipal.sportaimp);
     reWrite(frmprincipal.arq);
-
 
     Write(frmprincipal.arq, #27,#64); //RESET
     Write(frmprincipal.arq, #27,#97,00);// alinhamento centralizado = 0
@@ -7706,12 +7693,6 @@ begin
     Writeln(frmprincipal.arq, frmprincipal.scliente_endereco+' - '+frmprincipal.scliente_cep );
     Writeln(frmprincipal.arq,  'VENDA N.o '+formatfloat('000000', frmmodulo.query.fieldbyname('totnumerocupom').AsInteger )+'                 Data/Hora '+cECF_Data_Hora(NENHUMA) );
     Writeln(frmprincipal.arq, s1);
-
-
-
-
-    //   end;
-    //endi
 
     frmprincipal.cupomini.WriteString('STATUS','ABERTO','SIM');
 
@@ -10091,6 +10072,513 @@ frmprincipal.cupomini.WriteString('STATUS','ABERTO','NAO');
 
 end;
 
+
+
+procedure gerasat;
+  var
+    iproxsat,
+    itotalprod,
+    itotalnfe :integer;
+
+    ftotalprod:real;
+
+    sncm,
+    snomeprod:string;
+begin
+
+
+   with frmmodulo do
+      begin
+        query.Close;
+        query.sql.Clear;
+        query.SQL.Add('select * from totalizadores_ecf');
+        query.Open;
+      end;
+   //endth
+
+    //Se existir ":"  significa que irá montar layout monitor fiscal FRSERV Fagner, caso contrário monta layout de fabricante s@t
+    if pos(':',frmprincipal.seqfiscalon)>0 then
+       begin
+                                                                                                                 {cpf ou cnpj}
+          assignfile(frmprincipal.arqsat,  vardir+'sat_id' + frmvenda.sCod_Cupom_venda +'-'+ frmvenda.snome_venda + frmvenda.sident_venda +'.sat');
+          reWrite(frmprincipal.arqsat);
+
+          Write(frmprincipal.arqsat,'01'); //1 - id_reg
+          Write(frmprincipal.arqsat,'59'); //2 - mod_nfe
+          Write(frmprincipal.arqsat,'001'); //3 - serie_nfe
+          Write(frmprincipal.arqsat,'S');  //4  - tipo_docto
+          Write(frmprincipal.arqsat, AjustaStr ( 'VENDA',30 )   );   //5 - desc_operacao
+
+          with frmmodulo do
+            begin
+
+              sqlconsulta.Active := false;
+              sqlconsulta.SQL.Clear;
+              sqlconsulta.SQL.Add('select max(proxsat) as proxnumsat from indice');
+              sqlconsulta.Active := true;
+
+              iproxsat := sqlconsulta.fieldbyname('proxnumsat').AsInteger + 1;
+
+            end;
+          //endith
+          Write(frmprincipal.arqsat,formatfloat('000000',iproxsat)  );   //6 - numero_nfe
+          Write(frmprincipal.arqsat,formatdatetime('dd/mm/yyyy',date)  );   //7 - data_emissao
+          Write(frmprincipal.arqsat,formatdatetime('dd/mm/yyyy',date));   //8  - data_saida
+
+          //if strtofloat(tirapontos(  frmvenda.rtotal_aprazo  )) > 0 then
+
+          if  frmvenda.rtotal_aprazo   > 0 then
+             Write(frmprincipal.arqsat,'2')   //10 - ind_forma_pgto
+          else
+             Write(frmprincipal.arqsat,'1');
+          //endi
+
+          //if cbxambiente.ItemIndex = 0 then
+
+          Write(frmprincipal.arqsat,'1');   //9 - tipo_ambiente
+
+          //else
+          //Write(frmprincipal.arqsat,'2');
+          //endi
+
+          //Emitente
+          Write(frmprincipal.arqsat,  AjustaStr ( tirapontos(tiratracos(tirabarras(sEmpresa_CNPJ))), 25 )  );   //11 - cnpj_emitente
+          Write(frmprincipal.arqsat, AjustaStr ( sEmpresa_Nome,50 ) );   //12 - razao_emitente
+          Write(frmprincipal.arqsat,  AjustaStr ( sEmpresa_Nome,30 )  );   //13 - fantasia_emiten
+          Write(frmprincipal.arqsat, AjustaStr (   sEmpresa_rua ,50 ) );   //14 - logradouro_emit
+          Write(frmprincipal.arqsat,AjustaStr ( sEmpresa_numero,6 ));   //15 - numero_log_emit
+          Write(frmprincipal.arqsat, AjustaStr ( sEmpresa_bairro,30 )   );   //16 - bairro_emitente
+          Write(frmprincipal.arqsat,  AjustaStr ( sEmpresa_ibge,8 )  );   //17 - codcid_emitente
+          Write(frmprincipal.arqsat, AjustaStr ( sEmpresa_ibge_estado,8 )   );   //18 - codest_emitente
+          Write(frmprincipal.arqsat, AjustaStr ( sEmpresa_uf,2 ) );   //117 - uf_origem
+          Write(frmprincipal.arqsat,  AjustaStr ( sEmpresa_cep ,8 ) );   //19 - cep_emitente
+          Write(frmprincipal.arqsat, AjustaStr ( sEmpresa_codpaisibge,6 )  );   //20 - codpais_emitent
+          Write(frmprincipal.arqsat,AjustaStr ( sEmpresa_pais,30 ));   //21 - nomepais_emit
+          Write(frmprincipal.arqsat, AjustaStr (  sEmpresa_telefone  ,30 )  );   //22 - fone_emitente
+          Write(frmprincipal.arqsat,AjustaStr ( tirapontos(tiratracos(tirabarras( sEmpresa_ie  ))),30 ) );   //23 - ie_emitente
+          Write(frmprincipal.arqsat, AjustaStr ( ' ',30 ) );   //24 - ie_st_emitente
+
+          //Destinatário
+          Write(frmprincipal.arqsat,AjustaStr ( tirapontos(tiratracos(tirabarras(   frmvenda.sident_venda   ))),25 ) );   //25 - cnpj_dest
+          Write(frmprincipal.arqsat,AjustaStr (  frmvenda.snome_venda  ,50 ) );   //26 - razao_dest
+          Write(frmprincipal.arqsat,AjustaStr ( frmvenda.slogradourodest_venda  ,50 ) );   //27 - logradouro_dest
+          Write(frmprincipal.arqsat,AjustaStr (  frmvenda.snumerodest_venda  ,6 ) );   //28 - numlog_dest
+          Write(frmprincipal.arqsat,AjustaStr ( frmvenda.sbairrodest_venda,30 ) );   //29 - bairro_dest
+          Write(frmprincipal.arqsat,AjustaStr ( '00000000',8 ) );   //30 - codcid_dest
+          Write(frmprincipal.arqsat,AjustaStr ( '00000000',8 ) );   //31 - codest_dest
+          Write(frmprincipal.arqsat,AjustaStr (  tiratracos( frmvenda.scepdest_venda  )  ,8 ) );   //32 - cep_dest
+          Write(frmprincipal.arqsat,AjustaStr ( '001058',6 ) );   //33 - codpais_dest
+          Write(frmprincipal.arqsat,AjustaStr ( 'BRASIL'   ,30 ) );   //34 - nomepais_dest
+          Write(frmprincipal.arqsat,AjustaStr ( frmvenda.stelefonedest_venda   ,30 ) );   //35 - fone_dest
+          Write(frmprincipal.arqsat,AjustaStr ( tirapontos(tiratracos(tirabarras(  frmvenda.sIEdest_venda  ))) ,30 ) );   //36 - ie_dest
+          Write(frmprincipal.arqsat,AjustaStr (  frmvenda.scomplementodest_venda  ,30 ) );   //108 - compl_dest
+          Write(frmprincipal.arqsat,AjustaStr (  frmvenda.smaildest_venda ,60 ) );   //115  -  email_dest
+          Writeln(frmprincipal.arqsat);
+
+
+          //produtos
+          with frmmodulo do
+            begin
+
+              sqlconsulta.Close;
+              sqlconsulta.SQL.Clear;
+              sqlconsulta.SQL.Add('select * from cupom_item where cod_cupom = '+quotedstr( frmvenda.sCod_Cupom_venda  ) );
+              sqlconsulta.Open;
+
+              itotalprod := 0;
+              itotalnfe := 0;
+              ftotalprod := 0;
+
+              while not sqlconsulta.Eof do
+                begin
+
+                  Write(frmprincipal.arqsat,AjustaStr ( '02',2 ) );  //37 - id_reg
+                  Write(frmprincipal.arqsat,AjustaStr ( sqlconsulta.fieldbyname('item').asString,6 ) );   //38 - item_no
+                  Write(frmprincipal.arqsat,AjustaStr ( sqlconsulta.fieldbyname('cod_produto').asString,60 ) );   //39 - codprod
+
+
+                  with frmconexao_ibpt do
+                    begin
+                      qrProdutoIBPT.Close;
+                      qrProdutoIBPT.SQL.Clear;
+                      qrProdutoIBPT.SQL.Add('select * from estoque where codigo = ' + inttostr ( sqlconsulta.fieldbyname('cod_produto').asinteger  ) );
+                      qrProdutoIBPT.Open;
+
+                      sncm := qrProdutoIBPT.fieldbyname('classificacao_fiscal').asString;
+                      snomeprod := qrProdutoIBPT.fieldbyname('nome').asString;
+
+                    end;
+                  //endth
+
+
+                  Write(frmprincipal.arqsat,AjustaStr ( sncm ,8 ) );   //40 - ncm_item
+
+                  Write(frmprincipal.arqsat,AjustaStr ( snomeprod,50 ) );   //102 - desc_item
+
+
+                  Write(frmprincipal.arqsat,AjustaStr ( '5102',4 ) );   //41 - cfop_item
+
+                  if Cds_unidade.Locate('codigo',sqlconsulta.fieldbyname('cuin').AsInteger,[]) then
+                     begin
+                       Write(frmprincipal.arqsat,AjustaStr ( cds_unidade.fieldbyname('descricao').asString ,6 ) );   //42 - und_item
+                     end;
+                  //endi
+
+                  svalor := formatfloat ( '0000000000',sqlconsulta.fieldbyname('qtde').asfloat * 1000);
+                  Write(frmprincipal.arqsat,AjustaStr(  svalor  ,10 )) ;   //43 - qde_item
+
+                  svalor := formatfloat ( '0000000000',sqlconsulta.fieldbyname('prve').asfloat * 1000);
+                  Write(frmprincipal.arqsat,AjustaStr(    svalor  ,10));   //44 - vunitario_item
+
+                  Write(frmprincipal.arqsat, '0000000000');   //122 - dsc_item
+
+
+                  svalor := formatfloat ( '000000000000000',sqlconsulta.fieldbyname('subtotal').asfloat * 1000 );
+                  Write(frmprincipal.arqsat,AjustaStr ( svalor ,15 )); //45 - vtotal_item
+
+                  ftotalprod := ftotalprod + (sqlconsulta.fieldbyname('qtde').asfloat * sqlconsulta.fieldbyname('prve').asfloat) ;
+                  svalor := formatfloat ( '000000000000000', ftotalprod * 1000 );
+                  itotalprod := strtoint(svalor);
+
+                  svalor := formatfloat ( '0000000000'     ,sqlconsulta.fieldbyname('qtde').asfloat * 1000);
+                  Write(frmprincipal.arqsat,AjustaStr (  svalor ,10)); //46 - qde_trib_item
+
+                  svalor := formatfloat ( '0000000000'     ,sqlconsulta.fieldbyname('prve').asfloat * 1000 );
+                  Write(frmprincipal.arqsat,AjustaStr ( svalor  ,10 ) ); //47 - valor_trib_item
+
+                  if Cds_sita.Locate('codigo',sqlconsulta.fieldbyname('codsita').AsInteger,[]) then
+                     begin
+                       Write(frmprincipal.arqsat,AjustaStr ( cds_sita.fieldbyname('sigla').asString ,1 ) );   //48 - origem_merc
+                     end;
+                  //endi
+
+                  Write(frmprincipal.arqsat,AjustaStr ( '00',2 ) );   //49 - tipotribicms
+                  Write(frmprincipal.arqsat,AjustaStr ( '0',1) );   //50   - modbc
+
+                  // ICMS
+                  if Cds_AliqImpFis.Locate('codigo',sqlconsulta.fieldbyname('codicms').AsInteger,[]) then
+                     begin
+                       ssigla := cds_aliqimpfis.fieldbyname('sigla').asString;
+                       faliq := cds_aliqimpfis.fieldbyname('aliquota').asfloat * 1000;
+                     end;
+                  //endi
+
+                  fvalorimposto := sqlconsulta.fieldbyname('subtotal').asfloat * faliq;
+
+
+                  if fvalorimposto > 0 then
+                     begin
+                       svalor := formatfloat ( '00000000000000000',sqlconsulta.fieldbyname('subtotal').asfloat * 1000);
+                       Write(frmprincipal.arqsat,AjustaStr (  svalor  ,17 ) );   //51 - baseicms
+                     end
+                  else
+                     begin
+
+                       Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000'  ,17 ) );   //51 - baseicms
+
+                     end;
+                  //endi
+
+                  svalor := formatfloat ( '00000000000000000',fvalorimposto  );
+                  Write(frmprincipal.arqsat,AjustaStr (  svalor  ,17 ) );   //52  -  valoricms
+
+                  svalor := formatfloat ( '0000',faliq );
+                  Write(frmprincipal.arqsat,AjustaStr (  svalor ,4 ) );   //53 - aliquotaicms
+
+
+                   try
+                     ivalor := strtoint(ssigla);
+                   except
+                     ivalor := 0;
+                   end;
+
+                   ssigla := formatfloat('000',ivalor);
+
+
+                  Write(frmprincipal.arqsat,AjustaStr ( ssigla ,3 ) );   //54 -  cst
+
+                  //PIS
+                  if dbx_pis.Locate('codigo',sqlconsulta.fieldbyname('codpis').AsInteger,[]) then
+                     begin
+                       ssigla := dbx_pis.fieldbyname('sigla').asString;
+                       faliq := dbx_pis.fieldbyname('aliquota').asfloat * 1000;
+                     end;
+                  //endi
+
+                  fvalorimposto := sqlconsulta.fieldbyname('subtotal').asfloat * faliq;
+
+
+                  if fvalorimposto > 0 then
+                     begin
+                       svalor := formatfloat ( '00000000000000000',sqlconsulta.fieldbyname('subtotal').asfloat * 1000);
+                       Write(frmprincipal.arqsat,AjustaStr (  svalor ,17 ) );   //55 - basepis
+                     end
+                  else
+                     begin
+
+                       Write(frmprincipal.arqsat,AjustaStr (  '00000000000000000' ,17 ) );   //55 - basepis
+
+                     end;
+
+                  svalor := formatfloat ( '00000000000000000', fvalorimposto );
+                  Write(frmprincipal.arqsat,AjustaStr (  svalor ,17 ) );   //56 - valorpis
+
+                  svalor := formatfloat ( '0000',faliq );
+                  Write(frmprincipal.arqsat,AjustaStr (   svalor ,4 ) );   //57 -  aliquotapis
+
+                   try
+                     ivalor := strtoint(ssigla);
+                   except
+                     ivalor := 0;
+                   end;
+
+                   ssigla := formatfloat('000',ivalor);
+
+
+                  Write(frmprincipal.arqsat,AjustaStr (  ssigla,3 ) );   //58 - cstpis
+
+                  //COFINS
+                  if dbx_cofins.Locate('codigo',sqlconsulta.fieldbyname('codcofins').AsInteger,[]) then
+                     begin
+                       ssigla := dbx_cofins.fieldbyname('sigla').asString;
+                       faliq := dbx_cofins.fieldbyname('aliquota').asfloat * 1000;
+                     end;
+                  //endi
+
+                  fvalorimposto :=  sqlconsulta.fieldbyname('subtotal').asfloat * faliq;
+
+                  if fvalorimposto > 0 then
+                     begin
+                       svalor := formatfloat ( '00000000000000000',sqlconsulta.fieldbyname('subtotal').asfloat * 1000 );
+                       Write(frmprincipal.arqsat,AjustaStr ( svalor ,17 ) );   //59 - basecofins
+                     end
+                  else
+                     begin
+
+                       Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000' ,17 ) );   //59 - basecofins
+
+                     end;
+
+                  svalor := formatfloat ( '00000000000000000', fvalorimposto );
+                  Write(frmprincipal.arqsat,AjustaStr ( svalor ,17 ) );   //60 - valorcofins
+
+                  svalor := formatfloat ( '0000',faliq );
+                  Write(frmprincipal.arqsat,AjustaStr ( svalor ,4 ) );   //61 - aliquotacofins
+
+
+                   try
+                     ivalor := strtoint(ssigla);
+                   except
+                     ivalor := 0;
+                   end;
+
+                   ssigla := formatfloat('000',ivalor);
+
+
+
+                  Write(frmprincipal.arqsat,AjustaStr ( ssigla,3 ) );   //123 - cstcofins
+
+                  //Substituição tributária
+                  Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //103 -  basest
+                  Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //104 - valorst
+
+
+                  //IPI
+                  if dbx_ipi.Locate('codigo',sqlconsulta.fieldbyname('codipi').AsInteger,[]) then
+                     begin
+                       ssigla := dbx_ipi.fieldbyname('sigla').asString;
+                       faliq := dbx_ipi.fieldbyname('aliq').asfloat * 1000;
+                     end;
+                  //endi
+
+                  svalor := formatfloat ( '0000',faliq );
+                  Write(frmprincipal.arqsat,AjustaStr ( svalor ,4 ) );   //109 - aliquotaipi
+
+
+                   try
+                     ivalor := strtoint(ssigla);
+                   except
+                     ivalor := 0;
+                   end;
+
+                   ssigla := formatfloat('000',ivalor);
+
+
+
+
+                  Write(frmprincipal.arqsat,AjustaStr ( ssigla,3 ) );   //  110 - cstipi
+
+
+                  fvalorimposto :=  sqlconsulta.fieldbyname('subtotal').asfloat * faliq;
+
+                  if fvalorimposto > 0  then
+                     begin
+                       svalor :=  formatfloat ( '00000000000000000',sqlconsulta.fieldbyname('subtotal').asfloat * 1000);
+                       Write(frmprincipal.arqsat,AjustaStr (  svalor ,17 ) );   // 111 - baseipi
+                     end
+                  else
+                     begin
+
+                       Write(frmprincipal.arqsat,AjustaStr (  '00000000000000000' ,17 ) );   // 111 - baseipi
+
+                     end;
+
+                  svalor := formatfloat ( '00000000000000000', fvalorimposto );
+                  Write(frmprincipal.arqsat,AjustaStr (  svalor ,17 ) );   //112 - valoripi
+
+
+                  Write(frmprincipal.arqsat,AjustaStr ( '00000',5 ) );   // 134 - redbc
+                  Write(frmprincipal.arqsat,AjustaStr ( '00000',5 ) );   //  135 - redbcst
+                  Write(frmprincipal.arqsat,AjustaStr ( '00000',5 ) );   //136 - mvast
+
+                  Write(frmprincipal.arqsat,AjustaStr ( '0',1 ) );   //137 - modbc_st
+                  Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   // 138 - valorfrete
+                  Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   // 139 - valordesp
+                  Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //140 - valorseguro
+
+                  //---------
+
+                  // CSOSN
+                  if Cds_vprodutos.Locate('codigo',sqlconsulta.fieldbyname('cpro').AsInteger,[]) then
+                     begin
+                       try
+                         dbx_consulta.Active := false;
+                         dbx_consulta.SQL.Clear;
+                         dbx_consulta.SQL.Add('select * from conversaosat where decsosn = '+ inttostr( Cds_vprodutos.fieldbyname('csosn').asInteger ) );
+                         dbx_consulta.Active := true;
+                         if dbx_consulta.RecordCount > 0 then
+                            begin
+                              ivalor := strtoint(dbx_consulta.fieldbyname('paracsosn').asString);
+                            end
+                         else
+                            begin
+                              ivalor := strtoint(Cds_vprodutos.fieldbyname('csosn').asString);
+                            end;
+                         //endi
+                       except
+                         ivalor := 0;
+                       end;
+                     end;
+                  //endi
+
+                  svalor := formatfloat ( '0000',ivalor);
+                  Write(frmprincipal.arqsat,AjustaStr ( svalor ,4) ); // 142 - csosn
+
+                  Write(frmprincipal.arqsat,AjustaStr ( '0000',4 ) );   // 143 - csosn_aliqcred
+                  Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17) );   // 145 - csosn_valorcred
+                  Write(frmprincipal.arqsat,AjustaStr ( ' ', 2) );   //  141 - infoprdadic
+                  Writeln(frmprincipal.arqsat);
+
+                  sqlconsulta.Next;
+                end;
+              //endw
+
+              Write(frmprincipal.arqsat,AjustaStr ( '03',2 ) );   //  62 - id_reg
+              Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //  63 - total_baseicms
+              Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //   64 - total_valoricms
+              Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //   65 - total_basest
+              Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //   66 - total_valorst
+
+              //---
+              svalor := formatfloat('00000000000000000',itotalprod);
+              Write(frmprincipal.arqsat,AjustaStr ( svalor,17 ) );   //   67 - total_produtos
+
+              Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //   68 - total_frete
+              Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //   69 - total_seguro
+              Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //   70  - total_desconto
+              Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //  77 - total_II
+              Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //  78 - total_ipi
+              Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //  79  - total_pis
+              Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //  80 - total_cofins
+              Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //  81 - total_dsp_acess
+
+
+              //---
+              svalor := formatfloat('00000000000000000',itotalprod);
+              Write(frmprincipal.arqsat,AjustaStr ( svalor,17 ) );   //  82 - total_nfe
+              Writeln(frmprincipal.arqsat);
+
+              Write(frmprincipal.arqsat,AjustaStr ( '04',2 ) );   //  83 - id_reg
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',25 ) );   //  84 - cnpj_transp
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',50 ) );   //  85 - nome_transp
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',30 ) );     //  86 - ie_transp
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',50 ) );     // 87 - endereco_transp
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',30 ) );     //  88 - municipio_trans
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',2 ) );     // 89 - uf_transp
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',40 ) );     // 90 - antt_transp
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',1 ) );     //  114 - fretecob
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',10 ) );     //   118 - veiculoplaca
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',2 ) );     //   119 - veiculouf
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',20 ) );     //    120 - veiculorntc
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',2 ) );     //     132 - uf_embarq
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',60 ) );     //   133 - loc_embarq
+              Writeln(frmprincipal.arqsat);
+
+              Write(frmprincipal.arqsat,AjustaStr ( '05',2 ) );     // 91 - id_reg
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',6 ) );     // 92 - qde_vol
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',30 ) );     //  93 - especie_vol
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',30 ) );     //  94 - marca_vol
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',30 ) );     //  95 - num_vol
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',8 ) );     //  96 - pesoliq_vol
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',8 ) );     //    97 - pesobruto_vol
+              Writeln(frmprincipal.arqsat);
+
+              Write(frmprincipal.arqsat,AjustaStr ( '06',2 ) );     // 98 - id_reg
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',10 ) );     //  99 - num_dup
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',10 ) );     //  100 - dvenc_dup
+
+
+              //---
+              svalor := formatfloat('00000000000000000',itotalprod);
+              Write(frmprincipal.arqsat,AjustaStr ( svalor,17 ) );     //  101 - valor_dup
+
+              if strtofloat(tirapontos(lblaprazo.Caption)) > 0 then
+                 Write(frmprincipal.arqsat,AjustaStr ( 'O',2))        //  Tp_Pgto
+              else
+                 Write(frmprincipal.arqsat,AjustaStr ( 'D',2));        //  Tp_Pgto
+              //endi
+              Writeln(frmprincipal.arqsat);
+
+              Write(frmprincipal.arqsat,AjustaStr ( '07',2 ) );     //  105 - id_reg
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',6 ) );     //   106 - item_obs
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',500 ) );     //  107 - desc_obs
+              Writeln(frmprincipal.arqsat);
+
+              Write(frmprincipal.arqsat,AjustaStr ( '08',2 ) );     // 124 - id_reg
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',10 ) );     //  125 - N_DI
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',10 ) );     // 126 - DATA_REGISTRO
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',60 ) );     //  127 - LOCAL_DESEMB
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',2 ) );     // 131 - UF_DESEMB
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',10 ) );     // 128 - DATA_DESEMB
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',60 ) );     // 129 - COD_EXP
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',60 ) );     // 130 - COD_FAB
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',17 ) );     //  146 - BASE_II
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',17 ) );     //  147 - VALOR_II
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',17 ) );     //   148 - DSP_ADUANEIRA
+              Write(frmprincipal.arqsat,AjustaStr ( ' ',17 ) );     //  149 - VALOR_IOF
+              Writeln(frmprincipal.arqsat);
+
+              CloseFile(f);
+
+              sqlexec.Active := false;
+              sqlexec.SQL.Clear;
+              sqlexec.SQL.Add('update indice set proxsat = '+inttostr(iproxsat));
+              sqlexec.ExecSQL;
+
+
+            end;
+          //endth
+
+
+       end;
+    //endif
+
+
+
+
+
+
+end;
 
 end.
 

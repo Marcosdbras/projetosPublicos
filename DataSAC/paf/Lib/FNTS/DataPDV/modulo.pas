@@ -83,6 +83,8 @@ type
     lHTTP: TIdHTTP;
     IdHTTP1: TIdHTTP;
     sqlIndice: TIBCQuery;
+    sqlexec: TIBCQuery;
+    sqlconsulta: TIBCQuery;
     procedure BalancaLePeso(Peso: Double; Resposta: String);
   private
     { Private declarations }

@@ -161,6 +161,51 @@ type
     GroupBox13: TGroupBox;
     cb_tipo_fec: TComboBox;
     Label53: TLabel;
+    Conexao_Servidor: TIBCConnection;
+    query_servidor: TIBCQuery;
+    qrMestre: TIBCQuery;
+    qrcliente: TIBCQuery;
+    qrcontasreceber: TIBCQuery;
+    qrconfig: TIBCQuery;
+    qrcaixa_operador: TIBCQuery;
+    qrcaixa_mov: TIBCQuery;
+    qrbanco: TIBCQuery;
+    qrcontacorrente: TIBCQuery;
+    qrcontacorrenteCONTA: TStringField;
+    qrcontacorrentebanco: TStringField;
+    qrcontacorrenteAGENCIA: TStringField;
+    qrcontacorrenteTITULAR: TStringField;
+    qrcontacorrenteCODIGO: TStringField;
+    qrcontacorrenteCODBANCO: TStringField;
+    qrcontacorrenteSALDO: TFloatField;
+    qrcontacorrenteNOME_AGENCIA: TStringField;
+    qrlancamento_conta: TIBCQuery;
+    query_servidor2: TIBCQuery;
+    qrfilial: TIBCQuery;
+    qrtransportador: TIBCQuery;
+    qrcfop: TIBCQuery;
+    qrfiscal_modelo: TIBCQuery;
+    qrgrupo: TIBCQuery;
+    qrsubgrupo: TIBCQuery;
+    qrmarca: TIBCQuery;
+    qrfornecedor: TIBCQuery;
+    qrproduto: TIBCQuery;
+    qrproduto_mov: TIBCQuery;
+    qrgrade_produto: TIBCQuery;
+    Label54: TLabel;
+    ed_cliente_codibge_estado: TEdit;
+    Label55: TLabel;
+    ed_cliente_codibge_cidade: TEdit;
+    Label56: TLabel;
+    ed_cliente_numero: TEdit;
+    Label57: TLabel;
+    ed_cliente_fone: TEdit;
+    Label58: TLabel;
+    ed_cliente_email: TEdit;
+    Label59: TLabel;
+    ed_cliente_site: TEdit;
+    Label60: TLabel;
+    ed_cliente_complemento: TEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure pn2_cancelarClick(Sender: TObject);
@@ -183,7 +228,17 @@ type
     procedure GravarConfig;
     procedure cb_imp_tipoChange(Sender: TObject);
     procedure btn_ConfigSerialClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure TabEmpresaShow(Sender: TObject);
+    procedure TabBDShow(Sender: TObject);
   private
+        Arquivo_ini : TIniFile;
+         Registro: TRegistry;
+         txt : TextFile;
+
+         bServidor_Conexao, blocal_conexao:boolean;
+
+
     { Private declarations }
     procedure alimenta_tabela_ecf();
   public
@@ -509,6 +564,33 @@ begin
 
       ReadLn(Arq, sLinha);
       ed_cliente_IM.Text := sLinha;
+
+
+      ReadLn(Arq, sLinha);
+      ed_cliente_codibge_estado.Text := sLinha;
+
+      ReadLn(Arq, sLinha);
+      ed_cliente_codibge_cidade.Text := sLinha;
+
+      ReadLn(Arq, sLinha);
+      ed_cliente_numero.Text := sLinha;
+
+      ReadLn(Arq, sLinha);
+      ed_cliente_fone.Text := sLinha;
+
+      ReadLn(Arq, sLinha);
+      ed_cliente_numero.Text := sLinha;
+
+      ReadLn(Arq, sLinha);
+      ed_cliente_email.Text := sLinha;
+
+      ReadLn(Arq, sLinha);
+      ed_cliente_site.Text := sLinha;
+
+
+      ReadLn(Arq, sLinha);
+      ed_cliente_complemento.Text := sLinha;
+
 
     finally
       CloseFile(Arq);
@@ -1138,9 +1220,11 @@ end;
 // -------------------------------------------------------------------------- //
 
 procedure TfrmPrincipal.GravarConfig;
-var Arquivo_ini : TIniFile;
-  Registro: TRegistry;
-  txt : TextFile;
+ //var Arquivo_ini : TIniFile;
+ // Registro: TRegistry;
+ // txt : TextFile;
+
+ 
 begin
 
   if ed_cliente_nome.text = '' then
@@ -1237,6 +1321,22 @@ begin
   Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7H',Cript('C',ed_cliente_uf.text));
   //CEP
   Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7I',Cript('C',ed_cliente_cep.text));
+  //COD IBGE ESTADO
+  Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7J',Cript('C',ed_cliente_codibge_estado.text));
+  //COD IBGE CIDADE
+  Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7K',Cript('C',ed_cliente_codibge_cidade.text));
+  //Número
+  Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7L',Cript('C',ed_cliente_numero.text));
+  //fone
+  Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7M',Cript('C',ed_cliente_fone.text));
+  //email
+  Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7N',Cript('C',ed_cliente_email.text));
+  //site
+  Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7O',Cript('C',ed_cliente_site.text));
+  //complemento
+  Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7P',Cript('C',ed_cliente_complemento.text));
+
+
 
 
   //Impressora não fiscal e s@t
@@ -1256,7 +1356,7 @@ begin
 
   Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7J8',Cript('C',cb_imp_time_out.text));
 
-  Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7J9',Cript('C',cb_eq_fiscal_on.text));
+  Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7J9FIS',Cript('C',cb_eq_fiscal_on.text));
 
   if cb_tipo_fec.ItemIndex = 0 then
      begin
@@ -1421,60 +1521,42 @@ cb_imp_stop.Text := '';
 cb_imp_parity.Text := '';
 cb_imp_time_out.Text := '';
 
+cb_imp_porta.Clear;
 
-if (cb_imp_tipo.Text = 'Paralela') or (cb_imp_tipo.Text = 'Nenhum') then
+if (cb_imp_tipo.Text = 'Paralela') then
    begin
 
      cb_imp_porta.Text := 'LPT1';
-     cb_imp_porta.Items.Clear;
+
      cb_imp_porta.Items.Add('LPT1');
      cb_imp_porta.Items.Add('LPT2');
      cb_imp_porta.Items.Add('LPT3');
      cb_imp_porta.Items.Add('LPT4');
-     cb_imp_porta.Items.Add('c:\impressao\fechamento.txt');
 
-     //cb_imp_databits.Enabled := false;
-     //cb_imp_baudrate.Enabled := false;
-     //cb_imp_hand.Enabled := false;
-     //cb_imp_stop.Enabled := false;
-     //cb_imp_parity.Enabled := false;
-     //cb_imp_time_out.Enabled := false;
-     //btn_ConfigSerial.Enabled := false;
-     //btnsalvarserial.Enabled := false;
-     //cb_imp_porta.Enabled := true;
+
+   end
+else if (cb_imp_tipo.Text = 'Serial') then
+   begin
+
+     cb_imp_porta.Text := 'COM1';
+
+     cb_imp_porta.Items.Add('COM1');
+     cb_imp_porta.Items.Add('COM2');
+     cb_imp_porta.Items.Add('COM3');
+     cb_imp_porta.Items.Add('COM4');
+
+
 
    end
 else
    begin
 
-     cb_imp_porta.Text := 'COM1';
-     cb_imp_porta.Items.Clear;
-     cb_imp_porta.Items.Add('COM1');
-     cb_imp_porta.Items.Add('COM2');
-     cb_imp_porta.Items.Add('COM3');
-     cb_imp_porta.Items.Add('COM4');
-     //cb_imp_databits.Enabled := true;
-     //cb_imp_baudrate.Enabled := true;
-     //cb_imp_hand.Enabled := true;
-     //cb_imp_stop.Enabled := true;
-     //cb_imp_parity.Enabled := true;
-     //cb_imp_time_out.Enabled := true;
-
-     //cb_imp_porta.Text := 'COM1';
-     //cb_imp_databits.Text := '8';
-     //cb_imp_baudrate.Text := '9600';
-     //cb_imp_hand.text := 'Nenhum';
-     //cb_imp_stop.Text := 's1';
-     //cb_imp_parity.Text := 'pNone';
-     //cb_imp_time_out.Text := '5000';
-     //cb_imp_porta.Enabled := false;
-     //btn_configSerial.Enabled := true;
-     //btnsalvarserial.Enabled := true;
-
+     cb_imp_porta.Text := 'c:\datasac\impressao\fechamento.txt';
+     cb_imp_porta.Items.Add('c:\datasac\impressao\fechamento.txt');
 
 
    end;
-
+//endif
 
 
 end;
@@ -1482,6 +1564,137 @@ end;
 procedure TfrmPrincipal.btn_ConfigSerialClick(Sender: TObject);
 begin
 //comport1.ShowSetupDialog;
+end;
+
+procedure TfrmPrincipal.FormCreate(Sender: TObject);
+begin
+
+  bServidor_Conexao := false;
+  blocal_Conexao := false;
+
+  Registro            := TRegistry.Create;
+  Registro.RootKey    := HKEY_LOCAL_MACHINE;
+  if Registro.OpenKey('SOFTWARE',false) then
+     begin
+
+
+       if Registro.OpenKey('DataPDV',false) then
+           begin
+             if Registro.openkey('PDV',false) then
+                 begin
+                   (************** BANCO DE DADOS *************)
+                   if Registro.OpenKey('Dados',false) then
+                      begin
+
+                        try
+                          conexao.Connected := false;
+                          conexao.Database := Registro.ReadString('Local_Base');
+                          conexao.Connected := true;
+
+                          try
+                            if Registro.ReadString('Servidor_Ativo') = 'SIM' then
+                            begin
+                              Conexao_Servidor.Connected := false;
+                              Conexao_Servidor.Server := Registro.ReadString('Servidor_Host');
+                              Conexao_Servidor.Database := Registro.ReadString('Servidor_Base');
+                              Conexao_Servidor.Connected := true;
+                              bServidor_Conexao := true;
+                            end
+                            else
+                            begin
+                              bServidor_Conexao := false;
+                            end;
+                          except
+                            bServidor_Conexao := false;
+                          end;
+
+                          blocal_conexao := true;
+
+                        except
+
+                           blocal_conexao := false;
+
+                           application.messagebox(pansichar('Não foi possível conectar ao banco de dados local!'+#13+
+                                                            'Caminho: '+Registro.ReadString('Local_Base')+#13+
+                                                            ' verifique se o banco encontra-se no caminho especificado acima'+chr(13)+
+                                                            ' ou verifique se o caminho existe!'),'Erro',mb_ok+mb_iconerror);
+                            //Application.Terminate;
+                            //exit;
+
+                           
+
+                        end;
+
+
+
+
+
+                      end;
+                   //endif
+                 end;
+             //endif
+           end;
+       //endif
+
+
+     end;
+  //endi
+  Registro.CloseKey;
+
+
+end;
+
+procedure TfrmPrincipal.TabEmpresaShow(Sender: TObject);
+begin
+  if bServidor_Conexao then
+     begin
+
+       qrfilial.Close;
+       qrfilial.SQL.Clear;
+       qrfilial.SQL.Add('select * from c000004');
+       qrfilial.Open;
+
+       ed_cliente_nome.Text :=  qrfilial.fieldbyname('filial').AsString;
+       ed_cliente_endereco.Text :=  qrfilial.fieldbyname('endereco').AsString;
+       ed_cliente_bairro.Text :=  qrfilial.fieldbyname('bairro').AsString;
+       ed_cliente_cidade.Text :=  qrfilial.fieldbyname('cidade').AsString;
+       ed_cliente_uf.Text :=  qrfilial.fieldbyname('uf').AsString;
+       ed_cliente_cep.Text :=  qrfilial.fieldbyname('cep').AsString;
+       ed_cliente_cnpj.Text :=  qrfilial.fieldbyname('cnpj').AsString;
+       ed_cliente_ie.Text :=  qrfilial.fieldbyname('ie').AsString;
+       ed_cliente_im.Text :=  qrfilial.fieldbyname('insc_municipal').AsString;
+       ed_cliente_codibge_estado.Text :=  qrfilial.fieldbyname('ibge').AsString;
+       ed_cliente_codibge_cidade.Text :=  qrfilial.fieldbyname('cod_municipio_ibge').AsString;
+       ed_cliente_numero.Text :=  qrfilial.fieldbyname('numero').AsString;
+       ed_cliente_fone.Text :=  qrfilial.fieldbyname('telefone').AsString;
+       ed_cliente_email.Text :=  qrfilial.fieldbyname('email').AsString;
+       ed_cliente_complemento.Text :=  qrfilial.fieldbyname('complemento').AsString;
+
+       //incluir campo abaixo na base de dados principal
+       ed_cliente_site.Text  := '';
+
+     end;
+  //endi
+
+
+
+end;
+
+procedure TfrmPrincipal.TabBDShow(Sender: TObject);
+begin
+  if bServidor_Conexao then
+     begin
+       ed_base.Text := conexao_servidor.Database;
+       ed_server.Text := conexao_servidor.Server;
+     end;
+  //endi
+
+  if blocal_conexao then
+     begin
+       ed_base_local.Text := conexao.Database;
+     end;
+  //endi
+
 end;
 
 end.

@@ -15,6 +15,7 @@ object frmPrincipal: TfrmPrincipal
   OldCreateOrder = False
   Position = poScreenCenter
   OnClose = FormClose
+  OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   PixelsPerInch = 96
@@ -364,7 +365,7 @@ object frmPrincipal: TfrmPrincipal
       Height = 339
       AdvOfficePagerStyler = AdvOfficePagerOfficeStyler1
       Align = alClient
-      ActivePage = TabECF
+      ActivePage = TabEmpresa
       ButtonSettings.CloseButtonPicture.Data = {
         424DA20400000000000036040000280000000900000009000000010008000000
         00006C000000C30E0000C30E00000001000000010000427B8400DEEFEF00FFFF
@@ -1126,6 +1127,7 @@ object frmPrincipal: TfrmPrincipal
         TabAppearance.BackGround.Color = clBtnFace
         TabAppearance.BackGround.ColorTo = clBtnFace
         TabAppearance.BackGround.Direction = gdHorizontal
+        OnShow = TabBDShow
         object Label3: TLabel
           Left = 8
           Top = 8
@@ -1489,7 +1491,7 @@ object frmPrincipal: TfrmPrincipal
           Top = 122
           Width = 400
           Height = 72
-          Caption = 'Comunica'#231#227'o Direta'
+          Caption = 'Comunica'#231#227'o Direta Impressora'
           TabOrder = 1
           object Label42: TLabel
             Left = 9
@@ -1506,22 +1508,23 @@ object frmPrincipal: TfrmPrincipal
             Caption = 'Caminho Impr.'
           end
           object cb_imp_tipo: TComboBox
-            Left = 93
+            Left = 112
             Top = 18
-            Width = 298
+            Width = 279
             Height = 21
             ItemHeight = 13
             TabOrder = 0
             Text = 'Paralela'
             OnChange = cb_imp_tipoChange
             Items.Strings = (
+              'Nenhuma'
               'Paralela'
               'Serial')
           end
           object cb_imp_porta: TComboBox
-            Left = 93
+            Left = 112
             Top = 45
-            Width = 299
+            Width = 280
             Height = 21
             ItemHeight = 13
             TabOrder = 1
@@ -1533,9 +1536,8 @@ object frmPrincipal: TfrmPrincipal
           Top = 197
           Width = 400
           Height = 59
-          Caption = 'Meio de Comunica'#231#227'o SEFAZ'
+          Caption = 'Fabricante S@T ou Caminho monitor SEFAZ'
           TabOrder = 2
-          Visible = False
           object Label51: TLabel
             Left = 8
             Top = 25
@@ -1545,23 +1547,21 @@ object frmPrincipal: TfrmPrincipal
           object Label52: TLabel
             Left = 5
             Top = 29
-            Width = 51
+            Width = 96
             Height = 13
-            Caption = 'Fabricante'
-            Visible = False
+            Caption = 'Caminho/Fabricante'
           end
           object cb_eq_fiscal_on: TComboBox
-            Left = 58
+            Left = 112
             Top = 26
-            Width = 335
+            Width = 281
             Height = 21
             ItemHeight = 13
             TabOrder = 0
             Text = 'Nenhum'
-            Visible = False
             Items.Strings = (
               'Nenhum'
-              'S@T Daruma')
+              'c:\Datasac\monitorfiscal\arqent')
           end
         end
         object cb_imp_databits: TComboBox
@@ -1677,9 +1677,9 @@ object frmPrincipal: TfrmPrincipal
             Visible = False
           end
           object cb_tipo_fec: TComboBox
-            Left = 56
+            Left = 112
             Top = 18
-            Width = 333
+            Width = 277
             Height = 21
             ItemHeight = 13
             TabOrder = 0
@@ -1908,9 +1908,10 @@ object frmPrincipal: TfrmPrincipal
         TabAppearance.BackGround.Color = clBtnFace
         TabAppearance.BackGround.ColorTo = clBtnFace
         TabAppearance.BackGround.Direction = gdHorizontal
+        OnShow = TabEmpresaShow
         object GroupBox8: TGroupBox
           Left = 8
-          Top = 205
+          Top = 251
           Width = 413
           Height = 52
           Caption = 'Ramo de Atividade'
@@ -1955,7 +1956,7 @@ object frmPrincipal: TfrmPrincipal
           Left = 8
           Top = 8
           Width = 413
-          Height = 193
+          Height = 241
           Caption = 'Dados'
           TabOrder = 0
           object Label14: TLabel
@@ -1998,8 +1999,8 @@ object frmPrincipal: TfrmPrincipal
             Caption = 'Endere'#231'o'
           end
           object Label33: TLabel
-            Left = 39
-            Top = 58
+            Left = 239
+            Top = 56
             Width = 28
             Height = 13
             Alignment = taRightJustify
@@ -2014,7 +2015,7 @@ object frmPrincipal: TfrmPrincipal
             Caption = 'Cidade'
           end
           object Label35: TLabel
-            Left = 296
+            Left = 312
             Top = 78
             Width = 13
             Height = 13
@@ -2028,10 +2029,60 @@ object frmPrincipal: TfrmPrincipal
             Alignment = taRightJustify
             Caption = 'CEP'
           end
+          object Label54: TLabel
+            Left = 239
+            Top = 118
+            Width = 95
+            Height = 13
+            Caption = 'COD. IBGE ESTADO'
+          end
+          object Label55: TLabel
+            Left = 239
+            Top = 138
+            Width = 93
+            Height = 13
+            Caption = 'COD. IBGE CIDADE'
+          end
+          object Label56: TLabel
+            Left = 312
+            Top = 38
+            Width = 17
+            Height = 13
+            Caption = 'N.o'
+          end
+          object Label57: TLabel
+            Left = 42
+            Top = 176
+            Width = 24
+            Height = 13
+            Caption = 'Fone'
+          end
+          object Label58: TLabel
+            Left = 42
+            Top = 196
+            Width = 24
+            Height = 13
+            Caption = 'email'
+          end
+          object Label59: TLabel
+            Left = 41
+            Top = 216
+            Width = 18
+            Height = 13
+            Caption = 'Site'
+          end
+          object Label60: TLabel
+            Left = 34
+            Top = 58
+            Width = 33
+            Height = 13
+            Alignment = taRightJustify
+            Caption = 'Compl.'
+          end
           object ed_cliente_nome: TEdit
             Left = 72
             Top = 14
-            Width = 329
+            Width = 328
             Height = 19
             Ctl3D = False
             MaxLength = 50
@@ -2046,7 +2097,7 @@ object frmPrincipal: TfrmPrincipal
             Ctl3D = False
             MaxLength = 18
             ParentCtl3D = False
-            TabOrder = 6
+            TabOrder = 8
             OnExit = ed_cliente_cnpjExit
           end
           object ed_cliente_ie: TEdit
@@ -2057,7 +2108,7 @@ object frmPrincipal: TfrmPrincipal
             Ctl3D = False
             MaxLength = 12
             ParentCtl3D = False
-            TabOrder = 7
+            TabOrder = 9
             OnExit = ed_cliente_ieExit
           end
           object ed_cliente_im: TEdit
@@ -2068,12 +2119,12 @@ object frmPrincipal: TfrmPrincipal
             Ctl3D = False
             MaxLength = 6
             ParentCtl3D = False
-            TabOrder = 8
+            TabOrder = 10
           end
           object ed_cliente_endereco: TEdit
             Left = 72
             Top = 34
-            Width = 329
+            Width = 233
             Height = 19
             Ctl3D = False
             MaxLength = 50
@@ -2081,34 +2132,34 @@ object frmPrincipal: TfrmPrincipal
             TabOrder = 1
           end
           object ed_cliente_bairro: TEdit
-            Left = 72
+            Left = 272
             Top = 54
-            Width = 209
-            Height = 19
-            Ctl3D = False
-            MaxLength = 25
-            ParentCtl3D = False
-            TabOrder = 2
-          end
-          object ed_cliente_cidade: TEdit
-            Left = 72
-            Top = 74
-            Width = 209
-            Height = 19
-            Ctl3D = False
-            MaxLength = 25
-            ParentCtl3D = False
-            TabOrder = 3
-          end
-          object ed_cliente_uf: TEdit
-            Left = 312
-            Top = 74
-            Width = 25
+            Width = 128
             Height = 19
             Ctl3D = False
             MaxLength = 25
             ParentCtl3D = False
             TabOrder = 4
+          end
+          object ed_cliente_cidade: TEdit
+            Left = 72
+            Top = 74
+            Width = 233
+            Height = 19
+            Ctl3D = False
+            MaxLength = 25
+            ParentCtl3D = False
+            TabOrder = 5
+          end
+          object ed_cliente_uf: TEdit
+            Left = 342
+            Top = 74
+            Width = 25
+            Height = 19
+            Ctl3D = False
+            MaxLength = 2
+            ParentCtl3D = False
+            TabOrder = 6
           end
           object ed_cliente_cep: TEdit
             Left = 72
@@ -2118,16 +2169,84 @@ object frmPrincipal: TfrmPrincipal
             Ctl3D = False
             MaxLength = 9
             ParentCtl3D = False
-            TabOrder = 5
+            TabOrder = 7
             OnExit = ed_cliente_cepExit
+          end
+          object ed_cliente_codibge_estado: TEdit
+            Left = 341
+            Top = 114
+            Width = 25
+            Height = 19
+            Ctl3D = False
+            MaxLength = 20
+            ParentCtl3D = False
+            TabOrder = 14
+          end
+          object ed_cliente_codibge_cidade: TEdit
+            Left = 341
+            Top = 134
+            Width = 60
+            Height = 19
+            Ctl3D = False
+            MaxLength = 20
+            ParentCtl3D = False
+            TabOrder = 15
+          end
+          object ed_cliente_numero: TEdit
+            Left = 342
+            Top = 34
+            Width = 58
+            Height = 19
+            Ctl3D = False
+            MaxLength = 25
+            ParentCtl3D = False
+            TabOrder = 2
+          end
+          object ed_cliente_fone: TEdit
+            Left = 72
+            Top = 174
+            Width = 154
+            Height = 19
+            Ctl3D = False
+            MaxLength = 50
+            ParentCtl3D = False
+            TabOrder = 11
+          end
+          object ed_cliente_email: TEdit
+            Left = 72
+            Top = 194
+            Width = 154
+            Height = 19
+            Ctl3D = False
+            ParentCtl3D = False
+            TabOrder = 12
+          end
+          object ed_cliente_site: TEdit
+            Left = 72
+            Top = 214
+            Width = 154
+            Height = 19
+            Ctl3D = False
+            ParentCtl3D = False
+            TabOrder = 13
+          end
+          object ed_cliente_complemento: TEdit
+            Left = 72
+            Top = 54
+            Width = 161
+            Height = 19
+            Ctl3D = False
+            MaxLength = 50
+            ParentCtl3D = False
+            TabOrder = 3
           end
         end
       end
     end
   end
   object XPManifest1: TXPManifest
-    Left = 428
-    Top = 112
+    Left = 372
+    Top = 344
   end
   object conexao: TIBCConnection
     Database = 'C:\DataSAC\Paf\Dat\DATPDV.FDB'
@@ -2137,17 +2256,17 @@ object frmPrincipal: TfrmPrincipal
     Password = 'masterkey'
     Server = 'localhost'
     LoginPrompt = False
-    Left = 389
-    Top = 16
+    Left = 581
+    Top = 176
   end
   object qrpaf: TIBCQuery
     Connection = conexao
-    Left = 421
-    Top = 16
+    Left = 581
+    Top = 232
   end
   object OpenDialog1: TOpenDialog
-    Left = 484
-    Top = 188
+    Left = 220
+    Top = 340
   end
   object conexao_ecf: TADOConnection
     ConnectionString = 
@@ -2163,8 +2282,8 @@ object frmPrincipal: TfrmPrincipal
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
-    Left = 440
-    Top = 336
+    Left = 496
+    Top = 176
   end
   object qrECF: TADOQuery
     Connection = conexao_ecf
@@ -2172,13 +2291,13 @@ object frmPrincipal: TfrmPrincipal
     Parameters = <>
     SQL.Strings = (
       'select * from ecf#txt')
-    Left = 520
-    Top = 335
+    Left = 496
+    Top = 231
   end
   object validador: TACBrValidador
     IgnorarChar = './-'
-    Left = 424
-    Top = 212
+    Left = 136
+    Top = 340
   end
   object AdvOfficePagerOfficeStyler1: TAdvOfficePagerOfficeStyler
     Style = psWindowsXP
@@ -2266,8 +2385,8 @@ object frmPrincipal: TfrmPrincipal
     GlowButtonAppearance.GradientDown = ggVertical
     GlowButtonAppearance.GradientMirrorDown = ggVertical
     GlowButtonAppearance.GradientChecked = ggVertical
-    Left = 484
-    Top = 252
+    Left = 20
+    Top = 340
   end
   object ComPort1: TComPort
     BaudRate = br9600
@@ -2282,7 +2401,221 @@ object frmPrincipal: TfrmPrincipal
     FlowControl.ControlRTS = rtsDisable
     FlowControl.XonXoffOut = False
     FlowControl.XonXoffIn = False
-    Left = 513
-    Top = 126
+    Left = 305
+    Top = 342
+  end
+  object Conexao_Servidor: TIBCConnection
+    Database = 'C:\DataSac\Server\bd\BASE.FDB'
+    SQLDialect = 1
+    ClientLibrary = 'fbclient.dll'
+    Port = '3050'
+    Username = 'SYSDBA'
+    Password = 'masterkey'
+    Server = 'localhost'
+    LoginPrompt = False
+    Left = 496
+    Top = 280
+  end
+  object query_servidor: TIBCQuery
+    Connection = Conexao_Servidor
+    Left = 184
+    Top = 416
+  end
+  object qrMestre: TIBCQuery
+    Connection = Conexao_Servidor
+    Left = 456
+    Top = 416
+  end
+  object qrcliente: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000007')
+    Left = 24
+    Top = 487
+  end
+  object qrcontasreceber: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000049')
+    Left = 176
+    Top = 487
+  end
+  object qrconfig: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000001')
+    Left = 96
+    Top = 487
+  end
+  object qrcaixa_operador: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000045')
+    Left = 264
+    Top = 487
+  end
+  object qrcaixa_mov: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000044')
+    Left = 32
+    Top = 567
+  end
+  object qrbanco: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000013')
+    Left = 344
+    Top = 487
+  end
+  object qrcontacorrente: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000041')
+    Left = 424
+    Top = 487
+    object qrcontacorrenteCONTA: TStringField
+      DisplayLabel = 'Conta'
+      DisplayWidth = 15
+      FieldName = 'CONTA'
+      Size = 15
+    end
+    object qrcontacorrentebanco: TStringField
+      DisplayLabel = 'Banco'
+      DisplayWidth = 19
+      FieldKind = fkLookup
+      FieldName = 'banco'
+      LookupDataSet = qrbanco
+      LookupKeyFields = 'numero'
+      LookupResultField = 'BANCO'
+      KeyFields = 'codbanco'
+      Size = 40
+      Lookup = True
+    end
+    object qrcontacorrenteAGENCIA: TStringField
+      DisplayLabel = 'Ag'#234'ncia'
+      DisplayWidth = 6
+      FieldName = 'AGENCIA'
+      Size = 10
+    end
+    object qrcontacorrenteTITULAR: TStringField
+      DisplayLabel = 'Titular'
+      DisplayWidth = 31
+      FieldName = 'TITULAR'
+      Size = 30
+    end
+    object qrcontacorrenteCODIGO: TStringField
+      DisplayWidth = 6
+      FieldName = 'CODIGO'
+      Required = True
+      Visible = False
+      Size = 6
+    end
+    object qrcontacorrenteCODBANCO: TStringField
+      DisplayWidth = 3
+      FieldName = 'CODBANCO'
+      Visible = False
+      Size = 3
+    end
+    object qrcontacorrenteSALDO: TFloatField
+      DisplayWidth = 10
+      FieldName = 'SALDO'
+      Visible = False
+    end
+    object qrcontacorrenteNOME_AGENCIA: TStringField
+      DisplayWidth = 30
+      FieldName = 'NOME_AGENCIA'
+      Visible = False
+      Size = 30
+    end
+  end
+  object qrlancamento_conta: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000042')
+    Left = 368
+    Top = 416
+  end
+  object query_servidor2: TIBCQuery
+    Connection = Conexao_Servidor
+    Left = 272
+    Top = 416
+  end
+  object qrfilial: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000004')
+    Left = 24
+    Top = 416
+  end
+  object qrtransportador: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000010')
+    Left = 96
+    Top = 416
+  end
+  object qrcfop: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000030')
+    Left = 512
+    Top = 496
+  end
+  object qrfiscal_modelo: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000082')
+    Left = 512
+    Top = 576
+  end
+  object qrgrupo: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000017')
+    Left = 440
+    Top = 568
+  end
+  object qrsubgrupo: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000018')
+    Left = 208
+    Top = 568
+  end
+  object qrmarca: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000019')
+    Left = 288
+    Top = 568
+  end
+  object qrfornecedor: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000009')
+    Left = 360
+    Top = 568
+  end
+  object qrproduto: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000025')
+    Left = 520
+    Top = 416
+  end
+  object qrproduto_mov: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000032')
+    Left = 128
+    Top = 568
+  end
+  object qrgrade_produto: TIBCQuery
+    Connection = Conexao_Servidor
+    SQL.Strings = (
+      'select * from c000032')
+    Left = 600
+    Top = 416
   end
 end

@@ -79,7 +79,7 @@ type
 
     cupomini:TInifile;
 
-    arq:TextFile;
+    arq, arqsat:TextFile;
 
 //  Funcoes DataPDV
     function codifica(Tabela:string;qtde_digitos:integer):string;
@@ -165,7 +165,11 @@ var
     sEmpresa_Endereco, sempresa_Rua, sempresa_Numero, sempresa_Bairro,
     sEmpresa_Cidade, sempresa_complemento, sempresa_CEP,
     sempresa_telefone, sempresa_fax, sempresa_email,
-    sEmpresa_UF, sempresa_Codigo, sempresa_ibge : string;
+    sEmpresa_UF, sEmpresa_Codigo, sEmpresa_ibge, sEmpresa_ibge_estado,
+    sEmpresa_codpaisibge, sEmpresa_pais, sEmpresa_site : string;
+
+ 
+
   (* Dados da Sistema / Empresa Desenvolvedora *)
     sPAF_Nome : string;
     sPAF_Versao : string;
@@ -644,8 +648,27 @@ begin
   {CIDADE}            Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7G',''))+' '+
   {UF}                Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7H',''))+' '+
   {CEP}               Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7I',''));
-  // UF
-  sEmpresa_UF := Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7H',''));
+
+  {UF}  sEmpresa_UF := Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7H',''));
+
+  sEmpresa_rua  :=  Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7E',''));
+  sEmpresa_bairro       :=  Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7F',''));
+  sEmpresa_cidade       :=  Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7G',''));
+  sEmpresa_cep          :=  Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7I',''));
+
+  sempresa_Numero       := Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7L',''));
+  sempresa_ibge         := Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7K',''));
+  sempresa_ibge_estado  := Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7J',''));
+  sempresa_complemento  := Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7P',''));
+  sempresa_telefone     := Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7M',''));
+  sempresa_email        := Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7N',''));
+  sempresa_site        := Cript('D',Arquivo_ini.ReadString('4CF8193FCC2D45DF','3ADA7O',''));
+
+  sempresa_codpaisibge  := '1058';
+  sempresa_pais := 'BRASIL';
+  
+  sempresa_Codigo       := '';
+  sempresa_fax          := '';
 
   // TIPO DE ATIVIDADE
   // 1 NORMAL, 2 AUTOPECAS , 3 POSTO , 4 RESTAURANTE
@@ -691,6 +714,8 @@ begin
     frmmodulo.qrfilial.open;
     sempresa_Codigo := frmModulo.qrfilial.fieldbyname('codigo').asstring;
     sempresa_ibge := frmModulo.qrfilial.fieldbyname('COD_MUNICIPIO_IBGE').asstring;
+    sempresa_ibge_estado := frmModulo.qrfilial.fieldbyname('IBGE').asstring;
+
     sempresa_Rua := frmModulo.qrfilial.fieldbyname('endereco').asstring;
     sempresa_Numero := frmModulo.qrfilial.fieldbyname('numero').asstring;
     sempresa_Bairro := frmModulo.qrfilial.fieldbyname('bairro').asstring;
@@ -703,8 +728,17 @@ begin
   END
   ELSE
   BEGIN
+
+
+
+    {
+
     sempresa_Codigo := '';
+
+
     sempresa_ibge := '';
+    sempresa_ibge_estado := '';
+
     sempresa_Rua := '';
     sempresa_Numero := '';
     sempresa_Bairro := '';
@@ -714,6 +748,9 @@ begin
     sempresa_telefone := '';
     sempresa_fax := '';
     sempresa_email := '';
+
+    }
+
   END;
 
   // abrir banco de dados de configuracoes local
@@ -874,7 +911,8 @@ begin
 
   stimeoutimp:= Cript('D',  arquivo_nao_fiscal_ini.ReadString('4CF8193FCC2D45DF','3ADA7J8','')  );
 
-  seqfiscalon:= Cript('D',  arquivo_nao_fiscal_ini.ReadString('4CF8193FCC2D45DF','3ADA7J9','')  );
+  seqfiscalon:= Cript('D',  arquivo_nao_fiscal_ini.ReadString('4CF8193FCC2D45DF','3ADA7J9FIS','')  );
+
 
   //NOME
   scliente_nome := Cript('D',   arquivo_nao_fiscal_ini.ReadString('4CF8193FCC2D45DF','5EF5100C1D','')    );
