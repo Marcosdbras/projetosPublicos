@@ -10083,7 +10083,8 @@ procedure gerasat;
     ftotalprod:real;
 
     sncm,
-    snomeprod:string;
+    snomeprod,
+    scfop:string;
 begin
 
 
@@ -10216,7 +10217,15 @@ begin
                   Write(frmprincipal.arqsat,AjustaStr ( snomeprod,50 ) );   //102 - desc_item
 
 
-                  Write(frmprincipal.arqsat,AjustaStr ( '5102',4 ) );   //41 - cfop_item
+                  //adequar de acordo com legislação s@t
+                  //colocar no cadastro de produto cfop  e
+                  //gerar cfop de acordo com o cadastro
+
+                  scfop := '5.102';
+
+
+
+                  Write(frmprincipal.arqsat,AjustaStr ( scfop,4 ) );   //41 - cfop_item
 
                   if Cds_unidade.Locate('codigo',sqlconsulta.fieldbyname('cuin').AsInteger,[]) then
                      begin

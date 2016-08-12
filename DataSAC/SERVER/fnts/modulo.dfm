@@ -4,7 +4,7 @@ object frmmodulo: Tfrmmodulo
   Left = 65532
   Top = 65532
   Height = 746
-  Width = 1374
+  Width = 1292
   object Conexao: TZConnection
     AutoCommit = False
     ReadOnly = True
@@ -2639,6 +2639,9 @@ object frmmodulo: Tfrmmodulo
     end
     object qrprodutoMARGEM_AGREGADA: TFloatField
       FieldName = 'MARGEM_AGREGADA'
+    end
+    object qrprodutoCFOP: TStringField
+      FieldName = 'CFOP'
     end
   end
   object qrpreco: TZQuery

@@ -701,6 +701,9 @@ type
     Label98: TLabel;
     Label99: TLabel;
     Label100: TLabel;
+    Label102: TLabel;
+    ecfop: TRzDBButtonEdit;
+    qrprodutoCFOP: TStringField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure enomeEnter(Sender: TObject);
@@ -899,6 +902,8 @@ type
     procedure DBEdit32Exit(Sender: TObject);
     procedure DBEdit32Enter(Sender: TObject);
     procedure DBEdit32KeyPress(Sender: TObject; var Key: Char);
+    procedure ecfopButtonClick(Sender: TObject);
+    procedure ecfopKeyPress(Sender: TObject; var Key: Char);
 
   private
     { Private declarations }
@@ -932,7 +937,7 @@ uses modulo, principal, loc_grupo,
   xloc_produto, produto_atualizapreco, xloc_cst, industrializacao,
   inventario, baixa_estoque, servico, loc_aliquota, Produto_consultaserial,
   produto_movimentar, unNFe2, produto_serial_ficha, fornecedor_codigo, Ncm,
-  xloc_csosn, baixarncm;
+  xloc_csosn, baixarncm, xloc_cfop;
 
 {$R *.dfm}
 
@@ -4820,6 +4825,55 @@ end;
 procedure Tfrmproduto.DBEdit32KeyPress(Sender: TObject; var Key: Char);
 begin
 if key = #13 then batu.setfocus;
+end;
+
+procedure Tfrmproduto.ecfopButtonClick(Sender: TObject);
+begin
+  IF QRPRODUTO.State <> DSINSERT THEN
+  IF QRPRODUTO.STATE <> DSINSERT THEN QRPRODUTO.Edit;
+
+  parametro_pesquisa := '=2'; {tipo = 2}
+  frmxloc_cfop := tfrmxloc_cfop.create(self);
+  frmxloc_cfop.showmodal;
+  if resultado_pesquisa1 <>'' then
+  begin
+      zquery1.close;
+      zquery1.sql.clear;
+      zquery1.sql.add('select * from cfop where CODIGO = '''+resultado_pesquisa1+'''');
+      zquery1.open;
+      ecfop.text := zquery1.fieldbyname('codigo').asstring;
+      ecfop.setfocus;
+  end;
+
+end;
+
+procedure Tfrmproduto.ecfopKeyPress(Sender: TObject; var Key: Char);
+begin
+  if key = #13 then
+  begin
+  tedit(sender).Color := clwindow;
+  IF (qrproduto.state = dsinsert) or (qrproduto.State = dsedit) then
+  begin
+    qrproduto.fieldbyname('cfop').asstring := frmprincipal.zerarcodigo(ecfop.text,3);
+    if ecfop.text <> '' then
+      if not FrmPrincipal.Locregistro(frmmodulo.qrcfop,ecfop.text,'codigo') then
+      begin
+          application.messagebox('cfop não cadastrada!','Atenção',mb_ok+mb_iconerror);
+          ecfop.setfocus;
+          exit;
+      end
+      else
+        begin
+          perform(wm_nextdlgctl,0,0);
+          //DBMemo1.setfocus
+        end
+
+    else
+      ecfopButtonClick(frmproduto);
+  end;
+
+  end;
+
 end;
 
 end.

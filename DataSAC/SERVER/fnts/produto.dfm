@@ -1199,8 +1199,8 @@ object frmproduto: Tfrmproduto
     Top = 208
     Width = 985
     Height = 250
-    ActivePage = PageSheet9
-    ActivePageIndex = 0
+    ActivePage = PageSheet13
+    ActivePageIndex = 9
     AdaptiveColors = True
     Align = alBottom
     BackgroundColor = clBtnFace
@@ -6674,11 +6674,10 @@ object frmproduto: Tfrmproduto
         Height = 212
         TabOrder = 0
         object Label30: TLabel
-          Left = 3
+          Left = 7
           Top = 61
           Width = 38
           Height = 12
-          Alignment = taRightJustify
           AutoSize = False
           Caption = 'ICMS:'
           Font.Charset = ANSI_CHARSET
@@ -6689,11 +6688,10 @@ object frmproduto: Tfrmproduto
           ParentFont = False
         end
         object Label73: TLabel
-          Left = 5
+          Left = 9
           Top = 20
           Width = 36
           Height = 12
-          Alignment = taRightJustify
           AutoSize = False
           Caption = 'CST:'
           Font.Charset = ANSI_CHARSET
@@ -6704,11 +6702,10 @@ object frmproduto: Tfrmproduto
           ParentFont = False
         end
         object Label93: TLabel
-          Left = 101
+          Left = 124
           Top = 20
           Width = 24
           Height = 12
-          Alignment = taRightJustify
           AutoSize = False
           Caption = 'ST:'
           Font.Charset = ANSI_CHARSET
@@ -6719,11 +6716,10 @@ object frmproduto: Tfrmproduto
           ParentFont = False
         end
         object Label95: TLabel
-          Left = 2
+          Left = 6
           Top = 105
           Width = 40
           Height = 13
-          Alignment = taRightJustify
           AutoSize = False
           Caption = 'CSOSN:'
           Font.Charset = ANSI_CHARSET
@@ -6734,11 +6730,10 @@ object frmproduto: Tfrmproduto
           ParentFont = False
         end
         object Label106: TLabel
-          Left = 88
+          Left = 124
           Top = 61
           Width = 38
           Height = 12
-          Alignment = taRightJustify
           AutoSize = False
           Caption = 'MVA:'
           Font.Charset = ANSI_CHARSET
@@ -6749,11 +6744,10 @@ object frmproduto: Tfrmproduto
           ParentFont = False
         end
         object Label96: TLabel
-          Left = 101
+          Left = 124
           Top = 104
           Width = 41
           Height = 17
-          Alignment = taRightJustify
           AutoSize = False
           Caption = 'Origem:'
           Font.Charset = ANSI_CHARSET
@@ -6764,7 +6758,7 @@ object frmproduto: Tfrmproduto
           ParentFont = False
         end
         object Label60: TLabel
-          Left = 202
+          Left = 236
           Top = 20
           Width = 20
           Height = 13
@@ -6779,11 +6773,10 @@ object frmproduto: Tfrmproduto
           ParentFont = False
         end
         object Label92: TLabel
-          Left = 362
+          Left = 405
           Top = 22
           Width = 29
           Height = 13
-          Alignment = taRightJustify
           AutoSize = False
           Caption = 'IAT:'
           Font.Charset = ANSI_CHARSET
@@ -6794,7 +6787,7 @@ object frmproduto: Tfrmproduto
           ParentFont = False
         end
         object Label94: TLabel
-          Left = 203
+          Left = 236
           Top = 62
           Width = 28
           Height = 13
@@ -6809,7 +6802,7 @@ object frmproduto: Tfrmproduto
           ParentFont = False
         end
         object Label89: TLabel
-          Left = 321
+          Left = 405
           Top = 62
           Width = 62
           Height = 13
@@ -6822,11 +6815,10 @@ object frmproduto: Tfrmproduto
           ParentFont = False
         end
         object Label91: TLabel
-          Left = 197
+          Left = 236
           Top = 106
           Width = 58
           Height = 13
-          Alignment = taRightJustify
           AutoSize = False
           Caption = 'Incid'#234'ncia:'
           Font.Charset = ANSI_CHARSET
@@ -6836,8 +6828,22 @@ object frmproduto: Tfrmproduto
           Font.Style = []
           ParentFont = False
         end
+        object Label102: TLabel
+          Left = 405
+          Top = 107
+          Width = 40
+          Height = 13
+          AutoSize = False
+          Caption = 'CFOP:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
         object ealiq: TRxDBCalcEdit
-          Left = 44
+          Left = 54
           Top = 58
           Width = 54
           Height = 21
@@ -6853,7 +6859,7 @@ object frmproduto: Tfrmproduto
           OnKeyPress = ealiqKeyPress
         end
         object dbedit13: TRzDBButtonEdit
-          Left = 44
+          Left = 54
           Top = 17
           Width = 55
           Height = 21
@@ -6867,7 +6873,7 @@ object frmproduto: Tfrmproduto
           OnButtonClick = dbedit13ButtonClick
         end
         object wwDBComboBox2: TwwDBComboBox
-          Left = 145
+          Left = 173
           Top = 17
           Width = 43
           Height = 21
@@ -6897,7 +6903,7 @@ object frmproduto: Tfrmproduto
           OnKeyPress = wwDBComboBox2KeyPress
         end
         object RxDBCalcEdit2: TRxDBCalcEdit
-          Left = 145
+          Left = 173
           Top = 58
           Width = 45
           Height = 21
@@ -6913,7 +6919,7 @@ object frmproduto: Tfrmproduto
           OnKeyPress = RxDBCalcEdit2KeyPress
         end
         object ecsosn: TRzDBButtonEdit
-          Left = 44
+          Left = 54
           Top = 101
           Width = 54
           Height = 21
@@ -6925,7 +6931,7 @@ object frmproduto: Tfrmproduto
           OnButtonClick = ecsosnButtonClick
         end
         object RxDBCalcEdit3: TRxDBCalcEdit
-          Left = 144
+          Left = 172
           Top = 101
           Width = 45
           Height = 21
@@ -6941,7 +6947,7 @@ object frmproduto: Tfrmproduto
           OnKeyPress = RxDBCalcEdit3KeyPress
         end
         object RxDBCalcEdit1: TRxDBCalcEdit
-          Left = 266
+          Left = 303
           Top = 17
           Width = 77
           Height = 21
@@ -6957,9 +6963,9 @@ object frmproduto: Tfrmproduto
           OnKeyPress = RxDBCalcEdit1KeyPress
         end
         object wwDBComboBox3: TwwDBComboBox
-          Left = 395
+          Left = 473
           Top = 18
-          Width = 30
+          Width = 52
           Height = 21
           ShowButton = True
           Style = csDropDownList
@@ -6981,9 +6987,9 @@ object frmproduto: Tfrmproduto
           OnKeyPress = wwDBComboBox3KeyPress
         end
         object wwDBComboBox4: TwwDBComboBox
-          Left = 265
+          Left = 302
           Top = 58
-          Width = 32
+          Width = 80
           Height = 21
           ShowButton = True
           Style = csDropDownList
@@ -7005,9 +7011,9 @@ object frmproduto: Tfrmproduto
           OnKeyPress = wwDBComboBox4KeyPress
         end
         object ecombo_piscofins: TwwDBComboBox
-          Left = 394
+          Left = 473
           Top = 59
-          Width = 32
+          Width = 54
           Height = 21
           ShowButton = True
           Style = csDropDownList
@@ -7029,9 +7035,9 @@ object frmproduto: Tfrmproduto
           OnKeyPress = ecombo_piscofinsKeyPress
         end
         object wwDBComboBox1: TwwDBComboBox
-          Left = 264
+          Left = 301
           Top = 103
-          Width = 97
+          Width = 81
           Height = 21
           ShowButton = True
           Style = csDropDownList
@@ -7053,6 +7059,18 @@ object frmproduto: Tfrmproduto
           OnEnter = DBEdit1Enter
           OnExit = DBEdit1Exit
           OnKeyPress = DBEdit62KeyPress
+        end
+        object ecfop: TRzDBButtonEdit
+          Left = 474
+          Top = 103
+          Width = 54
+          Height = 21
+          DataSource = dsproduto2
+          DataField = 'CFOP'
+          FocusColor = 10550008
+          TabOrder = 11
+          OnKeyPress = ecfopKeyPress
+          OnButtonClick = ecfopButtonClick
         end
       end
     end
@@ -9283,6 +9301,9 @@ object frmproduto: Tfrmproduto
     object qrprodutoSITA: TStringField
       FieldName = 'SITA'
       Size = 4
+    end
+    object qrprodutoCFOP: TStringField
+      FieldName = 'CFOP'
     end
   end
   object qrpreco: TZQuery

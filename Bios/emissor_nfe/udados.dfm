@@ -1,10 +1,10 @@
 object frmdados: Tfrmdados
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 1
-  Top = 1
+  Left = 65524
+  Top = 77
   Height = 736
-  Width = 1354
+  Width = 1292
   object cds_Paises: TClientDataSet
     Aggregates = <>
     FieldDefs = <
@@ -6465,14 +6465,13 @@ object frmdados: Tfrmdados
   end
   object zconexao: TZConnection
     TransactIsolationLevel = tiReadCommitted
-    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'nfe'
     User = 'root'
     Password = 'sqlremoto'
     Protocol = 'mysql-5'
-    Left = 1264
+    Left = 1224
     Top = 25
   end
   object sql_Paises: TZQuery

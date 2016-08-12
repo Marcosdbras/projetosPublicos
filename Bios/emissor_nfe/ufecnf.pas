@@ -1349,16 +1349,15 @@ begin
 
   with frmdados do
     begin
+
+      sql_exec.Active := false;
+      sql_exec.SQL.Clear;
+      sql_exec.SQL.Add('delete from duplicata where cnf = '+ inttostr( frmdados.cds_nf.fieldbyname('codigo').AsInteger  ) );
+      sql_exec.ExecSQL;
+
+
       sql_duplicata.Active := true;
       cds_duplicata.Active := true;
-      cds_duplicata.Filtered := false;
-      cds_duplicata.First;
-      while not cds_duplicata.Eof do
-         cds_duplicata.Delete;
-      //endi
-
-      cds_duplicata.Active := false;
-      sql_duplicata.Active := false;
     end;
   //endi
 

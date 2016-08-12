@@ -289,15 +289,9 @@ object frmxloc_cfop: Tfrmxloc_cfop
   end
   object query: TZQuery
     Connection = frmmodulo.Conexao
-    CachedUpdates = False
     SQL.Strings = (
       'select * from c000030')
-    ParamCheck = True
     Params = <>
-    ShowRecordTypes = [usUnmodified, usModified, usInserted]
-    UpdateMode = umUpdateChanged
-    WhereMode = wmWhereKeyOnly
-    Options = [doCalcDefaults]
     Left = 464
     Top = 232
   end
