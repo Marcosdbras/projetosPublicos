@@ -475,6 +475,7 @@ type
 
     procedure atualizacaoBaseRemota;
     procedure atualizaEmitente;
+    procedure Button1Click(Sender: TObject);
 
 
 
@@ -5840,5 +5841,10 @@ end;
 
 
 
+
+procedure TfrmPrincipal.Button1Click(Sender: TObject);
+begin
+  pnlcentral.Visible := false;
+end;
 
 end.

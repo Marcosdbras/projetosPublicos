@@ -10,7 +10,14 @@ https://www.fazenda.sp.gov.br/nfe/
 =======================================================================================
 Datasac 
 
-Na sincronização com pdv não está atualizando email, número, telefone, ie
+
+
+Cadastro de produto:
+  - quando insere cfop o sistema alerta que não encontrou o código, porem o msm está cadastrado
+  - baixar lista de classificação fiscal pro sistema de acordo com a região da empresa
+  - Antes de lançar o produto pra venda verificar se cst\csosn\cfop existe localmente para evitar
+    posível trava na hora da transmissão do sat
+   
 
 Quando emitir sat desconsiderar os itens cancelados
 

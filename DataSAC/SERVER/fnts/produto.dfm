@@ -1,6 +1,6 @@
 object frmproduto: Tfrmproduto
-  Left = 130
-  Top = 116
+  Left = 6
+  Top = 135
   Width = 993
   Height = 521
   BorderIcons = [biSystemMenu]

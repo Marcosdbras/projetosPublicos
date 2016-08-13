@@ -155,6 +155,8 @@ type
     Label51: TLabel;
     Label53: TLabel;
     DBEdit34: TDBEdit;
+    Label49: TLabel;
+    DBEdit35: TDBEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure enomeEnter(Sender: TObject);

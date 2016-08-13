@@ -2,7 +2,7 @@ object frmempresa: Tfrmempresa
   Left = 212
   Top = 17
   Width = 608
-  Height = 676
+  Height = 708
   BorderIcons = [biSystemMenu]
   Caption = 'EMPRESAS/EMITENTES | Ficha de Cadastro'
   Color = clBtnFace
@@ -20,14 +20,14 @@ object frmempresa: Tfrmempresa
   TextHeight = 13
   object Bevel1: TBevel
     Left = 0
-    Top = 616
+    Top = 648
     Width = 600
     Height = 2
     Align = alBottom
   end
   object Panel2: TPanel
     Left = 0
-    Top = 618
+    Top = 650
     Width = 600
     Height = 31
     Align = alBottom
@@ -802,7 +802,7 @@ object frmempresa: Tfrmempresa
     Left = -2
     Top = 2
     Width = 602
-    Height = 603
+    Height = 631
     ParentColor = True
     ColorHighLight = clBtnFace
     ColorShadow = clBtnFace
@@ -964,7 +964,7 @@ object frmempresa: Tfrmempresa
     end
     object Label5: TLabel
       Left = 52
-      Top = 364
+      Top = 392
       Width = 91
       Height = 13
       Caption = 'Contribuinte de IPI'
@@ -977,7 +977,7 @@ object frmempresa: Tfrmempresa
     end
     object Label6: TLabel
       Left = 216
-      Top = 363
+      Top = 391
       Width = 98
       Height = 13
       Caption = 'Substituto Tribut'#225'rio'
@@ -990,7 +990,7 @@ object frmempresa: Tfrmempresa
     end
     object Label4: TLabel
       Left = 52
-      Top = 386
+      Top = 414
       Width = 101
       Height = 13
       Caption = 'Optante pelo Simples'
@@ -1003,7 +1003,7 @@ object frmempresa: Tfrmempresa
     end
     object Label12: TLabel
       Left = 52
-      Top = 340
+      Top = 368
       Width = 113
       Height = 13
       Caption = 'Micro Empresa Estadual'
@@ -1016,7 +1016,7 @@ object frmempresa: Tfrmempresa
     end
     object Label15: TLabel
       Left = 360
-      Top = 333
+      Top = 361
       Width = 70
       Height = 13
       Caption = 'Taxa de IPI %'
@@ -1029,7 +1029,7 @@ object frmempresa: Tfrmempresa
     end
     object Label16: TLabel
       Left = 216
-      Top = 341
+      Top = 369
       Width = 53
       Height = 13
       Caption = 'Utiliza ECF '
@@ -1042,7 +1042,7 @@ object frmempresa: Tfrmempresa
     end
     object Label17: TLabel
       Left = 214
-      Top = 386
+      Top = 414
       Width = 132
       Height = 13
       Caption = 'Optante pelo Super Simples'
@@ -1055,7 +1055,7 @@ object frmempresa: Tfrmempresa
     end
     object Label18: TLabel
       Left = 360
-      Top = 367
+      Top = 395
       Width = 72
       Height = 13
       Caption = 'Taxa de ISS %'
@@ -1137,7 +1137,7 @@ object frmempresa: Tfrmempresa
     end
     object Bevel2: TBevel
       Left = -16
-      Top = 286
+      Top = 308
       Width = 629
       Height = 3
     end
@@ -1171,7 +1171,7 @@ object frmempresa: Tfrmempresa
     end
     object Label25: TLabel
       Left = 476
-      Top = 332
+      Top = 360
       Width = 72
       Height = 13
       Caption = 'Taxa de PIS %'
@@ -1184,7 +1184,7 @@ object frmempresa: Tfrmempresa
     end
     object Label26: TLabel
       Left = 475
-      Top = 367
+      Top = 395
       Width = 94
       Height = 13
       Caption = 'Taxa de COFINS %'
@@ -1227,7 +1227,7 @@ object frmempresa: Tfrmempresa
     end
     object Label28: TLabel
       Left = 6
-      Top = 261
+      Top = 278
       Width = 78
       Height = 13
       Alignment = taRightJustify
@@ -1242,7 +1242,7 @@ object frmempresa: Tfrmempresa
     end
     object Label29: TLabel
       Left = 457
-      Top = 263
+      Top = 280
       Width = 47
       Height = 13
       Caption = 'Abertura:'
@@ -1255,13 +1255,13 @@ object frmempresa: Tfrmempresa
     end
     object Bevel3: TBevel
       Left = -27
-      Top = 417
+      Top = 451
       Width = 629
       Height = 3
     end
     object Label31: TLabel
       Left = 6
-      Top = 432
+      Top = 469
       Width = 78
       Height = 13
       Alignment = taRightJustify
@@ -1276,7 +1276,7 @@ object frmempresa: Tfrmempresa
     end
     object Label32: TLabel
       Left = 6
-      Top = 456
+      Top = 493
       Width = 78
       Height = 13
       Alignment = taRightJustify
@@ -1291,7 +1291,7 @@ object frmempresa: Tfrmempresa
     end
     object Label33: TLabel
       Left = 6
-      Top = 480
+      Top = 517
       Width = 78
       Height = 13
       Alignment = taRightJustify
@@ -1306,7 +1306,7 @@ object frmempresa: Tfrmempresa
     end
     object Label34: TLabel
       Left = 424
-      Top = 504
+      Top = 541
       Width = 35
       Height = 13
       Alignment = taRightJustify
@@ -1321,7 +1321,7 @@ object frmempresa: Tfrmempresa
     end
     object Label35: TLabel
       Left = 236
-      Top = 528
+      Top = 565
       Width = 52
       Height = 13
       Alignment = taRightJustify
@@ -1336,7 +1336,7 @@ object frmempresa: Tfrmempresa
     end
     object Label36: TLabel
       Left = 6
-      Top = 553
+      Top = 590
       Width = 78
       Height = 13
       Alignment = taRightJustify
@@ -1351,7 +1351,7 @@ object frmempresa: Tfrmempresa
     end
     object Label37: TLabel
       Left = 6
-      Top = 578
+      Top = 615
       Width = 78
       Height = 13
       Alignment = taRightJustify
@@ -1366,7 +1366,7 @@ object frmempresa: Tfrmempresa
     end
     object Label38: TLabel
       Left = 470
-      Top = 456
+      Top = 493
       Width = 41
       Height = 13
       Caption = 'N'#250'mero:'
@@ -1379,7 +1379,7 @@ object frmempresa: Tfrmempresa
     end
     object Label39: TLabel
       Left = 302
-      Top = 480
+      Top = 517
       Width = 69
       Height = 13
       Caption = 'Complemento:'
@@ -1392,7 +1392,7 @@ object frmempresa: Tfrmempresa
     end
     object Label40: TLabel
       Left = 67
-      Top = 528
+      Top = 565
       Width = 23
       Height = 13
       Caption = 'CEP:'
@@ -1405,7 +1405,7 @@ object frmempresa: Tfrmempresa
     end
     object Label41: TLabel
       Left = 475
-      Top = 528
+      Top = 565
       Width = 22
       Height = 13
       Caption = 'Fax:'
@@ -1418,7 +1418,7 @@ object frmempresa: Tfrmempresa
     end
     object Label42: TLabel
       Left = 198
-      Top = 578
+      Top = 615
       Width = 23
       Height = 13
       Caption = 'CPF:'
@@ -1431,7 +1431,7 @@ object frmempresa: Tfrmempresa
     end
     object Label43: TLabel
       Left = 358
-      Top = 578
+      Top = 615
       Width = 76
       Height = 13
       Caption = 'CNPJ Escrit'#243'rio:'
@@ -1459,7 +1459,7 @@ object frmempresa: Tfrmempresa
     end
     object Label45: TLabel
       Left = 17
-      Top = 296
+      Top = 324
       Width = 137
       Height = 13
       Caption = 'Perfil de Apresenta'#231#227'o SPED'
@@ -1472,7 +1472,7 @@ object frmempresa: Tfrmempresa
     end
     object Label46: TLabel
       Left = 6
-      Top = 504
+      Top = 541
       Width = 78
       Height = 13
       Alignment = taRightJustify
@@ -1487,7 +1487,7 @@ object frmempresa: Tfrmempresa
     end
     object Label47: TLabel
       Left = 277
-      Top = 504
+      Top = 541
       Width = 84
       Height = 13
       Alignment = taRightJustify
@@ -1502,7 +1502,7 @@ object frmempresa: Tfrmempresa
     end
     object Label48: TLabel
       Left = 520
-      Top = 504
+      Top = 541
       Width = 17
       Height = 13
       Caption = 'UF:'
@@ -1515,7 +1515,7 @@ object frmempresa: Tfrmempresa
     end
     object Label50: TLabel
       Left = 185
-      Top = 296
+      Top = 324
       Width = 20
       Height = 13
       Caption = 'CRT'
@@ -1543,12 +1543,27 @@ object frmempresa: Tfrmempresa
     end
     object Label53: TLabel
       Left = 9
-      Top = 233
+      Top = 229
       Width = 78
       Height = 13
       Alignment = taRightJustify
       AutoSize = False
       Caption = 'Email:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label49: TLabel
+      Left = 9
+      Top = 253
+      Width = 78
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Site:'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -1677,57 +1692,10 @@ object frmempresa: Tfrmempresa
     end
     object eddesdobra: TRzDBComboBox
       Left = 16
-      Top = 336
+      Top = 364
       Width = 33
       Height = 21
       DataField = 'EMPRESA_ESTADUAL'
-      DataSource = dsempresa2
-      CharCase = ecUpperCase
-      Ctl3D = False
-      FrameHotTrack = True
-      FrameHotStyle = fsStatus
-      FrameVisible = True
-      ItemHeight = 13
-      ParentCtl3D = False
-      TabOrder = 27
-      OnKeyPress = DBEdit1KeyPress
-      Items.Strings = (
-        'N'
-        'S')
-      Values.Strings = (
-        'N'
-        'S')
-    end
-    object RzDBComboBox1: TRzDBComboBox
-      Left = 16
-      Top = 382
-      Width = 33
-      Height = 21
-      DataField = 'OPTANTE_SIMPLES'
-      DataSource = dsempresa2
-      CharCase = ecUpperCase
-      Ctl3D = False
-      Enabled = False
-      FrameHotTrack = True
-      FrameHotStyle = fsStatus
-      FrameVisible = True
-      ItemHeight = 13
-      ParentCtl3D = False
-      TabOrder = 29
-      OnKeyPress = DBEdit1KeyPress
-      Items.Strings = (
-        'N'
-        'S')
-      Values.Strings = (
-        'N'
-        'S')
-    end
-    object RzDBComboBox2: TRzDBComboBox
-      Left = 16
-      Top = 359
-      Width = 33
-      Height = 21
-      DataField = 'CONTRIBUINTE_IPI'
       DataSource = dsempresa2
       CharCase = ecUpperCase
       Ctl3D = False
@@ -1745,51 +1713,16 @@ object frmempresa: Tfrmempresa
         'N'
         'S')
     end
-    object RzDBComboBox3: TRzDBComboBox
-      Left = 180
-      Top = 359
+    object RzDBComboBox1: TRzDBComboBox
+      Left = 16
+      Top = 410
       Width = 33
       Height = 21
-      DataField = 'SUBSTITUTO_TRIBUTARIO'
+      DataField = 'OPTANTE_SIMPLES'
       DataSource = dsempresa2
       CharCase = ecUpperCase
       Ctl3D = False
-      FrameHotTrack = True
-      FrameHotStyle = fsStatus
-      FrameVisible = True
-      ItemHeight = 13
-      ParentCtl3D = False
-      TabOrder = 31
-      OnKeyPress = DBEdit1KeyPress
-      Items.Strings = (
-        'N'
-        'S')
-      Values.Strings = (
-        'N'
-        'S')
-    end
-    object RzDBEdit1: TRzDBEdit
-      Left = 360
-      Top = 346
-      Width = 95
-      Height = 21
-      DataSource = dsempresa2
-      DataField = 'IPI'
-      FrameHotTrack = True
-      FrameHotStyle = fsFlat
-      FrameVisible = True
-      TabOrder = 33
-      OnKeyPress = DBEdit1KeyPress
-    end
-    object RzDBComboBox4: TRzDBComboBox
-      Left = 180
-      Top = 336
-      Width = 33
-      Height = 21
-      DataField = 'ECF'
-      DataSource = dsempresa2
-      CharCase = ecUpperCase
-      Ctl3D = False
+      Enabled = False
       FrameHotTrack = True
       FrameHotStyle = fsStatus
       FrameVisible = True
@@ -1804,12 +1737,35 @@ object frmempresa: Tfrmempresa
         'N'
         'S')
     end
-    object RzDBComboBox5: TRzDBComboBox
-      Left = 180
-      Top = 382
+    object RzDBComboBox2: TRzDBComboBox
+      Left = 16
+      Top = 387
       Width = 33
       Height = 21
-      DataField = 'OPTANTE_SUPER_SIMPLES'
+      DataField = 'CONTRIBUINTE_IPI'
+      DataSource = dsempresa2
+      CharCase = ecUpperCase
+      Ctl3D = False
+      FrameHotTrack = True
+      FrameHotStyle = fsStatus
+      FrameVisible = True
+      ItemHeight = 13
+      ParentCtl3D = False
+      TabOrder = 29
+      OnKeyPress = DBEdit1KeyPress
+      Items.Strings = (
+        'N'
+        'S')
+      Values.Strings = (
+        'N'
+        'S')
+    end
+    object RzDBComboBox3: TRzDBComboBox
+      Left = 180
+      Top = 387
+      Width = 33
+      Height = 21
+      DataField = 'SUBSTITUTO_TRIBUTARIO'
       DataSource = dsempresa2
       CharCase = ecUpperCase
       Ctl3D = False
@@ -1827,9 +1783,68 @@ object frmempresa: Tfrmempresa
         'N'
         'S')
     end
+    object RzDBEdit1: TRzDBEdit
+      Left = 360
+      Top = 374
+      Width = 95
+      Height = 21
+      DataSource = dsempresa2
+      DataField = 'IPI'
+      FrameHotTrack = True
+      FrameHotStyle = fsFlat
+      FrameVisible = True
+      TabOrder = 34
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object RzDBComboBox4: TRzDBComboBox
+      Left = 180
+      Top = 364
+      Width = 33
+      Height = 21
+      DataField = 'ECF'
+      DataSource = dsempresa2
+      CharCase = ecUpperCase
+      Ctl3D = False
+      FrameHotTrack = True
+      FrameHotStyle = fsStatus
+      FrameVisible = True
+      ItemHeight = 13
+      ParentCtl3D = False
+      TabOrder = 31
+      OnKeyPress = DBEdit1KeyPress
+      Items.Strings = (
+        'N'
+        'S')
+      Values.Strings = (
+        'N'
+        'S')
+    end
+    object RzDBComboBox5: TRzDBComboBox
+      Left = 180
+      Top = 410
+      Width = 33
+      Height = 21
+      DataField = 'OPTANTE_SUPER_SIMPLES'
+      DataSource = dsempresa2
+      CharCase = ecUpperCase
+      Ctl3D = False
+      FrameHotTrack = True
+      FrameHotStyle = fsStatus
+      FrameVisible = True
+      ItemHeight = 13
+      ParentCtl3D = False
+      TabOrder = 33
+      OnKeyPress = DBEdit1KeyPress
+      Items.Strings = (
+        'N'
+        'S')
+      Values.Strings = (
+        'N'
+        'S')
+    end
     object RzDBEdit2: TRzDBEdit
       Left = 360
-      Top = 380
+      Top = 408
       Width = 95
       Height = 21
       DataSource = dsempresa2
@@ -1837,7 +1852,7 @@ object frmempresa: Tfrmempresa
       FrameHotTrack = True
       FrameHotStyle = fsFlat
       FrameVisible = True
-      TabOrder = 34
+      TabOrder = 35
       OnKeyPress = DBEdit1KeyPress
     end
     object DBEdit3: TDBEdit
@@ -1909,7 +1924,7 @@ object frmempresa: Tfrmempresa
     end
     object FlatPanel1: TFlatPanel
       Left = 16
-      Top = 279
+      Top = 301
       Width = 125
       Height = 16
       Caption = 'Informa'#231#245'es Fiscais'
@@ -1921,7 +1936,7 @@ object frmempresa: Tfrmempresa
       ParentColor = True
       ColorHighLight = clBtnFace
       ColorShadow = clBtnFace
-      TabOrder = 53
+      TabOrder = 54
       UseDockManager = True
     end
     object DBEdit16: TDBEdit
@@ -1953,7 +1968,7 @@ object frmempresa: Tfrmempresa
     end
     object RzDBEdit3: TRzDBEdit
       Left = 475
-      Top = 345
+      Top = 373
       Width = 95
       Height = 21
       DataSource = dsempresa2
@@ -1961,12 +1976,12 @@ object frmempresa: Tfrmempresa
       FrameHotTrack = True
       FrameHotStyle = fsFlat
       FrameVisible = True
-      TabOrder = 35
+      TabOrder = 36
       OnKeyPress = DBEdit1KeyPress
     end
     object RzDBEdit4: TRzDBEdit
       Left = 475
-      Top = 380
+      Top = 408
       Width = 95
       Height = 21
       DataSource = dsempresa2
@@ -1974,7 +1989,7 @@ object frmempresa: Tfrmempresa
       FrameHotTrack = True
       FrameHotStyle = fsFlat
       FrameVisible = True
-      TabOrder = 36
+      TabOrder = 37
       OnKeyPress = DBEdit1KeyPress
     end
     object AdvGlowButton1: TAdvGlowButton
@@ -2058,7 +2073,7 @@ object frmempresa: Tfrmempresa
         6D06AD16470000000049454E44AE426082}
       ParentShowHint = False
       ShowHint = True
-      TabOrder = 54
+      TabOrder = 55
       OnClick = AdvGlowButton1Click
       Appearance.BorderColor = 14727579
       Appearance.BorderColorHot = 10079963
@@ -2253,7 +2268,7 @@ object frmempresa: Tfrmempresa
         BC660204100B718500B012670636F058FE33FCFCFDEF3B378BF8423389B83DF7
         3E1E5DACC067D1C6C7217991019C7799E04D1F420020C000BFDECD22E08CF6B1
         0000000049454E44AE426082}
-      TabOrder = 55
+      TabOrder = 56
       OnClick = bcnaeClick
       Appearance.BorderColor = 14727579
       Appearance.BorderColorHot = 10079963
@@ -2300,7 +2315,7 @@ object frmempresa: Tfrmempresa
     end
     object rAtividade: TRzDBComboBox
       Left = 96
-      Top = 258
+      Top = 275
       Width = 355
       Height = 21
       DataField = 'ATIVIDADE'
@@ -2314,7 +2329,7 @@ object frmempresa: Tfrmempresa
       ItemHeight = 13
       ParentCtl3D = False
       TabOnEnter = True
-      TabOrder = 22
+      TabOrder = 23
       Items.Strings = (
         'IND'#218'STRIA OU EQUIPARADO'
         'COM'#201'RCIO'
@@ -2326,7 +2341,7 @@ object frmempresa: Tfrmempresa
     end
     object DBDateEdit2: TDBDateEdit
       Left = 508
-      Top = 260
+      Top = 277
       Width = 83
       Height = 21
       DataField = 'DATA_ABERTURA'
@@ -2361,14 +2376,14 @@ object frmempresa: Tfrmempresa
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       ButtonWidth = 18
       NumGlyphs = 1
-      TabOrder = 24
+      TabOrder = 25
       OnEnter = DBEdit1Enter
       OnExit = DBEdit1Exit
       OnKeyPress = DBEdit1KeyPress
     end
     object FlatPanel2: TFlatPanel
       Left = 24
-      Top = 410
+      Top = 443
       Width = 125
       Height = 16
       Caption = 'Dados do Contador'
@@ -2380,177 +2395,177 @@ object frmempresa: Tfrmempresa
       ParentColor = True
       ColorHighLight = clBtnFace
       ColorShadow = clBtnFace
-      TabOrder = 56
+      TabOrder = 57
       UseDockManager = True
     end
     object DBEdit28: TDBEdit
       Left = 96
-      Top = 574
+      Top = 611
       Width = 89
       Height = 21
       CharCase = ecUpperCase
       DataField = 'CONTADOR_CRC'
       DataSource = dsempresa2
-      TabOrder = 50
+      TabOrder = 51
       OnEnter = DBEdit1Enter
       OnExit = DBEdit1Exit
       OnKeyPress = DBEdit1KeyPress
     end
     object DBEdit27: TDBEdit
       Left = 96
-      Top = 549
+      Top = 586
       Width = 494
       Height = 21
       CharCase = ecLowerCase
       DataField = 'CONTADOR_EMAIL'
       DataSource = dsempresa2
-      TabOrder = 49
+      TabOrder = 50
       OnEnter = DBEdit1Enter
       OnExit = DBEdit1Exit
       OnKeyPress = DBEdit1KeyPress
     end
     object DBEdit25: TDBEdit
       Left = 300
-      Top = 524
+      Top = 561
       Width = 86
       Height = 21
       CharCase = ecUpperCase
       DataField = 'CONTADOR_FONE'
       DataSource = dsempresa2
       MaxLength = 10
-      TabOrder = 47
+      TabOrder = 48
       OnEnter = DBEdit1Enter
       OnExit = DBEdit25Exit
       OnKeyPress = DBEdit1KeyPress
     end
     object DBEdit23: TDBEdit
       Left = 463
-      Top = 500
+      Top = 537
       Width = 51
       Height = 21
       CharCase = ecUpperCase
       DataField = 'CONTADOR_COD_MUNICIPIO_IBGE'
       DataSource = dsempresa2
-      TabOrder = 44
+      TabOrder = 45
       OnEnter = DBEdit1Enter
       OnExit = DBEdit1Exit
       OnKeyPress = DBEdit1KeyPress
     end
     object DBEdit21: TDBEdit
       Left = 96
-      Top = 476
+      Top = 513
       Width = 201
       Height = 21
       CharCase = ecUpperCase
       DataField = 'CONTADOR_BAIRRO'
-      DataSource = dsempresa2
-      TabOrder = 40
-      OnEnter = DBEdit1Enter
-      OnExit = DBEdit1Exit
-      OnKeyPress = DBEdit1KeyPress
-    end
-    object DBEdit19: TDBEdit
-      Left = 96
-      Top = 452
-      Width = 353
-      Height = 21
-      CharCase = ecUpperCase
-      DataField = 'CONTADOR_ENDERECO'
-      DataSource = dsempresa2
-      TabOrder = 38
-      OnEnter = DBEdit1Enter
-      OnExit = DBEdit1Exit
-      OnKeyPress = DBEdit1KeyPress
-    end
-    object DBEdit18: TDBEdit
-      Left = 96
-      Top = 428
-      Width = 493
-      Height = 21
-      CharCase = ecUpperCase
-      DataField = 'CONTADOR_NOME'
-      DataSource = dsempresa2
-      TabOrder = 37
-      OnEnter = DBEdit1Enter
-      OnExit = DBEdit1Exit
-      OnKeyPress = DBEdit1KeyPress
-    end
-    object DBEdit20: TDBEdit
-      Left = 520
-      Top = 452
-      Width = 69
-      Height = 21
-      CharCase = ecUpperCase
-      DataField = 'CONTADOR_NUMERO'
-      DataSource = dsempresa2
-      TabOrder = 39
-      OnEnter = DBEdit1Enter
-      OnExit = DBEdit20Exit
-      OnKeyPress = DBEdit1KeyPress
-    end
-    object DBEdit22: TDBEdit
-      Left = 376
-      Top = 476
-      Width = 212
-      Height = 21
-      CharCase = ecUpperCase
-      DataField = 'CONTADOR_COMPLEMENTO'
       DataSource = dsempresa2
       TabOrder = 41
       OnEnter = DBEdit1Enter
       OnExit = DBEdit1Exit
       OnKeyPress = DBEdit1KeyPress
     end
+    object DBEdit19: TDBEdit
+      Left = 96
+      Top = 489
+      Width = 353
+      Height = 21
+      CharCase = ecUpperCase
+      DataField = 'CONTADOR_ENDERECO'
+      DataSource = dsempresa2
+      TabOrder = 39
+      OnEnter = DBEdit1Enter
+      OnExit = DBEdit1Exit
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit18: TDBEdit
+      Left = 96
+      Top = 465
+      Width = 493
+      Height = 21
+      CharCase = ecUpperCase
+      DataField = 'CONTADOR_NOME'
+      DataSource = dsempresa2
+      TabOrder = 38
+      OnEnter = DBEdit1Enter
+      OnExit = DBEdit1Exit
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit20: TDBEdit
+      Left = 520
+      Top = 489
+      Width = 69
+      Height = 21
+      CharCase = ecUpperCase
+      DataField = 'CONTADOR_NUMERO'
+      DataSource = dsempresa2
+      TabOrder = 40
+      OnEnter = DBEdit1Enter
+      OnExit = DBEdit20Exit
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit22: TDBEdit
+      Left = 376
+      Top = 513
+      Width = 212
+      Height = 21
+      CharCase = ecUpperCase
+      DataField = 'CONTADOR_COMPLEMENTO'
+      DataSource = dsempresa2
+      TabOrder = 42
+      OnEnter = DBEdit1Enter
+      OnExit = DBEdit1Exit
+      OnKeyPress = DBEdit1KeyPress
+    end
     object DBEdit24: TDBEdit
       Left = 96
-      Top = 524
+      Top = 561
       Width = 84
       Height = 21
       CharCase = ecUpperCase
       DataField = 'CONTADOR_CEP'
       DataSource = dsempresa2
       MaxLength = 8
-      TabOrder = 46
+      TabOrder = 47
       OnEnter = DBEdit1Enter
       OnExit = DBEdit24Exit
       OnKeyPress = DBEdit1KeyPress
     end
     object DBEdit26: TDBEdit
       Left = 503
-      Top = 524
+      Top = 561
       Width = 86
       Height = 21
       CharCase = ecUpperCase
       DataField = 'CONTADOR_FAX'
       DataSource = dsempresa2
       MaxLength = 10
-      TabOrder = 48
+      TabOrder = 49
       OnEnter = DBEdit1Enter
       OnExit = DBEdit26Exit
       OnKeyPress = DBEdit1KeyPress
     end
     object DBEdit29: TDBEdit
       Left = 226
-      Top = 574
+      Top = 611
       Width = 119
       Height = 21
       CharCase = ecUpperCase
       DataField = 'CONTADOR_CPF'
       DataSource = dsempresa2
-      TabOrder = 51
+      TabOrder = 52
       OnEnter = DBEdit1Enter
       OnExit = DBEdit29Exit
       OnKeyPress = DBEdit1KeyPress
     end
     object DBEdit30: TDBEdit
       Left = 440
-      Top = 573
+      Top = 610
       Width = 150
       Height = 21
       CharCase = ecUpperCase
       DataField = 'CONTADOR_CNPJ'
       DataSource = dsempresa2
-      TabOrder = 52
+      TabOrder = 53
       OnEnter = DBEdit1Enter
       OnExit = DBEdit30Exit
       OnKeyPress = RzDBEdit4KeyPress
@@ -2569,7 +2584,7 @@ object frmempresa: Tfrmempresa
     end
     object RzDBComboBox6: TRzDBComboBox
       Left = 184
-      Top = 311
+      Top = 339
       Width = 271
       Height = 21
       DataField = 'CRT'
@@ -2582,7 +2597,7 @@ object frmempresa: Tfrmempresa
       ItemHeight = 13
       ParentCtl3D = False
       TabOnEnter = True
-      TabOrder = 25
+      TabOrder = 26
       OnChange = RzDBComboBox6Change
       OnKeyPress = DBEdit1KeyPress
       Items.Strings = (
@@ -2596,7 +2611,7 @@ object frmempresa: Tfrmempresa
     end
     object AdvGlowButton2: TAdvGlowButton
       Left = 96
-      Top = 498
+      Top = 535
       Width = 35
       Height = 24
       Hint = 'Pesquisa o Municipio,IBGE'
@@ -2675,7 +2690,7 @@ object frmempresa: Tfrmempresa
         6D06AD16470000000049454E44AE426082}
       ParentShowHint = False
       ShowHint = True
-      TabOrder = 57
+      TabOrder = 58
       OnClick = AdvGlowButton2Click
       Appearance.BorderColor = 14727579
       Appearance.BorderColorHot = 10079963
@@ -2709,32 +2724,32 @@ object frmempresa: Tfrmempresa
     end
     object DBEdit31: TDBEdit
       Left = 136
-      Top = 500
+      Top = 537
       Width = 145
       Height = 21
       CharCase = ecUpperCase
       DataField = 'CONTADOR_CIDADE'
       DataSource = dsempresa2
-      TabOrder = 42
+      TabOrder = 43
       OnEnter = DBEdit1Enter
       OnExit = DBEdit31Exit
       OnKeyPress = DBEdit1KeyPress
     end
     object DBEdit32: TDBEdit
       Left = 365
-      Top = 500
+      Top = 537
       Width = 61
       Height = 21
       DataField = 'CONTADOR_COD_MUNICIPIO'
       DataSource = dsempresa2
-      TabOrder = 43
+      TabOrder = 44
       OnEnter = DBEdit1Enter
       OnExit = DBEdit1Exit
       OnKeyPress = DBEdit1KeyPress
     end
     object wwDBComboBox1: TwwDBComboBox
       Left = 540
-      Top = 500
+      Top = 537
       Width = 49
       Height = 21
       ShowButton = True
@@ -2777,7 +2792,7 @@ object frmempresa: Tfrmempresa
         'TO')
       ItemIndex = 1
       Sorted = False
-      TabOrder = 45
+      TabOrder = 46
       UnboundDataType = wwDefault
       OnEnter = DBEdit1Enter
       OnExit = DBEdit1Exit
@@ -2785,20 +2800,20 @@ object frmempresa: Tfrmempresa
     end
     object CBCreditoICMS: TDBCheckBox
       Left = 465
-      Top = 312
+      Top = 340
       Width = 121
       Height = 17
       Caption = 'Permite Cr'#233'dito ICMS'
       DataField = 'PERMITE_CREDITO'
       DataSource = dsempresa2
       Enabled = False
-      TabOrder = 26
+      TabOrder = 27
       ValueChecked = '1'
       ValueUnchecked = '0'
     end
     object RzDBComboBox7: TRzDBComboBox
       Left = 16
-      Top = 310
+      Top = 338
       Width = 163
       Height = 21
       DataField = 'PERFIL_SPED'
@@ -2811,7 +2826,7 @@ object frmempresa: Tfrmempresa
       ItemHeight = 13
       ParentCtl3D = False
       TabOnEnter = True
-      TabOrder = 23
+      TabOrder = 24
       OnChange = RzDBComboBox6Change
       OnKeyPress = DBEdit1KeyPress
       Items.Strings = (
@@ -2838,13 +2853,26 @@ object frmempresa: Tfrmempresa
     end
     object DBEdit34: TDBEdit
       Left = 96
-      Top = 230
+      Top = 226
       Width = 493
       Height = 21
-      CharCase = ecUpperCase
+      CharCase = ecLowerCase
       DataField = 'EMAIL_EMPRESA'
       DataSource = dsempresa2
       TabOrder = 21
+      OnEnter = DBEdit1Enter
+      OnExit = DBEdit1Exit
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit35: TDBEdit
+      Left = 96
+      Top = 250
+      Width = 493
+      Height = 21
+      CharCase = ecLowerCase
+      DataField = 'SITE'
+      DataSource = dsempresa2
+      TabOrder = 22
       OnEnter = DBEdit1Enter
       OnExit = DBEdit1Exit
       OnKeyPress = DBEdit1KeyPress

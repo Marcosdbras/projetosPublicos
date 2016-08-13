@@ -1594,11 +1594,31 @@ begin
                           try
                             if Registro.ReadString('Servidor_Ativo') = 'SIM' then
                             begin
-                              Conexao_Servidor.Connected := false;
-                              Conexao_Servidor.Server := Registro.ReadString('Servidor_Host');
-                              Conexao_Servidor.Database := Registro.ReadString('Servidor_Base');
-                              Conexao_Servidor.Connected := true;
-                              bServidor_Conexao := true;
+                              try
+
+                                Conexao_Servidor.Connected := false;
+                                Conexao_Servidor.Server := Registro.ReadString('Servidor_Host');
+                                Conexao_Servidor.Database := Registro.ReadString('Servidor_Base');
+                                Conexao_Servidor.Connected := true;
+                                bServidor_Conexao := true;
+
+                              except
+
+                                try
+
+                                  Conexao_Servidor.Connected := false;
+                                  Conexao_Servidor.Server := ed_server.Text;
+                                  Conexao_Servidor.Database := ed_base.Text;
+                                  Conexao_Servidor.Connected := true;
+                                  bServidor_Conexao := true;
+
+                                except
+
+                                  bServidor_Conexao := false;
+
+                                end;
+
+                              end;
                             end
                             else
                             begin
@@ -1667,11 +1687,11 @@ begin
        ed_cliente_codibge_cidade.Text :=  qrfilial.fieldbyname('cod_municipio_ibge').AsString;
        ed_cliente_numero.Text :=  qrfilial.fieldbyname('numero').AsString;
        ed_cliente_fone.Text :=  qrfilial.fieldbyname('telefone').AsString;
-       ed_cliente_email.Text :=  qrfilial.fieldbyname('email').AsString;
+       ed_cliente_email.Text :=  qrfilial.fieldbyname('email_empresa').AsString;
        ed_cliente_complemento.Text :=  qrfilial.fieldbyname('complemento').AsString;
 
-       //incluir campo abaixo na base de dados principal
-       ed_cliente_site.Text  := '';
+
+       ed_cliente_site.Text  := qrfilial.fieldbyname('site').AsString;;
 
      end;
   //endi

@@ -1,5 +1,8 @@
 unit principal;
-
+ {lengenda
+   * operações com produtos
+     - inc prod
+     - alt prod}
 interface
 
 uses
@@ -1137,6 +1140,7 @@ begin
                      if qrservidor_tabela.RecordCount > 0 then
                      begin
                        try
+                         //produto
                          qrpdv.close;
                          qrpdv.sql.clear;
                          qrpdv.sql.add('insert into ESTOQUE (');
@@ -1164,6 +1168,8 @@ begin
                          qrpdv.sql.add('TABELA,');
 
 
+                         //inc prod
+                         qrpdv.SQL.Add('cfop,');
                          qrpdv.sql.add('SITUACAO');
 
 
@@ -1193,6 +1199,8 @@ begin
                          qrpdv.sql.add(':TABELA,');
 
 
+                         //inc prod
+                         qrpdv.SQL.Add(':cfop,');
                          qrpdv.sql.add(':SITUACAO');
 
                          qrpdv.sql.add(')');
@@ -1205,7 +1213,7 @@ begin
                          qrpdv.parambyname('PRECO_PROMOCAO').asfloat     := qrservidor_tabela.fieldbyname('preco_promocao').asfloat;
                          qrpdv.parambyname('INICIO_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('data_promocao').asdatetime;
                          qrpdv.parambyname('FINAL_PROMOCAO').asdatetime  := qrservidor_tabela.fieldbyname('fim_promocao').asdatetime;
-                         qrpdv.parambyname('CST').asstring               := qrservidor_tabela.fieldbyname('cst').asstring;
+                         qrpdv.parambyname('CST').asstring               := copy(qrservidor_tabela.fieldbyname('cst').asstring,1,3);
                          qrpdv.parambyname('ALIQUOTA').asfloat           := qrservidor_tabela.fieldbyname('aliquota').asfloat;
 
                          qrpdv.parambyname('CLASSIFICACAO_FISCAL').asstring               := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').asstring;
@@ -1218,7 +1226,7 @@ begin
 
 
                          qrpdv.parambyname('DESCONTO_MAXIMO').asfloat    := 0;
-                         qrpdv.parambyname('SITUACAO').AsInteger         := 0;
+
 
                          scst := qrservidor_tabela.fieldbyname('cst').asstring;
 
@@ -1239,6 +1247,11 @@ begin
                          qrpdv.parambyname('ESTOQUE').asfloat := qrservidor_tabela.fieldbyname('estoque_atual').asfloat;
                          qrpdv.parambyname('IAT').asstring := qrservidor_tabela.fieldbyname('IAT').AsString;
                          qrpdv.parambyname('IPPT').asstring := qrservidor_tabela.fieldbyname('IPPT').AsString;
+
+                         //inc prod
+                         qrpdv.parambyname('cfop').asstring := qrservidor_tabela.fieldbyname('cfop').AsString;
+                         qrpdv.parambyname('SITUACAO').AsInteger         :=  qrservidor_tabela.fieldbyname('situacao').Asinteger;  {0;}
+
                          qrpdv.ExecSQL;
                        except
                          on E:Exception do
@@ -1280,6 +1293,7 @@ begin
                          // achou o registro e processar com a atualizacao
                            memo1.lines.add('PDV'+grid.CELL[0,I].ASSTRING+' - ALT - PRODUTO - '+qrservidor.fieldbyname('codregistro').asstring);
                            try
+                             //produto
                              qrpdv.close;
                              qrpdv.sql.clear;
                              qrpdv.sql.add('update ESTOQUE set');
@@ -1306,7 +1320,12 @@ begin
                              qrpdv.sql.add('ESTOQUE = :ESTOQUE,');
                              qrpdv.sql.add('IAT = :IAT,');
                              qrpdv.sql.add('IPPT = :IPPT,');
+
+                             // alt prod
+                             qrpdv.sql.add('cfop = :cfop,');
                              qrpdv.sql.add('SITUACAO = :SITUACAO');
+
+
                              qrpdv.sql.add('where codigo = :codigo');
 
                              qrpdv.parambyname('CODIGO').asinteger := strtoint(qrservidor_tabela.fieldbyname('codigo').asstring);
@@ -1317,7 +1336,7 @@ begin
                              qrpdv.parambyname('PRECO_PROMOCAO').asfloat := qrservidor_tabela.fieldbyname('preco_promocao').asfloat;
                              qrpdv.parambyname('INICIO_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('data_promocao').asdatetime;
                              qrpdv.parambyname('FINAL_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('fim_promocao').asdatetime;
-                             qrpdv.parambyname('CST').asstring := qrservidor_tabela.fieldbyname('cst').asstring;
+                             qrpdv.parambyname('CST').asstring := copy(qrservidor_tabela.fieldbyname('cst').asstring,1,3);
 
                              qrpdv.parambyname('CLASSIFICACAO_FISCAL').asstring := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').asstring;
                              qrpdv.parambyname('CSOSN').asstring := qrservidor_tabela.fieldbyname('CSOSN').asstring;
@@ -1325,10 +1344,10 @@ begin
 
                              qrpdv.parambyname('EX').asstring := qrservidor_tabela.fieldbyname('EX').asstring;
                              qrpdv.parambyname('TABELA').asInteger := qrservidor_tabela.fieldbyname('TABELA').asInteger;
-                             
+
                              qrpdv.parambyname('ALIQUOTA').asfloat := qrservidor_tabela.fieldbyname('aliquota').asfloat;
                              qrpdv.parambyname('DESCONTO_MAXIMO').asfloat := 0;
-                             qrpdv.parambyname('SITUACAO').AsInteger := qrservidor_tabela.fieldbyname('SITUACAO').AsInteger;
+
 
                              scst := qrservidor_tabela.fieldbyname('cst').asstring;
 
@@ -1349,6 +1368,11 @@ begin
                              qrpdv.parambyname('ESTOQUE').asfloat := qrservidor_tabela.fieldbyname('estoque_atual').asfloat;
                              qrpdv.parambyname('IAT').asstring := qrservidor_tabela.fieldbyname('IAT').AsString;
                              qrpdv.parambyname('IPPT').asstring := qrservidor_tabela.fieldbyname('IPPT').AsString;
+
+                             //alt prod
+                             qrpdv.parambyname('cfop').asstring := qrservidor_tabela.fieldbyname('cfop').AsString;
+                             qrpdv.parambyname('situacao').asstring := qrservidor_tabela.fieldbyname('situacao').AsString;
+
                              qrpdv.ExecSQL;
                            except
                              on E:Exception do
@@ -1391,6 +1415,8 @@ begin
                            qrpdv.sql.add('EX,');
                            qrpdv.sql.add('TABELA,');
 
+                           //inc prod
+                           qrpdv.sql.add('cfop,');
                            qrpdv.sql.add('SITUACAO');
 
                            qrpdv.sql.add(') values (');
@@ -1418,6 +1444,9 @@ begin
                            qrpdv.sql.add(':EX,');
                            qrpdv.sql.add(':TABELA,');
 
+
+                           //inc prod
+                           qrpdv.sql.add(':cfop,');
                            qrpdv.sql.add(':SITUACAO');
 
                            qrpdv.sql.add(')');
@@ -1430,7 +1459,7 @@ begin
                            qrpdv.parambyname('PRECO_PROMOCAO').asfloat := qrservidor_tabela.fieldbyname('preco_promocao').asfloat;
                            qrpdv.parambyname('INICIO_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('data_promocao').asdatetime;
                            qrpdv.parambyname('FINAL_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('fim_promocao').asdatetime;
-                           qrpdv.parambyname('CST').asstring := qrservidor_tabela.fieldbyname('cst').asstring;
+                           qrpdv.parambyname('CST').asstring := copy(qrservidor_tabela.fieldbyname('cst').asstring,1,3);
 
                            qrpdv.parambyname('CLASSIFICACAO_FISCAL').asstring := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').asstring;
                            qrpdv.parambyname('CSOSN').asstring := qrservidor_tabela.fieldbyname('CSOSN').asstring;
@@ -1442,7 +1471,7 @@ begin
 
                            qrpdv.parambyname('ALIQUOTA').asfloat := qrservidor_tabela.fieldbyname('aliquota').asfloat;
                            qrpdv.parambyname('DESCONTO_MAXIMO').asfloat := 0;
-                           qrpdv.parambyname('SITUACAO').AsInteger := qrservidor_tabela.fieldbyname('SITUACAO').AsInteger;
+
 
                            scst := qrservidor_tabela.fieldbyname('cst').asstring;
 
@@ -1463,6 +1492,12 @@ begin
                            qrpdv.parambyname('ESTOQUE').asfloat := qrservidor_tabela.fieldbyname('estoque_atual').asfloat;
                            qrpdv.parambyname('IAT').asstring := qrservidor_tabela.fieldbyname('IAT').AsString;
                            qrpdv.parambyname('IPPT').asstring := qrservidor_tabela.fieldbyname('IPPT').AsString;
+
+
+                           //inc prod
+                           qrpdv.parambyname('cfop').AsInteger := qrservidor_tabela.fieldbyname('cfop').AsInteger;
+                           qrpdv.parambyname('SITUACAO').AsInteger := qrservidor_tabela.fieldbyname('SITUACAO').AsInteger;
+
                            qrpdv.ExecSQL;
                          except
                            //aqui
@@ -2210,8 +2245,8 @@ begin
                qrpdv.sql.add('EX,');
                qrpdv.sql.add('TABELA,');
 
-
-
+               // inc prod
+               qrpdv.sql.add('cfop,');
                qrpdv.sql.add('SITUACAO');
 
                qrpdv.sql.add(') values (');
@@ -2239,8 +2274,8 @@ begin
                qrpdv.sql.add(':EX,');
                qrpdv.sql.add(':TABELA,');
 
-
-
+               // inc prod
+               qrpdv.sql.add(':cfop,');
                qrpdv.sql.add(':SITUACAO');
 
                qrpdv.sql.add(')');
@@ -2253,15 +2288,16 @@ begin
                qrpdv.parambyname('PRECO_PROMOCAO').asfloat := qrservidor_tabela.fieldbyname('preco_promocao').asfloat;
                qrpdv.parambyname('INICIO_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('data_promocao').asdatetime;
                qrpdv.parambyname('FINAL_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('fim_promocao').asdatetime;
-               qrpdv.parambyname('CST').asstring := qrservidor_tabela.fieldbyname('cst').asstring;
+               qrpdv.parambyname('CST').asstring := copy(qrservidor_tabela.fieldbyname('cst').asstring,1,3);
                qrpdv.parambyname('CLASSIFICACAO_FISCAL').asstring := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').asstring;
                qrpdv.parambyname('CSOSN').asstring := qrservidor_tabela.fieldbyname('CSOSN').asstring;
                qrpdv.parambyname('SITA').asstring := qrservidor_tabela.fieldbyname('SITA').asstring;
                qrpdv.parambyname('ex').asstring := qrservidor_tabela.fieldbyname('ex').asstring;
                qrpdv.parambyname('TABELA').asinteger := qrservidor_tabela.fieldbyname('TABELA').asinteger;
+
                qrpdv.parambyname('ALIQUOTA').asfloat := qrservidor_tabela.fieldbyname('aliquota').asfloat;
                qrpdv.parambyname('DESCONTO_MAXIMO').asfloat := 0;
-               qrpdv.parambyname('SITUACAO').AsInteger := qrservidor_tabela.fieldbyname('SITUACAO').AsInteger;
+
 
                scst := qrservidor_tabela.fieldbyname('cst').asstring;
 
@@ -2282,6 +2318,12 @@ begin
                qrpdv.parambyname('ESTOQUE').asfloat := qrservidor_tabela.fieldbyname('estoque_atual').asfloat;
                qrpdv.parambyname('IAT').asstring := qrservidor_tabela.fieldbyname('IAT').AsString;
                qrpdv.parambyname('IPPT').asstring := qrservidor_tabela.fieldbyname('IPPT').AsString;
+
+
+               //inc prod
+               qrpdv.parambyname('cfop').asstring := qrservidor_tabela.fieldbyname('cfop').AsString;
+               qrpdv.parambyname('SITUACAO').AsInteger := qrservidor_tabela.fieldbyname('SITUACAO').AsInteger;
+
                qrpdv.ExecSQL;
              except
                on E:Exception do
@@ -2322,7 +2364,11 @@ begin
 
 
 
+               //alt prod
+               qrpdv.sql.add('cfop = :cfop,');
                qrpdv.sql.add('SITUACAO = :SITUACAO');
+
+
                qrpdv.sql.add('where codigo = :codigo');
 
                qrpdv.parambyname('CODIGO').asinteger := strtoint(qrservidor_tabela.fieldbyname('codigo').asstring);
@@ -2333,7 +2379,7 @@ begin
                qrpdv.parambyname('PRECO_PROMOCAO').asfloat := qrservidor_tabela.fieldbyname('preco_promocao').asfloat;
                qrpdv.parambyname('INICIO_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('data_promocao').asdatetime;
                qrpdv.parambyname('FINAL_PROMOCAO').asdatetime := qrservidor_tabela.fieldbyname('fim_promocao').asdatetime;
-               qrpdv.parambyname('CST').asstring := qrservidor_tabela.fieldbyname('cst').asstring;
+               qrpdv.parambyname('CST').asstring := copy(qrservidor_tabela.fieldbyname('cst').asstring,1,3);
 
                qrpdv.parambyname('CLASSIFICACAO_FISCAL').asstring := qrservidor_tabela.fieldbyname('CLASSIFICACAO_FISCAL').asstring;
                qrpdv.parambyname('CSOSN').asstring := qrservidor_tabela.fieldbyname('CSOSN').asstring;
@@ -2341,10 +2387,9 @@ begin
 
                qrpdv.parambyname('EX').asstring := qrservidor_tabela.fieldbyname('EX').asstring;
                qrpdv.parambyname('TABELA').asInteger := qrservidor_tabela.fieldbyname('TABELA').asInteger;
-               
+
                qrpdv.parambyname('ALIQUOTA').asfloat := qrservidor_tabela.fieldbyname('aliquota').asfloat;
                qrpdv.parambyname('DESCONTO_MAXIMO').asfloat := 0;
-               qrpdv.parambyname('SITUACAO').AsInteger := qrservidor_tabela.fieldbyname('SITUACAO').AsInteger;
 
                scst := qrservidor_tabela.fieldbyname('cst').asstring;
 
@@ -2365,6 +2410,13 @@ begin
                qrpdv.parambyname('ESTOQUE').asfloat := qrservidor_tabela.fieldbyname('estoque_atual').asfloat;
                qrpdv.parambyname('IAT').asstring := qrservidor_tabela.fieldbyname('IAT').AsString;
                qrpdv.parambyname('IPPT').asstring := qrservidor_tabela.fieldbyname('IPPT').AsString;
+
+               //alt prod
+               qrpdv.parambyname('cfop').AsInteger := qrservidor_tabela.fieldbyname('cfop').AsInteger;
+               qrpdv.parambyname('SITUACAO').AsInteger := qrservidor_tabela.fieldbyname('SITUACAO').AsInteger;
+
+
+
                qrpdv.ExecSQL;
              except
                 on e:Exception do

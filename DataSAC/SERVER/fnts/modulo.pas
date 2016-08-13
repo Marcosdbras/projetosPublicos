@@ -2280,6 +2280,7 @@ type
     qrosCODUSU: TStringField;
     qratualiza: TZQuery;
     qrprodutoCFOP: TStringField;
+    qrFilialSITE: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure qrLogBeforePost(DataSet: TDataSet);
     procedure qrsubgrupoBeforePost(DataSet: TDataSet);

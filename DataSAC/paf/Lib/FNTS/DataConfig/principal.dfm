@@ -365,7 +365,7 @@ object frmPrincipal: TfrmPrincipal
       Height = 339
       AdvOfficePagerStyler = AdvOfficePagerOfficeStyler1
       Align = alClient
-      ActivePage = TabEmpresa
+      ActivePage = TabECF
       ButtonSettings.CloseButtonPicture.Data = {
         424DA20400000000000036040000280000000900000009000000010008000000
         00006C000000C30E0000C30E00000001000000010000427B8400DEEFEF00FFFF
@@ -1163,7 +1163,7 @@ object frmPrincipal: TfrmPrincipal
           Top = 63
           Width = 329
           Height = 21
-          Text = 'C:\DataSAC\SERVER\BD\BASE.FDB'
+          Text = 'C:\bd_DataSAC\SERVER\BD\BASE.FDB'
           TabOrder = 2
           OnButtonClick = ed_baseButtonClick
         end

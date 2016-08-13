@@ -4,11 +4,12 @@ object frmmodulo: Tfrmmodulo
   Left = 65532
   Top = 65532
   Height = 746
-  Width = 1292
+  Width = 1036
   object Conexao: TZConnection
     AutoCommit = False
     ReadOnly = True
     TransactIsolationLevel = tiReadCommitted
+    Connected = True
     SQLHourGlass = True
     Port = 0
     Database = 'C:\BD_DATASAC\SERVER\bd\BASE.FDB'
@@ -947,6 +948,10 @@ object frmmodulo: Tfrmmodulo
     object qrFilialEMAIL_EMPRESA: TStringField
       FieldName = 'EMAIL_EMPRESA'
       Size = 60
+    end
+    object qrFilialSITE: TStringField
+      FieldName = 'SITE'
+      Size = 150
     end
   end
   object qrcliente: TZQuery

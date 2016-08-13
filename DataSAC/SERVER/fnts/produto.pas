@@ -4839,9 +4839,9 @@ begin
   begin
       zquery1.close;
       zquery1.sql.clear;
-      zquery1.sql.add('select * from cfop where CODIGO = '''+resultado_pesquisa1+'''');
+      zquery1.sql.add('select * from c000030 where cfop = '''+resultado_pesquisa1+'''');
       zquery1.open;
-      ecfop.text := zquery1.fieldbyname('codigo').asstring;
+      ecfop.text := zquery1.fieldbyname('cfop').asstring;
       ecfop.setfocus;
   end;
 
