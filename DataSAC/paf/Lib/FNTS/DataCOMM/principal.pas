@@ -1495,7 +1495,7 @@ begin
 
 
                            //inc prod
-                           qrpdv.parambyname('cfop').AsInteger := qrservidor_tabela.fieldbyname('cfop').AsInteger;
+                           qrpdv.parambyname('cfop').AsString := qrservidor_tabela.fieldbyname('cfop').AsString;
                            qrpdv.parambyname('SITUACAO').AsInteger := qrservidor_tabela.fieldbyname('SITUACAO').AsInteger;
 
                            qrpdv.ExecSQL;
@@ -2412,7 +2412,7 @@ begin
                qrpdv.parambyname('IPPT').asstring := qrservidor_tabela.fieldbyname('IPPT').AsString;
 
                //alt prod
-               qrpdv.parambyname('cfop').AsInteger := qrservidor_tabela.fieldbyname('cfop').AsInteger;
+               qrpdv.parambyname('cfop').AsString := qrservidor_tabela.fieldbyname('cfop').AsString;
                qrpdv.parambyname('SITUACAO').AsInteger := qrservidor_tabela.fieldbyname('SITUACAO').AsInteger;
 
 
