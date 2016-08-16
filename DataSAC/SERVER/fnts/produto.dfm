@@ -6858,7 +6858,7 @@ object frmproduto: Tfrmproduto
           OnExit = ealiqExit
           OnKeyPress = ealiqKeyPress
         end
-        object dbedit13: TRzDBButtonEdit
+        object edt1: TRzDBButtonEdit
           Left = 54
           Top = 17
           Width = 55
@@ -6868,9 +6868,9 @@ object frmproduto: Tfrmproduto
           FocusColor = 10550008
           TabOrder = 0
           OnEnter = edata_cadastroEnter
-          OnExit = dbedit13Exit
-          OnKeyPress = DBEdit13KeyPress
-          OnButtonClick = dbedit13ButtonClick
+          OnExit = edt1Exit
+          OnKeyPress = edt1KeyPress
+          OnButtonClick = edt1ButtonClick
         end
         object wwDBComboBox2: TwwDBComboBox
           Left = 173

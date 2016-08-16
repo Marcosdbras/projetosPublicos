@@ -684,7 +684,7 @@ type
     Label89: TLabel;
     Label91: TLabel;
     ealiq: TRxDBCalcEdit;
-    dbedit13: TRzDBButtonEdit;
+    edt1: TRzDBButtonEdit;
     wwDBComboBox2: TwwDBComboBox;
     RxDBCalcEdit2: TRxDBCalcEdit;
     ecsosn: TRzDBButtonEdit;
@@ -764,7 +764,7 @@ type
     procedure otalizarestoque1Click(Sender: TObject);
     procedure BitBtn5Click(Sender: TObject);
     procedure AtualizaodePreos1Click(Sender: TObject);
-    procedure DBEdit13KeyPress(Sender: TObject; var Key: Char);
+    procedure edt1KeyPress(Sender: TObject; var Key: Char);
     procedure ealiqExit(Sender: TObject);
     procedure ealiqKeyPress(Sender: TObject; var Key: Char);
     procedure combo_tipoEnter(Sender: TObject);
@@ -794,7 +794,7 @@ type
     procedure esubgrupoKeyPress(Sender: TObject; var Key: Char);
     procedure efornecedorKeyPress(Sender: TObject; var Key: Char);
     procedure emarcaKeyPress(Sender: TObject; var Key: Char);
-    procedure dbedit13ButtonClick(Sender: TObject);
+    procedure edt1ButtonClick(Sender: TObject);
     procedure bfiltro_entradaClick(Sender: TObject);
     procedure di_entradaKeyPress(Sender: TObject; var Key: Char);
     procedure df_entradaKeyPress(Sender: TObject; var Key: Char);
@@ -882,7 +882,7 @@ type
     procedure eNCMKeyPress(Sender: TObject; var Key: Char);
     procedure ecsosnButtonClick(Sender: TObject);
     procedure ecsosnKeyPress(Sender: TObject; var Key: Char);
-    procedure dbedit13Exit(Sender: TObject);
+    procedure edt1Exit(Sender: TObject);
     procedure RxDBCalcEdit3KeyPress(Sender: TObject; var Key: Char);
     procedure ecustoKeyPress(Sender: TObject; var Key: Char);
     procedure evendaKeyPress(Sender: TObject; var Key: Char);
@@ -1012,6 +1012,15 @@ begin
   frmmodulo.qrCSOSN.open;
   frmmodulo.qrCSOSN.IndexFieldNames := 'codigo';
 
+
+  frmmodulo.qrcfop.close;
+  frmmodulo.qrcfop.sql.clear;
+  frmmodulo.qrcfop.SQL.add('select * from c000030 order by cfop');
+  frmmodulo.qrcfop.open;
+  frmmodulo.qrcfop.IndexFieldNames := 'cfop';
+
+
+
   qrcodbarra.close;
   qrcodbarra.sql.clear;
   qrcodbarra.sql.add('select * from c000055');
@@ -1119,7 +1128,7 @@ begin
   qrproduto.FieldByName('unidade').AsString := 'UN';
   qrproduto.fieldbyname('estoque').asfloat := 0;
   qrproduto.FieldByName('cst').AsString := '000';
-  qrproduto.FieldByName('aliquota').asinteger := 17;
+  qrproduto.FieldByName('aliquota').asinteger := 18;
   qrproduto.fieldbyname('situacao').asinteger := 0;
 
   qrproduto.FieldByName('usa_balanca').asinteger := 2;
@@ -2001,18 +2010,18 @@ begin
   qrproduto.refresh;
 end;
 
-procedure Tfrmproduto.DBEdit13KeyPress(Sender: TObject; var Key: Char);
+procedure Tfrmproduto.edt1KeyPress(Sender: TObject; var Key: Char);
 begin
 
   if key = #13 then
   begin
       IF (qrproduto.state = dsinsert) or (qrproduto.State = dsedit) then
       begin
-        if DBEDIT13.text <> '' then
+        if edt1.text <> '' then
         begin
           FRMMODULO.qrfiscal_cst.CLOSE;
           FRMMODULO.QRFISCAL_CST.SQL.CLEAR;
-          FRMMODULO.QRFISCAL_CST.SQL.ADD('SELECT * FROM C000083 WHERE CODIGO = '''+DBEDIT13.TEXT+'''');
+          FRMMODULO.QRFISCAL_CST.SQL.ADD('SELECT * FROM C000083 WHERE CODIGO = '''+edt1.TEXT+'''');
           FRMMODULO.qrfiscal_cst.Open;
           IF FRMMODULO.QRFISCAL_CST.RecordCount > 0 THEN
           BEGIN
@@ -2028,7 +2037,7 @@ begin
           END;
         end
         else
-          dbedit13ButtonClick(frmproduto);
+          edt1ButtonClick(frmproduto);
       end;
 
   end
@@ -2493,7 +2502,7 @@ begin
   end;
 end;
 
-procedure Tfrmproduto.dbedit13ButtonClick(Sender: TObject);
+procedure Tfrmproduto.edt1ButtonClick(Sender: TObject);
 begin
   IF QRPRODUTO.State <> DSINSERT THEN
   IF QRPRODUTO.STATE <> DSINSERT THEN QRPRODUTO.Edit;
@@ -4690,20 +4699,20 @@ begin
   end;
 end;
 
-procedure Tfrmproduto.dbedit13Exit(Sender: TObject);
+procedure Tfrmproduto.edt1Exit(Sender: TObject);
 begin
   tedit(sender).Color := clwindow;
-  if (dbedit13.Text = '060') or
-     (dbedit13.Text = '010') or
-     (dbedit13.Text = '070') then wwDBComboBox2.Text := 'F'
+  if (edt1.Text = '060') or
+     (edt1.Text = '010') or
+     (edt1.Text = '070') then wwDBComboBox2.Text := 'F'
   else
-  if (dbedit13.Text = '040') or
-     (dbedit13.Text = '030') then wwDBComboBox2.Text := 'I'
+  if (edt1.Text = '040') or
+     (edt1.Text = '030') then wwDBComboBox2.Text := 'I'
   else
-  if (dbedit13.Text = '041') or
-     (dbedit13.Text = '050') or
-     (dbedit13.Text = '051') or
-     (dbedit13.Text = '090') then wwDBComboBox2.Text := 'N'
+  if (edt1.Text = '041') or
+     (edt1.Text = '050') or
+     (edt1.Text = '051') or
+     (edt1.Text = '090') then wwDBComboBox2.Text := 'N'
   else
       wwDBComboBox2.Text := 'T';
 end;
@@ -4854,9 +4863,9 @@ begin
   tedit(sender).Color := clwindow;
   IF (qrproduto.state = dsinsert) or (qrproduto.State = dsedit) then
   begin
-    qrproduto.fieldbyname('cfop').asstring := frmprincipal.zerarcodigo(ecfop.text,3);
+    //qrproduto.fieldbyname('cfop').asstring := frmprincipal.zerarcodigo(ecfop.text,3);
     if ecfop.text <> '' then
-      if not FrmPrincipal.Locregistro(frmmodulo.qrcfop,ecfop.text,'codigo') then
+      if not FrmPrincipal.Locregistro(frmmodulo.qrcfop,ecfop.text,'cfop') then
       begin
           application.messagebox('cfop não cadastrada!','Atenção',mb_ok+mb_iconerror);
           ecfop.setfocus;

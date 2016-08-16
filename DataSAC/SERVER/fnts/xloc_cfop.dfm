@@ -165,10 +165,10 @@ object frmxloc_cfop: Tfrmxloc_cfop
       Font.Name = 'Verdana'
       Font.Style = []
       ItemHeight = 12
-      ItemIndex = 0
+      ItemIndex = 1
       ParentFont = False
       TabOrder = 1
-      Text = 'NATUREZA'
+      Text = 'CFOP'
       Items.Strings = (
         'NATUREZA'
         'CFOP')
