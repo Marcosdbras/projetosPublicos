@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, SysUtils, Controls, Messages, Forms, Dialogs, Classes,
-  Shellapi;
+  Shellapi, conexao_ibpt;
 
 
 type
@@ -10078,13 +10078,18 @@ procedure gerasat;
   var
     iproxsat,
     itotalprod,
-    itotalnfe :integer;
+    itotalnfe,
+    ivalor :integer;
 
-    ftotalprod:real;
+    ftotalprod,
+    fvalor:real;
 
     sncm,
     snomeprod,
-    scfop:string;
+    scfop,
+    scsosn,
+    scst,
+    svalor:string;
 begin
 
 
@@ -10097,7 +10102,11 @@ begin
       end;
    //endth
 
-    //Se existir ":"  significa que irá montar layout monitor fiscal FRSERV Fagner, caso contrário monta layout de fabricante s@t
+    {Se existir ":"  significa que irá montar layout monitor
+     fiscal FRSERV Fagner, caso contrário monta layout de fabricante
+     s@t ou se tiver como nenhum não monta}
+
+
     if pos(':',frmprincipal.seqfiscalon)>0 then
        begin
                                                                                                                  {cpf ou cnpj}
@@ -10197,7 +10206,6 @@ begin
                   Write(frmprincipal.arqsat,AjustaStr ( sqlconsulta.fieldbyname('item').asString,6 ) );   //38 - item_no
                   Write(frmprincipal.arqsat,AjustaStr ( sqlconsulta.fieldbyname('cod_produto').asString,60 ) );   //39 - codprod
 
-
                   with frmconexao_ibpt do
                     begin
                       qrProdutoIBPT.Close;
@@ -10207,6 +10215,47 @@ begin
 
                       sncm := qrProdutoIBPT.fieldbyname('classificacao_fiscal').asString;
                       snomeprod := qrProdutoIBPT.fieldbyname('nome').asString;
+                      scfop :=  qrProdutoIBPT.fieldbyname('cfop').asString;
+                      scst :=  qrProdutoIBPT.fieldbyname('cst').asString;
+                      scsosn :=  qrProdutoIBPT.fieldbyname('csosn').asString;
+
+
+                      {Se não encontrar CFOP converte para código que o sat de venda}
+                      sqlconsultaDetalhe.Close;
+                      sqlconsultaDetalhe.SQL.Clear;
+                      sqlconsultaDetalhe.SQL.Add('select * from cfopsat where codigo = '+quotedstr(scfop));
+                      sqlconsultaDetalhe.Open;
+                      if sqlconsultaDetalhe.RecordCount = 0 then
+                         begin
+                           scfop := '5102';
+                         end;
+                      //endi
+
+
+
+                      {Se encontrar CSOSN ou CST converte para código que o sat reconhece}
+                      sqlconsultaDetalhe.Close;
+                      sqlconsultaDetalhe.SQL.Clear;
+                      sqlconsultaDetalhe.SQL.Add('select * from CONVERSAO_CST where de = '+quotedstr(scst));
+                      sqlconsultaDetalhe.Open;
+                      if sqlconsultaDetalhe.RecordCount > 0 then
+                         begin
+                           scst :=  sqlconsultaDetalhe.fieldbyname('para').asString;
+                         end;
+                      //endi
+
+
+                      sqlconsultaDetalhe.Close;
+                      sqlconsultaDetalhe.SQL.Clear;
+                      sqlconsultaDetalhe.SQL.Add('select * from CONVERSAO_CSOSN where de = '+quotedstr(scsosn));
+                      sqlconsultaDetalhe.Open;
+                      if sqlconsultaDetalhe.RecordCount > 0 then
+                         begin
+                           scsosn :=  sqlconsultaDetalhe.fieldbyname('para').asString;
+                         end;
+                      //endi
+
+
 
                     end;
                   //endth
@@ -10216,30 +10265,23 @@ begin
 
                   Write(frmprincipal.arqsat,AjustaStr ( snomeprod,50 ) );   //102 - desc_item
 
-
-                  //adequar de acordo com legislação s@t
-                  //colocar no cadastro de produto cfop  e
-                  //gerar cfop de acordo com o cadastro
-
-                  scfop := '5.102';
-
-
-
                   Write(frmprincipal.arqsat,AjustaStr ( scfop,4 ) );   //41 - cfop_item
 
-                  if Cds_unidade.Locate('codigo',sqlconsulta.fieldbyname('cuin').AsInteger,[]) then
-                     begin
-                       Write(frmprincipal.arqsat,AjustaStr ( cds_unidade.fieldbyname('descricao').asString ,6 ) );   //42 - und_item
-                     end;
-                  //endi
+
+                  Write(frmprincipal.arqsat,AjustaStr ( sqlconsulta.fieldbyname('unidade').asString ,6 ) );   //42 - und_item
 
                   svalor := formatfloat ( '0000000000',sqlconsulta.fieldbyname('qtde').asfloat * 1000);
                   Write(frmprincipal.arqsat,AjustaStr(  svalor  ,10 )) ;   //43 - qde_item
 
-                  svalor := formatfloat ( '0000000000',sqlconsulta.fieldbyname('prve').asfloat * 1000);
+                  svalor := formatfloat ( '0000000000',sqlconsulta.fieldbyname('valor_unitario').asfloat * 1000);
                   Write(frmprincipal.arqsat,AjustaStr(    svalor  ,10));   //44 - vunitario_item
 
-                  Write(frmprincipal.arqsat, '0000000000');   //122 - dsc_item
+
+                  svalor := formatfloat ( '0000000000',sqlconsulta.fieldbyname('').asfloat * 1000);
+                  Write(frmprincipal.arqsat,AjustaStr(    svalor  ,10));   //122 - dsc_item
+
+
+                  //Write(frmprincipal.arqsat, '0000000000');   //122 - dsc_item
 
 
                   svalor := formatfloat ( '000000000000000',sqlconsulta.fieldbyname('subtotal').asfloat * 1000 );

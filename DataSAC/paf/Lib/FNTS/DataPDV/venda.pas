@@ -2066,17 +2066,29 @@ begin
 
             if (grid.cell[11,i].asstring = '060') or
                (grid.cell[11,i].asstring = '010') or
-               (grid.cell[11,i].asstring = '070') then
+               (grid.cell[11,i].asstring = '070') or
+               (grid.cell[11,i].asstring = '60')  or
+               (grid.cell[11,i].asstring = '10')  or
+               (grid.cell[11,i].asstring = '70')
+            then
                  spCupom_item.ParamByName('cod_totalizador').asstring := 'F1'
             else
             if (grid.cell[11,i].asstring = '040') or
-               (grid.cell[11,i].asstring = '030') then
+               (grid.cell[11,i].asstring = '030') or
+               (grid.cell[11,i].asstring = '40')  or
+               (grid.cell[11,i].asstring = '30')
+            then
                  spCupom_item.ParamByName('cod_totalizador').asstring := 'I1'
             else
             if (grid.cell[11,i].asstring = '041') or
                (grid.cell[11,i].asstring = '050') or
                (grid.cell[11,i].asstring = '051') or
-               (grid.cell[11,i].asstring = '090') then
+               (grid.cell[11,i].asstring = '090') or
+               (grid.cell[11,i].asstring = '41')  or
+               (grid.cell[11,i].asstring = '50')  or
+               (grid.cell[11,i].asstring = '51')  or
+               (grid.cell[11,i].asstring = '90')
+            then
                  spCupom_item.ParamByName('cod_totalizador').asstring := 'N1'
             else
             if (grid.cell[11,i].asstring = 'ISS') then
@@ -2257,17 +2269,29 @@ begin
 
             if (grid.cell[11,i].asstring = '060') or
                (grid.cell[11,i].asstring = '010') or
-               (grid.cell[11,i].asstring = '070') then
+               (grid.cell[11,i].asstring = '070') or
+               (grid.cell[11,i].asstring = '60')  or
+               (grid.cell[11,i].asstring = '10')  or
+               (grid.cell[11,i].asstring = '70')
+           then
                  spCupom_item.ParamByName('cod_totalizador').asstring := 'F1'
             else
             if (grid.cell[11,i].asstring = '040') or
-               (grid.cell[11,i].asstring = '030') then
+               (grid.cell[11,i].asstring = '030') or
+               (grid.cell[11,i].asstring = '40')  or
+               (grid.cell[11,i].asstring = '30')
+            then
                  spCupom_item.ParamByName('cod_totalizador').asstring := 'I1'
             else
             if (grid.cell[11,i].asstring = '041') or
                (grid.cell[11,i].asstring = '050') or
                (grid.cell[11,i].asstring = '051') or
-               (grid.cell[11,i].asstring = '090') then
+               (grid.cell[11,i].asstring = '090') or
+               (grid.cell[11,i].asstring = '41')  or
+               (grid.cell[11,i].asstring = '50')  or
+               (grid.cell[11,i].asstring = '51')  or
+               (grid.cell[11,i].asstring = '90')
+            then
                  spCupom_item.ParamByName('cod_totalizador').asstring := 'N1'
             else
             if (grid.cell[11,i].asstring = 'ISS') then
@@ -2519,17 +2543,29 @@ begin
 
   if (grid.cell[11,i].asstring = '060') or
      (grid.cell[11,i].asstring = '010') or
-     (grid.cell[11,i].asstring = '070') then
+     (grid.cell[11,i].asstring = '070') or
+     (grid.cell[11,i].asstring = '60')  or
+     (grid.cell[11,i].asstring = '10')  or
+     (grid.cell[11,i].asstring = '70')
+  then
        frmmodulo.spCupom_item_temp.ParamByName('cod_totalizador').asstring := 'F1'
   else
   if (grid.cell[11,i].asstring = '040') or
-     (grid.cell[11,i].asstring = '030') then
+     (grid.cell[11,i].asstring = '030') or
+     (grid.cell[11,i].asstring = '40')  or
+     (grid.cell[11,i].asstring = '30')
+  then
        frmmodulo.spCupom_item_temp.ParamByName('cod_totalizador').asstring := 'I1'
   else
   if (grid.cell[11,i].asstring = '041') or
      (grid.cell[11,i].asstring = '050') or
      (grid.cell[11,i].asstring = '051') or
-     (grid.cell[11,i].asstring = '090') then
+     (grid.cell[11,i].asstring = '090') or
+     (grid.cell[11,i].asstring = '41')  or
+     (grid.cell[11,i].asstring = '50')  or
+     (grid.cell[11,i].asstring = '51')  or
+     (grid.cell[11,i].asstring = '90')
+  then
        frmmodulo.spCupom_item_temp.ParamByName('cod_totalizador').asstring := 'N1'
   else
   if (grid.cell[11,i].asstring = 'ISS') then
@@ -2694,17 +2730,29 @@ begin
 
   if (grid.cell[11,i].asstring = '060') or
      (grid.cell[11,i].asstring = '010') or
-     (grid.cell[11,i].asstring = '070') then
+     (grid.cell[11,i].asstring = '070') or
+     (grid.cell[11,i].asstring = '60')  or
+     (grid.cell[11,i].asstring = '10')  or
+     (grid.cell[11,i].asstring = '70')
+  then
        frmmodulo.spCupom_item_temp.ParamByName('cod_totalizador').asstring := 'F1'
   else
   if (grid.cell[11,i].asstring = '040') or
-     (grid.cell[11,i].asstring = '030') then
+     (grid.cell[11,i].asstring = '030') or
+     (grid.cell[11,i].asstring = '40')  or
+     (grid.cell[11,i].asstring = '30')
+  then
        frmmodulo.spCupom_item_temp.ParamByName('cod_totalizador').asstring := 'I1'
   else
   if (grid.cell[11,i].asstring = '041') or
      (grid.cell[11,i].asstring = '050') or
      (grid.cell[11,i].asstring = '051') or
-     (grid.cell[11,i].asstring = '090') then
+     (grid.cell[11,i].asstring = '090') or
+     (grid.cell[11,i].asstring = '41')  or
+     (grid.cell[11,i].asstring = '50')  or
+     (grid.cell[11,i].asstring = '51')  or
+     (grid.cell[11,i].asstring = '90')
+  then
        frmmodulo.spCupom_item_temp.ParamByName('cod_totalizador').asstring := 'N1'
   else
   if (grid.cell[11,i].asstring = 'ISS') then
@@ -6192,17 +6240,29 @@ begin
 
             if (grid.cell[11,i].asstring = '060') or
                (grid.cell[11,i].asstring = '010') or
-               (grid.cell[11,i].asstring = '070') then
+               (grid.cell[11,i].asstring = '070') or
+               (grid.cell[11,i].asstring = '60')  or
+               (grid.cell[11,i].asstring = '10')  or
+               (grid.cell[11,i].asstring = '70')
+            then
                  spCupom_item.ParamByName('cod_totalizador').asstring := 'F1'
             else
             if (grid.cell[11,i].asstring = '040') or
-               (grid.cell[11,i].asstring = '030') then
+               (grid.cell[11,i].asstring = '030') or
+               (grid.cell[11,i].asstring = '40')  or
+               (grid.cell[11,i].asstring = '30')
+            then
                  spCupom_item.ParamByName('cod_totalizador').asstring := 'I1'
             else
             if (grid.cell[11,i].asstring = '041') or
                (grid.cell[11,i].asstring = '050') or
                (grid.cell[11,i].asstring = '051') or
-               (grid.cell[11,i].asstring = '090') then
+               (grid.cell[11,i].asstring = '090') or
+               (grid.cell[11,i].asstring = '41')  or
+               (grid.cell[11,i].asstring = '50')  or
+               (grid.cell[11,i].asstring = '51')  or
+               (grid.cell[11,i].asstring = '90')
+            then
                  spCupom_item.ParamByName('cod_totalizador').asstring := 'N1'
             else
             if (grid.cell[11,i].asstring = 'ISS') then

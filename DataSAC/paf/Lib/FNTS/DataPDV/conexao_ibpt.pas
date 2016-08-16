@@ -12,6 +12,8 @@ type
     qrProdutoIBPT: TZQuery;
     qrFilial: TZQuery;
     qrIBPT: TZQuery;
+    sqlconsultaDetalhe: TZQuery;
+    sqlexec: TZQuery;
   private
     { Private declarations }
   public

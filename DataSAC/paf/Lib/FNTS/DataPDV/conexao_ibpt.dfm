@@ -1,7 +1,7 @@
 object frmconexao_ibpt: Tfrmconexao_ibpt
   OldCreateOrder = False
-  Left = 944
-  Top = 158
+  Left = 555
+  Top = 185
   Height = 281
   Width = 215
   object banco: TZConnection
@@ -22,13 +22,25 @@ object frmconexao_ibpt: Tfrmconexao_ibpt
   object qrFilial: TZQuery
     Connection = banco
     Params = <>
-    Left = 120
-    Top = 144
+    Left = 32
+    Top = 112
   end
   object qrIBPT: TZQuery
     Connection = banco
     Params = <>
-    Left = 56
-    Top = 152
+    Left = 104
+    Top = 16
+  end
+  object sqlconsultaDetalhe: TZQuery
+    Connection = banco
+    Params = <>
+    Left = 96
+    Top = 136
+  end
+  object sqlexec: TZQuery
+    Connection = banco
+    Params = <>
+    Left = 48
+    Top = 192
   end
 end
