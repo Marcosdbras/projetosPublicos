@@ -1,7 +1,7 @@
 object frmconexao_ibpt: Tfrmconexao_ibpt
   OldCreateOrder = False
-  Left = 555
-  Top = 185
+  Left = 557
+  Top = 187
   Height = 281
   Width = 215
   object banco: TZConnection

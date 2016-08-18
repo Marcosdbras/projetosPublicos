@@ -4892,7 +4892,7 @@ object frmVenda: TfrmVenda
       OnExit = ed_qtdeExit
       OnKeyPress = ed_unitarioKeyPress
       IntegersOnly = False
-      DisplayFormat = 'R$ ###,###,##0.000'
+      DisplayFormat = 'R$ ###,###,##0.00'
     end
     object ed_total_item: TRzNumericEdit
       Left = 190
@@ -5405,8 +5405,8 @@ object frmVenda: TfrmVenda
     end
   end
   object pn_fechamento: TFlatPanel
-    Left = 38
-    Top = 152
+    Left = 470
+    Top = 280
     Width = 305
     Height = 395
     Caption = 'pn_fechamento'

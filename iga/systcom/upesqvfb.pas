@@ -1,4 +1,4 @@
-unit upesqvfb; 
+unit upesqvfb;
 
 interface
 
@@ -699,6 +699,10 @@ type
     dbx_sitb: TSQLQuery;
     dbx_cfop: TSQLQuery;
     dbx_consulta: TSQLQuery;
+    dbx_natop: TSQLQuery;
+    dsp_natop: TDataSetProvider;
+    cds_natop: TClientDataSet;
+    dts_natop: TDataSource;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -1552,6 +1556,16 @@ vardir := extractfilepath(application.ExeName);
   cds_unidade.Active := true;
   cds_unidade.Active := true;
 
+
+  cds_natop.Active := false;
+  dbx_natop.Active := false;
+  dbx_natop.sql.Clear;
+  dbx_natop.SQL.Add('select * from natop');
+  cds_natop.Active := true;
+  cds_natop.Active := true;
+
+
+
   AssignFile(f,dbx_indice.fieldbyname('exportacaosat').AsString +'\sat_nro' + inttostr( Cds_sVenda.fieldbyname('codigo').asInteger ) + nome + codigo +'.sat');
   rewrite(f);
 
@@ -1680,7 +1694,15 @@ vardir := extractfilepath(application.ExeName);
          end;
       //endif
       Write(f,AjustaStr ( cds_vendabb.fieldbyname('npro').asString,50 ) );   //102 - desc_item
-      Write(f,AjustaStr ( '5102',4 ) );   //41 - cfop_item
+
+
+      if Cds_natop.Locate('codigo',cds_vendabb.fieldbyname('codcfop').AsInteger,[]) then
+         begin
+           Write(f,AjustaStr ( cds_natop.fieldbyname('cfop').asString ,4 ) );   //41 - cfop_item
+         end;
+      //endi
+
+      //Write(f,AjustaStr ( '5102',4 ) );   //41 - cfop_item
 
       if Cds_unidade.Locate('codigo',cds_vendabb.fieldbyname('cuin').AsInteger,[]) then
          begin

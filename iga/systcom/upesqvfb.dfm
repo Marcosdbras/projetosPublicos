@@ -1,6 +1,6 @@
 object frmPesqVfb: TfrmPesqVfb
-  Left = 202
-  Top = 115
+  Left = 51
+  Top = 110
   Width = 947
   Height = 568
   BorderIcons = []
@@ -3419,5 +3419,34 @@ object frmPesqVfb: TfrmPesqVfb
     SQLConnection = frmDados.Sql_Dados
     Left = 401
     Top = 90
+  end
+  object dbx_natop: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'Select * from svenda')
+    SQLConnection = frmDados.Sql_Dados
+    Left = 691
+    Top = 422
+  end
+  object dsp_natop: TDataSetProvider
+    DataSet = dbx_natop
+    UpdateMode = upWhereKeyOnly
+    Left = 699
+    Top = 438
+  end
+  object cds_natop: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dsp_natop'
+    OnCalcFields = Cds_sVendaCalcFields
+    Left = 723
+    Top = 454
+  end
+  object dts_natop: TDataSource
+    DataSet = cds_natop
+    OnDataChange = Dts_sVendaDataChange
+    Left = 739
+    Top = 470
   end
 end
