@@ -6,6 +6,16 @@ https://www.google.com.br/search?q=icone+ordem+de+servi%C3%A7o+png+transparente&
 https://www.google.com.br/search?q=icone+ordem+de+servi%C3%A7o+png+transparente&biw=1366&bih=610&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiYs_qh0NDMAhUCTZAKHQ8lCfYQ_AUIBigB&dpr=1#imgdii=udOdqCIqsM-3nM%3A%3BudOdqCIqsM-3nM%3A%3BIF0S92jdyBmTbM%3A&imgrc=udOdqCIqsM-3nM%3A
 
 https://www.fazenda.sp.gov.br/nfe/
+http://www.visaosolucoes.com.br/solucoes-contabilidade/74-tabela-cst-ipi.html
+http://www.projetoacbr.com.br/forum/topic/23786-rela%C3%A7%C3%A3o-cst-ipi-cst-pis-e-cst-cofins/
+http://www.portaltributario.com.br/guia/simples.html
+http://faq.resolvapelosite.com.br/index.php?action=artikel&cat=11&id=33&artlang=pt-br
+
+http://itworksrfd.blogspot.com.br/2015/11/cest-codigo-de-enquadramento-do-ipi.html
+
+http://www.ebs.com.br/treinamento/Apostilas/Apostila%20Sage%20One_v.01_2016.pdf
+
+
 
 =======================================================================================
 Datasac 
@@ -20,4 +30,19 @@ Cadastro de produto:
    
 
 Quando emitir sat desconsiderar os itens cancelados
+
+
+
+forma de pagamento
+
+        A = Vale Alimentação
+        B = Cartao Debito
+        C = Cartao Credito
+        D = Dinheiro
+        H = Cheque
+        L = Boleto
+        M = Vale Combustível
+        O = Outros
+        P = Vale Presente
+        R = Vale Refeição
 

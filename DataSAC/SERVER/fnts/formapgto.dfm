@@ -200,8 +200,9 @@ object frmFormaPgto: TfrmFormaPgto
     DittoAttributes.Options = []
     DisableThemesInTitle = False
     Selected.Strings = (
-      'CODIGO'#9'11'#9'C'#243'digo'#9#9
-      'FORMAPGTO'#9'56'#9'Forma de Pagamento'#9#9)
+      'CODIGO'#9'6'#9'CODIGO'
+      'FORMAPGTO'#9'25'#9'FORMAPGTO'
+      'SIGLA'#9'10'#9'COD. FISCAL'#9'F')
     IniAttributes.Delimiter = ';;'
     TitleColor = clBtnFace
     FixedCols = 1
@@ -221,18 +222,11 @@ object frmFormaPgto: TfrmFormaPgto
   end
   object qrformapgto: TZQuery
     Connection = frmmodulo.Conexao
-    CachedUpdates = False
     BeforePost = qrformapgtoBeforePost
     AfterPost = qrformapgtoAfterPost
-    Active = True
     SQL.Strings = (
       'select * from c000014')
-    ParamCheck = True
     Params = <>
-    ShowRecordTypes = [usUnmodified, usModified, usInserted]
-    UpdateMode = umUpdateChanged
-    WhereMode = wmWhereKeyOnly
-    Options = [doCalcDefaults]
     Left = 336
     Top = 40
   end

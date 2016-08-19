@@ -10083,7 +10083,10 @@ procedure gerasat;
 
     ftotalprod,
     fvalor,
-    faliqicms:real;
+    faliqicms,
+    faliqpis,
+    faliqcofins,
+    faliqipi:real;
 
     sncm,
     snomeprod,
@@ -10092,7 +10095,14 @@ procedure gerasat;
     scst,
     svalor,
     scfoppadrao,
-    ssita:string;
+    ssita,
+    scstpis,
+    scstcofins,
+    scstipi:string;
+
+
+
+
 begin
 
 
@@ -10224,6 +10234,15 @@ begin
                       ssita :=  qrProdutoIBPT.fieldbyname('sita').asString;
                       faliqicms :=  qrProdutoIBPT.fieldbyname('aliquota').asfloat * 1000;
 
+                      scstpis   :=  qrProdutoIBPT.fieldbyname('cstpis').asString;
+                      faliqpis  :=  qrProdutoIBPT.fieldbyname('aliqpis').asfloat * 1000;
+
+                      scstcofins   :=  qrProdutoIBPT.fieldbyname('aliqcofins').asfloat * 1000;
+                      faliqcofins  :=  qrProdutoIBPT.fieldbyname('cstcofins').asString;
+
+                      scstipi        :=  qrProdutoIBPT.fieldbyname('aliqipi').asfloat * 1000;
+                      faliqipi      :=  qrProdutoIBPT.fieldbyname('cstipi').asString;
+
                       {Se não encontrar CFOP converte para código que o sat de venda}
                       sqlconsultaDetalhe.Close;
                       sqlconsultaDetalhe.SQL.Clear;
@@ -10298,6 +10317,7 @@ begin
                   Write(frmprincipal.arqsat,AjustaStr ( '00',2 ) );   //49 - tipotribicms
                   Write(frmprincipal.arqsat,AjustaStr ( '0',1) );   //50   - modbc
 
+                  //ICMS
                   fvalorimposto := sqlconsulta.fieldbyname('valor_total').asfloat * faliqicms;
 
                   if fvalorimposto > 0 then
@@ -10317,32 +10337,22 @@ begin
                   svalor := formatfloat ( '0000',faliqicms );
                   Write(frmprincipal.arqsat,AjustaStr (  svalor ,4 ) );   //53 - aliquotaicms
 
-
                   try
-                    ivalor := strtoint(ssigla);
+                    ivalor := strtoint(scst);
                   except
                     ivalor := 0;
                   end;
 
-                  ssigla := formatfloat('000',ivalor);
+                  scst := formatfloat('000',ivalor);
 
-
-                  Write(frmprincipal.arqsat,AjustaStr ( ssigla ,3 ) );   //54 -  cst
+                  Write(frmprincipal.arqsat,AjustaStr ( scst ,3 ) );   //54 -  cst
 
                   //PIS
-                  if dbx_pis.Locate('codigo',sqlconsulta.fieldbyname('codpis').AsInteger,[]) then
-                     begin
-                       ssigla := dbx_pis.fieldbyname('sigla').asString;
-                       faliq := dbx_pis.fieldbyname('aliquota').asfloat * 1000;
-                     end;
-                  //endi
-
-                  fvalorimposto := sqlconsulta.fieldbyname('subtotal').asfloat * faliq;
-
+                  fvalorimposto := sqlconsulta.fieldbyname('valor_total').asfloat * faliqpis;
 
                   if fvalorimposto > 0 then
                      begin
-                       svalor := formatfloat ( '00000000000000000',sqlconsulta.fieldbyname('subtotal').asfloat * 1000);
+                       svalor := formatfloat ( '00000000000000000',sqlconsulta.fieldbyname('valor_total').asfloat * 1000);
                        Write(frmprincipal.arqsat,AjustaStr (  svalor ,17 ) );   //55 - basepis
                      end
                   else
@@ -10355,33 +10365,26 @@ begin
                   svalor := formatfloat ( '00000000000000000', fvalorimposto );
                   Write(frmprincipal.arqsat,AjustaStr (  svalor ,17 ) );   //56 - valorpis
 
-                  svalor := formatfloat ( '0000',faliq );
+                  svalor := formatfloat ( '0000',faliqpis );
                   Write(frmprincipal.arqsat,AjustaStr (   svalor ,4 ) );   //57 -  aliquotapis
 
-                   try
-                     ivalor := strtoint(ssigla);
-                   except
+                  try
+                     ivalor := strtoint(scstpis);
+                  except
                      ivalor := 0;
-                   end;
+                  end;
 
-                   ssigla := formatfloat('000',ivalor);
+                  scstpis := formatfloat('000',ivalor);
 
 
-                  Write(frmprincipal.arqsat,AjustaStr (  ssigla,3 ) );   //58 - cstpis
+                  Write(frmprincipal.arqsat,AjustaStr (  scstpis,3 ) );   //58 - cstpis
 
                   //COFINS
-                  if dbx_cofins.Locate('codigo',sqlconsulta.fieldbyname('codcofins').AsInteger,[]) then
-                     begin
-                       ssigla := dbx_cofins.fieldbyname('sigla').asString;
-                       faliq := dbx_cofins.fieldbyname('aliquota').asfloat * 1000;
-                     end;
-                  //endi
-
-                  fvalorimposto :=  sqlconsulta.fieldbyname('subtotal').asfloat * faliq;
+                  fvalorimposto :=  sqlconsulta.fieldbyname('valor_total').asfloat * faliqcofins;
 
                   if fvalorimposto > 0 then
                      begin
-                       svalor := formatfloat ( '00000000000000000',sqlconsulta.fieldbyname('subtotal').asfloat * 1000 );
+                       svalor := formatfloat ( '00000000000000000',sqlconsulta.fieldbyname('valor_total').asfloat * 1000 );
                        Write(frmprincipal.arqsat,AjustaStr ( svalor ,17 ) );   //59 - basecofins
                      end
                   else
@@ -10394,21 +10397,19 @@ begin
                   svalor := formatfloat ( '00000000000000000', fvalorimposto );
                   Write(frmprincipal.arqsat,AjustaStr ( svalor ,17 ) );   //60 - valorcofins
 
-                  svalor := formatfloat ( '0000',faliq );
+                  svalor := formatfloat ( '0000',faliqcofins );
                   Write(frmprincipal.arqsat,AjustaStr ( svalor ,4 ) );   //61 - aliquotacofins
 
 
-                   try
-                     ivalor := strtoint(ssigla);
-                   except
+                  try
+                     ivalor := strtoint(scstcofins);
+                  except
                      ivalor := 0;
-                   end;
+                  end;
 
-                   ssigla := formatfloat('000',ivalor);
+                  scstcofins := formatfloat('000',ivalor);
 
-
-
-                  Write(frmprincipal.arqsat,AjustaStr ( ssigla,3 ) );   //123 - cstcofins
+                  Write(frmprincipal.arqsat,AjustaStr ( scstcofins,3 ) );   //123 - cstcofins
 
                   //Substituição tributária
                   Write(frmprincipal.arqsat,AjustaStr ( '00000000000000000',17 ) );   //103 -  basest
@@ -10416,36 +10417,26 @@ begin
 
 
                   //IPI
-                  if dbx_ipi.Locate('codigo',sqlconsulta.fieldbyname('codipi').AsInteger,[]) then
-                     begin
-                       ssigla := dbx_ipi.fieldbyname('sigla').asString;
-                       faliq := dbx_ipi.fieldbyname('aliq').asfloat * 1000;
-                     end;
-                  //endi
-
-                  svalor := formatfloat ( '0000',faliq );
+                  svalor := formatfloat ( '0000',faliqipi );
                   Write(frmprincipal.arqsat,AjustaStr ( svalor ,4 ) );   //109 - aliquotaipi
 
 
-                   try
-                     ivalor := strtoint(ssigla);
-                   except
+                  try
+                     ivalor := strtoint(scstipi);
+                  except
                      ivalor := 0;
-                   end;
+                  end;
 
-                   ssigla := formatfloat('000',ivalor);
+                  scstipi := formatfloat('000',ivalor);
 
-
-
-
-                  Write(frmprincipal.arqsat,AjustaStr ( ssigla,3 ) );   //  110 - cstipi
+                  Write(frmprincipal.arqsat,AjustaStr ( scstipi,3 ) );   //  110 - cstipi
 
 
-                  fvalorimposto :=  sqlconsulta.fieldbyname('subtotal').asfloat * faliq;
+                  fvalorimposto :=  sqlconsulta.fieldbyname('valor_total').asfloat * faliqipi;
 
                   if fvalorimposto > 0  then
                      begin
-                       svalor :=  formatfloat ( '00000000000000000',sqlconsulta.fieldbyname('subtotal').asfloat * 1000);
+                       svalor :=  formatfloat ( '00000000000000000',sqlconsulta.fieldbyname('valor_total').asfloat * 1000);
                        Write(frmprincipal.arqsat,AjustaStr (  svalor ,17 ) );   // 111 - baseipi
                      end
                   else
@@ -10471,27 +10462,12 @@ begin
                   //---------
 
                   // CSOSN
-                  if Cds_vprodutos.Locate('codigo',sqlconsulta.fieldbyname('cpro').AsInteger,[]) then
-                     begin
-                       try
-                         dbx_consulta.Active := false;
-                         dbx_consulta.SQL.Clear;
-                         dbx_consulta.SQL.Add('select * from conversaosat where decsosn = '+ inttostr( Cds_vprodutos.fieldbyname('csosn').asInteger ) );
-                         dbx_consulta.Active := true;
-                         if dbx_consulta.RecordCount > 0 then
-                            begin
-                              ivalor := strtoint(dbx_consulta.fieldbyname('paracsosn').asString);
-                            end
-                         else
-                            begin
-                              ivalor := strtoint(Cds_vprodutos.fieldbyname('csosn').asString);
-                            end;
-                         //endi
-                       except
-                         ivalor := 0;
-                       end;
-                     end;
-                  //endi
+
+                  try
+                     ivalor := strtoint(scsosn);
+                  except
+                     ivalor := 0;
+                  end;
 
                   svalor := formatfloat ( '0000',ivalor);
                   Write(frmprincipal.arqsat,AjustaStr ( svalor ,4) ); // 142 - csosn
@@ -10561,6 +10537,19 @@ begin
 
 
               //---
+
+
+
+              sqlcCupomForma.Close;
+              sqlcCupomForma.SQL.Clear;
+              sqlcCupomForma.SQL.Add('select * from cupom_forma where cod_cupom = '+quotedstr(  frmvenda.sCod_Cupom_venda  ) );
+              sqlcCupomForma.Open;
+
+
+
+
+
+
               svalor := formatfloat('00000000000000000',itotalprod);
               Write(frmprincipal.arqsat,AjustaStr ( svalor,17 ) );     //  101 - valor_dup
 
@@ -10570,6 +10559,10 @@ begin
                  Write(frmprincipal.arqsat,AjustaStr ( 'D',2));        //  Tp_Pgto
               //endi
               Writeln(frmprincipal.arqsat);
+
+
+
+
 
               Write(frmprincipal.arqsat,AjustaStr ( '07',2 ) );     //  105 - id_reg
               Write(frmprincipal.arqsat,AjustaStr ( ' ',6 ) );     //   106 - item_obs

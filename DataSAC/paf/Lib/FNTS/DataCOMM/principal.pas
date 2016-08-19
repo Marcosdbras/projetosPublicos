@@ -1230,17 +1230,31 @@ begin
 
                          scst := qrservidor_tabela.fieldbyname('cst').asstring;
 
+                         
                          if (scst = '060') or
                              (scst = '010') or
-                             (scst = '070') then qrpdv.Params.ParamByName('st').asSTRING := 'F'
+                             (scst = '070') or
+                             (scst = '60')  or
+                             (scst = '10')  or
+                             (scst = '70')
+                         then qrpdv.Params.ParamByName('st').asSTRING := 'F'
                          else
                          if (scst = '040') or
-                             (scst = '030') then qrpdv.Params.ParamByName('st').asSTRING := 'I'
+                             (scst = '030') or
+                             (scst = '40')  or
+                             (scst = '30')
+                         then qrpdv.Params.ParamByName('st').asSTRING := 'I'
                          else
                          if (scst = '041') or
                              (scst = '050') or
                              (scst = '051') or
-                             (scst = '090') then qrpdv.Params.ParamByName('st').asSTRING := 'N'
+                             (scst = '090') or
+                             (scst = '41')  or
+                             (scst = '50')  or
+                             (scst = '51')  or
+                             (scst = '90')
+
+                         then qrpdv.Params.ParamByName('st').asSTRING := 'N'
                          else
                          qrpdv.ParamByName('st').asSTRING := 'T';
 
@@ -1351,17 +1365,33 @@ begin
 
                              scst := qrservidor_tabela.fieldbyname('cst').asstring;
 
+
+
                              if (scst = '060') or
                                  (scst = '010') or
-                                 (scst = '070') then qrpdv.Params.ParamByName('st').asSTRING := 'F'
+                                 (scst = '070') or
+                                 (scst = '60')  or
+                                 (scst = '10')  or
+                                 (scst = '70')
+
+                             then qrpdv.Params.ParamByName('st').asSTRING := 'F'
                              else
                              if (scst = '040') or
-                                 (scst = '030') then qrpdv.Params.ParamByName('st').asSTRING := 'I'
+                                 (scst = '030') or
+                                 (scst = '40')  or
+                                 (scst = '30')
+                             then qrpdv.Params.ParamByName('st').asSTRING := 'I'
                              else
                              if (scst = '041') or
                                  (scst = '050') or
                                  (scst = '051') or
-                                 (scst = '090') then qrpdv.Params.ParamByName('st').asSTRING := 'N'
+                                 (scst = '090') or
+                                 (scst = '41')  or
+                                 (scst = '50')  or
+                                 (scst = '51')  or
+                                 (scst = '90')
+
+                             then qrpdv.Params.ParamByName('st').asSTRING := 'N'
                              else
                              qrpdv.ParamByName('st').asSTRING := 'T';
 
@@ -1475,17 +1505,32 @@ begin
 
                            scst := qrservidor_tabela.fieldbyname('cst').asstring;
 
-                           if (scst = '060') or
+                           if (scst =  '060') or
                                (scst = '010') or
-                               (scst = '070') then qrpdv.Params.ParamByName('st').asSTRING := 'F'
+                               (scst = '070') or
+                               (scst = '60')  or
+                               (scst = '10')  or
+                               (scst = '70')
+
+                           then qrpdv.Params.ParamByName('st').asSTRING := 'F'
                            else
                            if (scst = '040') or
-                               (scst = '030') then qrpdv.Params.ParamByName('st').asSTRING := 'I'
+                               (scst = '030') or
+                               (scst = '40') or
+                               (scst = '30')
+
+                           then qrpdv.Params.ParamByName('st').asSTRING := 'I'
                            else
                            if (scst = '041') or
                                (scst = '050') or
                                (scst = '051') or
-                               (scst = '090') then qrpdv.Params.ParamByName('st').asSTRING := 'N'
+                               (scst = '090') or
+                               (scst = '41')  or
+                               (scst = '50')  or
+                               (scst = '51')  or
+                               (scst = '90')
+
+                           then qrpdv.Params.ParamByName('st').asSTRING := 'N'
                            else
                            qrpdv.ParamByName('st').asSTRING := 'T';
 
@@ -2113,12 +2158,14 @@ begin
                              qrpdv.close;
                              qrpdv.sql.clear;
                              qrpdv.sql.add('insert into forma_pgto ');
-                             qrpdv.SQL.Add('(id, nome)');
+                             qrpdv.SQL.Add('(id, nome, sigla)');
                              qrpdv.SQL.Add('values');
-                             qrpdv.SQL.Add('(:id, :nome)');
+                             qrpdv.SQL.Add('(:id, :nome, :sigla)');
 
                              qrpdv.parambyname('id').asinteger := qrservidor_tabela.fieldbyname('id').asinteger;
                              qrpdv.parambyname('NOME').asstring := qrservidor_tabela.fieldbyname('FORMAPGTO').asstring;
+                             qrpdv.parambyname('sigla').asstring := qrservidor_tabela.fieldbyname('sigla').asstring;
+
                              qrpdv.ExecSQL;
 
 
@@ -2303,15 +2350,29 @@ begin
 
                if (scst = '060') or
                    (scst = '010') or
-                   (scst = '070') then qrpdv.Params.ParamByName('st').asSTRING := 'F'
+                   (scst = '070') or
+                   (scst = '60')  or
+                   (scst = '10')  or
+                   (scst = '70')
+               then qrpdv.Params.ParamByName('st').asSTRING := 'F'
                else
                if (scst = '040') or
-                   (scst = '030') then qrpdv.Params.ParamByName('st').asSTRING := 'I'
+                   (scst = '030') or
+                   (scst = '40')  or
+                   (scst = '30')
+
+               then qrpdv.Params.ParamByName('st').asSTRING := 'I'
                else
                if (scst = '041') or
                    (scst = '050') or
                    (scst = '051') or
-                   (scst = '090') then qrpdv.Params.ParamByName('st').asSTRING := 'N'
+                   (scst = '090') or
+                   (scst = '41') or
+                   (scst = '50') or
+                   (scst = '51') or
+                   (scst = '90')
+
+               then qrpdv.Params.ParamByName('st').asSTRING := 'N'
                else
                qrpdv.ParamByName('st').asSTRING := 'T';
 
@@ -2393,17 +2454,34 @@ begin
 
                scst := qrservidor_tabela.fieldbyname('cst').asstring;
 
+               //TODO: Exemplo de todo
+
                if (scst = '060') or
                    (scst = '010') or
-                   (scst = '070') then qrpdv.Params.ParamByName('st').asSTRING := 'F'
+                   (scst = '070') or
+                   (scst = '60') or
+                   (scst = '10') or
+                   (scst = '70')
+
+               then qrpdv.Params.ParamByName('st').asSTRING := 'F'
                else
                if (scst = '040') or
-                   (scst = '030') then qrpdv.Params.ParamByName('st').asSTRING := 'I'
+                   (scst = '030') or
+                   (scst = '40') or
+                   (scst = '30')
+
+               then qrpdv.Params.ParamByName('st').asSTRING := 'I'
                else
                if (scst = '041') or
                    (scst = '050') or
                    (scst = '051') or
-                   (scst = '090') then qrpdv.Params.ParamByName('st').asSTRING := 'N'
+                   (scst = '090') or
+                   (scst = '41')  or
+                   (scst = '50')  or
+                   (scst = '51')  or
+                   (scst = '90')
+
+               then qrpdv.Params.ParamByName('st').asSTRING := 'N'
                else
                qrpdv.ParamByName('st').asSTRING := 'T';
 
