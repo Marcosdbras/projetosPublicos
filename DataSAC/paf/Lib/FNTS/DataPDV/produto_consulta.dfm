@@ -3,7 +3,7 @@ object frmProduto_consulta: TfrmProduto_consulta
   Top = 0
   BorderStyle = bsNone
   Caption = 'frmProduto_consulta'
-  ClientHeight = 543
+  ClientHeight = 539
   ClientWidth = 790
   Color = clBlack
   Font.Charset = ANSI_CHARSET

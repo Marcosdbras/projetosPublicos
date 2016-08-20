@@ -85,6 +85,8 @@ type
     sqlIndice: TIBCQuery;
     sqlexec: TIBCQuery;
     sqlconsulta: TIBCQuery;
+    sqlcCupomForma: TIBCQuery;
+    tbForma_PgtoSigla: TStringField;
     procedure BalancaLePeso(Peso: Double; Resposta: String);
   private
     { Private declarations }
@@ -177,7 +179,7 @@ begin
       sqlIndice.SQL.Clear;
       sqlIndice.SQL.Add('select * from Indice');
       sqlIndice.Active := true;
-      
+
 
       XMLDocument1.Active := False;
       XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsibpt.php?chave='+sqlIndice.fieldbyname('CHAVECONSULTA').asString+'&campo=codigo'+'&valor='+ncm+'&uf='+ lowercase( sEmpresa_UF  ));
@@ -215,7 +217,7 @@ begin
 
       query.Active := false;
       query.SQL.Clear;
-      query.SQL.Add('insert into ibpt (codncmnbs, ex, tipo, descricao, nacionalfederal, importadosfederal, estadual, municipal, vigenciainicio, vigenciafim, chave, versao, fonte)');
+      query.SQL.Add('insert into ncm (codncmnbs, ex, tipo, descricao, nacionalfederal, importadosfederal, estadual, municipal, vigenciainicio, vigenciafim, chave, versao, fonte)');
       query.SQL.Add(' values (:codncmnbs, :ex, :tipo, :descricao, :nacionalfederal, :importadosfederal, :estadual, :municipal, :vigenciainicio, :vigenciafim, :chave, :versao, :fonte)');
 
       query.Params.ParamByName('codncmnbs').AsString :=  ncm;

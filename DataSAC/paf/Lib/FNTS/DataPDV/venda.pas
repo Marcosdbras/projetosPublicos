@@ -349,6 +349,8 @@ type
      bConsumidor:boolean;
      qtregistro:integer;
 
+     aformapgto: array of String;
+
 
   public
     { Public declarations }
@@ -3267,7 +3269,10 @@ end;
 
 // -------------------------------------------------------------------------- //
 procedure TfrmVenda.FormCreate(Sender: TObject);
+var x:integer;
 begin
+
+  x:= 0;
 
    If (Screen.Width <> 800)and(Screen.Height <> 600) then
 {   if (messageDlg('Este programa foi desenvolvido em 800 X 600. Ele vai rodar normalmente nas suas configurações, mas não vai ficar posicionado corretamete em seu monitor! Deseja Alterar suas configurações de vídeo agora?',
@@ -3299,6 +3304,9 @@ begin
   grid.ClearRows;
 
   // alimentar os combos com as formas de pagamento
+
+  setlength(aformapgto,frmmodulo.tbForma_Pgto.RecordCount);
+
   cb_forma1.Items.Clear;
   cb_forma2.Items.Clear;
   cb_forma3.Items.Clear;
@@ -3311,12 +3319,16 @@ begin
        (ansiuppercase(sMsg) = 'TROCO') Then
     begin
        // nao copiar
+
     end
     else
     begin
       cb_forma1.Items.Add(sMsg);
       cb_forma2.Items.Add(sMsg);
       cb_forma3.Items.Add(sMsg);
+
+      aformapgto[x] :=  formatfloat('00000',frmmodulo.tbForma_Pgto.fieldbyname('id').asinteger)+frmmodulo.tbForma_Pgto.fieldbyname('sigla').asstring+frmmodulo.tbForma_Pgto.fieldbyname('nome').asstring;
+
     end;
     frmModulo.tbForma_Pgto.Next;
   end;
@@ -6069,27 +6081,37 @@ begin
 
       with frmmodulo do
       begin
+        //TODO: Não encontra numero
+        if (sConsumidor_CPF <> '') then
+          begin
 
-        query.close;
-        query.sql.clear;
-        query.sql.add('select * from cliente where cpf = '+  quotedstr( sConsumidor_CPF )   );
-        query.open;
-        if query.RecordCount > 0 then
-           begin
-             snumerodest_venda  := query.fieldbyname('numero').asString;
-             sbairrodest_venda  := query.fieldbyname('bairro').asString;
-             scepdest_venda := query.fieldbyname('cep').asString;
-             stelefonedest_venda :=  query.fieldbyname('telefone').asString;
-             sIEdest_venda  := query.fieldbyname('IE').asString;
-             slogradourodest_venda := query.fieldbyname('endereco').asString;
-             scomplementodest_venda := query.fieldbyname('complemento').asString;
-             smaildest_venda :=   query.fieldbyname('email').asString;
-           end;
+            sqlconsulta.Active := false;
+            sqlconsulta.sql.clear;
+            sqlconsulta.sql.add('select * from cliente where cpf = '+  quotedstr( sConsumidor_CPF )   );
+            sqlconsulta.Active := true;
+
+
+            if (sqlconsulta.FieldByName('cpf').AsString  <> '') then
+               begin
+                 snumerodest_venda  := sqlconsulta.fieldbyname('numero').asString;
+                 sbairrodest_venda  := sqlconsulta.fieldbyname('bairro').asString;
+                 scepdest_venda := sqlconsulta.fieldbyname('cep').asString;
+                 stelefonedest_venda :=  sqlconsulta.fieldbyname('telefone').asString;
+                 sIEdest_venda  := sqlconsulta.fieldbyname('IE').asString;
+                 slogradourodest_venda := sqlconsulta.fieldbyname('endereco').asString;
+                 scomplementodest_venda := sqlconsulta.fieldbyname('complemento').asString;
+                 smaildest_venda :=   sqlconsulta.fieldbyname('email').asString;
+               end;
+            //endi
+
+          end;
         //endi
+
+
 
         // lancamento do cupom no banco de dados
 
-        if  pedirnumcom = 'S' then
+        if ( pedirnumcom = 'S' ) then
             begin
                //lancamento centralizado no servidor se houver comunicação
 

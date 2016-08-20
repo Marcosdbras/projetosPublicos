@@ -1,8 +1,8 @@
 object frmModulo: TfrmModulo
   OldCreateOrder = False
   Left = 3
-  Top = 5
-  Height = 566
+  Top = 3
+  Height = 564
   Width = 798
   object conexao: TIBCConnection
     Database = 'C:\DATASAC\paf\Dat\DATPDV.FDB'
@@ -472,13 +472,19 @@ object frmModulo: TfrmModulo
       item
         Name = 'id'
         DataType = ftInteger
+      end
+      item
+        Name = 'Sigla'
+        DataType = ftString
+        Size = 20
       end>
     Left = 136
     Top = 16
     Data = {
-      0300040004004E6F6D6501001400000000000F0056616C6F725F4163756D756C
+      0300050004004E6F6D6501001400000000000F0056616C6F725F4163756D756C
       61646F0600000000000000120056616C6F725F556C74696D6F5F4375706F6D06
-      00000000000000020069640300000000000000000000000000}
+      0000000000000002006964030000000000000005005369676C61010014000000
+      0000000000000000}
     object tbForma_PgtoNome: TStringField
       FieldName = 'Nome'
     end
@@ -490,6 +496,9 @@ object frmModulo: TfrmModulo
     end
     object tbForma_Pgtoid: TIntegerField
       FieldName = 'id'
+    end
+    object tbForma_PgtoSigla: TStringField
+      FieldName = 'Sigla'
     end
   end
   object spNao_Fiscal: TIBCStoredProc
@@ -722,8 +731,8 @@ object frmModulo: TfrmModulo
         Name = 'Aliquota'
         DataType = ftFloat
       end>
-    Left = 192
-    Top = 16
+    Left = 312
+    Top = 224
     Data = {
       030002000600436F6469676F01001400000000000800416C6971756F74610600
       000000000000000000000000}
@@ -1480,5 +1489,10 @@ object frmModulo: TfrmModulo
     Connection = conexao
     Left = 400
     Top = 168
+  end
+  object sqlcCupomForma: TIBCQuery
+    Connection = conexao
+    Left = 376
+    Top = 32
   end
 end

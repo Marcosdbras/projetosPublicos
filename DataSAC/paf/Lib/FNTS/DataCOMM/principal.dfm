@@ -1,6 +1,6 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 26
-  Top = 70
+  Left = 88
+  Top = 160
   BorderStyle = bsDialog
   Caption = 'DataCOMM 2.5'
   ClientHeight = 484

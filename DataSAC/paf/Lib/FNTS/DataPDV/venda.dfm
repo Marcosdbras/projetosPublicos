@@ -1,6 +1,6 @@
 object frmVenda: TfrmVenda
   Left = 3
-  Top = 5
+  Top = 0
   BorderStyle = bsNone
   Caption = 'Venda Balc'#227'o'
   ClientHeight = 539

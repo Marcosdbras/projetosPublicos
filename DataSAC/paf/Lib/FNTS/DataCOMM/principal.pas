@@ -1646,6 +1646,7 @@ begin
                          qrpdv.sql.add('LIMITE,');
                          qrpdv.sql.add('UTILIZADO,');
                          qrpdv.sql.add('DISPONIVEL,');
+                         qrpdv.sql.add('NUMERO,');
                          qrpdv.sql.add('ATUALIZADO');
                          qrpdv.sql.add(') values (');
 
@@ -1663,6 +1664,7 @@ begin
                          qrpdv.sql.add(':LIMITE,');
                          qrpdv.sql.add(':UTILIZADO,');
                          qrpdv.sql.add(':DISPONIVEL,');
+                         qrpdv.sql.add(':NUMERO,');
                          qrpdv.sql.add(':ATUALIZADO');
 
                          qrpdv.sql.add(')');
@@ -1677,6 +1679,7 @@ begin
                          qrpdv.parambyname('UF').asstring := qrservidor_tabela.fieldbyname('uf').asstring;
                          qrpdv.parambyname('CEP').asstring := qrservidor_tabela.fieldbyname('cep').asstring;
                          qrpdv.parambyname('SITUACAO').asstring := qrservidor_tabela.fieldbyname('situacao').asstring;
+                         qrpdv.parambyname('NUMERO').asstring := qrservidor_tabela.fieldbyname('NUMERO').asstring;
                          qrpdv.parambyname('OBS').AsBlob :=
                                   qrservidor_tabela.fieldbyname('obs1').asstring+#13+
                                   qrservidor_tabela.fieldbyname('obs2').asstring+#13+
@@ -1688,6 +1691,7 @@ begin
                          qrpdv.parambyname('UTILIZADO').asfloat := verifica_crediario(qrservidor_tabela.fieldbyname('codigo').asstring);
                          qrpdv.parambyname('DISPONIVEL').asfloat := qrpdv.parambyname('LIMITE').asFLOAT - qrpdv.parambyname('UTILIZADO').asfloat;
                          qrpdv.parambyname('ATUALIZADO').asstring := datetostr(date)+' AS '+TimeToStr(TIME);
+
                          qrpdv.ExecSQL;
                        end;
                      except
@@ -1741,7 +1745,8 @@ begin
                            qrpdv.sql.add('LIMITE = :LIMITE,');
                            qrpdv.sql.add('UTILIZADO = :UTILIZADO,');
                            qrpdv.sql.add('DISPONIVEL = :DISPONIVEL,');
-                           qrpdv.sql.add('ATUALIZADO = :ATUALIZADO');
+                           qrpdv.sql.add('ATUALIZADO = :ATUALIZADO,');
+                           qrpdv.sql.add('NUMERO = :NUMERO');
                            qrpdv.sql.add('where codigo = :codigo');
 
 
@@ -1756,6 +1761,7 @@ begin
                            qrpdv.parambyname('UF').asstring := qrservidor_tabela.fieldbyname('uf').asstring;
                            qrpdv.parambyname('CEP').asstring := qrservidor_tabela.fieldbyname('cep').asstring;
                            qrpdv.parambyname('SITUACAO').asstring := qrservidor_tabela.fieldbyname('situacao').asstring;
+                           qrpdv.parambyname('NUMERO').asstring := qrservidor_tabela.fieldbyname('numero').asstring;
                            qrpdv.parambyname('OBS').AsBlob :=
                                     qrservidor_tabela.fieldbyname('obs1').asstring+#13+
                                     qrservidor_tabela.fieldbyname('obs2').asstring+#13+
@@ -1795,6 +1801,8 @@ begin
                              qrpdv.sql.add('LIMITE,');
                              qrpdv.sql.add('UTILIZADO,');
                              qrpdv.sql.add('DISPONIVEL,');
+                             qrpdv.sql.add('NUMERO,');
+
                              qrpdv.sql.add('ATUALIZADO');
                              qrpdv.sql.add(') values (');
                              qrpdv.sql.add(':CODIGO,');
@@ -1811,6 +1819,7 @@ begin
                              qrpdv.sql.add(':LIMITE,');
                              qrpdv.sql.add(':UTILIZADO,');
                              qrpdv.sql.add(':DISPONIVEL,');
+                             qrpdv.sql.add(':NUMERO,');
                              qrpdv.sql.add(':ATUALIZADO');
                              qrpdv.sql.add(')');
                              qrpdv.parambyname('CODIGO').asinteger := qrservidor_tabela.fieldbyname('codigo').asinteger;
@@ -1823,6 +1832,7 @@ begin
                              qrpdv.parambyname('UF').asstring := qrservidor_tabela.fieldbyname('uf').asstring;
                              qrpdv.parambyname('CEP').asstring := qrservidor_tabela.fieldbyname('cep').asstring;
                              qrpdv.parambyname('SITUACAO').asstring := qrservidor_tabela.fieldbyname('situacao').asstring;
+                             qrpdv.parambyname('NUMERO').asstring := qrservidor_tabela.fieldbyname('numero').asstring;
                              qrpdv.parambyname('OBS').AsBlob :=
                                       qrservidor_tabela.fieldbyname('obs1').asstring+#13+
                                       qrservidor_tabela.fieldbyname('obs2').asstring+#13+
@@ -2546,7 +2556,9 @@ begin
                  qrpdv.sql.add('LIMITE,');
                  qrpdv.sql.add('UTILIZADO,');
                  qrpdv.sql.add('DISPONIVEL,');
+                 qrpdv.sql.add('NUMERO,');
                  qrpdv.sql.add('ATUALIZADO');
+
                  qrpdv.sql.add(') values (');
 
                  qrpdv.sql.add(':CODIGO,');
@@ -2563,6 +2575,7 @@ begin
                  qrpdv.sql.add(':LIMITE,');
                  qrpdv.sql.add(':UTILIZADO,');
                  qrpdv.sql.add(':DISPONIVEL,');
+                 qrpdv.sql.add(':NUMERO,');
                  qrpdv.sql.add(':ATUALIZADO');
 
                  qrpdv.sql.add(')');
@@ -2577,6 +2590,7 @@ begin
                  qrpdv.parambyname('UF').asstring := qrservidor_tabela.fieldbyname('uf').asstring;
                  qrpdv.parambyname('CEP').asstring := qrservidor_tabela.fieldbyname('cep').asstring;
                  qrpdv.parambyname('SITUACAO').asstring := qrservidor_tabela.fieldbyname('situacao').asstring;
+                 qrpdv.parambyname('NUMERO').asstring := qrservidor_tabela.fieldbyname('numero').asstring;
                  qrpdv.parambyname('OBS').AsBlob :=
                           qrservidor_tabela.fieldbyname('obs1').asstring+#13+
                           qrservidor_tabela.fieldbyname('obs2').asstring+#13+
@@ -2619,7 +2633,8 @@ begin
                  qrpdv.sql.add('LIMITE = :LIMITE,');
                  qrpdv.sql.add('UTILIZADO = :UTILIZADO,');
                  qrpdv.sql.add('DISPONIVEL = :DISPONIVEL,');
-                 qrpdv.sql.add('ATUALIZADO = :ATUALIZADO');
+                 qrpdv.sql.add('ATUALIZADO = :ATUALIZADO,');
+                 qrpdv.sql.add('NUMERO = :NUMERO');
                  qrpdv.sql.add('where codigo = :codigo');
 
                  qrpdv.parambyname('CODIGO').asstring := qrservidor_tabela.fieldbyname('codigo').asstring;
@@ -2632,6 +2647,7 @@ begin
                  qrpdv.parambyname('UF').asstring := qrservidor_tabela.fieldbyname('uf').asstring;
                  qrpdv.parambyname('CEP').asstring := qrservidor_tabela.fieldbyname('cep').asstring;
                  qrpdv.parambyname('SITUACAO').asstring := qrservidor_tabela.fieldbyname('situacao').asstring;
+                 qrpdv.parambyname('NUMERO').asstring := qrservidor_tabela.fieldbyname('numero').asstring;
                  qrpdv.parambyname('OBS').AsBlob :=
                           qrservidor_tabela.fieldbyname('obs1').asstring+#13+
                           qrservidor_tabela.fieldbyname('obs2').asstring+#13+

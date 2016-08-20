@@ -10086,7 +10086,8 @@ procedure gerasat;
     faliqicms,
     faliqpis,
     faliqcofins,
-    faliqipi:real;
+    faliqipi,
+    fvalorimposto:real;
 
     sncm,
     snomeprod,
@@ -10237,11 +10238,11 @@ begin
                       scstpis   :=  qrProdutoIBPT.fieldbyname('cstpis').asString;
                       faliqpis  :=  qrProdutoIBPT.fieldbyname('aliqpis').asfloat * 1000;
 
-                      scstcofins   :=  qrProdutoIBPT.fieldbyname('aliqcofins').asfloat * 1000;
-                      faliqcofins  :=  qrProdutoIBPT.fieldbyname('cstcofins').asString;
+                      scstcofins   :=  qrProdutoIBPT.fieldbyname('cstcofins').asString;
+                      faliqcofins  :=  qrProdutoIBPT.fieldbyname('aliqcofins').asfloat * 1000;
 
-                      scstipi        :=  qrProdutoIBPT.fieldbyname('aliqipi').asfloat * 1000;
-                      faliqipi      :=  qrProdutoIBPT.fieldbyname('cstipi').asString;
+                      scstipi        :=  qrProdutoIBPT.fieldbyname('cstipi').asString;
+                      faliqipi      :=   qrProdutoIBPT.fieldbyname('aliqipi').asfloat * 1000;
 
                       {Se não encontrar CFOP converte para código que o sat de venda}
                       sqlconsultaDetalhe.Close;
@@ -10545,23 +10546,17 @@ begin
               sqlcCupomForma.SQL.Add('select * from cupom_forma where cod_cupom = '+quotedstr(  frmvenda.sCod_Cupom_venda  ) );
               sqlcCupomForma.Open;
 
-
-
-
-
-
               svalor := formatfloat('00000000000000000',itotalprod);
               Write(frmprincipal.arqsat,AjustaStr ( svalor,17 ) );     //  101 - valor_dup
+              Write(frmprincipal.arqsat,AjustaStr ( 'O',2));    //  Tp_Pgto
 
-              if strtofloat(tirapontos(lblaprazo.Caption)) > 0 then
-                 Write(frmprincipal.arqsat,AjustaStr ( 'O',2))        //  Tp_Pgto
-              else
-                 Write(frmprincipal.arqsat,AjustaStr ( 'D',2));        //  Tp_Pgto
+              //if strtofloat(tirapontos(lblaprazo.Caption)) > 0 then
+
+              //else
+              //   Write(frmprincipal.arqsat,AjustaStr ( 'D',2));        //  Tp_Pgto
               //endi
-              Writeln(frmprincipal.arqsat);
 
-
-
+              Writeln(frmprincipal.arqsat); 
 
 
               Write(frmprincipal.arqsat,AjustaStr ( '07',2 ) );     //  105 - id_reg
@@ -10583,7 +10578,7 @@ begin
               Write(frmprincipal.arqsat,AjustaStr ( ' ',17 ) );     //  149 - VALOR_IOF
               Writeln(frmprincipal.arqsat);
 
-              CloseFile(f);
+              CloseFile(frmprincipal.arqsat);
 
               sqlexec.Active := false;
               sqlexec.SQL.Clear;
