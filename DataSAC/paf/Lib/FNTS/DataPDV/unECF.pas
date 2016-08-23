@@ -3780,7 +3780,7 @@ begin
          frmModulo.tbForma_Pgto.FieldByName('Nome').asstring := frmmodulo.query.fieldbyname('nome').AsString;
          frmModulo.tbForma_Pgto.FieldByName('Valor_Acumulado').AsCurrency := 0;
          frmModulo.tbForma_Pgto.FieldByName('Valor_Ultimo_Cupom').AsCurrency := 0;
-
+         frmModulo.tbForma_Pgto.FieldByName('sigla').asstring := frmmodulo.query.fieldbyname('sigla').AsString;
          frmmodulo.query.Next;
 
       end;
@@ -10124,7 +10124,9 @@ begin
     if pos(':',frmprincipal.seqfiscalon)>0 then
        begin
                                                                                                                  {cpf ou cnpj}
-          assignfile(frmprincipal.arqsat,  vardir+'sat_id' + frmvenda.sCod_Cupom_venda +'-'+ frmvenda.snome_venda + frmvenda.sident_venda +'.sat');
+          vardir := extractfilepath(application.ExeName);
+
+          assignfile(frmprincipal.arqsat,  vardir+'sat_id' + frmvenda.snumerocupom_venda +'-'+ frmvenda.snome_venda + frmvenda.sident_venda +'.sat');
           reWrite(frmprincipal.arqsat);
 
           Write(frmprincipal.arqsat,'01'); //1 - id_reg
@@ -10142,9 +10144,16 @@ begin
               sqlconsulta.Active := true;
 
               iproxsat := sqlconsulta.fieldbyname('proxnumsat').AsInteger + 1;
+
+              sqlconsulta.Active := false;
+              sqlconsulta.SQL.Clear;
+              sqlconsulta.SQL.Add('select * from indice');
+              sqlconsulta.Active := true;
+
               scfoppadrao :=  sqlconsulta.fieldbyname('cfoppadrao').AsString;
             end;
           //endith
+
           Write(frmprincipal.arqsat,formatfloat('000000',iproxsat)  );   //6 - numero_nfe
           Write(frmprincipal.arqsat,formatdatetime('dd/mm/yyyy',date)  );   //7 - data_emissao
           Write(frmprincipal.arqsat,formatdatetime('dd/mm/yyyy',date));   //8  - data_saida
@@ -10546,9 +10555,23 @@ begin
               sqlcCupomForma.SQL.Add('select * from cupom_forma where cod_cupom = '+quotedstr(  frmvenda.sCod_Cupom_venda  ) );
               sqlcCupomForma.Open;
 
-              svalor := formatfloat('00000000000000000',itotalprod);
-              Write(frmprincipal.arqsat,AjustaStr ( svalor,17 ) );     //  101 - valor_dup
-              Write(frmprincipal.arqsat,AjustaStr ( 'O',2));    //  Tp_Pgto
+              while not sqlcCupomForma.Eof do
+                begin
+
+                  svalor := formatfloat('00000000000000000',sqlcCupomForma.fieldbyname('valor').AsFloat * 1000 );
+                  Write(frmprincipal.arqsat,AjustaStr ( svalor,17 ) );     //  101 - valor_dup
+
+                  sqlconsulta.Close;
+                  sqlconsulta.SQL.Clear;
+                  sqlconsulta.SQL.Add('select * from forma_pgto where nome = '+quotedstr( sqlcCupomForma.fieldbyname('forma').AsString));
+                  sqlconsulta.Open;
+
+                  Write(frmprincipal.arqsat,AjustaStr (  sqlconsulta.fieldbyname('sigla').AsString ,2));    //  Tp_Pgto
+
+                  sqlcCupomForma.Next;
+                end;
+
+
 
               //if strtofloat(tirapontos(lblaprazo.Caption)) > 0 then
 
@@ -10585,6 +10608,9 @@ begin
               sqlexec.SQL.Add('update indice set proxsat = '+inttostr(iproxsat));
               sqlexec.ExecSQL;
 
+
+              CopyFile(PChar( vardir+'sat_id' + frmvenda.snumerocupom_venda +'-'+ frmvenda.snome_venda + frmvenda.sident_venda +'.sat' ),
+                       PChar(  frmprincipal.seqfiscalon+'\sat_id' + frmvenda.snumerocupom_venda+'-'+ frmvenda.snome_venda + frmvenda.sident_venda +'.sat'  ), true);
 
             end;
           //endth

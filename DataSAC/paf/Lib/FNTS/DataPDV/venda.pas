@@ -349,7 +349,7 @@ type
      bConsumidor:boolean;
      qtregistro:integer;
 
-     aformapgto: array of String;
+     
 
 
   public
@@ -379,7 +379,8 @@ type
     sIEdest_venda,
     slogradourodest_venda,
     scomplementodest_venda,
-    smaildest_venda :string;
+    smaildest_venda,
+    snumerocupom_venda :string;
 
     procedure EnviaComando(comando:string;timeout:integer);
     function Localizar_Produto(referencia:string):boolean;
@@ -3270,6 +3271,8 @@ end;
 // -------------------------------------------------------------------------- //
 procedure TfrmVenda.FormCreate(Sender: TObject);
 var x:integer;
+
+sid,sindex,ssigla:string;
 begin
 
   x:= 0;
@@ -3305,15 +3308,18 @@ begin
 
   // alimentar os combos com as formas de pagamento
 
-  setlength(aformapgto,frmmodulo.tbForma_Pgto.RecordCount);
-
   cb_forma1.Items.Clear;
   cb_forma2.Items.Clear;
   cb_forma3.Items.Clear;
   frmmodulo.tbForma_Pgto.First;
   while not frmModulo.tbForma_Pgto.Eof do
   begin
+
+    sid    := formatfloat('00000',frmmodulo.tbForma_Pgto.fieldbyname('id').asinteger);
+    sindex := formatfloat('00000', cb_forma1.ItemIndex );
+    ssigla := frmmodulo.tbForma_Pgto.fieldbyname('sigla').asstring;
     sMsg := TrimLeft(TrimRight(frmmodulo.tbForma_Pgto.fieldbyname('nome').asstring));
+
     if (sMsg = '') or
        (ansiuppercase(sMsg) = 'VALOR RECEBIDO') or
        (ansiuppercase(sMsg) = 'TROCO') Then
@@ -3323,15 +3329,17 @@ begin
     end
     else
     begin
+
       cb_forma1.Items.Add(sMsg);
       cb_forma2.Items.Add(sMsg);
       cb_forma3.Items.Add(sMsg);
 
-      aformapgto[x] :=  formatfloat('00000',frmmodulo.tbForma_Pgto.fieldbyname('id').asinteger)+frmmodulo.tbForma_Pgto.fieldbyname('sigla').asstring+frmmodulo.tbForma_Pgto.fieldbyname('nome').asstring;
-
     end;
+
     frmModulo.tbForma_Pgto.Next;
+
   end;
+
   frmModulo.tbForma_Pgto.Close;
 
 
@@ -6073,31 +6081,26 @@ begin
     //Identificação da venda - variáveis globais
     snome_venda              :=   sConsumidor_Nome;
     sident_venda             :=   sConsumidor_CPF;
-    sCod_Cupom_venda         :=   sCod_Cupom;
-
-
-
-
 
       with frmmodulo do
       begin
-        //TODO: Não encontra numero
+        //TODO: OK Corrigido - Não encontra cpf pois esta gravando com a mascara e a pesquisa é sem ela
         if (sConsumidor_CPF <> '') then
           begin
 
             sqlconsulta.Active := false;
             sqlconsulta.sql.clear;
-            sqlconsulta.sql.add('select * from cliente where cpf = '+  quotedstr( sConsumidor_CPF )   );
+            sqlconsulta.sql.add('select * from cliente where cpf = '+  quotedstr( sConsumidor_CPF   ));
             sqlconsulta.Active := true;
 
 
-            if (sqlconsulta.FieldByName('cpf').AsString  <> '') then
+            if (sqlconsulta.RecordCount > 0 ) then
                begin
                  snumerodest_venda  := sqlconsulta.fieldbyname('numero').asString;
                  sbairrodest_venda  := sqlconsulta.fieldbyname('bairro').asString;
                  scepdest_venda := sqlconsulta.fieldbyname('cep').asString;
                  stelefonedest_venda :=  sqlconsulta.fieldbyname('telefone').asString;
-                 sIEdest_venda  := sqlconsulta.fieldbyname('IE').asString;
+                 sIEdest_venda  := sqlconsulta.fieldbyname('RG').asString;
                  slogradourodest_venda := sqlconsulta.fieldbyname('endereco').asString;
                  scomplementodest_venda := sqlconsulta.fieldbyname('complemento').asString;
                  smaildest_venda :=   sqlconsulta.fieldbyname('email').asString;
@@ -6131,8 +6134,12 @@ begin
 
 
         try
-        sNumero_Cupom := sNumero_Venda;
-        sCod_Cupom := codifica_cupom;
+        sNumero_Cupom    := sNumero_Venda;
+        snumerocupom_venda :=  sNumero_Venda;
+
+        sCod_Cupom       := codifica_cupom;
+        sCod_Cupom_venda := sCod_Cupom;
+
         spCupom.close;
         spCupom.ParamByName('codigo').asstring         := sCod_Cupom;
         spCupom.ParamByName('numero').asstring         := sNumero_Cupom;
@@ -6233,6 +6240,7 @@ begin
         // lancamento dos items do cupom no banco de dados
         for i := 0 to grid.RowCount - 1 do
         begin
+          //TODO: Situação de itens no cupom
           // situacoes
           // 1 - Venda do Item
           // 3 - Cancelamento do Item
@@ -6526,6 +6534,7 @@ begin
   finally
     BlockInput(false);
     bt_confirmar_fechamento.Enabled := true;
+    gerasat;
   end;
 end;
 

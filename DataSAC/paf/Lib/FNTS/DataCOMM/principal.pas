@@ -89,6 +89,11 @@ type
     procedure AdicionarUsuarios;
     procedure AdicionarVendedores;
 
+    Function  tirapontos(pValor:string):string;
+    Function  tiratracos(pValor:string):string;
+    Function  tirabarras(pValor:string):string;
+
+
     // atualizacao das estacoes para o servidor
   public
     { Public declarations }
@@ -1635,6 +1640,10 @@ begin
                          qrpdv.sql.add('CODIGO,');
                          qrpdv.sql.add('NOME,');
                          qrpdv.sql.add('CPF,');
+                         qrpdv.sql.add('TELEFONE,');
+                         qrpdv.sql.add('EMAIL,');
+                         qrpdv.sql.add('RG,');
+
                          qrpdv.sql.add('ENDERECO,');
                          qrpdv.sql.add('COMPLEMENTO,');
                          qrpdv.sql.add('BAIRRO,');
@@ -1653,6 +1662,11 @@ begin
                          qrpdv.sql.add(':CODIGO,');
                          qrpdv.sql.add(':NOME,');
                          qrpdv.sql.add(':CPF,');
+
+                         qrpdv.sql.add(':TELEFONE,');
+                         qrpdv.sql.add(':EMAIL,');
+                         qrpdv.sql.add(':RG,');
+
                          qrpdv.sql.add(':ENDERECO,');
                          qrpdv.sql.add(':COMPLEMENTO,');
                          qrpdv.sql.add(':BAIRRO,');
@@ -1671,7 +1685,12 @@ begin
 
                          qrpdv.parambyname('CODIGO').asinteger := qrservidor_tabela.fieldbyname('codigo').asInteger;
                          qrpdv.parambyname('NOME').asstring := qrservidor_tabela.fieldbyname('nome').asstring;
-                         qrpdv.parambyname('CPF').asstring := qrservidor_tabela.fieldbyname('cpf').asstring;
+                         qrpdv.parambyname('CPF').asstring :=  tirapontos(tiratracos(tirabarras(  qrservidor_tabela.fieldbyname('cpf').asstring)));
+
+                         qrpdv.parambyname('TELEFONE').asstring := qrservidor_tabela.fieldbyname('TELEFONE1').asstring;
+                         qrpdv.parambyname('EMAIL').asstring :=   qrservidor_tabela.fieldbyname('EMAIL').asstring;
+                          qrpdv.parambyname('RG').asstring :=   qrservidor_tabela.fieldbyname('RG').asstring;
+
                          qrpdv.parambyname('ENDERECO').asstring := qrservidor_tabela.fieldbyname('endereco').asstring;
                          qrpdv.parambyname('COMPLEMENTO').asstring := qrservidor_tabela.fieldbyname('complemento').asstring;
                          qrpdv.parambyname('BAIRRO').asstring := qrservidor_tabela.fieldbyname('bairro').asstring;
@@ -1734,6 +1753,11 @@ begin
                            qrpdv.sql.add('CODIGO = :CODIGO,');
                            qrpdv.sql.add('NOME = :NOME,');
                            qrpdv.sql.add('CPF = :CPF,');
+
+                           qrpdv.sql.add('TELEFONE = :TELEFONE,');
+                           qrpdv.sql.add('EMAIL = :EMAIL,');
+                           qrpdv.sql.add('RG = :RG,');
+
                            qrpdv.sql.add('ENDERECO = :ENDERECO,');
                            qrpdv.sql.add('COMPLEMENTO = :COMPLEMENTO,');
                            qrpdv.sql.add('BAIRRO = :BAIRRO,');
@@ -1753,7 +1777,12 @@ begin
 
                            qrpdv.parambyname('CODIGO').asinteger := qrservidor_tabela.fieldbyname('codigo').asinteger;
                            qrpdv.parambyname('NOME').asstring := qrservidor_tabela.fieldbyname('nome').asstring;
-                           qrpdv.parambyname('CPF').asstring := qrservidor_tabela.fieldbyname('cpf').asstring;
+                           qrpdv.parambyname('CPF').asstring := tirapontos(tiratracos(tirabarras(qrservidor_tabela.fieldbyname('cpf').asstring)));
+
+                           qrpdv.parambyname('TELEFONE').asstring := qrservidor_tabela.fieldbyname('TELEFONE1').asstring;
+                           qrpdv.parambyname('EMAIL').asstring := qrservidor_tabela.fieldbyname('EMAIL').asstring;
+                           qrpdv.parambyname('RG').asstring := qrservidor_tabela.fieldbyname('RG').asstring;
+
                            qrpdv.parambyname('ENDERECO').asstring := qrservidor_tabela.fieldbyname('endereco').asstring;
                            qrpdv.parambyname('COMPLEMENTO').asstring := qrservidor_tabela.fieldbyname('complemento').asstring;
                            qrpdv.parambyname('BAIRRO').asstring := qrservidor_tabela.fieldbyname('bairro').asstring;
@@ -1790,6 +1819,11 @@ begin
                              qrpdv.sql.add('CODIGO,');
                              qrpdv.sql.add('NOME,');
                              qrpdv.sql.add('CPF,');
+
+                             qrpdv.sql.add('TELEFONE,');
+                             qrpdv.sql.add('EMAIL,');
+                             qrpdv.sql.add('RG,');
+
                              qrpdv.sql.add('ENDERECO,');
                              qrpdv.sql.add('COMPLEMENTO,');
                              qrpdv.sql.add('BAIRRO,');
@@ -1808,6 +1842,11 @@ begin
                              qrpdv.sql.add(':CODIGO,');
                              qrpdv.sql.add(':NOME,');
                              qrpdv.sql.add(':CPF,');
+
+                             qrpdv.sql.add(':TELEFONE,');
+                             qrpdv.sql.add(':EMAIL,');
+                             qrpdv.sql.add(':RG,');
+
                              qrpdv.sql.add(':ENDERECO,');
                              qrpdv.sql.add(':COMPLEMENTO,');
                              qrpdv.sql.add(':BAIRRO,');
@@ -1824,7 +1863,12 @@ begin
                              qrpdv.sql.add(')');
                              qrpdv.parambyname('CODIGO').asinteger := qrservidor_tabela.fieldbyname('codigo').asinteger;
                              qrpdv.parambyname('NOME').asstring := qrservidor_tabela.fieldbyname('nome').asstring;
-                             qrpdv.parambyname('CPF').asstring := qrservidor_tabela.fieldbyname('cpf').asstring;
+                             qrpdv.parambyname('CPF').asstring := tirapontos(tiratracos(tirabarras(qrservidor_tabela.fieldbyname('cpf').asstring)));
+
+                             qrpdv.parambyname('TELEFONE').asstring := qrservidor_tabela.fieldbyname('TELEFONE1').asstring;
+                             qrpdv.parambyname('EMAIL').asstring := qrservidor_tabela.fieldbyname('EMAIL').asstring;
+                             qrpdv.parambyname('RG').asstring := qrservidor_tabela.fieldbyname('RG').asstring;
+
                              qrpdv.parambyname('ENDERECO').asstring := qrservidor_tabela.fieldbyname('endereco').asstring;
                              qrpdv.parambyname('COMPLEMENTO').asstring := qrservidor_tabela.fieldbyname('complemento').asstring;
                              qrpdv.parambyname('BAIRRO').asstring := qrservidor_tabela.fieldbyname('bairro').asstring;
@@ -2545,6 +2589,11 @@ begin
                  qrpdv.sql.add('CODIGO,');
                  qrpdv.sql.add('NOME,');
                  qrpdv.sql.add('CPF,');
+
+                 qrpdv.sql.add('TELEFONE,');
+                 qrpdv.sql.add('EMAIL,');
+                 qrpdv.sql.add('RG,');
+
                  qrpdv.sql.add('ENDERECO,');
                  qrpdv.sql.add('COMPLEMENTO,');
                  qrpdv.sql.add('BAIRRO,');
@@ -2564,6 +2613,11 @@ begin
                  qrpdv.sql.add(':CODIGO,');
                  qrpdv.sql.add(':NOME,');
                  qrpdv.sql.add(':CPF,');
+
+                 qrpdv.sql.add(':TELEFONE,');
+                 qrpdv.sql.add(':EMAIL,');
+                 qrpdv.sql.add(':RG,');
+
                  qrpdv.sql.add(':ENDERECO,');
                  qrpdv.sql.add(':COMPLEMENTO,');
                  qrpdv.sql.add(':BAIRRO,');
@@ -2582,7 +2636,12 @@ begin
 
                  qrpdv.parambyname('CODIGO').asstring := qrservidor_tabela.fieldbyname('codigo').asstring;
                  qrpdv.parambyname('NOME').asstring := qrservidor_tabela.fieldbyname('nome').asstring;
-                 qrpdv.parambyname('CPF').asstring := qrservidor_tabela.fieldbyname('cpf').asstring;
+                 qrpdv.parambyname('CPF').asstring := tirapontos(tiratracos(tirabarras(qrservidor_tabela.fieldbyname('cpf').asstring)));
+
+                 qrpdv.parambyname('TELEFONE').asstring := qrservidor_tabela.fieldbyname('TELEFONE1').asstring;
+                 qrpdv.parambyname('EMAIL').asstring := qrservidor_tabela.fieldbyname('EMAIL').asstring;
+                 qrpdv.parambyname('RG').asstring := qrservidor_tabela.fieldbyname('RG').asstring;
+
                  qrpdv.parambyname('ENDERECO').asstring := qrservidor_tabela.fieldbyname('endereco').asstring;
                  qrpdv.parambyname('COMPLEMENTO').asstring := qrservidor_tabela.fieldbyname('complemento').asstring;
                  qrpdv.parambyname('BAIRRO').asstring := qrservidor_tabela.fieldbyname('bairro').asstring;
@@ -2622,6 +2681,11 @@ begin
                  qrpdv.sql.add('CODIGO = :CODIGO,');
                  qrpdv.sql.add('NOME = :NOME,');
                  qrpdv.sql.add('CPF = :CPF,');
+
+                 qrpdv.sql.add('TELEFONE = :TELEFONE,');
+                 qrpdv.sql.add('EMAIL = :EMAIL,');
+                 qrpdv.sql.add('RG = :RG,');
+
                  qrpdv.sql.add('ENDERECO = :ENDERECO,');
                  qrpdv.sql.add('COMPLEMENTO = :COMPLEMENTO,');
                  qrpdv.sql.add('BAIRRO = :BAIRRO,');
@@ -2639,7 +2703,12 @@ begin
 
                  qrpdv.parambyname('CODIGO').asstring := qrservidor_tabela.fieldbyname('codigo').asstring;
                  qrpdv.parambyname('NOME').asstring := qrservidor_tabela.fieldbyname('nome').asstring;
-                 qrpdv.parambyname('CPF').asstring := qrservidor_tabela.fieldbyname('cpf').asstring;
+                 qrpdv.parambyname('CPF').asstring := tirapontos(tiratracos(tirabarras(qrservidor_tabela.fieldbyname('cpf').asstring)));
+
+                 qrpdv.parambyname('TELEFONE').asstring := qrservidor_tabela.fieldbyname('TELEFONE1').asstring;
+                 qrpdv.parambyname('EMAIL').asstring := qrservidor_tabela.fieldbyname('EMAIL').asstring;
+                 qrpdv.parambyname('RG').asstring := qrservidor_tabela.fieldbyname('RG').asstring;
+
                  qrpdv.parambyname('ENDERECO').asstring := qrservidor_tabela.fieldbyname('endereco').asstring;
                  qrpdv.parambyname('COMPLEMENTO').asstring := qrservidor_tabela.fieldbyname('complemento').asstring;
                  qrpdv.parambyname('BAIRRO').asstring := qrservidor_tabela.fieldbyname('bairro').asstring;
@@ -2816,5 +2885,83 @@ begin
     qrservidor.next;
   end;
 end;
+
+
+function tfrmprincipal.tirapontos(pValor:string):string;
+var pPosI:integer;
+var pPosF:integer;
+var pNovoValor:string;
+begin
+   result := '';
+   pNovoValor:='';
+   pPosI:=1;
+   while true do
+     begin
+       pPosF := pos('.',pValor);
+       if pPosF > 0 then
+          begin
+            pNovoValor:=pNovoValor+copy(pValor,pPosI,pPosF - 1);
+            pValor:=copy(pValor,pPosF+1,length(pValor));
+          end
+       else
+          begin
+            result:=pNovoValor+pValor;
+            exit;
+          end;
+     end;
+ //endw
+end;
+
+function tfrmprincipal.tiratracos(pValor:string):string;
+var pPosI:integer;
+var pPosF:integer;
+var pNovoValor:string;
+begin
+   result := '';
+   pNovoValor:='';
+   pPosI:=1;
+   while true do
+     begin
+       pPosF := pos('-',pValor);
+       if pPosF > 0 then
+          begin
+            pNovoValor:=pNovoValor+copy(pValor,pPosI,pPosF - 1);
+            pValor:=copy(pValor,pPosF+1,length(pValor));
+          end
+       else
+          begin
+            result:=pNovoValor+pValor;
+            exit;
+          end;
+     end;
+ //endw
+end;
+
+
+function tfrmprincipal.tirabarras(pValor:string):string;
+var pPosI:integer;
+var pPosF:integer;
+var pNovoValor:string;
+begin
+   result := '';
+   pNovoValor:='';
+   pPosI:=1;
+   while true do
+     begin
+       pPosF := pos('/',pValor);
+       if pPosF > 0 then
+          begin
+            pNovoValor:=pNovoValor+copy(pValor,pPosI,pPosF - 1);
+            pValor:=copy(pValor,pPosF+1,length(pValor));
+          end
+       else
+          begin
+            result:=pNovoValor+pValor;
+            exit;
+          end;
+     end;
+ //endw
+end;
+
 
 end.
