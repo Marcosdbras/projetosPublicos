@@ -1599,7 +1599,7 @@ begin
      begin
        sql_exec.Active := false;
        sql_exec.SQL.Clear;
-       sql_exec.SQL.Add('update nf set status = '+quotedstr('I')+' where status = '+quotedstr('V'));
+       sql_exec.SQL.Add('update nf set status = '+quotedstr('I')+' where status = '+quotedstr('E'));
        sql_exec.ExecSQL;
 
      end;

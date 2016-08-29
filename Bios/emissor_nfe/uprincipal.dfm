@@ -1,7 +1,7 @@
 object frmprincipal: Tfrmprincipal
   Left = -4
   Top = -4
-  Width = 1374
+  Width = 1036
   Height = 746
   Caption = 'Emissor NFE vers'#227'o 1.11'
   Color = clBtnFace
@@ -23,8 +23,8 @@ object frmprincipal: Tfrmprincipal
   object Image1: TImage
     Left = 0
     Top = 42
-    Width = 1366
-    Height = 615
+    Width = 1337
+    Height = 599
     Align = alClient
   end
   object Label1: TLabel
@@ -224,7 +224,7 @@ object frmprincipal: Tfrmprincipal
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1366
+    Width = 1337
     Height = 42
     Align = alTop
     BevelOuter = bvNone
@@ -304,8 +304,8 @@ object frmprincipal: Tfrmprincipal
   end
   object Panel2: TPanel
     Left = 0
-    Top = 657
-    Width = 1366
+    Top = 641
+    Width = 1337
     Height = 24
     Align = alBottom
     BevelOuter = bvNone
@@ -326,8 +326,8 @@ object frmprincipal: Tfrmprincipal
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 681
-    Width = 1366
+    Top = 665
+    Width = 1337
     Height = 19
     Panels = <>
   end

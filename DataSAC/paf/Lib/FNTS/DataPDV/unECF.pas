@@ -10242,16 +10242,16 @@ begin
                       scst :=  qrProdutoIBPT.fieldbyname('cst').asString;
                       scsosn :=  qrProdutoIBPT.fieldbyname('csosn').asString;
                       ssita :=  qrProdutoIBPT.fieldbyname('sita').asString;
-                      faliqicms :=  qrProdutoIBPT.fieldbyname('aliquota').asfloat * 1000;
+                      faliqicms :=  qrProdutoIBPT.fieldbyname('aliquota').asfloat; //* 1000;
 
                       scstpis   :=  qrProdutoIBPT.fieldbyname('cstpis').asString;
-                      faliqpis  :=  qrProdutoIBPT.fieldbyname('aliqpis').asfloat * 1000;
+                      faliqpis  :=  qrProdutoIBPT.fieldbyname('aliqpis').asfloat; //* 1000;
 
                       scstcofins   :=  qrProdutoIBPT.fieldbyname('cstcofins').asString;
-                      faliqcofins  :=  qrProdutoIBPT.fieldbyname('aliqcofins').asfloat * 1000;
+                      faliqcofins  :=  qrProdutoIBPT.fieldbyname('aliqcofins').asfloat; // * 1000;
 
                       scstipi        :=  qrProdutoIBPT.fieldbyname('cstipi').asString;
-                      faliqipi      :=   qrProdutoIBPT.fieldbyname('aliqipi').asfloat * 1000;
+                      faliqipi      :=   qrProdutoIBPT.fieldbyname('aliqipi').asfloat; // * 1000;
 
                       {Se não encontrar CFOP converte para código que o sat de venda}
                       sqlconsultaDetalhe.Close;

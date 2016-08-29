@@ -1,6 +1,6 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 3
-  Top = 0
+  Left = 74
+  Top = 124
   Width = 798
   Height = 566
   Caption = 'DataPDV 2.0 - Programa Aplicativo Fiscal'

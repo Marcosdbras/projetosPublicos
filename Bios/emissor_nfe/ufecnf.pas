@@ -1861,7 +1861,7 @@ var
   vardir, scnpjt, scnpje, siee, scepe, scnpjd, siet,sied, scepd, scfop, scf, sund, ssitb, ssita,
   smodbc, smodbcst, spis, scofins, scfopt, sipi, scsosn, scalciva:string;
 
-  iItem, iI, iPos, icontador, icodigo, icontdup, iureg:integer;
+  iItem, iI, iPos, icontador, icodigo, icontdup, iureg, iindIEDest:integer;
 
   ffrete_unit, foutrasdesp_unit, fvalorseg_unit, fvalordesc_unit, ftotfrete_unit, ftotoutrasdesp_unit, ftotvalorseg_unit,
   ftotvalordesc_unit, fdiffrete_unit, fdifoutrasdesp_unit, fdifvalorseg_unit, fdifvalordesc_unit,  ftotp, fbcipi, fbcicms,
@@ -3020,7 +3020,7 @@ begin
 
                          Writeln(f,'IE=');
                          Writeln(f,'indIEDest=2');
-
+                         iindIEDest:=2;
                        end;
 
                     if sied = '' then
@@ -3028,6 +3028,7 @@ begin
 
                          Writeln(f,'IE=');
                          Writeln(f,'indIEDest=9');
+                         iindIEDest:=9;
 
                        end;
 
@@ -3039,15 +3040,32 @@ begin
                   if sufemi <> sufdest then
                      begin
 
-                       Writeln(f,'IE='+sied);
-                       Writeln(f,'indIEDest=9');
+                       if cbxindfinal.ItemIndex = 0 then
+                          begin
+
+                            Writeln(f,'IE='+sied);
+                            Writeln(f,'indIEDest=1');
+                            iindIEDest:=1;
+
+                          end
+                       else
+                          begin
+
+                            Writeln(f,'IE='+sied);
+                            Writeln(f,'indIEDest=9');
+                            iindIEDest:=9;
+
+                          end;
+                       //endi
+
 
                      end
                   else
                      begin
 
                        Writeln(f,'IE='+sied);
-                       Writeln(f,'indIEDest=1');
+                       Writeln(f,'indIEDest:=1');
+                       iindIEDest:=1;
 
                      end;
                   //endi
@@ -3814,10 +3832,12 @@ begin
           //endi
 
 
-
-
          //pICMSOrigPart
-         if sufemi <> sufdest then
+         if (sufemi <> sufdest) and
+            (cbxfinalidade.ItemIndex < 3) and
+            (iindIEDest=9)
+
+         then
              begin
 
                sql_consulta.Active := false;
