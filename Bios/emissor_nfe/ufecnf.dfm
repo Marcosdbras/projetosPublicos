@@ -1,7 +1,7 @@
 object frmfecnf: Tfrmfecnf
-  Left = 25
-  Top = 60
-  Width = 1172
+  Left = -2
+  Top = 63
+  Width = 1036
   Height = 671
   BorderIcons = []
   Caption = 'Emiss'#227'o de Nota Fiscal Eletronica'

@@ -3364,11 +3364,13 @@ if lblestado.Caption <> lblestadoemi.Caption then
            if lblie.Caption = 'ISENTO' then
               begin
 
-                application.MessageBox(pchar('Verifique se o SEFAZ do destinatário suporta'+chr(13)+
-                                             'inscrição estadual definido como isento caso não aceite'+chr(13)+
-                                             'você deve apagar a palavra isento do campo correspondente'+chr(13)+
-                                             'no cadastro de cliente deixando o campo em branco'
-                                             ),'Atenção',mb_ok);
+
+
+                //application.MessageBox(pchar('Verifique se o SEFAZ do destinatário suporta'+chr(13)+
+                //                             'inscrição estadual definido como isento caso não aceite'+chr(13)+
+                //                             'você deve apagar a palavra isento do campo correspondente'+chr(13)+
+                //                             'no cadastro de cliente deixando o campo em branco'
+                //                             ),'Atenção',mb_ok);
 
 
 
@@ -3383,9 +3385,15 @@ if lblestado.Caption <> lblestadoemi.Caption then
 
            if ValidaCPF(tirapontos(tiratracos(tirabarras(lblcnpj.Caption)))) then
               begin
-                application.MessageBox(pchar('Antes de emitir a nota informe consumidor final como SIM'
 
-                                             ),'Atenção',mb_ok);
+
+                //application.MessageBox(pchar('Antes de emitir a nota informe consumidor final como SIM'
+
+                //                             ),'Atenção',mb_ok);
+
+
+
+
               end
            //endi
 
@@ -3397,15 +3405,15 @@ if lblestado.Caption <> lblestadoemi.Caption then
      if lblie.Caption = '' then
         begin
 
-          application.MessageBox(pchar(
-                                       '- Instrução para operação interestadual sem preenchimento da inscrição estadual'+chr(13)+chr(13)+
-                                       '  * Aliquota interestadual para cada produto devem estar preenchidas assim como estado de destino'+chr(13)+
-                                       '    Clique em >Menu Produtos\Edição\Tributação\Aliquota Interestadual'+chr(13)+chr(13)+
-                                       '  * CSOSN de todos os produtos não pode ter permissão de ICMS'+chr(13)+
-                                       '    por exemplo, ao invés de colocar CSOSN 101 insira 102 '+chr(13)+chr(13)+
-                                       '  * Ao emitir nota de operação interestadual com destinatário sem inscrição estadual'+chr(13)+
-                                       '    coloque consumidor final em SIM'
-                                  ),'Atenção',mb_ok);
+          //application.MessageBox(pchar(
+          //                             '- Instrução para operação interestadual sem preenchimento da inscrição estadual'+chr(13)+chr(13)+
+          //                             '  * Aliquota interestadual para cada produto devem estar preenchidas assim como estado de destino'+chr(13)+
+          //                             '    Clique em >Menu Produtos\Edição\Tributação\Aliquota Interestadual'+chr(13)+chr(13)+
+          //                             '  * CSOSN de todos os produtos não pode ter permissão de ICMS'+chr(13)+
+          //                             '    por exemplo, ao invés de colocar CSOSN 101 insira 102 '+chr(13)+chr(13)+
+          //                             '  * Ao emitir nota de operação interestadual com destinatário sem inscrição estadual'+chr(13)+
+          //                             '    coloque consumidor final em SIM'
+           //                       ),'Atenção',mb_ok);
 
 
         end;
@@ -3415,6 +3423,9 @@ if lblestado.Caption <> lblestadoemi.Caption then
 
    end;
 //endi
+
+
+
 
 frmfecnf := tfrmfecnf.create(self);
 frmfecnf.showmodal;

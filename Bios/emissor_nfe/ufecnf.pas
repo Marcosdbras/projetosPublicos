@@ -631,6 +631,113 @@ end;
 procedure Tfrmfecnf.btnemitirClick(Sender: TObject);
 begin
 
+
+
+  if frmpesqnf.lblestado.Caption <> frmpesqnf.lblestadoemi.Caption then
+     begin
+        if ValidaCNPJ(tirapontos(tiratracos(tirabarras(frmpesqnf.lblcnpj.Caption)))) then
+           begin
+             if frmpesqnf.lblie.Caption = 'ISENTO' then
+                begin
+
+
+
+                  application.MessageBox(pchar('Verifique se o SEFAZ do destinat·rio suporta'+chr(13)+
+                                               'inscriÁ„o estadual definido como isento caso n„o aceite'+chr(13)+
+                                               'vocÍ deve apagar a palavra isento do campo correspondente'+chr(13)+
+                                               'no cadastro de cliente deixando o campo em branco'
+                                               ),'AtenÁ„o',mb_ok);
+
+
+
+                end;
+             //end
+
+
+             if frmpesqnf.lblie.Caption = '' then
+                begin
+
+                  application.MessageBox(pchar(
+                                              '- InstruÁ„o para operaÁ„o interestadual sem preenchimento da inscriÁ„o estadual'+chr(13)+chr(13)+
+                                               '  * Aliquota interestadual para cada produto devem estar preenchidas assim como estado de destino'+chr(13)+
+                                               '    Clique em >Menu Produtos\EdiÁ„o\TributaÁ„o\Aliquota Interestadual'+chr(13)+chr(13)+
+                                               '  * CSOSN de todos os produtos n„o pode ter permiss„o de ICMS'+chr(13)+
+                                               '    por exemplo, ao invÈs de colocar CSOSN 101 insira 102 '+chr(13)+chr(13)+
+                                               '  * Ao emitir nota de operaÁ„o interestadual com destinat·rio sem inscriÁ„o estadual'+chr(13)+
+                                               '    coloque consumidor final em SIM'
+                                          ),'AtenÁ„o',mb_ok);
+
+
+                end;
+
+
+
+
+
+           end
+        else
+           begin
+
+
+             if ValidaCPF(tirapontos(tiratracos(tirabarras(frmpesqnf.lblcnpj.Caption)))) then
+                begin
+
+
+                  application.MessageBox(pchar('Antes de emitir a nota informe consumidor final como SIM'
+
+                                               ),'AtenÁ„o',mb_ok);
+
+
+
+
+                end
+             //endi
+
+
+           end;
+        //endi
+
+
+
+
+
+
+     end
+  else
+     begin
+
+
+
+
+             if ValidaCPF(tirapontos(tiratracos(tirabarras(frmpesqnf.lblcnpj.Caption)))) then
+                begin
+
+
+                  application.MessageBox(pchar('Antes de emitir a nota informe consumidor final como SIM'
+
+                                               ),'AtenÁ„o',mb_ok);
+
+
+
+
+                end
+             //endi
+
+
+
+
+
+
+     end;
+
+  //endi
+
+
+
+
+
+
+
 lblmensagem.Caption := '';
 frmfecnf.Update;
 
@@ -1790,7 +1897,7 @@ var
   
   totvICMSUFRemet:real;
 
-  infennf:integer;
+  infennf, i:integer;
 
 
 
@@ -1857,9 +1964,6 @@ begin
     end;
   //endi
 
-
-
-
   frmdados.cds_nfs.Active := false;
   frmdados.sql_nfs.Active := false;
 
@@ -1913,7 +2017,7 @@ begin
           begin
             //3
             x := x + 1;
-            smsg[x] :=  '  - CAMPO: ENDERE√áO EM BRANCO'+#13;
+            smsg[x] :=  '  - CAMPO: ENDERE«O EM BRANCO'+#13;
           end;
        //endi
 
@@ -2035,13 +2139,13 @@ begin
 
                 if x = 0 then
                   begin
-                     smsg[x] := '* ERRO: DESTINAT√ÅRIO, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
+                     smsg[x] := '* ERRO: DESTINAT¡RIO, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
                    end;
                 //endi
 
                 //11
                 x:= x + 1;
-                smsg[x] :=  '  - CAMPO CNPJ OU CPF INV√ÅLIDO';
+                smsg[x] :=  '  - CAMPO CNPJ OU CPF INV¡LIDO';
 
               end;
            //endi
@@ -2080,13 +2184,13 @@ begin
           begin
             //12
             x := x + 2;
-            smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
           end
        else
           begin
             //12
             x := 0;
-            smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
           end;
        //endi
 
@@ -2110,7 +2214,7 @@ begin
           begin
             //15
             x := x + 1;
-            smsg[x] :=  '  - CAMPO: ENDERE√áO EM BRANCO'+#13;
+            smsg[x] :=  '  - CAMPO: ENDERE«O EM BRANCO'+#13;
           end;
        //endi
 
@@ -2206,7 +2310,7 @@ begin
                 if x = 0 then
                    begin
 
-                     smsg[x] :=  '* ERRO: EMITENTE, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
+                     smsg[x] :=  '* ERRO: EMITENTE, VERIFIQUE INCONSIST CIA(S) ABAIXO';
                    end;
                 //endi
 
@@ -2225,13 +2329,13 @@ begin
                 if x=0 then
                   begin
 
-                     smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
+                     smsg[x] := '* ERRO: EMITENTE, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
                    end;
                 //endi
 
                 //23
                 x:= x + 1;
-                smsg[x] :=  '  - CAMPO CNPJ OU CPF INV√ÅLIDO';
+                smsg[x] :=  '  - CAMPO CNPJ OU CPF INV¡LIDO';
 
               end;
            //endi
@@ -2259,13 +2363,13 @@ begin
           begin
             //29
             x := x + 2;
-            smsg[x] := '* ERRO: PRODUTOS, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: PRODUTOS, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
           end
        else
           begin
             //29
             x := 0;
-            smsg[x] := '* ERRO: PRODUTOS, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: PRODUTOS, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
           end;
        //endi
 
@@ -2335,19 +2439,19 @@ begin
           begin
             //35
             x := x + 2;
-            smsg[x] := '* ERRO: NOTA FISCAL, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: NOTA FISCAL, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
           end
        else
           begin
             //35
             x := 0;
-            smsg[x] := '* ERRO: NOTA FISCAL, VERIFIQUE INCONSIST√äNCIA(S) ABAIXO';
+            smsg[x] := '* ERRO: NOTA FISCAL, VERIFIQUE INCONSIST NCIA(S) ABAIXO';
           end;
        //endi
 
        //36
        x := x + 1;
-       smsg[x] := '  - HOUVE UM PROBLEMA: N√öMERO DA NOTA J√Å EXISTE EM NOTA FISCAL EMITIDA';
+       smsg[x] := '  - HOUVE UM PROBLEMA: N⁄MERO DA NOTA J¡ EXISTE EM NOTA FISCAL EMITIDA';
      end;
   //endi
   frmdados.cds_nfe.Active := false;
@@ -2359,7 +2463,7 @@ begin
           begin
             //37
             x := x + 1;
-            smsg[x] := '  - VOC√ä DEVE INSERIR NFE DE REFER√äNCIA PARA DEVOLU√á√ÉO ';
+            smsg[x] := '  - VOC S DEVE INSERIR NFE DE REFER NCIA PARA DEVOLU«√O ';
           end;
        //endi
      end;
@@ -2370,7 +2474,7 @@ begin
         begin
           //38
           x := x + 1;
-          smsg[x] := '  - PARA EMITIR NOTA FISCAL PARA PESSOA F√çSICA, CONSUMIDOR FINAL DEVE ESTAR NA OP√á√ÉO SIM';
+          smsg[x] := '  - PARA EMITIR NOTA FISCAL PARA PESSOA FÕSICA, CONSUMIDOR FINAL DEVE ESTAR NA OP«√O SIM';
         end;
      //endi
   //endi

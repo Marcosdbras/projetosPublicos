@@ -1,6 +1,6 @@
 object frmpesqnf: Tfrmpesqnf
-  Left = 23
-  Top = 69
+  Left = -26
+  Top = 73
   Width = 1036
   Height = 636
   Caption = 'Pesquisa de Notas Fiscais'
@@ -453,11 +453,13 @@ object frmpesqnf: Tfrmpesqnf
               Expanded = False
               FieldName = 'nomedest'
               Title.Caption = 'DESTINAT'#193'RIO'
+              Width = 422
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'chave'
+              Title.Caption = #218'LTIMA CHAVE EMITIDA'
               Width = 330
               Visible = True
             end>

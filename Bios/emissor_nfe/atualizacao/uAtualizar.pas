@@ -334,6 +334,7 @@ begin
 
   if dlgabrir.Execute then
      begin
+       carregainformacao;
        edtarqatu.Text := dlgabrir.FileName;
        executa;
        
