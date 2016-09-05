@@ -2974,6 +2974,11 @@ object frmdados: Tfrmdados
       item
         Name = 'codigo'
         DataType = ftInteger
+      end
+      item
+        Name = 'sinc'
+        DataType = ftString
+        Size = 1
       end>
     IndexDefs = <
       item
@@ -3084,6 +3089,10 @@ object frmdados: Tfrmdados
     end
     object cds_clientescodigo: TIntegerField
       FieldName = 'codigo'
+    end
+    object cds_clientessinc: TStringField
+      FieldName = 'sinc'
+      Size = 1
     end
   end
   object dts_clientes: TDataSource
@@ -3483,6 +3492,11 @@ object frmdados: Tfrmdados
         Name = 'id'
         Attributes = [faRequired]
         DataType = ftInteger
+      end
+      item
+        Name = 'sinc'
+        DataType = ftString
+        Size = 1
       end>
     IndexDefs = <
       item
@@ -3593,6 +3607,10 @@ object frmdados: Tfrmdados
     object cds_fornecedoresid: TIntegerField
       FieldName = 'id'
       Required = True
+    end
+    object cds_fornecedoressinc: TStringField
+      FieldName = 'sinc'
+      Size = 1
     end
   end
   object dts_fornecedores: TDataSource
@@ -6960,6 +6978,10 @@ object frmdados: Tfrmdados
     object sql_clientescodigo: TIntegerField
       FieldName = 'codigo'
     end
+    object sql_clientessinc: TStringField
+      FieldName = 'sinc'
+      Size = 1
+    end
   end
   object sql_rcserv: TZQuery
     Connection = zconexao
@@ -7355,8 +7377,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from duplicata')
     Params = <>
-    Left = 88
-    Top = 561
+    Left = 872
+    Top = 465
     object sql_duplicatacodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -7801,6 +7823,10 @@ object frmdados: Tfrmdados
     object sql_fornecedoresid: TIntegerField
       FieldName = 'id'
       Required = True
+    end
+    object sql_fornecedoressinc: TStringField
+      FieldName = 'sinc'
+      Size = 1
     end
   end
   object sql_nfp: TZQuery
@@ -9173,6 +9199,10 @@ object frmdados: Tfrmdados
       FieldName = 'cest'
       Size = 40
     end
+    object sql_produtossinc: TStringField
+      FieldName = 'sinc'
+      Size = 1
+    end
   end
   object dsp_produtos: TDataSetProvider
     DataSet = sql_produtos
@@ -9306,6 +9336,11 @@ object frmdados: Tfrmdados
         Name = 'cest'
         DataType = ftString
         Size = 40
+      end
+      item
+        Name = 'sinc'
+        DataType = ftString
+        Size = 1
       end>
     IndexDefs = <
       item
@@ -9416,6 +9451,10 @@ object frmdados: Tfrmdados
     object cds_produtoscest: TStringField
       FieldName = 'cest'
       Size = 40
+    end
+    object cds_produtossinc: TStringField
+      FieldName = 'sinc'
+      Size = 1
     end
   end
   object dts_produtos: TDataSource
@@ -9534,5 +9573,10 @@ object frmdados: Tfrmdados
     Params = <>
     Left = 528
     Top = 624
+  end
+  object Seq_Duplicata: TZSequence
+    Connection = zconexao
+    Left = 952
+    Top = 464
   end
 end

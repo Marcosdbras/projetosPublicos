@@ -386,7 +386,7 @@ with frmdados do
     //cds_temp.FieldByName('cod5nf').asInteger := cds_transportador.fieldbyname('codigo').asInteger;
     //cds_temp.FieldByName('cod1nf').asInteger := cds_tiponf.fieldbyname('codigo').asInteger;
     //cds_temp.FieldByName('cod6nf').asInteger := cds_natop.fieldbyname('codigo').asInteger;
-    
+
     cds_temp.FieldByName('cod1nf').asInteger := 2;
     //cds_temp.FieldByName('cod6nf').asInteger := 0;
 
@@ -406,7 +406,7 @@ with frmdados do
   begin
     cds_nfs.Filtered := false;
     cds_nfs.Filter := 'cnf = '+inttostr( frmdados.cds_nf.fieldbyname('codigo').asInteger );
-    cds_nfs.Filtered := true;             
+    cds_nfs.Filtered := true;
   end;
 //endth
 frmpesqnf.totserv;
@@ -423,6 +423,18 @@ if ediproxnota.Enabled then
 frmdados.cds_Temp.Edit;
 frmdados.cds_Temp.FieldByName('cod5nf').asInteger := 0;
 
+with frmdados do
+  begin
+
+    cds_duplicata.Active := false;
+    sql_duplicata.Active := false;
+    sql_duplicata.SQL.Clear;
+    sql_duplicata.SQL.Add('select * from duplicata where cnf = :cnf');
+    sql_duplicata.ParamByName('cnf').AsInteger := cds_nf.fieldbyname('codigo').AsInteger;
+    sql_duplicata.Active := true;
+    cds_duplicata.Active := true;
+
+  end;
 
 lblmensagem.Caption := '';
 
@@ -1490,6 +1502,11 @@ fvlrparc := (  strtofloat( tirapontos(ediliquido.text) ) -  strtofloat( tirapont
 with frmdados do
   begin
 
+    cds_duplicata.Active := false;
+    sql_duplicata.Active := false;
+    sql_duplicata.SQL.Clear;
+    sql_duplicata.SQL.Add('select * from duplicata where cnf = :cnf');
+    sql_duplicata.ParamByName('cnf').AsInteger := cds_nf.fieldbyname('codigo').AsInteger;
     sql_duplicata.Active := true;
     cds_duplicata.Active := true;
 
@@ -1506,7 +1523,7 @@ with frmdados do
 
         iureg := iureg + 1;
         iprazo := iprazo + strtoint(ediperiodo.Text);
-        cds_duplicata.FieldByName('codigo').asInteger := iureg;
+        //iureg;
 
         cds_duplicata.FieldByName('dte').AsDateTime := strtodate(edidatainic.Text);
         cds_duplicata.FieldByName('cnf').asInteger  := cds_nf.fieldbyname('codigo').asInteger;
@@ -1541,6 +1558,11 @@ with frmdados do
 
    totalizadup;
 
+   cds_duplicata.Active := false;
+   sql_duplicata.Active := false;
+   sql_duplicata.SQL.Clear;
+   sql_duplicata.SQL.Add('select * from duplicata where cnf = :cnf');
+   sql_duplicata.ParamByName('cnf').AsInteger := cds_nf.fieldbyname('codigo').AsInteger;
    sql_duplicata.Active := true;
    cds_duplicata.Active := true;
 
@@ -1561,6 +1583,11 @@ var
 begin
   with frmdados do
     begin
+      cds_duplicata.Active := false;
+      sql_duplicata.Active := false;
+      sql_duplicata.SQL.Clear;
+      sql_duplicata.SQL.Add('select * from duplicata where cnf = :cnf');
+      sql_duplicata.ParamByName('cnf').AsInteger := cds_nf.fieldbyname('codigo').AsInteger;
       sql_duplicata.Active := true;
       cds_duplicata.Active := true;
 
@@ -4072,6 +4099,11 @@ begin
 
       icontdup := 0;
 
+      cds_duplicata.Active := false;
+      sql_duplicata.Active := false;
+      sql_duplicata.SQL.Clear;
+      sql_duplicata.SQL.Add('select * from duplicata where cnf = :cnf');
+      sql_duplicata.ParamByName('cnf').AsInteger := cds_nf.fieldbyname('codigo').AsInteger;
       sql_duplicata.Active := true;
       cds_duplicata.Active := true;
 

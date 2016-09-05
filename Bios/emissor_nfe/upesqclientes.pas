@@ -307,6 +307,7 @@ with frmdados do
     cds_clientes.FieldByName('bairro').asString := edibairro.Text;
     cds_clientes.FieldByName('cep').asString := edicep.Text;
     cds_clientes.FieldByName('obs').asString := MMOobs.Text;
+    cds_clientes.FieldByName('sinc').AsString := 'N';
 
 
     cds_clientes.FieldByName('cest').asInteger := frmdados.cds_Temp.fieldbyname('cod1cc').asInteger;

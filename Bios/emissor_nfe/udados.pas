@@ -7,7 +7,7 @@ uses
   FMTBcd, Provider, SqlExpr, DBXpress, ZAbstractRODataset,
   ZAbstractDataset, ZDataset, ZConnection, ZAbstractConnection, IniFiles,
   xmldom, XMLIntf, msxmldom, XMLDoc, IdBaseComponent, IdComponent,
-  IdTCPConnection, IdTCPClient, IdHTTP;
+  IdTCPConnection, IdTCPClient, IdHTTP, ZSequence;
 
 type
   Tfrmdados = class(TDataModule)
@@ -1482,6 +1482,13 @@ type
     sql_nfarquivonfe: TStringField;
     cds_nfcaminhonfe: TStringField;
     cds_nfarquivonfe: TStringField;
+    Seq_Duplicata: TZSequence;
+    sql_clientessinc: TStringField;
+    sql_produtossinc: TStringField;
+    sql_fornecedoressinc: TStringField;
+    cds_clientessinc: TStringField;
+    cds_produtossinc: TStringField;
+    cds_fornecedoressinc: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);
@@ -6869,43 +6876,26 @@ procedure Tfrmdados.cds_PaisesNewRecord(DataSet: TDataSet);
 
 begin
 
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from Paises');
-    sql_consulta.Active := true;
+  sql_consulta.Active := false;
+  sql_consulta.SQL.Clear;
+  sql_consulta.SQL.Add('select max(id)+1 as contador from Paises');
+  sql_consulta.Active := true;
 
-    Cds_Paises.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(contador) as contador from Paises');
-    sql_consulta.Active := true;
-
-
-
-    Cds_Paises.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-
+  Cds_Paises.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+  Cds_Paises.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
 procedure Tfrmdados.cds_impostoIINewRecord(DataSet: TDataSet);
 begin
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from impostoii');
-    sql_consulta.Active := true;
 
-    Cds_impostoii.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+  sql_consulta.Active := false;
+  sql_consulta.SQL.Clear;
+  sql_consulta.SQL.Add('select max(id)+1 as contador from impostoii');
+  sql_consulta.Active := true;
 
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from impostoii');
-    sql_consulta.Active := true;
-
-
-
-    Cds_impostoii.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+  Cds_impostoii.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+  Cds_impostoii.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -6913,19 +6903,11 @@ procedure Tfrmdados.cds_impostoIIINewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from impostoiii');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from impostoiii');
     sql_consulta.Active := true;
 
-    Cds_impostoiii.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from impostoiii');
-    sql_consulta.Active := true;
-
-
-    Cds_impostoiii.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_impostoiii.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_impostoiii.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -6953,17 +6935,12 @@ procedure Tfrmdados.cds_tiposervNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from tiposerv');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from tiposerv');
     sql_consulta.Active := true;
 
-    Cds_tiposerv.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from tiposerv');
-    sql_consulta.Active := true;
-
-    Cds_tiposerv.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_tiposerv.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_tiposerv.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    
 end;
 
 procedure Tfrmdados.cds_tiposervAfterDelete(DataSet: TDataSet);
@@ -6980,18 +6957,11 @@ procedure Tfrmdados.cds_regtribNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from regtrib');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from regtrib');
     sql_consulta.Active := true;
 
-    Cds_regtrib.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from regtrib');
-    sql_consulta.Active := true;
-
-
-    Cds_regtrib.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_regtrib.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_regtrib.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_regtribAfterPost(DataSet: TDataSet);
@@ -7008,18 +6978,11 @@ procedure Tfrmdados.cds_indiceNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from indice');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from indice');
     sql_consulta.Active := true;
 
-    Cds_indice.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from indice');
-    sql_consulta.Active := true;
-
-
-    Cds_indice.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_indice.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_indice.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7037,18 +7000,11 @@ procedure Tfrmdados.cds_faturaNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from fatura');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from fatura');
     sql_consulta.Active := true;
 
-    Cds_fatura.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from fatura');
-    sql_consulta.Active := true;
-
-
-    Cds_fatura.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_fatura.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_fatura.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7056,20 +7012,11 @@ procedure Tfrmdados.cds_cfNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from cf');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from cf');
     sql_consulta.Active := true;
 
-    Cds_cf.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from cf');
-    sql_consulta.Active := true;
-
-
-
-    Cds_cf.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_cf.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_cf.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7097,18 +7044,11 @@ procedure Tfrmdados.cds_pisNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from pis');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from pis');
     sql_consulta.Active := true;
 
-    Cds_pis.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from pis');
-    sql_consulta.Active := true;
-
-
-    Cds_pis.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_pis.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_pis.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7116,18 +7056,11 @@ procedure Tfrmdados.cds_MunicNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from munic');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from munic');
     sql_consulta.Active := true;
 
-    Cds_munic.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from munic');
-    sql_consulta.Active := true;
-
-
-    Cds_munic.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_munic.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_munic.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7135,18 +7068,11 @@ procedure Tfrmdados.cds_modbcNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from modbc');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from modbc');
     sql_consulta.Active := true;
 
-    Cds_modbc.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from modbc');
-    sql_consulta.Active := true;
-
-
-    Cds_modbc.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_modbc.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_modbc.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7154,18 +7080,11 @@ procedure Tfrmdados.cds_cofinsNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from cofins');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from cofins');
     sql_consulta.Active := true;
 
-    Cds_cofins.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from cofins');
-    sql_consulta.Active := true;
-
-
-    Cds_cofins.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_cofins.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_cofins.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7173,17 +7092,11 @@ procedure Tfrmdados.cds_unidadeNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from unidade');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from unidade');
     sql_consulta.Active := true;
 
-    Cds_unidade.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from unidade');
-    sql_consulta.Active := true;
-
-    Cds_unidade.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_unidade.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_unidade.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7191,19 +7104,11 @@ procedure Tfrmdados.cds_clientesNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from clientes');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from clientes');
     sql_consulta.Active := true;
 
-    Cds_clientes.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from clientes');
-    sql_consulta.Active := true;
-
-
-    Cds_clientes.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_clientes.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_clientes.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7211,18 +7116,11 @@ procedure Tfrmdados.cds_rcservNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from rcserv');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from rcserv');
     sql_consulta.Active := true;
 
-    Cds_rcserv.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from rcserv');
-    sql_consulta.Active := true;
-
-
-    Cds_rcserv.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_rcserv.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_rcserv.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7230,17 +7128,11 @@ procedure Tfrmdados.cds_emitenteNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from emitente');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from emitente');
     sql_consulta.Active := true;
 
-    Cds_emitente.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from emitente');
-    sql_consulta.Active := true;
-
-    Cds_emitente.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_emitente.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_emitente.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7248,37 +7140,24 @@ procedure Tfrmdados.cds_nfeNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from nfe');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from nfe');
     sql_consulta.Active := true;
 
-    Cds_nfe.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from nfe');
-    sql_consulta.Active := true;
-
-
-    Cds_nfe.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_nfe.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_nfe.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
 procedure Tfrmdados.cds_duplicataNewRecord(DataSet: TDataSet);
 begin
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from duplicata');
-    sql_consulta.Active := true;
-
-    Cds_duplicata.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
 
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from duplicata');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from duplicata');
     sql_consulta.Active := true;
 
-
-    Cds_duplicata.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_duplicata.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_duplicata.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7286,18 +7165,11 @@ procedure Tfrmdados.cds_nfsNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from nfs');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from nfs');
     sql_consulta.Active := true;
 
-    Cds_nfs.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from nfs');
-    sql_consulta.Active := true;
-
-
-    Cds_nfs.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_nfs.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_nfs.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7305,18 +7177,11 @@ procedure Tfrmdados.cds_modbcstNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from modbcst');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from modbcst');
     sql_consulta.Active := true;
 
-    Cds_modbcst.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from modbcst');
-    sql_consulta.Active := true;
-
-
-    Cds_modbcst.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_modbcst.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_modbcst.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7324,73 +7189,44 @@ procedure Tfrmdados.cds_nfepNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from nfep');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from nfep');
     sql_consulta.Active := true;
 
-    Cds_nfep.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from nfep');
-    sql_consulta.Active := true;
-
-
-    Cds_nfep.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_nfep.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_nfep.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_icmsNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from icms');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from icms');
     sql_consulta.Active := true;
 
-    Cds_icms.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from icms');
-    sql_consulta.Active := true;
-
-    Cds_icms.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_icms.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_icms.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_cfopNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from cfop');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from cfop');
     sql_consulta.Active := true;
 
-    Cds_cfop.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from cfop');
-    sql_consulta.Active := true;
-
-
-
-    Cds_cfop.FieldByName('codigo').AsInteger := sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_cfop.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_cfop.FieldByName('codigo').AsInteger := sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_nfpNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from nfp');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from nfp');
     sql_consulta.Active := true;
 
-    Cds_nfp.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from nfp');
-    sql_consulta.Active := true;
-
-
-
-    Cds_nfp.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_nfp.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_nfp.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7398,18 +7234,11 @@ procedure Tfrmdados.cds_fornecedoresNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from fornecedores');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from fornecedores');
     sql_consulta.Active := true;
 
-    Cds_fornecedores.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from fornecedores');
-    sql_consulta.Active := true;
-
-
-    Cds_fornecedores.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_fornecedores.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_fornecedores.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7419,54 +7248,33 @@ begin
 
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from produtos');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from produtos');
     sql_consulta.Active := true;
 
-    Cds_produtos.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from produtos');
-    sql_consulta.Active := true;
-
-
-     Cds_produtos.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_produtos.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_produtos.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_sitaNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from sita');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from sita');
     sql_consulta.Active := true;
 
-    Cds_sita.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from sita');
-    sql_consulta.Active := true;
-
-
-    Cds_sita.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_sita.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_sita.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_ipiNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from ipi');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from ipi');
     sql_consulta.Active := true;
 
-    Cds_ipi.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from ipi');
-    sql_consulta.Active := true;
-
-
-    Cds_ipi.FieldByName('codigo').AsInteger := sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_ipi.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_ipi.FieldByName('codigo').AsInteger := sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 
@@ -7474,238 +7282,143 @@ procedure Tfrmdados.cds_impostoINewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from impostoi');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from impostoi');
     sql_consulta.Active := true;
 
-    Cds_impostoi.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from impostoi');
-    sql_consulta.Active := true;
-
-
-    Cds_impostoi.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_impostoi.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_impostoi.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_natopNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from natop');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from natop');
     sql_consulta.Active := true;
 
-    Cds_natop.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from natop');
-    sql_consulta.Active := true;
-
-
-
-    Cds_natop.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_natop.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_natop.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_tgicmsNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from tgicms');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from tgicms');
     sql_consulta.Active := true;
 
-    Cds_tgicms.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from tgicms');
-    sql_consulta.Active := true;
-
-
-    Cds_tgicms.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_tgicms.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_tgicms.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_transportadorNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from transportador');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from transportador');
     sql_consulta.Active := true;
 
-    Cds_transportador.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from transportador');
-    sql_consulta.Active := true;
-
-
-
-    Cds_transportador.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_transportador.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_transportador.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_nfNewRecord(DataSet: TDataSet);
 begin
-     sql_consulta.Active := false;
+    sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from nf');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from nf');
     sql_consulta.Active := true;
 
-    Cds_nf.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-     sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from nf');
-    sql_consulta.Active := true;
-
-
-    Cds_nf.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_nf.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_nf.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_csosnNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from csosn');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from csosn');
     sql_consulta.Active := true;
 
-    Cds_csosn.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from csosn');
-    sql_consulta.Active := true;
-
-
-    Cds_csosn.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_csosn.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_csosn.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_cupomNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from cupom');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from cupom');
     sql_consulta.Active := true;
 
-    Cds_cupom.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from cupom');
-    sql_consulta.Active := true;
-
-
-    Cds_cupom.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_cupom.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_cupom.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_tipopgtoNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from tipopgto');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from tipopgto');
     sql_consulta.Active := true;
 
-    Cds_tipopgto.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from tipopgto');
-    sql_consulta.Active := true;
-
-
-     Cds_tipopgto.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_tipopgto.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+     Cds_tipopgto.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_EstadosNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from estados');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from estados');
     sql_consulta.Active := true;
 
-    Cds_estados.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from estados');
-    sql_consulta.Active := true;
-
-
-
-    Cds_estados.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_estados.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_estados.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_onusdofreteNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from onusdofrete');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from onusdofrete');
     sql_consulta.Active := true;
 
-    Cds_onusdofrete.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from onusdofrete');
-    sql_consulta.Active := true;
-
-
-    Cds_onusdofrete.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_onusdofrete.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_onusdofrete.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_tiponfNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from tiponf');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from tiponf');
     sql_consulta.Active := true;
 
-    Cds_tiponf.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from tiponf');
-    sql_consulta.Active := true;
-
-
-
-    Cds_tiponf.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_tiponf.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_tiponf.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_sitbNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from sitb');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from sitb');
     sql_consulta.Active := true;
 
-    Cds_sitb.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from sitb');
-    sql_consulta.Active := true;
-
-
-   Cds_sitb.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_sitb.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_sitb.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_cmobraNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from cmobra');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from cmobra');
     sql_consulta.Active := true;
 
-    Cds_cmobra.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from cmobra');
-    sql_consulta.Active := true;
-
-
-    Cds_cmobra.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_cmobra.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_cmobra.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_cmobraAfterPost(DataSet: TDataSet);
@@ -8042,18 +7755,11 @@ procedure Tfrmdados.cds_ibptNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from ibpt');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from ibpt');
     sql_consulta.Active := true;
 
-    Cds_ibpt.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from ibpt');
-    sql_consulta.Active := true;
-
-
-    Cds_ibpt.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_ibpt.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_ibpt.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 end;
 
 procedure Tfrmdados.cds_ibptAfterPost(DataSet: TDataSet);
@@ -8075,18 +7781,11 @@ procedure Tfrmdados.cds_aliqinterNewRecord(DataSet: TDataSet);
 begin
     sql_consulta.Active := false;
     sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id) as contador from aliqinter');
+    sql_consulta.SQL.Add('select max(id)+1 as contador from aliqinter');
     sql_consulta.Active := true;
 
-    Cds_aliqinter.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
-
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(codigo) as contador from aliqinter');
-    sql_consulta.Active := true;
-
-
-    Cds_aliqinter.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger + 1;
+    Cds_aliqinter.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_aliqinter.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
 
 end;
 

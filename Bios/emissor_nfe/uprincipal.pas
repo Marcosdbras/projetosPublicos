@@ -159,6 +159,7 @@ type
     procedure fechatabelas();
     procedure atualizacaoBaseRemota;
     procedure atualizaEmitente;
+    procedure atualizaCliente;
     procedure BaixarNCM1Click(Sender: TObject);
     procedure Desbloqueiodeenvio1Click(Sender: TObject);
     
@@ -1251,6 +1252,7 @@ begin
 
       try
         atualizaEmitente;
+        atualizaCliente;
 
       except
         reResp.Lines.Add('erro ao sincronizar dados');
@@ -1293,7 +1295,10 @@ begin
        sql_indice.SQL.Add('select * from indice');
        sql_indice.Active := true;
 
-       chave:=sql_indice.fieldbyname('chaveconsultacep').AsString;
+
+       cnpjemitente := sql_indice.fieldbyname('cnpj').AsString;
+
+       chave:=sql_indice.fieldbyname('chaveconsultacep').AsString+cnpjemitente;
 
 
 
@@ -1500,6 +1505,164 @@ begin
 
 
 end;
+
+
+
+procedure tfrmprincipal.atualizaCliente;
+var
+
+  lParamList: TStringList;
+  lResponse : TStringStream;
+  smostrar, chave, cnpj, nome, bloqueado:string;
+  x:integer;
+  resp:boolean;
+
+begin
+
+  x:=0;
+
+  with frmdados do
+    begin
+
+       cds_clientes.Active := false;
+       sql_clientes.Active := false;
+       sql_clientes.SQL.Clear;
+       sql_clientes.SQL.Add('select * from clientes where (coalesce(id,0) > 0) and (sinc <> '+ quotedstr('S')+')');
+
+       sql_clientes.active  := true;
+       cds_clientes.Active := true;
+
+       sql_indice.Active := false;
+       sql_indice.SQL.Clear;
+       sql_indice.SQL.Add('select * from indice');
+       sql_indice.Active := true;
+
+       chave:=sql_indice.fieldbyname('chaveconsultacep').AsString+cnpjemitente;
+
+
+
+
+    end;
+
+  while not frmdados.cds_clientes.Eof do
+    begin
+        resp := false;
+
+        try
+            lParamList := TStringList.Create;
+            lResponse := TStringStream.Create('');
+
+            lParamList.Add('modo=I');
+            lParamList.Add('cnpj='+tirapontos(tirabarras(tiratracos(frmdados.cds_clientes.fieldbyname('cnpj').AsString))));
+            lParamList.Add('nome='+frmdados.cds_clientes.FieldByName('nome').AsString);
+            lParamList.Add('email='+frmdados.cds_clientes.FieldByName('email').AsString);
+            lParamList.Add('fantasia='+frmdados.cds_clientes.FieldByName('fantasia').AsString);
+            lParamList.Add('telefones='+frmdados.cds_clientes.FieldByName('telefones').AsString);
+            lParamList.Add('ie='+frmdados.cds_clientes.FieldByName('ie').AsString);
+            lParamList.Add('site='+frmdados.cds_clientes.FieldByName('site').AsString);
+            lParamList.Add('contato='+frmdados.cds_clientes.FieldByName('contato').AsString);
+            lParamList.Add('endereco='+frmdados.cds_clientes.FieldByName('endereco').AsString);
+            lParamList.Add('nro='+frmdados.cds_clientes.FieldByName('nro').AsString);
+            lParamList.Add('compl='+frmdados.cds_clientes.FieldByName('compl').AsString);
+            lParamList.Add('bairro='+frmdados.cds_clientes.FieldByName('bairro').AsString);
+            lParamList.Add('cep='+frmdados.cds_clientes.FieldByName('cep').AsString);
+            lParamList.Add('im='+frmdados.cds_clientes.FieldByName('im').AsString);
+            lParamList.Add('obs='+frmdados.cds_clientes.FieldByName('obs').AsString);
+            lParamList.Add('ctransp='+frmdados.cds_clientes.FieldByName('ctransp').AsString);
+
+
+            frmdados.cds_Estados.Active := false;
+            frmdados.sql_Estados.Active := false;
+            frmdados.sql_Estados.SQL.Clear;
+            frmdados.sql_Estados.SQL.Add('select * from estados');
+            frmdados.sql_Estados.Active := true;
+            frmdados.cds_Estados.Active := true;
+
+            if frmdados.cds_Estados.Locate('codigo',frmdados.cds_clientes.fieldbyname('cest').AsString,[]) then
+               begin
+                 lParamList.Add('cest='+frmdados.cds_estados.FieldByName('codibge').AsString);
+               end;
+            //endi
+
+
+            frmdados.cds_Munic.Active := false;
+            frmdados.sql_Munic.Active := false;
+            frmdados.sql_Munic.SQL.Clear;
+            frmdados.sql_Munic.SQL.Add('select * from munic');
+            frmdados.sql_Munic.Active := true;
+            frmdados.cds_Munic.Active := true;
+
+            if frmdados.cds_Munic.Locate('codigo',frmdados.cds_clientes.fieldbyname('cmun').AsInteger,[]) then
+               begin
+                 lParamList.Add('codigomunicipio='+frmdados.cds_munic.FieldByName('codibge').AsString);
+               end;
+            //endi
+
+
+
+            lParamList.Add('prog=NFE');
+
+
+
+
+            try
+                lHTTP := TIdHTTP.Create(nil);
+                try
+                  lHTTP.Post('http://aplicativos-marcosbras.rhcloud.com/wscliente.php', lParamList, lResponse);
+                  lResponse.Position := 0;
+                  reResp.Lines.LoadFromStream(lResponse);
+                finally
+
+                  lHTTP.Free;
+                  lParamList.Free;
+                  lResponse.Free();
+                  resp := true;
+
+                end;
+
+
+            except
+              reResp.Lines.Add( 'Conexão com servidor inativa');
+              resp := false;
+            end;
+
+
+            if resp then
+               begin
+                frmdados.cds_clientes.Edit;
+                frmdados.cds_clientes.FieldByName('sinc').AsString  := 'S';
+                frmdados.cds_clientes.Post;
+               end;
+
+            frmdados.cds_clientes.Next;
+
+
+        finally
+           reResp.Lines.Add( 'Atuallizado com sucesso');
+
+
+        end;
+
+    end;
+  //endw
+
+
+
+
+  frmdados.sql_clientes.Active := false;
+  frmdados.cds_clientes.Active := false;
+
+  //--------------------------------------------------------------------
+
+
+
+end;
+
+
+
+
+
+
 
 procedure Tfrmprincipal.BaixarNCM1Click(Sender: TObject);
 var

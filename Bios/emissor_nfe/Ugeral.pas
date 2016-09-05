@@ -852,7 +852,7 @@ Type
 
    buffer,
    cmd: String;
-   comunica: String;
+   comunica, cnpjemitente: String;
    retornoimp,
 
    envia,
