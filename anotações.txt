@@ -1,5 +1,7 @@
 DataSAC / frmlista_venda2 -> VENDAS / COMISSÃO ok
 
+http://www.mundocontabil.com.br/contador.php?acao=abrir_documento&cod_documento=145164&contador=6962&base=F
+
 http://www.devmedia.com.br/arrays-dinamicos-no-delphi/26960
 http://www.bosontreinamentos.com.br/mysql/mysql-default-valores-padrao-em-colunas-24/
 https://www.google.com.br/search?q=icone+ordem+de+servi%C3%A7o+png+transparente&biw=1366&bih=610&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiYs_qh0NDMAhUCTZAKHQ8lCfYQ_AUIBigB&dpr=1#imgdii=zZ3ny0RAPA5TGM%3A%3BzZ3ny0RAPA5TGM%3A%3B2z7H4crANMXj2M%3A&imgrc=zZ3ny0RAPA5TGM%3A
@@ -18,15 +20,23 @@ http://www.ebs.com.br/treinamento/Apostilas/Apostila%20Sage%20One_v.01_2016.pdf
 
 
 =======================================================================================
+Emissor Nota Fiscal Eletrônica
+  - Antes de transmitir o sistema verificará se csosn está como 102 para consumidor final 
+
+
+
+
+
+
 Datasac 
-
-
 
 Cadastro de produto:
   - quando insere cfop o sistema alerta que não encontrou o código, porem o msm está cadastrado
   - baixar lista de classificação fiscal pro sistema de acordo com a região da empresa
   - Antes de lançar o produto pra venda verificar se cst\csosn\cfop existe localmente para evitar
     posível trava na hora da transmissão do sat
+
+
    
 
 Quando emitir sat desconsiderar os itens cancelados

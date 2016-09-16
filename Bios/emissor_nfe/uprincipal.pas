@@ -1252,7 +1252,7 @@ begin
 
       try
         atualizaEmitente;
-        atualizaCliente;
+        //atualizaCliente;
 
       except
         reResp.Lines.Add('erro ao sincronizar dados');
@@ -1296,7 +1296,7 @@ begin
        sql_indice.Active := true;
 
 
-       cnpjemitente := sql_indice.fieldbyname('cnpj').AsString;
+       cnpjemitente := cds_emitente.fieldbyname('cnpj').AsString;
 
        chave:=sql_indice.fieldbyname('chaveconsultacep').AsString+cnpjemitente;
 
@@ -1527,7 +1527,8 @@ begin
        cds_clientes.Active := false;
        sql_clientes.Active := false;
        sql_clientes.SQL.Clear;
-       sql_clientes.SQL.Add('select * from clientes where (coalesce(id,0) > 0) and (sinc <> '+ quotedstr('S')+')');
+       sql_clientes.SQL.Add('select * from clientes where (coalesce(id,0) > 0) and (  coalesce(sinc,''N'') <> '+ quotedstr('S')+')');
+       //sql_clientes.SQL.Add('select * from clientes where (coalesce(id,0) > 0) and (sinc is null )');
 
        sql_clientes.active  := true;
        cds_clientes.Active := true;
@@ -1553,6 +1554,10 @@ begin
             lResponse := TStringStream.Create('');
 
             lParamList.Add('modo=I');
+            lParamList.Add('chave='+chave);
+            lParamList.Add('valor='+tirapontos(tirabarras(tiratracos(frmdados.cds_clientes.fieldbyname('cnpj').AsString))));
+            lParamList.Add('campo=cnpj');
+
             lParamList.Add('cnpj='+tirapontos(tirabarras(tiratracos(frmdados.cds_clientes.fieldbyname('cnpj').AsString))));
             lParamList.Add('nome='+frmdados.cds_clientes.FieldByName('nome').AsString);
             lParamList.Add('email='+frmdados.cds_clientes.FieldByName('email').AsString);
@@ -1578,7 +1583,7 @@ begin
             frmdados.sql_Estados.Active := true;
             frmdados.cds_Estados.Active := true;
 
-            if frmdados.cds_Estados.Locate('codigo',frmdados.cds_clientes.fieldbyname('cest').AsString,[]) then
+            if (frmdados.cds_Estados.Locate('codigo',frmdados.cds_clientes.fieldbyname('cest').AsInteger,[])) then
                begin
                  lParamList.Add('cest='+frmdados.cds_estados.FieldByName('codibge').AsString);
                end;
@@ -1592,7 +1597,7 @@ begin
             frmdados.sql_Munic.Active := true;
             frmdados.cds_Munic.Active := true;
 
-            if frmdados.cds_Munic.Locate('codigo',frmdados.cds_clientes.fieldbyname('cmun').AsInteger,[]) then
+            if (frmdados.cds_Munic.Locate('codigo',frmdados.cds_clientes.fieldbyname('cmun').AsInteger,[])) then
                begin
                  lParamList.Add('codigomunicipio='+frmdados.cds_munic.FieldByName('codibge').AsString);
                end;
@@ -1608,7 +1613,7 @@ begin
             try
                 lHTTP := TIdHTTP.Create(nil);
                 try
-                  lHTTP.Post('http://aplicativos-marcosbras.rhcloud.com/wscliente.php', lParamList, lResponse);
+                  lHTTP.Post('http://aplicativos-marcosbras.rhcloud.com/wsclientes.php', lParamList, lResponse);
                   lResponse.Position := 0;
                   reResp.Lines.LoadFromStream(lResponse);
                 finally

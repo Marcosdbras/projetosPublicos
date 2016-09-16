@@ -1,4 +1,4 @@
-unit ufecnf;     
+unit ufecnf;
 
 interface
 
@@ -332,6 +332,21 @@ frmdados.zconexao.AutoCommit := false;
 vardir := extractfilepath(application.ExeName);
 
 
+if ValidaCPF(tirapontos(tiratracos(tirabarras(frmpesqnf.lblcnpj.Caption)))) or
+   ( frmpesqnf.lblie.Caption = ''  )then
+  begin
+
+
+    cbxindfinal.ItemIndex := 1;
+
+
+
+  end;
+//endi
+
+
+
+
 with frmdados do
   begin
 
@@ -419,9 +434,9 @@ if ediproxnota.Enabled then
    ediproxnota.SetFocus;
 //endif
 
-
 frmdados.cds_Temp.Edit;
 frmdados.cds_Temp.FieldByName('cod5nf').asInteger := 0;
+
 
 with frmdados do
   begin
@@ -654,11 +669,11 @@ begin
 
 
 
-                  application.MessageBox(pchar('Verifique se o SEFAZ do destinatário suporta'+chr(13)+
-                                               'inscrição estadual definido como isento caso não aceite'+chr(13)+
-                                               'você deve apagar a palavra isento do campo correspondente'+chr(13)+
-                                               'no cadastro de cliente deixando o campo em branco'
-                                               ),'Atenção',mb_ok);
+                  //application.MessageBox(pchar('Verifique se o SEFAZ do destinatário suporta'+chr(13)+
+                  //                             'inscrição estadual definido como isento caso não aceite'+chr(13)+
+                  //                             'você deve apagar a palavra isento do campo correspondente'+chr(13)+
+                  //                             'no cadastro de cliente deixando o campo em branco'
+                  //                             ),'Atenção',mb_ok);
 
 
 
@@ -669,15 +684,15 @@ begin
              if frmpesqnf.lblie.Caption = '' then
                 begin
 
-                  application.MessageBox(pchar(
-                                              '- Instrução para operação interestadual sem preenchimento da inscrição estadual'+chr(13)+chr(13)+
-                                               '  * Aliquota interestadual para cada produto devem estar preenchidas assim como estado de destino'+chr(13)+
-                                               '    Clique em >Menu Produtos\Edição\Tributação\Aliquota Interestadual'+chr(13)+chr(13)+
-                                               '  * CSOSN de todos os produtos não pode ter permissão de ICMS'+chr(13)+
-                                               '    por exemplo, ao invés de colocar CSOSN 101 insira 102 '+chr(13)+chr(13)+
-                                               '  * Ao emitir nota de operação interestadual com destinatário sem inscrição estadual'+chr(13)+
-                                               '    coloque consumidor final em SIM'
-                                          ),'Atenção',mb_ok);
+                  //application.MessageBox(pchar(
+                  //                            '- Instrução para operação interestadual sem preenchimento da inscrição estadual'+chr(13)+chr(13)+
+                  //                             '  * Aliquota interestadual para cada produto devem estar preenchidas assim como estado de destino'+chr(13)+
+                   //                            '    Clique em >Menu Produtos\Edição\Tributação\Aliquota Interestadual'+chr(13)+chr(13)+
+                  //                             '  * CSOSN de todos os produtos não pode ter permissão de ICMS'+chr(13)+
+                  //                             '    por exemplo, ao invés de colocar CSOSN 101 insira 102 '+chr(13)+chr(13)+
+                  //                             '  * Ao emitir nota de operação interestadual com destinatário sem inscrição estadual'+chr(13)+
+                  //                             '    coloque consumidor final em SIM'
+                  //                        ),'Atenção',mb_ok);
 
 
                 end;
@@ -695,9 +710,9 @@ begin
                 begin
 
 
-                  application.MessageBox(pchar('Antes de emitir a nota informe consumidor final como SIM'
+                  //application.MessageBox(pchar('Antes de emitir a nota informe consumidor final como SIM'
 
-                                               ),'Atenção',mb_ok);
+                  //                             ),'Atenção',mb_ok);
 
 
 
@@ -725,9 +740,9 @@ begin
                 begin
 
 
-                  application.MessageBox(pchar('Antes de emitir a nota informe consumidor final como SIM'
+                  //application.MessageBox(pchar('Antes de emitir a nota informe consumidor final como SIM'
 
-                                               ),'Atenção',mb_ok);
+                  //                             ),'Atenção',mb_ok);
 
 
 
@@ -743,11 +758,6 @@ begin
      end;
 
   //endi
-
-
-
-
-
 
 
 lblmensagem.Caption := '';
@@ -2497,7 +2507,7 @@ begin
   //endi
 
   if validacpf( tirapontos(tirabarras(tiratracos(frmpesqnf.lblcnpj.Caption)))  ) then
-     if cbxindfinal.Text = 'NÃƒO' then
+     if cbxindfinal.Text = 'NÃO' then
         begin
           //38
           x := x + 1;
@@ -3091,7 +3101,7 @@ begin
                      begin
 
                        Writeln(f,'IE='+sied);
-                       Writeln(f,'indIEDest:=1');
+                       Writeln(f,'indIEDest=1');
                        iindIEDest:=1;
 
                      end;
@@ -3417,7 +3427,27 @@ begin
                           sql_consulta.SQL.Add('select * from aliqinter where codprod = '+ inttostr( cds_nfp.fieldbyname('cpro').asInteger  )+' and codest='+ inttostr(icodufdest)  );
                           sql_consulta.Active := true;
 
-                          faliqinter := sql_consulta.fieldbyname('aliq').AsFloat / 100;
+                          if sql_consulta.RecordCount > 0 then
+                             begin
+
+                               faliqinter := sql_consulta.fieldbyname('aliq').AsFloat / 100;
+
+
+                             end
+                          else
+                             begin
+
+                               sql_consulta.Active := false;
+                               sql_consulta.SQL.Clear;
+                               sql_consulta.SQL.Add('select dest_'+lowercase(sufdest)+' as aliqdestino from aliqestados where origem = '+ quotedstr( uppercase(  sufemi  )  )  );
+                               sql_consulta.Active := true;
+
+                               faliqinter := sql_consulta.fieldbyname('aliqdestino').AsFloat / 100;
+
+                            end;
+                          //endi
+
+
 
 
                           B :=  (1-faliqinter) / (1-faliqintra);
@@ -3498,7 +3528,7 @@ begin
 
           end;
 
-
+          Writeln(f,'ean='+cds_nfp.fieldbyname('cbar').asstring);
 
 
           Writeln(f,'Descricao='+cds_nfp.fieldbyname('npro').asString);
@@ -3878,8 +3908,40 @@ begin
                sql_consulta.SQL.Clear;
                sql_consulta.SQL.Add('select * from aliqinter where codprod = '+ inttostr( cds_nfp.fieldbyname('cpro').asInteger  )+' and codest='+ inttostr(icodufdest)  );
                sql_consulta.Active := true;
+               if sql_consulta.RecordCount > 0 then
+                  begin
 
-               faliqinter := sql_consulta.fieldbyname('aliq').AsFloat;
+                    faliqinter := sql_consulta.fieldbyname('aliq').AsFloat;
+
+                  end
+               else
+                  begin
+
+                    if (ssita = '2') or
+                       (ssita='1') or
+                       (ssita='6') or
+                       (ssita='7')
+                    then
+                       begin
+                         //Caso a mercadoria seja estrangeira a aliquota inter deve ser 4
+                         faliqinter := 4;
+                       end
+                    else
+                       begin
+
+                         sql_consulta.Active := false;
+                         sql_consulta.SQL.Clear;
+                         sql_consulta.SQL.Add('select dest_'+lowercase(sufdest)+' as aliqdestino from aliqestados where origem = '+ quotedstr( uppercase(sufemi) ) );
+                         sql_consulta.Active := true;
+
+                         faliqinter := sql_consulta.fieldbyname('aliqdestino').AsFloat ;
+
+                       end;
+                    //endi
+
+                  end;
+               //endi
+
 
                //showmessage(inttostr(cds_nfp.fieldbyname('cpro').asInteger));
                //showmessage(inttostr(icodufdest));
@@ -3888,8 +3950,8 @@ begin
                Writeln(f,'[ICMSUFDest'+formatfloat('000',iItem)+']');
                Writeln(f,'vBCUFDest='+formatfloat('0.00',fbcicms));
                Writeln(f,'pFCPUFDest=0.00');//percentual fundo de combate a pobreza
-               Writeln(f,'pICMSUFDest='+formatfloat('0.00',faliqintra));
-               Writeln(f,'pICMSInter='+formatfloat('0.00', faliqinter));
+               Writeln(f,'pICMSUFDest='+formatfloat('0.00',faliqintra  ));
+               Writeln(f,'pICMSInter='+formatfloat('0.00', faliqinter  ));
                Writeln(f,'pICMSInterPart='+formatfloat('0.00',pICMSInterPart));
                Writeln(f,'vFCPUFDest=0.00');//valor fundo de combate a pobreza
 
@@ -3955,11 +4017,18 @@ begin
   Writeln(f,'BaseICMS='+formatfloat('0.00',ftotbcicms));
   Writeln(f,'ValorICMS='+formatfloat('0.00',ftoticms));
 
+  if (sufemi <> sufdest) and
+     (cbxfinalidade.ItemIndex < 3) and
+     (iindIEDest=9)
+  then   
+     begin
 
+       writeln(f,'vFCPUFDest=0.00');
+	     writeln(f,'vICMSUFDest='+formatfloat('0.00',totvICMSUFDest) );
+	     writeln(f,'vICMSUFRemet='+formatfloat('0.00',totvICMSUFRemet) );
 
-   writeln(f,'vFCPUFDest=0.00');
-	 writeln(f,'vICMSUFDest='+formatfloat('0.00',totvICMSUFDest) );
-	 writeln(f,'vICMSUFRemet='+formatfloat('0.00',totvICMSUFRemet) );
+     end;
+  //endi
 
 
   Writeln(f,'ValorProduto='+formatfloat('0.00',ftotp ));
