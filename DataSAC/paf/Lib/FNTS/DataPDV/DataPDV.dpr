@@ -83,7 +83,8 @@ uses
   notafiscalNova in 'notafiscalNova.pas' {frmNotaFiscalNova},
   funcoes_ibpt in 'funcoes_ibpt.pas',
   conexao_ibpt in 'conexao_ibpt.pas' {frmconexao_ibpt: TDataModule},
-  comanda in 'comanda.pas' {frmcomanda};
+  comanda in 'comanda.pas' {frmcomanda},
+  uretrans_sat in 'uretrans_sat.pas' {frmretransmitir_sat};
 
 var
   Hand : THandle;
@@ -100,9 +101,6 @@ begin
     Application.Initialize;
     Application.Title := 'DataPDV 2.0';
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TfrmMsg_Operador, frmMsg_Operador);
-  Application.CreateForm(TfrmLoc_Produto_Servidor, frmLoc_Produto_Servidor);
-  Application.CreateForm(Tfrmconexao_ibpt, frmconexao_ibpt);
   Application.Run;
   end
   // GUIO: 04/03/2010 - Se já estiver carregado, somente mostra o formulário

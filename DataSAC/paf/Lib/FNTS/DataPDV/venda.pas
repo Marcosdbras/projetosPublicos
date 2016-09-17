@@ -228,6 +228,8 @@ type
     nxTamanho: TNxTextColumn;
     nxCor: TNxTextColumn;
     impressoraSerial: TComPort;
+    RetransmitirST1: TMenuItem;
+    N4: TMenuItem;
 
     function TEF_Cartao(bandeira:Tbandeira_tef):boolean;
     function TEF_Cheque(bandeira:Tbandeira_tef):boolean;

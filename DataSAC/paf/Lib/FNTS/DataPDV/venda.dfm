@@ -7305,6 +7305,12 @@ object frmVenda: TfrmVenda
         Caption = 'Assinar arquivo'
         OnClick = Assinararquivo1Click
       end
+      object N4: TMenuItem
+        Caption = '-'
+      end
+      object RetransmitirST1: TMenuItem
+        Caption = 'Retransmitir S@T'
+      end
     end
     object N2: TMenuItem
       Caption = '-'
