@@ -1,5 +1,8 @@
 DataSAC / frmlista_venda2 -> VENDAS / COMISSÃO ok
 
+Stringlist
+http://www.activedelphi.com.br/forum/viewtopic.php?t=65822&sid=9d65d7309f79a1e91775e3525ea87322
+
 http://www.mundocontabil.com.br/contador.php?acao=abrir_documento&cod_documento=145164&contador=6962&base=F
 
 http://www.devmedia.com.br/arrays-dinamicos-no-delphi/26960

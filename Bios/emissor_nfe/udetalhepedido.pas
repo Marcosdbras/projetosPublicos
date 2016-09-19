@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Buttons, DBCtrls, Grids, DBGrids, ComCtrls;
+  Dialogs, ExtCtrls, StdCtrls, Buttons, DBCtrls, Grids, DBGrids, ComCtrls,
+  IdIOHandler, IdGlobal;
 
 type
   Tfrmdetalhepedido = class(TForm)
@@ -103,10 +104,13 @@ type
     procedure btncancnfeClick(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
+    function  conexao_acbrmonitortcpip(comando:String):String;
 
 
 
   private
+     sresposta:string;
+     ipos:integer;
     { Private declarations }
   public
     { Public declarations }
@@ -119,7 +123,8 @@ var
 
 implementation
 
-uses udados, ugeral, urelcartacorrecao, upesqnfemi, ucorrecao, ucancelar;
+uses udados, ugeral, urelcartacorrecao, upesqnfemi, ucorrecao, ucancelar,
+  uconexaotcpip;
 
 {$R *.dfm}
 
@@ -593,61 +598,18 @@ if lblchave.caption = 'NENHUM ARQUIVO DE CHAVE IDENTIFICADO' then
 //endi
 
 
-
-
 vardir := extractfilepath(application.ExeName);
 
 icontadornfe := frmdados.cds_nfe.fieldbyname('contador').asInteger;
 innf :=         frmdados.cds_nfe.fieldbyname('nnf').AsInteger;
 
+lblmensagem.Caption := 'Insira a justificativa';
+frmdetalhepedido.Update;
 
-  while true do
-    begin
+frmcancelamento := tfrmcancelamento.Create(self);
+frmcancelamento.ShowModal;
+frmcancelamento.Free;
 
-      if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT' ) then
-         begin
-
-           lblmensagem.Caption := 'Aguarde... Preparando ambiente cancelamento de nota fiscal';
-           frmdetalhepedido.Update;
-
-
-           AssignFile(saida,vardir+'c6.bat');
-           Rewrite(saida); //abre o arquivo para escrita
-           Writeln(saida,'cd '+frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\');
-           Writeln(saida,'md Logs');
-           //Writeln(saida,'copy '+'SAINFE.TXT'+' '+frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\SAINFE_C'+formatfloat('00000',frmdados.cds_nfe.fieldbyname('contador').asInteger)+'NF'+formatfloat('00000',frmdados.cds_nfe.fieldbyname('nnf').asInteger)+'.TXT /y');
-           Writeln(saida,'copy '+'*.TXT'+' '+frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+' /Y');
-           Writeln(saida,'del '+'*.TXT');
-           Writeln(saida,'del '+vardir+'c6.bat');
-
-           Closefile(saida); //fecha o handle de arquivo
-           WinExec(pchar(vardir+'c6.bat'), SW_HIDE);
-
-
-
-           sleep(5000);
-
-         end
-      else
-         begin
-           break;
-         end;
-      //endi
-
-    end;
-  //endw
-
-
- lblmensagem.Caption := 'Insira a justificativa';
- frmdetalhepedido.Update;
-
- frmcancelamento := tfrmcancelamento.Create(self);
- frmcancelamento.ShowModal;
- frmcancelamento.Free;
-
-
-
-//if inputQuery('Cancela NFE','Justificativa',sresp) then
 if sresp <> '' then
    begin
 
@@ -660,163 +622,26 @@ if sresp <> '' then
         end;
      //endi
 
+     sresposta := conexao_acbrmonitortcpip( 'NFe.CancelarNFe('+lblchave.caption+','+sresp+')'  );
+     ipos := pos('Rejeição',sresposta);
 
-     lblmensagem.Caption := 'Aguarde... Enviando cancelamento de nota fiscal';
-     frmdetalhepedido.Update;
-
-     Assignfile(saida,vardir+'ENTNFE.TXT');
-     rewrite(saida);
-     writeln(saida,'NFe.CancelarNFe('+lblchave.caption+','+sresp+')');
-     closefile(saida);
-
-     if fileexists(vardir+'ENTNFE.TXT') then
+     if ipos > 0 then
         begin
-          CopyFile(PChar( vardir+'ENTNFE.TXT' ),PChar(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\ENTNFE.TXT'),False);
-        end;
-     //endiif
 
-     while true do
-       begin
-         if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT') then
-            begin
-              CopyFile(PChar( frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT' ),PChar(frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\CANC_SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT'),False);
-              break;
-            end;
-         //endiif
-         sleep(5000);
-       end;
-     //endw
+          showmessage(sresposta);
 
-     while true do
-       begin
+        end
+     else
+        begin
+          frmdados.cds_nfe.Edit;
+          frmdados.cds_nfeehcancelada.Value := 'T';
+          frmdados.cds_nfe.Post;
 
-         if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\CANC_SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT') then
-            begin
-
-              AssignFile(texto,frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\CANC_SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT');
-              reset(texto);
-
-              while true do
-                begin
-                  readln(texto,linha);
-
-                  if pos('OK',linha) > 0 then
-                     begin
-                       bOk := true;
-                     end;
-                  //endi
-
-                  if pos('ERRO',linha) > 0 then
-                     begin
-                       bError := true;
-                     end;
-                  //endi
-
-                  if pos('sucesso',linha) > 0 then
-                     begin
-                       bok := true;
-                     end;
-                  //endi
-
-                  if eof(texto) then
-                     begin
-                       bfimarq := true;
-                       break;
-                     end;
-                  //endi
-
-
-                  //lblmensagem.Caption := 'Esperando encerramento do processo... Pressione <<ESC>> para desistir';
-                  //frmdetalhepedido.Update;
-                  //Application.ProcessMessages; {ESC key stops the loop}
-                  //if GetKeyState(VK_Escape) AND 128 = 128 then
-                  //   begin
-                  //     break ;
-                  //   end;
-                  //endi
-
-
-                  //sleep(5000);
-
-
-
-
-                end;
-              //endw
-
-              closefile(texto);
-
-            end;
-         //endi
-
-         if bError then
-            begin
-              break;
-            end
-         else
-            begin
-              if bok then
-                 begin
-                   break;
-                 end
-              else
-                 begin
-                   if bfimarq then
-                      begin
-                        break;
-                      end
-                   //endi
-                 end
-              //endi
-            end;
-         //endi
-
+          showmessage(sresposta);
 
         end;
-     //endw
+     //endi
 
-    lblmensagem.Caption := '';
-
-    if bError then
-       begin
-         lblmensagem.Caption := 'Ocorreu um erro ao cancelar nota...';
-       end
-    else
-       begin
-         if bOk then
-            begin
-
-              {
-              if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').asString+'\'+frmdados.cds_nfe.fieldbyname('arquivonfe').AsString) then
-                 begin
-                   assignfile(texto,frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').asString+'\'+frmdados.cds_nfe.fieldbyname('arquivonfe').AsString);
-                   Append(texto);
-                   writeln(texto,'NFE CANCELADA');
-                   closefile(texto);
-
-                 end;
-              //endi
-              }
-
-
-
-              lblmensagem.Caption := 'Nota Cancelada com Sucesso...';
-
-              frmdados.cds_nfe.Edit;
-              frmdados.cds_nfeehcancelada.Value := 'T';
-              frmdados.cds_nfe.Post;
-
-            end
-         else
-            if bfimarq then
-               begin
-                 lblmensagem.Caption := 'Sem resposta...';
-               end
-         //endi
-       end;
-    //endi
-
-    frmdetalhepedido.Update;
 
 
    end
@@ -828,12 +653,12 @@ else
 //endi
 
 
-if application.MessageBox('Deseja Excluir Esse Registro?','Atenção',mb_YesNo + mb_DefButton2) = idYes then
-   begin
-     frmdados.cds_nfe.Delete;
-     frmpesqnfemi.pctdados.TabIndex := 0;
-     close;
-   end;
+//if application.MessageBox('Deseja Excluir Esse Registro?','Atenção',mb_YesNo + mb_DefButton2) = idYes then
+//   begin
+//     frmdados.cds_nfe.Delete;
+//     frmpesqnfemi.pctdados.TabIndex := 0;
+//     close;
+//   end;
 //endi
 
 
@@ -853,11 +678,12 @@ var vardir:string;
     data:tdatetime;
 
     icontadornfe, innf:integer;
+    scomando:string;
 begin
 
 
   sresp:='';
-
+  scomando := '';
 
   bok := false;
   bError := false;
@@ -889,42 +715,6 @@ innf :=         frmdados.cds_nfe.fieldbyname('nnf').AsInteger;
      data := (data * 17280) - 10;
   //endi
 
-  while true do
-    begin
-
-      if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT' ) then
-         begin
-
-           lblmensagem.Caption := 'Aguarde... Preparando ambiente para correção de nota fiscal';
-           frmdetalhepedido.Update;
-
-           AssignFile(saida,vardir+'c6.bat');
-           Rewrite(saida); //abre o arquivo para escrita
-           Writeln(saida,'cd '+frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\');
-           Writeln(saida,'md Logs');
-           //Writeln(saida,'copy '+'SAINFE.TXT'+' '+frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\SAINFE_C'+formatfloat('00000',frmdados.cds_nfe.fieldbyname('contador').asInteger)+'NF'+formatfloat('00000',frmdados.cds_nfe.fieldbyname('nnf').asInteger)+'.TXT /y');
-           Writeln(saida,'copy '+'*.TXT'+' '+frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+' /Y');
-           Writeln(saida,'del '+'*.TXT');
-           Writeln(saida,'del '+vardir+'c6.bat');
-
-           Closefile(saida); //fecha o handle de arquivo
-           WinExec(pchar(vardir+'c6.bat'), SW_HIDE);
-
-           sleep(5000);
-
-         end
-      else
-         begin
-           break;
-         end;
-      //endi
-
-    end;
-  //endw
-
-
- lblmensagem.Caption := 'Informe campo e informação corrigida';
- frmdetalhepedido.Update;
 
 
  if frmdados.cds_emitente.Locate('codigo',frmdados.cds_nfe.fieldbyname('cemi').asInteger,[]) then
@@ -947,7 +737,6 @@ innf :=         frmdados.cds_nfe.fieldbyname('nnf').AsInteger;
 
 
 
-// if inputQuery('CORRIGE NFE','Campo: informação corrigida',sresp) then
 
  frmcorrecao := tfrmcorrecao.Create(self);
  frmcorrecao.ShowModal;
@@ -968,223 +757,62 @@ if sresp <> '' then
      //endi
 
 
-     lblmensagem.Caption := 'Aguarde... Enviando correção';
-     frmdetalhepedido.Update;
-
-     Assignfile(saida,vardir+'ENTNFE.TXT');
-     rewrite(saida);
-
-     writeln(saida,'NFe.CARTADECORRECAO("[CCE]');
-     writeln(saida,'idLote=1');
-     writeln(saida,'[EVENTO001]');
-     writeln(saida,'chNFe='+lblchave.caption);
-     writeln(saida,'cOrgao='+sCidadeCod);
-     writeln(saida,'CNPJ='+scnpje);
-     writeln(saida,'dhEvento='+FormatDateTime('dd/mm/yyyy hh:mm:ss',    data/17280   ) );
+     scomando := 'NFe.CARTADECORRECAO("[CCE]'+#13;
+     scomando := scomando + 'idLote=1'+#13;
+     scomando := scomando +'[EVENTO001]'+#13;
+     scomando := scomando +'chNFe='+lblchave.caption+#13;
+     scomando := scomando +'cOrgao='+sCidadeCod+#13;
+     scomando := scomando +'CNPJ='+scnpje+#13;
+     scomando := scomando +'dhEvento='+FormatDateTime('dd/mm/yyyy hh:mm:ss',    data/17280   )+#13;
 
      frmdados.cds_nfe.Edit;
 
      if  frmdados.cds_nfe.fieldbyname('icorrecao').asInteger = 0 then
          frmdados.cds_nfe.fieldbyname('icorrecao').asInteger := 1;
 
-     writeln(saida,'nSeqEvento='+  inttostr(frmdados.cds_nfe.fieldbyname('icorrecao').asInteger ) );
+     scomando := scomando +'nSeqEvento='+  inttostr(frmdados.cds_nfe.fieldbyname('icorrecao').asInteger )+#13 ;
 
      frmdados.cds_nfe.Post;
 
-     writeln(saida,'xCorrecao='+ sresp +'")'  );
-     closefile(saida);
+     scomando := scomando +'xCorrecao='+ sresp +'")'+#13;
 
 
-     if fileexists(vardir+'ENTNFE.TXT') then
+     sresposta := conexao_acbrmonitortcpip( scomando  );
+     ipos := pos('Rejeição',sresposta);
+
+     if ipos > 0 then
         begin
-          CopyFile(PChar( vardir+'ENTNFE.TXT' ),PChar(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\ENTNFE.TXT'),False);
+
+          showmessage(sresposta);
+
+        end
+     else
+        begin
+
+          frmdados.cds_nfe.Edit;
+          frmdados.cds_nfeehcorrigida.Value := 'T';
+          frmdados.cds_nfe.Post;
+
+          frmrelcartacorrecao := tfrmrelcartacorrecao.Create(self);
+          frmrelcartacorrecao.relatorio.Preview;
+          frmrelcartacorrecao.Free;
+
+          frmdados.cds_nfe.Edit;
+          frmdados.cds_nfe.fieldbyname('icorrecao').asInteger :=  frmdados.cds_nfe.fieldbyname('icorrecao').asInteger + 1;
+          frmdados.cds_nfe.Post;
+
+          frmpesqnfemi.EDIICORRECAO.Text :=  inttostr( frmdados.cds_nfe.fieldbyname('icorrecao').asInteger );
+
+          showmessage(sresposta);
 
         end;
-     //endiif
-
-     while true do
-       begin
-         if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT') then
-            begin
-              CopyFile(PChar( frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT' ),PChar(frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\CORRECAO_SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT'),False);
-              break;
-            end;
-         //endiif
-         sleep(5000);
-       end;
-     //endw
-
-     while true do
-       begin
-
-         if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\CORRECAO_SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT') then
-            begin
-
-              AssignFile(texto,frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\CORRECAO_SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT');
-              reset(texto);
-
-              while true do
-                begin
-                  readln(texto,linha);
-
-                  if pos('Rejeição',linha) > 0 then
-                     begin
-                       bError := true;
-                     end;
-                  //endi
-
-                  if pos('OK',linha) > 0 then
-                     begin
-                       bOk := true;
-                     end;
-                  //endi
-
-                  if pos('ERRO',linha) > 0 then
-                     begin
-                       bError := true;
-                     end;
-                  //endi
-
-                  if pos('sucesso',linha) > 0 then
-                     begin
-                       bok := true;
-                     end;
-                  //endi
-
-
-                  if pos('registrado',linha) > 0 then
-                     begin
-                       bok := true;
-                     end;
-                  //endi
-
-                  if eof(texto) then
-                     begin
-                       bfimarq := true;
-                       break;
-                     end;
-                  //endi
-
-
-                  //lblmensagem.Caption := 'Esperando encerramento do processo... Pressione <<ESC>> para desistir';
-                  //frmdetalhepedido.Update;
-                  //Application.ProcessMessages; {ESC key stops the loop}
-                  //if GetKeyState(VK_Escape) AND 128 = 128 then
-                  //   begin
-                  //     break ;
-                  //   end;
-                  //endi
-
-
-                  //sleep(5000);
+     //endi
 
 
 
 
-                end;
-              //endw
-
-              closefile(texto);
-
-            end;
-         //endi
-
-         if bError then
-            begin
-              break;
-            end
-         else
-            begin
-              if bok then
-                 begin
-                   break;
-                 end
-              else
-                 begin
-                   if bfimarq then
-                      begin
-                        break;
-                      end
-                   //endi
-                 end
-              //endi
-            end;
-         //endi
 
 
-        end;
-     //endw
-
-    lblmensagem.Caption := '';
-
-    if bError then
-       begin
-         lblmensagem.Caption := 'Ocorreu um erro ao corrigir nota...';
-       end
-    else
-       begin
-         if bOk then
-            begin
-
-              if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').asString+'\'+frmdados.cds_nfe.fieldbyname('arquivonfe').AsString) then
-                 begin
-
-                   {
-
-                   assignfile(saida,frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT');
-                   reset(saida);
-
-                   assignfile(texto,frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').asString+'\'+frmdados.cds_nfe.fieldbyname('arquivonfe').AsString);
-                   rewrite(texto);
-
-                   writeln(texto,'NFE CORRIGIDA '+inttostr(frmdados.cds_nfe.fieldbyname('icorrecao').asInteger )  );
-
-                   while eof(saida) do
-                     begin
-                       readln(saida,linhas);
-                       writeln(texto,linhas);
-
-                     end;
-                   //endw
-
-                   closefile(texto);
-
-                   }
-
-                   //nota
-
-
-
-                   lblmensagem.Caption := 'Nota Corrigida com Sucesso...';
-
-                   frmdados.cds_nfe.Edit;
-                   frmdados.cds_nfeehcorrigida.Value := 'T';
-                   frmdados.cds_nfe.Post;
-
-                   frmrelcartacorrecao := tfrmrelcartacorrecao.Create(self);
-                   frmrelcartacorrecao.relatorio.Preview;
-                   frmrelcartacorrecao.Free;
-
-                 end;
-              //endi
-
-              frmdados.cds_nfe.Edit;
-              frmdados.cds_nfe.fieldbyname('icorrecao').asInteger :=  frmdados.cds_nfe.fieldbyname('icorrecao').asInteger + 1;
-              frmdados.cds_nfe.Post;
-
-              frmpesqnfemi.EDIICORRECAO.Text :=  inttostr( frmdados.cds_nfe.fieldbyname('icorrecao').asInteger );
-
-            end
-         else
-            if bfimarq then
-               begin
-                 lblmensagem.Caption := 'Sem resposta...';
-               end
-         //endi
-       end;
-    //endi
-
-    frmdetalhepedido.Update;
 
 
 
@@ -1225,12 +853,13 @@ begin
   bError := false;
   bfimarq := false;
 
-  caminho := frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').asString+'\'+frmdados.cds_nfe.fieldbyname('arquivonfe').asString;
 
   vardir := extractfilepath(application.ExeName);
 
   icontadornfe := frmdados.cds_nfe.fieldbyname('contador').asInteger;
   innf :=         frmdados.cds_nfe.fieldbyname('nnf').AsInteger;
+
+  caminho := frmdados.cds_nfe.fieldbyname('arquivonfe').AsString;
 
   if not fileexists(caminho) then
      begin
@@ -1255,43 +884,6 @@ begin
      //endif
   //endif
 
-  while true do
-    begin
-
-      if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT' ) then
-         begin
-
-           lblmensagem.Caption := 'Aguarde... Preparando ambiente para envio de email';
-           frmdetalhepedido.Update;
-
-           AssignFile(saida,vardir+'c6.bat');
-           Rewrite(saida); //abre o arquivo para escrita
-           Writeln(saida,'cd '+frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\');
-           Writeln(saida,'md Logs');
-           //Writeln(saida,'copy '+'SAINFE.TXT'+' '+frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\SAINFE_C'+formatfloat('00000',frmdados.cds_nfe.fieldbyname('contador').asInteger)+'NF'+formatfloat('00000',frmdados.cds_nfe.fieldbyname('nnf').asInteger)+'.TXT /y');
-           Writeln(saida,'copy '+'*.TXT'+' '+frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+' /Y');
-           Writeln(saida,'del '+'*.TXT');
-           Writeln(saida,'del '+vardir+'c6.bat');
-
-           Closefile(saida); //fecha o handle de arquivo
-           WinExec(pchar(vardir+'c6.bat'), SW_HIDE);
-
-           sleep(5000);
-
-         end
-      else
-         begin
-           break;
-         end;
-      //endi
-
-    end;
-  //endw
-
- lblmensagem.Caption := 'Informe ou altere endereço de email';
- frmdetalhepedido.Update;
-
-
  if inputQuery('ENVIAR EMAIL','Informe ou altere email',sresp) then
    begin
 
@@ -1303,231 +895,7 @@ begin
         end;
      //endi
 
-
-           while true do
-             begin
-               lblmensagem.Caption := 'Pesquisando arquivo XML';
-               frmdetalhepedido.Update;
-
-               if fileexists( caminho ) then
-                  begin
-                    AssignFile(texto, caminho );
-                    Reset(texto);
-                    While not Eof(texto) do
-                      begin
-                        Readln(texto, Linha);
-                        iPos := pos('OK',linha);
-                        if iPos > 0 then
-                           begin
-                             bAut := true;
-                             lblmensagem.Caption := 'Autorização encontrada...';
-                             frmdetalhepedido.Update;
-                             sleep(5000);
-                             scaminho := copy(Linha,iPos+4,length(Linha));
-                             break;
-                           end;
-                        //endi
-                      end;
-                    //endw
-                    CloseFile(texto);
-                    if (bAut) then
-                       begin
-                         break;
-                       end
-                    else
-                       begin
-                         bNaut := true;
-                         lblmensagem.Caption := 'Autorização não encontrada, operação abortada...';
-                         frmdetalhepedido.Update;
-                         sleep(5000);
-                         exit;
-                       end;
-                    //endi
-                  end;
-               //endi
-               Application.ProcessMessages; {ESC key stops the loop}
-               if GetKeyState(VK_Escape) AND 128 = 128 then
-                  break ;
-               //endi
-               if (bAut) then
-                  begin
-                    break;
-                  end;
-               //endi
-               if (bNaut) then
-                  begin
-                    break;
-                  end;
-               //endi
-               sleep(5000);
-
-             end;
-           //endw
-
-
-
-
-
-
-     lblmensagem.Caption := 'Aguarde... Enviando email';
-     frmdetalhepedido.Update;
-
-     Assignfile(saida,vardir+'\ENTNFE.TXT');
-     rewrite(saida);
-     Writeln(saida,'NFE.ENVIAREMAIL("'+sresp+'","'+scaminho+'",1');
-     closefile(saida);
-
-     if fileexists(vardir+'ENTNFE.TXT') then
-        begin
-          CopyFile(PChar( vardir+'ENTNFE.TXT' ),PChar(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\ENTNFE.TXT'),False);
-
-        end;
-     //endiif
-
-     while true do
-       begin
-         if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT') then
-            begin
-              CopyFile(PChar( frmdados.cds_indice.fieldbyname('caminhoarqnfe').AsString+'\SAINFE.TXT' ),PChar(frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\EMAIL_SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT'),False);
-              break;
-            end;
-         //endiif
-         sleep(5000);
-       end;
-     //endw
-
-
-
-
-     while true do
-       begin
-
-         if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\EMAIL_SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT') then
-            begin
-
-              AssignFile(texto,frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').AsString+'\EMAIL_SAINFE_C'+formatfloat('00000',icontadornfe)+'NF'+formatfloat('00000',innf)+'.TXT');
-              reset(texto);
-
-              while true do
-                begin
-                  readln(texto,linha);
-
-                  if pos('Rejeição',linha) > 0 then
-                     begin
-                       bError := true;
-                     end;
-                  //endi
-
-                  if pos('OK',linha) > 0 then
-                     begin
-                       bOk := true;
-                     end;
-                  //endi
-
-                  if pos('ERRO',linha) > 0 then
-                     begin
-                       bError := true;
-                     end;
-                  //endi
-
-                  if pos('sucesso',linha) > 0 then
-                     begin
-                       bok := true;
-                     end;
-                  //endi
-
-                  if eof(texto) then
-                     begin
-                       bfimarq := true;
-                       break;
-                     end;
-                  //endi
-
-
-                  //lblmensagem.Caption := 'Esperando encerramento do processo... Pressione <<ESC>> para desistir';
-                  //frmdetalhepedido.Update;
-                  //Application.ProcessMessages; {ESC key stops the loop}
-                  //if GetKeyState(VK_Escape) AND 128 = 128 then
-                  //   begin
-                  //     break ;
-                  //   end;
-                  //endi
-
-
-                  //sleep(5000);
-
-
-
-
-                end;
-              //endw
-
-              closefile(texto);
-
-            end;
-         //endi
-
-         if bError then
-            begin
-              break;
-            end
-         else
-            begin
-              if bok then
-                 begin
-                   break;
-                 end
-              else
-                 begin
-                   if bfimarq then
-                      begin
-                        break;
-                      end
-                   //endi
-                 end
-              //endi
-            end;
-         //endi
-
-
-        end;
-     //endw
-
-    lblmensagem.Caption := '';
-
-    if bError then
-       begin
-         lblmensagem.Caption := 'Ocorreu um erro ao enviar email...';
-       end
-    else
-       begin
-         if bOk then
-            begin
-
-              if fileexists(frmdados.cds_indice.fieldbyname('caminhoarqnfetemp').asString+'\'+frmdados.cds_nfe.fieldbyname('arquivonfe').AsString) then
-                 begin
-
-                   lblmensagem.Caption := 'Email enviado com sucesso...';
-
-
-                 end;
-              //endi
-
-
-            end
-         else
-            if bfimarq then
-               begin
-                 lblmensagem.Caption := 'Sem resposta...';
-               end
-         //endi
-       end;
-    //endi
-
-    frmdetalhepedido.Update;
-
-
-
+     sresposta := conexao_acbrmonitortcpip( 'NFE.ENVIAREMAIL("'+sresp+'","'+caminho+'",1)'  );
 
    end
 else
@@ -1544,6 +912,97 @@ end;
 
 
 
+function Tfrmdetalhepedido.conexao_acbrmonitortcpip(comando:String):String;
+  var slinha:string;
+
+begin
+
+  try
+
+      try
+
+        frmconexaotcpip  := tfrmconexaotcpip.Create(self);
+
+        frmconexaotcpip.IdTCPClient1.Host := frmdados.cds_indice.fieldbyname('acbrmonitor_hosttcpip').AsString;
+
+        frmconexaotcpip.IdTCPClient1.Port := frmdados.cds_indice.fieldbyname('acbrmonitor_porttcpip').AsInteger;
+
+        if not frmconexaotcpip.IdTCPClient1.Connected then
+           frmconexaotcpip.IdTCPClient1.Connect;
+
+        frmconexaotcpip.IdTCPClient1.IOHandler.DefStringEncoding := idglobal.IndyTextEncoding_UTF8;
+
+        frmconexaotcpip.IdTCPClient1.Socket.Write( comando+sLineBreak+'.'+sLineBreak );
+
+        if pos('NFE.IMPRIMIRDANFE',comando) > 0 then
+           begin
+             result:= frmconexaotcpip.IdTCPClient1.Socket.ReadLn+#13+
+                      'Resposta não analisada de forma integral';
+             exit;
+           end;
+        //endi
+
+        if pos('NFE.ENVIAREMAIL',comando) > 0 then
+           begin
+             result:= frmconexaotcpip.IdTCPClient1.Socket.ReadLn+#13+
+                      'Resposta não analisada de forma integral';
+             exit;
+           end;
+        //endi
+
+
+
+        while  true do
+         begin
+
+           if ( pos('NFE.ENVIARNFE',comando) > 0 ) or
+              ( pos('NFe.CancelarNFe',comando) > 0 ) or
+              ( pos('NFe.CARTADECORRECAO',comando) > 0 )
+           then
+              begin
+
+                 if ( pos('nProt=',slinha)>0 ) then
+                    break;
+
+
+                 if ( pos('XML=',slinha)>0 ) then
+                    break;
+
+                 if ( pos('DigVal=',slinha)>0 ) then
+                    break;
+
+              end
+           else
+              begin
+
+                if (pos(#3,slinha) > 0) then
+                   break;
+
+
+              end;
+
+           slinha := slinha + frmconexaotcpip.IdTCPClient1.Socket.ReadLn+#13;
+
+
+         end;
+
+
+
+         result := slinha;
+
+      except
+
+         result := 'Houve um erro durante a requisição,'+#13+'verifique o motor de envio da NFE '+#13+'ou suas configurações';
+
+      end;
+
+  finally
+
+      frmconexaotcpip.Destroy;
+
+  end;
+
+end;
 
 
 

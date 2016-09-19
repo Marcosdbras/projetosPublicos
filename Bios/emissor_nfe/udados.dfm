@@ -4323,6 +4323,20 @@ object frmdados: Tfrmdados
         Name = 'processandonfe'
         DataType = ftString
         Size = 1
+      end
+      item
+        Name = 'acbrmonitor_hosttcpip'
+        DataType = ftString
+        Size = 70
+      end
+      item
+        Name = 'acbrmonitor_porttcpip'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'acbrmonitor_tipocomunicacao'
+        DataType = ftSmallint
       end>
     IndexDefs = <
       item
@@ -4387,6 +4401,17 @@ object frmdados: Tfrmdados
     object cds_indiceprocessandonfe: TStringField
       FieldName = 'processandonfe'
       Size = 1
+    end
+    object cds_indiceacbrmonitor_hosttcpip: TStringField
+      FieldName = 'acbrmonitor_hosttcpip'
+      Size = 70
+    end
+    object cds_indiceacbrmonitor_porttcpip: TStringField
+      FieldName = 'acbrmonitor_porttcpip'
+      Size = 10
+    end
+    object cds_indiceacbrmonitor_tipocomunicacao: TSmallintField
+      FieldName = 'acbrmonitor_tipocomunicacao'
     end
   end
   object dts_indice: TDataSource
@@ -6701,6 +6726,17 @@ object frmdados: Tfrmdados
     object sql_indiceprocessandonfe: TStringField
       FieldName = 'processandonfe'
       Size = 1
+    end
+    object sql_indiceacbrmonitor_hosttcpip: TStringField
+      FieldName = 'acbrmonitor_hosttcpip'
+      Size = 70
+    end
+    object sql_indiceacbrmonitor_porttcpip: TStringField
+      FieldName = 'acbrmonitor_porttcpip'
+      Size = 10
+    end
+    object sql_indiceacbrmonitor_tipocomunicacao: TSmallintField
+      FieldName = 'acbrmonitor_tipocomunicacao'
     end
   end
   object sql_fatura: TZQuery

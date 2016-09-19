@@ -286,7 +286,7 @@ object frmfecnf: Tfrmfecnf
   end
   object btnemitir: TBitBtn
     Left = 859
-    Top = 129
+    Top = 122
     Width = 116
     Height = 37
     Caption = '&EMITIR'
@@ -295,7 +295,7 @@ object frmfecnf: Tfrmfecnf
   end
   object btncancelar: TBitBtn
     Left = 859
-    Top = 177
+    Top = 163
     Width = 116
     Height = 37
     Caption = '&CANCELAR'
@@ -1088,7 +1088,7 @@ object frmfecnf: Tfrmfecnf
     Top = 81
     Width = 116
     Height = 37
-    Caption = '&VISUALIZAR'
+    Caption = 'VISUALIZAR'
     TabOrder = 28
     OnClick = BitBtn1Click
   end
@@ -1207,6 +1207,15 @@ object frmfecnf: Tfrmfecnf
     Height = 17
     Caption = 'SUPRIMIR DADOS ADIC. AUTOMAT.'
     TabOrder = 31
+  end
+  object Button1: TButton
+    Left = 860
+    Top = 204
+    Width = 116
+    Height = 37
+    Caption = 'STATUS SERV. NFE'
+    TabOrder = 32
+    OnClick = Button1Click
   end
   object Timer1: TTimer
     Interval = 500

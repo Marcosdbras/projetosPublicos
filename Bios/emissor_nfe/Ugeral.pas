@@ -29,6 +29,9 @@ Type
   Function  tirapontos(pValor:string):string;
   Function  tiratracos(pValor:string):string;
   Function  tirabarras(pValor:string):string;
+  Function  tirafimarq(pValor:string):string;
+
+  Function  tira(pValor:string; retira:pchar):string;
 
   Function  cript(senha,chave,operacao : string) : string;
   Function  Extenso(mNum:Currency):String;
@@ -1039,6 +1042,32 @@ Begin
     Estado:=True;
 End;
 
+function tira(pValor:string; retira:pchar):string;
+var pPosI:integer;
+var pPosF:integer;
+var pNovoValor:string;
+begin
+   result := '';
+   pNovoValor:='';
+   pPosI:=1;
+   while true do
+     begin
+       pPosF := pos(retira,pValor);
+       if pPosF > 0 then
+          begin
+            pNovoValor:=pNovoValor+copy(pValor,pPosI,pPosF - 1);
+            pValor:=copy(pValor,pPosF+1,length(pValor));
+          end
+       else
+          begin
+            result:=pNovoValor+pValor;
+            exit;
+          end;
+     end;
+ //endw
+end;
+
+
 function tirapontos(pValor:string):string;
 var pPosI:integer;
 var pPosF:integer;
@@ -1114,6 +1143,37 @@ begin
      end;
  //endw
 end;
+
+
+
+function tirafimarq(pValor:string):string;
+var pPosI:integer;
+var pPosF:integer;
+var pNovoValor:string;
+begin
+   result := '';
+   pNovoValor:='';
+   pPosI:=1;
+   while true do
+     begin
+       pPosF := pos(#3,pValor);
+       if pPosF > 0 then
+          begin
+            pNovoValor:=pNovoValor+copy(pValor,pPosI,pPosF - 1);
+            pValor:=copy(pValor,pPosF+1,length(pValor));
+          end
+       else
+          begin
+            result:=pNovoValor+pValor;
+            exit;
+          end;
+     end;
+ //endw
+end;
+
+
+
+
 
 function Cript(senha,chave,operacao: string) : string;
 var

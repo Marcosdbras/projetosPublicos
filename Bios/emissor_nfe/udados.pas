@@ -1489,6 +1489,12 @@ type
     cds_clientessinc: TStringField;
     cds_produtossinc: TStringField;
     cds_fornecedoressinc: TStringField;
+    sql_indiceacbrmonitor_hosttcpip: TStringField;
+    sql_indiceacbrmonitor_porttcpip: TStringField;
+    sql_indiceacbrmonitor_tipocomunicacao: TSmallintField;
+    cds_indiceacbrmonitor_hosttcpip: TStringField;
+    cds_indiceacbrmonitor_porttcpip: TStringField;
+    cds_indiceacbrmonitor_tipocomunicacao: TSmallintField;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);

@@ -1,10 +1,10 @@
 object frmindice: Tfrmindice
-  Left = 374
-  Top = 203
+  Left = 367
+  Top = 82
   BorderIcons = []
   BorderStyle = bsDialog
   Caption = 'Configura Indice'
-  ClientHeight = 398
+  ClientHeight = 534
   ClientWidth = 468
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -23,79 +23,100 @@ object frmindice: Tfrmindice
   TextHeight = 13
   object Bevel1: TBevel
     Left = 8
-    Top = 32
+    Top = 48
     Width = 449
-    Height = 353
-  end
-  object Label1: TLabel
-    Left = 16
-    Top = 42
-    Width = 104
-    Height = 13
-    Caption = 'Caminho Arquivo NFE'
+    Height = 473
   end
   object Label3: TLabel
     Left = 16
-    Top = 280
+    Top = 417
     Width = 88
     Height = 13
     Caption = 'Prox. N'#250'mero NFE'
   end
   object Label4: TLabel
     Left = 16
-    Top = 88
+    Top = 225
     Width = 164
     Height = 13
     Caption = 'Armazenamento de Notas Emitidas'
   end
   object Label2: TLabel
     Left = 120
-    Top = 281
+    Top = 418
     Width = 68
     Height = 13
     Caption = 'Contador NNF'
   end
   object Label5: TLabel
     Left = 16
-    Top = 135
+    Top = 272
     Width = 97
     Height = 13
     Caption = 'Chave Consulta Cep'
   end
   object Label6: TLabel
     Left = 16
-    Top = 184
+    Top = 321
     Width = 63
     Height = 13
     Caption = 'Exportar para'
   end
   object Label7: TLabel
     Left = 16
-    Top = 232
+    Top = 369
     Width = 53
     Height = 13
     Caption = 'Importar de'
   end
   object Label8: TLabel
     Left = 224
-    Top = 281
+    Top = 418
     Width = 120
     Height = 13
     Caption = 'Utilizar c'#243'digo de produto'
   end
   object Label9: TLabel
     Left = 352
-    Top = 284
+    Top = 421
     Width = 80
     Height = 13
     Caption = 'Hor'#225'rio de Ver'#227'o'
   end
   object Label10: TLabel
     Left = 19
-    Top = 336
+    Top = 473
     Width = 51
     Height = 13
     Caption = 'UF Padr'#227'o'
+  end
+  object Label11: TLabel
+    Left = 16
+    Top = 56
+    Width = 232
+    Height = 13
+    Caption = 'Tipo de requisi'#231#227'o para o motor de envio da NFE'
+  end
+  object Label12: TLabel
+    Left = 16
+    Top = 101
+    Width = 22
+    Height = 13
+    Caption = 'Host'
+  end
+  object Label13: TLabel
+    Left = 184
+    Top = 105
+    Width = 25
+    Height = 13
+    Caption = 'Porta'
+  end
+  object Label1: TLabel
+    Left = 16
+    Top = 184
+    Width = 104
+    Height = 13
+    Caption = 'Caminho Arquivo NFE'
   end
   object btnsalvar: TBitBtn
     Left = 302
@@ -103,7 +124,7 @@ object frmindice: Tfrmindice
     Width = 75
     Height = 25
     Caption = 'SALVAR'
-    TabOrder = 8
+    TabOrder = 12
     OnClick = btnsalvarClick
   end
   object btncancelar: TBitBtn
@@ -112,74 +133,74 @@ object frmindice: Tfrmindice
     Width = 75
     Height = 25
     Caption = 'CANCELAR'
-    TabOrder = 7
+    TabOrder = 11
     OnClick = btncancelarClick
   end
   object edicaminhoarqnfe: TEdit
     Left = 16
-    Top = 61
+    Top = 198
     Width = 433
     Height = 21
-    TabOrder = 0
+    TabOrder = 4
     Text = 'edicaminhoarqnfe'
   end
   object edinnf: TEdit
     Left = 16
-    Top = 299
+    Top = 436
     Width = 95
     Height = 21
-    TabOrder = 5
+    TabOrder = 9
     Text = 'edinnf'
     OnKeyPress = edinnfKeyPress
   end
   object edicaminhoarqnfetemp: TEdit
     Left = 16
-    Top = 107
+    Top = 244
     Width = 433
     Height = 21
-    TabOrder = 1
+    TabOrder = 5
     Text = 'edicaminhoarqnfetemp'
   end
   object edicontadornfe: TEdit
     Left = 120
-    Top = 300
+    Top = 437
     Width = 95
     Height = 21
-    TabOrder = 6
+    TabOrder = 10
     Text = 'edicontadornfe'
     OnKeyPress = edicontadornfeKeyPress
   end
   object edichaveconsultacep: TEdit
     Left = 16
-    Top = 152
+    Top = 289
     Width = 433
     Height = 21
-    TabOrder = 2
+    TabOrder = 6
     Text = 'edichaveconsultacep'
   end
   object ediexportarpara: TEdit
     Left = 16
-    Top = 203
+    Top = 340
     Width = 433
     Height = 21
-    TabOrder = 3
+    TabOrder = 7
     Text = 'ediexportarpara'
   end
   object ediimportarpara: TEdit
     Left = 16
-    Top = 251
+    Top = 388
     Width = 433
     Height = 21
-    TabOrder = 4
+    TabOrder = 8
     Text = 'ediimportarpara'
   end
   object cbxconfigcpro: TComboBox
     Left = 219
-    Top = 300
+    Top = 437
     Width = 126
     Height = 21
     ItemHeight = 13
-    TabOrder = 9
+    TabOrder = 13
     Text = 'cbxconfigcpro'
     Items.Strings = (
       'Sistema'
@@ -188,11 +209,11 @@ object frmindice: Tfrmindice
   end
   object cbxhverao: TComboBox
     Left = 349
-    Top = 299
+    Top = 436
     Width = 100
     Height = 21
     ItemHeight = 13
-    TabOrder = 10
+    TabOrder = 14
     Text = 'cbxhverao'
     Items.Strings = (
       'SIM'
@@ -200,7 +221,7 @@ object frmindice: Tfrmindice
   end
   object DBLookupComboBox1: TDBLookupComboBox
     Left = 18
-    Top = 355
+    Top = 492
     Width = 145
     Height = 21
     DataField = 'ufpadrao'
@@ -209,18 +230,42 @@ object frmindice: Tfrmindice
     ListField = 'sigla'
     ListSource = frmdados.dts_Estados
     NullValueKey = 46
-    TabOrder = 11
+    TabOrder = 15
   end
-  object cbxambientesat: TRadioGroup
-    Left = 176
-    Top = 336
-    Width = 273
-    Height = 41
-    Caption = ' Ambiente S@T '
-    Columns = 2
-    Items.Strings = (
-      'Produ'#231#227'o'
-      'Homologa'#231#227'o')
-    TabOrder = 12
+  object ckbviatexto: TRadioButton
+    Left = 16
+    Top = 160
+    Width = 265
+    Height = 17
+    Caption = 'Via Texto'
+    Checked = True
+    TabOrder = 0
+    TabStop = True
+  end
+  object ckbviatcpip: TRadioButton
+    Left = 16
+    Top = 80
+    Width = 113
+    Height = 17
+    Caption = 'Via TCP/IP'
+    TabOrder = 3
+  end
+  object ediacbrmonitor_hosttcpip: TEdit
+    Left = 16
+    Top = 121
+    Width = 161
+    Height = 21
+    TabOrder = 1
+    Text = 'ediacbrmonitor_hosttcpip'
+    OnKeyPress = ediacbrmonitor_hosttcpipKeyPress
+  end
+  object ediacbrmonitor_porttcpip: TEdit
+    Left = 184
+    Top = 121
+    Width = 129
+    Height = 21
+    TabOrder = 2
+    Text = 'ediacbrmonitor_porttcpip'
+    OnKeyPress = ediacbrmonitor_porttcpipKeyPress
   end
 end

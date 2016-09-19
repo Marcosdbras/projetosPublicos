@@ -10,7 +10,6 @@ type
   Tfrmindice = class(TForm)
     btnsalvar: TBitBtn;
     btncancelar: TBitBtn;
-    Label1: TLabel;
     edicaminhoarqnfe: TEdit;
     edinnf: TEdit;
     Label3: TLabel;
@@ -31,7 +30,14 @@ type
     Label9: TLabel;
     Label10: TLabel;
     DBLookupComboBox1: TDBLookupComboBox;
-    cbxambientesat: TRadioGroup;
+    ckbviatexto: TRadioButton;
+    ckbviatcpip: TRadioButton;
+    Label11: TLabel;
+    Label12: TLabel;
+    ediacbrmonitor_hosttcpip: TEdit;
+    ediacbrmonitor_porttcpip: TEdit;
+    Label13: TLabel;
+    Label1: TLabel;
     procedure edinnfKeyPress(Sender: TObject; var Key: Char);
     procedure edicaminhoarqnfeKeyPress(Sender: TObject; var Key: Char);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -40,6 +46,8 @@ type
     procedure btncancelarClick(Sender: TObject);
     procedure edicontadornfeKeyPress(Sender: TObject; var Key: Char);
     procedure FormCreate(Sender: TObject);
+    procedure ediacbrmonitor_hosttcpipKeyPress(Sender: TObject; var Key: Char);
+    procedure ediacbrmonitor_porttcpipKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -119,6 +127,21 @@ begin
       
       edinnf.Text :=  inttostr(cds_indice.FieldByName('nnf').asInteger);
       edicaminhoarqnfe.Text := cds_indice.FieldByName('caminhoarqnfe').asString;
+
+      ediacbrmonitor_porttcpip.Text := cds_indice.FieldByName('acbrmonitor_porttcpip').asString;
+      ediacbrmonitor_hosttcpip.Text := cds_indice.FieldByName('acbrmonitor_hosttcpip').asString;
+
+      case cds_indice.FieldByName('acbrmonitor_tipocomunicacao').asInteger of
+       0:begin
+           ckbviatexto.Checked := true;
+         end;
+       1:begin
+           ckbviatcpip.Checked := true;
+         end;
+
+      end;
+
+
       edicaminhoarqnfetemp.Text := cds_indice.FieldByName('caminhoarqnfetemp').asString;
       edicontadornfe.Text :=  inttostr(cds_indice.FieldByName('contadornfe').asInteger);
       edichaveconsultacep.Text := cds_indice.FieldByName('chaveconsultacep').asString;
@@ -159,12 +182,24 @@ with frmdados do
     cds_indice.FieldByName('nnf').asInteger := strtoint(edinnf.text);
     cds_indice.FieldByName('contadornfe').asInteger := strtoint(edicontadornfe.text);
     cds_indice.FieldByName('caminhoarqnfe').asString := edicaminhoarqnfe.text;
+
+    cds_indice.FieldByName('acbrmonitor_porttcpip').asString := ediacbrmonitor_porttcpip.Text;
+    cds_indice.FieldByName('acbrmonitor_hosttcpip').asString := ediacbrmonitor_hosttcpip.Text;
+
+    if ckbviatexto.Checked  then
+    begin
+      cds_indice.FieldByName('acbrmonitor_tipocomunicacao').asInteger := 0;
+    end
+    else
+    begin
+      cds_indice.FieldByName('acbrmonitor_tipocomunicacao').asInteger := 1;
+    end;
+
     cds_indice.FieldByName('caminhoarqnfetemp').asString := edicaminhoarqnfetemp.text;
     cds_indice.FieldByName('chaveconsultacep').asString := edichaveconsultacep.text;
     cds_indice.FieldByName('exportarpara').asString := ediexportarpara.text;
     cds_indice.FieldByName('importarpara').asString := ediimportarpara.text;
     cds_indice.FieldByName('hverao').asString := cbxhverao.text;
-
 
     Case  cbxconfigcpro.ItemIndex  of
 
@@ -230,6 +265,30 @@ with frmdados do
     cds_ipi.Active := true;
   end;
 //endth
+end;
+
+procedure Tfrmindice.ediacbrmonitor_hosttcpipKeyPress(Sender: TObject; var Key: Char);
+begin
+  if (key = #13) then
+     begin
+       key := #0;
+       SelectNext(ActiveControl,True,True);
+       exit;
+     end;
+  //endif
+
+end;
+
+procedure Tfrmindice.ediacbrmonitor_porttcpipKeyPress(Sender: TObject; var Key: Char);
+begin
+  if (key = #13) then
+     begin
+       key := #0;
+       SelectNext(ActiveControl,True,True);
+       exit;
+     end;
+  //endif
+
 end;
 
 end.
