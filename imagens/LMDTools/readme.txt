@@ -1,0 +1,1 @@
+The IML file in this directory is for use with the LMD Toolkit (www.lmd.de). It provides a single file which includes all the button images.

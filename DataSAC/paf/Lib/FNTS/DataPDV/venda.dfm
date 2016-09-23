@@ -7310,6 +7310,7 @@ object frmVenda: TfrmVenda
       end
       object RetransmitirST1: TMenuItem
         Caption = 'Retransmitir S@T'
+        OnClick = RetransmitirST1Click
       end
     end
     object N2: TMenuItem

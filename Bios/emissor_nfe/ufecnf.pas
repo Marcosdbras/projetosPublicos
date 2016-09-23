@@ -4295,6 +4295,7 @@ if rg1.ItemIndex = 1 then
 
        if sAcao = 'E' then
           begin
+            // emitir nota
             frmdados.cds_nf.Edit;
             frmdados.cds_nf.FieldByName('status').AsString := 'E';
             frmdados.cds_nf.Post;
@@ -4444,10 +4445,9 @@ if rg1.ItemIndex = 1 then
        frmdados.cds_indice.FieldByName('nnf').asInteger := innf;
        frmdados.cds_indice.Post;
 
-
        sresposta := conexao_acbrmonitortcpip('NFE.IMPRIMIRDANFE("'+scaminho+'")');
-
-        close;
+       showmessage('Nota emitida com sucesso!');
+       close;
      end;
   //endif
 
@@ -7641,7 +7641,7 @@ end;
 
 
 //scomando := StringReplace(scomando, 'NFe.CriarEnviarNFe("[Identificacao]', 'NFE.CriarNFe("[Identificacao]', [rfReplaceAll, rfIgnoreCase]);
-//scomando := StringReplace(scomando, '",1,1)', '")', [rfReplaceAll, rfIgnoreCase]);
+//scomando := StringReplace(scomando, '",1,0)', '")', [rfReplaceAll, rfIgnoreCase]);
 //sresposta := conexao_acbrmonitortcpip( scomando  );
 //sresposta := conexao_acbrmonitortcpip('NFE.EnviarNFe("'+scaminho+',1,1,1")');
 //sresposta := conexao_acbrmonitortcpip('NFE.IMPRIMIRDANFE("'+scaminho+'")');

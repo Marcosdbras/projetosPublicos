@@ -295,7 +295,7 @@ object frmfecnf: Tfrmfecnf
   end
   object btncancelar: TBitBtn
     Left = 859
-    Top = 163
+    Top = 208
     Width = 116
     Height = 37
     Caption = '&CANCELAR'
@@ -1210,7 +1210,7 @@ object frmfecnf: Tfrmfecnf
   end
   object Button1: TButton
     Left = 860
-    Top = 204
+    Top = 164
     Width = 116
     Height = 37
     Caption = 'STATUS SERV. NFE'

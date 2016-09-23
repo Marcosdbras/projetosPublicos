@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Grids, DBGrids, ComCtrls, ExtCtrls, Buttons, Mask,
-  DBCtrls, DB, DbTables, ImgList;
+  DBCtrls, DB, DbTables, ImgList, IdIOHandler, IdGlobal;
 
 type
   Tfrmpesqnf = class(TForm)
@@ -551,6 +551,7 @@ type
     procedure BitBtn5Click(Sender: TObject);
     procedure calculo_subst_trib;
     procedure subst_trib;
+    function conexao_acbrmonitortcpip(comando:String):String;
   private
     { Private declarations }
     sOpcao:string;
@@ -587,7 +588,7 @@ var
 
 implementation
    uses ugeral, udados, uconsprodutos, ufiltronf, urelnf, uconsserv,
-  ufecnf, uprincipal;
+  ufecnf, uprincipal, uconexaotcpip;
 {$R *.dfm}
 
 procedure Tfrmpesqnf.FormClose(Sender: TObject;
@@ -3424,12 +3425,33 @@ if lblestado.Caption <> lblestadoemi.Caption then
    end;
 //endi
 
+if frmdados.cds_nf.FieldByName('caminhonfe').AsString = '' then
+   begin
+     frmfecnf := tfrmfecnf.create(self);
+     frmfecnf.showmodal;
+     frmfecnf.free;
+   end
+else
+   begin
+
+     if application.MessageBox('Deseja emitir nota nova nota?'+#13+
+                               'Caso sua resposta seja negativa será feita somente uma impressão'+#13+
+                               'baseada no xml que foi gerado durante a criação da nota'+#13+
+                               'o qual pode apresentar-se com status de não enviado' ,'Atenção',mb_yesno) = 6 then
+        begin
+          frmfecnf := tfrmfecnf.create(self);
+          frmfecnf.showmodal;
+          frmfecnf.free;
+        end
+     else
+        begin
+          conexao_acbrmonitortcpip('NFE.IMPRIMIRDANFE("'+frmdados.cds_nf.FieldByName('caminhonfe').AsString+'")');
+        end;
+
+   end;
 
 
 
-frmfecnf := tfrmfecnf.create(self);
-frmfecnf.showmodal;
-frmfecnf.free;
 end;
 
 procedure Tfrmpesqnf.FormCreate(Sender: TObject);
@@ -5199,6 +5221,83 @@ with frmdados do
 
 
 end;
+
+
+function tfrmpesqnf.conexao_acbrmonitortcpip(comando:String):String;
+  var slinha:string;
+
+begin
+
+  try
+
+      try
+
+        frmconexaotcpip  := tfrmconexaotcpip.Create(self);
+
+        frmconexaotcpip.IdTCPClient1.Host := frmdados.cds_indice.fieldbyname('acbrmonitor_hosttcpip').AsString;
+
+        frmconexaotcpip.IdTCPClient1.Port := frmdados.cds_indice.fieldbyname('acbrmonitor_porttcpip').AsInteger;
+
+        if not frmconexaotcpip.IdTCPClient1.Connected then
+           frmconexaotcpip.IdTCPClient1.Connect;
+
+        frmconexaotcpip.IdTCPClient1.IOHandler.DefStringEncoding := idglobal.IndyTextEncoding_UTF8;
+
+        frmconexaotcpip.IdTCPClient1.Socket.Write( comando+sLineBreak+'.'+sLineBreak );
+
+        if pos('NFE.IMPRIMIRDANFE',comando) > 0 then
+           begin
+             result:= frmconexaotcpip.IdTCPClient1.Socket.ReadLn+#13+
+                      'Resposta não analisada de forma integral';
+             exit;
+           end;
+        //endi
+
+
+
+
+        while  true do
+         begin
+
+           if ( pos('NFE.ENVIARNFE',comando) > 0 ) then
+              begin
+
+                 if ( pos('DigVal=',slinha)>0 ) then
+                    break;
+
+              end
+           else
+              begin
+
+                if (pos(#3,slinha) > 0) then
+                   break;
+
+
+              end;
+
+           slinha := slinha + frmconexaotcpip.IdTCPClient1.Socket.ReadLn+#13;
+
+
+         end;
+
+
+
+         result := slinha;
+
+      except
+
+         result := 'Houve um erro durante a requisição,'+#13+'verifique o motor de envio da NFE '+#13+'ou suas configurações';
+
+      end;
+
+  finally
+
+      frmconexaotcpip.Destroy;
+
+  end;
+
+end;
+
 
 
 end.

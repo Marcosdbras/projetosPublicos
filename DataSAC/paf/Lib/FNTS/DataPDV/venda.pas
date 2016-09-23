@@ -346,6 +346,7 @@ type
     procedure timer_cargaTimer(Sender: TObject);
     procedure ed_unitarioKeyPress(Sender: TObject; var Key: Char);
     procedure solicitarnumcomanda;
+    procedure RetransmitirST1Click(Sender: TObject);
   private
     { Private declarations }
      bConsumidor:boolean;
@@ -460,7 +461,8 @@ uses modulo, Math, funcoes, cliente_consulta, preco_consulta,
   TEF_Cancelamento, senha, menu_cupom, Lista_DAV, pre_venda, msg_Operador,
   Meios_pagamento, Orcamento_Abrir, menu_fiscal,
   os, caixa_abertura, mesas, fabricacao, senha_supervisor, ComObj,
-  Constantes, Vendedor, ContasReceberNovo, funcoes_ibpt, comanda;
+  Constantes, Vendedor, ContasReceberNovo, funcoes_ibpt, comanda,
+  uretrans_sat;
 
 {$R *.dfm}
 
@@ -9038,6 +9040,13 @@ begin
 end;
 
 
+
+procedure TfrmVenda.RetransmitirST1Click(Sender: TObject);
+begin
+  frmretrans_sat  := tfrmretrans_sat.create(self);
+  frmretrans_sat.ShowModal;
+  frmretrans_sat.Free;
+end;
 
 end.
 

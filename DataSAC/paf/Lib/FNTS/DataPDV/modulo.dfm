@@ -11,6 +11,7 @@ object frmModulo: TfrmModulo
     Username = 'SYSDBA'
     Password = 'masterkey'
     Server = 'localhost'
+    Connected = True
     LoginPrompt = False
     Left = 32
     Top = 16

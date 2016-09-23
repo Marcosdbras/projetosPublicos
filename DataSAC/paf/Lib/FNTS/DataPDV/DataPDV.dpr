@@ -84,7 +84,7 @@ uses
   funcoes_ibpt in 'funcoes_ibpt.pas',
   conexao_ibpt in 'conexao_ibpt.pas' {frmconexao_ibpt: TDataModule},
   comanda in 'comanda.pas' {frmcomanda},
-  uretrans_sat in 'uretrans_sat.pas' {frmretransmitir_sat};
+  uretrans_sat in 'uretrans_sat.pas' {frmretrans_sat};
 
 var
   Hand : THandle;
@@ -100,7 +100,10 @@ begin
   begin
     Application.Initialize;
     Application.Title := 'DataPDV 2.0';
+  Application.CreateForm(TfrmModulo, frmModulo);
+  Application.CreateForm(Tfrmconexao_ibpt, frmconexao_ibpt);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmMsg_Operador, frmMsg_Operador);
   Application.Run;
   end
   // GUIO: 04/03/2010 - Se já estiver carregado, somente mostra o formulário
