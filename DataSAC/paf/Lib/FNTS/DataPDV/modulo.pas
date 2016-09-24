@@ -87,6 +87,8 @@ type
     sqlconsulta: TIBCQuery;
     sqlcCupomForma: TIBCQuery;
     tbForma_PgtoSigla: TStringField;
+    sqlCupom: TIBCQuery;
+    sqlcliente: TIBCQuery;
     procedure BalancaLePeso(Peso: Double; Resposta: String);
   private
     { Private declarations }
@@ -147,10 +149,6 @@ end;
 
 procedure tfrmmodulo.atualizancm(ncm:string);
 var
-
-
-
-
   faliqnac, faliqimp:Currency;
   sncmnbs, sorigem, sex:string;
   itabela:Integer;

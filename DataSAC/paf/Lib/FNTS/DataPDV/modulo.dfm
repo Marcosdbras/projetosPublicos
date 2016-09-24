@@ -1496,4 +1496,14 @@ object frmModulo: TfrmModulo
     Left = 376
     Top = 32
   end
+  object sqlCupom: TIBCQuery
+    Connection = conexao
+    Left = 464
+    Top = 136
+  end
+  object sqlcliente: TIBCQuery
+    Connection = conexao
+    Left = 536
+    Top = 136
+  end
 end

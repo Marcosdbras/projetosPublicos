@@ -1096,7 +1096,7 @@ function EPSON_DataHoraSoftwareBasico: String;
 function EPSON_GavetaAberta: Boolean;
 
 
-procedure gerasat;
+procedure gerasat(snped, snome, sident:string);
 
 // -------------------------------------------------------------------------- //
 // -------------------------------------------------------------------------- //
@@ -10074,12 +10074,13 @@ end;
 
 
 
-procedure gerasat;
+procedure gerasat(snped, snome, sident:string);
   var
     iproxsat,
     itotalprod,
     itotalnfe,
-    ivalor :integer;
+    ivalor,
+    icod_cliente:integer;
 
     ftotalprod,
     fvalor,
@@ -10087,7 +10088,8 @@ procedure gerasat;
     faliqpis,
     faliqcofins,
     faliqipi,
-    fvalorimposto:real;
+    fvalorimposto,
+    rtotal_avista:real;
 
     sncm,
     snomeprod,
@@ -10099,10 +10101,17 @@ procedure gerasat;
     ssita,
     scstpis,
     scstcofins,
-    scstipi:string;
-
-
-
+    scstipi,
+    sCod_Cupom_venda,
+    snome_venda,
+    slogradourodest_venda,
+    snumerodest_venda,
+    sbairrodest_venda,
+    scepdest_venda,
+    stelefonedest_venda,
+    sIEdest_venda,
+    scomplementodest_venda,
+    smaildest_venda:string;
 
 begin
 
@@ -10126,7 +10135,7 @@ begin
                                                                                                                  {cpf ou cnpj}
           vardir := extractfilepath(application.ExeName);
 
-          assignfile(frmprincipal.arqsat,  vardir+'sat_id' + frmvenda.snumerocupom_venda +'-'+ frmvenda.snome_venda + frmvenda.sident_venda +'.sat');
+          assignfile(frmprincipal.arqsat,  vardir+'sat_id' + snped +'-'+ snome + sident +'.sat');
           reWrite(frmprincipal.arqsat);
 
           Write(frmprincipal.arqsat,'01'); //1 - id_reg
@@ -10158,21 +10167,70 @@ begin
           Write(frmprincipal.arqsat,formatdatetime('dd/mm/yyyy',date)  );   //7 - data_emissao
           Write(frmprincipal.arqsat,formatdatetime('dd/mm/yyyy',date));   //8  - data_saida
 
-          //if strtofloat(tirapontos(  frmvenda.rtotal_aprazo  )) > 0 then
+          rtotal_avista := 0;
 
-          if  frmvenda.rtotal_aprazo   > 0 then
-             Write(frmprincipal.arqsat,'2')   //10 - ind_forma_pgto
+          with frmmodulo do
+            begin
+
+
+              sqlcupom.Close;
+              sqlcupom.SQL.Clear;
+              sqlcupom.SQL.Add('select * from cupom where numero = '+quotedstr('snped'));
+              sqlcupom.Open;
+              sCod_Cupom_venda := sqlcupom.fieldbyname('codigo').AsString;
+              icod_cliente :=  sqlcupom.fieldbyname('cod_cliente').AsInteger;
+
+              sqlcliente.Close;
+              sqlcliente.SQL.Clear;
+              sqlcliente.SQL.Add('select * from cliente where codigo = '+inttostr(icod_cliente)  );
+              sqlcliente.Open;
+              if sqlcliente.RecordCount > 0 then
+                 begin
+                   snome_venda             :=  sqlcliente.fieldbyname('nome').AsString;
+                   slogradourodest_venda   := sqlcliente.fieldbyname('endereco').AsString;
+                   snumerodest_venda       := sqlcliente.fieldbyname('numero').AsString;
+                   sbairrodest_venda       := sqlcliente.fieldbyname('bairro').AsString;
+                   scepdest_venda          := sqlcliente.fieldbyname('cep').AsString;
+                   stelefonedest_venda     := sqlcliente.fieldbyname('telefone').AsString;
+                   sIEdest_venda           := sqlcliente.fieldbyname('rg').AsString;
+                   scomplementodest_venda  := sqlcliente.fieldbyname('complemento').AsString;
+                   smaildest_venda         := sqlcliente.fieldbyname('email').AsString;
+                 end;
+              //endi
+
+
+              sqlcCupomForma.Close;
+              sqlcCupomForma.SQL.Clear;
+              sqlcCupomForma.SQL.Add('select * from cupom_forma where cod_cupom = '+quotedstr(  sCod_Cupom_venda  ) );
+              sqlcCupomForma.Open;
+
+              while not sqlcCupomForma.Eof do
+                begin
+
+                  sqlconsulta.Close;
+                  sqlconsulta.SQL.Clear;
+                  sqlconsulta.SQL.Add('select * from forma_pgto where (nome = '+quotedstr( sqlcCupomForma.fieldbyname('forma').AsString+') and (sigla = '+quotedstr('D')+')'    ));
+                  sqlconsulta.Open;
+                  if sqlconsulta.recordcount > 0 then
+                     begin
+                       rtotal_avista := rtotal_avista + sqlcCupomForma.fieldbyname('valor').asfloat;
+                     end;
+                  //endi
+                  sqlcCupomForma.Next;
+
+                end;
+              //endw
+
+            end;
+          //endth
+
+          if  rtotal_avista   > 0 then
+             Write(frmprincipal.arqsat,'1') //10 - ind_forma_pgto
           else
-             Write(frmprincipal.arqsat,'1');
+             Write(frmprincipal.arqsat,'2');
           //endi
-
-          //if cbxambiente.ItemIndex = 0 then
 
           Write(frmprincipal.arqsat,'1');   //9 - tipo_ambiente
-
-          //else
-          //Write(frmprincipal.arqsat,'2');
-          //endi
 
           //Emitente
           Write(frmprincipal.arqsat,  AjustaStr ( tirapontos(tiratracos(tirabarras(sEmpresa_CNPJ))), 25 )  );   //11 - cnpj_emitente
@@ -10192,20 +10250,20 @@ begin
           Write(frmprincipal.arqsat, AjustaStr ( ' ',30 ) );   //24 - ie_st_emitente
 
           //Destinatário
-          Write(frmprincipal.arqsat,AjustaStr ( tirapontos(tiratracos(tirabarras(   frmvenda.sident_venda   ))),25 ) );   //25 - cnpj_dest
-          Write(frmprincipal.arqsat,AjustaStr (  frmvenda.snome_venda  ,50 ) );   //26 - razao_dest
-          Write(frmprincipal.arqsat,AjustaStr ( frmvenda.slogradourodest_venda  ,50 ) );   //27 - logradouro_dest
-          Write(frmprincipal.arqsat,AjustaStr (  frmvenda.snumerodest_venda  ,6 ) );   //28 - numlog_dest
-          Write(frmprincipal.arqsat,AjustaStr ( frmvenda.sbairrodest_venda,30 ) );   //29 - bairro_dest
+          Write(frmprincipal.arqsat,AjustaStr ( tirapontos(tiratracos(tirabarras(  sident   ))),25 ) );   //25 - cnpj_dest
+          Write(frmprincipal.arqsat,AjustaStr (  snome_venda  ,50 ) );   //26 - razao_dest
+          Write(frmprincipal.arqsat,AjustaStr ( slogradourodest_venda  ,50 ) );   //27 - logradouro_dest
+          Write(frmprincipal.arqsat,AjustaStr (  snumerodest_venda  ,6 ) );   //28 - numlog_dest
+          Write(frmprincipal.arqsat,AjustaStr ( sbairrodest_venda,30 ) );   //29 - bairro_dest
           Write(frmprincipal.arqsat,AjustaStr ( '00000000',8 ) );   //30 - codcid_dest
           Write(frmprincipal.arqsat,AjustaStr ( '00000000',8 ) );   //31 - codest_dest
-          Write(frmprincipal.arqsat,AjustaStr (  tiratracos( frmvenda.scepdest_venda  )  ,8 ) );   //32 - cep_dest
+          Write(frmprincipal.arqsat,AjustaStr (  tiratracos( scepdest_venda  )  ,8 ) );   //32 - cep_dest
           Write(frmprincipal.arqsat,AjustaStr ( '001058',6 ) );   //33 - codpais_dest
           Write(frmprincipal.arqsat,AjustaStr ( 'BRASIL'   ,30 ) );   //34 - nomepais_dest
-          Write(frmprincipal.arqsat,AjustaStr ( frmvenda.stelefonedest_venda   ,30 ) );   //35 - fone_dest
-          Write(frmprincipal.arqsat,AjustaStr ( tirapontos(tiratracos(tirabarras(  frmvenda.sIEdest_venda  ))) ,30 ) );   //36 - ie_dest
-          Write(frmprincipal.arqsat,AjustaStr (  frmvenda.scomplementodest_venda  ,30 ) );   //108 - compl_dest
-          Write(frmprincipal.arqsat,AjustaStr (  frmvenda.smaildest_venda ,60 ) );   //115  -  email_dest
+          Write(frmprincipal.arqsat,AjustaStr ( stelefonedest_venda   ,30 ) );   //35 - fone_dest
+          Write(frmprincipal.arqsat,AjustaStr ( tirapontos(tiratracos(tirabarras(  sIEdest_venda  ))) ,30 ) );   //36 - ie_dest
+          Write(frmprincipal.arqsat,AjustaStr (  scomplementodest_venda  ,30 ) );   //108 - compl_dest
+          Write(frmprincipal.arqsat,AjustaStr (  smaildest_venda ,60 ) );   //115  -  email_dest
           Writeln(frmprincipal.arqsat);
 
 
@@ -10215,7 +10273,7 @@ begin
 
               sqlconsulta.Close;
               sqlconsulta.SQL.Clear;
-              sqlconsulta.SQL.Add('select * from cupom_item where cod_cupom = '+quotedstr( frmvenda.sCod_Cupom_venda  ) );
+              sqlconsulta.SQL.Add('select * from cupom_item where cod_cupom = '+quotedstr( sCod_Cupom_venda  ) );
               sqlconsulta.Open;
 
               itotalprod := 0;
@@ -10552,7 +10610,7 @@ begin
 
               sqlcCupomForma.Close;
               sqlcCupomForma.SQL.Clear;
-              sqlcCupomForma.SQL.Add('select * from cupom_forma where cod_cupom = '+quotedstr(  frmvenda.sCod_Cupom_venda  ) );
+              sqlcCupomForma.SQL.Add('select * from cupom_forma where cod_cupom = '+quotedstr(  sCod_Cupom_venda  ) );
               sqlcCupomForma.Open;
 
               while not sqlcCupomForma.Eof do
@@ -10609,8 +10667,8 @@ begin
               sqlexec.ExecSQL;
 
 
-              CopyFile(PChar( vardir+'sat_id' + frmvenda.snumerocupom_venda +'-'+ frmvenda.snome_venda + frmvenda.sident_venda +'.sat' ),
-                       PChar(  frmprincipal.seqfiscalon+'\sat_id' + frmvenda.snumerocupom_venda+'-'+ frmvenda.snome_venda + frmvenda.sident_venda +'.sat'  ), true);
+              CopyFile(PChar( vardir+'sat_id' + snped +'-'+ snome + sident +'.sat' ),
+                       PChar(  frmprincipal.seqfiscalon+'\sat_id' + snped+'-'+ snome + sident +'.sat'  ), true);
 
             end;
           //endth

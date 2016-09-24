@@ -6538,7 +6538,7 @@ begin
   finally
     BlockInput(false);
     bt_confirmar_fechamento.Enabled := true;
-    gerasat;
+    gerasat(snumerocupom_venda, snome_venda, sident_venda);
   end;
 end;
 

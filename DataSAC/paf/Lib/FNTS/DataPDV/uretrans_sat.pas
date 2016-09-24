@@ -29,7 +29,7 @@ type
     sqlforma: TIBCQuery;
     edtdata1: TNxDatePicker;
     edtdata2: TNxDatePicker;
-    NxNumberEdit1: TNxNumberEdit;
+    edtnped: TNxNumberEdit;
     Label1: TLabel;
     Label5: TLabel;
     btnfiltrar: TNxButton;
@@ -70,11 +70,18 @@ type
     sqlItensQTDE: TFloatField;
     sqlItensCOD_CUPOM: TStringField;
     sqlItensUNIDADE: TStringField;
+    sqlCliente: TIBCQuery;
+    sqldados: TIBCQuery;
     procedure sqlCupomAfterScroll(DataSet: TDataSet);
     procedure btnfiltrarClick(Sender: TObject);
     procedure btnlimparClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btncancelarClick(Sender: TObject);
+    procedure btnlancarClick(Sender: TObject);
+    procedure edtnpedExit(Sender: TObject);
+    procedure edtnpedKeyPress(Sender: TObject; var Key: Char);
+    procedure edtdata1KeyPress(Sender: TObject; var Key: Char);
+    procedure edtdata2KeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -85,7 +92,7 @@ var
   frmretrans_sat: Tfrmretrans_sat;
 
 implementation
-   uses modulo;
+   uses modulo, unECF;
 {$R *.dfm}
 
 procedure Tfrmretrans_sat.sqlCupomAfterScroll(DataSet: TDataSet);
@@ -101,9 +108,6 @@ sqlforma.SQL.Clear;
 sqlforma.SQL.Add('select * from cupom_forma where cod_cupom = :scod_cupom');
 sqlforma.ParamByName('scod_cupom').AsString := sqlcupom.fieldbyname('codigo').AsString;
 sqlforma.Open;
-
-
-
 end;
 
 procedure Tfrmretrans_sat.btnfiltrarClick(Sender: TObject);
@@ -131,6 +135,67 @@ end;
 procedure Tfrmretrans_sat.btncancelarClick(Sender: TObject);
 begin
 close;
+end;
+
+procedure Tfrmretrans_sat.btnlancarClick(Sender: TObject);
+var snped, snome, sident:string;
+begin
+
+  sqldados.Close;
+  sqldados.SQL.Clear;
+  sqldados.SQL.Add('select * from cupom where numero = '+formatfloat('000000',edtnped.Value));
+  sqldados.Open;
+  if sqldados.RecordCount = 0 then
+     begin
+       showmessage('Número do cupom não existe!');
+       exit;
+     end;
+  //endi
+
+  snped := sqldados.fieldbyname('numero').AsString;
+  sident:= sqldados.fieldbyname('cpf_consumidor').AsString;
+
+  sqlcliente.Close;
+  sqlcliente.SQL.Clear;
+  sqlcliente.SQL.add('select * from cliente where codigo = '+ inttostr( sqldados.fieldbyname('cod_cliente').asinteger )  );
+  sqlcliente.Open;
+  if sqlcliente.RecordCount > 0 then
+     begin
+       snome := sqlcliente.FieldByName('nome').AsString;
+     end;
+  //endi
+
+  gerasat(snped, snome, sident);
+
+
+end;
+
+procedure Tfrmretrans_sat.edtnpedExit(Sender: TObject);
+begin
+  sqlcupom.Locate('numero',formatfloat('000000',edtnped.value),[]);
+end;
+
+procedure Tfrmretrans_sat.edtnpedKeyPress(Sender: TObject; var Key: Char);
+begin
+if Key = #13 then
+   Perform(Wm_NextDlgCtl,0,0);
+//endi
+end;
+
+procedure Tfrmretrans_sat.edtdata1KeyPress(Sender: TObject; var Key: Char);
+begin
+if Key = #13 then
+   Perform(Wm_NextDlgCtl,0,0);
+//endi
+
+end;
+
+procedure Tfrmretrans_sat.edtdata2KeyPress(Sender: TObject; var Key: Char);
+begin
+if Key = #13 then
+   Perform(Wm_NextDlgCtl,0,0);
+//endi
+
 end;
 
 end.

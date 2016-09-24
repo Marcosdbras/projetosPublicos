@@ -1,6 +1,6 @@
 object frmretrans_sat: Tfrmretrans_sat
-  Left = 148
-  Top = 151
+  Left = 257
+  Top = 155
   BorderIcons = []
   BorderStyle = bsDialog
   Caption = 'RETRANSMISS'#195'O S@T'
@@ -39,6 +39,7 @@ object frmretrans_sat: Tfrmretrans_sat
       Height = 25
       Caption = '&Lan'#231'ar'
       TabOrder = 1
+      OnClick = btnlancarClick
     end
   end
   object Panel2: TPanel
@@ -98,7 +99,8 @@ object frmretrans_sat: Tfrmretrans_sat
       Width = 241
       Height = 177
       DataSource = dtsCupom
-      TabOrder = 0
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      TabOrder = 5
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
@@ -128,7 +130,8 @@ object frmretrans_sat: Tfrmretrans_sat
       Width = 313
       Height = 131
       DataSource = dtsitens
-      TabOrder = 1
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      TabOrder = 6
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
@@ -168,7 +171,8 @@ object frmretrans_sat: Tfrmretrans_sat
       Width = 313
       Height = 81
       DataSource = dtsforma
-      TabOrder = 2
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      TabOrder = 7
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
@@ -192,8 +196,9 @@ object frmretrans_sat: Tfrmretrans_sat
       Top = 28
       Width = 89
       Height = 21
-      TabOrder = 3
+      TabOrder = 1
       Text = '21/09/2016'
+      OnKeyPress = edtdata1KeyPress
       HideFocus = False
       Date = 42634.000000000000000000
       NoneCaption = 'None'
@@ -204,20 +209,23 @@ object frmretrans_sat: Tfrmretrans_sat
       Top = 53
       Width = 89
       Height = 21
-      TabOrder = 4
+      TabOrder = 2
       Text = '21/09/2016'
+      OnKeyPress = edtdata2KeyPress
       HideFocus = False
       Date = 42634.000000000000000000
       NoneCaption = 'None'
       TodayCaption = 'Today'
     end
-    object NxNumberEdit1: TNxNumberEdit
+    object edtnped: TNxNumberEdit
       Left = 88
       Top = 4
       Width = 86
       Height = 21
-      TabOrder = 5
+      TabOrder = 0
       Text = '0'
+      OnExit = edtnpedExit
+      OnKeyPress = edtnpedKeyPress
       Precision = 0
     end
     object btnfiltrar: TNxButton
@@ -269,7 +277,7 @@ object frmretrans_sat: Tfrmretrans_sat
         0C09130A1B0000000000000000150E110C0A0505004A47000000000017240903
         0303030000004A470000000D2611030000000000000000000000050509030000
         0000000000000000000015030000000000000000000000000000}
-      TabOrder = 6
+      TabOrder = 3
       Transparent = True
       OnClick = btnfiltrarClick
     end
@@ -322,7 +330,7 @@ object frmretrans_sat: Tfrmretrans_sat
         572221615E0A4770180100145870443429241916103270480600001442647053
         3826221E3E70560D06000000144359706961616870480D060000000000141439
         4A5353411406060000000000000000141A1A1414140000000000}
-      TabOrder = 7
+      TabOrder = 4
       Transparent = True
       OnClick = btnlimparClick
     end
@@ -512,5 +520,21 @@ object frmretrans_sat: Tfrmretrans_sat
       FieldName = 'CODFORMA'
       Size = 90
     end
+  end
+  object sqlCliente: TIBCQuery
+    Connection = frmModulo.conexao
+    SQL.Strings = (
+      'select * from cliente')
+    AfterScroll = sqlCupomAfterScroll
+    Left = 192
+    Top = 146
+  end
+  object sqldados: TIBCQuery
+    Connection = frmModulo.conexao
+    SQL.Strings = (
+      'select * from cliente')
+    AfterScroll = sqlCupomAfterScroll
+    Left = 24
+    Top = 154
   end
 end
