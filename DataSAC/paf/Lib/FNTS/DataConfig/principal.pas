@@ -206,6 +206,7 @@ type
     ed_cliente_site: TEdit;
     Label60: TLabel;
     ed_cliente_complemento: TEdit;
+    ckblancasat: TCheckBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure pn2_cancelarClick(Sender: TObject);
@@ -857,6 +858,7 @@ begin
   cb_imp_parity.Text := '';
   cb_imp_time_out.Text := '';
   cb_eq_fiscal_on.Text := '';
+  ckblancasat.Checked := false;
 
 
   cb_imp_porta.Enabled := false;
@@ -868,6 +870,7 @@ begin
   cb_imp_parity.Enabled := false;
   cb_imp_time_out.Enabled := false;
   cb_eq_fiscal_on.Enabled := false;
+  ckblancasat.Enabled := false;
   //btn_configSerial.Enabled := false;
   //btnsalvarserial.Enabled := false;
 
@@ -1064,6 +1067,7 @@ begin
         cb_eq_fiscal_on.Enabled := true;
         cb_eq_fiscal_on.Text :='Nenhum';
 
+        ckblancasat.Enabled := true;
 
       end;
 
@@ -1357,6 +1361,12 @@ begin
   Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7J8',Cript('C',cb_imp_time_out.text));
 
   Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7J9FIS',Cript('C',cb_eq_fiscal_on.text));
+
+  if ckblancasat.Checked then
+     Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7J10FIS',Cript('C','1'))
+  else
+     Arquivo_ini.WriteString('4CF8193FCC2D45DF','3ADA7J10FIS',Cript('C','0'));
+  //endi
 
   if cb_tipo_fec.ItemIndex = 0 then
      begin

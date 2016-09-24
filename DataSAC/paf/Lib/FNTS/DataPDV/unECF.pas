@@ -1096,7 +1096,7 @@ function EPSON_DataHoraSoftwareBasico: String;
 function EPSON_GavetaAberta: Boolean;
 
 
-procedure gerasat(snped, snome, sident:string);
+procedure gerasat(snped, snome, sident, scaminho:string);
 
 // -------------------------------------------------------------------------- //
 // -------------------------------------------------------------------------- //
@@ -10074,7 +10074,7 @@ end;
 
 
 
-procedure gerasat(snped, snome, sident:string);
+procedure gerasat(snped, snome, sident, scaminho:string);
   var
     iproxsat,
     itotalprod,
@@ -10130,12 +10130,12 @@ begin
      s@t ou se tiver como nenhum não monta}
 
 
-    if pos(':',frmprincipal.seqfiscalon)>0 then
+    if pos(':',scaminho)>0 then
        begin
                                                                                                                  {cpf ou cnpj}
           vardir := extractfilepath(application.ExeName);
 
-          assignfile(frmprincipal.arqsat,  vardir+'sat_id' + snped +'-'+ snome + sident +'.sat');
+          assignfile(frmprincipal.arqsat,  vardir+'\temp\sat_id' + snped +'-'+ snome + sident +'.sat');
           reWrite(frmprincipal.arqsat);
 
           Write(frmprincipal.arqsat,'01'); //1 - id_reg
@@ -10667,8 +10667,8 @@ begin
               sqlexec.ExecSQL;
 
 
-              CopyFile(PChar( vardir+'sat_id' + snped +'-'+ snome + sident +'.sat' ),
-                       PChar(  frmprincipal.seqfiscalon+'\sat_id' + snped+'-'+ snome + sident +'.sat'  ), true);
+              CopyFile(PChar( vardir+'\temp\sat_id' + snped +'-'+ snome + sident +'.sat' ),
+                       PChar(  scaminho+'\sat_id' + snped+'-'+ snome + sident +'.sat'  ), true);
 
             end;
           //endth

@@ -82,6 +82,7 @@ type
     procedure edtnpedKeyPress(Sender: TObject; var Key: Char);
     procedure edtdata1KeyPress(Sender: TObject; var Key: Char);
     procedure edtdata2KeyPress(Sender: TObject; var Key: Char);
+    procedure dbgpedidoCellClick(Column: TColumn);
   private
     { Private declarations }
   public
@@ -92,7 +93,7 @@ var
   frmretrans_sat: Tfrmretrans_sat;
 
 implementation
-   uses modulo, unECF;
+   uses modulo, unECF, principal;
 {$R *.dfm}
 
 procedure Tfrmretrans_sat.sqlCupomAfterScroll(DataSet: TDataSet);
@@ -165,9 +166,9 @@ begin
      end;
   //endi
 
-  gerasat(snped, snome, sident);
+  gerasat(snped, snome, sident, frmprincipal.seqfiscalon);
 
-
+  showmessage('Venda Lançada com sucesso!');
 end;
 
 procedure Tfrmretrans_sat.edtnpedExit(Sender: TObject);
@@ -177,25 +178,43 @@ end;
 
 procedure Tfrmretrans_sat.edtnpedKeyPress(Sender: TObject; var Key: Char);
 begin
-if Key = #13 then
-   Perform(Wm_NextDlgCtl,0,0);
-//endi
+if (key = #13) then
+   begin
+     key := #0;
+     SelectNext(ActiveControl,True,True);
+   end;
+//endif
 end;
 
 procedure Tfrmretrans_sat.edtdata1KeyPress(Sender: TObject; var Key: Char);
 begin
-if Key = #13 then
-   Perform(Wm_NextDlgCtl,0,0);
-//endi
+if (key = #13) then
+   begin
+     key := #0;
+     SelectNext(ActiveControl,True,True);
+   end;
+//endif
 
 end;
 
 procedure Tfrmretrans_sat.edtdata2KeyPress(Sender: TObject; var Key: Char);
 begin
-if Key = #13 then
-   Perform(Wm_NextDlgCtl,0,0);
-//endi
+if (key = #13) then
+   begin
+     key := #0;
+     SelectNext(ActiveControl,True,True);
+   end;
+//endif
 
+end;
+
+procedure Tfrmretrans_sat.dbgpedidoCellClick(Column: TColumn);
+begin
+  try
+    edtnped.text :=  formatfloat('000000',sqlcupom.fieldbyname('numero').Asfloat);
+  except
+    
+  end;
 end;
 
 end.

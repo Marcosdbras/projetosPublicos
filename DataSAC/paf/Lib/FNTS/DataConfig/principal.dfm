@@ -1546,14 +1546,14 @@ object frmPrincipal: TfrmPrincipal
           end
           object Label52: TLabel
             Left = 5
-            Top = 29
+            Top = 23
             Width = 96
             Height = 13
             Caption = 'Caminho/Fabricante'
           end
           object cb_eq_fiscal_on: TComboBox
             Left = 112
-            Top = 26
+            Top = 20
             Width = 281
             Height = 21
             ItemHeight = 13
@@ -1562,6 +1562,14 @@ object frmPrincipal: TfrmPrincipal
             Items.Strings = (
               'Nenhum'
               'c:\Datasac\monitorfiscal\arqent')
+          end
+          object ckblancasat: TCheckBox
+            Left = 112
+            Top = 40
+            Width = 265
+            Height = 17
+            Caption = 'Lan'#231'ar venda S@T logo ap'#243's seu fechamento'
+            TabOrder = 1
           end
         end
         object cb_imp_databits: TComboBox

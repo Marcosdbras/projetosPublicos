@@ -1,6 +1,6 @@
 object frmretrans_sat: Tfrmretrans_sat
-  Left = 257
-  Top = 155
+  Left = 130
+  Top = 153
   BorderIcons = []
   BorderStyle = bsDialog
   Caption = 'RETRANSMISS'#195'O S@T'
@@ -106,6 +106,7 @@ object frmretrans_sat: Tfrmretrans_sat
       TitleFont.Height = -11
       TitleFont.Name = 'MS Sans Serif'
       TitleFont.Style = []
+      OnCellClick = dbgpedidoCellClick
       Columns = <
         item
           Expanded = False

@@ -1,10 +1,10 @@
 object frmCliente_consulta: TfrmCliente_consulta
-  Left = 376
-  Top = 180
+  Left = 1
+  Top = 1
   BorderStyle = bsNone
   Caption = 'frmCliente_consulta'
-  ClientHeight = 597
-  ClientWidth = 800
+  ClientHeight = 541
+  ClientWidth = 790
   Color = clBlack
   TransparentColor = True
   TransparentColorValue = 15658734
@@ -2231,7 +2231,7 @@ object frmCliente_consulta: TfrmCliente_consulta
       C80CE87B7EA5F269DFB75B0DCCCDBCD03A72F885EFCE2E74EED9F3F8E17F2399
       1F7BF54CA03091F89A4BD64F6E585DD91147665CFEAF923980D6E9C2CC42F2DC
       D79F3A3147D2F6B7F91F3926156288B3136F0000000049454E44AE426082}
-    Version = '1.0.2.0'
+    Version = '1.1.0.0'
   end
   object lb_cliente: TRzLabel
     Left = 96
@@ -2708,7 +2708,7 @@ object frmCliente_consulta: TfrmCliente_consulta
   end
   object pop_principal: TAdvPopupMenu
     MenuStyler = frmModulo.estilo_menu
-    Version = '2.5.3.0'
+    Version = '2.5.4.0'
     Left = 480
     Top = 304
     object MenuFiscal2: TMenuItem

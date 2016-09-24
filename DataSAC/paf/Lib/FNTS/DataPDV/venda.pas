@@ -1980,6 +1980,8 @@ begin
         spCupom.ParamByName('valor_total').asfloat     := rTotal_Venda;
         spCupom.ParamByName('valor_pago').asfloat      := rTotal_Venda;
         spCupom.ParamByName('valor_troco').asfloat     := 0;
+
+        //TODO: scli_codigo está sempre chegando em branco, verificar.
         if sCli_codigo <> '' then
           spCupom.ParamByName('cod_cliente').asstring  := sCli_codigo
         else
@@ -2922,7 +2924,6 @@ begin
 
 
     // VERIFICAR O TOTALIZADOR
-
     if not compara_totalizador then
     begin
 
@@ -4797,8 +4798,7 @@ begin
       end;
     end;
 
-    // identificacao do Consumidor
-
+    // Identificacao do Consumidor
     sCli_Nome := ''; sCli_Endereco := ''; sCli_CPF := ''; sCli_Cidade := '';
     sCli_Placa := ''; sCli_Km := ''; sCli_cep := ''; sCli_uf := ''; sCli_codigo := '';
 
@@ -6538,7 +6538,11 @@ begin
   finally
     BlockInput(false);
     bt_confirmar_fechamento.Enabled := true;
-    gerasat(snumerocupom_venda, snome_venda, sident_venda);
+
+    if frmprincipal.slancasat = '1' then
+       gerasat(snumerocupom_venda, snome_venda, sident_venda, frmprincipal.seqfiscalon);
+    //endi
+
   end;
 end;
 

@@ -74,6 +74,7 @@ type
     scliente_im, scliente_endereco, scliente_bairro, scliente_cidade,
     scliente_uf, scliente_cep:string;
 
+    slancasat:string;
     
     vardir:string;
 
@@ -913,6 +914,7 @@ begin
 
   seqfiscalon:= Cript('D',  arquivo_nao_fiscal_ini.ReadString('4CF8193FCC2D45DF','3ADA7J9FIS','')  );
 
+  slancasat:=    Cript('D',  arquivo_nao_fiscal_ini.ReadString('4CF8193FCC2D45DF','3ADA7J10FIS','')  ) ;
 
   //NOME
   scliente_nome := Cript('D',   arquivo_nao_fiscal_ini.ReadString('4CF8193FCC2D45DF','5EF5100C1D','')    );

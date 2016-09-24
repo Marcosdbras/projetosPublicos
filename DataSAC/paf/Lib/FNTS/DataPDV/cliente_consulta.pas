@@ -245,7 +245,9 @@ begin
         frmmodulo.query.sql.add('select * from cliente where codigo = '+
                                grid.Cell[0,grid.selectedrow].Asstring);
         frmmodulo.query.open;
+        // aqui
 
+        
         // CGT: Se não precisar mostrar os dados do crediário, fecha imediatamente
         if bConsulta_crediario then
         begin
