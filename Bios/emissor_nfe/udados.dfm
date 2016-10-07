@@ -6508,6 +6508,7 @@ object frmdados: Tfrmdados
   end
   object zconexao: TZConnection
     TransactIsolationLevel = tiReadCommitted
+    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'nfe'
@@ -9614,5 +9615,27 @@ object frmdados: Tfrmdados
     Connection = zconexao
     Left = 952
     Top = 464
+  end
+  object cdstempvencido: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 816
+    Top = 376
+    object cdstempvencidodtv: TDateField
+      FieldName = 'dtv'
+    end
+    object cdstempvencidodescricao: TStringField
+      FieldName = 'descricao'
+      Size = 100
+    end
+    object cdstempvencidovlrorig: TFloatField
+      FieldName = 'vlrorig'
+    end
+    object cdstempvencidodtl: TDateField
+      FieldName = 'dtl'
+    end
+    object cdstempvencidovlrliq: TFloatField
+      FieldName = 'vlrliq'
+    end
   end
 end

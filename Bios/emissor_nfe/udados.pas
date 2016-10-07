@@ -1495,6 +1495,12 @@ type
     cds_indiceacbrmonitor_hosttcpip: TStringField;
     cds_indiceacbrmonitor_porttcpip: TStringField;
     cds_indiceacbrmonitor_tipocomunicacao: TSmallintField;
+    cdstempvencido: TClientDataSet;
+    cdstempvencidodtv: TDateField;
+    cdstempvencidodescricao: TStringField;
+    cdstempvencidovlrorig: TFloatField;
+    cdstempvencidodtl: TDateField;
+    cdstempvencidovlrliq: TFloatField;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);

@@ -114,7 +114,9 @@ uses
   upcodibge in 'upcodibge.pas' {frmpcodibge},
   baixarncm in 'baixarncm.pas' {frmbaixarncm},
   ubaixancm in 'ubaixancm.pas' {frmbaixarncminternet},
-  uconexaotcpip in 'uconexaotcpip.pas' {frmconexaotcpip: TDataModule};
+  uconexaotcpip in 'uconexaotcpip.pas' {frmconexaotcpip: TDataModule},
+  usobre in 'usobre.pas' {frmsobre},
+  uaviso in 'uaviso.pas' {frmaviso};
 
 {$R *.res}
 

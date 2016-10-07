@@ -50,150 +50,12 @@ object frmprincipal: Tfrmprincipal
     Height = 577
     BevelOuter = bvNone
     TabOrder = 3
-    object Label3: TLabel
-      Left = 8
-      Top = 15
-      Width = 179
-      Height = 29
-      Caption = 'Prezado cliente, '
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -24
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label4: TLabel
-      Left = 8
-      Top = 77
-      Width = 843
-      Height = 29
-      Caption = 
-        'Assim como o certificado digital  este programa tamb'#233'm tem data ' +
-        'de expira'#231#227'o'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -24
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label5: TLabel
-      Left = 8
-      Top = 112
-      Width = 819
-      Height = 29
-      Caption = 
-        'isto ocorre pelo fato da necessidade de  manter manuten'#231#227'o peri'#243 +
-        'dica desta'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -24
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label6: TLabel
-      Left = 8
-      Top = 149
-      Width = 773
-      Height = 29
-      Caption = 
-        'aplica'#231#227'o, gerando custo para os desenvolvedores, parceiros e cl' +
-        'ientes.'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -24
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label7: TLabel
-      Left = 8
-      Top = 184
-      Width = 704
-      Height = 29
-      Caption = 
-        'Por gentileza entre em contato com suporte t'#233'cnico nos telefones' +
-        ':'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -24
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label8: TLabel
-      Left = 8
-      Top = 222
-      Width = 529
-      Height = 29
-      Caption = 'DDD (11) 97043-3730 /  96393-0108  /   3042-3730'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -24
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label9: TLabel
-      Left = 8
-      Top = 427
-      Width = 309
-      Height = 29
-      Caption = 'Obrigado pela compreens'#227'o'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -24
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label10: TLabel
-      Left = 8
-      Top = 501
-      Width = 233
-      Height = 29
-      Caption = 'Respons'#225'vel T'#233'cnico'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -24
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label11: TLabel
-      Left = 8
-      Top = 469
-      Width = 134
-      Height = 29
-      Caption = 'Marcos Br'#225's'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -24
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label12: TLabel
-      Left = 9
-      Top = 254
-      Width = 418
-      Height = 29
-      Caption = 'ou acesse o site www.marcosbras.com'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -24
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
     object Button1: TButton
-      Left = 408
+      Left = 0
       Top = 518
-      Width = 585
+      Width = 625
       Height = 57
-      Caption = 'FECHAR MENSAGEM E CONTINUAR EMITINDO AT'#201' EXPIRAR'
+      Caption = 'FECHAR MENSAGEM E CONTINUAR USANDO AT'#201' EXPIRAR'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -19
@@ -204,10 +66,10 @@ object frmprincipal: Tfrmprincipal
       OnClick = Button1Click
     end
     object Memo1: TMemo
-      Left = 408
-      Top = 304
-      Width = 585
-      Height = 209
+      Left = 0
+      Top = 8
+      Width = 993
+      Height = 505
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlue
       Font.Height = -19
@@ -219,6 +81,21 @@ object frmprincipal: Tfrmprincipal
       ScrollBars = ssVertical
       TabOrder = 1
       OnKeyPress = Memo1KeyPress
+    end
+    object Button3: TButton
+      Left = 632
+      Top = 518
+      Width = 361
+      Height = 57
+      Caption = 'CONTRATAR SERVI'#199'O'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+      OnClick = Button3Click
     end
   end
   object Panel1: TPanel
@@ -332,9 +209,9 @@ object frmprincipal: Tfrmprincipal
     Panels = <>
   end
   object reResp: TMemo
-    Left = 984
-    Top = 56
-    Width = 353
+    Left = 456
+    Top = 352
+    Width = 513
     Height = 193
     Lines.Strings = (
       'reResp')
@@ -549,6 +426,10 @@ object frmprincipal: Tfrmprincipal
         Caption = 'Indice'
         OnClick = Indice1Click
       end
+    end
+    object Sobre1: TMenuItem
+      Caption = 'Sobre'
+      OnClick = Sobre1Click
     end
   end
   object skin: TSkinData

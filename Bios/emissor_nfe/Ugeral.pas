@@ -106,6 +106,7 @@ Type
   function datacriexe:string;
   function datamodexe:string;
   function VerificaCNPJ(I:string): Boolean;
+  function convertedata(data:string):string;
 
 
 
@@ -920,6 +921,14 @@ uses baixarncm,
      upesqnfemi,
      uprincipal,
      udados;
+
+
+function convertedata(data:string):string;
+begin
+
+ result := copy(data,9,2)+'/'+copy(data, 6,2)+'/'+ copy(data, 1,4); 
+
+end;
 
 
 procedure EnDecryptFile(INFName, OutFName : String; Chave : Word);

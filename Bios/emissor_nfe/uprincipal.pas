@@ -7,7 +7,7 @@ uses
   Dialogs, Menus, Grids, DBGrids, StdCtrls, DB, DBTables, WinSkinData,
   Buttons, ComCtrls, ExtCtrls, jpeg, LockApplication, xmldom, XMLIntf,
   msxmldom, XMLDoc, IdBaseComponent, IdComponent, IdTCPConnection,
-  IdTCPClient, IdHTTP;
+  IdTCPClient, IdHTTP, ShellAPI;
 
 type
   Tfrmprincipal = class(TForm)
@@ -71,15 +71,6 @@ type
     StatusBar1: TStatusBar;
     pnlcentral: TPanel;
     Image1: TImage;
-    Label3: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
-    Label9: TLabel;
-    Label10: TLabel;
-    Label11: TLabel;
     Label1: TLabel;
     Label2: TLabel;
     Button1: TButton;
@@ -91,7 +82,6 @@ type
     Timer1: TTimer;
     Memo1: TMemo;
     Reparar1: TMenuItem;
-    Label12: TLabel;
     btnimportar: TBitBtn;
     odpExec: TOpenDialog;
     lHTTP: TIdHTTP;
@@ -103,6 +93,8 @@ type
     N10: TMenuItem;
     BaixarNCM1: TMenuItem;
     Desbloqueiodeenvio1: TMenuItem;
+    Sobre1: TMenuItem;
+    Button3: TButton;
 
     //Response: TStringStream;
     //Arquivo: TIdMultipartFormDataStream;
@@ -157,11 +149,15 @@ type
     procedure btnimportarClick(Sender: TObject);
     procedure abretabelas();
     procedure fechatabelas();
+
+    procedure consultavencidos;
     procedure atualizacaoBaseRemota;
     procedure atualizaEmitente;
     procedure atualizaCliente;
     procedure BaixarNCM1Click(Sender: TObject);
     procedure Desbloqueiodeenvio1Click(Sender: TObject);
+    procedure Sobre1Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
     
 
   private
@@ -182,7 +178,7 @@ implementation
   upesqcofins, upesqcfop, upesqnatop, upesqunidade, upesqtiposerv,
   upesqrcserv, upesqprodutos, upesqtransportadora, upesqcmobra,
   upesqclientes, upesqregtrib, upesqemitente, upesqfornecedores, upesqnf,
-  upesqcsosn, uindice, upcodibge, upesqnfemi, baixarncm;
+  upesqcsosn, uindice, upcodibge, upesqnfemi, baixarncm, usobre, uaviso;
 {$R *.dfm}
 
 procedure Tfrmprincipal.FormShow(Sender: TObject);
@@ -191,81 +187,117 @@ var
 
 
 begin
-vardir := extractfilepath(application.ExeName);
-
+   vardir := extractfilepath(application.ExeName);  
 
    memo1.Lines.Clear;
 
-   memo1.Lines.Add('1) Acesse o site www.marcosbras.com ');
-   memo1.Lines.Add('2) Clique nos links contate-nos / Chaves & Desbloqueio');
-   memo1.Lines.Add('3) No final da página localize a frase');
-   memo1.Lines.Add('   Você precisa fazer o login para publicar um comentário.');
-   memo1.Lines.Add('4) Clique em LOGIN');
-   memo1.Lines.Add('5) Se você já está cadastrado utilize seu nome de usuário e senha / FAZER LOGIN para se autenticar');
-   memo1.Lines.Add('   ou clique em PERDEU A SENHA se este for o motivo');
-   memo1.Lines.Add('6) Caso não tenha cadastro clique em REGISTRA-SE');
-   memo1.Lines.Add('7) Após se autenticar localize a frase DEIXE UMA RESPOSTA ou COMENTÁRIO e');
-   memo1.Lines.Add('   informe ID DA INSTALAÇÃO '+ IntToStr(bloqueio.IDInstalacao));
-   memo1.Lines.Add('   identificação do pagamento / CNPJ da empresa / Nome do contato / email e telefone');
-   memo1.Lines.Add('8) Depois clique em PUBLICAR COMENTÁRIO ');
-   memo1.Lines.Add('9) Aguarde contato via email');
-   memo1.Lines.Add('Em caso de dúvida envie mensagem para contato@marcosbras.com');
+   memo1.Lines.Add('Prezado cliente, ');
+   memo1.Lines.Add('');
+   memo1.Lines.Add('');
+   memo1.Lines.Add('Assim como o certificado digital  este programa também tem data de expiração');
+   memo1.Lines.Add('isto ocorre pelo fato da necessidade de  manter manutenção periódica desta');
+   memo1.Lines.Add('aplicação, gerando custo para os desenvolvedores, parceiros e clientes.');
+   memo1.Lines.Add('Por gentileza entre em contato com suporte técnico nos telefones:');
+   memo1.Lines.Add('DDD (11) 97043-3730 /  96393-0108  /   3042-3730');
+   memo1.Lines.Add('ou acesse o site http://aplicacao.esy.es/');
+   memo1.Lines.Add('');
+   memo1.Lines.Add('');
+   memo1.Lines.Add('Obrigado pela compreensão');
+   memo1.Lines.Add('Marcos Brás');
+   memo1.Lines.Add('Responsável Técnico');
+   memo1.Lines.Add('');
+   memo1.Lines.Add('=================================================================================');
 
-    memo1.Lines.Add( 'Dias Restantes : ' + IntToStr(frmprincipal.bloqueio.Dias_RestantesU) );
+   memo1.Lines.Add('   ID DA INSTALAÇÃO '+ IntToStr(bloqueio.IDInstalacao));
+   memo1.Lines.Add('Em caso de dúvida envie mensagem para marcosbras@hotmail.com');
+   memo1.Lines.Add( 'Dias Restantes : ' + IntToStr(frmprincipal.bloqueio.Dias_RestantesU) );
    memo1.Lines.Add( 'Data Vencimento : ' + frmprincipal.bloqueio.Data_VencimentoU );
    memo1.Lines.Add('Chave : ' + frmprincipal.bloqueio.Chave_RegistradaU);
    memo1.Lines.Add('E-mail : ' + frmprincipal.bloqueio.Email_ClienteU);
    memo1.Lines.Add( 'Versão : ' + IntToStr(frmprincipal.bloqueio.Versao_Sistema) );
    memo1.Lines.Add(  'ID da instalação : '+ IntToStr(bloqueio.IDInstalacao) );
+   memo1.Lines.Add('');
+   memo1.Lines.Add('=================================================================================');
 
    if bloqueio.Sistema_DemoU then
-         memo1.Lines.Add(  'DEMO')
+      memo1.Lines.Add(  'DEMO')
    else
-         memo1.Lines.Add( 'REGISTRADO');
+      memo1.Lines.Add( 'REGISTRADO');
+
+   lblmensagem.Caption := '';
+   skin.SkinFile := vardir+'SKIN.SKN';
+   skin.Active := true;
+
+   pnlcentral.Align := alclient;
+
+   label1.caption := datacriexe;
+   label2.caption := datamodexe;
 
 
+   //quando o sistema expirar deve mudar para true
+   //memo1.Lines.Add('1) Acesse o site www.marcosbras.com ');
+   //memo1.Lines.Add('2) Clique nos links contate-nos / Chaves & Desbloqueio');
+   //memo1.Lines.Add('3) No final da página localize a frase');
+   //memo1.Lines.Add('   Você precisa fazer o login para publicar um comentário.');
+   //memo1.Lines.Add('4) Clique em LOGIN');
+   //memo1.Lines.Add('5) Se você já está cadastrado utilize seu nome de usuário e senha / FAZER LOGIN para se autenticar');
+   //memo1.Lines.Add('   ou clique em PERDEU A SENHA se este for o motivo');
+   //memo1.Lines.Add('6) Caso não tenha cadastro clique em REGISTRA-SE');
+   //memo1.Lines.Add('7) Após se autenticar localize a frase DEIXE UMA RESPOSTA ou COMENTÁRIO e');
+   //memo1.Lines.Add('8) Depois clique em PUBLICAR COMENTÁRIO ');
+   //memo1.Lines.Add('   identificação do pagamento / CNPJ da empresa / Nome do contato / email e telefone');
+    //memo1.Lines.Add('9) Aguarde contato via email');
+
+    if bbloqueado then
+       begin
+
+          if bloqueio.Dias_RestantesU > 30 then
+             pnlcentral.Visible := false;
+
+       end
+    else
+       begin
+
+          pnlcentral.Visible := false;
+
+       end;
+    //endi
 
 
-lblmensagem.Caption := '';
-skin.SkinFile := vardir+'SKIN.SKN';
-skin.Active := true;
+    //tenviaxml := threadenviaxml.Create(true);
+    //tenviaxml.FreeOnTerminate := true;
+    //tenviaxml.Resume;
 
-pnlcentral.Align := alclient;
+    if frmdados.cdstempvencido.RecordCount > 0 then
+       begin
+         frmaviso := tfrmaviso.create(self);
+         frmaviso.Memo1.Clear;
+         frmaviso.Memo1.Lines.Add('Prezado cliente, ');
+         frmaviso.Memo1.Lines.Add('');
+         frmaviso.Memo1.Lines.Add('Existe valor em aberto para ser liquidado, você pode clicar em contratar serviço');
+         frmaviso.Memo1.Lines.Add('e regularizar a situação');
+         frmaviso.Memo1.Lines.Add('');
+         frmaviso.Memo1.Lines.Add('Att. Marcos Brás');
+         frmaviso.Memo1.Lines.Add('email: marcosbras@hotmail.com');
+         frmaviso.Memo1.Lines.Add('=================================================================================');
 
+         frmdados.cdstempvencido.First;
+         while not frmdados.cdstempvencido.Eof do
+           begin
+             frmaviso.Memo1.Lines.Add('Vencimento.: '+frmdados.cdstempvencido.fieldbyname('dtv').asString );
+             frmaviso.Memo1.Lines.Add('Descrição..: '+frmdados.cdstempvencido.fieldbyname('descricao').asString );
+             frmaviso.Memo1.Lines.Add('Valor........: '+formatfloat('###,###,##0.00',frmdados.cdstempvencido.fieldbyname('vlrorig').asfloat) );
+             frmaviso.Memo1.Lines.Add('=================================================================================');
 
-label1.caption := datacriexe;
-label2.caption := datamodexe;
+             frmdados.cdstempvencido.Next;
 
-
-//quando o sistema expirar deve mudar para true
-
-
-if bbloqueado then
-   begin
-
-      if bloqueio.Dias_RestantesU > 30 then
-         pnlcentral.Visible := false;
-
-   end
-else
-   begin
-
-      pnlcentral.Visible := false;
-
-   end;
-//endi
-
-
-//tenviaxml := threadenviaxml.Create(true);
-//tenviaxml.FreeOnTerminate := true;
-//tenviaxml.Resume;
+           end;
 
 
-
-
-
-
-
+         frmaviso.showmodal;
+         frmaviso.free;
+       end;
+    //endi
 
 
 end;
@@ -780,18 +812,13 @@ end;
 
 procedure Tfrmprincipal.Button1Click(Sender: TObject);
 begin
-pnlcentral.Visible := false;
+  pnlcentral.Visible := false;
 end;
 
 procedure Tfrmprincipal.FormCreate(Sender: TObject);
 begin
 
-
-
-  atualizacaoBaseRemota;
-
-   // se cliente estiver como ativo = 1 não bloqueia
-
+atualizacaoBaseRemota;
 
 if bbloqueado then
    begin
@@ -1253,6 +1280,7 @@ begin
       try
         atualizaEmitente;
         //atualizaCliente;
+        consultavencidos;
 
       except
         reResp.Lines.Add('erro ao sincronizar dados');
@@ -1296,13 +1324,6 @@ begin
        sql_indice.Active := true;
 
 
-       cnpjemitente := cds_emitente.fieldbyname('cnpj').AsString;
-
-       chave:=sql_indice.fieldbyname('chaveconsultacep').AsString+cnpjemitente;
-
-
-
-
     end;
 
   setlength(abloqueio, frmdados.cds_emitente.RecordCount);
@@ -1310,6 +1331,9 @@ begin
   while not frmdados.cds_emitente.Eof do
     begin
 
+       cnpjemitente := tirapontos(tirabarras(tiratracos(frmdados.cds_emitente.fieldbyname('cnpj').AsString)));
+
+       chave:=frmdados.sql_indice.fieldbyname('chaveconsultacep').AsString+cnpjemitente;
 
         try
             lParamList := TStringList.Create;
@@ -1410,7 +1434,7 @@ begin
                cnpj:=tirapontos(tirabarras(tiratracos(frmdados.cds_emitente.fieldbyname('cnpj').AsString)));
 
                XMLDocument1.Active := False;
-               XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php?chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString+'&campo=cnpj&valor='+cnpj+'&modo=C');
+               XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php?chave='+chave+'&campo=cnpj&valor='+cnpj+'&modo=C');
                XMLDocument1.Active := True;
 
                nome      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['nome'].Text;
@@ -1540,9 +1564,6 @@ begin
 
        chave:=sql_indice.fieldbyname('chaveconsultacep').AsString+cnpjemitente;
 
-
-
-
     end;
 
   while not frmdados.cds_clientes.Eof do
@@ -1664,10 +1685,116 @@ begin
 end;
 
 
+procedure tfrmprincipal.consultavencidos;
+
+var
+
+  lParamList: TStringList;
+  lResponse : TStringStream;
+  smostrar, chave, cnpj, nome, bloqueado:string;
+  x:integer;
+  dtv, descricao, vlrorig, dtl, vlrliq:string;
+
+begin
+
+  x:=0;
+
+  with frmdados do
+    begin
+
+       cds_emitente.Active := false;
+       sql_emitente.Active := false;
+       sql_emitente.SQL.Clear;
+       sql_emitente.SQL.Add('select * from emitente where coalesce(id,0) > 0 ');
+       sql_emitente.active  := true;
+       cds_emitente.Active := true;
+
+       sql_indice.Active := false;
+       sql_indice.SQL.Clear;
+       sql_indice.SQL.Add('select * from indice');
+       sql_indice.Active := true;
+
+       cdstempvencido.CreateDataSet;
+       cdstempvencido.Open;
+
+    end;
+  //endth
+
+  while not frmdados.cds_emitente.Eof do
+    begin
+
+        cnpjemitente := tirapontos(tirabarras(tiratracos(frmdados.cds_emitente.fieldbyname('cnpj').AsString)));
+
+        chave:=  frmdados.sql_indice.fieldbyname('chaveconsultacep').AsString+cnpjemitente;
+
+        try
+
+            try
+
+               XMLDocument1.Active := False;
+               XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsvencidos.php?chave='+chave+'&campo=cnpj&valor='+cnpj+'&modo=C');
+               XMLDocument1.Active := True;
+
+               for x := 0 to XMLDocument1.ChildNodes['wsvencidos'].ChildNodes['response'].ChildNodes.Count - 1  do
+                  begin
+
+                    with XMLDocument1.ChildNodes['wsvencidos'].ChildNodes['response'].ChildNodes[x] do
+                      begin
+                        dtv     :=  ChildNodes['dtv'].Text;
+                        descricao      := ChildNodes['descricao'].Text;
+                        vlrorig := ChildNodes['vlrorig'].Text;
+                        dtl     :=  ChildNodes['dtl'].Text;
+                        vlrliq     :=  ChildNodes['vlrliq'].Text;
+
+                        with frmdados do
+                          begin
+                            cdstempvencido.Append;
+                            cdstempvencido.fieldbyname('dtv').asstring := formatdatetime('dd/mm/yyyy',strtodate(convertedata(dtv)));
+                            cdstempvencido.fieldbyname('descricao').asstring := descricao;
+                            cdstempvencido.fieldbyname('vlrorig').asfloat := strtofloat(Decimal_Is_Coma(vlrorig));
+                            if dtl  <> '0000-00-00' then
+                               cdstempvencido.fieldbyname('dtl').asstring := formatdatetime('dd/mm/yyyy',strtodate(convertedata(dtl)));
+                            //endi
+                            cdstempvencido.fieldbyname('vlrliq').asfloat := strtofloat(Decimal_Is_Coma(vlrliq));
+                            cdstempvencido.Post;  
+                          end;
 
 
 
+                      end;
+                    //endth
 
+
+                  end;
+
+
+
+               x := x + 1;
+
+               XMLDocument1.Active := false;
+            except
+
+            end;
+
+
+            frmdados.cds_emitente.Next;
+
+
+        finally
+           reResp.Lines.Add( 'Consulta vencidos');
+
+
+        end;
+
+    end;
+  //endw
+
+  frmdados.sql_emitente.Active := false;
+  frmdados.cds_emitente.Active := false;
+
+  //--------------------------------------------------------------------
+
+end;
 
 procedure Tfrmprincipal.BaixarNCM1Click(Sender: TObject);
 var
@@ -1771,14 +1898,21 @@ begin
        sql_exec.ExecSQL;
 
      end;
-
-
-   //   end;
-
-
-
+   //end;
  end;
 
+end;
+
+procedure Tfrmprincipal.Sobre1Click(Sender: TObject);
+begin
+  frmsobre := tfrmsobre.create(self);
+  frmsobre.showmodal;
+  frmsobre.free; 
+end;
+
+procedure Tfrmprincipal.Button3Click(Sender: TObject);
+begin
+ShellExecute(handle,'open','http://aplicacao.esy.es','','',SW_SHOWNORMAL);
 end;
 
 end.
