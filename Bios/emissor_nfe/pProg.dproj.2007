@@ -1,0 +1,438 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{3F75953B-EEED-4360-92DA-94F0580798AD}</ProjectGuid>
+			<MainSource>pProg.dpr</MainSource>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_DependencyCheckOutputName>pProg.exe</DCC_DependencyCheckOutputName>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_Platform>x86</DCC_Platform>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="pProg.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="uprincipal.pas">
+				<Form>frmprincipal</Form>
+			</DCCReference>
+			<DCCReference Include="udados.pas">
+				<Form>frmdados</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="Ugeral.pas"/>
+			<DCCReference Include="uSplash.pas">
+				<Form>frmSplash</Form>
+			</DCCReference>
+			<DCCReference Include="upesqpaises.pas">
+				<Form>frmpesqpaises</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltropaises.pas">
+				<Form>FrmFiltroPaises</Form>
+			</DCCReference>
+			<DCCReference Include="urelpaises.pas">
+				<Form>frmrelpaises</Form>
+			</DCCReference>
+			<DCCReference Include="upesqest.pas">
+				<Form>frmpesqEst</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltroest.pas">
+				<Form>FrmFiltroEst</Form>
+			</DCCReference>
+			<DCCReference Include="urelest.pas">
+				<Form>frmrelest</Form>
+			</DCCReference>
+			<DCCReference Include="uPesqMunic.pas">
+				<Form>FrmPesqMunic</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltromunic.pas">
+				<Form>FrmFiltroMunic</Form>
+			</DCCReference>
+			<DCCReference Include="urelmunic.pas">
+				<Form>frmrelmunic</Form>
+			</DCCReference>
+			<DCCReference Include="upesqicms.pas">
+				<Form>frmpesqICMS</Form>
+			</DCCReference>
+			<DCCReference Include="urelicms.pas">
+				<Form>frmrelicms</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltroicms.pas">
+				<Form>FrmFiltroICMS</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltroipi.pas">
+				<Form>FrmFiltroIPI</Form>
+			</DCCReference>
+			<DCCReference Include="upesqipi.pas">
+				<Form>frmpesqIPI</Form>
+			</DCCReference>
+			<DCCReference Include="urelipi.pas">
+				<Form>frmrelipi</Form>
+			</DCCReference>
+			<DCCReference Include="urelsita.pas">
+				<Form>frmrelsita</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltrosita.pas">
+				<Form>FrmFiltroSita</Form>
+			</DCCReference>
+			<DCCReference Include="upesqsita.pas">
+				<Form>frmpesqSita</Form>
+			</DCCReference>
+			<DCCReference Include="upesqsitb.pas">
+				<Form>frmpesqSitb</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltrositb.pas">
+				<Form>FrmFiltroSitb</Form>
+			</DCCReference>
+			<DCCReference Include="urelsitb.pas">
+				<Form>frmrelsitb</Form>
+			</DCCReference>
+			<DCCReference Include="upesqcf.pas">
+				<Form>frmpesqcf</Form>
+			</DCCReference>
+			<DCCReference Include="ubaixarncmi.pas">
+				<Form>Frmbaixarncmi</Form>
+			</DCCReference>
+			<DCCReference Include="urelcf.pas">
+				<Form>frmrelcf</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltromodbc.pas">
+				<Form>FrmFiltromodbc</Form>
+			</DCCReference>
+			<DCCReference Include="upesqmodbc.pas">
+				<Form>frmpesqmodbc</Form>
+			</DCCReference>
+			<DCCReference Include="urelmodbc.pas">
+				<Form>frmrelmodbc</Form>
+			</DCCReference>
+			<DCCReference Include="urelmodbcst.pas">
+				<Form>frmrelmodbcst</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltromodbcst.pas">
+				<Form>FrmFiltroModBcSt</Form>
+			</DCCReference>
+			<DCCReference Include="upesqmodbcst.pas">
+				<Form>frmpesqmodbcst</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltroimpostoi.pas">
+				<Form>FrmFiltroImpostoI</Form>
+			</DCCReference>
+			<DCCReference Include="upesqimpostoi.pas">
+				<Form>frmpesqimpostoi</Form>
+			</DCCReference>
+			<DCCReference Include="urelimpostoi.pas">
+				<Form>frmrelimpostoI</Form>
+			</DCCReference>
+			<DCCReference Include="upesqimpostoII.pas">
+				<Form>frmpesqimpostoII</Form>
+			</DCCReference>
+			<DCCReference Include="urelimpostoII.pas">
+				<Form>frmrelimpostoII</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltroimpostoii.pas">
+				<Form>FrmFiltroImpostoII</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltroimpostoIII.pas">
+				<Form>FrmFiltroImpostoIII</Form>
+			</DCCReference>
+			<DCCReference Include="upesqimpostoIII.pas">
+				<Form>frmpesqimpostoIII</Form>
+			</DCCReference>
+			<DCCReference Include="urelimpostoIII.pas">
+				<Form>frmrelimpostoIII</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltropis.pas">
+				<Form>FrmFiltropis</Form>
+			</DCCReference>
+			<DCCReference Include="upesqpis.pas">
+				<Form>frmpesqpis</Form>
+			</DCCReference>
+			<DCCReference Include="urelpis.pas">
+				<Form>frmrelpis</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltrocofins.pas">
+				<Form>FrmFiltrocofins</Form>
+			</DCCReference>
+			<DCCReference Include="upesqcofins.pas">
+				<Form>frmpesqcofins</Form>
+			</DCCReference>
+			<DCCReference Include="urelcofins.pas">
+				<Form>frmrelcofins</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltrocfop.pas">
+				<Form>FrmFiltroCFOP</Form>
+			</DCCReference>
+			<DCCReference Include="upesqcfop.pas">
+				<Form>frmpesqCFOP</Form>
+			</DCCReference>
+			<DCCReference Include="urelcfop.pas">
+				<Form>frmrelcfop</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltronatop.pas">
+				<Form>FrmFiltroNatOp</Form>
+			</DCCReference>
+			<DCCReference Include="upesqnatop.pas">
+				<Form>frmpesqnatop</Form>
+			</DCCReference>
+			<DCCReference Include="urelnatop.pas">
+				<Form>frmrelnatop</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltrounidade.pas">
+				<Form>FrmFiltroUnidade</Form>
+			</DCCReference>
+			<DCCReference Include="upesqunidade.pas">
+				<Form>frmpesqunidade</Form>
+			</DCCReference>
+			<DCCReference Include="urelunidade.pas">
+				<Form>frmrelunidade</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltrotiposerv.pas">
+				<Form>FrmFiltrotiposerv</Form>
+			</DCCReference>
+			<DCCReference Include="upesqtiposerv.pas">
+				<Form>frmpesqtiposerv</Form>
+			</DCCReference>
+			<DCCReference Include="ureltiposerv.pas">
+				<Form>frmreltiposerv</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltrorcserv.pas">
+				<Form>FrmFiltrorcserv</Form>
+			</DCCReference>
+			<DCCReference Include="upesqrcserv.pas">
+				<Form>frmpesqrcserv</Form>
+			</DCCReference>
+			<DCCReference Include="urelrcserv.pas">
+				<Form>frmrelrcserv</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltroprodutos.pas">
+				<Form>FrmFiltroProdutos</Form>
+			</DCCReference>
+			<DCCReference Include="upesqprodutos.pas">
+				<Form>frmpesqprodutos</Form>
+			</DCCReference>
+			<DCCReference Include="urelprodutos.pas">
+				<Form>frmrelprodutos</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltrotransportadora.pas">
+				<Form>FrmFiltroTransportadora</Form>
+			</DCCReference>
+			<DCCReference Include="upesqtransportadora.pas">
+				<Form>frmpesqtransportadora</Form>
+			</DCCReference>
+			<DCCReference Include="ureltransportadora.pas">
+				<Form>frmreltransportadora</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltrocmobra.pas">
+				<Form>FrmFiltrocmobra</Form>
+			</DCCReference>
+			<DCCReference Include="upesqcmobra.pas">
+				<Form>frmpesqcmobra</Form>
+			</DCCReference>
+			<DCCReference Include="urelcmobra.pas">
+				<Form>frmrelcmobra</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltroclientes.pas">
+				<Form>FrmFiltroClientes</Form>
+			</DCCReference>
+			<DCCReference Include="upesqclientes.pas">
+				<Form>frmpesqClientes</Form>
+			</DCCReference>
+			<DCCReference Include="urelclientes.pas">
+				<Form>frmrelClientes</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltroregtrib.pas">
+				<Form>FrmFiltroregtrib</Form>
+			</DCCReference>
+			<DCCReference Include="upesqregtrib.pas">
+				<Form>frmpesqregtrib</Form>
+			</DCCReference>
+			<DCCReference Include="urelregtrib.pas">
+				<Form>frmrelregtrib</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltroemitente.pas">
+				<Form>FrmFiltroemitente</Form>
+			</DCCReference>
+			<DCCReference Include="upesqemitente.pas">
+				<Form>frmpesqemitente</Form>
+			</DCCReference>
+			<DCCReference Include="urelemitente.pas">
+				<Form>frmrelemitente</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltrofornecedores.pas">
+				<Form>FrmFiltrofornecedores</Form>
+			</DCCReference>
+			<DCCReference Include="upesqfornecedores.pas">
+				<Form>frmpesqfornecedores</Form>
+			</DCCReference>
+			<DCCReference Include="urelfornecedores.pas">
+				<Form>frmrelfornecedores</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltronf.pas">
+				<Form>FrmFiltroNF</Form>
+			</DCCReference>
+			<DCCReference Include="upesqnf.pas">
+				<Form>frmpesqnf</Form>
+			</DCCReference>
+			<DCCReference Include="urelnf.pas">
+				<Form>frmrelnf</Form>
+			</DCCReference>
+			<DCCReference Include="upesqprodnf.pas">
+				<Form>frmpesqprodnf</Form>
+			</DCCReference>
+			<DCCReference Include="uconsprodutos.pas">
+				<Form>frmconsprodutos</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltrocsosn.pas">
+				<Form>FrmFiltroCsosn</Form>
+			</DCCReference>
+			<DCCReference Include="upesqcsosn.pas">
+				<Form>frmpesqCsosn</Form>
+			</DCCReference>
+			<DCCReference Include="urelcsosn.pas">
+				<Form>frmrelcsosn</Form>
+			</DCCReference>
+			<DCCReference Include="uconsserv.pas">
+				<Form>frmconsserv</Form>
+			</DCCReference>
+			<DCCReference Include="ufecnf.pas">
+				<Form>frmfecnf</Form>
+			</DCCReference>
+			<DCCReference Include="uindice.pas">
+				<Form>frmindice</Form>
+			</DCCReference>
+			<DCCReference Include="upcodcest.pas">
+				<Form>frmpcodcest</Form>
+			</DCCReference>
+			<DCCReference Include="upesqnfemi.pas">
+				<Form>frmpesqnfemi</Form>
+			</DCCReference>
+			<DCCReference Include="ufiltronfemi.pas">
+				<Form>FrmFiltronfemi</Form>
+			</DCCReference>
+			<DCCReference Include="urelnfemi.pas">
+				<Form>frmrelnfemi</Form>
+			</DCCReference>
+			<DCCReference Include="udetalhepedido.pas">
+				<Form>frmdetalhepedido</Form>
+			</DCCReference>
+			<DCCReference Include="umens.pas">
+				<Form>frmmens</Form>
+			</DCCReference>
+			<DCCReference Include="urelcartacorrecao.pas">
+				<Form>frmrelcartacorrecao</Form>
+			</DCCReference>
+			<DCCReference Include="funcoes_ibpt.pas"/>
+			<DCCReference Include="conexao_ibpt.pas">
+				<Form>frmconexao_ibpt</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="upesquisaproduto.pas">
+				<Form>frmpesquisaproduto</Form>
+			</DCCReference>
+			<DCCReference Include="ucancelar.pas">
+				<Form>frmcancelamento</Form>
+			</DCCReference>
+			<DCCReference Include="ucorrecao.pas">
+				<Form>frmcorrecao</Form>
+			</DCCReference>
+			<DCCReference Include="uenviaxml.pas"/>
+			<DCCReference Include="upcodibge.pas">
+				<Form>frmpcodibge</Form>
+			</DCCReference>
+			<DCCReference Include="baixarncm.pas">
+				<Form>frmbaixarncm</Form>
+			</DCCReference>
+			<DCCReference Include="ubaixancm.pas">
+				<Form>frmbaixarncminternet</Form>
+			</DCCReference>
+			<DCCReference Include="uconexaotcpip.pas">
+				<Form>frmconexaotcpip</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="usobre.pas">
+				<Form>frmsobre</Form>
+			</DCCReference>
+			<DCCReference Include="uaviso.pas">
+				<Form>frmaviso</Form>
+			</DCCReference>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>VCLApplication</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">pProg.dpr</Source>
+					</Source>
+					<Parameters>
+						<Parameters Name="UseLauncher">False</Parameters>
+						<Parameters Name="LoadAllSymbols">True</Parameters>
+						<Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+					</Parameters>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1046</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName"/>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+				</Delphi.Personality>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>
