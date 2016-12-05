@@ -1,7 +1,7 @@
 object frmfrenteecf: Tfrmfrenteecf
   Left = 2
   Top = 1
-  Width = 1328
+  Width = 1036
   Height = 719
   VertScrollBar.Position = 56
   BorderIcons = [biSystemMenu]
@@ -1945,7 +1945,7 @@ object frmfrenteecf: Tfrmfrenteecf
   object pnlinferior: TPanel
     Left = 0
     Top = 632
-    Width = 1304
+    Width = 1016
     Height = 44
     Align = alBottom
     BevelOuter = bvNone
@@ -2278,7 +2278,7 @@ object frmfrenteecf: Tfrmfrenteecf
   object barra: TStatusBar
     Left = 0
     Top = 676
-    Width = 1304
+    Width = 1016
     Height = 19
     Color = clBlue
     Panels = <
@@ -3285,8 +3285,8 @@ object frmfrenteecf: Tfrmfrenteecf
       OnKeyPress = edivalorKeyPress
     end
     object pnlparcelar: TPanel
-      Left = 187
-      Top = 297
+      Left = 195
+      Top = 1
       Width = 234
       Height = 161
       BevelOuter = bvNone
@@ -3569,7 +3569,7 @@ object frmfrenteecf: Tfrmfrenteecf
   object btninferior2: TPanel
     Left = 0
     Top = 595
-    Width = 1304
+    Width = 1016
     Height = 37
     Align = alBottom
     BevelOuter = bvNone

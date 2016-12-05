@@ -275,6 +275,7 @@ type
     procedure spdrelatorios176Click(Sender: TObject);
     procedure exportarped;
     procedure SpeedButton4Click(Sender: TObject);
+    
 
 
 
@@ -501,6 +502,8 @@ begin
       Cds_sVendatpo.DefaultExpression := '0';
       Cds_sVendadatacad.DefaultExpression := quotedstr( datetostr( date ) );
       Cds_sVendahrcad.DefaultExpression := quotedstr(copy(timetostr(time),1,5));
+      Cds_sVendatipodoc.DefaultExpression := '2';
+      Cds_sVendatipoop.DefaultExpression := '1';
       Cds_dVenda.Active := false;
       Cds_Vencto.Active := false;
     end;
@@ -515,7 +518,7 @@ begin
 
 
   // inicializando variáveis comuns
-  sCompo := '(coalesce (nco,0) = 0) and (coalesce (tpo,0) = 0)';
+  sCompo := '(tipoop > 0) and (coalesce (nco,0) = 0) and (coalesce (tpo,0) = 0)';
   sTitRel := '';
 
   // inicializando variáveis deste filtro
@@ -848,18 +851,13 @@ begin
       dbx_vencto.Active := true;
       cds_vencto.Active := true;
 
-      //ediccli.Text := cds_svenda.fieldbyname('ccli').asString;
 
       totalizafrmpesqvdprod;
 
-      //if Cds_sVenda.RecordCount <> 0 then
-      //   Cds_dVenda.Active := true;
-      //endi
-      //if Cds_sVenda.RecordCount <> 0 then
-      //   Cds_Vencto.Active := true;
-      //endi
     end;
   //end;
+
+
 
 
 end;
@@ -2138,7 +2136,7 @@ with frmdados do
        Cds_svenda.Post;
     //endi
 
-    totalizafrmpesqvdprod;
+    frmdados.totalizafrmpesqvdprod;
     cds_dVenda.Refresh;
 
     if sOpcaop = 'I' then
@@ -3759,5 +3757,8 @@ procedure TfrmPesqVd.SpeedButton4Click(Sender: TObject);
 begin
 exportarped;
 end;
+
+
+
 
 end.

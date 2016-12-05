@@ -4492,6 +4492,8 @@ type
     Cds_Indiceexportacaosat: TStringField;
     Cds_Indiceerrosat: TStringField;
     Cds_Indiceproxsat: TIntegerField;
+    Dbx_sVendaTIPODOC: TIntegerField;
+    Cds_sVendaTIPODOC: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure cds_Tipo_PgtoAfterPost(DataSet: TDataSet);
@@ -4682,7 +4684,8 @@ implementation
         upesqnf, ufecenf, uIndice, upesqos, ufecos, uPesqtipopgtov, upesqrecbto,
         upesqpag, ufrenteecf, uasenha, uconfint, upesqost, ufecost, uComanda,
         utradental, ucomandap, utra, ufectra, uagenda, upesqrecbtop,
-        upesqprod, uPesqtipopgtovp, upesqprodpfor, umultpagto, ufatorprod, funcoes_ibpt;
+        upesqprod, uPesqtipopgtovp, upesqprodpfor, umultpagto, ufatorprod, funcoes_ibpt,
+  uPesqOrcam;
 {$R *.dfm}
 
 procedure TfrmDados.DataModuleCreate(Sender: TObject);
@@ -9847,6 +9850,19 @@ if frmpesqvd <> nil then
    end;
 //endi
 
+
+if frmpesqOrcam <> nil then
+   begin
+     if (not frmpesqOrcam.pnllista.Visible) and ((frmpesqOrcam.cbxncli.Focused) or (frmpesqOrcam.cbxnfant.Focused)) then
+        begin
+          cds_svenda.Edit;
+          cds_svenda.FieldByName('ctab').asInteger := cds_clientes.fieldbyname('ctipotab').asInteger;
+        end;
+     //endi
+   end;
+//endi
+
+
 if frmpesqclic <> nil then
    begin
 
@@ -9977,6 +9993,7 @@ var x:integer;
     ftotalv, ftotalc:real;
 begin
 
+
   if frmpesqvd <> nil then
      begin
        dbx_exec.Active := false;
@@ -9986,6 +10003,12 @@ begin
        frmpesqvd.lbltotal.Caption := formatfloat('###,###,##0.00',dbx_exec.fieldbyname('totalv').asfloat);
        frmpesqvd.lbltotalc.Caption := formatfloat('###,###,##0.00',dbx_exec.fieldbyname('totalc').asfloat);
        dbx_exec.Active := false;
+
+       tabela := 'sVenda';
+       cds_svenda.Edit;
+       cds_svenda.FieldByName('total').AsFloat :=  strtofloat(tirapontos(frmpesqvd.lbltotal.Caption));
+       cds_svenda.Post;
+       exit;
      end;
   //endi
 
@@ -9997,6 +10020,7 @@ begin
        dbx_exec.Active := true;
        frmpesqnf.lbltotal.Caption := formatfloat('###,###,##0.00',dbx_exec.fieldbyname('totalv').asfloat);
        dbx_exec.Active := false;
+       exit;
      end;
   //endi
 
@@ -10024,6 +10048,16 @@ begin
        frmpesqos.lbltotalM.Caption := formatfloat('###,###,##0.00',dbx_exec.fieldbyname('totalv').asfloat);
        dbx_exec.Active := false;
 
+       tabela := 'sVenda';
+       cds_svenda.Edit;
+       cds_svenda.FieldByName('total').AsFloat :=  strtofloat(tirapontos(frmpesqOs.lbltotal.Caption))+
+                                                   strtofloat(tirapontos(frmpesqOs.lbltotalM.Caption))+
+                                                   strtofloat(tirapontos(frmpesqOs.lbltotalMG.Caption));
+       cds_svenda.Post;
+
+
+
+       exit;
      end;
   //endi
 
@@ -10046,6 +10080,7 @@ begin
        dbx_exec.Active := false;
 
 
+        exit;
      end;
   //endi
 
@@ -10073,9 +10108,28 @@ begin
        frmtra.lbltotg.Caption := formatfloat('###,###,##0.00',dbx_exec.fieldbyname('totalv').asfloat);
        dbx_exec.Active := false;
 
+       exit;
+
      end;
   //endi
 
+  if frmpesqOrcam <> nil then
+     begin
+       dbx_exec.Active := false;
+       dbx_exec.SQL.Clear;
+       dbx_exec.SQL.Add('Select sum(subtotal) as totalv, sum(subtotalc) as totalc  from dvenda where (codsvenda = '+cds_sVenda.fieldbyname('codigo').asString+')');
+       dbx_exec.Active := true;
+       frmpesqOrcam.lbltotal.Caption := formatfloat('###,###,##0.00',dbx_exec.fieldbyname('totalv').asfloat);
+       frmpesqOrcam.lbltotalc.Caption := formatfloat('###,###,##0.00',dbx_exec.fieldbyname('totalc').asfloat);
+       dbx_exec.Active := false;
+
+       tabela := 'sVenda';
+       cds_svenda.Edit;
+       cds_svenda.FieldByName('total').AsFloat :=  strtofloat(tirapontos(frmpesqOrcam.lbltotal.Caption));
+       cds_svenda.Post;
+       exit;
+     end;
+  //endi
 
 
 
@@ -10345,6 +10399,11 @@ procedure TfrmDados.Cds_dVendaAfterDelete(DataSet: TDataSet);
 begin
 AtualizaDados;
 if frmpesqvd <> nil then
+   begin
+     totalizafrmpesqvdprod;
+   end;
+//endi
+if frmpesqOrcam <> nil then
    begin
      totalizafrmpesqvdprod;
    end;
@@ -11026,6 +11085,15 @@ if frmpesqvf <> nil then
 
    end;
 //endi
+
+
+if frmpesqOrcam <> nil then
+  begin
+    frmpesqOrcam.AtivaDbotoes;
+  end;
+//endi
+
+
 
 
 if frmpesqvd <> nil then

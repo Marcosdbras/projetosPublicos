@@ -76,7 +76,8 @@ var
   frmpesqprodD: TfrmpesqprodD;
 
 implementation
-   uses ugeral, ufrente, uDados, upesqvd, upesqos, upesqnf, ucomanda, ucomandap;
+   uses ugeral, ufrente, uDados, upesqvd, upesqos, upesqnf, ucomanda, ucomandap,
+  uPesqOrcam;
 {$R *.dfm}
 
 procedure TfrmpesqprodD.FormShow(Sender: TObject);
@@ -442,6 +443,17 @@ procedure TfrmpesqprodD.spdadd178Click(Sender: TObject);
 var
   contador, x: Integer;
 begin
+  if frmpesqOrcam <> nil then
+     begin
+       frmpesqOrcam.edicpro.Text :=  frmdados.Cds_vProdutos.fieldbyname('codigo').AsString;
+
+       close;
+       exit;
+     end;
+  //endi
+
+
+
   if frmpesqvd <> nil then
      begin
        frmpesqvd.edicpro.Text :=  frmdados.Cds_vProdutos.fieldbyname('codigo').AsString;

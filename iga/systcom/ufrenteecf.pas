@@ -559,7 +559,7 @@ begin
 
   bimpcab := true;
 
-  rgbtipoop.Enabled := false;
+  //rgbtipoop.Enabled := false;
 
   dbgvencto.Align := alclient;
 
@@ -3084,7 +3084,8 @@ begin
   //endi
 
   if (strtofloat(tirapontos(edivalor.Text)) = 0) and
-     (strtofloat(tirapontos(lbltotpagar.caption)) > 0)
+     (strtofloat(tirapontos(lbltotpagar.caption)) > 0) and
+     (rgbtipoop.ItemIndex > 0 )
   then
      begin
        edivalor.SetFocus;
@@ -3166,7 +3167,10 @@ begin
        fVlr := strtofloat(tirapontos(edivalor.Text));
        sVlr := alinNumD(14,fvlr);
 
-       if (not vparc) and (frmdados.cds_Tipo_Pgto.FieldByName('codigo').asInteger <> frmdados.cds_indice.fieldbyname('codavista').asInteger) then
+       if (not vparc) and
+          (frmdados.cds_Tipo_Pgto.FieldByName('codigo').asInteger <> frmdados.cds_indice.fieldbyname('codavista').asInteger) and
+          (rgbtipoop.ItemIndex > 0)
+       then
            begin
              showmessage('Limite de parcela à prazo excedido');
              exit;
@@ -3200,7 +3204,7 @@ begin
        sapurado  := formatfloat('0.00',ftotApurado);
 
        //if ftotApurado < strtofloat(tirapontos(lbltotpagar.Caption)) then
-       if strtofloat(tirapontos(sapurado)) < strtofloat(tirapontos(stotpagar)) then
+       if (rgbtipoop.ItemIndex > 0) and (strtofloat(tirapontos(sapurado)) < strtofloat(tirapontos(stotpagar))) then
           begin
             fVlr :=  strtofloat(tirapontos(lbltotpagar.Caption)) - ftotApurado;
             lbltotalp.Caption := formatfloat('###,###,##0.00',fVlr);
@@ -3272,13 +3276,22 @@ begin
 
        salvapedido;
        lancavenda;
-       lancacaixaind;
+
+
+          lancacaixaind;
+
        novavenda;
 
      end;
 
    1:begin
        //SWEDA
+       if rgbtipoop.ItemIndex = 0 then
+          begin
+            showmessage('Lançamento não permitido para tipo Orçamento');
+            exit;
+          end;
+
 
        fVlrR := strtofloat(tirapontos(edivalor.Text));
        sVlrR := formatfloat('0.00',fvlrR);
@@ -3520,6 +3533,13 @@ begin
 
    2:begin
        //BEMATECH
+       if rgbtipoop.ItemIndex = 0 then
+          begin
+            showmessage('Lançamento não permitido para tipo Orçamento');
+            exit;
+          end;
+
+
 
        fVlrR := strtofloat(tirapontos(edivalor.Text));
        sVlrR := formatfloat('0.00',fvlrR);
@@ -3753,6 +3773,12 @@ begin
 
    3:begin
        //DATAREGIS
+        if rgbtipoop.ItemIndex = 0 then
+          begin
+            showmessage('Lançamento não permitido para tipo Orçamento');
+            exit;
+          end;
+
 
        fVlrR := strtofloat(tirapontos(edivalor.Text));
        sVlrR := formatfloat('0.00',fvlrR);
@@ -7467,6 +7493,10 @@ begin
            dbx_exec.SQL.Clear;
            dbx_exec.SQL.Add('Insert into sVenda (');
 
+           dbx_exec.SQL.Add('tipodoc,');
+
+           dbx_exec.SQL.Add('tipoop,');
+
            if rgbtipoop.ItemIndex = 0 then
               begin
                 dbx_exec.SQL.Add('NumOrc,');
@@ -7476,7 +7506,7 @@ begin
                 dbx_exec.SQL.Add('NumPed,');
               end;
            //endi
-           dbx_exec.SQL.Add('tipoop,');
+           
            dbx_exec.SQL.Add('tipoent,');
 
            if iccli > 0 then
@@ -7513,16 +7543,21 @@ begin
 
            dbx_exec.SQL.Add(') values (');
 
+           dbx_exec.SQL.Add('1,');
+
            if rgbtipoop.ItemIndex = 0 then
               begin
+                dbx_exec.SQL.Add('0,');
                 dbx_exec.SQL.Add(inttostr(iNorc)+',');
               end
            else
               begin
+                dbx_exec.SQL.Add('1,');
                 dbx_exec.SQL.Add(inttostr(iNPed)+',');
               end;
            //endi
-           dbx_exec.SQL.Add(inttostr(rgbtipoop.ItemIndex)+',');
+
+           //dbx_exec.SQL.Add(inttostr(rgbtipoop.ItemIndex)+',');
            dbx_exec.SQL.Add(inttostr(rgbtipoent.ItemIndex)+',');
 
            if iccli > 0 then
@@ -7548,7 +7583,11 @@ begin
            dbx_exec.SQL.Add(decimal_is_point(sCustopecas)+',');
            dbx_exec.SQL.Add(decimal_is_point(sCustopecae)+',');
            dbx_exec.SQL.Add(decimal_is_point(stotGprodD)+',');
-           dbx_exec.SQL.Add(Quotedstr('T')+',');
+
+           if rgbtipoop.ItemIndex > 0 then
+              dbx_exec.SQL.Add(Quotedstr('T')+',')
+           else
+              dbx_exec.SQL.Add(Quotedstr('F')+',');
 
            sDataFec := datetostr(date);
            sDataFec := bar_is_point( sDataFec  );
@@ -8993,10 +9032,55 @@ var
 begin
 
 
- //caixa individual
+  if rgbtipoop.ItemIndex = 0 then
+     begin
+       with frmdados do
+         begin
+
+           cds_id.Active := true;
+           cds_caixa.Active := false;
+           cds_caixa.Filtered := false;
+           cds_caixa.Filter := 'cusu = '+inttostr(icusu);
+           cds_caixa.Filtered := true;
+           cds_caixa.Active := true;
+
+           cds_caixa.Append;
+           cds_caixa.FieldByName('data').AsDateTime :=  strtodate( lbldatamov.caption );
+           cds_caixa.FieldByName('valor').AsFloat :=  cds_vencto.fieldbyname('valorreal').AsFloat;
+           cds_caixa.FieldByName('codformapgto').AsInteger := 0;
+
+           cds_caixa.FieldByName('formapgto').AsString := 'Orçamento';
+           cds_caixa.FieldByName('historico').AsString := '';
+           cds_caixa.FieldByName('op').AsString := '';
+           cds_caixa.FieldByName('status').AsString := '';
+           cds_caixa.FieldByName('cusu').AsInteger := icusu;
+           cds_caixa.FieldByName('id').AsInteger := cds_id.fieldbyname('id').AsInteger;
+           cds_caixa.FieldByName('nped').AsInteger := 0;
+           cds_caixa.Post;
+
+           cds_id.Active := false;
+           cds_caixa.Active := false;
+
+         end;
+       //endth
+
+
+
+       exit;
+
+     end;
+  //endif
+
 
   with frmdados do
        begin
+
+         cds_id.Active := true;
+         cds_caixa.Active := false;
+         cds_caixa.Filtered := false;
+         cds_caixa.Filter := 'cusu = '+inttostr(icusu);
+         cds_caixa.Filtered := true;
+         cds_caixa.Active := true;
 
          cds_svenda.Active := false;
          dbx_svenda.Active := false;
@@ -9014,16 +9098,6 @@ begin
          if fdinheiro > 0 then
             begin
 
-              cds_id.Active := true;
-
-
-              cds_caixa.Active := false;
-
-              cds_caixa.Filtered := false;
-              cds_caixa.Filter := 'cusu = '+inttostr(icusu);
-              cds_caixa.Filtered := true;
-
-              cds_caixa.Active := true;
               cds_caixa.Append;
               cds_caixa.FieldByName('data').AsDateTime :=  strtodate( lbldatamov.caption );
               cds_caixa.FieldByName('valor').AsFloat :=  fdinheiro;
@@ -9053,15 +9127,11 @@ begin
 
 
          cds_caixa.Active := false;
-
          cds_caixa.Filtered := false;
          cds_caixa.Filter := 'cusu = '+inttostr(icusu);
          cds_caixa.Filtered := true;
-
-
          cds_caixa.Active := true;
          cds_id.Active := true;
-
 
          while not cds_vencto.Eof do
            begin
@@ -9086,13 +9156,8 @@ begin
            end;
          //endw
 
-
-
          cds_caixa.Active := false;
          cds_id.Active := false;
-
-
-
 
        end;
   //endi

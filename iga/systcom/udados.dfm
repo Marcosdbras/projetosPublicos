@@ -3,10 +3,10 @@ object frmDados: TfrmDados
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 267
-  Top = 17
-  Height = 568
-  Width = 798
+  Left = 1
+  Top = 1
+  Height = 488
+  Width = 688
   object Sql_Dados: TSQLConnection
     ConnectionName = 'UIB FireBird15 Connection'
     DriverName = 'UIB FireBird15'
@@ -16,7 +16,7 @@ object frmDados: TfrmDados
     Params.Strings = (
       'BlobSize=-1'
       'CommitRetain=False'
-      'Database=C:\auxsystcom\fbdados.fdb'
+      'Database=C:\bd_auxsystcom\fbdados.fdb'
       'DriverName=UIB FireBird15'
       'ErrorResourceFile='
       'LocaleCode=0000'
@@ -4084,6 +4084,9 @@ object frmDados: TfrmDados
     object Dbx_sVendacpfcnpj: TStringField
       FieldName = 'cpfcnpj'
     end
+    object Dbx_sVendaTIPODOC: TIntegerField
+      FieldName = 'TIPODOC'
+    end
   end
   object Dsp_sVenda: TDataSetProvider
     DataSet = Dbx_sVenda
@@ -5201,6 +5204,9 @@ object frmDados: TfrmDados
     end
     object Cds_sVendacpfcnpj: TStringField
       FieldName = 'cpfcnpj'
+    end
+    object Cds_sVendaTIPODOC: TIntegerField
+      FieldName = 'TIPODOC'
     end
   end
   object Dts_sVenda: TDataSource
@@ -6650,8 +6656,8 @@ object frmDados: TfrmDados
   end
   object DspAdo_ItensV: TDataSetProvider
     DataSet = DbxAdo_ItensV
-    Left = 600
-    Top = 1057
+    Left = 576
+    Top = 284
   end
   object CdsAdo_ItensV: TClientDataSet
     Aggregates = <>

@@ -197,7 +197,7 @@ procedure TfrmCaixaApa.spdfiltrarClick(Sender: TObject);
     totpagas, totpagar, totdinOS, totparcOs, totGparcOs, totrecparc, totpagparc,
     totcusto, totvenda, totcuspecas, totcusdevpecas, totmo, totvendapecas, totvdescp,
     totvdescv, saldovpecas, saldocpecas, saldomobra, totGrec, totvendac, ftotarecber,
-    totdin, totliq, fvlr, fperc1, fperc2, ftotingestao, ftotsangria, totgpagl, ftotp:real;
+    totdin, totliq, fvlr, fperc1, fperc2, ftotingestao, ftotsangria, totgpagl, ftotp, ftotorc:real;
 begin
 
 if iNum = 1 then
@@ -255,6 +255,7 @@ with frmdados do
     totvdescv := 0;
     totGrec := 0;
     totgpagl := 0;
+    ftotorc :=0;
 
     col1 := '';
     col2 := '';
@@ -347,21 +348,28 @@ with frmdados do
     //endi
 
     //Venda
-
     cds_svenda.Active := false;
     dbx_svenda.Active := false;
     dbx_svenda.SQL.Clear;
     if cbxtipo.ItemIndex = 0 then
-       dbx_svenda.SQL.Add('Select * from svenda where ('+'datafec >= '+quotedstr(sDataI)+') and (datafec <= '+quotedstr(sDataF)+') and (lancado = '+Quotedstr('T')+') and (tipoop > 0)');
+       begin
+         dbx_svenda.SQL.Add('Select * from svenda where ('+'datafec >= '+quotedstr(sDataI)+') and (datafec <= '+quotedstr(sDataF)+') and (lancado = '+Quotedstr('T')+') and (tipoop > 0)');
+       end;
     //endi
     if cbxtipo.ItemIndex = 1 then
-       dbx_svenda.SQL.Add('Select * from svenda where ('+'datafec >= '+quotedstr(sDataI)+') and (datafec <= '+quotedstr(sDataF)+') and (lancado = '+Quotedstr('T')+') and (coalesce (nco,0) > 0) and (tipoop > 0)');
+       begin
+         dbx_svenda.SQL.Add('Select * from svenda where ('+'datafec >= '+quotedstr(sDataI)+') and (datafec <= '+quotedstr(sDataF)+') and (lancado = '+Quotedstr('T')+') and (coalesce (nco,0) > 0) and (tipoop > 0)');
+       end;
     //endi
     if cbxtipo.ItemIndex = 2 then
-       dbx_svenda.SQL.Add('Select * from svenda where ('+'datafec >= '+quotedstr(sDataI)+') and (datafec <= '+quotedstr(sDataF)+') and (lancado = '+Quotedstr('T')+') and (nco is null) and (nos is null) and (tipoop > 0)');
+       begin
+         dbx_svenda.SQL.Add('Select * from svenda where ('+'datafec >= '+quotedstr(sDataI)+') and (datafec <= '+quotedstr(sDataF)+') and (lancado = '+Quotedstr('T')+') and (nco is null) and (nos is null) and (tipoop > 0)');
+       end;
     //endi
     if cbxtipo.ItemIndex = 3 then
-       dbx_svenda.SQL.Add('Select * from svenda where ('+'datafec >= '+quotedstr(sDataI)+') and (datafec <= '+quotedstr(sDataF)+') and (lancado = '+Quotedstr('T')+') and (coalesce (nos,0) > 0) and (tipoop > 0)');
+       begin
+         dbx_svenda.SQL.Add('Select * from svenda where ('+'datafec >= '+quotedstr(sDataI)+') and (datafec <= '+quotedstr(sDataF)+') and (lancado = '+Quotedstr('T')+') and (coalesce (nos,0) > 0) and (tipoop > 0)');
+       end;
     //endi
     dbx_svenda.Active := true;
     cds_svenda.Active := true;
@@ -369,7 +377,6 @@ with frmdados do
     while not cds_svenda.Eof do
       begin
 
-        //showmessage(cds_svenda.fieldbyname('liquido').asString);
         ftotp := cds_svenda.fieldbyname('ftotp').asfloat;
         totvendapecas := totvendapecas + ftotp;
         totmo := totmo + cds_svenda.fieldbyname('ftotm').asfloat;
@@ -437,6 +444,48 @@ with frmdados do
 
       end;
     //endi
+
+
+
+
+    //Orçamento
+    cds_svenda.Active := false;
+    dbx_svenda.Active := false;
+    dbx_svenda.SQL.Clear;
+    if cbxtipo.ItemIndex = 0 then
+       begin
+         dbx_svenda.SQL.Add('Select * from svenda where ('+'datacad >= '+quotedstr(sDataI)+') and (datacad <= '+quotedstr(sDataF)+') and (tipoop = 0)');
+       end;
+    //endi
+    if cbxtipo.ItemIndex = 1 then
+       begin
+         dbx_svenda.SQL.Add('Select * from svenda where ('+'datacad >= '+quotedstr(sDataI)+') and (datacad <= '+quotedstr(sDataF)+')  and (tipoop = 0) and (tipodoc=1)');
+       end;
+    //endi
+    if cbxtipo.ItemIndex = 2 then
+       begin
+         dbx_svenda.SQL.Add('Select * from svenda where ('+'datacad >= '+quotedstr(sDataI)+') and (datacad <= '+quotedstr(sDataF)+')  and (tipoop = 0) and (tipodoc=2)');
+       end;
+    //endi
+    if cbxtipo.ItemIndex = 3 then
+       begin
+         dbx_svenda.SQL.Add('Select * from svenda where ('+'datacad >= '+quotedstr(sDataI)+') and (datacad <= '+quotedstr(sDataF)+')  and (tipoop = 0) and (tipodoc = 3)');
+       end;
+    //endi
+    dbx_svenda.Active := true;
+    cds_svenda.Active := true;
+
+    while not cds_svenda.Eof do
+      begin
+
+        ftotorc := ftotorc + cds_svenda.fieldbyname('total').asfloat;
+
+
+        cds_svenda.Next;
+
+      end;
+    //endi
+
 
     cds_tipo_pgto.First;
     while not cds_tipo_pgto.Eof do
@@ -1045,7 +1094,35 @@ with lblbase do begin
    tag := 1;
 end;
 
+A := A + 16;
+lblbase := tlabel.Create(self);
+with lblbase do begin
+   alignment := taleftjustify;
+   left := formcolt;
+   top := A;
+   lblbase.Caption :=     chr(65+i)+') ORÇAMENTO(S):';
+   parent := self;
+   tag := 1;
+end;
 
+lblbase := tlabel.Create(self);
+with lblbase do begin
+   alignment := tarightjustify;
+   left := formcold1;
+   top := A;
+   lblbase.Caption := '';
+   parent := self;
+   tag := 1;
+end;
+lblbase := tlabel.Create(self);
+with lblbase do begin
+   alignment := tarightjustify;
+   left := formcold1;
+   top := A;
+   lblbase.Caption := formatfloat('###,###,##0.00',ftotorc);
+   parent := self;
+   tag := 1;
+end;
 
 
 

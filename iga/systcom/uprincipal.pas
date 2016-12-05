@@ -179,6 +179,8 @@ type
     lbldatacriaexe: TLabel;
     lbldatamodexe: TLabel;
     lblmensagem: TLabel;
+    Orc1: TMenuItem;
+    spdorcamento: TSpeedButton;
     procedure FormShow(Sender: TObject);
     procedure Indice1Click(Sender: TObject);
     procedure DBGrid1KeyPress(Sender: TObject; var Key: Char);
@@ -283,6 +285,8 @@ type
     procedure atualizacaoBaseRemota;
     procedure atualizaEmitente;
     procedure btnfecharClick(Sender: TObject);
+    procedure Orc1Click(Sender: TObject);
+    procedure spdorcamentoClick(Sender: TObject);
 
 
 
@@ -311,7 +315,7 @@ uses ugeral, uIndice, udados, uApDados, uPesqVf, uPesqVfey, uconfbcofb,
   uasenha, upesqMunic, upesqpais, uPesqNatOpNF, uemailmark, upesqmodbc,
   upesqmodbcst, upesqoimp, upesqvii, upesqir_ii, upesqcofins, upesqpis,
   uPesqTipoTab, upesqmat_rest, upesqost, ucaixadet, uPesqSProdb,
-  upesqprodpfor, upesqcondpgto, umultpagto, upesqmatprima;
+  upesqprodpfor, upesqcondpgto, umultpagto, upesqmatprima, uPesqOrcam;
 
 {$R *.dfm}
 
@@ -886,6 +890,7 @@ begin
                  Movimento1.Visible := true;
                  Pedido1.Visible := true;
                  spdpedido.Visible := true;
+                 spdorcamento.Visible := true;
                end;
             //endi
             if Localiza_Itens_Usuario(EntradadeProdutos1,sqp_dados.ParamByName('codigo').AsString) > 0 then
@@ -1281,6 +1286,7 @@ begin
   DeAuxiliarparaAplicativos1.Visible := false;
   Pedido1.Visible := false;
   spdpedido.Visible := false;
+  spdorcamento.Visible := false;
 
   Funcionrio1.Visible := false;
   Marketing1.Visible := false;
@@ -5415,7 +5421,6 @@ begin
 
 
 
-
     end;
 
   setlength(abloqueio, frmdados.cds_config.RecordCount);
@@ -5423,6 +5428,7 @@ begin
   while not frmdados.cds_config.Eof do
     begin
 
+       cnpj:=tirapontos(tirabarras(tiratracos(frmdados.cds_config.fieldbyname('campo3').AsString)));
 
         try
             lParamList := TStringList.Create;
@@ -5480,10 +5486,10 @@ begin
             try
 
 
-               cnpj:=tirapontos(tirabarras(tiratracos(frmdados.cds_config.fieldbyname('campo3').AsString)));
+
 
                XMLDocument1.Active := False;
-               XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php?chave='+frmdados.cds_indice.fieldbyname('chaveconsultacep').asString+'&campo=cnpj&valor='+cnpj+'&modo=C');
+               XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php?chave='+chave+cnpj+'&modo=C');
                XMLDocument1.Active := True;
 
                nome      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['nome'].Text;
@@ -5538,6 +5544,115 @@ end;
 procedure Tfrmprincipal.btnfecharClick(Sender: TObject);
 begin
   pnlcentral.Visible := false;
+end;
+
+procedure Tfrmprincipal.Orc1Click(Sender: TObject);
+begin
+if frmPesqOrcam=nil then
+   begin
+     fechatodos;
+     frmPesqOrcam:=TfrmPesqOrcam.Create(Self);
+     frmPesqOrcam.Show;
+     form_ativo:= frmPesqOrcam.name;
+     pnlcentral.Visible := false;
+     itag := orc1.Tag;
+     if localiza_DetItens_Usuario(iTag,icUsu,'I') > 0 then
+        begin
+          bpedidoI := true;
+        end;
+     //endi
+     if localiza_DetItens_Usuario(iTag,icUsu,'A') > 0 then
+        begin
+          bpedidoA := true;
+        end;
+     //endi
+     if localiza_DetItens_Usuario(iTag,icUsu,'E') > 0 then
+        begin
+          bpedidoE := true;
+        end;
+     //endi
+     if localiza_DetItens_Usuario(iTag,icUsu,'N') > 0 then
+        begin
+          bpedidoN := true;
+        end;
+     //endi
+     if localiza_DetItens_Usuario(iTag,icUsu,'V') > 0 then
+        begin
+          bpedidoV := true;
+        end;
+     //endi
+     if localiza_DetItens_Usuario(iTag,icUsu,'R') > 0 then
+        begin
+          bpedidoR := true;
+        end;
+     //endi
+     if localiza_DetItens_Usuario(iTag,icUsu,'CF') > 0 then
+        begin
+          bpedidoCF := true;
+        end;
+     //endi
+
+
+     if Localiza_Itens_Usuario(Clientes1,inttostr(icusu)) > 0 then
+        begin
+
+          if localiza_DetItens_Usuario(11,icUsu,'I') > 0 then
+             begin
+               bClientesI := true;
+             end;
+          //endi
+          if localiza_DetItens_Usuario(11,icUsu,'A') > 0 then
+             begin
+               bClientesA := true;
+             end;
+          //endi
+          if localiza_DetItens_Usuario(11,icUsu,'E') > 0 then
+             begin
+               bClientesE := true;
+             end;
+          //endi
+          if localiza_DetItens_Usuario(11,icUsu,'N') > 0 then
+             begin
+               bClientesN := true;
+             end;
+          //endi
+          if localiza_DetItens_Usuario(11,icUsu,'V') > 0 then
+             begin
+               bClientesV := true;
+             end;
+          //endi
+          if localiza_DetItens_Usuario(11,icUsu,'R') > 0 then
+             begin
+               bClientesR := true;
+             end;
+          //endi
+          if localiza_DetItens_Usuario(11,icUsu,'CF') > 0 then
+             begin
+               bClientesCF := true;
+             end;
+          //endi
+
+
+
+       end;
+     //endi
+
+     if Locaiza_ItensUsuS(23,inttostr(icusu)) > 0 then
+        begin
+          bVSEstq := true;
+        end;
+     //endi
+
+   end;
+//endi
+
+end;
+
+procedure Tfrmprincipal.spdorcamentoClick(Sender: TObject);
+begin
+if Orc1.visible then
+   Orc1.Click
+//endi
 end;
 
 end.

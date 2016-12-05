@@ -1709,7 +1709,7 @@ begin
       Cds_sVendatpo.DefaultExpression := '1';
       Cds_sVendadatacad.DefaultExpression := quotedstr( datetostr( date ) );
       Cds_sVendahrcad.DefaultExpression := quotedstr(copy(timetostr(time),1,5));
-      //cds_sVendaobs.DefaultExpression := quotedstr(frmdados.Cds_Indice.fieldbyname('obs').asString);
+      cds_sVendatipodoc.DefaultExpression := '3';
       //cds_sVendaobs1.DefaultExpression := quotedstr(frmdados.Cds_Indice.fieldbyname('obs1').asString);
       Cds_dVenda.Active := false;
       Cds_Vencto.Active := false;

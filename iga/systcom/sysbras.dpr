@@ -14,7 +14,7 @@ uses
   upesqvfey in 'upesqvfey.pas' {frmpesqvefy},
   urelitenv in 'urelitenv.pas' {frmrelitenv},
   uconfbcofb in 'uconfbcofb.pas' {frmconfbcofb},
-  uPesqVd in 'uPesqVd.pas' {frmPesqVd},
+  uPesqOrcam in 'uPesqOrcam.pas' {frmPesqOrcam},
   upnivelace in 'upnivelace.pas' {frmpnivelace},
   upesqund in 'upesqund.pas' {frmPesqUnd},
   uPesqCli in 'uPesqCli.pas' {frmPesqcli},
@@ -113,7 +113,7 @@ uses
   upesqcofins in 'upesqcofins.pas' {frmPesqCofins},
   upesqpis in 'upesqpis.pas' {frmPesqPIS},
   uconfint in 'uconfint.pas' {frmconfint},
-  uimpped in 'uimpped.pas' {FrmImpPed},
+  uimpOrcam in 'uimpOrcam.pas' {FrmImpOrcam},
   upesqtipotab in 'upesqtipotab.pas' {frmPesqTipoTab},
   upesqmat_rest in 'upesqmat_rest.pas' {frmPesqMat_Rest},
   upesqos in 'upesqos.pas' {frmPesqOS},
@@ -252,7 +252,10 @@ uses
   uimpproducao in 'uimpproducao.pas' {FrmImpProducao},
   baixarncm in 'baixarncm.pas' {frmbaixarncm},
   funcoes_ibpt in 'funcoes_ibpt.pas',
-  upcodibge in 'upcodibge.pas' {frmpcodibge};
+  upcodibge in 'upcodibge.pas' {frmpcodibge},
+  uPesqVd in 'uPesqvd.pas' {frmPesqVd},
+  urelvdint in 'urelvdint.pas' {frmrelvdint},
+  uMRVD in 'uMRVD.pas' {frmMRVD};
 
 {$R *.res}
 

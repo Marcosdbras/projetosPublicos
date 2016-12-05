@@ -1,7 +1,7 @@
 object frmPesqVf: TfrmPesqVf
   Left = 0
   Top = 0
-  Width = 1288
+  Width = 1036
   Height = 728
   BorderIcons = []
   Caption = 'Pesquisa de Vendas Efetuadas - Balc'#227'o'
@@ -25,7 +25,7 @@ object frmPesqVf: TfrmPesqVf
   object pnlsuperior: TPanel
     Left = 0
     Top = 0
-    Width = 1272
+    Width = 1028
     Height = 42
     Align = alTop
     TabOrder = 0
@@ -54,8 +54,8 @@ object frmPesqVf: TfrmPesqVf
   end
   object pnlinferior: TPanel
     Left = 0
-    Top = 649
-    Width = 1272
+    Top = 660
+    Width = 1028
     Height = 41
     Align = alBottom
     TabOrder = 1
@@ -64,7 +64,7 @@ object frmPesqVf: TfrmPesqVf
     Left = 0
     Top = 42
     Width = 201
-    Height = 607
+    Height = 618
     Align = alLeft
     TabOrder = 2
     object Bevel1: TBevel
@@ -90,7 +90,7 @@ object frmPesqVf: TfrmPesqVf
     object Label1: TLabel
       Left = 8
       Top = 58
-      Width = 60
+      Width = 61
       Height = 17
       Caption = 'Venda de'
       Font.Charset = ANSI_CHARSET
@@ -247,14 +247,14 @@ object frmPesqVf: TfrmPesqVf
   object pnldir: TPanel
     Left = 201
     Top = 42
-    Width = 1071
-    Height = 607
+    Width = 827
+    Height = 618
     Align = alClient
     TabOrder = 3
     object Bevel2: TBevel
       Left = 1
       Top = 1
-      Width = 1069
+      Width = 825
       Height = 48
       Align = alTop
     end

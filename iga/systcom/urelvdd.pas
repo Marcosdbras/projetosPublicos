@@ -25,13 +25,6 @@ type
     lblvaldesc: TQRLabel;
     lblliq: TQRLabel;
     QRSubDetail1: TQRSubDetail;
-    QRLabel9: TQRLabel;
-    QRLabel10: TQRLabel;
-    QRLabel11: TQRLabel;
-    QRLabel12: TQRLabel;
-    QRLabel13: TQRLabel;
-    QRLabel14: TQRLabel;
-    QRLabel15: TQRLabel;
     lblcpro: TQRLabel;
     lblqtde: TQRLabel;
     lblnpro: TQRLabel;
@@ -44,9 +37,16 @@ type
     QRLabel3: TQRLabel;
     QRLabel4: TQRLabel;
     QRLabel5: TQRLabel;
-    QRLabel6: TQRLabel;
-    QRLabel7: TQRLabel;
-    QRLabel8: TQRLabel;
+    lbltitpdesconto: TQRLabel;
+    lbltitvdesconto: TQRLabel;
+    lbltitliquido: TQRLabel;
+    QRLabel9: TQRLabel;
+    QRLabel10: TQRLabel;
+    QRLabel11: TQRLabel;
+    QRLabel12: TQRLabel;
+    QRLabel13: TQRLabel;
+    QRLabel14: TQRLabel;
+    QRLabel15: TQRLabel;
     procedure detalheBeforePrint(Sender: TQRCustomBand;
       var PrintBand: Boolean);
     procedure cabesalhoBeforePrint(Sender: TQRCustomBand;
@@ -66,7 +66,7 @@ var
   frmrelvdd: Tfrmrelvdd;
 
 implementation
- uses udados ,ugeral , upesqVd ;
+ uses udados ,ugeral , upesqVd , uPesqOrcam;
 {$R *.dfm}
 
 procedure Tfrmrelvdd.detalheBeforePrint(Sender: TQRCustomBand;
@@ -77,9 +77,35 @@ begin
     lblcod.Caption:=frmDados.Cds_sVenda.fieldbyname('CCLI').AsString;
     lblnped.Caption:=frmDados.Cds_sVenda.fieldbyname('NPED').AsString;
     lbltotal.Caption:=formatfloat('###,###,##0.00',frmDados.Cds_sVenda.fieldbyname('totg').AsFloat);
-    lblporcdesc.Caption:=formatfloat('###,###,##0.00',frmDados.Cds_sVenda.fieldbyname('PDESC_P').AsFloat);
-    lblvaldesc.Caption:=formatfloat('###,###,##0.00',frmDados.Cds_sVenda.fieldbyname('VALDESC_P').AsFloat);
-    lblliq.Caption:=formatfloat('###,###,##0.00',frmDados.Cds_sVenda.fieldbyname('LIQUIDO_P').AsFloat);
+
+
+  if frmpesqOrcam <> nil then
+     begin
+       lbltitpdesconto.Caption := '';
+       lbltitvdesconto.Caption := '';
+       lbltitliquido.Caption := '';
+
+       lblporcdesc.Caption:='';
+       lblvaldesc.Caption:='';
+       lblliq.Caption:='';
+
+     end;
+
+
+
+    if frmpesqvd <> nil then
+       begin
+         lbltitpdesconto.Caption := '% DESCONTO';
+         lbltitvdesconto.Caption := 'VLR DESCONTO';
+         lbltitliquido.Caption := 'LÍQUIDO';
+
+
+         lblporcdesc.Caption:=formatfloat('###,###,##0.00',frmDados.Cds_sVenda.fieldbyname('PDESC_P').AsFloat);
+         lblvaldesc.Caption:=formatfloat('###,###,##0.00',frmDados.Cds_sVenda.fieldbyname('VALDESC_P').AsFloat);
+         lblliq.Caption:=formatfloat('###,###,##0.00',frmDados.Cds_sVenda.fieldbyname('LIQUIDO_P').AsFloat);
+       end;
+    //endi
+
     with frmdados do
       begin
         cds_dvenda.Active := false;
@@ -93,7 +119,7 @@ begin
        //showmessage (  inttostr( cds_dvenda.recordcount)  );
       end;
     //endth
-     
+
 
 end;
 
@@ -112,8 +138,20 @@ begin
 
   lblcab1.Caption := frmdados.cds_config.fieldbyname('campo2').asString;
   lbltit1.Caption := datetostr(date);
-  lbltit3.Caption := 'Vendas';
-  lbltit4.Caption := frmpesqVd.sTitRel;
+
+  if frmpesqVd <> nil then
+     begin
+     lbltit4.Caption := frmpesqVd.sTitRel;
+     lbltit3.Caption := 'Vendas';
+     end;
+  //end
+  if frmpesqOrcam <> nil then
+     begin
+     lbltit4.Caption := frmpesqOrcam.sTitRel;
+     lbltit3.Caption := 'Orçamentos';
+     end;
+  //end
+
 end;
 
 procedure Tfrmrelvdd.QRSubDetail1BeforePrint(Sender: TQRCustomBand;

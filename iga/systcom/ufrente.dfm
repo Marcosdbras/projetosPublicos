@@ -1,8 +1,8 @@
 object frmfrente: Tfrmfrente
-  Left = 0
-  Top = 12
-  Width = 1024
-  Height = 725
+  Left = 1
+  Top = 1
+  Width = 688
+  Height = 488
   BorderIcons = [biSystemMenu]
   Caption = 'Frente de Caixa'
   Color = clBlue
@@ -2170,7 +2170,7 @@ object frmfrente: Tfrmfrente
   end
   object pnlinferior: TPanel
     Left = 0
-    Top = 617
+    Top = 609
     Width = 1016
     Height = 55
     Align = alBottom
@@ -2383,7 +2383,7 @@ object frmfrente: Tfrmfrente
   end
   object barra: TStatusBar
     Left = 0
-    Top = 672
+    Top = 664
     Width = 1016
     Height = 19
     Color = clBlue
@@ -2438,7 +2438,7 @@ object frmfrente: Tfrmfrente
   object dbgprodutos: TDBCtrlGrid
     Left = 96
     Top = 234
-    Width = 610
+    Width = 609
     Height = 230
     AllowDelete = False
     AllowInsert = False

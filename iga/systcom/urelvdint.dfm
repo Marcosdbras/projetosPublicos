@@ -1,8 +1,9 @@
 object frmrelvdint: Tfrmrelvdint
-  Left = -4
-  Top = -4
-  Width = 1032
-  Height = 748
+  Left = 1
+  Top = 1
+  Width = 688
+  Height = 488
+  HorzScrollBar.Position = 152
   Caption = 'frmrelvdint'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,7 +17,7 @@ object frmrelvdint: Tfrmrelvdint
   PixelsPerInch = 96
   TextHeight = 13
   object relatorio: TQuickRep
-    Left = 0
+    Left = -152
     Top = 0
     Width = 816
     Height = 1056
@@ -475,10 +476,10 @@ object frmrelvdint: Tfrmrelvdint
         WordWrap = True
         FontSize = 8
       end
-      object QRDBText4: TQRDBText
-        Left = 675
+      object lblvalor: TQRDBText
+        Left = 709
         Top = 0
-        Width = 53
+        Width = 19
         Height = 17
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -487,16 +488,16 @@ object frmrelvdint: Tfrmrelvdint
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          1785.937500000000000000
+          1875.895833333333000000
           0.000000000000000000
-          140.229166666666700000)
+          50.270833333333330000)
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = True
         AutoStretch = False
         Color = clWhite
         DataSet = frmDados.Cds_sVenda
-        DataField = 'LIQUIDO_P'
+        DataField = 'totg'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11

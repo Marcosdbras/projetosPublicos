@@ -1000,7 +1000,7 @@ implementation
       upesqcmobra, upesqmod, upesqos, ufecos, upesqtcc, upesqtpcli, uCaixaApa, upesqrecbto, upesqMunic,
       upesqpais, uPesqNatOpNF, uPesqModBcSt, uPesqModBc, uemailmark, upesqoimp, upesqvii, upesqir_ii,
       upesqcofins, upesqpis, upesqtipotab, upesqmat_rest, upesqost, uCaixaDet, upesq, uPesqSprodb,
-      upesqprodpfor, upesqcondpgto, umultpagto, upesqmatprima;
+      upesqprodpfor, upesqcondpgto, umultpagto, upesqmatprima, uPesqOrcam;
 
 
 function DigitoCidade( Codigo : String ) : String;
@@ -1503,6 +1503,9 @@ end;
 
 procedure fechatodos;
 begin
+ if frmPesqOrcam <> nil then
+    frmPesqOrcam.close;
+ //endi 
  if frmmultpgto <> nil then
     frmmultpgto.close;
  //endi

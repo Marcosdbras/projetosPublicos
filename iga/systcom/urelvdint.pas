@@ -24,7 +24,7 @@ type
     QRDBText1: TQRDBText;
     QRDBText2: TQRDBText;
     QRDBText3: TQRDBText;
-    QRDBText4: TQRDBText;
+    lblvalor: TQRDBText;
     QRLabel5: TQRLabel;
     lbltotal: TQRLabel;
     procedure cabecalhoBeforePrint(Sender: TQRCustomBand;
@@ -48,7 +48,7 @@ var
   frmrelvdint: Tfrmrelvdint;
 
 implementation
-   uses ugeral, udados, upesqvd;
+   uses ugeral, udados, upesqvd, uPesqOrcam;
 {$R *.dfm}
 
 procedure Tfrmrelvdint.cabecalhoBeforePrint(Sender: TQRCustomBand;
@@ -56,6 +56,8 @@ procedure Tfrmrelvdint.cabecalhoBeforePrint(Sender: TQRCustomBand;
 begin
 ipag := ipag + 1;
 lbltit2.Caption := 'PAG. '+inttostr(ipag);
+
+
 
 end;
 
@@ -67,8 +69,23 @@ begin
 
   lblcab1.Caption := frmdados.cds_config.fieldbyname('campo2').asString;
   lbltit1.Caption := datetostr(date);
-  lbltit3.Caption := 'Demonstrativo de Vendas Ref. '+datetostr(frmpesqvd.dtpDataI.date)+' A '+datetostr(frmpesqvd.dtpDataf.date) ;
-  lbltit4.Caption := frmpesqvd.sTitRel;
+  if frmpesqvd <> nil then
+     begin
+       lbltit3.Caption := 'Demonstrativo de Vendas Ref. '+datetostr(frmpesqvd.dtpDataI.date)+' A '+datetostr(frmpesqvd.dtpDataf.date) ;
+       lbltit4.Caption := frmpesqvd.sTitRel;
+        lblvalor.DataField := 'liquido_p';
+     end;
+  //endi
+  if frmpesqOrcam <> nil then
+     begin
+       lbltit3.Caption := 'Demonstrativo de Orçamento Ref. '+datetostr(frmpesqOrcam.dtpDataI.date)+' A '+datetostr(frmpesqOrcam.dtpDataf.date) ;
+       lbltit4.Caption := frmpesqOrcam.sTitRel;
+       lblvalor.DataField := 'totg';
+     end;
+  //endi
+
+
+
 
 end;
 
@@ -90,7 +107,18 @@ end;
 procedure Tfrmrelvdint.detalheBeforePrint(Sender: TQRCustomBand;
   var PrintBand: Boolean);
 begin
-ftotal := ftotal + frmdados.Cds_sVenda.fieldbyname('liquido_p').AsFloat; 
+if frmpesqvd <> nil   then
+   begin
+     ftotal := ftotal + frmdados.Cds_sVenda.fieldbyname('liquido_p').AsFloat;
+   end;
+//endi
+if frmpesqOrcam <> nil   then
+   begin
+     ftotal := ftotal + frmdados.Cds_sVenda.fieldbyname('totg').AsFloat;
+   end;
+//endi
+
+
 end;
 
 procedure Tfrmrelvdint.FormClose(Sender: TObject;

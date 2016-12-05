@@ -1,6 +1,6 @@
 object frmMRVD: TfrmMRVD
-  Left = 416
-  Top = 145
+  Left = 419
+  Top = 58
   BorderIcons = []
   BorderStyle = bsDialog
   Caption = 'Relat'#243'rios'

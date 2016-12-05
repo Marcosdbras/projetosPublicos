@@ -222,7 +222,7 @@ begin
   //end;
 
   // inicializando variáveis comuns
-  sCompo := '(coalesce (nco,0) > 0)';
+  sCompo := '(coalesce (nco,0) > 0) and (tipoop > 0)';
   sTitRel := '';
 
   // inicializando variáveis deste filtro
