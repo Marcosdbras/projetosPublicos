@@ -1868,7 +1868,13 @@ var
 
   totvICMSUFDest,
 
-  totvICMSUFRemet:real;
+  totvICMSUFRemet,
+
+  ftotvlrfederal,
+
+  ftotvlrestadual,
+
+  ftotvlrmunicipal:real;
 
   infennf, i:integer;
 
@@ -3103,6 +3109,10 @@ if rg1.ItemIndex = 1 then
       totvICMSUFRemet := 0;
       totvICMSUFDest  := 0;
 
+      ftotvlrfederal := 0;
+      ftotvlrestadual := 0;
+      ftotvlrmunicipal := 0;
+
       fvlricms := 0;
 
       pICMSInterPart:= frmdados.cds_indice.fieldbyname('pICMSInterPart').AsFloat;
@@ -3125,6 +3135,7 @@ if rg1.ItemIndex = 1 then
           A:=0;
           B:=1;
           MVA:=0;
+
 
 
           iItem := iItem + 1;
@@ -3788,6 +3799,9 @@ if rg1.ItemIndex = 1 then
 
             end;
           //endi
+          ftotvlrfederal := ftotvlrfederal + (cds_nfp.fieldbyname('subtotal').AsFloat * cds_nfp.fieldbyname('aliqfederal').AsFloat/100 );
+          ftotvlrestadual := ftotvlrestadual + (cds_nfp.fieldbyname('subtotal').AsFloat * cds_nfp.fieldbyname('aliqestadual').AsFloat/100 );
+          ftotvlrmunicipal := ftotvlrmunicipal + (cds_nfp.fieldbyname('subtotal').AsFloat * cds_nfp.fieldbyname('aliqmunicipal').AsFloat/100 );
 
           ftotbcipi:= ftotbcipi+fbcipi;
           ftotbcicms:= ftotbcicms+fbcicms;
@@ -4022,19 +4036,51 @@ if rg1.ItemIndex = 1 then
                sobs := sitens;
             //endi
 
-            if sobs = '' then
+
+            if frmdados.cds_indice.FieldByName('fonte_transp_imposto').AsString = 'IBPT' then
                begin
-                 //sobs := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';'
-                 sobs := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT'+schave+';';
 
-               end
-            else
-              begin
-                 //sobs := sobs +  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' ('+  formatfloat('###,###,##0.00',porcibpt )  +'%) Fonte: IBPT'+';';
-                 sobs := sobs +  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';';
 
-              end;
+                  if sobs = '' then
+                     begin
+
+                       sobs := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+' / Valor Aproximado dos tributos desta nota '+formatfloat('###,###,##0.00',ftotvlrfederal+ftotvlrestadual+ftotvlrmunicipal)+' Conforme lei federal 12.741/2012;';
+
+                     end
+                  else
+                    begin
+
+                       sobs := sobs +  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+' / Valor Aproximado dos tributos desta nota '+formatfloat('###,###,##0.00',ftotvlrfederal+ftotvlrestadual+ftotvlrmunicipal)+' Conforme lei federal 12.741/2012;';
+
+                    end;
+                  //endi
+
+               end;
             //endi
+
+
+            if frmdados.cds_indice.FieldByName('fonte_transp_imposto').AsString = 'SEBRAE' then
+               begin
+
+
+                  if sobs = '' then
+                     begin
+
+                       sobs := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',ftotvlrfederal )+' Federal, R$ '+  formatfloat('###,###,##0.00',ftotvlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',ftotvlrmunicipal ) +' Municipal - Fonte: SEBRAE / Valor Aproximado dos tributos desta nota '+ formatfloat('###,###,##0.00',ftotvlrfederal+ftotvlrestadual+ftotvlrmunicipal)+' Conforme lei federal 12.741/2012;';
+
+                     end
+                  else
+                    begin
+
+                       sobs := sobs +  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',ftotvlrfederal )+' Federal, R$ '+  formatfloat('###,###,##0.00',ftotvlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',ftotvlrmunicipal ) +' Municipal - Fonte: SEBRAE / Valor Aproximado dos tributos desta nota '+ formatfloat('###,###,##0.00',ftotvlrfederal+ftotvlrestadual+ftotvlrmunicipal) +' Conforme lei federal 12.741/2012;';
+
+                    end;
+                  //endi
+
+               end;
+            //endi
+
+
 
             if frmdados.cds_regtrib.Locate('codigo',frmdados.cds_emitente.FieldByName('cregtrib').AsInteger,[]) then
                begin

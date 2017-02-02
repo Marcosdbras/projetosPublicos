@@ -1,6 +1,6 @@
 object frmfecnf: Tfrmfecnf
-  Left = 1
-  Top = 1
+  Left = 2
+  Top = 33
   Width = 1019
   Height = 669
   BorderIcons = []
