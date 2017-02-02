@@ -1872,6 +1872,8 @@ var
 
   infennf, i:integer;
 
+  y:real;
+
 
 begin
 
@@ -2602,6 +2604,21 @@ begin
 
 
   //aqui
+      if frmdados.cds_indice.FieldByName('acbrmonitor_tipocomunicacao').AsInteger = 1 then
+       begin
+
+         //conexao_acbrmonitortcpip( 'ACBr.restaurar'  );
+         //conexao_acbrmonitortcpip( 'ACBr.ocultar'  );
+
+       end
+    else
+       begin
+         showmessage('Função indisponível para o tipo de requisição configurado '+#13+'no motor de envio da NFE');
+         exit;
+       end;
+
+
+
 
   if sAcao  = 'F' then
      addComando('NFe.CriarEnviarNFe("[Identificacao]')
@@ -2704,7 +2721,16 @@ if (edihorasai.Text <> '  :  ') then
 addComando('tpNF='+frmdados.cds_tiponf.FieldByName('sigla').asString);
 //addComando(f,'Finalidade=0');
 
+//Indicação de consumidor final
+if cbxindfinal.ItemIndex = 0 then
+   addComando('indFinal=0');
+//endi
+if cbxindfinal.ItemIndex = 1 then
+   addComando('indFinal=1');
+//endi
 
+
+//Indicação de finalizade
 if cbxfinalidade.ItemIndex = 0 then
    addComando('finNFe=1');
 //endi
@@ -2725,13 +2751,7 @@ if cbxfinalidade.ItemIndex = 3 then
    end;
 //endi
 
-if cbxindfinal.ItemIndex = 0 then
-   addComando('indFinal=0');
-//endi
-if cbxindfinal.ItemIndex = 1 then
-   addComando('indFinal=1');
-//endi
-
+//Indicação do tipo de Operação
 if cbxindpres.ItemIndex = 0 then
    addComando('indPres=0');
 //endi
@@ -2748,6 +2768,32 @@ if cbxindpres.ItemIndex = 4 then
    addComando('indPres=9');
 //endi
 
+
+//ref cupom fiscal
+
+  with frmdados do
+    begin
+
+      cds_cupom.Active := false;
+      sql_cupom.Active := false;
+      sql_cupom.SQL.Clear;
+      sql_cupom.SQL.Add('select * from cupom where cnf = '+ inttostr(  cds_nf.fieldbyname('codigo').AsInteger ) );
+      sql_cupom.Active := true;
+      cds_cupom.Active := true;
+
+      y:= 1;
+      while not cds_cupom.Eof do
+        begin
+          addComando('[NFRef'+ formatfloat('000',y) +']');
+          addComando('Tipo=ECF');
+          addComando('ModECF=2D');
+          addComando('nECF='+cds_cupom.fieldbyname('necf').AsString );
+          addComando('nCOO='+cds_cupom.fieldbyname('coo').AsString);
+
+          cds_cupom.Next;
+        end;
+
+    end;
 
 
 if rg1.ItemIndex = 1 then

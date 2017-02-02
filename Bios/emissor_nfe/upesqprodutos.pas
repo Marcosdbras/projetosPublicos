@@ -103,6 +103,13 @@ type
     Label6: TLabel;
     edicest: TEdit;
     BitBtn2: TBitBtn;
+    SpeedButton1: TSpeedButton;
+    lblaliqfederal: TLabel;
+    edtaliqfederal: TEdit;
+    lblaliqestadual: TLabel;
+    edtaliqestadual: TEdit;
+    lblaliqmunicipal: TLabel;
+    edtaliqmunicipal: TEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Limpar;
     procedure btnnovaClick(Sender: TObject);
@@ -145,6 +152,10 @@ type
     procedure BitBtn2Click(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
     procedure DBGrid1KeyPress(Sender: TObject; var Key: Char);
+    procedure edtaliqfederalExit(Sender: TObject);
+    procedure edtaliqestadualExit(Sender: TObject);
+    procedure edtaliqmunicipalExit(Sender: TObject);
+    procedure tbsicmsShow(Sender: TObject);
 
 
   private
@@ -162,7 +173,7 @@ var
 
 implementation
    uses ugeral, udados, ufiltroprodutos, urelprodutos, upcodcest,
-  baixarncm, ubaixancm, ubaixarncmi;
+  baixarncm, ubaixancm, ubaixarncmi, ucalc_olho_no_imp;
 {$R *.dfm}
 
 procedure Tfrmpesqprodutos.FormClose(Sender: TObject;
@@ -235,6 +246,9 @@ begin
   ediiva.Text := '0,00';
   edicest.Text := '';
 
+  edtaliqfederal.Text := '0,00';
+  edtaliqestadual.Text := '0,00';
+  edtaliqmunicipal.Text := '0,00';
 
   ckbcompoetnf.Checked := true;
 
@@ -272,6 +286,12 @@ edicaux.Enabled := true;
 edibscalcst.Enabled := true;
 ediiva.Enabled := true;
 ediicmscalcst.Enabled := true;
+
+edtaliqfederal.Enabled := true;
+edtaliqestadual.Enabled := true;
+edtaliqmunicipal.Enabled := true;
+
+
 edisimplesncm.Enabled := true;
 edicest.Enabled := true;
 ckbcompoetnf.Enabled := true;
@@ -358,6 +378,11 @@ if frmdados.cds_produtos.RecordCount > 0 then
      ediiva.Enabled := true;
      edibscalcst.Enabled := true;
      ediicmscalcst.Enabled := true;
+
+     edtaliqfederal.Enabled := true;
+     edtaliqestadual.Enabled := true;
+     edtaliqmunicipal.Enabled := true;
+
      edisimplesncm.Enabled := true;
      edicest.Enabled := true;
      ckbcompoetnf.Enabled := true;
@@ -395,7 +420,11 @@ else
      edibscalcst.Enabled := false;
      ediicmscalcst.Enabled := false;
      edisimplesncm.Enabled := false;
-     edicest.Enabled := false;
+     edicest.Enabled := false; 
+
+     edtaliqfederal.Enabled := false;
+     edtaliqestadual.Enabled := false;
+     edtaliqmunicipal.Enabled := false;
 
      ckbcompoetnf.Enabled := false;
      cbxnund.Enabled := false;
@@ -454,6 +483,14 @@ with frmdados do
 
     cds_produtos.FieldByName('bscalcst').asfloat := strtofloat(tirapontos(edibscalcst.Text));
     cds_produtos.FieldByName('icmscalcst').asfloat := strtofloat(tirapontos(ediicmscalcst.Text));
+
+
+    cds_produtos.FieldByName('aliqfederal').asfloat := strtofloat(tirapontos(edtaliqfederal.Text));
+    cds_produtos.FieldByName('aliqestadual').asfloat := strtofloat(tirapontos(edtaliqestadual.Text));
+    cds_produtos.FieldByName('aliqmunicipal').asfloat := strtofloat(tirapontos(edtaliqmunicipal.Text));
+
+
+
     cds_produtos.FieldByName('simplesncm').asString := edisimplesncm.Text;
     cds_produtos.FieldByName('cest').asString := edicest.Text;
     
@@ -520,6 +557,13 @@ with frmdados do
     
     ediicmscalcst.Text := formatfloat('###,###,##0.00', cds_produtos.fieldbyname('icmscalcst').asfloat);
 
+
+    edtaliqfederal.Text := formatfloat('###,###,##0.00', cds_produtos.fieldbyname('aliqfederal').asfloat);
+    edtaliqestadual.Text := formatfloat('###,###,##0.00', cds_produtos.fieldbyname('aliqestadual').asfloat);
+    edtaliqmunicipal.Text := formatfloat('###,###,##0.00', cds_produtos.fieldbyname('aliqmunicipal').asfloat);
+
+
+
     edisimplesncm.Text := cds_produtos.fieldbyname('simplesncm').asString;
     edicest.Text := cds_produtos.fieldbyname('cest').asString;
 
@@ -559,12 +603,44 @@ iClassificar := 1;
 sclassificar := 'DESCRIÇÃO';
 sordenado := 'descricao';
 edilocalizar.Text := '';
+
+  if frmdados.cds_indice.FieldByName('fonte_transp_imposto').AsString   = 'IBPT' then
+     begin
+
+       edtaliqfederal.Visible := false;
+       edtaliqestadual.Visible := false;
+       edtaliqmunicipal.Visible := false;
+
+       lblaliqfederal.Visible := false;
+       lblaliqestadual.Visible := false;
+       lblaliqmunicipal.Visible := false;
+
+     end;
+  //endi
+  if frmdados.cds_indice.FieldByName('fonte_transp_imposto').AsString   = 'SEBRAE' then
+     begin
+       edtaliqfederal.Visible := true;
+       edtaliqestadual.Visible := true;
+       edtaliqmunicipal.Visible := true;
+
+       lblaliqfederal.Visible := true;
+       lblaliqestadual.Visible := true;
+       lblaliqmunicipal.Visible := true;
+
+     end;
+  //endi
+
+
+
+
 frmdados.cds_produtos.IndexName := 'descricao';
 frmdados.cds_produtos.IndexName := sordenado;
 stbrodape.Panels[0].Text := uppercase(stitrel);
 stbrodape.Panels[1].Text := 'ORDENADO POR '+sclassificar;
 lbllocalizar.Caption := sclassificar;
 pctdados.TabIndex := 0;
+
+
 end;
 
 procedure Tfrmpesqprodutos.btnexcluirClick(Sender: TObject);
@@ -1078,6 +1154,36 @@ begin
         //end
       end;
    //end
+end;
+
+procedure Tfrmpesqprodutos.edtaliqfederalExit(Sender: TObject);
+var
+   fValorSp:real;
+begin
+fValorSp := strtofloat(tirapontos(edtaliqfederal.Text));
+edtaliqfederal.Text := formatfloat('###,###,##0.00',fValorSp)
+end;
+
+procedure Tfrmpesqprodutos.edtaliqestadualExit(Sender: TObject);
+var
+   fValorSp:real;
+begin
+fValorSp := strtofloat(tirapontos(edtaliqestadual.Text));
+edtaliqestadual.Text := formatfloat('###,###,##0.00',fValorSp)
+end;
+
+procedure Tfrmpesqprodutos.edtaliqmunicipalExit(Sender: TObject);
+var
+   fValorSp:real;
+begin
+fValorSp := strtofloat(tirapontos(edtaliqmunicipal.Text));
+edtaliqmunicipal.Text := formatfloat('###,###,##0.00',fValorSp)
+end;
+
+procedure Tfrmpesqprodutos.tbsicmsShow(Sender: TObject);
+begin
+//
+
 end;
 
 end.

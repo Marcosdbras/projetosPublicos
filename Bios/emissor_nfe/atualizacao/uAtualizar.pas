@@ -108,6 +108,8 @@ begin
 
   separaScript;
   executa;
+
+
 end;
 
 procedure TBackupMySQL.ExecutarBackup;
@@ -420,23 +422,15 @@ begin
 end;
 
 procedure TBackupMySQL.executa;
-
-
 begin
-
 Try
-
-   
    //carregainformacao;
-
-
    GravaIniConfig('Backup', 'FUsuario', BackupMySQL.FUsuario);
    GravaIniConfig('Backup','FSenha',  cript(BackupMySQL.FSenha,'bios2805','cript')   );
    GravaIniConfig('Backup','FNomeBancoDados',BackupMySQL.FNomeBancoDados);
    GravaIniConfig('Backup','FPastaBackup',BackupMySQL.FPastaBackup);
    GravaIniConfig('Backup','FCaminhoGbase',BackupMySQL.FCaminhoGbase);
    GravaIniConfig('Backup','FArqAtu',BackupMySQL.FArqAtu);
-
    BackupMySQL.ExecutarBackup;
 Finally
    { 

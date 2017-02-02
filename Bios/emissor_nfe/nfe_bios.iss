@@ -18,9 +18,10 @@ AppPublisher={#MyAppPublisher}
 ;DefaultDirName={pf}\{#MyAppName}
 DefaultDirName=c:\nfe\
 
+
 DefaultGroupName={#MyAppName}
 LicenseFile=
-OutputDir=C:\Projetos\Bios\emissor_nfe\instaladores
+OutputDir=C:\Projetos\Bios\emissor_nfe\instaladores\
 OutputBaseFilename=setup
 Compression=lzma
 SolidCompression=yes

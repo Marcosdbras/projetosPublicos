@@ -31,8 +31,6 @@ type
     stbrodape: TStatusBar;
     imgprincipal: TImageList;
     pnlinternodir: TPanel;
-    btnanterior: TBitBtn;
-    btnproximo: TBitBtn;
     Label37: TLabel;
     DBText9: TDBText;
     Label38: TLabel;
@@ -199,17 +197,12 @@ type
     Label64: TLabel;
     Bevel8: TBevel;
     btncancelar: TBitBtn;
-    btnimportar: TBitBtn;
-    btnajustatrib: TBitBtn;
-    btnemitenfe: TBitBtn;
     tbscupomf: TTabSheet;
     DBGrid1: TDBGrid;
     Label24: TLabel;
     ckbatualiza: TCheckBox;
     ckbproximoreg: TCheckBox;
-    BitBtn1: TBitBtn;
     Label25: TLabel;
-    Memo1: TMemo;
     tbsemitir: TTabSheet;
     Label69: TLabel;
     pctcadnf: TPageControl;
@@ -380,11 +373,28 @@ type
     edicest: TEdit;
     BitBtn4: TBitBtn;
     Label134: TLabel;
-    btnfim: TBitBtn;
-    btninicio: TBitBtn;
-    BitBtn5: TBitBtn;
     Label135: TLabel;
     Label136: TLabel;
+    Panel5: TPanel;
+    btnfim: TBitBtn;
+    lblmensagem: TLabel;
+    BitBtn1: TBitBtn;
+    btnajustatrib: TBitBtn;
+    btninicio: TBitBtn;
+    btnanterior: TBitBtn;
+    btnproximo: TBitBtn;
+    Memo1: TMemo;
+    BitBtn5: TBitBtn;
+    btnemitenfe: TBitBtn;
+    BitBtn6: TBitBtn;
+    Button2: TButton;
+    btnimportar: TBitBtn;
+    lblaliqfederal: TLabel;
+    edtaliqfederal: TEdit;
+    lblaliqestadual: TLabel;
+    edtaliqestadual: TEdit;
+    lblaliqmunicipal: TLabel;
+    edtaliqmunicipal: TEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Limpar;
     procedure btnnovaClick(Sender: TObject);
@@ -552,6 +562,14 @@ type
     procedure calculo_subst_trib;
     procedure subst_trib;
     function conexao_acbrmonitortcpip(comando:String):String;
+    procedure Button2Click(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+    procedure edtaliqfederalExit(Sender: TObject);
+    procedure edtaliqestadualExit(Sender: TObject);
+    procedure edtaliqmunicipalExit(Sender: TObject);
+    procedure edtaliqfederalKeyPress(Sender: TObject; var Key: Char);
+    procedure edtaliqestadualKeyPress(Sender: TObject; var Key: Char);
+    procedure edtaliqmunicipalKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     sOpcao:string;
@@ -588,7 +606,7 @@ var
 
 implementation
    uses ugeral, udados, uconsprodutos, ufiltronf, urelnf, uconsserv,
-  ufecnf, uprincipal, uconexaotcpip;
+  ufecnf, uprincipal, uconexaotcpip, ucalc_olho_no_imp;
 {$R *.dfm}
 
 procedure Tfrmpesqnf.FormClose(Sender: TObject;
@@ -1065,6 +1083,31 @@ end;
 procedure Tfrmpesqnf.FormShow(Sender: TObject);
 begin
 
+  if frmdados.cds_indice.FieldByName('fonte_transp_imposto').AsString   = 'IBPT' then
+     begin
+
+       edtaliqfederal.Visible := false;
+       edtaliqestadual.Visible := false;
+       edtaliqmunicipal.Visible := false;
+
+       lblaliqfederal.Visible := false;
+       lblaliqestadual.Visible := false;
+       lblaliqmunicipal.Visible := false;
+
+     end;
+  //endi
+  if frmdados.cds_indice.FieldByName('fonte_transp_imposto').AsString   = 'SEBRAE' then
+     begin
+       edtaliqfederal.Visible := true;
+       edtaliqestadual.Visible := true;
+       edtaliqmunicipal.Visible := true;
+
+       lblaliqfederal.Visible := true;
+       lblaliqestadual.Visible := true;
+       lblaliqmunicipal.Visible := true;
+
+     end;
+  //endi
 
 
 
@@ -1148,7 +1191,7 @@ Case  frmdados.cds_indice.FieldByName('configcpro').asInteger of
 end;
 
 
-
+lblmensagem.Caption :='Clique no botão << EMITIR NFE >> para realizar o envio';
 
 
 end;
@@ -1797,9 +1840,17 @@ begin
   ediicmscalcst.Text := '0,00';
 
 
+  edtaliqfederal.Text := '0,00';
+  edtaliqmunicipal.Text := '0,00';
+  edtaliqestadual.Text := '0,00';
+
   ediiva.Text := '0,00';
   edivlricms.Text := '0,00';
   edibcicms.Text := '0,00';
+
+  edtaliqfederal.Text := '0,00';
+  edtaliqestadual.Text := '0,00';
+  edtaliqmunicipal.Text := '0,00';
 
   edivlripi.Text := '0,00';
   edivlrsubsicms.Text := '0,00';
@@ -2073,9 +2124,39 @@ with frmdados do
        cds_nfp.FieldByName('icmscalcst').asfloat := strtofloat(tirapontos(ediicmscalcst.text));
     //endi
 
+
+    if edtaliqfederal.text <> '' then
+       cds_nfp.FieldByName('aliqfederal').asfloat := strtofloat(tirapontos(edtaliqfederal.text));
+    //endi
+
+    if edtaliqestadual.text <> '' then
+       cds_nfp.FieldByName('aliqestadual').asfloat := strtofloat(tirapontos(edtaliqestadual.text));
+    //endi
+    if edtaliqmunicipal.text <> '' then
+       cds_nfp.FieldByName('aliqmunicipal').asfloat := strtofloat(tirapontos(edtaliqmunicipal.text));
+    //endi
+
+
     if ediiva.text <> '' then
        cds_nfp.FieldByName('iva').asfloat := strtofloat(tirapontos(ediiva.text));
     //endi
+
+
+
+    if edtaliqfederal.text <> '' then
+       cds_nfp.FieldByName('aliqfederal').asfloat := strtofloat(tirapontos(edtaliqfederal.text));
+    //endi
+    if edtaliqestadual.text <> '' then
+       cds_nfp.FieldByName('aliqestadual').asfloat := strtofloat(tirapontos(edtaliqestadual.text));
+    //endi
+    if edtaliqmunicipal.text <> '' then
+       cds_nfp.FieldByName('aliqmunicipal').asfloat := strtofloat(tirapontos(edtaliqmunicipal.text));
+    //endi
+
+
+
+
+
 
     if edivlricms.text <> '' then
        cds_nfp.FieldByName('vlricms').asfloat := strtofloat(tirapontos(edivlricms.text));
@@ -2244,6 +2325,13 @@ begin
                  frmdados.cds_produtos.FieldByName('bscalcst').Asstring := edibscalcst.Text;
                  frmdados.cds_produtos.FieldByName('icmscalcst').Asstring := ediicmscalcst.Text;
 
+
+                 frmdados.cds_produtos.FieldByName('aliqfederal').Asstring := edtaliqfederal.Text;
+                 frmdados.cds_produtos.FieldByName('aliqestadual').Asstring := edtaliqestadual.Text;
+                 frmdados.cds_produtos.FieldByName('aliqmunicipal').Asstring := edtaliqmunicipal.Text;
+
+
+
                  if ckbcompoetnf.Checked  then
                      frmdados.cds_produtos.fieldbyname('compoetnf').asString := 'T'
                  else
@@ -2305,11 +2393,23 @@ with frmdados do
 
     edibscalcst.text   := formatfloat('###,###,##0.00', cds_nfp.FieldByName('bscalcst').asfloat);
     ediicmscalcst.text := formatfloat('###,###,##0.00', cds_nfp.FieldByName('icmscalcst').asfloat);
+
+    edtaliqfederal.text := formatfloat('###,###,##0.00', cds_nfp.FieldByName('aliqfederal').asfloat);
+    edtaliqestadual.text := formatfloat('###,###,##0.00', cds_nfp.FieldByName('aliqestadual').asfloat);
+    edtaliqmunicipal.text := formatfloat('###,###,##0.00', cds_nfp.FieldByName('aliqmunicipal').asfloat);
+
     edisimplesncm.text := cds_nfp.FieldByName('simplesncm').asString;
     edicest.text := cds_nfp.FieldByName('cest').asString;
 
 
     ediiva.text := formatfloat('###,###,##0.00', cds_nfp.FieldByName('iva').asfloat);
+
+
+    edtaliqfederal.text := formatfloat('###,###,##0.00', cds_nfp.FieldByName('aliqfederal').asfloat);
+    edtaliqestadual.text := formatfloat('###,###,##0.00', cds_nfp.FieldByName('aliqestadual').asfloat);
+    edtaliqmunicipal.text := formatfloat('###,###,##0.00', cds_nfp.FieldByName('aliqmunicipal').asfloat);
+
+
 
     edivlricms.text := formatfloat('###,###,##0.00', cds_nfp.FieldByName('vlricms').asfloat);
 
@@ -2500,6 +2600,12 @@ frmdados.cds_temp.FieldByName('cod14prodnf').AsInteger := frmdados.cds_nfp.field
 
 ediiva.Text := formatfloat('###,###,##0.00',frmdados.cds_nfp.fieldbyname('iva').asfloat);
 
+
+edtaliqfederal.Text := formatfloat('###,###,##0.00',frmdados.cds_nfp.fieldbyname('aliqfederal').asfloat);
+edtaliqestadual.Text := formatfloat('###,###,##0.00',frmdados.cds_nfp.fieldbyname('aliqestadual').asfloat);
+edtaliqmunicipal.Text := formatfloat('###,###,##0.00',frmdados.cds_nfp.fieldbyname('aliqmunicipal').asfloat);
+
+
 edivlricms.Text := formatfloat('###,###,##0.00',frmdados.cds_nfp.fieldbyname('vlricms').asfloat);
 
 edibcicms.Text := formatfloat('###,###,##0.00',frmdados.cds_nfp.fieldbyname('bcicms').asfloat);
@@ -2519,6 +2625,12 @@ edivlripi.Text := formatfloat('###,###,##0.00',frmdados.cds_nfp.fieldbyname('vlr
 
 edibscalcst.Text := formatfloat('###,###,##0.00',frmdados.cds_nfp.fieldbyname('bscalcst').asfloat);
 ediicmscalcst.Text := formatfloat('###,###,##0.00',frmdados.cds_nfp.fieldbyname('icmscalcst').asfloat);
+
+
+edtaliqfederal.Text := formatfloat('###,###,##0.00',frmdados.cds_nfp.fieldbyname('aliqfederal').asfloat);
+edtaliqestadual.Text := formatfloat('###,###,##0.00',frmdados.cds_nfp.fieldbyname('aliqestadual').asfloat);
+edtaliqmunicipal.Text := formatfloat('###,###,##0.00',frmdados.cds_nfp.fieldbyname('aliqmunicipal').asfloat);
+
 
 edisimplesncm.Text := frmdados.cds_nfp.fieldbyname('simplesncm').asString;
 edicest.Text := frmdados.cds_nfp.fieldbyname('cest').asString;
@@ -2571,6 +2683,13 @@ cbxdesccsosn_cod14prodnf.Enabled := false;
 edibscalcst.Enabled := false;
 ediicmscalcst.Enabled := false;
 
+
+edtaliqfederal.Enabled := false;
+edtaliqestadual.Enabled := false;
+edtaliqmunicipal.Enabled := false;
+
+
+
 ediiva.Enabled := false;
 
 edivlricms.Enabled := false;
@@ -2614,6 +2733,12 @@ cbxdesccsosn_cod14prodnf.Enabled := true;
 
 edibscalcst.Enabled := true;
 ediicmscalcst.Enabled := true;
+
+
+edtaliqfederal.Enabled := true;
+edtaliqestadual.Enabled := true;
+edtaliqmunicipal.Enabled := true;
+
 
 ediiva.Enabled := true;
 
@@ -2740,6 +2865,13 @@ begin
 
       ediiva.Text := formatfloat('###,###,##0.00',cds_produtos.fieldbyname('iva').asfloat);
 
+
+      edtaliqfederal.Text := formatfloat('###,###,##0.00',cds_produtos.fieldbyname('aliqfederal').asfloat);
+      edtaliqestadual.Text := formatfloat('###,###,##0.00',cds_produtos.fieldbyname('aliqestadual').asfloat);
+      edtaliqmunicipal.Text := formatfloat('###,###,##0.00',cds_produtos.fieldbyname('aliqmunicipal').asfloat);
+
+
+
       //edivlricms.Text := formatfloat('###,###,##0.00',cds_produtos.fieldbyname('icms').asfloat);
       //edivlripi.Text := formatfloat('###,###,##0.00',cds_produtos.fieldbyname('iva').asfloat);
 
@@ -2770,7 +2902,7 @@ begin
       cds_temp.FieldByName('cod12prodnf').AsInteger := cds_produtos.fieldbyname('coimp').asInteger;
       cds_temp.FieldByName('cod13prodnf').AsInteger := cds_produtos.fieldbyname('cund').asInteger;
       //cds_temp.FieldByName('cod14prodnf').AsInteger := cds_produtos.fieldbyname('ccsosn').asInteger;
-      
+
       if edisimplesncm.Text = '' then
          edisimplesncm.Text := '99999999';
       //endi
@@ -4780,6 +4912,14 @@ begin
                          //showmessage(inttostr(cds_produtos.FieldByName('csitb').AsInteger)  );
 
                          cds_nfp.Edit;
+
+
+                         cds_nfp.FieldByName('aliqfederal').Asfloat := cds_produtos.fieldbyname('aliqfederal').asfloat;
+                         cds_nfp.FieldByName('aliqestadual').Asfloat := cds_produtos.fieldbyname('aliqestadual').asfloat;
+                         cds_nfp.FieldByName('aliqmunicipal').Asfloat := cds_produtos.fieldbyname('aliqmunicipal').asfloat;
+
+
+
                          cds_nfp.FieldByName('cod6prodnf').AsInteger := cds_produtos.fieldbyname('cmodbscalc').asInteger;
                          cds_nfp.FieldByName('cod7prodnf').AsInteger := cds_produtos.fieldbyname('cmodbscalcst').asInteger;
                          cds_nfp.FieldByName('cod8prodnf').AsInteger := cds_produtos.fieldbyname('cvii').asInteger;
@@ -5299,5 +5439,125 @@ begin
 end;
 
 
+
+procedure Tfrmpesqnf.Button2Click(Sender: TObject);
+begin
+    if frmdados.cds_indice.FieldByName('acbrmonitor_tipocomunicacao').AsInteger = 1 then
+       begin
+
+         conexao_acbrmonitortcpip( 'NFe.StatusServico'  );
+         showmessage(  tirafimarq(  conexao_acbrmonitortcpip( 'NFe.StatusServico'  ) )  );
+
+       end
+    else
+       begin
+         showmessage('Função indisponível para o tipo de requisição configurado '+#13+'no motor de envio da NFE');
+       end;
+
+end;
+
+procedure Tfrmpesqnf.BitBtn6Click(Sender: TObject);
+var
+  scaminho, sresposta:string;
+  iPos:integer;
+begin
+  scaminho := frmdados.cds_nf.FieldByName('caminhonfe').AsString;
+
+  if (scaminho <> '') and (fileexists(scaminho)) then
+     begin
+       sresposta := conexao_acbrmonitortcpip('NFE.IMPRIMIRDANFE("'+scaminho+'")');
+
+     end
+  else
+     begin
+       showmessage('Arquivo XML não existe');
+
+     end;
+
+end;
+
+procedure Tfrmpesqnf.edtaliqfederalExit(Sender: TObject);
+var
+   fValorSp:real;
+begin
+fValorSp := strtofloat(tirapontos(edtaliqfederal.Text));
+edtaliqfederal.Text := formatfloat('###,###,##0.00',fValorSp)
+end;
+
+procedure Tfrmpesqnf.edtaliqestadualExit(Sender: TObject);
+var
+   fValorSp:real;
+begin
+fValorSp := strtofloat(tirapontos(edtaliqestadual.Text));
+edtaliqestadual.Text := formatfloat('###,###,##0.00',fValorSp)
+end;
+
+procedure Tfrmpesqnf.edtaliqmunicipalExit(Sender: TObject);
+var
+   fValorSp:real;
+begin
+fValorSp := strtofloat(tirapontos(edtaliqmunicipal.Text));
+edtaliqmunicipal.Text := formatfloat('###,###,##0.00',fValorSp)
+end;
+
+procedure Tfrmpesqnf.edtaliqfederalKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if (key = #13) then
+     begin
+       key := #0;
+       SelectNext(ActiveControl,True,True);
+       exit;
+     end;
+  //endif
+
+  If not( key in['0'..'9',#8] ) and (key <> ',')then
+     begin
+       beep;
+       key:=#0;
+     end;
+  //endi
+
+end;
+
+procedure Tfrmpesqnf.edtaliqestadualKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if (key = #13) then
+     begin
+       key := #0;
+       SelectNext(ActiveControl,True,True);
+       exit;
+     end;
+  //endif
+
+  If not( key in['0'..'9',#8] ) and (key <> ',')then
+     begin
+       beep;
+       key:=#0;
+     end;
+  //endi
+
+end;
+
+procedure Tfrmpesqnf.edtaliqmunicipalKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if (key = #13) then
+     begin
+       key := #0;
+       SelectNext(ActiveControl,True,True);
+       exit;
+     end;
+  //endif
+
+  If not( key in['0'..'9',#8] ) and (key <> ',')then
+     begin
+       beep;
+       key:=#0;
+     end;
+  //endi
+
+end;
 
 end.

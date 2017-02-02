@@ -51,9 +51,9 @@ uses
   ufiltrocofins in 'ufiltrocofins.pas' {FrmFiltrocofins},
   upesqcofins in 'upesqcofins.pas' {frmpesqcofins},
   urelcofins in 'urelcofins.pas' {frmrelcofins},
-  ufiltrocfop in 'ufiltrocfop.pas' {FrmFiltroCFOP},
-  upesqcfop in 'upesqcfop.pas' {frmpesqCFOP},
-  urelcfop in 'urelcfop.pas' {frmrelcfop},
+  ufiltroncm in 'ufiltroncm.pas' {FrmFiltroncm},
+  upesqncm in 'upesqncm.pas' {frmpesqncm},
+  urelncm in 'urelncm.pas' {frmrelncm},
   ufiltronatop in 'ufiltronatop.pas' {FrmFiltroNatOp},
   upesqnatop in 'upesqnatop.pas' {frmpesqnatop},
   urelnatop in 'urelnatop.pas' {frmrelnatop},
@@ -116,7 +116,11 @@ uses
   ubaixancm in 'ubaixancm.pas' {frmbaixarncminternet},
   uconexaotcpip in 'uconexaotcpip.pas' {frmconexaotcpip: TDataModule},
   usobre in 'usobre.pas' {frmsobre},
-  uaviso in 'uaviso.pas' {frmaviso};
+  uaviso in 'uaviso.pas' {frmaviso},
+  ucalc_olho_no_imp in 'ucalc_olho_no_imp.pas' {frmcalc_olho_no_imp},
+  upesqcfop in 'upesqcfop.pas' {frmpesqCFOP},
+  ufiltrocfop in 'ufiltrocfop.pas' {FrmFiltroCFOP},
+  urelcfop in 'urelcfop.pas' {frmrelcfop};
 
 {$R *.res}
 

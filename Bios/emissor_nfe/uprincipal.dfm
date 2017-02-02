@@ -1,8 +1,8 @@
 object frmprincipal: Tfrmprincipal
-  Left = -4
-  Top = -4
-  Width = 1036
-  Height = 746
+  Left = 1
+  Top = 1
+  Width = 1001
+  Height = 702
   Caption = 'Emissor NFE vers'#227'o 1.11'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -24,7 +24,7 @@ object frmprincipal: Tfrmprincipal
     Left = 0
     Top = 42
     Width = 1337
-    Height = 599
+    Height = 591
     Align = alClient
   end
   object Label1: TLabel
@@ -181,7 +181,7 @@ object frmprincipal: Tfrmprincipal
   end
   object Panel2: TPanel
     Left = 0
-    Top = 641
+    Top = 633
     Width = 1337
     Height = 24
     Align = alBottom
@@ -203,7 +203,7 @@ object frmprincipal: Tfrmprincipal
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 665
+    Top = 657
     Width = 1337
     Height = 19
     Panels = <>
@@ -474,8 +474,8 @@ object frmprincipal: Tfrmprincipal
     Top = 376
   end
   object odpExec: TOpenDialog
-    Left = 934
-    Top = 486
+    Left = 766
+    Top = 334
   end
   object lHTTP: TIdHTTP
     AllowCookies = True

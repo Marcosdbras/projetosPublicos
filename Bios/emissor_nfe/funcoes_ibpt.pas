@@ -25,26 +25,29 @@ implementation
 
 //Procedure ibpt7
 procedure  calcibpt(valorliquidoitem, total:Currency; origem:string; aliqnac:Currency; aliqimp:Currency; tabela:Integer; ex:string;  versao:string; festadual:Currency; fmunicipal:Currency );
+var
+   vlrfed, vlrimpfed:currency;
+
 begin
-  if (origem = '0') or (origem = '3') or  (origem = '4') or (origem = '5') or (origem = '8')then
-      begin
-        vlribpt := vlribpt +  valorliquidoitem * aliqnac / 100;
-      end
-  else
-     begin
-        vlribpt := vlribpt +  valorliquidoitem * aliqimp / 100;
-     end;
+  //if (origem = '0') or (origem = '3') or  (origem = '4') or (origem = '5') or (origem = '8')then
+  //    begin
+  //      vlribpt := vlribpt +  valorliquidoitem * aliqnac / 100;
+  //    end
+  //else
+  //   begin
+  //      vlribpt := vlribpt +  valorliquidoitem * aliqimp / 100;
+  //   end;
   //endi
 
+  vlrfed :=  valorliquidoitem * aliqnac / 100;
+  vlrimpfed := valorliquidoitem * aliqimp / 100;
+  vlribpt := vlribpt +  (vlrfed+vlrimpfed);
 
   vlrestadual := vlrestadual  +  valorliquidoitem * festadual / 100;
-
   vlrmunicipal := vlrmunicipal + valorliquidoitem * fmunicipal / 100;
 
   porcibpt := vlribpt / total * 100;
-
   porcestadual := vlrestadual / total * 100;
-
   porcmunicipal := porcmunicipal / total * 100;
 
 end;
@@ -96,9 +99,12 @@ begin
   frmdados.sql_consulta.SQL.Add('select * from produtos where codigo = ' +quotedstr(Codprod) );
   frmdados.sql_consulta.Open;
 
-  icodsita := frmdados.sql_consulta.fieldbyname('csita').AsInteger;
-  sncmnbs := Trim(frmdados.sql_consulta.fieldbyname('simplesncm').AsString);
   sex := Trim(frmdados.sql_consulta.fieldbyname('ex').AsString);
+
+
+  //ibpt
+  sncmnbs := Trim(frmdados.cds_nfp.fieldbyname('simplesncm').AsString);
+  icodsita :=     frmdados.cds_nfp.fieldbyname('cod4prodnf').AsInteger;
 
   frmdados.sql_consulta.Close;
   frmdados.sql_consulta.SQL.Clear;

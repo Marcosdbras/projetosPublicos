@@ -1,6 +1,6 @@
 object frmpesqprodutos: Tfrmpesqprodutos
-  Left = 312
-  Top = 111
+  Left = 23
+  Top = 127
   Width = 990
   Height = 588
   Caption = 'Pesquisa de Produtos'
@@ -509,6 +509,7 @@ object frmpesqprodutos: Tfrmpesqprodutos
               TabOrder = 0
               object tbsicms: TTabSheet
                 Caption = 'ICMS'
+                OnShow = tbsicmsShow
                 object pnlsuptab: TPanel
                   Left = 0
                   Top = 0
@@ -600,6 +601,50 @@ object frmpesqprodutos: Tfrmpesqprodutos
                     ParentShowHint = False
                     ShowHint = True
                   end
+                  object SpeedButton1: TSpeedButton
+                    Left = 573
+                    Top = 7
+                    Width = 23
+                    Height = 22
+                    Glyph.Data = {
+                      76010000424D7601000000000000760000002800000020000000100000000100
+                      04000000000000010000120B0000120B00001000000000000000000000000000
+                      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+                      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+                      33333333333333333333333333333333333333333333333333FF333333333333
+                      3000333333FFFFF3F77733333000003000B033333777773777F733330BFBFB00
+                      E00033337FFF3377F7773333000FBFB0E000333377733337F7773330FBFBFBF0
+                      E00033F7FFFF3337F7773000000FBFB0E000377777733337F7770BFBFBFBFBF0
+                      E00073FFFFFFFF37F777300000000FB0E000377777777337F7773333330BFB00
+                      000033333373FF77777733333330003333333333333777333333333333333333
+                      3333333333333333333333333333333333333333333333333333333333333333
+                      3333333333333333333333333333333333333333333333333333}
+                    NumGlyphs = 2
+                  end
+                  object lblaliqfederal: TLabel
+                    Left = 74
+                    Top = 138
+                    Width = 58
+                    Height = 13
+                    Caption = 'Aliq. Federal'
+                    Visible = False
+                  end
+                  object lblaliqestadual: TLabel
+                    Left = 398
+                    Top = 136
+                    Width = 64
+                    Height = 13
+                    Caption = 'Aliq. Estadual'
+                    Visible = False
+                  end
+                  object lblaliqmunicipal: TLabel
+                    Left = 74
+                    Top = 164
+                    Width = 68
+                    Height = 13
+                    Caption = 'Aliq. Municipal'
+                    Visible = False
+                  end
                   object cbxdescsitb_cod5: TDBLookupComboBox
                     Left = 153
                     Top = 35
@@ -631,7 +676,7 @@ object frmpesqprodutos: Tfrmpesqprodutos
                   object edisimplesncm: TEdit
                     Left = 476
                     Top = 7
-                    Width = 124
+                    Width = 93
                     Height = 21
                     CharCase = ecUpperCase
                     TabOrder = 1
@@ -748,6 +793,36 @@ object frmpesqprodutos: Tfrmpesqprodutos
                       3333333333333333333333333333333333333333333333333333333333333333
                       3333333333333333333333333333333333333333333333333333}
                     NumGlyphs = 2
+                  end
+                  object edtaliqfederal: TEdit
+                    Left = 152
+                    Top = 134
+                    Width = 89
+                    Height = 21
+                    TabOrder = 12
+                    Text = 'edtaliqfederal'
+                    Visible = False
+                    OnExit = edtaliqfederalExit
+                  end
+                  object edtaliqestadual: TEdit
+                    Left = 476
+                    Top = 132
+                    Width = 89
+                    Height = 21
+                    TabOrder = 13
+                    Text = 'edtaliqestadual'
+                    Visible = False
+                    OnExit = edtaliqestadualExit
+                  end
+                  object edtaliqmunicipal: TEdit
+                    Left = 152
+                    Top = 159
+                    Width = 89
+                    Height = 21
+                    TabOrder = 14
+                    Text = 'edtaliqmunicipal'
+                    Visible = False
+                    OnExit = edtaliqmunicipalExit
                   end
                 end
               end

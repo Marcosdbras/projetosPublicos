@@ -1,11 +1,11 @@
 object frmindice: Tfrmindice
-  Left = 367
-  Top = 82
+  Left = 91
+  Top = 73
   BorderIcons = []
   BorderStyle = bsDialog
   Caption = 'Configura Indice'
   ClientHeight = 534
-  ClientWidth = 468
+  ClientWidth = 809
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -24,7 +24,7 @@ object frmindice: Tfrmindice
   object Bevel1: TBevel
     Left = 8
     Top = 48
-    Width = 449
+    Width = 457
     Height = 473
   end
   object Label3: TLabel
@@ -118,8 +118,62 @@ object frmindice: Tfrmindice
     Height = 13
     Caption = 'Caminho Arquivo NFE'
   end
+  object Bevel2: TBevel
+    Left = 472
+    Top = 48
+    Width = 329
+    Height = 473
+  end
+  object Label14: TLabel
+    Left = 480
+    Top = 56
+    Width = 91
+    Height = 13
+    Caption = 'De olho no imposto'
+  end
+  object Label15: TLabel
+    Left = 480
+    Top = 83
+    Width = 27
+    Height = 13
+    Caption = 'Fonte'
+  end
+  object Label16: TLabel
+    Left = 482
+    Top = 116
+    Width = 58
+    Height = 13
+    Caption = 'Aliq. Federal'
+  end
+  object Label17: TLabel
+    Left = 482
+    Top = 148
+    Width = 64
+    Height = 13
+    Caption = 'Aliq. Estadual'
+  end
+  object Label18: TLabel
+    Left = 482
+    Top = 180
+    Width = 68
+    Height = 13
+    Caption = 'Aliq. Municipal'
+  end
+  object lblregistro: TLabel
+    Left = 480
+    Top = 256
+    Width = 313
+    Height = 20
+    Caption = 'lblregistro'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clRed
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object btnsalvar: TBitBtn
-    Left = 302
+    Left = 646
     Top = 5
     Width = 75
     Height = 25
@@ -128,7 +182,7 @@ object frmindice: Tfrmindice
     OnClick = btnsalvarClick
   end
   object btncancelar: TBitBtn
-    Left = 382
+    Left = 726
     Top = 5
     Width = 75
     Height = 25
@@ -267,5 +321,54 @@ object frmindice: Tfrmindice
     TabOrder = 2
     Text = 'ediacbrmonitor_porttcpip'
     OnKeyPress = ediacbrmonitor_porttcpipKeyPress
+  end
+  object cbxfonte_transp_imposto: TComboBox
+    Left = 560
+    Top = 80
+    Width = 89
+    Height = 21
+    ItemHeight = 13
+    TabOrder = 16
+    Text = 'cbxfonte_transp_imposto'
+    OnChange = cbxfonte_transp_impostoChange
+    Items.Strings = (
+      'IBPT'
+      'SEBRAE')
+  end
+  object btnaplicaliq: TBitBtn
+    Left = 480
+    Top = 208
+    Width = 313
+    Height = 41
+    Caption = 'Aplicar aliquotas acima no cadastro de produtos'
+    TabOrder = 20
+    OnClick = btnaplicaliqClick
+  end
+  object edtaliqfederal: TEdit
+    Left = 560
+    Top = 112
+    Width = 89
+    Height = 21
+    TabOrder = 17
+    Text = 'edtaliqfederal'
+    OnExit = edtaliqfederalExit
+  end
+  object edtaliqestadual: TEdit
+    Left = 560
+    Top = 144
+    Width = 89
+    Height = 21
+    TabOrder = 18
+    Text = 'edtaliqestadual'
+    OnExit = edtaliqestadualExit
+  end
+  object edtaliqmunicipal: TEdit
+    Left = 560
+    Top = 176
+    Width = 89
+    Height = 21
+    TabOrder = 19
+    Text = 'edtaliqmunicipal'
+    OnExit = edtaliqmunicipalExit
   end
 end

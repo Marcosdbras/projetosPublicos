@@ -1,10 +1,10 @@
 object frmdados: Tfrmdados
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 65522
-  Top = 81
-  Height = 603
-  Width = 1036
+  Left = 1
+  Top = 1
+  Height = 680
+  Width = 987
   object cds_Paises: TClientDataSet
     Aggregates = <>
     FieldDefs = <
@@ -4337,6 +4337,23 @@ object frmdados: Tfrmdados
       item
         Name = 'acbrmonitor_tipocomunicacao'
         DataType = ftSmallint
+      end
+      item
+        Name = 'fonte_transp_imposto'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'aliqfederal'
+        DataType = ftFloat
+      end
+      item
+        Name = 'aliqestadual'
+        DataType = ftFloat
+      end
+      item
+        Name = 'aliqmunicipal'
+        DataType = ftFloat
       end>
     IndexDefs = <
       item
@@ -4412,6 +4429,19 @@ object frmdados: Tfrmdados
     end
     object cds_indiceacbrmonitor_tipocomunicacao: TSmallintField
       FieldName = 'acbrmonitor_tipocomunicacao'
+    end
+    object cds_indicefonte_transp_imposto: TStringField
+      FieldName = 'fonte_transp_imposto'
+      Size = 30
+    end
+    object cds_indicealiqfederal: TFloatField
+      FieldName = 'aliqfederal'
+    end
+    object cds_indicealiqestadual: TFloatField
+      FieldName = 'aliqestadual'
+    end
+    object cds_indicealiqmunicipal: TFloatField
+      FieldName = 'aliqmunicipal'
     end
   end
   object dts_indice: TDataSource
@@ -5279,6 +5309,18 @@ object frmdados: Tfrmdados
         Name = 'cest'
         DataType = ftString
         Size = 40
+      end
+      item
+        Name = 'aliqfederal'
+        DataType = ftFloat
+      end
+      item
+        Name = 'aliqestadual'
+        DataType = ftFloat
+      end
+      item
+        Name = 'aliqmunicipal'
+        DataType = ftFloat
       end>
     IndexDefs = <
       item
@@ -5430,6 +5472,15 @@ object frmdados: Tfrmdados
     object cds_nfpcest: TStringField
       FieldName = 'cest'
       Size = 40
+    end
+    object cds_nfpaliqfederal: TFloatField
+      FieldName = 'aliqfederal'
+    end
+    object cds_nfpaliqestadual: TFloatField
+      FieldName = 'aliqestadual'
+    end
+    object cds_nfpaliqmunicipal: TFloatField
+      FieldName = 'aliqmunicipal'
     end
   end
   object dts_nfp: TDataSource
@@ -6372,6 +6423,11 @@ object frmdados: Tfrmdados
         Name = 'id'
         Attributes = [faRequired]
         DataType = ftInteger
+      end
+      item
+        Name = 'necf'
+        DataType = ftString
+        Size = 30
       end>
     IndexDefs = <>
     Params = <>
@@ -6409,6 +6465,10 @@ object frmdados: Tfrmdados
     object cds_cupomid: TIntegerField
       FieldName = 'id'
       Required = True
+    end
+    object cds_cupomnecf: TStringField
+      FieldName = 'necf'
+      Size = 30
     end
   end
   object dts_cupom: TDataSource
@@ -6738,6 +6798,19 @@ object frmdados: Tfrmdados
     end
     object sql_indiceacbrmonitor_tipocomunicacao: TSmallintField
       FieldName = 'acbrmonitor_tipocomunicacao'
+    end
+    object sql_indicefonte_transp_imposto: TStringField
+      FieldName = 'fonte_transp_imposto'
+      Size = 30
+    end
+    object sql_indicealiqfederal: TFloatField
+      FieldName = 'aliqfederal'
+    end
+    object sql_indicealiqestadual: TFloatField
+      FieldName = 'aliqestadual'
+    end
+    object sql_indicealiqmunicipal: TFloatField
+      FieldName = 'aliqmunicipal'
     end
   end
   object sql_fatura: TZQuery
@@ -7999,6 +8072,15 @@ object frmdados: Tfrmdados
       FieldName = 'cest'
       Size = 40
     end
+    object sql_nfpaliqfederal: TFloatField
+      FieldName = 'aliqfederal'
+    end
+    object sql_nfpaliqestadual: TFloatField
+      FieldName = 'aliqestadual'
+    end
+    object sql_nfpaliqmunicipal: TFloatField
+      FieldName = 'aliqmunicipal'
+    end
   end
   object sql_sita: TZQuery
     Connection = zconexao
@@ -8485,6 +8567,10 @@ object frmdados: Tfrmdados
     object sql_cupomid: TIntegerField
       FieldName = 'id'
       Required = True
+    end
+    object sql_cupomnecf: TStringField
+      FieldName = 'necf'
+      Size = 30
     end
   end
   object sql_tipopgto: TZQuery
@@ -9240,6 +9326,15 @@ object frmdados: Tfrmdados
       FieldName = 'sinc'
       Size = 1
     end
+    object sql_produtosaliqfederal: TFloatField
+      FieldName = 'aliqfederal'
+    end
+    object sql_produtosaliqestadual: TFloatField
+      FieldName = 'aliqestadual'
+    end
+    object sql_produtosaliqmunicipal: TFloatField
+      FieldName = 'aliqmunicipal'
+    end
   end
   object dsp_produtos: TDataSetProvider
     DataSet = sql_produtos
@@ -9378,6 +9473,18 @@ object frmdados: Tfrmdados
         Name = 'sinc'
         DataType = ftString
         Size = 1
+      end
+      item
+        Name = 'aliqfederal'
+        DataType = ftFloat
+      end
+      item
+        Name = 'aliqestadual'
+        DataType = ftFloat
+      end
+      item
+        Name = 'aliqmunicipal'
+        DataType = ftFloat
       end>
     IndexDefs = <
       item
@@ -9492,6 +9599,15 @@ object frmdados: Tfrmdados
     object cds_produtossinc: TStringField
       FieldName = 'sinc'
       Size = 1
+    end
+    object cds_produtosaliqfederal: TFloatField
+      FieldName = 'aliqfederal'
+    end
+    object cds_produtosaliqestadual: TFloatField
+      FieldName = 'aliqestadual'
+    end
+    object cds_produtosaliqmunicipal: TFloatField
+      FieldName = 'aliqmunicipal'
     end
   end
   object dts_produtos: TDataSource

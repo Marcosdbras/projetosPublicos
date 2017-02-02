@@ -1,9 +1,10 @@
 object frmpesqnf: Tfrmpesqnf
-  Left = -26
-  Top = 73
-  Width = 1036
-  Height = 636
+  Left = 4
+  Top = 79
+  BorderStyle = bsDialog
   Caption = 'Pesquisa de Notas Fiscais'
+  ClientHeight = 601
+  ClientWidth = 1007
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,7 +13,7 @@ object frmpesqnf: Tfrmpesqnf
   Font.Style = []
   FormStyle = fsMDIChild
   OldCreateOrder = False
-  Position = poMainFormCenter
+  Position = poDesktopCenter
   Visible = True
   OnClose = FormClose
   OnCreate = FormCreate
@@ -48,14 +49,14 @@ object frmpesqnf: Tfrmpesqnf
   object pnlsuperior: TPanel
     Left = 0
     Top = 0
-    Width = 1028
-    Height = 65
+    Width = 1007
+    Height = 33
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
     object lbltitdest: TLabel
       Left = 10
-      Top = 40
+      Top = 4
       Width = 132
       Height = 20
       Caption = 'DESTINAT'#193'RIO'
@@ -68,7 +69,7 @@ object frmpesqnf: Tfrmpesqnf
     end
     object lbldest: TLabel
       Left = 163
-      Top = 41
+      Top = 5
       Width = 846
       Height = 20
       AutoSize = False
@@ -80,112 +81,18 @@ object frmpesqnf: Tfrmpesqnf
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object btnimportar: TBitBtn
-      Left = 552
-      Top = 3
-      Width = 152
-      Height = 33
-      Caption = '&IMPORTAR'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 0
-      Visible = False
-      OnClick = btnimportarClick
-      NumGlyphs = 2
-    end
-    object btnajustatrib: TBitBtn
-      Left = 281
-      Top = 3
-      Width = 139
-      Height = 33
-      Caption = '&AJUSTA TR&IBUTA'#199#195'O'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 2
-      OnClick = btnajustatribClick
-      NumGlyphs = 2
-    end
-    object btnemitenfe: TBitBtn
-      Left = 422
-      Top = 3
-      Width = 127
-      Height = 33
-      Caption = '&EMITIR NFE'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 3
-      OnClick = btnemitenfeClick
-      NumGlyphs = 2
-    end
-    object BitBtn1: TBitBtn
-      Left = 140
-      Top = 3
-      Width = 139
-      Height = 33
-      Caption = '&NOVA NFE'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 1
-      OnClick = BitBtn1Click
-      NumGlyphs = 2
-    end
-    object btnfim: TBitBtn
-      Left = 9
-      Top = 3
-      Width = 129
-      Height = 33
-      Caption = 'DICAS'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 4
-      OnClick = btnfimClick
-      Glyph.Data = {
-        76010000424D7601000000000000760000002800000020000000100000000100
-        04000000000000010000120B0000120B00001000000000000000000000000000
-        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF003FFFFFFFFFFF
-        FFFF33333333333FFFFF3FFFFFFFFF00000F333333333377777F33FFFFFFFF09
-        990F33333333337F337F333FFFFFFF09990F33333333337F337F3333FFFFFF09
-        990F33333333337FFF7F33333FFFFF00000F3333333333777773333333FFFFFF
-        FFFF3FFFFF3333333F330000033FFFFF0FFF77777F3333337FF30EEE0333FFF0
-        00FF7F337FFF333777FF0EEE00033F00000F7F33777F3777777F0EEE0E033000
-        00007FFF7F7FF777777700000E00033000FF777773777F3777F3330EEE0E0330
-        00FF337FFF7F7F3777F33300000E033000FF337777737F37773333330EEE0300
-        03FF33337FFF77777333333300000333333F3333777773333333}
-      NumGlyphs = 2
-    end
   end
   object pnlinferior: TPanel
     Left = 0
-    Top = 544
-    Width = 1028
-    Height = 65
+    Top = 539
+    Width = 1007
+    Height = 62
     Align = alBottom
     TabOrder = 1
     object stbrodape: TStatusBar
       Left = 1
-      Top = 45
-      Width = 1026
+      Top = 42
+      Width = 1005
       Height = 19
       Panels = <
         item
@@ -196,67 +103,20 @@ object frmpesqnf: Tfrmpesqnf
         end>
     end
     object pnlinternodir: TPanel
-      Left = 718
+      Left = 697
       Top = 1
       Width = 309
-      Height = 44
+      Height = 41
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 1
-      object btnanterior: TBitBtn
-        Left = 3
-        Top = 7
-        Width = 144
-        Height = 33
-        Caption = '&ANTERIOR'
-        TabOrder = 0
-        OnClick = btnanteriorClick
-        Glyph.Data = {
-          76010000424D7601000000000000760000002800000020000000100000000100
-          04000000000000010000120B0000120B00001000000000000000000000000000
-          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-          3333333333333333333333333333333333333333333333333333333333333333
-          3333333333333FF3333333333333003333333333333F77F33333333333009033
-          333333333F7737F333333333009990333333333F773337FFFFFF330099999000
-          00003F773333377777770099999999999990773FF33333FFFFF7330099999000
-          000033773FF33777777733330099903333333333773FF7F33333333333009033
-          33333333337737F3333333333333003333333333333377333333333333333333
-          3333333333333333333333333333333333333333333333333333333333333333
-          3333333333333333333333333333333333333333333333333333}
-        NumGlyphs = 2
-      end
-      object btnproximo: TBitBtn
-        Left = 155
-        Top = 7
-        Width = 144
-        Height = 33
-        Caption = '&PR'#211'XIMO'
-        TabOrder = 1
-        OnClick = btnproximoClick
-        Glyph.Data = {
-          76010000424D7601000000000000760000002800000020000000100000000100
-          04000000000000010000120B0000120B00001000000000000000000000000000
-          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-          3333333333333333333333333333333333333333333333333333333333333333
-          3333333333333333333333333333333333333333333FF3333333333333003333
-          3333333333773FF3333333333309003333333333337F773FF333333333099900
-          33333FFFFF7F33773FF30000000999990033777777733333773F099999999999
-          99007FFFFFFF33333F7700000009999900337777777F333F7733333333099900
-          33333333337F3F77333333333309003333333333337F77333333333333003333
-          3333333333773333333333333333333333333333333333333333333333333333
-          3333333333333333333333333333333333333333333333333333}
-        Layout = blGlyphRight
-        NumGlyphs = 2
-      end
     end
   end
   object pnlesquerda: TPanel
     Left = 0
-    Top = 65
+    Top = 33
     Width = 161
-    Height = 479
+    Height = 506
     Align = alLeft
     BevelOuter = bvNone
     TabOrder = 2
@@ -286,7 +146,7 @@ object frmpesqnf: Tfrmpesqnf
     object btnlimpar: TBitBtn
       Left = 7
       Top = 42
-      Width = 144
+      Width = 145
       Height = 33
       Caption = '&LIMPAR'
       TabOrder = 1
@@ -309,9 +169,9 @@ object frmpesqnf: Tfrmpesqnf
     object btnimprimir: TBitBtn
       Left = 7
       Top = 78
-      Width = 144
+      Width = 145
       Height = 33
-      Caption = '&IMPRIMIR'
+      Caption = '&RELA'#199#194'O DE NFE'
       TabOrder = 2
       OnClick = btnimprimirClick
       Glyph.Data = {
@@ -329,95 +189,232 @@ object frmpesqnf: Tfrmpesqnf
         33333337FFFF7733333333300000033333333337777773333333}
       NumGlyphs = 2
     end
-    object Memo1: TMemo
-      Left = 8
-      Top = 120
-      Width = 140
-      Height = 351
-      Cursor = crArrow
-      Color = clBtnHighlight
+    object BitBtn1: TBitBtn
+      Left = 7
+      Top = 121
+      Width = 145
+      Height = 33
+      Caption = '&NOVA NFE'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -13
+      Font.Color = clWindowText
+      Font.Height = -11
       Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      Lines.Strings = (
-        'Instru'#231#227'o Inicial'
-        ''
-        '1) Para Editar, '
-        'Inserir '
-        'ou Excluir um '
-        'N.F.'
-        'clique na guia '
-        '* EDI'#199#195'O * '
-        ''
-        '2) Clique em '
-        'edi'#231#227'o e preencha'
-        'Natureza da '
-        'Opera'#231#227'o / '
-        'Emitente'
-        'e verifique se todos '
-        'itens em vermelho '
-        'est'#227'o preenchidos '
-        'salvo excess'#245'es, '
-        'salve'
-        'a opera'#231#227'o e '
-        'clique em ajusta '
-        'tributa'#231#227'o, verifique'
-        'ou preencha dados '
-        'relativos a '
-        'tributa'#231#227'o'
-        'dos produtos'
-        ''
-        '3) Para Editar ou '
-        'Inserir Cliente ou '
-        'Fornecedor'
-        'utilize Menu'
-        'Cadastro'
-        ''
-        '4) Para ordenar por'
-        'diferente tipo de '
-        'informa'#231#227'o Clique '
-        'no bot'#227'o'
-        '* FILTRAR * '
-        ''
-        '5) Se ocorrer erro '
-        '12057 '
-        'ou similar no '
-        'retorno do'
-        'ACBR, voc'#234' pode '
-        'acessar'
-        'o menu '
-        'Ferramentas/Op'#231#245
-        'es'
-        'avan'#231'adas da '
-        'internet no'
-        'Internet Explorer e '
-        'deixar'
-        'marcado somente '
-        'SSL 3.0 e'
-        'desmarcar as '
-        'outras op'#231#245'es'
-        'abaixo dela.')
+      Font.Style = [fsBold]
       ParentFont = False
-      ScrollBars = ssVertical
       TabOrder = 3
-      OnEnter = Memo1Enter
+      OnClick = BitBtn1Click
+      NumGlyphs = 2
+    end
+    object btnajustatrib: TBitBtn
+      Left = 7
+      Top = 155
+      Width = 145
+      Height = 33
+      Caption = '&AJUSTA TR&IBUTA'#199#195'O'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 4
+      OnClick = btnajustatribClick
+      NumGlyphs = 2
+    end
+    object btninicio: TBitBtn
+      Left = 7
+      Top = 200
+      Width = 145
+      Height = 33
+      Caption = 'INICIO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 5
+      OnClick = btninicioClick
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF003FF0000000F0
+        000033F77777773777773FFF0CCC0FF09990333F73F37337F33733FFF0C0FFF0
+        99903333F7373337F337333FFF0FFFF0999033333F73FFF7FFF73333FFF000F0
+        0000333333F77737777733333F07B70FFFFF3333337F337F33333333330BBB0F
+        FFFF3333337F337F333333333307B70FFFFF33333373FF733F333333333000FF
+        0FFF3333333777337FF3333333333FF000FF33FFFFF3333777FF300000333300
+        000F377777F33377777F30EEE0333000000037F337F33777777730EEE0333330
+        00FF37F337F3333777F330EEE033333000FF37FFF7F3333777F3300000333330
+        00FF3777773333F77733333333333000033F3333333337777333}
+      NumGlyphs = 2
+    end
+    object btnanterior: TBitBtn
+      Left = 7
+      Top = 234
+      Width = 145
+      Height = 33
+      Caption = '&ANTERIOR'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 6
+      OnClick = btnanteriorClick
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333000333
+        3333333333777F33333333333309033333333333337F7F333333333333090333
+        33333333337F7F33333333333309033333333333337F7F333333333333090333
+        33333333337F7F33333333333309033333333333FF7F7FFFF333333000090000
+        3333333777737777F333333099999990333333373F3333373333333309999903
+        333333337F33337F33333333099999033333333373F333733333333330999033
+        3333333337F337F3333333333099903333333333373F37333333333333090333
+        33333333337F7F33333333333309033333333333337373333333333333303333
+        333333333337F333333333333330333333333333333733333333}
+      NumGlyphs = 2
+    end
+    object btnproximo: TBitBtn
+      Left = 7
+      Top = 271
+      Width = 145
+      Height = 33
+      Caption = '&PR'#211'XIMO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 7
+      OnClick = btnproximoClick
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333303333
+        333333333337F33333333333333033333333333333373F333333333333090333
+        33333333337F7F33333333333309033333333333337373F33333333330999033
+        3333333337F337F33333333330999033333333333733373F3333333309999903
+        333333337F33337F33333333099999033333333373333373F333333099999990
+        33333337FFFF3FF7F33333300009000033333337777F77773333333333090333
+        33333333337F7F33333333333309033333333333337F7F333333333333090333
+        33333333337F7F33333333333309033333333333337F7F333333333333090333
+        33333333337F7F33333333333300033333333333337773333333}
+      NumGlyphs = 2
+    end
+    object BitBtn5: TBitBtn
+      Left = 7
+      Top = 305
+      Width = 145
+      Height = 33
+      Caption = #218'LTIMO '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 8
+      OnClick = BitBtn5Click
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF003FF0000000F0
+        000033F77777773777773FFF0CCC0FF09990333F73F37337F33733FFF0C0FFF0
+        99903333F7373337F337333FFF0FFFF0999033333F73FFF7FFF73333FFF000F0
+        0000333333F77737777733333F07B70FFFFF3333337F337F33333333330BBB0F
+        FFFF3333337F337F333333333307B70FFFFF33333373FF733F333333333000FF
+        0FFF3333333777337FF3333333333FF000FF33FFFFF3333777FF300000333300
+        000F377777F33377777F30EEE0333000000037F337F33777777730EEE0333330
+        00FF37F337F3333777F330EEE033333000FF37FFF7F3333777F3300000333330
+        00FF3777773333F77733333333333000033F3333333337777333}
+      NumGlyphs = 2
+    end
+    object btnemitenfe: TBitBtn
+      Left = 7
+      Top = 352
+      Width = 145
+      Height = 33
+      Caption = '&EMITIR NFE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 9
+      OnClick = btnemitenfeClick
+      NumGlyphs = 2
+    end
+    object BitBtn6: TBitBtn
+      Left = 7
+      Top = 386
+      Width = 145
+      Height = 33
+      Caption = 'IMPRIMIR NFE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 10
+      OnClick = BitBtn6Click
+      NumGlyphs = 2
+    end
+    object Button2: TButton
+      Left = 7
+      Top = 420
+      Width = 145
+      Height = 33
+      Caption = 'STATUS SERV. NFE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 11
+      OnClick = Button2Click
+    end
+    object btnimportar: TBitBtn
+      Left = 7
+      Top = 492
+      Width = 145
+      Height = 33
+      Caption = '&IMPORTAR'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 12
+      Visible = False
+      OnClick = btnimportarClick
+      NumGlyphs = 2
     end
   end
   object pnlcentro: TPanel
     Left = 161
-    Top = 65
-    Width = 867
-    Height = 479
+    Top = 33
+    Width = 846
+    Height = 506
     Align = alClient
     Caption = 'pnlcentro'
     TabOrder = 3
     object pctdados: TPageControl
       Left = 1
       Top = 49
-      Width = 865
-      Height = 429
+      Width = 844
+      Height = 456
       ActivePage = tbslista
       Align = alClient
       Images = imgprincipal
@@ -426,11 +423,26 @@ object frmpesqnf: Tfrmpesqnf
       object tbslista: TTabSheet
         Caption = 'LI&STAR'
         OnShow = tbslistaShow
+        object lblmensagem: TLabel
+          Left = 0
+          Top = 400
+          Width = 836
+          Height = 24
+          Align = alBottom
+          Alignment = taCenter
+          Caption = 'lblmensagem'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -19
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
         object dbg_nf: TDBGrid
           Left = 0
           Top = 0
-          Width = 857
-          Height = 397
+          Width = 689
+          Height = 400
           Align = alClient
           DataSource = frmdados.dts_nf
           Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
@@ -453,16 +465,151 @@ object frmpesqnf: Tfrmpesqnf
               Expanded = False
               FieldName = 'nomedest'
               Title.Caption = 'DESTINAT'#193'RIO'
-              Width = 422
+              Width = 280
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'chave'
               Title.Caption = #218'LTIMA CHAVE EMITIDA'
-              Width = 330
+              Width = 309
               Visible = True
             end>
+        end
+        object Panel5: TPanel
+          Left = 689
+          Top = 0
+          Width = 147
+          Height = 400
+          Align = alRight
+          Alignment = taLeftJustify
+          BevelOuter = bvNone
+          TabOrder = 1
+          object btnfim: TBitBtn
+            Left = 1
+            Top = 367
+            Width = 143
+            Height = 33
+            Caption = 'DICAS'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 0
+            OnClick = btnfimClick
+            Glyph.Data = {
+              76010000424D7601000000000000760000002800000020000000100000000100
+              04000000000000010000120B0000120B00001000000000000000000000000000
+              800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+              FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF003FFFFFFFFFFF
+              FFFF33333333333FFFFF3FFFFFFFFF00000F333333333377777F33FFFFFFFF09
+              990F33333333337F337F333FFFFFFF09990F33333333337F337F3333FFFFFF09
+              990F33333333337FFF7F33333FFFFF00000F3333333333777773333333FFFFFF
+              FFFF3FFFFF3333333F330000033FFFFF0FFF77777F3333337FF30EEE0333FFF0
+              00FF7F337FFF333777FF0EEE00033F00000F7F33777F3777777F0EEE0E033000
+              00007FFF7F7FF777777700000E00033000FF777773777F3777F3330EEE0E0330
+              00FF337FFF7F7F3777F33300000E033000FF337777737F37773333330EEE0300
+              03FF33337FFF77777333333300000333333F3333777773333333}
+            NumGlyphs = 2
+          end
+          object Memo1: TMemo
+            Left = 4
+            Top = 1
+            Width = 139
+            Height = 363
+            Cursor = crArrow
+            Color = clBtnHighlight
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clRed
+            Font.Height = -13
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            Lines.Strings = (
+              'Instru'#231#227'o Inicial'
+              ''
+              '1) Para Editar, '
+              'Inserir '
+              'ou Excluir um '
+              'N.F.'
+              'clique na guia '
+              '* EDI'#199#195'O * '
+              ''
+              '2) Clique em '
+              'edi'#231#227'o e preencha'
+              'Natureza da '
+              'Opera'#231#227'o / '
+              'Emitente'
+              'e verifique se todos '
+              'itens em vermelho '
+              'est'#227'o preenchidos.'
+              ''
+              'Obs: Dependendo '
+              'da '
+              'opera'#231#227'o o campo '
+              'RG/IE'
+              'n'#227'o precisa ser '
+              'preenchido. '
+              ' '
+              '3) Clique em '
+              'Salvar.'
+              ''
+              '4) Preencha itens '
+              'da'
+              'nota clicando em'
+              'produtos.'
+              '  '
+              '5) Se o produto'
+              'estiver '
+              'previamente'
+              'cadastrado com a'
+              'devida tributa'#231#227'o'
+              'voc'#234' pode clicar'
+              'em ajusta '
+              'tributa'#231#227'o.'
+              ''
+              '6) Verifique'
+              'ou preencha dados '
+              'relativos a '
+              'tributa'#231#227'o'
+              'dos produtos.'
+              ''
+              '7) Para Editar ou '
+              'Inserir Cliente ou '
+              'Fornecedor'
+              'utilize Menu'
+              'Cadastro'
+              ''
+              '8) Para ordenar por'
+              'diferente tipo de '
+              'informa'#231#227'o Clique '
+              'no bot'#227'o'
+              '* FILTRAR * '
+              ''
+              '9) Se ocorrer erro '
+              '12057 '
+              'ou similar no '
+              'retorno do'
+              'ACBR, voc'#234' pode '
+              'acessar'
+              'o menu '
+              'Ferramentas/Op'#231#245
+              'es'
+              'avan'#231'adas da '
+              'internet no'
+              'Internet Explorer e '
+              'deixar'
+              'marcado somente '
+              'SSL 3.0 e'
+              'desmarcar as '
+              'outras op'#231#245'es'
+              'abaixo dela.')
+            ParentFont = False
+            ScrollBars = ssVertical
+            TabOrder = 1
+            OnEnter = Memo1Enter
+          end
         end
       end
       object tbsficha: TTabSheet
@@ -484,10 +631,10 @@ object frmpesqnf: Tfrmpesqnf
           Shape = bsFrame
         end
         object Bevel5: TBevel
-          Left = 113
-          Top = 344
-          Width = 56
-          Height = 17
+          Left = 385
+          Top = 360
+          Width = 136
+          Height = 33
           Shape = bsFrame
           Visible = False
         end
@@ -1038,8 +1185,8 @@ object frmpesqnf: Tfrmpesqnf
           ParentFont = False
         end
         object Label20: TLabel
-          Left = 12
-          Top = 393
+          Left = 388
+          Top = 369
           Width = 61
           Height = 13
           Caption = 'N.O CUPOM'
@@ -1329,7 +1476,7 @@ object frmpesqnf: Tfrmpesqnf
         end
         object rgbctipoemi1: TRadioGroup
           Left = 721
-          Top = 173
+          Top = 165
           Width = 96
           Height = 36
           Caption = 'EMISS'#195'O'
@@ -1547,6 +1694,7 @@ object frmpesqnf: Tfrmpesqnf
           Height = 13
           Caption = 'MOD. DET. BS. CALC. ST.'
           FocusControl = cbxdescmodbst_cod7prodnf
+          Visible = False
         end
         object Label122: TLabel
           Left = 795
@@ -1832,7 +1980,7 @@ object frmpesqnf: Tfrmpesqnf
                   Left = 0
                   Top = 0
                   Width = 710
-                  Height = 185
+                  Height = 197
                   BevelOuter = bvNone
                   TabOrder = 0
                   object Label7: TLabel
@@ -1922,6 +2070,30 @@ object frmpesqnf: Tfrmpesqnf
                     Caption = 'Cod. Esp. da Subs. Trib.'
                     ParentShowHint = False
                     ShowHint = True
+                  end
+                  object lblaliqfederal: TLabel
+                    Left = 74
+                    Top = 153
+                    Width = 58
+                    Height = 13
+                    Caption = 'Aliq. Federal'
+                    Visible = False
+                  end
+                  object lblaliqestadual: TLabel
+                    Left = 374
+                    Top = 151
+                    Width = 64
+                    Height = 13
+                    Caption = 'Aliq. Estadual'
+                    Visible = False
+                  end
+                  object lblaliqmunicipal: TLabel
+                    Left = 74
+                    Top = 179
+                    Width = 68
+                    Height = 13
+                    Caption = 'Aliq. Municipal'
+                    Visible = False
                   end
                   object cbxdescsitb_cod5prodnf: TDBLookupComboBox
                     Left = 456
@@ -2090,6 +2262,39 @@ object frmpesqnf: Tfrmpesqnf
                       3333333333333333333333333333333333333333333333333333333333333333
                       3333333333333333333333333333333333333333333333333333}
                     NumGlyphs = 2
+                  end
+                  object edtaliqfederal: TEdit
+                    Left = 152
+                    Top = 149
+                    Width = 89
+                    Height = 21
+                    TabOrder = 14
+                    Text = 'edtaliqfederal'
+                    Visible = False
+                    OnExit = edtaliqfederalExit
+                    OnKeyPress = edtaliqfederalKeyPress
+                  end
+                  object edtaliqestadual: TEdit
+                    Left = 457
+                    Top = 147
+                    Width = 89
+                    Height = 21
+                    TabOrder = 15
+                    Text = 'edtaliqestadual'
+                    Visible = False
+                    OnExit = edtaliqestadualExit
+                    OnKeyPress = edtaliqestadualKeyPress
+                  end
+                  object edtaliqmunicipal: TEdit
+                    Left = 152
+                    Top = 174
+                    Width = 89
+                    Height = 21
+                    TabOrder = 16
+                    Text = 'edtaliqmunicipal'
+                    Visible = False
+                    OnExit = edtaliqmunicipalExit
+                    OnKeyPress = edtaliqmunicipalKeyPress
                   end
                 end
               end
@@ -2538,6 +2743,7 @@ object frmpesqnf: Tfrmpesqnf
           ListSource = frmdados.dts_modbcst
           NullValueKey = 46
           TabOrder = 14
+          Visible = False
           OnKeyPress = edidescricaoKeyPress
         end
         object EDIBASEI1: TEdit
@@ -2594,12 +2800,14 @@ object frmpesqnf: Tfrmpesqnf
               Expanded = False
               FieldName = 'modelo'
               Title.Caption = 'MODELO'
+              Width = 128
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'dte'
               Title.Caption = 'EMISS'#195'O'
+              Width = 85
               Visible = True
             end
             item
@@ -2620,7 +2828,14 @@ object frmpesqnf: Tfrmpesqnf
               Expanded = False
               FieldName = 'serieecf'
               Title.Caption = 'S'#201'RIE ECF'
-              Width = 302
+              Width = 139
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'necf'
+              Title.Caption = 'N.o ECF'
+              Width = 201
               Visible = True
             end>
         end
@@ -3562,10 +3777,10 @@ object frmpesqnf: Tfrmpesqnf
           end
         end
         object Panel2: TPanel
-          Left = 614
+          Left = 593
           Top = 97
           Width = 243
-          Height = 300
+          Height = 327
           Align = alRight
           BevelOuter = bvNone
           TabOrder = 1
@@ -3761,7 +3976,7 @@ object frmpesqnf: Tfrmpesqnf
         object Panel3: TPanel
           Left = 0
           Top = 0
-          Width = 857
+          Width = 836
           Height = 97
           Align = alTop
           TabOrder = 2
@@ -4035,7 +4250,7 @@ object frmpesqnf: Tfrmpesqnf
     object Panel1: TPanel
       Left = 1
       Top = 1
-      Width = 865
+      Width = 844
       Height = 48
       Align = alTop
       BevelOuter = bvNone
@@ -4057,64 +4272,6 @@ object frmpesqnf: Tfrmpesqnf
         Text = 'EDILOCALIZAR'
         OnChange = edilocalizarChange
         OnKeyPress = edilocalizarKeyPress
-      end
-      object btninicio: TBitBtn
-        Left = 625
-        Top = 7
-        Width = 117
-        Height = 33
-        Caption = 'PRIMEIRO'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 1
-        OnClick = btninicioClick
-        Glyph.Data = {
-          76010000424D7601000000000000760000002800000020000000100000000100
-          04000000000000010000120B0000120B00001000000000000000000000000000
-          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF003FF0000000F0
-          000033F77777773777773FFF0CCC0FF09990333F73F37337F33733FFF0C0FFF0
-          99903333F7373337F337333FFF0FFFF0999033333F73FFF7FFF73333FFF000F0
-          0000333333F77737777733333F07B70FFFFF3333337F337F33333333330BBB0F
-          FFFF3333337F337F333333333307B70FFFFF33333373FF733F333333333000FF
-          0FFF3333333777337FF3333333333FF000FF33FFFFF3333777FF300000333300
-          000F377777F33377777F30EEE0333000000037F337F33777777730EEE0333330
-          00FF37F337F3333777F330EEE033333000FF37FFF7F3333777F3300000333330
-          00FF3777773333F77733333333333000033F3333333337777333}
-        NumGlyphs = 2
-      end
-      object BitBtn5: TBitBtn
-        Left = 745
-        Top = 7
-        Width = 117
-        Height = 33
-        Caption = #218'LTIMO '
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 2
-        OnClick = BitBtn5Click
-        Glyph.Data = {
-          76010000424D7601000000000000760000002800000020000000100000000100
-          04000000000000010000120B0000120B00001000000000000000000000000000
-          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF003FF0000000F0
-          000033F77777773777773FFF0CCC0FF09990333F73F37337F33733FFF0C0FFF0
-          99903333F7373337F337333FFF0FFFF0999033333F73FFF7FFF73333FFF000F0
-          0000333333F77737777733333F07B70FFFFF3333337F337F33333333330BBB0F
-          FFFF3333337F337F333333333307B70FFFFF33333373FF733F333333333000FF
-          0FFF3333333777337FF3333333333FF000FF33FFFFF3333777FF300000333300
-          000F377777F33377777F30EEE0333000000037F337F33777777730EEE0333330
-          00FF37F337F3333777F330EEE033333000FF37FFF7F3333777F3300000333330
-          00FF3777773333F77733333333333000033F3333333337777333}
-        NumGlyphs = 2
       end
     end
   end
@@ -4526,7 +4683,7 @@ object frmpesqnf: Tfrmpesqnf
       000000000000}
   end
   object odpExec: TOpenDialog
-    Left = 934
-    Top = 486
+    Left = 822
+    Top = 214
   end
 end
