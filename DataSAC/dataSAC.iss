@@ -24,7 +24,7 @@ DefaultDirName=c:\datasac\
 
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
-OutputDir=C:\Projetos\DataSAC\instaladores
+OutputDir=C:\Projetos\DataSAC\instaladores 
 OutputBaseFilename=setup
 Compression=lzma
 SolidCompression=yes

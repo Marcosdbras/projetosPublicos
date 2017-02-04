@@ -29,19 +29,19 @@ var
    vlrfed, vlrimpfed:currency;
 
 begin
-  //if (origem = '0') or (origem = '3') or  (origem = '4') or (origem = '5') or (origem = '8')then
-  //    begin
-  //      vlribpt := vlribpt +  valorliquidoitem * aliqnac / 100;
-  //    end
-  //else
-  //   begin
-  //      vlribpt := vlribpt +  valorliquidoitem * aliqimp / 100;
-  //   end;
+  if (origem = '0') or (origem = '3') or  (origem = '4') or (origem = '5') or (origem = '8')then
+      begin
+        vlribpt := vlribpt +  valorliquidoitem * aliqnac / 100;
+      end
+  else
+     begin
+        vlribpt := vlribpt +  valorliquidoitem * aliqimp / 100;
+     end;
   //endi
 
   vlrfed :=  valorliquidoitem * aliqnac / 100;
   vlrimpfed := valorliquidoitem * aliqimp / 100;
-  vlribpt := vlribpt +  (vlrfed+vlrimpfed);
+  //vlribpt := vlribpt +  (vlrfed+vlrimpfed);
 
   vlrestadual := vlrestadual  +  valorliquidoitem * festadual / 100;
   vlrmunicipal := vlrmunicipal + valorliquidoitem * fmunicipal / 100;

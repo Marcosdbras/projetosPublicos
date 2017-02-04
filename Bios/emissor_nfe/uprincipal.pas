@@ -1810,6 +1810,11 @@ begin
       with frmdados do
          begin
 
+            sql_exec2.Active := false;
+            sql_exec2.SQL.Clear;
+            sql_exec2.SQL.Add('delete from ibpt');
+            sql_exec2.ExecSQL;
+
             sql_indice.Active := false;
             sql_indice.SQL.Clear;
             sql_indice.SQL.Add('select * from indice');

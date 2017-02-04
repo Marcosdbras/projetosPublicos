@@ -4044,13 +4044,13 @@ if rg1.ItemIndex = 1 then
                   if sobs = '' then
                      begin
 
-                       sobs := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+' / Valor Aproximado dos tributos desta nota '+formatfloat('###,###,##0.00',ftotvlrfederal+ftotvlrestadual+ftotvlrmunicipal)+' Conforme lei federal 12.741/2012;';
+                       sobs := 'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';';  //' / Valor Aproximado dos tributos desta nota '+formatfloat('###,###,##0.00',vlribpt+vlrestadual+vlrmunicipal)+';';
 
                      end
                   else
                     begin
 
-                       sobs := sobs +  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+' / Valor Aproximado dos tributos desta nota '+formatfloat('###,###,##0.00',ftotvlrfederal+ftotvlrestadual+ftotvlrmunicipal)+' Conforme lei federal 12.741/2012;';
+                       sobs := sobs +  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';';  //' / Valor Aproximado dos tributos desta nota '+formatfloat('###,###,##0.00',vlribpt+vlrestadual+vlrmunicipal)+';';
 
                     end;
                   //endi
