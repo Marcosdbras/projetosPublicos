@@ -19,7 +19,8 @@ uses
   WinProcs,
   StdCtrls,
   Dialogs,
-  Controls;
+  Controls,
+  Math;
 
 type
   TAlinhamento = (taEsquerda, taDireita, taCentralizado); // tipos de alinhamentos
@@ -106,6 +107,8 @@ type
   Function  tiratracos(pValor:string):string;
   Function  tirabarras(pValor:string):string;
 
+  function arredondarABNT(const AValue: Double; const Digits: SmallInt):Double;
+
 
 
 implementation
@@ -131,6 +134,41 @@ const
 'stMFXk+4pq9NQ9IS6kECQA+2QchQLyqyHShhUQYbP1yV1xZoVxZS9Gf7nvogRn9+'+ #13#10 +
 'LFo6ChY+5/M8giZAB14A6dRzCZJMNOQfZQX8oD5reYw='+ #13#10 +
 '-----END RSA PRIVATE KEY-----';
+
+
+function arredondarABNT(const AValue: Double; const Digits: SmallInt):Double;
+var
+   Pow, PowValue, RestPart : Extended;
+   IntPart, FracPart, LastNumber : Integer;
+Begin
+   Pow      := intpower(10, abs(Digits) );
+   PowValue := SimpleRoundTo( AValue * Pow, -9) ; // SimpleRoundTo elimina dizimas ;
+   IntPart  := trunc( PowValue );
+   FracPart := trunc( frac( PowValue ) * 100);
+
+   if (FracPart > 50) then
+      Inc( IntPart )
+
+   else if (FracPart = 50) then
+    begin
+      LastNumber := round( frac( IntPart / 10) * 10);
+
+      if odd(LastNumber) then
+         Inc( IntPart )
+      else
+       begin
+         RestPart := frac( PowValue * 10 ) ;
+
+         if RestPart > 0 then
+            Inc( IntPart );
+       end ;
+    end ;
+
+   Result := (IntPart / Pow);
+end;
+
+
+
 
 function tirapontos(pValor:string):string;
 var pPosI:integer;

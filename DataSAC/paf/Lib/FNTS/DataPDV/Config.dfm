@@ -1,8 +1,8 @@
 object frmConfig: TfrmConfig
-  Left = 229
-  Top = 95
-  Width = 455
-  Height = 496
+  Left = 224
+  Top = 68
+  Width = 446
+  Height = 517
   Caption = 'Configura'#231#245'es Gerais'
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
@@ -106,7 +106,7 @@ object frmConfig: TfrmConfig
   end
   object GroupBox2: TGroupBox
     Left = 16
-    Top = 177
+    Top = 173
     Width = 241
     Height = 136
     Caption = 'Outras'
@@ -198,7 +198,7 @@ object frmConfig: TfrmConfig
   end
   object GroupBox3: TGroupBox
     Left = 264
-    Top = 178
+    Top = 174
     Width = 161
     Height = 73
     Caption = 'TEF'
@@ -242,8 +242,8 @@ object frmConfig: TfrmConfig
   end
   object Panel1: TPanel
     Left = 0
-    Top = 428
-    Width = 447
+    Top = 449
+    Width = 438
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
@@ -269,7 +269,7 @@ object frmConfig: TfrmConfig
   end
   object GroupBox4: TGroupBox
     Left = 264
-    Top = 251
+    Top = 247
     Width = 161
     Height = 63
     Caption = 'Vendedor'
@@ -286,7 +286,7 @@ object frmConfig: TfrmConfig
   end
   object GroupBox5: TGroupBox
     Left = 16
-    Top = 374
+    Top = 395
     Width = 241
     Height = 49
     Caption = 'Avan'#231'o do papel'
@@ -310,7 +310,7 @@ object frmConfig: TfrmConfig
   end
   object DBRadioGroup1: TDBRadioGroup
     Left = 264
-    Top = 321
+    Top = 345
     Width = 161
     Height = 49
     Caption = 'Impressora'
@@ -326,7 +326,7 @@ object frmConfig: TfrmConfig
   end
   object GroupBox6: TGroupBox
     Left = 16
-    Top = 320
+    Top = 345
     Width = 241
     Height = 49
     TabOrder = 7
@@ -349,9 +349,9 @@ object frmConfig: TfrmConfig
   end
   object GroupBox7: TGroupBox
     Left = 264
-    Top = 376
+    Top = 397
     Width = 163
-    Height = 46
+    Height = 47
     Caption = 'Pedir N'#250'mero da comanda'
     TabOrder = 8
     object DBComboBox1: TDBComboBox
@@ -368,11 +368,30 @@ object frmConfig: TfrmConfig
       TabOrder = 0
     end
   end
+  object rgblancavalores: TDBRadioGroup
+    Left = 16
+    Top = 310
+    Width = 409
+    Height = 35
+    Caption = 'Arredondamento de valores'
+    Columns = 3
+    DataField = 'ARRED'
+    DataSource = dsconfig
+    Items.Strings = (
+      '1-Truncado'
+      '2-ABNT'
+      '3-Normal')
+    TabOrder = 9
+    Values.Strings = (
+      '1'
+      '2'
+      '3')
+  end
   object qrconfig: TIBCQuery
     Connection = frmModulo.conexao
     SQL.Strings = (
       'select * from config')
-    Left = 296
+    Left = 336
     Top = 80
   end
   object dsconfig: TIBCDataSource
