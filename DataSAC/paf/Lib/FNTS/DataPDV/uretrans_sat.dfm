@@ -1,6 +1,6 @@
 object frmretrans_sat: Tfrmretrans_sat
-  Left = 130
-  Top = 153
+  Left = 182
+  Top = 216
   BorderIcons = []
   BorderStyle = bsDialog
   Caption = 'RETRANSMISS'#195'O S@T'
@@ -225,7 +225,6 @@ object frmretrans_sat: Tfrmretrans_sat
       Height = 21
       TabOrder = 0
       Text = '0'
-      OnExit = edtnpedExit
       OnKeyPress = edtnpedKeyPress
       Precision = 0
     end

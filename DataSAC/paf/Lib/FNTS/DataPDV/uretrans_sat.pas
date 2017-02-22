@@ -78,7 +78,6 @@ type
     procedure FormShow(Sender: TObject);
     procedure btncancelarClick(Sender: TObject);
     procedure btnlancarClick(Sender: TObject);
-    procedure edtnpedExit(Sender: TObject);
     procedure edtnpedKeyPress(Sender: TObject; var Key: Char);
     procedure edtdata1KeyPress(Sender: TObject; var Key: Char);
     procedure edtdata2KeyPress(Sender: TObject; var Key: Char);
@@ -171,17 +170,13 @@ begin
   showmessage('Venda Lançada com sucesso!');
 end;
 
-procedure Tfrmretrans_sat.edtnpedExit(Sender: TObject);
-begin
-  sqlcupom.Locate('numero',formatfloat('000000',edtnped.value),[]);
-end;
-
 procedure Tfrmretrans_sat.edtnpedKeyPress(Sender: TObject; var Key: Char);
 begin
 if (key = #13) then
    begin
      key := #0;
      SelectNext(ActiveControl,True,True);
+     sqlcupom.Locate('numero',formatfloat('000000',edtnped.value),[]);
    end;
 //endif
 end;

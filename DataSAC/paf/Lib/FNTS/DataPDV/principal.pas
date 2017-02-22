@@ -189,6 +189,12 @@ var
   (* Configuraçoes do Banco de Dados *)
     iTamanho_codigo_balanca : integer;           // tamanho do codigo da balaca 4 ou 5
     bTruncar_valor : boolean;                    // config para nao permitir arredondamento do valor total do item
+
+    babnt_valor : boolean;                    // config para permitir arredondamento do valor total do item  regra ABNT
+    bnormal_valor : boolean;                    // config para permitir arredondamento do valor total do item normal
+
+
+
     bMuda_qtde : boolean;                        // configuracao para permitir a edicao da qtde
     bMuda_unitario : boolean;                    // configuracao para permitir a edicao do preco unitario
     bMuda_total: boolean;                        // config para permitir a edicao do valor total (POSTO DE COMBUSTIVEL)
@@ -804,7 +810,32 @@ begin
   // alimentando as variaveis globais do sistema
 
   iTamanho_codigo_balanca := 5;
-  bTruncar_valor          := true;
+
+  //truncar, abnr ou normal
+
+  if frmmodulo.query.FieldByName('arred').AsInteger = 1 then
+     begin
+       bTruncar_valor := true;
+       babnt_valor := false;
+       bnormal_valor := false;
+     end
+  else if frmmodulo.query.FieldByName('arred').AsInteger = 2 then
+     begin
+       bTruncar_valor  := false;
+       babnt_valor := true;
+       bnormal_valor := false;
+     end
+  else if frmmodulo.query.FieldByName('arred').AsInteger = 3 then
+     begin
+       bTruncar_valor  := false;
+       babnt_valor := false;
+       bnormal_valor := true;
+     end;
+  //endi
+
+
+
+
 
   If frmmodulo.query.fieldbyname('muda_qtde').asinteger = 1 then
     bMuda_qtde := true else bMuda_qtde := false;

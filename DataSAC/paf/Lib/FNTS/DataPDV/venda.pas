@@ -1770,15 +1770,27 @@ begin
         rProd_qtde := rProd_total / rProd_preco;
       end;
 
-      // verificar seh eh para truncar o valor total
+      // truncar - verificar seh eh para truncar o valor total
       if bTruncar_valor then
       begin
          rProd_total := Truncar_Valor(rProd_Qtde * rProd_preco);
       end
       else
       begin
+
         if rProd_total = 0 then
-          rProd_total := rProd_qtde * rProd_preco;
+           begin
+
+             if babnt_valor then
+                rProd_total :=  arredondarABNT(   rProd_qtde * rProd_preco,2) 
+             else
+                rProd_total := rProd_qtde * rProd_preco;
+             //endi
+
+           end;
+        //endi
+
+
       end;
     end;
   end;
@@ -2339,7 +2351,13 @@ begin
     begin
       Imprime_display(sMsg,clred,tierro);
       sleep(1500);
+
+      try
       ed_barra.setfocus;
+      except
+      end;
+
+      
     end;
 
     // atualizar o totalizador geral do PAF com a do ECF
@@ -2362,7 +2380,13 @@ begin
       iCodigo_abastecimento := 0;
       timer_abastecimento.Enabled := true;
       PN_POSTO.Visible := true;
+
+      try
       grid_abastecimento.setfocus;
+      except
+      end;
+
+      
     end;
   end;
 end;
@@ -2401,7 +2425,12 @@ begin
    begin
      Imprime_display('Cupom não encontrado!',clred,tierro);
      sleep(1500);
+
+     try
      ed_barra.setfocus;
+     except
+     end;
+     
      exit;
    end;
 
@@ -2440,7 +2469,12 @@ begin
    begin
      Imprime_display(sMsg,clred,tierro);
      sleep(1500);
+
+     try
      ed_barra.setfocus;
+     except
+     end;
+     
    end;
 
   // atualizar o totalizador geral do PAF com a do ECF
@@ -2473,7 +2507,13 @@ begin
     Imprime_display(sMsg,clRed,tiErro);
     SLEEP(1000);
     Imprime_display('INFORME O PRODUTO...',CLWHITE,tiLivre);
+
+    try
     ED_BARRA.SETFOCUS;
+    except
+    end;
+
+    
     exit;
   end;
 
@@ -2584,10 +2624,15 @@ begin
     frmmodulo.spCupom_item_temp.ParamByName('cod_totalizador').asstring :=
       retorna_codigo_aliquota(grid.cell[10,i].asfloat);
 
+  try
+    GRID.SelectLastRow;
+  except
+  end; 
 
-  GRID.SelectLastRow;
+  try
   GRID.SetFocus;
-
+  except
+  end;
 
   try
   frmmodulo.spCupom_item_temp.Prepare;
@@ -2605,7 +2650,11 @@ begin
   Imprime_display('ITEM '+ZERAR(ed_cancelar_item.Text,4)+' CANCELADO!',CLWHITE,tiOk);
   SLEEP(1000);
   Imprime_display('INFORME O PRODUTO...',CLWHITE,tiLivre);
+  
+  try
   ED_BARRA.SETFOCUS;
+  except
+  end;
 
 
 end;
@@ -2776,12 +2825,23 @@ begin
   frmmodulo.spCupom_item_temp.Execute;
   except
   end;
-  
+
   // selecionar a linha incluida no grid
+  try
   grid.SelectLastRow;
+  except
+  end;
+
   // focar no grid para ele ir para ultima linha incluida
+  try
   grid.SetFocus;
+  except
+  end;
+
+  try
   ed_barra.SetFocus;
+  except
+  end;
 
   // acumluar o item nas variaveis de totalizacao
   rTotal_Venda := rTotal_venda + rProd_total;
@@ -2843,7 +2903,12 @@ begin
   lb_total.caption := 'R$ 0,00';
   lb_item.Caption := '0';
   Imprime_display('             C A I X A    L I V R E',clWhite,tiLivre);
+
+  try
   ed_barra.setfocus;
+  except
+  end;
+  
 end;
 
 // -------------------------------------------------------------------------- //
@@ -3254,8 +3319,14 @@ begin
     Imprime_display('CUPOM ABERTO!',clYellow,tiAlerta);
     sleep(1500);
     Imprime_display('INFORME O PRODUTO...',clWhite,tiLivre);
+
+    try
     ed_barra.SetFocus;
+    except
+    end;
+
     abort;
+
   end
   else
   begin
@@ -3403,8 +3474,14 @@ begin
 
     if sx_barra = '' then
     begin
+
+     try
      ed_barra.setfocus;
+     except
+     end;
+
      exit;
+     
     end;
 
     if timer_balanca.Enabled then
@@ -3457,6 +3534,38 @@ begin
     If frmVenda.Localizar_Produto(ed_barra.Text) then
     begin
 
+      if query.FieldByName('csosn').AsString = '' then
+         begin
+           showmessage('campos CST ou CSOSN não foi preenchido' +chr(13)+' por favor preencha a informação no retaguarda'+chr(13)+'e realize a carga do pdv assim que possível');
+           exit;
+         end;
+      //end;
+
+      if query.FieldByName('classificacao_fiscal').AsString = '' then
+         begin
+           showmessage('campo NCM não foi preenchido' +chr(13)+' por favor preencha a informação no retaguarda'+chr(13)+'e realize a carga do pdv assim que possível');
+           exit;
+         end;
+      //end;
+
+
+      if query.FieldByName('sita').AsString = '' then
+         begin
+           showmessage('campo ORIGEM não foi preenchido' +chr(13)+' por favor preencha a informação no retaguarda'+chr(13)+'e realize a carga do pdv assim que possível');
+           exit;
+         end;
+      //end;
+
+
+      if query.FieldByName('CFOP').AsString = '' then
+         begin
+           showmessage('campo CFOP não foi preenchido' +chr(13)+' por favor preencha a informação no retaguarda'+chr(13)+'e realize a carga do pdv assim que possível');
+           exit;
+         end;
+      //end;
+
+
+
       if bBusca_foto_produto then
       begin
         if FileExists(sPasta_foto_produto+'\'+sProd_barra+'.jpg') then
@@ -3504,7 +3613,11 @@ begin
           ed_total_item.ReadOnly := TRUE;
         END;
 
+        try
         ed_qtde.setfocus;
+        except
+        end;
+
         exit;
       end
       else
@@ -3531,12 +3644,23 @@ begin
          Imprime_display('N.F. PAULISTA, INFORME PRODUTO!',clWhite,tiInfo)
       else
          Imprime_display('PRODUTO NÃO ENCONTRADO!',clRed,tiErro);
+
+      try
+      ed_barra.SetFocus;
+      except
+      end;
+
+
+      try
       ed_barra.SelectAll;
+      except
+      end;
+
     end;
   end
   else
   begin
-    if ( key  in ['0'..'9','a'..'z','A'..'Z']) or (key = '*') then
+    if ( key  in ['0'..'9','a'..'z','A'..'Z']) or (key = '*') or (key=',') then
     begin
       if blimpa_edit_display then
       begin
@@ -3579,8 +3703,17 @@ begin
       pn_cancelar_item.Visible := true;
       pn_cancelar_item_botoes.Visible := false;
       ed_cancelar_item.IntValue := 0;
+
+      try
       ed_cancelar_item.SetFocus;
+      except
+      end;
+
+      try
       ed_cancelar_item.SelectAll;
+      except
+      end;
+      
     end
     else
     begin
@@ -3611,7 +3744,13 @@ procedure TfrmVenda.ed_cancelar_itemExit(Sender: TObject);
 begin
   // nao permitir a saida do campo clicando com o mouse em outro lugar
   // ou pressionando tab
-  if not bsair_campo then ed_cancelar_item.setfocus;
+  if not bsair_campo then
+  begin
+     try
+      ed_cancelar_item.setfocus;
+     except
+     end;
+  end;
 end;
 
 // -------------------------------------------------------------------------- //
@@ -3662,7 +3801,12 @@ begin
            pn_cancelar_item_botoes.visible := true;
 
            BlockInput(false);
+
+           try
            bt_cancelar_item_sim.setfocus;
+           except
+           end;
+
          end
          else
          begin
@@ -3671,13 +3815,35 @@ begin
             SLEEP(1000);
             Imprime_display('CANCELAR ITEM...',CLWHITE,tiExcluir);
             // selecionar a linha incluida no grid
+
+            try
             grid.SelectLastRow;
+            except
+            end;
+
             // focar no grid para ele ir para ultima linha incluida
+
+
+            try
             grid.SetFocus;
+            except
+            end;
 
             BlockInput(false);
+
+            try
             ed_cancelar_item.Setfocus;
+            except
+            end;
+
+
+            try
             ed_cancelar_item.SelectAll;
+            except
+            end;
+
+
+
          end;
       end;
 
@@ -3689,8 +3855,18 @@ begin
       SLEEP(1000);
       Imprime_display('CANCELAR ITEM...',CLWHITE,tiExcluir);
       BlockInput(false);
+
+      try
       ed_cancelar_item.Setfocus;
+      except
+      end;
+
+      try
       ed_cancelar_item.SelectAll;
+      except
+      end;
+
+
     end;
 
   end
@@ -3703,7 +3879,12 @@ begin
       Imprime_display('INFORME O PRODUTO...',CLWHITE,tiLivre);
       pn_cancelar_item.Visible := FALSE;
       BlockInput(false);
+
+      try
       ED_BARRA.SETFOCUS;
+      except
+      end;
+
     end
     else
     begin
@@ -3801,7 +3982,12 @@ begin
   // aborta o cancelamento do item
   Imprime_display('INFORME O PRODUTO...',CLWHITE,tiLivre);
   pn_cancelar_item.Visible := FALSE;
+
+  try
   ED_BARRA.SETFOCUS;
+  except
+  end;
+  
 end;
 
 // -------------------------------------------------------------------------- //
@@ -3810,7 +3996,11 @@ begin
   // ativar os atalhos das funcoes OPCOES
   PopupMenu := pop_principal;
   blimpa_edit_display := true;
+  try
   ed_barra.SelectAll;
+  except
+  end;
+
   sProd_barra := '';
 end;
 
@@ -3822,7 +4012,12 @@ begin
     pn_senha_cancelar.Visible := true;
     lb_cancelar.Caption := 'Cancelar Item';
     ed_senha.text := '';
+
+    try
     ed_senha.setfocus;
+    except
+    end;
+    
   end
   else
   begin
@@ -3852,7 +4047,11 @@ end;
 // -------------------------------------------------------------------------- //
 procedure TfrmVenda.Retornar1Click(Sender: TObject);
 begin
+  try
   ed_barra.setfocus;
+  except
+  end;
+
     if timer_balanca.Enabled then
     begin
       timer_balanca.Enabled := false;
@@ -3883,7 +4082,13 @@ begin
       pn_senha_cancelar.visible := true;
       lb_cancelar.Caption := 'Cancelar Cupom';
       ed_senha.text := '';
+
+      try
       ed_senha.setfocus;
+      except
+      end;
+
+
     end
     else
     begin
@@ -3907,7 +4112,12 @@ begin
       pn_senha_cancelar.visible := true;
       lb_cancelar.Caption := 'Cancelar Cupom';
       ed_senha.text := '';
+
+      try
       ed_senha.setfocus;
+      except
+      end;
+
     end
     else
     begin
@@ -3957,7 +4167,12 @@ begin
   begin
     Imprime_display('Valor não pode ser negativo!',clred,tiErro);
     sleep(2000);
+
+    try
     ed_desc_acre.SetFocus;
+    except
+    end;
+
     Imprime_display_anterior;
     exit;
   end;
@@ -4121,7 +4336,12 @@ begin
     img_fechamento.visible := true;
     pn_fechamento.Visible := true;
     ed_desc_acre.DisplayFormat := '##0.00%';
+
+    try
     ED_DESC_ACRE.SetFocus;
+    except
+    end;
+
     // mudar o menu para utilizar as teclas de atalho no fechamento
     FRMVENDA.PopupMenu := pop_fechamento;
   end
@@ -4223,7 +4443,12 @@ begin
       ed_forma2.value := 0;
       ed_forma3.value := 0;
       ed_troco.value := ed_totalizador.value - ed_total_pagar.value;
+
+      try
       bt_confirmar_fechamento.setfocus;
+      except
+      end;
+
     end
     else
     begin
@@ -4254,13 +4479,23 @@ begin
         ed_forma2.value := ed_total_pagar.value - ed_totalizador.value;
       end;
       ed_troco.value := ed_totalizador.value - ed_total_pagar.value;
+
+      try
       cb_forma2.SetFocus;
+      except
+      end;
+
     end;
     sp_forma1.Brush.COLOR := clblack;
   finally
     if bVolta_foco then
     begin
+
+      try
       cb_forma1.SetFocus;
+      except
+      end;
+
       bVolta_foco := false;
     end;
   end;
@@ -4284,7 +4519,13 @@ begin
       cb_forma3.itemindex := -2;
       ed_forma3.value := 0;
       ed_troco.value := ed_totalizador.value - ed_total_pagar.value;
+
+      try
       bt_confirmar_fechamento.setfocus;
+      except
+      end;
+
+
     end
     else
     begin
@@ -4309,14 +4550,24 @@ begin
         ed_forma3.value := ed_total_pagar.value - ed_totalizador.value;
       end;
       ed_troco.value := ed_totalizador.value - ed_total_pagar.value;
+
+      try
       cb_forma3.SetFocus;
+      except
+      end;
+
     end;
 
     sp_forma2.Brush.COLOR := clblack;
   finally
     if bVolta_foco then
     begin
+
+      try
       cb_forma1.SetFocus;
+      except
+      end;
+
       bVolta_foco := false;
     end;
   end;
@@ -4376,7 +4627,11 @@ begin
       cb_desc_acre.ItemIndex := cb_desc_acre.ItemIndex + 1;
 
     cb_desc_acreChange(FRMVENDA);
+
+    try
     ED_DESC_ACRE.SelectAll;
+    except
+    end;
 
   end;
 end;
@@ -4384,7 +4639,17 @@ end;
 // -------------------------------------------------------------------------- //
 procedure TfrmVenda.ED_DESC_ACREKeyPress(Sender: TObject; var Key: Char);
 begin
-  if key = #13 then cb_forma1.setfocus
+  if key = #13 then
+  begin
+
+  try
+  cb_forma1.setfocus
+  except
+  end;
+
+  end
+
+
   else
   begin
     if iTeclado_Modelo = 1 then
@@ -4409,19 +4674,45 @@ end;
 // -------------------------------------------------------------------------- //
 procedure TfrmVenda.cb_forma1KeyPress(Sender: TObject; var Key: Char);
 begin
-  if key = #13 then ed_forma1.setfocus;
+  if key = #13 then
+  begin
+
+    try
+    ed_forma1.setfocus;
+    except
+    end;
+    
+  end;
+
 end;
 
 // -------------------------------------------------------------------------- //
 procedure TfrmVenda.cb_forma2KeyPress(Sender: TObject; var Key: Char);
 begin
-  if key = #13 then ed_forma2.setfocus;
+  if key = #13 then
+  begin
+
+    try
+     ed_forma2.setfocus;
+    except
+    end;
+    
+  end;
+
+
 end;
 
 // -------------------------------------------------------------------------- //
 procedure TfrmVenda.cb_forma3KeyPress(Sender: TObject; var Key: Char);
 begin
-  if key = #13 then ed_forma3.setfocus;
+  if key = #13 then
+  begin
+  try
+  ed_forma3.setfocus;
+  except
+  end;
+
+  end;
 end;
 
 // -------------------------------------------------------------------------- //
@@ -4435,7 +4726,12 @@ begin
   if (cb_forma2.ItemIndex = cb_forma1.ItemIndex) or
      (cb_forma2.ItemIndex = cb_forma3.ItemIndex) then
   begin
+
+    try
     cb_forma2.SetFocus;
+    except
+    end;
+
     Imprime_display('Meio de Pagamento já utilizado!',clred,tierro);
     sleep(1000);
     Imprime_display_anterior;
@@ -4444,7 +4740,12 @@ begin
   finally
     if bVolta_foco then
     begin
+
+      try
       ed_forma1.SetFocus;
+      except
+      end;
+
       bVolta_foco := false;
     end;
   end;
@@ -4459,7 +4760,13 @@ try  // verificar se nao fechou o pn_fechamento para nao dar erro de foco
   if (cb_forma3.ItemIndex = cb_forma1.ItemIndex) or
      (cb_forma2.ItemIndex = cb_forma3.ItemIndex) then
   begin
+
+    try
     cb_forma3.SetFocus;
+    except
+    end;
+
+
     Imprime_display('Meio de Pagamento já utilizado!',clred,tierro);
     sleep(1000);
     Imprime_display_anterior;
@@ -4468,7 +4775,13 @@ try  // verificar se nao fechou o pn_fechamento para nao dar erro de foco
   finally
     if bVolta_foco then
     begin
+
+       try
        ed_forma2.SetFocus;
+       except
+       end;
+
+
       bVolta_foco := false;
     end;
   end;
@@ -4478,7 +4791,15 @@ end;
 // -------------------------------------------------------------------------- //
 procedure TfrmVenda.ed_forma3KeyPress(Sender: TObject; var Key: Char);
 begin
-  if key = #13 then bt_confirmar_fechamento.SetFocus
+  if key = #13 then
+  begin
+
+  try
+  bt_confirmar_fechamento.SetFocus
+  except
+  end;
+
+  end
   else
   begin
     if iTeclado_Modelo = 1 then
@@ -4520,7 +4841,10 @@ var
 
 begin
 
+  try
   ED_FOCUS.SETFOCUS;
+  except
+  end;
 
   solicitarnumcomanda;
 
@@ -4542,7 +4866,12 @@ begin
       sleep(1500);
       Imprime_display_anterior;
       bt_confirmar_fechamento.Enabled := true;
+
+      try
       bt_confirmar_fechamento.SetFocus;
+      except
+      end;
+
       exit;
     end;
 
@@ -4555,7 +4884,12 @@ begin
       sleep(1500);
       Imprime_display_anterior;
       bt_confirmar_fechamento.Enabled := true;
+
+      try
       bt_confirmar_fechamento.SetFocus;
+      except
+      end;
+
       exit;
     end;
 
@@ -4568,7 +4902,13 @@ begin
         sleep(1500);
         Imprime_display_anterior;
         bt_confirmar_fechamento.Enabled := true;
+
+        try
         bt_confirmar_fechamento.SetFocus;
+        except
+        end;
+
+
         exit;
     END;
 
@@ -4583,7 +4923,12 @@ begin
       sleep(1500);
       Imprime_display_anterior;
       bt_confirmar_fechamento.Enabled := true;
+
+      try
       bt_confirmar_fechamento.SetFocus;
+      except
+      end;
+
       exit;
     end;
 
@@ -4624,8 +4969,14 @@ begin
     begin
       application.messagebox('O sistema não permite pagamento com múltiplos cartões pelo TEF!',
                              'Erro',mb_ok+mb_iconerror);
+
       bt_confirmar_fechamento.Enabled := true;
+
+      try
       bt_confirmar_fechamento.SetFocus;
+      except
+      end;
+
       exit;
     end;
 
@@ -4636,7 +4987,12 @@ begin
       sleep(1500);
       Imprime_display_anterior;
       bt_confirmar_fechamento.Enabled := true;
+
+      try
       bt_confirmar_fechamento.SetFocus;
+      except
+      end;
+
       exit;
     end;
 
@@ -4724,7 +5080,12 @@ begin
                                    'Atenção',mb_yesno+mb_iconwarning) = idNo then
             begin
               bt_confirmar_fechamento.Enabled := true;
+
+              try
               bt_confirmar_fechamento.SetFocus;
+              except
+              end;
+
               exit;
             end
             else
@@ -4789,7 +5150,12 @@ begin
         else
         begin
           bt_confirmar_fechamento.enabled := True;
+
+          try
           bt_confirmar_fechamento.setfocus;
+          except
+          end;
+
           exit;
         end
       finally
@@ -4816,7 +5182,12 @@ begin
       if not bcontinua then
       begin
         bt_confirmar_fechamento.enabled := true;
+
+        try
         bt_confirmar_fechamento.setfocus;
+        except
+        end;
+
         exit;
       end;
     end
@@ -4852,7 +5223,12 @@ begin
       if not bcontinua then
       begin
         bt_confirmar_fechamento.enabled := true;
+
+        try
         bt_confirmar_fechamento.setfocus;
+        except
+        end;
+
         exit;
       end;
     end;
@@ -4942,7 +5318,12 @@ begin
       begin
         Imprime_display(sMsg,clRed,tiErro);
         bt_confirmar_fechamento.enabled := true;
+
+        try
         bt_confirmar_fechamento.SetFocus;
+        except
+        end;
+
         exit;
       end;
     // habilitar o panel para focar no grid apos a sua atualizacao para ele posicionar na
@@ -5024,11 +5405,17 @@ begin
                                                    formatfloat('###,###,##0.00',
                                                    ed_total_pagar.value),
                                                    10,' ',taDireita)+'</b>';
+        try
         grid.SelectLastRow;
-        TRY
+        except
+        end;
+
+        try
           grid.SetFocus;
-        EXCEPT
-        END;
+        except
+        end;
+
+
         Application.ProcessMessages;
         // mudar o status da variavel para nao permitir nova totalizacao para este cupom
         bTotalizado := true;
@@ -5077,8 +5464,14 @@ begin
                                         'Favor tentar outra vez ou utilizar outra'+
                                         ' forma de pagamento!'),
                                         'Mensagem TEF', mb_ok+mb_iconerror);
+
                  bt_confirmar_fechamento.Enabled := true;
+
+                 try
                  bt_confirmar_fechamento.SetFocus;
+                 except
+                 end;
+
                  exit;
                end
                else
@@ -5110,7 +5503,12 @@ begin
                                           ' forma de pagamento!'),
                                           'Mensagem TEF', mb_ok+mb_iconerror);
                    bt_confirmar_fechamento.Enabled := true;
+
+                   try
                    bt_confirmar_fechamento.SetFocus;
+                   except
+                   end;
+
                    exit;
                  end
                  else
@@ -5139,12 +5537,18 @@ begin
                                                          45,' ',taEsquerda)+texto_justifica(
                                                         formatfloat('###,###,##0.00',ed_forma1.Value),
                                                          10,' ',taDireita)+'</b></i>';
-              grid.SelectLastRow;
 
-              TRY
+              try
+              grid.SelectLastRow;
+              except
+              end;
+
+              try
                 grid.SetFocus;
-              EXCEPT
-              END;
+              except
+              end;
+
+
               bPago1 := true;
               try
               frmModulo.spCupom_Temp_Edit.Close;
@@ -5184,7 +5588,12 @@ begin
       begin
         Imprime_display(sMsg,clred,tiErro);
         bt_confirmar_fechamento.Enabled := true;
+
+        try
         bt_confirmar_fechamento.SetFocus;
+        except
+        end;
+
         exit;
       end;
     end;
@@ -5217,8 +5626,14 @@ begin
                                         'Favor tentar outra vez ou utilizar outra'+
                                         ' forma de pagamento!'),
                                         'Mensagem TEF', mb_ok+mb_iconerror);
+
                  bt_confirmar_fechamento.Enabled := true;
+
+                 try
                  bt_confirmar_fechamento.SetFocus;
+                 except
+                 end;
+
                  exit;
                end
                else
@@ -5251,7 +5666,12 @@ begin
                                           ' forma de pagamento!'),
                                           'Mensagem TEF', mb_ok+mb_iconerror);
                    bt_confirmar_fechamento.Enabled := true;
+
+                   try
                    bt_confirmar_fechamento.SetFocus;
+                   except
+                   end;
+
                    exit;
                  end
                  else
@@ -5283,12 +5703,18 @@ begin
                                                         formatfloat('###,###,##0.00',
                                                         ed_forma2.Value),
                                                          10,' ',taDireita)+'</b></i>';
+              try
               grid.SelectLastRow;
+              except
+              end;
 
-              TRY
+              
+              try
                 grid.SetFocus;
-              EXCEPT
-              END;
+              except
+              end;
+
+
               bPago2 := true;
               try
               frmModulo.spCupom_Temp_Edit.Close;
@@ -5320,7 +5746,12 @@ begin
       begin
         Imprime_display(sMsg,clred,tiErro);
         bt_confirmar_fechamento.Enabled := true;
+
+        try
         bt_confirmar_fechamento.SetFocus;
+        except
+        end;
+
         exit;
       end;
     end;
@@ -5353,7 +5784,12 @@ begin
                                         ' forma de pagamento!'),
                                         'Mensagem TEF', mb_ok+mb_iconerror);
                  bt_confirmar_fechamento.Enabled := true;
+
+                 try
                  bt_confirmar_fechamento.SetFocus;
+                 except
+                 end;
+
                  exit;
                end
                else
@@ -5387,7 +5823,12 @@ begin
                                           ' forma de pagamento!'),
                                           'Mensagem TEF', mb_ok+mb_iconerror);
                    bt_confirmar_fechamento.Enabled := true;
+
+                   try
                    bt_confirmar_fechamento.SetFocus;
+                   except
+                   end;
+
                    exit;
                  end
                  else
@@ -5428,12 +5869,18 @@ begin
                                                          45,' ',taEsquerda)+texto_justifica(
                                                         formatfloat('###,###,##0.00',ed_forma3.Value),
                                                          10,' ',taDireita)+'</b></i>';
-              grid.SelectLastRow;
 
-              TRY
+              try
+              grid.SelectLastRow;
+              except
+              end;
+
+              try
                 grid.SetFocus;
-              EXCEPT
-              END;
+              except
+              end;
+
+
               bPago3 := true;
               try
               frmModulo.spCupom_Temp_Edit.Close;
@@ -5464,7 +5911,12 @@ begin
       begin
         Imprime_display(sMsg,clred,tiErro);
         bt_confirmar_fechamento.Enabled := true;
+
+        try
         bt_confirmar_fechamento.SetFocus;
+        except
+        end;
+
         exit;
       end;
     end;
@@ -5481,11 +5933,18 @@ begin
                                                  formatfloat('###,###,##0.00',ed_troco.Value),
                                                  10,' ',taDireita)+'</b></i></FONT>';
 
+
+      try
       grid.SelectLastRow;
-      TRY
+      except
+      end;
+
+      try
         grid.SetFocus;
-      EXCEPT
-      END;
+      except
+      end;
+
+      
       Application.ProcessMessages;
     END;
 
@@ -5625,7 +6084,12 @@ begin
       if sMsg <> OK then
       begin
         bt_confirmar_fechamento.Enabled := true;
+
+        try
         bt_confirmar_fechamento.setfocus;
+        except
+        end;
+
         Imprime_display(sMsg,clred,tierro);
         exit;
       end;
@@ -5717,7 +6181,12 @@ begin
       if sMsg <> OK then
       begin
         bt_confirmar_fechamento.Enabled := true;
+
+        try
         bt_confirmar_fechamento.setfocus;
+        except
+        end;
+
         Imprime_display(sMsg,clred,tierro);
         exit;
       end;
@@ -5733,11 +6202,18 @@ begin
         '              Obrigado!!! Volte Sempre!!!               ';
     end;
 
+
+    try
     grid.SelectLastRow;
-    TRY
+    except
+    end;
+
+    try
       grid.SetFocus;
-    EXCEPT
-    END;
+    except
+    end;
+
+
     Application.ProcessMessages;
     bFinalizado := true;
 
@@ -6520,18 +6996,25 @@ begin
           timer_abastecimento.Enabled := true;
         end;
         PN_POSTO.Visible := true;
+
+        try
         grid_abastecimento.setfocus;
+        except
+        end;
+
       end
       else
       begin
         if bLanca_Mesa then
            menu_mesaClick(frmvenda)
         else
-          try
-            ED_BARRA.SETFOCUS;
-          except
+          begin
+            try
+              ED_BARRA.SETFOCUS;
+            except
+            end;
           end;
-
+        //endif
       end;
      end;
 
@@ -6775,7 +7258,17 @@ procedure TfrmVenda.ed_senhaExit(Sender: TObject);
 begin
   // nao permitir a saida do campo clicando com o mouse em outro lugar
   // ou pressionando tab
-  if not bsair_campo then ed_senha.setfocus;
+  if not bsair_campo then
+  begin
+
+    try
+      ed_senha.setfocus;
+    except
+    end;
+
+  end;
+
+
 end;
 
 // -------------------------------------------------------------------------- //
@@ -6859,7 +7352,12 @@ begin
       pn_senha_cancelar.Visible := false;
       Imprime_display('INFORME O PRODUTO...',CLWHITE,tiLivre);
       pn_cancelar_item.Visible := FALSE;
+
+      try
       ED_BARRA.SETFOCUS;
+      except
+      end;
+
     end
     else
     begin
@@ -7052,7 +7550,12 @@ begin
   img_fechamento.visible := false;
   FRMVENDA.PopupMenu := pop_principal;
   pn_principal.Enabled := true;
+
+  try
   ed_barra.setfocus;
+  except
+  end;
+
   if not bTotalizado then
     Imprime_display('INFORME O PRODUTO...',clwhite,tiLivre);
 
@@ -7073,7 +7576,12 @@ begin
   img_fechamento.visible := false;
   FRMVENDA.PopupMenu := pop_principal;
   pn_principal.Enabled := true;
+
+  try
   ed_barra.setfocus;
+  except
+  end;
+
   if not bTotalizado then
     Imprime_display('INFORME O PRODUTO...',clwhite,tiLivre);
 end;
@@ -7427,7 +7935,12 @@ begin
              rewrite(frmprincipal.arq);
            end;
         //endi
+
+        try
         ed_barra.SetFocus;
+        except
+        end;
+
       end
       else
       begin
@@ -7465,7 +7978,12 @@ begin
 //    Menu_os.Enabled := false;
 //    Menu_os.Visible := false;
     Pn_posto.Visible := false;
+
+    try
     ed_barra.setfocus;
+    except
+    end;
+
   end
   else
   // AUTO PECAS
@@ -7474,7 +7992,12 @@ begin
 //    Menu_os.Enabled := true;
 //    Menu_os.Visible := true;
     Pn_posto.Visible := false;
+
+    try
     ed_barra.setfocus;
+    except
+    end;
+
   end
   else
   // POSTO
@@ -7630,7 +8153,12 @@ begin
 
         TIMER_BICO.Enabled := true;
         timer_abastecimento.Enabled := true;
+
+        try
         grid_abastecimento.SetFocus;
+        except
+        end;
+
         if grid_abastecimento.RowCount > 0 then grid_abastecimento.SelectedRow := 0;
 
       except
@@ -7645,8 +8173,11 @@ begin
       end;
     until bPosto_ok = true;
 
-
+    try
     grid_abastecimento.SetFocus;
+    except
+    end;
+
   end
   else
   // RESTAURANTES
@@ -7655,7 +8186,12 @@ begin
 //    Menu_os.Enabled := false;
 //    Menu_os.Visible := false;
     Pn_posto.Visible := false;
+
+    try
     ed_barra.setfocus;
+    except
+    end;
+
   end;
 end;
 
@@ -8734,8 +9270,13 @@ begin
 
                     if grid_abastecimento.RowCount = 1 then
                     begin
+
+                      try
                       grid_abastecimento.SelectedRow := 0;
                       grid_abastecimento.SetFocus;
+                      except
+                      end;
+
                     end;
                     EnviaComando('(&I)',10);
                 end;
@@ -8793,7 +9334,13 @@ begin
       pn_posto.Top := 103;
       pn_posto.Left := 27;
 //      img_logo.Visible := false;
+
+      try
       grid_abastecimento.setfocus;
+      except
+      end;
+
+
   end
   else
   begin
@@ -8805,8 +9352,12 @@ end;
 procedure TfrmVenda.Button2Click(Sender: TObject);
 begin
   pn_posto.Visible := false;
+
+  try
   ed_barra.setfocus;
-  
+  except
+  end;
+
 end;
 
 // -------------------------------------------------------------------------- //
@@ -8925,13 +9476,22 @@ begin
           begin
             Imprime_display_anterior;
             bt_confirmar_fechamento.Enabled := true;
+
+            try
             bt_confirmar_fechamento.SetFocus;
+            except
+            end;
 
           end
        else
           begin
             Imprime_display('INFORME O PRODUTO...',clWhite,tiLivre);
+
+            try
             ed_barra.SetFocus;
+            except
+            end;
+
           end;
        //endi
 
@@ -8971,13 +9531,22 @@ begin
           begin
             Imprime_display_anterior;
             bt_confirmar_fechamento.Enabled := true;
+
+            try
             bt_confirmar_fechamento.SetFocus;
+            except
+            end;
 
           end
        else
           begin
             Imprime_display('INFORME O PRODUTO...',clWhite,tiLivre);
+
+            try
             ed_barra.SetFocus;
+            except
+            end;
+
           end;
        //endi
 
@@ -9027,13 +9596,21 @@ begin
           begin
             Imprime_display_anterior;
             bt_confirmar_fechamento.Enabled := true;
+
+            try
             bt_confirmar_fechamento.SetFocus;
+            except
+            end;
+
           end
        else
           begin
             Imprime_display('INFORME O PRODUTO...',clWhite,tiLivre);
-            ed_barra.SetFocus;
 
+            try
+            ed_barra.SetFocus;
+            except
+            end;
 
           end;
        //endi

@@ -10114,7 +10114,7 @@ procedure gerasat(snped, snome, sident, scaminho:string);
     smaildest_venda:string;
 
 begin
-
+  //showmessage('snped: '+snped+' snome: '+snome+' sident: '+sident+' scaminho: '+scaminho);
 
    with frmmodulo do
       begin
@@ -10175,8 +10175,11 @@ begin
 
               sqlcupom.Close;
               sqlcupom.SQL.Clear;
-              sqlcupom.SQL.Add('select * from cupom where numero = '+quotedstr('snped'));
+              sqlcupom.SQL.Add('select * from cupom where numero = '+quotedstr(snped));
               sqlcupom.Open;
+
+              //showmessage(sqlcupom.SQL.Text);
+
               sCod_Cupom_venda := sqlcupom.fieldbyname('codigo').AsString;
               icod_cliente :=  sqlcupom.fieldbyname('cod_cliente').AsInteger;
 
@@ -10209,7 +10212,8 @@ begin
 
                   sqlconsulta.Close;
                   sqlconsulta.SQL.Clear;
-                  sqlconsulta.SQL.Add('select * from forma_pgto where (nome = '+quotedstr( sqlcCupomForma.fieldbyname('forma').AsString+') and (sigla = '+quotedstr('D')+')'    ));
+                  sqlconsulta.SQL.Add('select * from forma_pgto where (nome = '+quotedstr( sqlcCupomForma.fieldbyname('forma').AsString)+') and (sigla = '+quotedstr('D')+')'    );
+                  //showmessage(sqlconsulta.SQL.Text);
                   sqlconsulta.Open;
                   if sqlconsulta.recordcount > 0 then
                      begin

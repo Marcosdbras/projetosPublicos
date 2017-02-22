@@ -1,6 +1,6 @@
 object frmVenda: TfrmVenda
-  Left = 1
-  Top = 1
+  Left = 3
+  Top = 3
   BorderStyle = bsNone
   Caption = 'Venda Balc'#227'o'
   ClientHeight = 541
@@ -4923,6 +4923,7 @@ object frmVenda: TfrmVenda
       Top = 111
       Width = 297
       Height = 31
+      CharCase = ecUpperCase
       Color = clBlack
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
