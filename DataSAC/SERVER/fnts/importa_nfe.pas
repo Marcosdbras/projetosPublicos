@@ -9,7 +9,8 @@ uses
   ZConnection, Mask, rxtooledit, rxcurredit, ExtCtrls, RzPanel, MemDS,
   DBAccess, IBC, pcnConversao, pcnNFeW, Menus, RzPrgres, ImgList, wwdblook,
   RzDBEdit, DBCtrls, RzCmboBx, RzDBCmbo, RzDBSpin, RzEdit, RzDBBnEd,
-  AdvGlowButton, RzTabs, AdvShapeButton, jpeg, frxClass, frxDBSet, frxDesgn;
+  AdvGlowButton, RzTabs, AdvShapeButton, jpeg, frxClass, frxDBSet, frxDesgn,
+  ACBrBase, ACBrDFe;
 
 type
   Tfrmimporta_nfe = class(TForm)
@@ -498,7 +499,7 @@ begin
       OpenDialog1.Title := 'Selecione a NFE';
       OpenDialog1.DefaultExt := '*.XML';
       OpenDialog1.Filter := '*.XML'; //'Arquivos NFE (*-nfe.XML)|*-nfe.XML|Arquivos XML (*.XML)|*.XML|Todos os Arquivos (*.*)|*.*';
-      OpenDialog1.InitialDir := ACBrNFe1.Configuracoes.Geral.PathSalvar+'\'+'Notas';
+      //OpenDialog1.InitialDir := ACBrNFe1.Configuracoes.Geral.PathSalvar+'\'+'Notas';
 
 //    end
 //  else
@@ -545,16 +546,16 @@ begin
       vmundestinatario := IntToStr(ACBrNFe1.NotasFiscais.Items[0].NFe.Dest.EnderDest.cMun);
 
       // tipo de nota (saida/entrada)
-      if ACBrNFe1.NotasFiscais.Items[0].NFe.Ide.tpNF = tnSaida then
-        etipo_nota.Text := 'S'
-      else
-        etipo_nota.Text := 'E';
+      //if ACBrNFe1.NotasFiscais.Items[0].NFe.Ide.tpNF = tnSaida then
+      //  etipo_nota.Text := 'S'
+      //else
+      //  etipo_nota.Text := 'E';
 
       // tipo de venda (vista/prazo)
-      if ACBrNFe1.NotasFiscais.Items[0].NFe.Ide.indPag = ipVista then
-        etipo_venda.Text := 'V'
-      else
-        etipo_venda.Text := 'P';
+      //if ACBrNFe1.NotasFiscais.Items[0].NFe.Ide.indPag = ipVista then
+      //  etipo_venda.Text := 'V'
+      //else
+      //  etipo_venda.Text := 'P';
 
       eid.Text := vid;
       enatureza.Text := vnat;

@@ -1,6 +1,6 @@
 object frmconfig: Tfrmconfig
-  Left = 255
-  Top = 237
+  Left = 144
+  Top = 211
   BorderStyle = bsToolWindow
   Caption = 'CONFIGURA'#199#213'ES | Painel'
   ClientHeight = 409
@@ -31,8 +31,8 @@ object frmconfig: Tfrmconfig
     Top = 0
     Width = 815
     Height = 373
-    ActivePage = PageSheet17
-    ActivePageIndex = 10
+    ActivePage = PageSheet7
+    ActivePageIndex = 0
     AdaptiveColors = True
     Align = alTop
     BackgroundColor = clBtnFace
@@ -4834,19 +4834,16 @@ object frmconfig: Tfrmconfig
     Top = 48
   end
   object ACBrNFe1: TACBrNFe
-    Configuracoes.Geral.PathSalvar = 'C:\siscom\SERVER\nfe\'
-    Configuracoes.WebServices.UF = 'AL'
-    Configuracoes.WebServices.AguardarConsultaRet = 15000
-    Configuracoes.WebServices.IntervaloTentativas = 1000
-    Configuracoes.WebServices.AjustaAguardaConsultaRet = True
-    Configuracoes.Arquivos.Salvar = True
-    Configuracoes.Arquivos.PastaMensal = True
+    Configuracoes.Geral.SSLLib = libCapicomDelphiSoap
+    Configuracoes.Geral.FormatoAlerta = 'TAG:%TAGNIVEL% ID:%ID%/%TAG%(%DESCRICAO%) - %MSG%.'
     Configuracoes.Arquivos.AdicionarLiteral = True
     Configuracoes.Arquivos.EmissaoPathNFe = True
     Configuracoes.Arquivos.PathNFe = 'C:\siscom\SERVER\nfe'
-    Configuracoes.Arquivos.PathCan = 'C:\siscom\SERVER\nfe'
     Configuracoes.Arquivos.PathInu = 'C:\siscom\SERVER\nfe'
-    Configuracoes.Arquivos.PathDPEC = 'C:\siscom\SERVER\nfe'
+    Configuracoes.WebServices.UF = 'AL'
+    Configuracoes.WebServices.AguardarConsultaRet = 15000
+    Configuracoes.WebServices.AjustaAguardaConsultaRet = True
+    Configuracoes.WebServices.QuebradeLinha = '|'
     Left = 435
     Top = 361
   end

@@ -174,7 +174,6 @@ uses
   lista_caixa2 in 'fnts\lista_caixa2.pas' {frmlista_caixa2},
   lista_os in 'fnts\lista_os.pas' {frmlista_os},
   lista_cheque2 in 'fnts\lista_cheque2.pas' {frmlista_cheque2},
-  notafiscal_item in 'fnts\notafiscal_item.pas' {frmnotafiscal_item},
   lista_pagar2 in 'fnts\lista_pagar2.pas' {frmlista_pagar2},
   xloc_notafiscal in 'fnts\xloc_notafiscal.pas' {frmxloc_notafiscal},
   contasreceber_impressao in 'fnts\contasreceber_impressao.pas' {frmcontasreceber_impressao},
@@ -224,7 +223,6 @@ uses
   produto_gradeFS in 'fnts\produto_gradeFS.pas' {frmproduto_gradeFS},
   compra in 'fnts\compra.pas' {frmcompra},
   compra_item in 'fnts\compra_item.pas' {frmcompra_item},
-  notafiscal_menu in 'fnts\notafiscal_menu.pas' {frmnotafiscal_menu},
   venda_impressao in 'fnts\venda_impressao.pas' {frmvenda_impressao},
   ecf in 'fnts\ecf.pas',
   etiqueta_grade in 'fnts\etiqueta_grade.pas' {frmetiqueta_grade},
@@ -360,7 +358,6 @@ uses
   fornecedor_codigo in 'fnts\fornecedor_codigo.pas' {frmfornecedor_codigo},
   duplicata_impressao in 'fnts\duplicata_impressao.pas' {frmDuplicata_Impressao},
   Lista_ABC_Marca_Grupo in 'fnts\Lista_ABC_Marca_Grupo.pas' {frmLista_ABC_Marca_Grupo},
-  importa_nfe in 'fnts\importa_nfe.pas' {frmimporta_nfe},
   contrato_reserva in 'fnts\contrato_reserva.pas' {frmContrato_reserva},
   prevenda_cliente in 'fnts\prevenda_cliente.pas' {frmprevenda_cliente},
   fluxo_caixa in 'fnts\fluxo_caixa.pas' {frmFluxo_Caixa},
@@ -375,7 +372,7 @@ uses
   venda_reimpressao in 'fnts\venda_reimpressao.pas' {frmvenda_reimpressao},
   webcam2 in 'fnts\webcam2.pas' {frmwebcam2},
   Ncm in 'fnts\Ncm.pas' {frmNcm},
-  xloc_csosn in 'fnts\xloc_csosn.pas' {frmxloc_csosn},
+  xloc_origem in 'fnts\xloc_origem.pas' {frmxloc_origem},
   xloc_cnae in 'fnts\xloc_cnae.pas' {frmxloc_cnae},
   regiao in 'fnts\regiao.pas' {frmregiao},
   locvendedor in 'fnts\locvendedor.pas' {frmlocvendedor},
@@ -407,7 +404,11 @@ uses
   baixarncm in 'fnts\baixarncm.pas' {frmbaixarncm},
   funcoes_ibpt in 'fnts\funcoes_ibpt.pas',
   conexao_ibpt in 'fnts\conexao_ibpt.pas' {frmconexao_ibpt: TDataModule},
-  funcoes in 'fnts\funcoes.pas';
+  funcoes in 'fnts\funcoes.pas',
+  importa_nfe in 'fnts\importa_nfe.pas' {frmimporta_nfe},
+  notafiscal_item in 'fnts\notafiscal_item.pas' {frmnotafiscal_item},
+  notafiscal_menu in 'fnts\notafiscal_menu.pas' {frmnotafiscal_menu},
+  xloc_csosn in 'fnts\xloc_csosn.pas' {frmxloc_csosn};
 
 var
 Hand : THandle;
@@ -430,10 +431,7 @@ begin
   Application.Title := 'DataSAC - Retaguarda';
   Application.CreateForm(Tfrmmodulo, frmmodulo);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
-
-
-
-    frmSplash.Hide;
+  frmSplash.Hide;
   frmSplash.Free;
 
   //frmsplash.showmodal;

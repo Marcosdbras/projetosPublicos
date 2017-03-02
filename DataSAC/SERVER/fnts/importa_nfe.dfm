@@ -2704,15 +2704,13 @@ object frmimporta_nfe: Tfrmimporta_nfe
     Top = 8
   end
   object ACBrNFe1: TACBrNFe
-    Configuracoes.Geral.PathSalvar = 'C:\siscom\SERVER\nfe\xml_entradas\'
+    Configuracoes.Geral.SSLLib = libCapicomDelphiSoap
+    Configuracoes.Geral.FormatoAlerta = 'TAG:%TAGNIVEL% ID:%ID%/%TAG%(%DESCRICAO%) - %MSG%.'
+    Configuracoes.Arquivos.PathNFe = 'C:\Arquivos de programas\Borland\Delphi7\Bin\'
+    Configuracoes.Arquivos.PathInu = 'C:\Arquivos de programas\Borland\Delphi7\Bin\'
     Configuracoes.WebServices.UF = 'AL'
     Configuracoes.WebServices.AguardarConsultaRet = 0
-    Configuracoes.WebServices.IntervaloTentativas = 1000
-    Configuracoes.WebServices.AjustaAguardaConsultaRet = False
-    Configuracoes.Arquivos.PathNFe = 'C:\Arquivos de programas\Borland\Delphi7\Bin\'
-    Configuracoes.Arquivos.PathCan = 'C:\Arquivos de programas\Borland\Delphi7\Bin\'
-    Configuracoes.Arquivos.PathInu = 'C:\Arquivos de programas\Borland\Delphi7\Bin\'
-    Configuracoes.Arquivos.PathDPEC = 'C:\Arquivos de programas\Borland\Delphi7\Bin\'
+    Configuracoes.WebServices.QuebradeLinha = '|'
     Left = 585
     Top = 305
   end

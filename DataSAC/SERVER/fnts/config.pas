@@ -10,7 +10,8 @@ uses
   Menus, ZAbstractRODataset, ZAbstractDataset, ZDataset, Wwdatsrc,
   AdvGlowButton, RzPanel, RzRadGrp, RzDBRGrp, ACBrNFe, RzEdit,
   IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdFTP, IniFiles,
-  RzCmboBx, RzDBEdit, RzDBBnEd, RzBorder, IdExplicitTLSClientServerBase;
+  RzCmboBx, RzDBEdit, RzDBBnEd, RzBorder, IdExplicitTLSClientServerBase,
+  ACBrBase, ACBrDFe;
 
 type
     TDadosFtp  = record
@@ -1009,9 +1010,9 @@ end;
 
 procedure Tfrmconfig.Button2Click(Sender: TObject);
 begin
-   {$IFNDEF ACBrNFeOpenSSL}
-   dsconfig.dataset.fieldbyname('nfe_certificado').asstring := ACBrNFe1.Configuracoes.Certificados.SelecionarCertificado;
-   {$ENDIF}
+   //{$IFNDEF ACBrNFeOpenSSL}
+   //dsconfig.dataset.fieldbyname('nfe_certificado').asstring := ACBrNFe1.Configuracoes.Certificados.SelecionarCertificado;
+   //{$ENDIF}
 end;
 
 procedure Tfrmconfig.BitBtn1Click(Sender: TObject);
