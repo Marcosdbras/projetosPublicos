@@ -2281,6 +2281,11 @@ type
     qratualiza: TZQuery;
     qrprodutoCFOP: TStringField;
     qrFilialSITE: TStringField;
+    qrOrigem: TZQuery;
+    qrOrigemID: TIntegerField;
+    qrOrigemDESCRICAO: TStringField;
+    qrOrigemCODIGO: TStringField;
+    qrOrigemOBS: TMemoField;
     procedure DataModuleCreate(Sender: TObject);
     procedure qrLogBeforePost(DataSet: TDataSet);
     procedure qrsubgrupoBeforePost(DataSet: TDataSet);

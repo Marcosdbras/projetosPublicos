@@ -10,10 +10,10 @@ uses
   ZAbstractRODataset, ZAbstractDataset, ZDataset, Menus, DBCtrls, Mask,
   RzEdit, RzDBEdit, RzDBBnEd, rxtooledit, RzBtnEdt, frxClass, frxPreview,
   frxDesgn, ExtCtrls, MemDS, DBAccess, IBC, Wwdatsrc, Buttons, jpeg,
-  ACBrNFe, ACBrNFeDANFEClass, ACBrNFeDANFERave,
-  // units nfe acbr
+  ACBrNFe, ACBrNFeDANFEClass,
+  // units nfe acbr  ACBrNFeDANFERave
   pcnConversao, ACBrUtil, SHDocVw, ComCtrls, OleCtrls, FileCtrl,
-  inifiles;
+  inifiles, ACBrBase, ACBrDFe;
 
 type
   Tfrmnotafiscal_menu = class(TForm)
@@ -341,7 +341,6 @@ type
     bt_nfe_cancelar: TBitBtn;
     bt_nfe_exportar: TBitBtn;
     bt_nfe_status: TBitBtn;
-    ACBrNFeDANFERave1: TACBrNFeDANFERave;
     bt_log: TBitBtn;
     pn_nfe_log: TPanel;
     Panel7: TPanel;
@@ -628,7 +627,7 @@ begin
       edtPathLogs.Text    := Ini.ReadString( 'Geral','PathSalvar'  ,'') ;
       ACBrNFe1.Configuracoes.Geral.FormaEmissao := StrToTpEmis(OK,IntToStr(rgFormaEmissao.ItemIndex+1));
       ACBrNFe1.Configuracoes.Geral.Salvar       := ckSalvar.Checked;
-      ACBrNFe1.Configuracoes.Geral.PathSalvar   := edtPathLogs.Text;
+      //ACBrNFe1.Configuracoes.Geral.PathSalvar   := edtPathLogs.Text;
 
       cbUF.ItemIndex       := cbUF.Items.IndexOf(Ini.ReadString( 'WebService','UF','AL')) ;
       rgTipoAmb.ItemIndex  := Ini.ReadInteger( 'WebService','Ambiente'  ,0) ;
@@ -729,15 +728,15 @@ begin
     Ide.dSaiEnt   := qrnota.fieldbyname('data_saida').asdatetime;
     Ide.hSaiEnt   := StrToTime(qrnota.fieldbyname('hora').asstring);;
 
-    IF QRNOTA.FIELDBYNAME('MOVIMENTO').ASSTRING = 'S' Then
-      Ide.tpNF      := tnSaida
-    else
-      Ide.tpNF      := tnEntrada;
+    //IF QRNOTA.FIELDBYNAME('MOVIMENTO').ASSTRING = 'S' Then
+    //  Ide.tpNF      := tnSaida
+    //else
+    //  Ide.tpNF      := tnEntrada;
 
-    if qrnota.FieldByName('fat_tipo').asinteger = 1  then
-      Ide.indPag    := ipVista
-    else
-      Ide.indpag    := ipPrazo;
+    //if qrnota.FieldByName('fat_tipo').asinteger = 1  then
+    //  Ide.indPag    := ipVista
+    //else
+    //  Ide.indpag    := ipPrazo;
 
     Ide.verProc   := '7.0';
     Ide.cUF       := strtoint(Copy(QUERY2.FIELDBYNAME('COD_MUNICIPIO_IBGE').ASstring,1,2));
@@ -1288,9 +1287,9 @@ begin
 
   end;
 
-  ACBrNFe1.NotasFiscais.Items[0].SaveToFile;
+  //ACBrNFe1.NotasFiscais.Items[0].SaveToFile;
   result := ACBrNFe1.NotasFiscais.Items[0].NomeArq;
-  MemoResp.Lines.LoadFromFile(PathWithDelim(ACBrNFe1.Configuracoes.Geral.PathSalvar)+copy(ACBrNFe1.NotasFiscais.Items[0].NFe.infNFe.ID, (length(ACBrNFe1.NotasFiscais.Items[0].NFe.infNFe.ID)-44)+1, 44)+'-NFe.xml');
+  //MemoResp.Lines.LoadFromFile(PathWithDelim(ACBrNFe1.Configuracoes.Geral.PathSalvar)+copy(ACBrNFe1.NotasFiscais.Items[0].NFe.infNFe.ID, (length(ACBrNFe1.NotasFiscais.Items[0].NFe.infNFe.ID)-44)+1, 44)+'-NFe.xml');
   LoadXML(MemoResp, WBResposta);
 
 end;
@@ -2443,6 +2442,8 @@ end;
 
 procedure Tfrmnotafiscal_menu.ACBrNFe1StatusChange(Sender: TObject);
 begin
+
+  {
   case ACBrNFe1.Status of
     stIdle :
     begin
@@ -2539,7 +2540,7 @@ begin
     end;
   end;
   Application.ProcessMessages;
-
+  }
 end;
 
 procedure Tfrmnotafiscal_menu.bt_nfe_statusClick(Sender: TObject);
@@ -2624,7 +2625,7 @@ begin
     begin
       ACBrNFe1.NotasFiscais.Clear;
       ACBrNFe1.NotasFiscais.LoadFromFile(sXML);
-      ACBrNFe1.NotasFiscais.Valida;
+      //ACBrNFe1.NotasFiscais.Valida;
 //      Application.MessageBox('Nota Fiscal validada com sucesso!','Aviso',mb_ok+mb_iconinformation);
 
       qrnota.edit;
@@ -2674,11 +2675,11 @@ begin
       ACBrNFe1.NotasFiscais.LoadFromFile(sXML);
       if ACBrNFe1.NotasFiscais.Items[0].NFe.Ide.tpEmis = teDPEC then
       begin
-         ACBrNFe1.WebServices.ConsultaDPEC.NFeChave := ACBrNFe1.NotasFiscais.Items[0].NFe.infNFe.ID;
-         ACBrNFe1.WebServices.ConsultaDPEC.Executar;
-         ACBrNFe1.DANFE.ProtocoloNFe := ACBrNFe1.WebServices.ConsultaDPEC.nRegDPEC +' '+ DateTimeToStr(ACBrNFe1.WebServices.ConsultaDPEC.dhRegDPEC);
+         //ACBrNFe1.WebServices.ConsultaDPEC.NFeChave := ACBrNFe1.NotasFiscais.Items[0].NFe.infNFe.ID;
+         //ACBrNFe1.WebServices.ConsultaDPEC.Executar;
+         //ACBrNFe1.DANFE.ProtocoloNFe := ACBrNFe1.WebServices.ConsultaDPEC.nRegDPEC +' '+ DateTimeToStr(ACBrNFe1.WebServices.ConsultaDPEC.dhRegDPEC);
       end;
-      ACBrNFe1.NotasFiscais.Imprimir;
+      //ACBrNFe1.NotasFiscais.Imprimir;
     end
     else
     begin
@@ -2871,6 +2872,8 @@ end;
 procedure Tfrmnotafiscal_menu.bt_nfe_cancelarClick(Sender: TObject);
 var vAux, sXML : string;
 begin
+
+  {
   if qrnota.recordcount = 0 then exit;
 
   sXML := qrnota.fieldbyname('nfe_xml').asstring;
@@ -2887,21 +2890,21 @@ begin
       if not(InputQuery('NFe Cancelamento', 'Informe a justificativa', vAux)) then
          exit;
        ACBrNFe1.Cancelamento(vAux);
-       MemoResp.Lines.Text :=  UTF8Encode(ACBrNFe1.WebServices.Cancelamento.RetWS);
-       LoadXML(MemoResp, WBResposta);
+       MemoResp.Lines.Text :=  //UTF8Encode(ACBrNFe1.WebServices.Cancelamento.RetWS);
+       //LoadXML(MemoResp, WBResposta);
 
 //       ShowMessage(IntToStr(ACBrNFe1.WebServices.Cancelamento.cStat));
 //       ShowMessage(ACBrNFe1.WebServices.Cancelamento.Protocolo);
 
-        qrnota.edit;
-        qrnota.FieldByName('nfe_xml').asstring := sXML;
-        qrnota.FieldByName('nfe_situacao').asinteger := 8;
-        qrnota.post;
+        //qrnota.edit;
+        //qrnota.FieldByName('nfe_xml').asstring := sXML;
+        //qrnota.FieldByName('nfe_situacao').asinteger := 8;
+        //qrnota.post;
 
-        gridRowChanged(frmnotafiscal_menu);
+        //gridRowChanged(frmnotafiscal_menu);
 
 
-       
+
     end
     else
     begin
@@ -2910,7 +2913,7 @@ begin
 
 
 
-
+  }
 end;
 
 procedure Tfrmnotafiscal_menu.btnSalvarConfigClick(Sender: TObject);
@@ -2933,9 +2936,9 @@ end;
 
 procedure Tfrmnotafiscal_menu.sbtnGetCertClick(Sender: TObject);
 begin
-   {$IFNDEF ACBrNFeOpenSSL}
-   edtNumSerie.Text := ACBrNFe1.Configuracoes.Certificados.SelecionarCertificado;
-   {$ENDIF}
+   //{$IFNDEF ACBrNFeOpenSSL}
+   //edtNumSerie.Text := ACBrNFe1.Configuracoes.Certificados.SelecionarCertificado;
+   //{$ENDIF}
 end;
 
 procedure Tfrmnotafiscal_menu.sbtnLogoMarcaClick(Sender: TObject);

@@ -7970,54 +7970,18 @@ object frmnotafiscal_menu: Tfrmnotafiscal_menu
     Left = 560
     Top = 112
   end
-  object ACBrNFeDANFERave1: TACBrNFeDANFERave
-    ACBrNFe = ACBrNFe1
-    Sistema = 'DataSAC 2.0'
-    PathPDF = 'C:\DataSAC\SERVER\nfe\PDF\'
-    MostrarPreview = True
-    MostrarStatus = True
-    TipoDANFE = tiRetrato
-    NumCopias = 1
-    ImprimirDescPorc = True
-    ImprimirTotalLiquido = False
-    ProtocoloNFe = 'C:\DataSAC\SERVER\nfe\'
-    MargemInferior = 0.800000000000000000
-    MargemSuperior = 0.800000000000000000
-    MargemEsquerda = 0.600000000000000000
-    MargemDireita = 0.600000000000000000
-    CasasDecimais._qCom = 2
-    CasasDecimais._vUnCom = 2
-    ExibirResumoCanhoto = False
-    FormularioContinuo = False
-    TamanhoFonte_DemaisCampos = 10
-    ProdutosPorPagina = 0
-    ImprimirDetalhamentoEspecifico = True
-    NFeCancelada = False
-    LocalImpCanhoto = 0
-    RavFile = 'C:\DataSAC\Server\rel\NotaFiscalEletronica.rav'
-    EspessuraBorda = 1
-    TamanhoFonte_RazaoSocial = 12
-    TamanhoFonte_ANTT = 10
-    Left = 557
-    Top = 377
-  end
   object ACBrNFe1: TACBrNFe
-    Configuracoes.Geral.PathSalvar = 'C:\DataSAC\SERVER\nfe\'
-    Configuracoes.WebServices.UF = 'AL'
-    Configuracoes.WebServices.AguardarConsultaRet = 15000
-    Configuracoes.WebServices.IntervaloTentativas = 1000
-    Configuracoes.WebServices.AjustaAguardaConsultaRet = True
-    Configuracoes.Arquivos.Salvar = True
-    Configuracoes.Arquivos.PastaMensal = True
+    OnStatusChange = ACBrNFe1StatusChange
+    Configuracoes.Geral.SSLLib = libCapicomDelphiSoap
+    Configuracoes.Geral.FormatoAlerta = 'TAG:%TAGNIVEL% ID:%ID%/%TAG%(%DESCRICAO%) - %MSG%.'
     Configuracoes.Arquivos.AdicionarLiteral = True
     Configuracoes.Arquivos.EmissaoPathNFe = True
     Configuracoes.Arquivos.PathNFe = 'C:\DataSAC\SERVER\nfe\Enviadas'
-    Configuracoes.Arquivos.PathCan = 'C:\DataSAC\SERVER\nfe\Canceladas'
     Configuracoes.Arquivos.PathInu = 'C:\DataSAC\SERVER\nfe\Inutilizadas'
-    Configuracoes.Arquivos.PathDPEC = 'C:\DataSAC\SERVER\nfe\DPEC'
-    OnStatusChange = ACBrNFe1StatusChange
-    DANFE = ACBrNFeDANFERave1
-    OnGerarLog = ACBrNFe1GerarLog
+    Configuracoes.WebServices.UF = 'AL'
+    Configuracoes.WebServices.AguardarConsultaRet = 15000
+    Configuracoes.WebServices.AjustaAguardaConsultaRet = True
+    Configuracoes.WebServices.QuebradeLinha = '|'
     Left = 523
     Top = 377
   end

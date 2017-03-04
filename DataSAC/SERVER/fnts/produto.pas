@@ -672,28 +672,6 @@ type
     qrprodutoSITA: TStringField;
     PageSheet13: TPageSheet;
     GroupBox2: TGroupBox;
-    Label30: TLabel;
-    Label73: TLabel;
-    Label93: TLabel;
-    Label95: TLabel;
-    Label106: TLabel;
-    Label96: TLabel;
-    Label60: TLabel;
-    Label92: TLabel;
-    Label94: TLabel;
-    Label89: TLabel;
-    Label91: TLabel;
-    ealiq: TRxDBCalcEdit;
-    edt1: TRzDBButtonEdit;
-    wwDBComboBox2: TwwDBComboBox;
-    RxDBCalcEdit2: TRxDBCalcEdit;
-    ecsosn: TRzDBButtonEdit;
-    RxDBCalcEdit3: TRxDBCalcEdit;
-    RxDBCalcEdit1: TRxDBCalcEdit;
-    wwDBComboBox3: TwwDBComboBox;
-    wwDBComboBox4: TwwDBComboBox;
-    ecombo_piscofins: TwwDBComboBox;
-    wwDBComboBox1: TwwDBComboBox;
     Bevel20: TBevel;
     Label97: TLabel;
     Label101: TLabel;
@@ -701,9 +679,38 @@ type
     Label98: TLabel;
     Label99: TLabel;
     Label100: TLabel;
+    qrprodutoCFOP: TStringField;
+    Panel7: TPanel;
+    Label73: TLabel;
+    edt1: TRzDBButtonEdit;
+    Label30: TLabel;
+    ealiq: TRxDBCalcEdit;
+    Label93: TLabel;
+    wwDBComboBox2: TwwDBComboBox;
+    Label92: TLabel;
+    wwDBComboBox3: TwwDBComboBox;
+    Label60: TLabel;
+    RxDBCalcEdit1: TRxDBCalcEdit;
+    Label94: TLabel;
+    wwDBComboBox4: TwwDBComboBox;
+    Label89: TLabel;
+    ecombo_piscofins: TwwDBComboBox;
+    Label104: TLabel;
+    Label91: TLabel;
+    wwDBComboBox1: TwwDBComboBox;
+    Panel8: TPanel;
+    Label96: TLabel;
+    Label103: TLabel;
+    eorigem: TRzDBButtonEdit;
     Label102: TLabel;
     ecfop: TRzDBButtonEdit;
-    qrprodutoCFOP: TStringField;
+    Label95: TLabel;
+    ecsosn: TRzDBButtonEdit;
+    Label106: TLabel;
+    RxDBCalcEdit2: TRxDBCalcEdit;
+    Label105: TLabel;
+    Label107: TLabel;
+    Label108: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure enomeEnter(Sender: TObject);
@@ -904,6 +911,8 @@ type
     procedure DBEdit32KeyPress(Sender: TObject; var Key: Char);
     procedure ecfopButtonClick(Sender: TObject);
     procedure ecfopKeyPress(Sender: TObject; var Key: Char);
+    procedure eorigemButtonClick(Sender: TObject);
+    procedure eorigemKeyPress(Sender: TObject; var Key: Char);
 
   private
     { Private declarations }
@@ -937,7 +946,7 @@ uses modulo, principal, loc_grupo,
   xloc_produto, produto_atualizapreco, xloc_cst, industrializacao,
   inventario, baixa_estoque, servico, loc_aliquota, Produto_consultaserial,
   produto_movimentar, unNFe2, produto_serial_ficha, fornecedor_codigo, Ncm,
-  xloc_csosn, baixarncm, xloc_cfop;
+  xloc_csosn, baixarncm, xloc_cfop, xloc_origem;
 
 {$R *.dfm}
 
@@ -1011,6 +1020,13 @@ begin
   frmmodulo.qrCSOSN.SQL.add('select * from CSOSN order by codigo');
   frmmodulo.qrCSOSN.open;
   frmmodulo.qrCSOSN.IndexFieldNames := 'codigo';
+
+
+  frmmodulo.qrOrigem.close;
+  frmmodulo.qrOrigem.sql.clear;
+  frmmodulo.qrOrigem.SQL.add('select * from Origem order by codigo');
+  frmmodulo.qrOrigem.open;
+  frmmodulo.qrOrigem.IndexFieldNames := 'codigo';
 
 
   frmmodulo.qrcfop.close;
@@ -1286,6 +1302,39 @@ procedure Tfrmproduto.bgravarClick(Sender: TObject);
 var situacao, tipo : integer;
 DATA: STRING;
 begin
+
+
+  if qrproduto.FieldByName('classificacao_fiscal').AsString = '' then
+    begin
+      showmessage('Favor Informar ncm!');
+      pageview1.ActivePageIndex := 0;
+      encm.SetFocus;
+      exit;
+    end; 
+
+  if qrproduto.FieldByName('SITA').AsString = '' then
+    begin
+      showmessage('Favor Informar origem!');
+      pageview1.ActivePageIndex := 9; 
+      eorigem.SetFocus;
+      exit;
+    end;
+
+  if qrproduto.FieldByName('cfop').AsString = '' then
+    begin
+      showmessage('Favor Informar CFOP de venda!');
+      pageview1.ActivePageIndex := 9;
+      ecfop.SetFocus;
+      exit;
+    end;
+
+  if qrproduto.FieldByName('CSOSN').AsString = '' then
+    begin
+      showmessage('Favor Informar CSOSN de venda!');
+      pageview1.ActivePageIndex := 9;
+      ecsosn.SetFocus;
+      exit;
+    end; 
 
   if qrproduto.FieldByName('PRECOVENDA').AsFloat = 0 then
     begin
@@ -2084,12 +2133,14 @@ begin
     //PageView2.ActivePageIndex := 0;
     if gestoque.visible then
       begin
-        RxDBCalcEdit2.setfocus;
+        //RxDBCalcEdit2.setfocus;
+        wwDBComboBox2.setfocus;
       end
     else
       begin
         //PageView1.ActivePageIndex := 0;
-        RxDBCalcEdit2.setfocus;
+        //RxDBCalcEdit2.setfocus;
+        wwDBComboBox2.setfocus;
       end;
   end;
 end;
@@ -4882,6 +4933,60 @@ begin
   end;
 
   end;
+
+end;
+
+procedure Tfrmproduto.eorigemButtonClick(Sender: TObject);
+begin
+  IF QRPRODUTO.State <> DSINSERT THEN
+  IF QRPRODUTO.STATE <> DSINSERT THEN QRPRODUTO.Edit;
+
+  parametro_pesquisa := '';
+  frmxloc_origem := tfrmxloc_origem.create(self);
+  frmxloc_origem.showmodal;
+  if resultado_pesquisa1 <>'' then
+  begin
+      zquery1.close;
+      zquery1.sql.clear;
+      zquery1.sql.add('select * from origem where CODIGO = '''+resultado_pesquisa1+'''');
+      zquery1.open;
+      eorigem.text := zquery1.fieldbyname('codigo').asstring;
+      eorigem.setfocus;
+  end;
+
+
+
+end;
+
+procedure Tfrmproduto.eorigemKeyPress(Sender: TObject; var Key: Char);
+begin
+
+if key = #13 then
+  begin
+  tedit(sender).Color := clwindow;
+  IF (qrproduto.state = dsinsert) or (qrproduto.State = dsedit) then
+  begin
+    //qrproduto.fieldbyname('sita').asstring := frmprincipal.zerarcodigo(eorigem.text,3);
+    qrproduto.fieldbyname('sita').asstring := eorigem.text;
+    if eorigem.text <> '' then
+      if not FrmPrincipal.Locregistro(frmmodulo.qrorigem,eorigem.text,'codigo') then
+      begin
+          application.messagebox('origem não cadastrada!','Atenção',mb_ok+mb_iconerror);
+          eorigem.setfocus;
+          exit;
+      end
+      else
+        begin
+          perform(wm_nextdlgctl,0,0);
+          //DBMemo1.setfocus
+        end
+
+    else
+      eorigemButtonClick(frmproduto);
+  end;
+
+  end;
+
 
 end;
 

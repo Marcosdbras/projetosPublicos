@@ -5245,14 +5245,14 @@ end;
 
 procedure TfrmPrincipal.AdvGlowButton8Click(Sender: TObject);
 begin
-If frmprincipal.acesso(codigo_usuario,'03.02') = 'NAO' then
-  begin
-    application.messagebox('Acesso não permitido!','Atenção',mb_ok+MB_ICONERROR);
-    exit;
-  end;
+//If frmprincipal.acesso(codigo_usuario,'03.02') = 'NAO' then
+//  begin
+//    application.messagebox('Acesso não permitido!','Atenção',mb_ok+MB_ICONERROR);
+//    exit;
+//  end;
 
-  frmnotafiscal_menu := tfrmnotafiscal_menu.create(self);
-  frmnotafiscal_menu.showmodal;
+//  frmnotafiscal_menu := tfrmnotafiscal_menu.create(self);
+//  frmnotafiscal_menu.showmodal;
 end;
 
 procedure TfrmPrincipal.AdvGlowButton9Click(Sender: TObject);
@@ -5450,14 +5450,14 @@ end;
 
 procedure TfrmPrincipal.EmissoNFe201Click(Sender: TObject);
 begin
- If frmprincipal.acesso(codigo_usuario,'03.02') = 'NAO' then
-  begin
-    application.messagebox('Acesso não permitido!','Atenção',mb_ok+MB_ICONERROR);
-    exit;
-  end;
+ //If frmprincipal.acesso(codigo_usuario,'03.02') = 'NAO' then
+ // begin
+    //application.messagebox('Acesso não permitido!','Atenção',mb_ok+MB_ICONERROR);
+    //exit;
+ // end;
 
-  frmnotafiscal_menu := tfrmnotafiscal_menu.create(self);
-  frmnotafiscal_menu.showmodal;
+  //frmnotafiscal_menu := tfrmnotafiscal_menu.create(self);
+  //frmnotafiscal_menu.showmodal;
 end;
 
 procedure TfrmPrincipal.ConhecimentoClick(Sender: TObject);

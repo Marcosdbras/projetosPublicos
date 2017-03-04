@@ -1,9 +1,9 @@
 object frmmodulo: Tfrmmodulo
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 65532
-  Top = 65532
-  Height = 746
+  Left = 65449
+  Top = 184
+  Height = 701
   Width = 1036
   object Conexao: TZConnection
     AutoCommit = False
@@ -15,8 +15,8 @@ object frmmodulo: Tfrmmodulo
     User = 'SYSDBA'
     Password = 'masterkey'
     Protocol = 'firebird-2.5'
-    Left = 944
-    Top = 250
+    Left = 273
+    Top = 490
   end
   object qrLog: TZQuery
     Connection = Conexao
@@ -2238,8 +2238,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000023')
     Params = <>
-    Left = 136
-    Top = 474
+    Left = 768
+    Top = 482
   end
   object qrproduto: TZQuery
     Connection = Conexao
@@ -2653,8 +2653,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000026')
     Params = <>
-    Left = 72
-    Top = 474
+    Left = 144
+    Top = 354
     object qrprecoCODIGO: TStringField
       FieldName = 'CODIGO'
       Required = True
@@ -2827,8 +2827,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000021')
     Params = <>
-    Left = 216
-    Top = 474
+    Left = 640
+    Top = 482
     object qrgrade_produtoNUMERACAO: TStringField
       DisplayLabel = 'N'#218'MERO'
       DisplayWidth = 10
@@ -2870,7 +2870,7 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000022')
     Params = <>
-    Left = 304
+    Left = 528
     Top = 474
     object qrserial_produtoNUMERONOTA: TStringField
       DisplayLabel = 'NF.COMPRA'
@@ -2979,24 +2979,24 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000024')
     Params = <>
-    Left = 376
-    Top = 474
+    Left = 695
+    Top = 442
   end
   object qrcomposicao_produto: TZQuery
     Connection = Conexao
     SQL.Strings = (
       'select * from c000027')
     Params = <>
-    Left = 464
-    Top = 474
+    Left = 863
+    Top = 274
   end
   object qrinfnutricional_produto: TZQuery
     Connection = Conexao
     SQL.Strings = (
       'select * from c000028')
     Params = <>
-    Left = 584
-    Top = 474
+    Left = 439
+    Top = 218
   end
   object qrCFOP: TZQuery
     Connection = Conexao
@@ -3120,8 +3120,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000031')
     Params = <>
-    Left = 688
-    Top = 474
+    Left = 839
+    Top = 186
     object qrentrada_produtoCODIGO: TStringField
       FieldName = 'CODIGO'
       Required = True
@@ -3248,8 +3248,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000032')
     Params = <>
-    Left = 776
-    Top = 474
+    Left = 879
+    Top = 346
     object qrproduto_movDATA: TDateTimeField
       DisplayWidth = 13
       FieldName = 'DATA'
@@ -3966,8 +3966,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000042')
     Params = <>
-    Left = 776
-    Top = 50
+    Left = 816
+    Top = 426
     object qrlancamento_contaCODIGO: TStringField
       FieldName = 'CODIGO'
       Required = True
@@ -4006,8 +4006,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000045')
     Params = <>
-    Left = 872
-    Top = 50
+    Left = 400
+    Top = 410
     object qrcaixa_operadorCODIGO: TStringField
       DisplayWidth = 7
       FieldName = 'CODIGO'
@@ -4147,8 +4147,8 @@ object frmmodulo: Tfrmmodulo
     User = 'SYSDBA'
     Password = 'masterkey'
     Protocol = 'firebird-2.5'
-    Left = 1016
-    Top = 202
+    Left = 89
+    Top = 490
   end
   object qrvenda: TZQuery
     Connection = Conexao
@@ -4416,8 +4416,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000050')
     Params = <>
-    Left = 1032
-    Top = 50
+    Left = 706
+    Top = 178
   end
   object qros: TZQuery
     Connection = Conexao
@@ -6146,8 +6146,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000068')
     Params = <>
-    Left = 1016
-    Top = 114
+    Left = 610
+    Top = 354
     object qrconhecimentoCODIGO: TStringField
       DisplayLabel = 'C'#211'DIGO'
       DisplayWidth = 7
@@ -7096,8 +7096,8 @@ object frmmodulo: Tfrmmodulo
     User = 'SYSDBA'
     Password = 'masterkey'
     Protocol = 'firebird-2.5'
-    Left = 1024
-    Top = 314
+    Left = 185
+    Top = 490
   end
   object qrfiscal_cst: TZQuery
     Connection = Conexao
@@ -7117,8 +7117,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000082')
     Params = <>
-    Left = 168
-    Top = 578
+    Left = 720
+    Top = 562
     object qrfiscal_modeloSINTEGRA: TStringField
       DisplayLabel = 'C'#243'digo'
       DisplayWidth = 10
@@ -7158,8 +7158,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000081')
     Params = <>
-    Left = 240
-    Top = 578
+    Left = 816
+    Top = 562
     object qrfiscal_ecfCODIGO: TStringField
       DisplayLabel = 'C'#243'digo'
       DisplayWidth = 7
@@ -7209,8 +7209,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000084')
     Params = <>
-    Left = 328
-    Top = 578
+    Left = 503
+    Top = 546
     object qrfiscal_classeCODIGO: TStringField
       FieldName = 'CODIGO'
       Required = True
@@ -7228,8 +7228,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000084a')
     Params = <>
-    Left = 416
-    Top = 578
+    Left = 911
+    Top = 226
     object qrfiscal_classe_pisCODIGO: TStringField
       FieldName = 'CODIGO'
       Size = 6
@@ -7253,8 +7253,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000084b')
     Params = <>
-    Left = 528
-    Top = 578
+    Left = 735
+    Top = 170
     object qrfiscal_classe_cofinsCODIGO: TStringField
       FieldName = 'CODIGO'
       Size = 6
@@ -7278,8 +7278,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000084c')
     Params = <>
-    Left = 640
-    Top = 578
+    Left = 551
+    Top = 170
     object qrfiscal_classe_csllCODIGO: TStringField
       FieldName = 'CODIGO'
       Size = 6
@@ -7303,8 +7303,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000084d')
     Params = <>
-    Left = 736
-    Top = 578
+    Left = 647
+    Top = 170
     object qrfiscal_classe_irrfCODIGO: TStringField
       FieldName = 'CODIGO'
       Size = 6
@@ -7624,8 +7624,8 @@ object frmmodulo: Tfrmmodulo
     SQL.Strings = (
       'select * from c000085')
     Params = <>
-    Left = 32
-    Top = 586
+    Left = 600
+    Top = 554
     object qritemmodelo_nf: TStringField
       DisplayWidth = 2
       FieldName = 'modelo_nf'
@@ -9042,8 +9042,8 @@ object frmmodulo: Tfrmmodulo
     User = 'SYSDBA'
     Password = 'masterkey'
     Protocol = 'firebird-2.1'
-    Left = 864
-    Top = 274
+    Left = 417
+    Top = 490
   end
   object qradic: TZQuery
     Connection = conexao_adic
@@ -9923,13 +9923,13 @@ object frmmodulo: Tfrmmodulo
     Password = 'masterkey'
     AutoCommit = False
     LoginPrompt = False
-    Left = 1000
-    Top = 258
+    Left = 97
+    Top = 570
   end
   object ETransaction: TIBCTransaction
     DefaultConnection = EConexao
-    Left = 936
-    Top = 314
+    Left = 329
+    Top = 578
   end
   object qrprod: TZQuery
     Connection = Conexao
@@ -10380,8 +10380,8 @@ object frmmodulo: Tfrmmodulo
     User = 'SYSDBA'
     Password = 'masterkey'
     Protocol = 'firebird-2.5'
-    Left = 943
-    Top = 200
+    Left = 344
+    Top = 488
   end
   object qrNCM: TZQuery
     Connection = Conexao
@@ -11390,8 +11390,8 @@ object frmmodulo: Tfrmmodulo
       'Interbase TransIsolation=ReadCommited'
       'Trim Char=False')
     VendorLib = 'gds32.dll'
-    Left = 864
-    Top = 184
+    Left = 194
+    Top = 544
   end
   object ZQuery2: TZQuery
     Connection = Conexao
@@ -11556,5 +11556,29 @@ object frmmodulo: Tfrmmodulo
     Params = <>
     Left = 872
     Top = 405
+  end
+  object qrOrigem: TZQuery
+    Connection = Conexao
+    SQL.Strings = (
+      'select * from origem')
+    Params = <>
+    Left = 256
+    Top = 306
+    object qrOrigemID: TIntegerField
+      FieldName = 'ID'
+      Required = True
+    end
+    object qrOrigemDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Size = 60
+    end
+    object qrOrigemCODIGO: TStringField
+      FieldName = 'CODIGO'
+      Size = 10
+    end
+    object qrOrigemOBS: TMemoField
+      FieldName = 'OBS'
+      BlobType = ftMemo
+    end
   end
 end

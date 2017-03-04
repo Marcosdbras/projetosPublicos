@@ -1,8 +1,8 @@
 object frmproduto: Tfrmproduto
-  Left = 6
-  Top = 135
-  Width = 993
-  Height = 521
+  Left = 4
+  Top = 127
+  Width = 1005
+  Height = 528
   BorderIcons = [biSystemMenu]
   Caption = 'PRODUTOS | Ficha de Cadastro'
   Color = clBtnFace
@@ -21,15 +21,15 @@ object frmproduto: Tfrmproduto
   TextHeight = 13
   object Bevel7: TBevel
     Left = 0
-    Top = 205
-    Width = 985
+    Top = 212
+    Width = 997
     Height = 3
     Align = alBottom
   end
   object Bevel10: TBevel
     Left = 0
-    Top = 458
-    Width = 985
+    Top = 465
+    Width = 997
     Height = 3
     Align = alBottom
   end
@@ -144,8 +144,8 @@ object frmproduto: Tfrmproduto
   end
   object Panel2: TPanel
     Left = 0
-    Top = 461
-    Width = 985
+    Top = 468
+    Width = 997
     Height = 33
     Align = alBottom
     BevelOuter = bvNone
@@ -1196,11 +1196,11 @@ object frmproduto: Tfrmproduto
   end
   object PageView1: TPageView
     Left = 0
-    Top = 208
-    Width = 985
+    Top = 215
+    Width = 997
     Height = 250
-    ActivePage = PageSheet13
-    ActivePageIndex = 9
+    ActivePage = PageSheet9
+    ActivePageIndex = 0
     AdaptiveColors = True
     Align = alBottom
     BackgroundColor = clBtnFace
@@ -1218,7 +1218,7 @@ object frmproduto: Tfrmproduto
     object PageSheet9: TPageSheet
       Left = 0
       Top = 21
-      Width = 985
+      Width = 997
       Height = 229
       Caption = ' Estoque'
       DisplayMode = tdGlyph
@@ -1231,7 +1231,7 @@ object frmproduto: Tfrmproduto
       object PageView2: TPageView
         Left = 0
         Top = 0
-        Width = 985
+        Width = 997
         Height = 250
         ActivePage = PageSheet10
         ActivePageIndex = 0
@@ -1253,7 +1253,7 @@ object frmproduto: Tfrmproduto
         object PageSheet10: TPageSheet
           Left = 0
           Top = 21
-          Width = 985
+          Width = 997
           Height = 229
           Caption = 'Posi'#231#227'o do Estoque / Informa'#231#245'es'
           DisplayMode = tdGlyph
@@ -1266,7 +1266,7 @@ object frmproduto: Tfrmproduto
           object pficha2: TPanel
             Left = 0
             Top = 0
-            Width = 985
+            Width = 997
             Height = 229
             Align = alClient
             BevelOuter = bvNone
@@ -1322,7 +1322,7 @@ object frmproduto: Tfrmproduto
               AutoSize = False
               Caption = 'CF/NCM:'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
+              Font.Color = clRed
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -1375,7 +1375,7 @@ object frmproduto: Tfrmproduto
             end
             object Label14: TLabel
               Left = 260
-              Top = 29
+              Top = 10
               Width = 70
               Height = 13
               Alignment = taRightJustify
@@ -2169,7 +2169,7 @@ object frmproduto: Tfrmproduto
         object PageSheet11: TPageSheet
           Left = 0
           Top = 21
-          Width = 985
+          Width = 997
           Height = 229
           Caption = 'Entradas'
           DisplayMode = tdGlyph
@@ -2182,7 +2182,7 @@ object frmproduto: Tfrmproduto
           object Bevel8: TBevel
             Left = 0
             Top = 155
-            Width = 985
+            Width = 997
             Height = 2
             Align = alTop
           end
@@ -2345,7 +2345,7 @@ object frmproduto: Tfrmproduto
           object wwDBGrid4: TwwDBGrid
             Left = 0
             Top = 0
-            Width = 985
+            Width = 997
             Height = 155
             DittoAttributes.ShortCutDittoField = 0
             DittoAttributes.ShortCutDittoRecord = 0
@@ -2390,7 +2390,7 @@ object frmproduto: Tfrmproduto
         object PageSheet12: TPageSheet
           Left = 0
           Top = 21
-          Width = 985
+          Width = 997
           Height = 229
           Caption = 'Sa'#237'das'
           DisplayMode = tdGlyph
@@ -2403,14 +2403,14 @@ object frmproduto: Tfrmproduto
           object Bevel9: TBevel
             Left = 0
             Top = 155
-            Width = 985
+            Width = 997
             Height = 2
             Align = alTop
           end
           object wwDBGrid5: TwwDBGrid
             Left = 0
             Top = 0
-            Width = 985
+            Width = 997
             Height = 155
             DittoAttributes.ShortCutDittoField = 0
             DittoAttributes.ShortCutDittoRecord = 0
@@ -2621,7 +2621,7 @@ object frmproduto: Tfrmproduto
     object PageSheet7: TPageSheet
       Left = 0
       Top = 21
-      Width = 985
+      Width = 997
       Height = 229
       Caption = 'C'#225'lculo Pre'#231'o'
       DisplayMode = tdGlyph
@@ -2634,7 +2634,7 @@ object frmproduto: Tfrmproduto
       object ppreco: TPanel
         Left = 0
         Top = 0
-        Width = 985
+        Width = 997
         Height = 229
         Align = alClient
         BevelOuter = bvNone
@@ -2642,7 +2642,7 @@ object frmproduto: Tfrmproduto
         object pficha1: TPanel
           Left = 0
           Top = 0
-          Width = 985
+          Width = 997
           Height = 229
           Align = alClient
           BevelOuter = bvNone
@@ -3936,7 +3936,7 @@ object frmproduto: Tfrmproduto
     object PageSheet2: TPageSheet
       Left = 0
       Top = 21
-      Width = 985
+      Width = 997
       Height = 229
       Caption = 'Grade'
       DisplayMode = tdGlyph
@@ -3949,7 +3949,7 @@ object frmproduto: Tfrmproduto
       object pficha4: TPanel
         Left = 0
         Top = 0
-        Width = 985
+        Width = 997
         Height = 229
         Align = alClient
         BevelOuter = bvNone
@@ -3957,7 +3957,7 @@ object frmproduto: Tfrmproduto
         object pgrade: TPanel
           Left = 0
           Top = 0
-          Width = 985
+          Width = 997
           Height = 229
           Align = alClient
           BevelOuter = bvNone
@@ -4140,7 +4140,7 @@ object frmproduto: Tfrmproduto
     object PageSheet3: TPageSheet
       Left = 0
       Top = 21
-      Width = 985
+      Width = 997
       Height = 229
       Caption = 'Seriais'
       DisplayMode = tdGlyph
@@ -4153,7 +4153,7 @@ object frmproduto: Tfrmproduto
       object pficha5: TPanel
         Left = 0
         Top = 0
-        Width = 985
+        Width = 997
         Height = 229
         Align = alClient
         BevelOuter = bvNone
@@ -4161,14 +4161,14 @@ object frmproduto: Tfrmproduto
         object Bevel19: TBevel
           Left = 0
           Top = 178
-          Width = 985
+          Width = 997
           Height = 2
           Align = alBottom
         end
         object wwDBGrid2: TwwDBGrid
           Left = 0
           Top = 41
-          Width = 985
+          Width = 997
           Height = 137
           DittoAttributes.ShortCutDittoField = 0
           DittoAttributes.ShortCutDittoRecord = 0
@@ -4209,7 +4209,7 @@ object frmproduto: Tfrmproduto
         object Panel6: TPanel
           Left = 0
           Top = 180
-          Width = 985
+          Width = 997
           Height = 49
           Align = alBottom
           BevelOuter = bvNone
@@ -4361,7 +4361,7 @@ object frmproduto: Tfrmproduto
         object Panel5: TPanel
           Left = 0
           Top = 0
-          Width = 985
+          Width = 997
           Height = 41
           Align = alTop
           TabOrder = 2
@@ -4473,7 +4473,7 @@ object frmproduto: Tfrmproduto
     object PageSheet4: TPageSheet
       Left = 0
       Top = 21
-      Width = 985
+      Width = 997
       Height = 229
       Caption = 'Composi'#231#227'o'
       DisplayMode = tdGlyph
@@ -4486,7 +4486,7 @@ object frmproduto: Tfrmproduto
       object pficha6: TPanel
         Left = 0
         Top = 0
-        Width = 985
+        Width = 997
         Height = 229
         Align = alClient
         BevelOuter = bvNone
@@ -4494,7 +4494,7 @@ object frmproduto: Tfrmproduto
         object pcomposicao: TPanel
           Left = 0
           Top = 0
-          Width = 985
+          Width = 997
           Height = 229
           Align = alClient
           BevelOuter = bvNone
@@ -4794,7 +4794,7 @@ object frmproduto: Tfrmproduto
     object PageSheet5: TPageSheet
       Left = 0
       Top = 21
-      Width = 985
+      Width = 997
       Height = 229
       Caption = 'Inf.Nutricionais'
       DisplayMode = tdGlyph
@@ -4807,7 +4807,7 @@ object frmproduto: Tfrmproduto
       object pficha7: TPanel
         Left = 0
         Top = 0
-        Width = 985
+        Width = 997
         Height = 229
         Align = alClient
         BevelOuter = bvNone
@@ -4815,7 +4815,7 @@ object frmproduto: Tfrmproduto
         object pnutricional: TPanel
           Left = 0
           Top = 0
-          Width = 985
+          Width = 997
           Height = 229
           Align = alClient
           BevelOuter = bvNone
@@ -5781,7 +5781,7 @@ object frmproduto: Tfrmproduto
     object PageSheet8: TPageSheet
       Left = 0
       Top = 21
-      Width = 985
+      Width = 997
       Height = 229
       Caption = 'Foto'
       DisplayMode = tdGlyph
@@ -5794,7 +5794,7 @@ object frmproduto: Tfrmproduto
       object pficha8: TPanel
         Left = 0
         Top = 0
-        Width = 985
+        Width = 997
         Height = 229
         Align = alClient
         BevelOuter = bvNone
@@ -5802,7 +5802,7 @@ object frmproduto: Tfrmproduto
         object PFOTO: TPanel
           Left = 0
           Top = 0
-          Width = 985
+          Width = 997
           Height = 229
           Align = alClient
           BevelOuter = bvNone
@@ -6007,7 +6007,7 @@ object frmproduto: Tfrmproduto
     object PageSheet1: TPageSheet
       Left = 0
       Top = 21
-      Width = 985
+      Width = 997
       Height = 229
       Caption = 'Rentabilidade'
       DisplayMode = tdGlyph
@@ -6020,7 +6020,7 @@ object frmproduto: Tfrmproduto
       object pficha9: TPanel
         Left = 0
         Top = 0
-        Width = 985
+        Width = 997
         Height = 229
         Align = alClient
         BevelOuter = bvNone
@@ -6043,14 +6043,14 @@ object frmproduto: Tfrmproduto
           ParentFont = False
         end
         object Bevel11: TBevel
-          Left = 452
+          Left = 464
           Top = 0
           Width = 3
           Height = 229
           Align = alRight
         end
         object Panel3: TPanel
-          Left = 455
+          Left = 467
           Top = 0
           Width = 530
           Height = 229
@@ -6587,7 +6587,7 @@ object frmproduto: Tfrmproduto
     object PageSheet6: TPageSheet
       Left = 0
       Top = 21
-      Width = 985
+      Width = 997
       Height = 229
       Caption = 'Movimento'
       DisplayMode = tdGlyph
@@ -6600,7 +6600,7 @@ object frmproduto: Tfrmproduto
       object graf_venda: TChart
         Left = 0
         Top = 0
-        Width = 985
+        Width = 997
         Height = 118
         BackWall.Brush.Color = clWhite
         BackWall.Brush.Style = bsClear
@@ -6628,7 +6628,7 @@ object frmproduto: Tfrmproduto
       object Chart1: TChart
         Left = 0
         Top = 118
-        Width = 985
+        Width = 997
         Height = 117
         BackWall.Brush.Color = clWhite
         BackWall.Brush.Style = bsClear
@@ -6657,7 +6657,7 @@ object frmproduto: Tfrmproduto
     object PageSheet13: TPageSheet
       Left = 0
       Top = 21
-      Width = 985
+      Width = 997
       Height = 229
       Caption = 'Tributa'#231#227'o'
       DisplayMode = tdGlyph
@@ -6673,404 +6673,481 @@ object frmproduto: Tfrmproduto
         Width = 980
         Height = 212
         TabOrder = 0
-        object Label30: TLabel
-          Left = 7
-          Top = 61
-          Width = 38
-          Height = 12
-          AutoSize = False
-          Caption = 'ICMS:'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label73: TLabel
-          Left = 9
-          Top = 20
-          Width = 36
-          Height = 12
-          AutoSize = False
-          Caption = 'CST:'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label93: TLabel
-          Left = 124
-          Top = 20
-          Width = 24
-          Height = 12
-          AutoSize = False
-          Caption = 'ST:'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label95: TLabel
-          Left = 6
-          Top = 105
-          Width = 40
-          Height = 13
-          AutoSize = False
-          Caption = 'CSOSN:'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label106: TLabel
-          Left = 124
-          Top = 61
-          Width = 38
-          Height = 12
-          AutoSize = False
-          Caption = 'MVA:'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label96: TLabel
-          Left = 124
-          Top = 104
-          Width = 41
-          Height = 17
-          AutoSize = False
-          Caption = 'Origem:'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label60: TLabel
-          Left = 236
-          Top = 20
-          Width = 20
-          Height = 13
-          Alignment = taRightJustify
-          AutoSize = False
-          Caption = 'IPI:'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label92: TLabel
-          Left = 405
-          Top = 22
-          Width = 29
-          Height = 13
-          AutoSize = False
-          Caption = 'IAT:'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label94: TLabel
-          Left = 236
-          Top = 62
-          Width = 28
-          Height = 13
-          Alignment = taRightJustify
-          AutoSize = False
-          Caption = 'IPPT:'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label89: TLabel
-          Left = 405
-          Top = 62
-          Width = 62
-          Height = 13
-          Caption = 'PIS/COFINS:'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label91: TLabel
-          Left = 236
-          Top = 106
-          Width = 58
-          Height = 13
-          AutoSize = False
-          Caption = 'Incid'#234'ncia:'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label102: TLabel
-          Left = 405
-          Top = 107
-          Width = 40
-          Height = 13
-          AutoSize = False
-          Caption = 'CFOP:'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object ealiq: TRxDBCalcEdit
-          Left = 54
-          Top = 58
-          Width = 54
-          Height = 21
-          DataField = 'ALIQUOTA'
-          DataSource = dsproduto2
-          DecimalPlaces = 15
-          DisplayFormat = '#0.00'
-          ButtonWidth = 0
-          NumGlyphs = 2
-          TabOrder = 2
-          OnEnter = DBEdit1Enter
-          OnExit = ealiqExit
-          OnKeyPress = ealiqKeyPress
-        end
-        object edt1: TRzDBButtonEdit
-          Left = 54
-          Top = 17
-          Width = 55
-          Height = 21
-          DataSource = dsproduto2
-          DataField = 'CST'
-          FocusColor = 10550008
-          TabOrder = 0
-          OnEnter = edata_cadastroEnter
-          OnExit = edt1Exit
-          OnKeyPress = edt1KeyPress
-          OnButtonClick = edt1ButtonClick
-        end
-        object wwDBComboBox2: TwwDBComboBox
-          Left = 173
-          Top = 17
-          Width = 43
-          Height = 21
-          Hint = 
-            'T=Tributado, I=Isento, N=N'#227'o Tributado, F=Substitui'#231#227'o Tributari' +
-            'a'
-          ShowButton = True
-          Style = csDropDownList
-          MapList = False
-          AllowClearKey = False
-          CharCase = ecUpperCase
-          DataField = 'SITUACAO_TRIBUTARIA'
-          DataSource = dsproduto2
-          DropDownCount = 8
-          ItemHeight = 0
-          Items.Strings = (
-            'T'
-            'I'
-            'N'
-            'F')
-          ItemIndex = 0
-          Sorted = False
+        object Panel7: TPanel
+          Left = 300
+          Top = 11
+          Width = 342
+          Height = 194
+          BevelInner = bvRaised
+          BevelOuter = bvLowered
           TabOrder = 1
-          UnboundDataType = wwDefault
-          OnEnter = combo_tipoEnter
-          OnExit = DBEdit1Exit
-          OnKeyPress = wwDBComboBox2KeyPress
+          object Label73: TLabel
+            Left = 13
+            Top = 28
+            Width = 36
+            Height = 12
+            AutoSize = False
+            Caption = 'CST:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label30: TLabel
+            Left = 13
+            Top = 52
+            Width = 38
+            Height = 12
+            AutoSize = False
+            Caption = 'ICMS:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label93: TLabel
+            Left = 13
+            Top = 78
+            Width = 24
+            Height = 12
+            AutoSize = False
+            Caption = 'ST:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label92: TLabel
+            Left = 13
+            Top = 104
+            Width = 29
+            Height = 13
+            AutoSize = False
+            Caption = 'IAT:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label60: TLabel
+            Left = 13
+            Top = 128
+            Width = 20
+            Height = 13
+            AutoSize = False
+            Caption = 'IPI:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label94: TLabel
+            Left = 13
+            Top = 155
+            Width = 28
+            Height = 13
+            AutoSize = False
+            Caption = 'IPPT:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label89: TLabel
+            Left = 13
+            Top = 176
+            Width = 62
+            Height = 13
+            Caption = 'PIS/COFINS:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label104: TLabel
+            Left = 10
+            Top = 4
+            Width = 214
+            Height = 13
+            Caption = 'REGIME NORMAL DE APURA'#199#195'O ou ECF'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label91: TLabel
+            Left = 172
+            Top = 26
+            Width = 58
+            Height = 13
+            AutoSize = False
+            Caption = 'Incid'#234'ncia:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object edt1: TRzDBButtonEdit
+            Left = 86
+            Top = 25
+            Width = 68
+            Height = 21
+            DataSource = dsproduto2
+            DataField = 'CST'
+            FocusColor = 10550008
+            TabOrder = 0
+            OnEnter = edata_cadastroEnter
+            OnExit = edt1Exit
+            OnKeyPress = edt1KeyPress
+            OnButtonClick = edt1ButtonClick
+          end
+          object ealiq: TRxDBCalcEdit
+            Left = 86
+            Top = 48
+            Width = 68
+            Height = 21
+            DataField = 'ALIQUOTA'
+            DataSource = dsproduto2
+            DecimalPlaces = 15
+            DisplayFormat = '#0.00'
+            ButtonWidth = 0
+            NumGlyphs = 2
+            TabOrder = 1
+            OnEnter = DBEdit1Enter
+            OnExit = ealiqExit
+            OnKeyPress = ealiqKeyPress
+          end
+          object wwDBComboBox2: TwwDBComboBox
+            Left = 86
+            Top = 71
+            Width = 70
+            Height = 21
+            Hint = 
+              'T=Tributado, I=Isento, N=N'#227'o Tributado, F=Substitui'#231#227'o Tributari' +
+              'a'
+            ShowButton = True
+            Style = csDropDownList
+            MapList = False
+            AllowClearKey = False
+            CharCase = ecUpperCase
+            DataField = 'SITUACAO_TRIBUTARIA'
+            DataSource = dsproduto2
+            DropDownCount = 8
+            ItemHeight = 0
+            Items.Strings = (
+              'T'
+              'I'
+              'N'
+              'F')
+            ItemIndex = 0
+            Sorted = False
+            TabOrder = 2
+            UnboundDataType = wwDefault
+            OnEnter = combo_tipoEnter
+            OnExit = DBEdit1Exit
+            OnKeyPress = wwDBComboBox2KeyPress
+          end
+          object wwDBComboBox3: TwwDBComboBox
+            Left = 86
+            Top = 95
+            Width = 69
+            Height = 21
+            ShowButton = True
+            Style = csDropDownList
+            MapList = False
+            AllowClearKey = False
+            DataField = 'IAT'
+            DataSource = dsproduto2
+            DropDownCount = 8
+            ItemHeight = 0
+            Items.Strings = (
+              'T'
+              'A')
+            ItemIndex = 0
+            Sorted = False
+            TabOrder = 3
+            UnboundDataType = wwDefault
+            OnEnter = combo_tipoEnter
+            OnExit = DateEdit1Exit
+            OnKeyPress = wwDBComboBox3KeyPress
+          end
+          object RxDBCalcEdit1: TRxDBCalcEdit
+            Left = 86
+            Top = 120
+            Width = 68
+            Height = 21
+            DataField = 'IPI'
+            DataSource = dsproduto2
+            DecimalPlaces = 15
+            DisplayFormat = '#0.00'
+            ButtonWidth = 0
+            NumGlyphs = 2
+            TabOrder = 4
+            OnEnter = DBEdit1Enter
+            OnExit = ealiqExit
+            OnKeyPress = RxDBCalcEdit1KeyPress
+          end
+          object wwDBComboBox4: TwwDBComboBox
+            Left = 86
+            Top = 144
+            Width = 68
+            Height = 21
+            ShowButton = True
+            Style = csDropDownList
+            MapList = False
+            AllowClearKey = False
+            DataField = 'IPPT'
+            DataSource = dsproduto2
+            DropDownCount = 8
+            ItemHeight = 0
+            Items.Strings = (
+              'T'
+              'P')
+            ItemIndex = 0
+            Sorted = False
+            TabOrder = 5
+            UnboundDataType = wwDefault
+            OnEnter = combo_tipoEnter
+            OnExit = DateEdit1Exit
+            OnKeyPress = wwDBComboBox4KeyPress
+          end
+          object ecombo_piscofins: TwwDBComboBox
+            Left = 86
+            Top = 168
+            Width = 67
+            Height = 21
+            ShowButton = True
+            Style = csDropDownList
+            MapList = False
+            AllowClearKey = False
+            DataField = 'PISCOFINS'
+            DataSource = dsproduto2
+            DropDownCount = 8
+            ItemHeight = 0
+            Items.Strings = (
+              'S'
+              'N')
+            ItemIndex = 0
+            Sorted = False
+            TabOrder = 6
+            UnboundDataType = wwDefault
+            OnEnter = combo_tipoEnter
+            OnExit = DateEdit1Exit
+            OnKeyPress = ecombo_piscofinsKeyPress
+          end
+          object wwDBComboBox1: TwwDBComboBox
+            Left = 229
+            Top = 23
+            Width = 81
+            Height = 21
+            ShowButton = True
+            Style = csDropDownList
+            MapList = False
+            AllowClearKey = False
+            DataField = 'INCIDENCIA_PISCOFINS'
+            DataSource = dsproduto2
+            DropDownCount = 8
+            ItemHeight = 0
+            Items.Strings = (
+              'NENHUMA'
+              'MONOF'#193'SICA'
+              'SUBST.TRIBUT'#193'RIA'
+              'AL'#205'QUOTA 0'
+              'SUSPENS'#195'O')
+            Sorted = False
+            TabOrder = 7
+            UnboundDataType = wwDefault
+            OnEnter = DBEdit1Enter
+            OnExit = DBEdit1Exit
+            OnKeyPress = DBEdit62KeyPress
+          end
         end
-        object RxDBCalcEdit2: TRxDBCalcEdit
-          Left = 173
-          Top = 58
-          Width = 45
-          Height = 21
-          DataField = 'MARGEM_AGREGADA'
-          DataSource = dsproduto2
-          DecimalPlaces = 15
-          DisplayFormat = '#0.00'
-          ButtonWidth = 0
-          NumGlyphs = 2
-          TabOrder = 3
-          OnEnter = DBEdit1Enter
-          OnExit = DBEdit1Exit
-          OnKeyPress = RxDBCalcEdit2KeyPress
-        end
-        object ecsosn: TRzDBButtonEdit
-          Left = 54
-          Top = 101
-          Width = 54
-          Height = 21
-          DataSource = dsproduto2
-          DataField = 'CSOSN'
-          FocusColor = 10550008
-          TabOrder = 4
-          OnKeyPress = ecsosnKeyPress
-          OnButtonClick = ecsosnButtonClick
-        end
-        object RxDBCalcEdit3: TRxDBCalcEdit
-          Left = 172
-          Top = 101
-          Width = 45
-          Height = 21
-          DataField = 'SITA'
-          DataSource = dsproduto2
-          DecimalPlaces = 15
-          DisplayFormat = '0'
-          ButtonWidth = 0
-          NumGlyphs = 2
-          TabOrder = 5
-          OnEnter = DBEdit1Enter
-          OnExit = DBEdit1Exit
-          OnKeyPress = RxDBCalcEdit3KeyPress
-        end
-        object RxDBCalcEdit1: TRxDBCalcEdit
-          Left = 303
-          Top = 17
-          Width = 77
-          Height = 21
-          DataField = 'IPI'
-          DataSource = dsproduto2
-          DecimalPlaces = 15
-          DisplayFormat = '#0.00'
-          ButtonWidth = 0
-          NumGlyphs = 2
-          TabOrder = 6
-          OnEnter = DBEdit1Enter
-          OnExit = ealiqExit
-          OnKeyPress = RxDBCalcEdit1KeyPress
-        end
-        object wwDBComboBox3: TwwDBComboBox
-          Left = 473
-          Top = 18
-          Width = 52
-          Height = 21
-          ShowButton = True
-          Style = csDropDownList
-          MapList = False
-          AllowClearKey = False
-          DataField = 'IAT'
-          DataSource = dsproduto2
-          DropDownCount = 8
-          ItemHeight = 0
-          Items.Strings = (
-            'T'
-            'A')
-          ItemIndex = 0
-          Sorted = False
-          TabOrder = 7
-          UnboundDataType = wwDefault
-          OnEnter = combo_tipoEnter
-          OnExit = DateEdit1Exit
-          OnKeyPress = wwDBComboBox3KeyPress
-        end
-        object wwDBComboBox4: TwwDBComboBox
-          Left = 302
-          Top = 58
-          Width = 80
-          Height = 21
-          ShowButton = True
-          Style = csDropDownList
-          MapList = False
-          AllowClearKey = False
-          DataField = 'IPPT'
-          DataSource = dsproduto2
-          DropDownCount = 8
-          ItemHeight = 0
-          Items.Strings = (
-            'T'
-            'P')
-          ItemIndex = 0
-          Sorted = False
-          TabOrder = 8
-          UnboundDataType = wwDefault
-          OnEnter = combo_tipoEnter
-          OnExit = DateEdit1Exit
-          OnKeyPress = wwDBComboBox4KeyPress
-        end
-        object ecombo_piscofins: TwwDBComboBox
-          Left = 473
-          Top = 59
-          Width = 54
-          Height = 21
-          ShowButton = True
-          Style = csDropDownList
-          MapList = False
-          AllowClearKey = False
-          DataField = 'PISCOFINS'
-          DataSource = dsproduto2
-          DropDownCount = 8
-          ItemHeight = 0
-          Items.Strings = (
-            'S'
-            'N')
-          ItemIndex = 0
-          Sorted = False
-          TabOrder = 9
-          UnboundDataType = wwDefault
-          OnEnter = combo_tipoEnter
-          OnExit = DateEdit1Exit
-          OnKeyPress = ecombo_piscofinsKeyPress
-        end
-        object wwDBComboBox1: TwwDBComboBox
-          Left = 301
-          Top = 103
-          Width = 81
-          Height = 21
-          ShowButton = True
-          Style = csDropDownList
-          MapList = False
-          AllowClearKey = False
-          DataField = 'INCIDENCIA_PISCOFINS'
-          DataSource = dsproduto2
-          DropDownCount = 8
-          ItemHeight = 0
-          Items.Strings = (
-            'NENHUMA'
-            'MONOF'#193'SICA'
-            'SUBST.TRIBUT'#193'RIA'
-            'AL'#205'QUOTA 0'
-            'SUSPENS'#195'O')
-          Sorted = False
-          TabOrder = 10
-          UnboundDataType = wwDefault
-          OnEnter = DBEdit1Enter
-          OnExit = DBEdit1Exit
-          OnKeyPress = DBEdit62KeyPress
-        end
-        object ecfop: TRzDBButtonEdit
-          Left = 474
-          Top = 103
-          Width = 54
-          Height = 21
-          DataSource = dsproduto2
-          DataField = 'CFOP'
-          FocusColor = 10550008
-          TabOrder = 11
-          OnKeyPress = ecfopKeyPress
-          OnButtonClick = ecfopButtonClick
+        object Panel8: TPanel
+          Left = 7
+          Top = 11
+          Width = 290
+          Height = 194
+          BevelInner = bvRaised
+          BevelOuter = bvLowered
+          TabOrder = 0
+          object Label96: TLabel
+            Left = 5
+            Top = 4
+            Width = 262
+            Height = 13
+            Caption = 'DEMAIS INFORMA'#199#213'ES DE TRIBUTA'#199#195'O ou SAT'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label103: TLabel
+            Left = 3
+            Top = 34
+            Width = 51
+            Height = 13
+            AutoSize = False
+            Caption = 'ORIGEM:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clRed
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label102: TLabel
+            Left = 5
+            Top = 58
+            Width = 40
+            Height = 13
+            AutoSize = False
+            Caption = 'CFOP:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clRed
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label95: TLabel
+            Left = 6
+            Top = 82
+            Width = 40
+            Height = 13
+            AutoSize = False
+            Caption = 'CSOSN:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clRed
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label106: TLabel
+            Left = 6
+            Top = 107
+            Width = 38
+            Height = 12
+            AutoSize = False
+            Caption = 'MVA:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label105: TLabel
+            Left = 5
+            Top = 145
+            Width = 247
+            Height = 13
+            Caption = 'ATEN'#199#195'O! CASO FOR EMITIR CUPOM FISCAL SAT '
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clRed
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label107: TLabel
+            Left = 5
+            Top = 161
+            Width = 279
+            Height = 13
+            Caption = 'TORNA-SE OBRIGAT'#211'RIO O PREENCHIMENTO DE TODOS'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clRed
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label108: TLabel
+            Left = 6
+            Top = 177
+            Width = 136
+            Height = 13
+            Caption = 'OS CAMPOS EM VERMELHO.'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clRed
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object eorigem: TRzDBButtonEdit
+            Left = 60
+            Top = 30
+            Width = 54
+            Height = 21
+            DataSource = dsproduto2
+            DataField = 'SITA'
+            FocusColor = 10550008
+            TabOrder = 0
+            OnKeyPress = eorigemKeyPress
+            OnButtonClick = eorigemButtonClick
+          end
+          object ecfop: TRzDBButtonEdit
+            Left = 60
+            Top = 54
+            Width = 54
+            Height = 21
+            DataSource = dsproduto2
+            DataField = 'CFOP'
+            FocusColor = 10550008
+            TabOrder = 1
+            OnKeyPress = ecfopKeyPress
+            OnButtonClick = ecfopButtonClick
+          end
+          object ecsosn: TRzDBButtonEdit
+            Left = 60
+            Top = 78
+            Width = 54
+            Height = 21
+            DataSource = dsproduto2
+            DataField = 'CSOSN'
+            FocusColor = 10550008
+            TabOrder = 2
+            OnKeyPress = ecsosnKeyPress
+            OnButtonClick = ecsosnButtonClick
+          end
+          object RxDBCalcEdit2: TRxDBCalcEdit
+            Left = 60
+            Top = 102
+            Width = 51
+            Height = 21
+            DataField = 'MARGEM_AGREGADA'
+            DataSource = dsproduto2
+            DecimalPlaces = 15
+            DisplayFormat = '#0.00'
+            ButtonWidth = 0
+            NumGlyphs = 2
+            TabOrder = 3
+            OnEnter = DBEdit1Enter
+            OnExit = DBEdit1Exit
+            OnKeyPress = RxDBCalcEdit2KeyPress
+          end
         end
       end
     end
@@ -7078,8 +7155,8 @@ object frmproduto: Tfrmproduto
   object pficha3: TPanel
     Left = 0
     Top = 0
-    Width = 985
-    Height = 205
+    Width = 997
+    Height = 212
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 12

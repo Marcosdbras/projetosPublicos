@@ -153,7 +153,7 @@ implementation
 
 uses loc_cfop, modulo, principal,
   produto_preco, produto_grade, produto_serial, notafiscal,
-  produto_gradeFS, compra, notafiscal_menu, xloc_cst, xloc_produto;
+  produto_gradeFS, compra,  xloc_cst, xloc_produto, notafiscal_menu;
 
 {$R *.dfm}
 
