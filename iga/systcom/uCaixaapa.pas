@@ -176,6 +176,64 @@ with frmdados do
 //endi
 
 
+case itipoimpf of
+       0:begin
+           // Nenhuma
+
+           if pos('\\',frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString) > 0 then
+              begin
+
+                sayprint1.Porta :=    PrnNet;
+                sayprint1.NetImpress := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
+
+              end
+           else
+              begin
+
+                 if pos(':',frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString) > 0 then
+                    begin
+
+                      sayprint1.Porta :=    PrnFile;
+                      sayprint1.OutputFile := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
+
+                    end
+                 else
+                    begin
+
+
+                      sayprint1.Porta :=    Lpt1;
+
+
+
+                    end;
+                 //endi
+
+
+              end;
+
+
+           //endi
+
+
+
+           if ( frmdados.Cds_Indice.FieldByName('impconcomitante').asString = 'T' ) then
+              begin
+
+              end;
+           //endi
+
+
+         end;
+
+       else exit;
+
+  end;
+
+
+
+
+
+
 spdlimpar.Click;
 
 

@@ -75,6 +75,62 @@ VarDir := Extractfilepath(Application.exename);
 lblCab2.Caption := frmdados.Cds_Config.FieldByName('Campo2').asString;
 spdlimpar.Click;
 
+
+case itipoimpf of
+       0:begin
+           // Nenhuma
+
+           if pos('\\',frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString) > 0 then
+              begin
+
+                printcaixa.Porta :=    PrnNet;
+                printcaixa.NetImpress := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
+
+              end
+           else
+              begin
+
+                 if pos(':',frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString) > 0 then
+                    begin
+
+                      printcaixa.Porta :=    PrnFile;
+                      printcaixa.OutputFile := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
+
+                    end
+                 else
+                    begin
+
+
+                      printcaixa.Porta :=    Lpt1;
+
+
+
+                    end;
+                 //endi
+
+
+              end;
+
+
+           //endi
+
+
+
+           if ( frmdados.Cds_Indice.FieldByName('impconcomitante').asString = 'T' ) then
+              begin
+
+              end;
+           //endi
+
+
+         end;
+
+       else exit;
+
+  end;
+
+
+
 end;
 
 procedure Tfrmcaixaap.spdcancelaClick(Sender: TObject);
