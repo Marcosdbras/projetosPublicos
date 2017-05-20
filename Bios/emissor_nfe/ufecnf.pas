@@ -149,6 +149,9 @@ type
     ckbdadosadic: TCheckBox;
     Timer1: TTimer;
     Button1: TButton;
+    Bevel3: TBevel;
+    Bevel5: TBevel;
+    Bevel6: TBevel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btncancelarClick(Sender: TObject);
     procedure limpar;

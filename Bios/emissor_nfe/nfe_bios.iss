@@ -6,6 +6,7 @@
 #define MyAppPublisher "BIOS"
 #define MyAppExeName "pProg.exe"
 
+
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
 ; Do not use the same AppId value in installers for other applications.

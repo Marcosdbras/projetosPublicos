@@ -19,6 +19,12 @@ object frmfecnf: Tfrmfecnf
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
+  object Bevel3: TBevel
+    Left = 608
+    Top = 6
+    Width = 373
+    Height = 58
+  end
   object Bevel1: TBevel
     Left = 15
     Top = 475
@@ -49,7 +55,7 @@ object frmfecnf: Tfrmfecnf
   end
   object Label27: TLabel
     Left = 463
-    Top = 132
+    Top = 105
     Width = 66
     Height = 13
     Caption = 'HORA SA'#205'DA'
@@ -77,7 +83,7 @@ object frmfecnf: Tfrmfecnf
   end
   object Label23: TLabel
     Left = 464
-    Top = 155
+    Top = 128
     Width = 44
     Height = 13
     Caption = 'LIQUIDO'
@@ -205,6 +211,7 @@ object frmfecnf: Tfrmfecnf
     Width = 72
     Height = 13
     Caption = ' DEVOLU'#199#195'O '
+    Visible = False
   end
   object Label14: TLabel
     Left = 431
@@ -212,6 +219,7 @@ object frmfecnf: Tfrmfecnf
     Width = 69
     Height = 13
     Caption = 'REF. N.O N.F.'
+    Visible = False
   end
   object Label28: TLabel
     Left = 652
@@ -219,6 +227,7 @@ object frmfecnf: Tfrmfecnf
     Width = 79
     Height = 13
     Caption = 'REF. DATA N.F.'
+    Visible = False
   end
   object Label36: TLabel
     Left = 16
@@ -258,24 +267,30 @@ object frmfecnf: Tfrmfecnf
   end
   object Label39: TLabel
     Left = 463
-    Top = 179
+    Top = 152
     Width = 107
     Height = 13
     Caption = 'CONSUMIDOR FINAL'
   end
   object Label5: TLabel
     Left = 463
-    Top = 105
+    Top = 78
     Width = 59
     Height = 13
     Caption = 'OPERA'#199#195'O'
   end
   object Label40: TLabel
-    Left = 463
-    Top = 79
-    Width = 148
+    Left = 613
+    Top = 15
+    Width = 226
     Height = 13
-    Caption = 'CHAVE ACESSO NFE DEVOL.'
+    Caption = 'NOTA DE DEVOLU'#199#195'O - CHAVE DE ACESSO'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clRed
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
   end
   object Bevel2: TBevel
     Left = 854
@@ -283,6 +298,18 @@ object frmfecnf: Tfrmfecnf
     Width = 130
     Height = 512
     Shape = bsFrame
+  end
+  object Bevel5: TBevel
+    Left = 8
+    Top = 6
+    Width = 593
+    Height = 58
+  end
+  object Bevel6: TBevel
+    Left = 8
+    Top = 71
+    Width = 843
+    Height = 131
   end
   object btnemitir: TBitBtn
     Left = 859
@@ -922,7 +949,7 @@ object frmfecnf: Tfrmfecnf
   end
   object edihorasai: TMaskEdit
     Left = 612
-    Top = 126
+    Top = 99
     Width = 72
     Height = 21
     EditMask = '!90:00;1;_'
@@ -944,7 +971,7 @@ object frmfecnf: Tfrmfecnf
   end
   object EDILIQUIDO: TEdit
     Left = 612
-    Top = 150
+    Top = 123
     Width = 73
     Height = 21
     CharCase = ecUpperCase
@@ -1047,6 +1074,7 @@ object frmfecnf: Tfrmfecnf
     Height = 21
     TabOrder = 24
     Text = 'edinnfrefdevol'
+    Visible = False
   end
   object edidatanfrefdevol: TMaskEdit
     Left = 739
@@ -1057,6 +1085,7 @@ object frmfecnf: Tfrmfecnf
     MaxLength = 10
     TabOrder = 25
     Text = '  /  /    '
+    Visible = False
   end
   object ckbmostrafat: TCheckBox
     Left = 16
@@ -1161,7 +1190,7 @@ object frmfecnf: Tfrmfecnf
   end
   object cbxindfinal: TComboBox
     Left = 612
-    Top = 175
+    Top = 148
     Width = 236
     Height = 21
     ItemHeight = 13
@@ -1175,7 +1204,7 @@ object frmfecnf: Tfrmfecnf
   end
   object cbxindpres: TComboBox
     Left = 612
-    Top = 101
+    Top = 74
     Width = 236
     Height = 21
     ItemHeight = 13
@@ -1191,10 +1220,11 @@ object frmfecnf: Tfrmfecnf
       'Opera'#231#227'o n'#227'o presencial, outros')
   end
   object edirefnfe: TEdit
-    Left = 612
-    Top = 74
+    Left = 613
+    Top = 34
     Width = 236
     Height = 21
+    TabStop = False
     TabOrder = 2
     Text = 'edirefnfe'
     OnExit = edirefnfeExit

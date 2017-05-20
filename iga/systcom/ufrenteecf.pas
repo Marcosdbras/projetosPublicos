@@ -300,12 +300,14 @@ type
     Col, Centro, iLin, iItens, iCols, iParcDup3, iParcDup1, iParcDup2, iParcDup4:Integer;
     sDelimitador, sNumDup1, sVlrDup1, sVctDup1 , sNumDup2, sVlrDup2, sVctDup2,
     sNumDup3, sVlrDup3, sVctDup3 , sNumDup4, sVlrDup4, sVctDup4:string;
-    sQtdeImp,sDescricaoImp,sCprodImp, sValorImp, sTotalImp, sUniImp:String;
+    sQtdeImp,sDescricaoImp,sCprodImp, sValorImp, sTotalImp, sUniImp, sValorImpporc:String;
     ftotG, ftotI, ftotE:real;
     sCab1, sCab2, sCab3, sCab4:string;
 
 
     icsita, icsitb, icicms, icipi, iccfop,  icpis, iccofins:Integer;
+
+    canal_impressora:string;
 
     
   public
@@ -624,7 +626,9 @@ begin
 
   case itipoimpf of
        0:begin
-           // Nenhuma
+           // Nenhuma  
+           canal_impressora := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
+
 
            if pos('\\',frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString) > 0 then
               begin
@@ -3245,9 +3249,14 @@ begin
 
              if fdinheiro > 0 then
                 begin
-                  sayprint.BeginPrn;
-                  sayprint.Say(0,0,chr(27)+chr(118)+chr(76));
-                  sayprint.EndPrn;
+                  //sayprint.BeginPrn;
+                  // SI150
+                  //sayprint.Say(0,0,chr(27)+chr(118)+chr(76));
+
+                  //SI300
+                  //sayprint.Say(0,0,chr(27)+chr(77)+'01');
+
+                  //sayprint.EndPrn;
                 end;
              //endi
 
@@ -4981,30 +4990,43 @@ var
 //  ftotG, ftotI, ftotE:real;
 //  sCab1, sCab2, sCab3, sCab4:string;
 
+var
+F: TextFile;
+S: TextFile;
+valor : Integer;
+B: Byte ;
+a,i: integer;
+int: integer;
+vetor: array[1..22] of integer;
+
 begin
 
 sDataImp := datetostr(date);
 sHoraImp := copy(timetostr(time),1,5);
-sDelimitador := replicar('-',60);
+sDelimitador := replicar('-',54);
 frmdados.Cds_Vendab.First;
 if frmdados.Cds_Vendab.RecordCount = 0 then
    exit;
 //endi
 
 s1 := '';
-sayprint.BeginPrn;
 
-sayprint.Condensed(false);
-sayprint.Expand(True);
-
-for x := 1 to (( 24  - length( frmdados.Cds_Config.fieldbyname('campo2').asString )) div 2) do
+for x := 1 to (( 54  - length( frmdados.Cds_Config.fieldbyname('campo2').asString )) div 2) do
     begin
       s1 := (s1 + ' ');
     end;
 //endfor
 sImp := s1+frmdados.Cds_Config.fieldbyname('campo2').asString;
-sayprint.Say(0,0,sImp);
-sayprint.Expand(false);
+
+
+AssignFile(F, canal_impressora);
+Rewrite(F);
+
+
+Write(F,#27,#77,1);
+
+
+WriteLn(F,sImp);
 
 sCab1 := frmdados.Cds_Config.fieldbyname('campo6').asString;
 
@@ -5029,25 +5051,15 @@ if frmdados.Cds_Config.fieldbyname('campo16').asString <> '' then
 //endi
 
 
-//s1 := '';
-//for x := 1 to (( 48  - length( copy(frmdados.Cds_Config.fieldbyname('campo6').asString,1,48) )) div 2) do
-//    begin
-//      s1 := (s1 + ' ');
-//    end;
-//endfor
-//sImp := s1+copy(frmdados.Cds_Config.fieldbyname('campo6').asString,1,48);
-
-
 s1 := '';
-for x := 1 to (( 48  - length( copy(sCab1,1,48) )) div 2) do
+for x := 1 to (( 54  - length( copy(sCab1,1,54) )) div 2) do
     begin
       s1 := (s1 + ' ');
     end;
 //endfor
-sImp := s1+copy(sCab1,1,48);
+sImp := s1+copy(sCab1,1,54);
 
-
-sayprint.Say(1,0,sImp);
+WriteLn(F,sImp);
 
 sCab2 := frmdados.Cds_Config.fieldbyname('campo7').asString;
 
@@ -5055,43 +5067,33 @@ if frmdados.Cds_Config.fieldbyname('fone').asString <> '' then
    sCab2 := sCab2 + ' '+frmdados.Cds_Config.fieldbyname('fone').asString;
 //endi
 
-//s1 := '';
-//for x := 1 to (( 48  - length( copy(frmdados.Cds_Config.fieldbyname('campo7').asString,1,48) )) div 2) do
-//    begin
-//      s1 := (s1 + ' ');
-//    end;
-//endfor
-//sImp := s1+copy(frmdados.Cds_Config.fieldbyname('campo7').asString,1,48);
 
 s1 := '';
-for x := 1 to (( 48  - length( copy(scab2,1,48) )) div 2) do
+for x := 1 to (( 54  - length( copy(scab2,1,54) )) div 2) do
     begin
       s1 := (s1 + ' ');
     end;
 //endfor
-sImp := s1+copy(scab2,1,48);
+sImp := s1+copy(scab2,1,54);
 
-sayprint.Say(2,0,sImp);
+Writeln(F,sImp);
 
-sayprint.Condensed(true);
-sayprint.Say(3,0,sDelimitador);
-sayprint.Condensed(false);
+Writeln(F,sDelimitador);
 
 if rgbtipoop.ItemIndex = 0 then
    begin
-     sayprint.Say(4,0,'Orcamento '+formatfloat('00000',iNorc));
+     Writeln(F,'Orcamento '+formatfloat('00000',iNorc));
    end
 else
    begin
-     sayprint.Say(4,0,'Pedido '+formatfloat('00000',iNped));
+     Writeln(F,'Pedido '+formatfloat('00000',iNped));
    end;
 //endi
-sayprint.Say(4,19,'Data '+sDataImp);
-sayprint.Say(4,38,'Hora '+sHoraImp);
+Writeln(F,'Data '+sDataImp);
+Writeln(F,'Hora '+sHoraImp);
 
-sayprint.Condensed(true);
 
-sayprint.Say(5,0,sDelimitador);
+Writeln(F,sDelimitador);
 
 iLin    := 5;
 
@@ -5103,69 +5105,62 @@ if frmdados.Cds_Indice.FieldByName('IMPCABCLI').asString  = 'T' then
      if iccli > 0 then
         begin
           ilin := ilin + 1;
-          sayprint.Say(ilin,0,'Cliente.: '+copy(sNomeCli,1,38));
+          Writeln(F,'Cliente.: '+copy(sNomeCli,1,38));
 
           ilin := ilin + 1;
-          sayprint.Say(ilin,0,'Endereco: '+copy(sEnderecoent,1,38));
+          Writeln(F,'Endereco: '+copy(sEnderecoent,1,38));
 
           ilin := ilin + 1;
-          sayprint.Say(ilin, 0,'Compl..: '+copy(sComplent,1,5));
-          sayprint.Say(ilin,15,'Bairro.: '+copy(sBairroent,1,10));
-          sayprint.Say(ilin,35,'Cidade.: '+copy(sCidadeent,1,5));
-
-          ilin := ilin + 1;
-          sayprint.Say(ilin, 0,'Estado.: '+sEstadoent);
-          sayprint.Say(ilin,15,'Cep....: '+scepent);
+          Writeln(F,'Compl..: '+copy(sComplent,1,5));
+          Writeln(F,'Bairro.: '+copy(sBairroent,1,10));
+          Writeln(F,'Cidade.: '+copy(sCidadeent,1,5)+' '+'Estado.: '+sEstadoent   );
+          Writeln(F,'Cep....: '+scepent);
 
 
           ilin := ilin + 1;
-          sayprint.Say(ilin, 0,'Tel...: '+copy(sTelefoneent,1,38));
-          sayprint.Say(ilin,35,'Cont..: '+copy(sContato,1,5));
+          Writeln(F,'Tel...: '+copy(sTelefoneent,1,38));
+          Writeln(F,'Cont..: '+copy(sContato,1,5));
 
         end
      else
         begin
           ilin := ilin + 1;
-          sayprint.Say(ilin,0,'Cliente.: Consumidor');
+          Writeln(F,'Cliente.: Consumidor');
 
           ilin := ilin + 1;
-          sayprint.Say(ilin,0,'Endereco: ');
+          Writeln(F,'Endereco: ');
 
 
           ilin := ilin + 1;
-          sayprint.Say(ilin, 0,'Compl..: ');
-          sayprint.Say(ilin,15,'Bairro.: ');
-          sayprint.Say(ilin,35,'Cidade.: ');
+          Writeln(F,'Compl..: ');
+          Writeln(F,'Bairro.: ');
+          Writeln(F,'Cidade.:              Estado.: ');
+          Writeln(F,'Cep....: ');
 
           ilin := ilin + 1;
-          sayprint.Say(ilin, 0,'Estado.: ');
-          sayprint.Say(ilin,15,'Cep....: ');
-
-          ilin := ilin + 1;
-          sayprint.Say(ilin, 0,'Tel...: ');
-          sayprint.Say(ilin,35,'Cont..: ');
+          Writeln(F,'Tel...: ');
+          Writeln(F,'Cont..: ');
 
         end;
      //endi
 
      ilin := ilin + 1;
-     sayprint.Say(ilin,0,sDelimitador);
+     Writeln(F,sDelimitador);
 
    end;
 //endi
 
-//sayprint.Say(12,0,'      Qtde Un. Descricao                                 TP.');
 
 ilin := ilin + 1;
-sayprint.Say(ilin,0,'      Qtde Un. Descricao                                    ');
-//                 xx.xxx,xxx xxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx x
+Writeln(F,'      Qtde Un. Descricao                              ');
+//         xx.xxx,xxx xxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ilin := ilin + 1;
-sayprint.Say(ilin,0,'Codigo                       Valor                     Total');
-//                  xxxxx                  xxx,xxx.xx                xxx,xxx.xx
+Writeln(F,'Codigo                 Valor                     Total');
+//          xxxxx            xxx,xxx.xx                xxx,xxx.xx
 
 ilin := ilin + 1;
-sayprint.Say(ilin,0,sDelimitador);
+Writeln(F,sDelimitador);
 
 ilin := ilin + 1;
 iItens  := 0;
@@ -5182,17 +5177,51 @@ with frmdados do
           sTotalImp     := AlinNumD(10,Cds_Vendab.fieldbyname('subtotal').asfloat);
           sUniImp       := Cds_Vendab.fieldbyname('nUni').asString;
 
-          sayprint.Say(iLin,0,sQtdeImp);
-          sayprint.Say(iLin,11,sUniImp);
-          sayprint.Say(iLin,15,sDescricaoImp);
 
-          iLin := iLin + 1;
+          s1 := '';
+          for x := 1 to (12 - length(sQtdeImp)) do
+            begin
+              s1 := s1 + ' ';
+            end;
 
-          sayprint.Say(iLin,0,sCprodImp);
-          sayprint.Say(iLin,24,sValorImp);
-          sayprint.Say(iLin,50,sTotalImp);
+          s2 := '';
+          for x := 1 to (5-length(sUniImp)) do
+            begin
+              s2 := s2 + ' ';
+            end;
 
-          iLin := iLin + 1;
+          s3 := '';
+          for x := 1 to (42-length(sDescricaoImp)) do
+            begin
+              s3 := s3 + ' ';
+            end;
+
+
+          Writeln(F,sQtdeImp + s1 + sUniImp + s2 + sDescricaoImp);
+
+
+          s1 := '';
+          for x:= 1 to (19 - length(sCprodImp)) do
+            begin
+               s1 := s1 + ' ';
+            end;
+
+          s2 := '';
+          for x := 1 to (25 - length(sValorImp)) do
+            begin
+              s2 := s2 + ' ';
+            end;
+
+          s3 := '';
+          for x := 1 to (23 - length(sTotalImp)) do
+            begin
+              s3 := s3 + ' ';
+            end;
+
+          Writeln(F, sCprodImp + s1 + sValorImp + s2 + sTotalImp );
+
+
+
           Cds_Vendab.Next;
           if Cds_Vendab.Eof then
              break;
@@ -5206,7 +5235,7 @@ with frmdados do
   end;
 //endth
 
-sayprint.Say(iLin,0,sDelimitador);
+Writeln(F,sDelimitador);
 
 with frmdados do
      begin
@@ -5234,43 +5263,41 @@ with frmdados do
 //endth
 
 iLin := iLin + 1;
-sayprint.Say(iLin,25,'Total');
 
-sValorImp := formatfloat('###,###,##0.00',ftotG);
 sValorImp := AlinNumD(14,ftotG);
+sValorImp := formatfloat('###,###,##0.00',ftotG);
 
-sayprint.Say(iLin,46,sValorImp);
 
-iLin := iLin + 1;
-sayprint.Say(iLin,25,'Desconto');
+Write(F,'Total    '+sValorImp);
 
-sValorImp := formatfloat('#0.00',strtofloat(tirapontos( edipdesc.Text  )));
-sValorImp := AlinNumD(6,strtofloat(tirapontos( edipdesc.Text  )));
 
-sayprint.Say(iLin,34,sValorImp+'%');
+sValorImpporc := formatfloat('#0.00',strtofloat(tirapontos(  edipdesc.Text    )));
+sValorImpporc := AlinNumD(6,strtofloat(tirapontos( sValorImpporc  )));
 
 sValorImp := formatfloat('###,###,##0.00', strtofloat(tirapontos( edivaldesc.Text  )) );
-sValorImp := AlinNumD(14, strtofloat(tirapontos( edivaldesc.Text  ))  );
+sValorImp := AlinNumD(14, strtofloat(tirapontos( sValorImp  ))  );
 
-sayprint.Say(iLin,46,sValorImp);
+Write(F,'Desconto '+sValorImpporc+'% R$ '+sValorImp);
+
+
 
 iLin := iLin + 1;
-sayprint.Say(iLin,25,'Liquido');
+
 
 sValorImp := formatfloat('###,###,##0.00',strtofloat(tirapontos( lbltotpagar.Caption   )) );
 sValorImp := AlinNumD(14, strtofloat(tirapontos( lbltotpagar.Caption   )) );
 
-sayprint.Say(iLin,46,sValorImp);
+Write(F,'Liquido '+sValorImp);
 
 iLin := iLin + 1;
-sayprint.Say(iLin,0,'Forma de Pagto:');
+Writeln(F,'Forma de Pagto:');
 
 //if strtofloat(tirapontos(edidin.Text))  > 0 then
 if fdinheiro > 0 then
 
    begin
      iLin := iLin + 1;
-     sayprint.Say(iLin,0,'A vista (');
+     Writeln(F,'A vista (');
      //if strtofloat(tirapontos(edidin.Text)) > strtofloat(tirapontos(lbltotpagar.Caption)) then
      if fdinheiro > strtofloat(tirapontos(lbltotpagar.Caption)) then
         begin
@@ -5288,7 +5315,7 @@ if fdinheiro > 0 then
         end;
      //endi
 
-     sayprint.Say(iLin,8,' R$ '+sValorImp+' )');
+     Write(F,' R$ '+sValorImp+' )');
 
   end;
 //endi
@@ -5322,10 +5349,10 @@ with frmdados do
                    iParcDup1 := strtoint( copy(cds_vencto.fieldbyname('Parc').asString,1,2) );
 
                    iLin := iLin + 1;
-                   sayprint.Say(iLin,0,'Parc '+inttostr(iParcDup1)+'( '+sVctDup1);
+                   Writeln(F,'Parc '+inttostr(iParcDup1)+'( '+sVctDup1);
                    sValorImp := formatfloat('###,##0.00',strtofloat(tirapontos(sVlrDup1)) );
                    sValorImp := AlinNumD(10,strtofloat(tirapontos(sVlrDup1)));
-                   sayprint.Say(iLin,8,' R$ '+sValorImp+' )');
+                   Write(F,' R$ '+sValorImp+' )');
 
                    cds_vencto.Next;
                    if Cds_vencto.Eof then
@@ -5346,7 +5373,7 @@ with frmdados do
 if strtofloat(lbltroco.Caption) > 0 then
    begin
      iLin := iLin + 1;
-     sayprint.Say(iLin,0,'Troco   ( R$      '+formatfloat('###,##0.00', strtofloat(  tirapontos( lbltroco.Caption  )  )  )+'  )');
+     Writeln(F,'Troco   ( R$      '+formatfloat('###,##0.00', strtofloat(  tirapontos( lbltroco.Caption  )  )  )+'  )');
    end;
 //endi
 
@@ -5354,7 +5381,7 @@ if frmdados.Cds_Indice.FieldByName('impvlrreccli').asString = 'T' then
    begin
      iLin := iLin + 1;
      //sayprint.Say(iLin,0,'Vlr.Rec.( R$      '+formatfloat('###,##0.00', strtofloat( tirapontos( edidin.text ) )  )+'  )');
-     sayprint.Say(iLin,0,'Vlr.Rec.( R$      '+formatfloat('###,##0.00', fdinheiro  )+'  )');
+     Writeln(F,'Vlr.Rec.( R$      '+formatfloat('###,##0.00', fdinheiro  )+'  )');
 
    end;
 //endi
@@ -5362,37 +5389,39 @@ if frmdados.Cds_Indice.FieldByName('impvlrreccli').asString = 'T' then
 if ftote > 0 then
    begin
      iLin := iLin + 1;
-     sayprint.Say(iLin,0,'Devol.  ( R$      '+formatfloat('###,##0.00',ftotE)+'  )');
+     Writeln(F,'Devol.  ( R$      '+formatfloat('###,##0.00',ftotE)+'  )');
    end;
 //endi
 
 iLin := iLin + 1;
-sayprint.Say(iLin,0,   'Vendedor '+sVendedor);
+Writeln(F,   'Vendedor '+sVendedor);
 
 iLin := iLin + 1;
-sayprint.Say(iLin,0,   'Itens    '+formatfloat('00000',ftotI));
+Writeln(F,   'Itens    '+formatfloat('00000',ftotI));
 
 iLin := iLin + 1;
-sayprint.Say(iLin,0,  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';' );
+Writeln(F,  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';' );
 
 if bReimp then
    begin
      iLin := iLin + 1;
-     sayprint.Say(iLin,0,'Re-Impressão Pedido');
+     Writeln(F,'Re-Impressão Pedido');
      iLin := iLin + 1;
-     sayprint.Say(iLin,0,'Data Original '+sDataF);
+     Writeln(F,'Data Original '+sDataF);
    end;
 //endi
 
 for x := 1 to frmdados.Cds_Indice.fieldbyname('pulalinha').asInteger  do
   begin
      iLin := iLin + 1;
-     sayprint.Say(iLin,0,'');
+     Writeln(F,'');
   end;
 //endi
 
-sayprint.FreeCommand(chr(13));
-sayprint.EndPrn;
+Write(F,chr(13));
+
+closefile(f);
+
 
 end;
 
