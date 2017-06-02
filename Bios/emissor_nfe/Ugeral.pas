@@ -119,7 +119,8 @@ Type
    svigenciafim,
    schave,
    sfonte,
-   sufpadrao:string;
+   sufpadrao,
+   sGseg_cest:string;
 
 
 

@@ -2,9 +2,9 @@ object frmdados: Tfrmdados
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   Left = 1
-  Top = 1
-  Height = 680
-  Width = 987
+  Top = 109
+  Height = 625
+  Width = 1019
   object cds_Paises: TClientDataSet
     Aggregates = <>
     FieldDefs = <
@@ -3277,6 +3277,10 @@ object frmdados: Tfrmdados
         Name = 'id'
         Attributes = [faRequired]
         DataType = ftInteger
+      end
+      item
+        Name = 'csegmento'
+        DataType = ftInteger
       end>
     IndexDefs = <
       item
@@ -3387,6 +3391,9 @@ object frmdados: Tfrmdados
     object cds_emitenteid: TIntegerField
       FieldName = 'id'
       Required = True
+    end
+    object cds_emitentecsegmento: TIntegerField
+      FieldName = 'csegmento'
     end
   end
   object dts_emitente: TDataSource
@@ -6583,7 +6590,7 @@ object frmdados: Tfrmdados
       'select * from paises')
     Params = <>
     Left = 16
-    Top = 201
+    Top = 169
     object sql_Paisescodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -6614,8 +6621,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from paises')
     Params = <>
-    Left = 88
-    Top = 201
+    Left = 64
+    Top = 185
   end
   object dsp_ImpostoII: TDataSetProvider
     DataSet = sql_ImpostoII
@@ -6628,8 +6635,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from ImpostoII')
     Params = <>
-    Left = 168
-    Top = 201
+    Left = 72
+    Top = 481
     object sql_ImpostoIIcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -6656,8 +6663,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from impostoIII')
     Params = <>
-    Left = 88
-    Top = 257
+    Left = 72
+    Top = 241
     object sql_impostoIIIcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -6684,8 +6691,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from tiposerv')
     Params = <>
-    Left = 168
-    Top = 257
+    Left = 136
+    Top = 177
     object sql_tiposervcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -6707,7 +6714,7 @@ object frmdados: Tfrmdados
       'select * from regtrib')
     Params = <>
     Left = 16
-    Top = 313
+    Top = 225
     object sql_regtribcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -6735,8 +6742,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from indice')
     Params = <>
-    Left = 88
-    Top = 313
+    Left = 64
+    Top = 305
     object sql_indicecodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -6817,8 +6824,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from fatura')
     Params = <>
-    Left = 168
-    Top = 313
+    Left = 112
+    Top = 297
     object sql_faturacodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -6854,8 +6861,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from cf')
     Params = <>
-    Left = 16
-    Top = 377
+    Left = 24
+    Top = 289
     object sql_cfcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -6876,8 +6883,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from pis')
     Params = <>
-    Left = 88
-    Top = 377
+    Left = 64
+    Top = 369
     object sql_piscodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -6907,8 +6914,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from Munic')
     Params = <>
-    Left = 168
-    Top = 377
+    Left = 128
+    Top = 361
     object sql_Municcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -6939,7 +6946,7 @@ object frmdados: Tfrmdados
       'select * from Modbc')
     Params = <>
     Left = 16
-    Top = 433
+    Top = 353
     object sql_Modbccodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -6960,8 +6967,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from cofins')
     Params = <>
-    Left = 88
-    Top = 433
+    Left = 16
+    Top = 417
     object sql_cofinscodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -6991,8 +6998,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from unidade')
     Params = <>
-    Left = 168
-    Top = 433
+    Left = 120
+    Top = 425
     object sql_unidadecodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -7098,8 +7105,8 @@ object frmdados: Tfrmdados
       'select * from rcserv'
       '')
     Params = <>
-    Left = 96
-    Top = 497
+    Left = 64
+    Top = 433
     object sql_rcservcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -7120,8 +7127,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from emitente')
     Params = <>
-    Left = 168
-    Top = 497
+    Left = 144
+    Top = 481
     object sql_emitentecodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -7194,14 +7201,17 @@ object frmdados: Tfrmdados
       FieldName = 'id'
       Required = True
     end
+    object sql_emitentecsegmento: TIntegerField
+      FieldName = 'csegmento'
+    end
   end
   object sql_nfe: TZQuery
     Connection = zconexao
     SQL.Strings = (
       'select * from nfe')
     Params = <>
-    Left = 16
-    Top = 569
+    Left = 408
+    Top = 465
     object sql_nfecodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -7486,8 +7496,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from duplicata')
     Params = <>
-    Left = 872
-    Top = 465
+    Left = 424
+    Top = 529
     object sql_duplicatacodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -7521,8 +7531,8 @@ object frmdados: Tfrmdados
       'select * from nfs'
       '')
     Params = <>
-    Left = 168
-    Top = 561
+    Left = 360
+    Top = 449
     object sql_nfscodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -7601,8 +7611,8 @@ object frmdados: Tfrmdados
       'select * from modbcst'
       '')
     Params = <>
-    Left = 248
-    Top = 201
+    Left = 144
+    Top = 233
     object sql_modbcstcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -7623,8 +7633,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from nfep')
     Params = <>
-    Left = 248
-    Top = 257
+    Left = 192
+    Top = 169
     object sql_nfepcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -7744,8 +7754,8 @@ object frmdados: Tfrmdados
       'select * from icms'
       '')
     Params = <>
-    Left = 248
-    Top = 313
+    Left = 168
+    Top = 297
     object sql_icmscodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -7791,8 +7801,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from cfop')
     Params = <>
-    Left = 248
-    Top = 377
+    Left = 232
+    Top = 353
     object sql_cfopcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -7859,7 +7869,7 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from fornecedores')
     Params = <>
-    Left = 248
+    Left = 208
     Top = 497
     object sql_fornecedorescodigo: TIntegerField
       FieldName = 'codigo'
@@ -7943,8 +7953,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from nfp')
     Params = <>
-    Left = 248
-    Top = 561
+    Left = 400
+    Top = 385
     object sql_nfpcpro: TIntegerField
       FieldName = 'cpro'
     end
@@ -8086,8 +8096,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from sita')
     Params = <>
-    Left = 328
-    Top = 201
+    Left = 200
+    Top = 233
     object sql_sitacodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8111,8 +8121,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from ipi')
     Params = <>
-    Left = 328
-    Top = 257
+    Left = 208
+    Top = 289
     object sql_ipicodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8142,8 +8152,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from impostoI')
     Params = <>
-    Left = 328
-    Top = 313
+    Left = 176
+    Top = 353
     object sql_impostoIcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8170,8 +8180,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from natop')
     Params = <>
-    Left = 328
-    Top = 377
+    Left = 176
+    Top = 417
     object sql_natopcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8198,8 +8208,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from tgicms')
     Params = <>
-    Left = 328
-    Top = 433
+    Left = 240
+    Top = 177
     object sql_tgicmscodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8228,8 +8238,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from transportador')
     Params = <>
-    Left = 344
-    Top = 497
+    Left = 296
+    Top = 481
     object sql_transportadorcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8301,8 +8311,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from nf order by codigo desc')
     Params = <>
-    Left = 344
-    Top = 561
+    Left = 352
+    Top = 385
     object sql_nfcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8515,7 +8525,7 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from csosn')
     Params = <>
-    Left = 408
+    Left = 288
     Top = 201
     object sql_csosncodigo: TIntegerField
       FieldName = 'codigo'
@@ -8537,7 +8547,7 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from cupom')
     Params = <>
-    Left = 408
+    Left = 256
     Top = 257
     object sql_cupomcodigo: TIntegerField
       FieldName = 'codigo'
@@ -8577,8 +8587,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from tipopgto')
     Params = <>
-    Left = 408
-    Top = 313
+    Left = 264
+    Top = 305
     object sql_tipopgtocodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8600,8 +8610,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from Estados')
     Params = <>
-    Left = 408
-    Top = 377
+    Left = 296
+    Top = 417
     object sql_Estadoscodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8632,8 +8642,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from onusdofrete')
     Params = <>
-    Left = 424
-    Top = 433
+    Left = 352
+    Top = 177
     object sql_onusdofretecodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8654,8 +8664,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from tiponf')
     Params = <>
-    Left = 434
-    Top = 489
+    Left = 314
+    Top = 257
     object sql_tiponfcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8676,8 +8686,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from sitb')
     Params = <>
-    Left = 424
-    Top = 553
+    Left = 392
+    Top = 313
     object sql_sitbcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8705,8 +8715,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from cmobra')
     Params = <>
-    Left = 488
-    Top = 201
+    Left = 288
+    Top = 361
     object sql_cmobracodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8964,8 +8974,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from ibpt')
     Params = <>
-    Left = 24
-    Top = 632
+    Left = 16
+    Top = 454
     object sql_ibptEX: TStringField
       FieldName = 'EX'
       Size = 250
@@ -9088,8 +9098,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from aliqinter')
     Params = <>
-    Left = 96
-    Top = 616
+    Left = 176
+    Top = 496
     object sql_aliqinterCODIGO: TIntegerField
       FieldName = 'CODIGO'
     end
@@ -9224,8 +9234,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from produtos')
     Params = <>
-    Left = 248
-    Top = 448
+    Left = 232
+    Top = 416
     object sql_produtoscodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -9661,8 +9671,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from aliqinter')
     Params = <>
-    Left = 176
-    Top = 624
+    Left = 376
+    Top = 249
   end
   object sql_exec2: TZQuery
     Connection = zconexao
@@ -9728,8 +9738,8 @@ object frmdados: Tfrmdados
   end
   object Seq_Duplicata: TZSequence
     Connection = zconexao
-    Left = 952
-    Top = 464
+    Left = 720
+    Top = 512
   end
   object cdstempvencido: TClientDataSet
     Aggregates = <>
@@ -9752,5 +9762,219 @@ object frmdados: Tfrmdados
     object cdstempvencidovlrliq: TFloatField
       FieldName = 'vlrliq'
     end
+  end
+  object sql_cest: TZQuery
+    Connection = zconexao
+    SQL.Strings = (
+      'select * from cest')
+    Params = <>
+    Left = 64
+    Top = 544
+    object sql_cestid: TLargeintField
+      FieldName = 'id'
+      Required = True
+    end
+    object sql_cestcodigo: TIntegerField
+      FieldName = 'codigo'
+    end
+    object sql_cestcest: TWideStringField
+      FieldName = 'cest'
+      Required = True
+      Size = 7
+    end
+    object sql_cestncm: TWideStringField
+      FieldName = 'ncm'
+      Size = 8
+    end
+    object sql_cestdescricao: TWideStringField
+      FieldName = 'descricao'
+      Size = 512
+    end
+    object sql_cestcsegmento: TIntegerField
+      FieldName = 'csegmento'
+    end
+  end
+  object sql_segmento_cest: TZQuery
+    Connection = zconexao
+    SQL.Strings = (
+      'select * from segmento_cest')
+    Params = <>
+    Left = 152
+    Top = 547
+    object sql_segmento_cestid: TIntegerField
+      FieldName = 'id'
+      Required = True
+    end
+    object sql_segmento_cestcodigo: TIntegerField
+      FieldName = 'codigo'
+    end
+    object sql_segmento_cestproprio: TStringField
+      FieldName = 'proprio'
+      Size = 1
+    end
+    object sql_segmento_cestdescricao: TStringField
+      FieldName = 'descricao'
+      Required = True
+      Size = 90
+    end
+  end
+  object cds_cest: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'id'
+        Attributes = [faRequired]
+        DataType = ftLargeint
+      end
+      item
+        Name = 'codigo'
+        DataType = ftInteger
+      end
+      item
+        Name = 'cest'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 7
+      end
+      item
+        Name = 'ncm'
+        DataType = ftWideString
+        Size = 8
+      end
+      item
+        Name = 'descricao'
+        DataType = ftWideString
+        Size = 512
+      end
+      item
+        Name = 'csegmento'
+        DataType = ftInteger
+      end>
+    IndexDefs = <
+      item
+        Name = 'codigo'
+        Fields = 'codigo'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'nome'
+        Fields = 'nome'
+      end
+      item
+        Name = 'sigla'
+        Fields = 'sigla'
+      end>
+    Params = <>
+    ProviderName = 'dsp_cest'
+    StoreDefs = True
+    AfterPost = cds_cestAfterPost
+    AfterDelete = cds_cestAfterDelete
+    OnNewRecord = cds_cestNewRecord
+    Left = 67
+    Top = 701
+    object cds_cestid: TLargeintField
+      FieldName = 'id'
+      Required = True
+    end
+    object cds_cestcodigo: TIntegerField
+      FieldName = 'codigo'
+    end
+    object cds_cestcest: TWideStringField
+      FieldName = 'cest'
+      Required = True
+      Size = 7
+    end
+    object cds_cestncm: TWideStringField
+      FieldName = 'ncm'
+      Size = 8
+    end
+    object cds_cestdescricao: TWideStringField
+      FieldName = 'descricao'
+      Size = 512
+    end
+    object cds_cestcsegmento: TIntegerField
+      FieldName = 'csegmento'
+    end
+  end
+  object dts_cest: TDataSource
+    DataSet = cds_cest
+    Left = 65
+    Top = 595
+  end
+  object dsp_cest: TDataSetProvider
+    DataSet = sql_cest
+    UpdateMode = upWhereKeyOnly
+    Left = 64
+    Top = 644
+  end
+  object cds_segmento_cest: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'id'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'codigo'
+        DataType = ftInteger
+      end
+      item
+        Name = 'proprio'
+        DataType = ftString
+        Size = 1
+      end
+      item
+        Name = 'descricao'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 90
+      end>
+    IndexDefs = <
+      item
+        Name = 'codigo'
+        Fields = 'codigo'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'descricao'
+        Fields = 'descricao'
+      end>
+    IndexName = 'codigo'
+    Params = <>
+    ProviderName = 'dsp_segmento_cest'
+    StoreDefs = True
+    AfterPost = cds_segmento_cestAfterPost
+    AfterDelete = cds_segmento_cestAfterDelete
+    OnNewRecord = cds_segmento_cestNewRecord
+    Left = 153
+    Top = 715
+    object cds_segmento_cestid: TIntegerField
+      FieldName = 'id'
+      Required = True
+    end
+    object cds_segmento_cestcodigo: TIntegerField
+      FieldName = 'codigo'
+    end
+    object cds_segmento_cestproprio: TStringField
+      FieldName = 'proprio'
+      Size = 1
+    end
+    object cds_segmento_cestdescricao: TStringField
+      FieldName = 'descricao'
+      Required = True
+      Size = 90
+    end
+  end
+  object dts_segmento_cest: TDataSource
+    DataSet = cds_segmento_cest
+    Left = 151
+    Top = 614
+  end
+  object dsp_segmento_cest: TDataSetProvider
+    DataSet = sql_segmento_cest
+    UpdateMode = upWhereKeyOnly
+    Left = 149
+    Top = 667
   end
 end

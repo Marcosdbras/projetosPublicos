@@ -1523,6 +1523,36 @@ type
     cds_nfpaliqfederal: TFloatField;
     cds_nfpaliqestadual: TFloatField;
     cds_nfpaliqmunicipal: TFloatField;
+    sql_cest: TZQuery;
+    sql_segmento_cest: TZQuery;
+    cds_cest: TClientDataSet;
+    dts_cest: TDataSource;
+    dsp_cest: TDataSetProvider;
+    sql_cestid: TLargeintField;
+    sql_cestcodigo: TIntegerField;
+    sql_cestcest: TWideStringField;
+    sql_cestncm: TWideStringField;
+    sql_cestdescricao: TWideStringField;
+    sql_cestcsegmento: TIntegerField;
+    cds_cestid: TLargeintField;
+    cds_cestcodigo: TIntegerField;
+    cds_cestcest: TWideStringField;
+    cds_cestncm: TWideStringField;
+    cds_cestdescricao: TWideStringField;
+    cds_cestcsegmento: TIntegerField;
+    cds_segmento_cest: TClientDataSet;
+    dts_segmento_cest: TDataSource;
+    dsp_segmento_cest: TDataSetProvider;
+    sql_segmento_cestid: TIntegerField;
+    sql_segmento_cestcodigo: TIntegerField;
+    sql_segmento_cestproprio: TStringField;
+    sql_segmento_cestdescricao: TStringField;
+    cds_segmento_cestid: TIntegerField;
+    cds_segmento_cestcodigo: TIntegerField;
+    cds_segmento_cestproprio: TStringField;
+    cds_segmento_cestdescricao: TStringField;
+    sql_emitentecsegmento: TIntegerField;
+    cds_emitentecsegmento: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);
@@ -1690,6 +1720,12 @@ type
     procedure verificanf;
     procedure atualizancm(ncm:string);
     procedure dts_produtosDataChange(Sender: TObject; Field: TField);
+    procedure cds_cestAfterDelete(DataSet: TDataSet);
+    procedure cds_cestAfterPost(DataSet: TDataSet);
+    procedure cds_cestNewRecord(DataSet: TDataSet);
+    procedure cds_segmento_cestAfterDelete(DataSet: TDataSet);
+    procedure cds_segmento_cestAfterPost(DataSet: TDataSet);
+    procedure cds_segmento_cestNewRecord(DataSet: TDataSet);
     
   private
     { Private declarations }
@@ -8438,6 +8474,52 @@ begin
    except
    end;
 
+end;
+
+procedure Tfrmdados.cds_cestAfterDelete(DataSet: TDataSet);
+begin
+cds_cest.ApplyUpdates(0);
+end;
+
+procedure Tfrmdados.cds_cestAfterPost(DataSet: TDataSet);
+begin
+cds_cest.ApplyUpdates(0);
+end;
+
+procedure Tfrmdados.cds_cestNewRecord(DataSet: TDataSet);
+begin
+    {
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(id)+1 as contador from cest');
+    sql_consulta.Active := true;
+
+    Cds_cest.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_cest.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    }
+end;
+
+procedure Tfrmdados.cds_segmento_cestAfterDelete(DataSet: TDataSet);
+begin
+cds_segmento_cest.ApplyUpdates(0);
+end;
+
+procedure Tfrmdados.cds_segmento_cestAfterPost(DataSet: TDataSet);
+begin
+cds_segmento_cest.ApplyUpdates(0);
+end;
+
+procedure Tfrmdados.cds_segmento_cestNewRecord(DataSet: TDataSet);
+begin
+    {
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    sql_consulta.SQL.Add('select max(id)+1 as contador from segmento_cest');
+    sql_consulta.Active := true;
+
+    Cds_segmento_cest.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    Cds_segmento_cest.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
+    }
 end;
 
 end.
