@@ -151,17 +151,20 @@ type
     procedure fechatabelas();
 
     procedure consultavencidos;
-
     procedure consultaEmitente;
 
     procedure atualizaSegmentoCestProprio;
-
-
     procedure atualizaSegmentoCestNormal;
+
+
+    function consultaCest(segmento:string; ncm:string):string;
+
 
     procedure atualizacaoBaseRemota;
     procedure atualizaEmitente;
     procedure atualizaCliente;
+
+    
     procedure BaixarNCM1Click(Sender: TObject);
     procedure Desbloqueiodeenvio1Click(Sender: TObject);
     procedure Sobre1Click(Sender: TObject);
@@ -195,7 +198,12 @@ var
 
 
 begin
-   vardir := extractfilepath(application.ExeName);  
+   vardir := extractfilepath(application.ExeName);
+
+
+   frmdados.cdstempvencido.Close;
+   frmdados.cdstempvencido.CreateDataSet;
+   frmdados.cdstempvencido.Open;
 
    memo1.Lines.Clear;
 
@@ -1295,6 +1303,10 @@ begin
         atualizaSegmentoCestProprio;
         atualizaSegmentoCestNormal;
 
+
+
+
+
       except
         reResp.Lines.Add('erro ao sincronizar dados');
       end;
@@ -1727,6 +1739,7 @@ begin
        sql_indice.SQL.Add('select * from indice');
        sql_indice.Active := true;
 
+       cdstempvencido.Close;
        cdstempvencido.CreateDataSet;
        cdstempvencido.Open;
 
@@ -1761,17 +1774,27 @@ begin
 
                         with frmdados do
                           begin
-                            cdstempvencido.Append;
-                            cdstempvencido.fieldbyname('dtv').asstring := formatdatetime('dd/mm/yyyy',strtodate(convertedata(dtv)));
-                            cdstempvencido.fieldbyname('descricao').asstring := descricao;
-                            cdstempvencido.fieldbyname('vlrorig').asfloat := strtofloat(Decimal_Is_Coma(vlrorig));
-                            if dtl  <> '0000-00-00' then
-                               cdstempvencido.fieldbyname('dtl').asstring := formatdatetime('dd/mm/yyyy',strtodate(convertedata(dtl)));
-                            //endi
-                            cdstempvencido.fieldbyname('vlrliq').asfloat := strtofloat(Decimal_Is_Coma(vlrliq));
-                            cdstempvencido.Post;
-                          end;
 
+                            if dtv <> '' then
+                               begin
+
+
+                                 cdstempvencido.Append;
+                                 cdstempvencido.fieldbyname('dtv').asstring := formatdatetime('dd/mm/yyyy',strtodate(convertedata(dtv)));
+                                 cdstempvencido.fieldbyname('descricao').asstring := descricao;
+                                 cdstempvencido.fieldbyname('vlrorig').asfloat := strtofloat(Decimal_Is_Coma(vlrorig));
+                                 if dtl  <> '0000-00-00' then
+                                    cdstempvencido.fieldbyname('dtl').asstring := formatdatetime('dd/mm/yyyy',strtodate(convertedata(dtl)));
+                                 //endi
+                                 cdstempvencido.fieldbyname('vlrliq').asfloat := strtofloat(Decimal_Is_Coma(vlrliq));
+                                 cdstempvencido.Post;
+
+
+
+                               end;
+
+
+                          end;   
 
 
                       end;
@@ -1863,7 +1886,7 @@ begin
                     with XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes[x] do
                       begin
 
-                        sGseg_cest  := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['segmento_cest'].Text;
+                        sGseg_cest  := ChildNodes['segmento_cest'].Text;
 
 
                         if  sGseg_cest = '' then
@@ -2046,6 +2069,147 @@ end;
 
 
 
+function tfrmprincipal.consultaCest(segmento:string; ncm:string):string;
+
+var
+
+  lParamList: TStringList;
+  lResponse : TStringStream;
+  smostrar, chave, cnpj, nome, bloqueado:string;
+  x:integer;
+  dtv, descricao, vlrorig, dtl, vlrliq, id, proprio, cest, cseg:string;
+
+begin
+
+  x:=0;
+
+  with frmdados do
+    begin
+
+       //sql_exec.Active := false;
+       //sql_exec.SQL.Clear;
+       //sql_exec.SQL.Add('delete from segmento_cest');
+       //sql_exec.ExecSQL;
+
+       cds_emitente.Active := false;
+       sql_emitente.Active := false;
+       sql_emitente.SQL.Clear;
+       sql_emitente.SQL.Add('select * from emitente where coalesce(id,0) > 0 ');
+       sql_emitente.active  := true;
+       cds_emitente.Active := true;
+
+       cds_cest.Active := false;
+       sql_cest.Active := false;
+       sql_cest.SQL.Clear;
+       sql_cest.SQL.Add('select * from cest');
+       sql_cest.Active := true;
+       cds_cest.Active := true;
+
+       sql_indice.Active := false;
+       sql_indice.SQL.Clear;
+       sql_indice.SQL.Add('select * from indice');
+       sql_indice.Active := true;
+
+    end;
+  //endth
+
+  
+
+        cnpjemitente := tirapontos(tirabarras(tiratracos(frmdados.cds_emitente.fieldbyname('cnpj').AsString)));
+
+        chave:=  frmdados.sql_indice.fieldbyname('chaveconsultacep').AsString+cnpjemitente;
+
+        try
+
+            try
+
+               XMLDocument1.Active := False;
+               XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsconsultacest.php?chave='+ chave +'&csegmento='+  segmento +'&ncm='+  ncm  +'&modo=C');
+               XMLDocument1.Active := True;
+
+               for x := 0 to XMLDocument1.ChildNodes['wscest'].ChildNodes['response'].ChildNodes.Count - 1  do
+                  begin
+
+                    with XMLDocument1.ChildNodes['wscest'].ChildNodes['response'].ChildNodes[x] do
+                      begin
+
+                        id     :=  ChildNodes['id'].Text;
+                        descricao      := ChildNodes['descricao'].Text;
+                        ncm := ChildNodes['ncm'].Text;
+                        cest := ChildNodes['cest'].Text;
+                        cseg := ChildNodes['cseg'].Text;
+
+                        with frmdados do
+                          begin
+
+                            if ( id <> '' ) then
+                               begin
+                               
+
+                                 if (not cds_cest.Locate('id',id,[])) then
+                                     begin
+
+                                       cds_cest.Append;
+
+                                     end
+                                 else
+                                    begin
+
+                                       cds_cest.Edit;
+
+
+                                    end;
+
+                                 cds_cest.fieldbyname('id').asinteger := strtoint(id);
+                                 cds_cest.fieldbyname('descricao').asstring := descricao;
+                                 cds_cest.fieldbyname('ncm').asstring := ncm;
+                                 cds_cest.fieldbyname('cest').asstring := cest;
+                                 cds_cest.fieldbyname('csegmento').asstring := cseg;
+
+                                 cds_cest.fieldbyname('codigo').asinteger := strtoint(id);
+                                 cds_cest.Post;  
+
+                               end;
+
+                          end;
+
+                      end;
+                    //endth
+
+
+
+
+
+                  end;
+
+
+                x := x + 1;
+
+
+               XMLDocument1.Active := false;
+            except
+
+            end;
+
+
+
+
+
+        finally
+           reResp.Lines.Add( 'Atualiza cest');
+
+
+        end;
+
+
+
+  frmdados.sql_emitente.Active := false;
+  frmdados.cds_emitente.Active := false;
+
+  //--------------------------------------------------------------------
+
+end;
+
 
 
 procedure tfrmprincipal.atualizaSegmentoCestNormal;
@@ -2166,11 +2330,6 @@ begin
   //--------------------------------------------------------------------
 
 end;
-
-
-
-
-
 
 
 procedure Tfrmprincipal.BaixarNCM1Click(Sender: TObject);
