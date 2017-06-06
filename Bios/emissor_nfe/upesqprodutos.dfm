@@ -1265,4 +1265,71 @@ object frmpesqprodutos: Tfrmpesqprodutos
       C007C40300000000E3FFEC070000000000000000000000000000000000000000
       000000000000}
   end
+  object sqlDadosCest: TZQuery
+    SQL.Strings = (
+      'select * from cest')
+    Params = <>
+    Left = 920
+    Top = 136
+    object sqlDadosCestid: TLargeintField
+      FieldName = 'id'
+      Required = True
+    end
+    object sqlDadosCestcodigo: TIntegerField
+      FieldName = 'codigo'
+    end
+    object sqlDadosCestncm: TWideStringField
+      FieldName = 'ncm'
+      Size = 8
+    end
+    object sqlDadosCestdescricao: TWideStringField
+      FieldName = 'descricao'
+      Size = 512
+    end
+    object sqlDadosCestcsegmento: TIntegerField
+      FieldName = 'csegmento'
+    end
+    object sqlDadosCestcodesp: TWideStringField
+      FieldName = 'codesp'
+      Required = True
+      Size = 7
+    end
+  end
+  object cdsDadoscest: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspDadoscest'
+    Left = 920
+    Top = 195
+    object cdsDadoscestid: TLargeintField
+      FieldName = 'id'
+      Required = True
+    end
+    object cdsDadoscestcodigo: TIntegerField
+      FieldName = 'codigo'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object cdsDadoscestncm: TWideStringField
+      FieldName = 'ncm'
+      Size = 8
+    end
+    object cdsDadoscestdescricao: TWideStringField
+      FieldName = 'descricao'
+      Size = 512
+    end
+    object cdsDadoscestcsegmento: TIntegerField
+      FieldName = 'csegmento'
+    end
+    object cdsDadoscestcodesp: TWideStringField
+      FieldName = 'codesp'
+      Required = True
+      Size = 7
+    end
+  end
+  object dspDadoscest: TDataSetProvider
+    DataSet = sqlDadosCest
+    UpdateMode = upWhereKeyOnly
+    Left = 920
+    Top = 256
+  end
 end

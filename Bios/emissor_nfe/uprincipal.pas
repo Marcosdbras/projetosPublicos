@@ -1,4 +1,4 @@
-unit uprincipal;   
+unit uprincipal; 
 
 interface
 
@@ -156,19 +156,17 @@ type
     procedure atualizaSegmentoCestProprio;
     procedure atualizaSegmentoCestNormal;
 
-
-    function consultaCest(segmento:string; ncm:string):string;
-
-
     procedure atualizacaoBaseRemota;
     procedure atualizaEmitente;
     procedure atualizaCliente;
 
-    
+
     procedure BaixarNCM1Click(Sender: TObject);
     procedure Desbloqueiodeenvio1Click(Sender: TObject);
     procedure Sobre1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+
+
     
 
   private
@@ -177,6 +175,9 @@ type
   public
     { Public declarations }
     scaminho:string;
+
+
+
   end;
 
 var
@@ -1987,14 +1988,20 @@ begin
     end;
   //endth
 
+
+
+  try
+
   while not frmdados.cds_emitente.Eof do
     begin
 
-        cnpjemitente := tirapontos(tirabarras(tiratracos(frmdados.cds_emitente.fieldbyname('cnpj').AsString)));
+           cnpjemitente := tirapontos(tirabarras(tiratracos(frmdados.cds_emitente.fieldbyname('cnpj').AsString)));
 
-        chave:=  frmdados.sql_indice.fieldbyname('chaveconsultacep').AsString+cnpjemitente;
+           chave:=  frmdados.sql_indice.fieldbyname('chaveconsultacep').AsString+cnpjemitente;
 
-        try
+           if frmdados.cds_emitente.fieldbyname('csegmento').AsInteger > 0 then
+           begin
+
 
             try
 
@@ -2043,163 +2050,27 @@ begin
 
 
                XMLDocument1.Active := false;
-            except
 
+            except
+               reResp.Lines.Add( 'Erro ao cadastrar segmento cest...');
             end;
 
 
-            frmdados.cds_emitente.Next;
+           end;
 
-
-        finally
-           reResp.Lines.Add( 'Atualiza cest');
-
-
-        end;
+           frmdados.cds_emitente.Next;
 
     end;
   //endw
 
-  frmdados.sql_emitente.Active := false;
-  frmdados.cds_emitente.Active := false;
-
-  //--------------------------------------------------------------------
-
-end;
 
 
-
-function tfrmprincipal.consultaCest(segmento:string; ncm:string):string;
-
-var
-
-  lParamList: TStringList;
-  lResponse : TStringStream;
-  smostrar, chave, cnpj, nome, bloqueado:string;
-  x:integer;
-  dtv, descricao, vlrorig, dtl, vlrliq, id, proprio, cest, cseg:string;
-
-begin
-
-  x:=0;
-
-  with frmdados do
-    begin
-
-       //sql_exec.Active := false;
-       //sql_exec.SQL.Clear;
-       //sql_exec.SQL.Add('delete from segmento_cest');
-       //sql_exec.ExecSQL;
-
-       cds_emitente.Active := false;
-       sql_emitente.Active := false;
-       sql_emitente.SQL.Clear;
-       sql_emitente.SQL.Add('select * from emitente where coalesce(id,0) > 0 ');
-       sql_emitente.active  := true;
-       cds_emitente.Active := true;
-
-       cds_cest.Active := false;
-       sql_cest.Active := false;
-       sql_cest.SQL.Clear;
-       sql_cest.SQL.Add('select * from cest');
-       sql_cest.Active := true;
-       cds_cest.Active := true;
-
-       sql_indice.Active := false;
-       sql_indice.SQL.Clear;
-       sql_indice.SQL.Add('select * from indice');
-       sql_indice.Active := true;
-
-    end;
-  //endth
-
-  
-
-        cnpjemitente := tirapontos(tirabarras(tiratracos(frmdados.cds_emitente.fieldbyname('cnpj').AsString)));
-
-        chave:=  frmdados.sql_indice.fieldbyname('chaveconsultacep').AsString+cnpjemitente;
-
-        try
-
-            try
-
-               XMLDocument1.Active := False;
-               XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsconsultacest.php?chave='+ chave +'&csegmento='+  segmento +'&ncm='+  ncm  +'&modo=C');
-               XMLDocument1.Active := True;
-
-               for x := 0 to XMLDocument1.ChildNodes['wscest'].ChildNodes['response'].ChildNodes.Count - 1  do
-                  begin
-
-                    with XMLDocument1.ChildNodes['wscest'].ChildNodes['response'].ChildNodes[x] do
-                      begin
-
-                        id     :=  ChildNodes['id'].Text;
-                        descricao      := ChildNodes['descricao'].Text;
-                        ncm := ChildNodes['ncm'].Text;
-                        cest := ChildNodes['cest'].Text;
-                        cseg := ChildNodes['cseg'].Text;
-
-                        with frmdados do
-                          begin
-
-                            if ( id <> '' ) then
-                               begin
-                               
-
-                                 if (not cds_cest.Locate('id',id,[])) then
-                                     begin
-
-                                       cds_cest.Append;
-
-                                     end
-                                 else
-                                    begin
-
-                                       cds_cest.Edit;
+  finally
+      reResp.Lines.Add( 'Atualiza cest');
 
 
-                                    end;
+  end;
 
-                                 cds_cest.fieldbyname('id').asinteger := strtoint(id);
-                                 cds_cest.fieldbyname('descricao').asstring := descricao;
-                                 cds_cest.fieldbyname('ncm').asstring := ncm;
-                                 cds_cest.fieldbyname('cest').asstring := cest;
-                                 cds_cest.fieldbyname('csegmento').asstring := cseg;
-
-                                 cds_cest.fieldbyname('codigo').asinteger := strtoint(id);
-                                 cds_cest.Post;  
-
-                               end;
-
-                          end;
-
-                      end;
-                    //endth
-
-
-
-
-
-                  end;
-
-
-                x := x + 1;
-
-
-               XMLDocument1.Active := false;
-            except
-
-            end;
-
-
-
-
-
-        finally
-           reResp.Lines.Add( 'Atualiza cest');
-
-
-        end;
 
 
 
@@ -2209,7 +2080,6 @@ begin
   //--------------------------------------------------------------------
 
 end;
-
 
 
 procedure tfrmprincipal.atualizaSegmentoCestNormal;
@@ -2251,14 +2121,18 @@ begin
     end;
   //endth
 
+
+
+  try
+
   while not frmdados.cds_emitente.Eof do
     begin
 
-        cnpjemitente := tirapontos(tirabarras(tiratracos(frmdados.cds_emitente.fieldbyname('cnpj').AsString)));
+            cnpjemitente := tirapontos(tirabarras(tiratracos(frmdados.cds_emitente.fieldbyname('cnpj').AsString)));
 
-        chave:=  frmdados.sql_indice.fieldbyname('chaveconsultacep').AsString+cnpjemitente;
+            chave:=  frmdados.sql_indice.fieldbyname('chaveconsultacep').AsString+cnpjemitente;
 
-        try
+
 
             try
 
@@ -2308,21 +2182,27 @@ begin
 
                XMLDocument1.Active := false;
             except
-
+               reResp.Lines.Add( 'Erro ao atualizar segmento do cest...');
             end;
 
 
             frmdados.cds_emitente.Next;
 
 
-        finally
-           reResp.Lines.Add( 'Atualiza cest');
 
-
-        end;
 
     end;
   //endw
+
+
+  finally
+      reResp.Lines.Add( 'Atualiza cest');
+
+
+  end;
+
+
+
 
   frmdados.sql_emitente.Active := false;
   frmdados.cds_emitente.Active := false;

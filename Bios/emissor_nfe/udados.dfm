@@ -666,6 +666,10 @@ object frmdados: Tfrmdados
       item
         Name = 'cod1'
         DataType = ftInteger
+      end
+      item
+        Name = 'codtemp1'
+        DataType = ftInteger
       end>
     IndexDefs = <
       item
@@ -1040,6 +1044,9 @@ object frmdados: Tfrmdados
     end
     object cds_Tempcod1: TIntegerField
       FieldName = 'cod1'
+    end
+    object cds_Tempcodtemp1: TIntegerField
+      FieldName = 'codtemp1'
     end
   end
   object dts_Temp: TDataSource
@@ -2404,6 +2411,7 @@ object frmdados: Tfrmdados
     Top = 187
   end
   object cds_unidade: TClientDataSet
+    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -6552,8 +6560,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from PAISES')
     SQLConnection = dados_nfe
-    Left = 528
-    Top = 424
+    Left = 904
+    Top = 515
   end
   object cd_enatop: TClientDataSet
     Aggregates = <>
@@ -7497,8 +7505,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from duplicata')
     Params = <>
-    Left = 424
-    Top = 529
+    Left = 376
+    Top = 521
     object sql_duplicatacodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -7870,8 +7878,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from fornecedores')
     Params = <>
-    Left = 208
-    Top = 497
+    Left = 432
+    Top = 196
     object sql_fornecedorescodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8240,7 +8248,7 @@ object frmdados: Tfrmdados
       'select * from transportador')
     Params = <>
     Left = 296
-    Top = 481
+    Top = 505
     object sql_transportadorcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8588,8 +8596,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from tipopgto')
     Params = <>
-    Left = 264
-    Top = 305
+    Left = 328
+    Top = 306
     object sql_tipopgtocodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8665,8 +8673,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from tiponf')
     Params = <>
-    Left = 314
-    Top = 257
+    Left = 266
+    Top = 305
     object sql_tiponfcodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8716,8 +8724,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from cmobra')
     Params = <>
-    Left = 288
-    Top = 361
+    Left = 224
+    Top = 473
     object sql_cmobracodigo: TIntegerField
       FieldName = 'codigo'
     end
@@ -8975,8 +8983,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from ibpt')
     Params = <>
-    Left = 16
-    Top = 454
+    Left = 408
+    Top = 257
     object sql_ibptEX: TStringField
       FieldName = 'EX'
       Size = 250
@@ -9099,8 +9107,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from aliqinter')
     Params = <>
-    Left = 176
-    Top = 496
+    Left = 288
+    Top = 363
     object sql_aliqinterCODIGO: TIntegerField
       FieldName = 'CODIGO'
     end
@@ -9672,16 +9680,16 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from aliqinter')
     Params = <>
-    Left = 376
-    Top = 249
+    Left = 336
+    Top = 257
   end
   object sql_exec2: TZQuery
     Connection = zconexao
     SQL.Strings = (
       'select * from aliqinter')
     Params = <>
-    Left = 248
-    Top = 624
+    Left = 704
+    Top = 430
   end
   object sql_exec3: TZQuery
     Connection = zconexao
@@ -9713,8 +9721,8 @@ object frmdados: Tfrmdados
     Request.Ranges.Units = 'bytes'
     Request.Ranges = <>
     HTTPOptions = [hoForceEncodeParams]
-    Left = 720
-    Top = 440
+    Left = 904
+    Top = 368
   end
   object XMLDocument1: TXMLDocument
     XML.Strings = (
@@ -9725,8 +9733,8 @@ object frmdados: Tfrmdados
         'o><resultado></resultado><resultado_txt></resultado_txt><ibge_uf' +
         '>12</ibge_uf><ibge_municipio>1200302</ibge_municipio><erro>0</er' +
         'ro><msgerro></msgerro></response>')
-    Left = 752
-    Top = 440
+    Left = 936
+    Top = 432
     DOMVendorDesc = 'MSXML'
   end
   object sql_conversaosatcfinal: TZQuery
@@ -9745,8 +9753,8 @@ object frmdados: Tfrmdados
   object cdstempvencido: TClientDataSet
     Aggregates = <>
     Params = <>
-    Left = 816
-    Top = 376
+    Left = 856
+    Top = 438
     object cdstempvencidodtv: TDateField
       FieldName = 'dtv'
     end
@@ -9766,30 +9774,30 @@ object frmdados: Tfrmdados
   end
   object sql_cest: TZQuery
     Connection = zconexao
+    ReadOnly = True
     SQL.Strings = (
       'select * from cest')
     Params = <>
     Left = 64
     Top = 544
-    object sql_cestid: TLargeintField
-      FieldName = 'id'
-      Required = True
-    end
     object sql_cestcodigo: TIntegerField
       FieldName = 'codigo'
     end
-    object sql_cestcest: TWideStringField
-      FieldName = 'cest'
+    object sql_cestid: TIntegerField
+      FieldName = 'id'
       Required = True
+    end
+    object sql_cestcodesp: TStringField
+      FieldName = 'codesp'
       Size = 7
     end
-    object sql_cestncm: TWideStringField
+    object sql_cestncm: TStringField
       FieldName = 'ncm'
       Size = 8
     end
-    object sql_cestdescricao: TWideStringField
+    object sql_cestdescricao: TStringField
       FieldName = 'descricao'
-      Size = 512
+      Size = 150
     end
     object sql_cestcsegmento: TIntegerField
       FieldName = 'csegmento'
@@ -9823,48 +9831,34 @@ object frmdados: Tfrmdados
     Aggregates = <>
     FieldDefs = <
       item
-        Name = 'id'
-        Attributes = [faRequired]
-        DataType = ftLargeint
-      end
-      item
         Name = 'codigo'
         DataType = ftInteger
       end
       item
-        Name = 'cest'
+        Name = 'id'
         Attributes = [faRequired]
-        DataType = ftWideString
+        DataType = ftInteger
+      end
+      item
+        Name = 'codesp'
+        DataType = ftString
         Size = 7
       end
       item
         Name = 'ncm'
-        DataType = ftWideString
+        DataType = ftString
         Size = 8
       end
       item
         Name = 'descricao'
-        DataType = ftWideString
-        Size = 512
+        DataType = ftString
+        Size = 150
       end
       item
         Name = 'csegmento'
         DataType = ftInteger
       end>
-    IndexDefs = <
-      item
-        Name = 'codigo'
-        Fields = 'codigo'
-        Options = [ixPrimary, ixUnique]
-      end
-      item
-        Name = 'nome'
-        Fields = 'nome'
-      end
-      item
-        Name = 'sigla'
-        Fields = 'sigla'
-      end>
+    IndexDefs = <>
     Params = <>
     ProviderName = 'dsp_cest'
     StoreDefs = True
@@ -9873,25 +9867,24 @@ object frmdados: Tfrmdados
     OnNewRecord = cds_cestNewRecord
     Left = 67
     Top = 701
-    object cds_cestid: TLargeintField
-      FieldName = 'id'
-      Required = True
-    end
     object cds_cestcodigo: TIntegerField
       FieldName = 'codigo'
     end
-    object cds_cestcest: TWideStringField
-      FieldName = 'cest'
+    object cds_cestid: TIntegerField
+      FieldName = 'id'
       Required = True
+    end
+    object cds_cestcodesp: TStringField
+      FieldName = 'codesp'
       Size = 7
     end
-    object cds_cestncm: TWideStringField
+    object cds_cestncm: TStringField
       FieldName = 'ncm'
       Size = 8
     end
-    object cds_cestdescricao: TWideStringField
+    object cds_cestdescricao: TStringField
       FieldName = 'descricao'
-      Size = 512
+      Size = 150
     end
     object cds_cestcsegmento: TIntegerField
       FieldName = 'csegmento'
@@ -9977,5 +9970,52 @@ object frmdados: Tfrmdados
     UpdateMode = upWhereKeyOnly
     Left = 149
     Top = 667
+  end
+  object sql_dados: TZQuery
+    Connection = zconexao
+    SQL.Strings = (
+      'select * from aliqinter')
+    Params = <>
+    Left = 456
+    Top = 339
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dsp_cest'
+    Left = 824
+    Top = 516
+    object ClientDataSet1id: TLargeintField
+      FieldName = 'id'
+      Required = True
+    end
+    object ClientDataSet1codigo: TIntegerField
+      FieldName = 'codigo'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object ClientDataSet1ncm: TWideStringField
+      FieldName = 'ncm'
+      Size = 8
+    end
+    object ClientDataSet1descricao: TWideStringField
+      FieldName = 'descricao'
+      Size = 512
+    end
+    object ClientDataSet1csegmento: TIntegerField
+      FieldName = 'csegmento'
+    end
+    object ClientDataSet1codesp: TWideStringField
+      FieldName = 'codesp'
+      Required = True
+      Size = 7
+    end
+  end
+  object SimpleDataSet1: TSimpleDataSet
+    Aggregates = <>
+    DataSet.MaxBlobSize = -1
+    DataSet.Params = <>
+    Params = <>
+    Left = 808
+    Top = 344
   end
 end

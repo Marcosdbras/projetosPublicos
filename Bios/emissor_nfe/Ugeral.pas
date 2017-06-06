@@ -107,6 +107,7 @@ Type
   function datamodexe:string;
   function VerificaCNPJ(I:string): Boolean;
   function convertedata(data:string):string;
+  function consultaCest(segmento:integer; ncm:string):string;
 
 
 
@@ -924,10 +925,177 @@ uses baixarncm,
      udados;
 
 
+
+
+function consultaCest(segmento:integer; ncm:string):string;
+
+var
+
+  lParamList: TStringList;
+  lResponse : TStringStream;
+  smostrar, chave, cnpj, nome, bloqueado:string;
+  x:integer;
+  dtv, descricao, vlrorig, dtl, vlrliq, id, proprio, cest, cseg:string;
+
+begin
+
+  x:=0;
+
+  with frmdados do
+    begin
+
+       sql_indice.Active := false;
+       sql_indice.SQL.Clear;
+       sql_indice.SQL.Add('select * from indice');
+       sql_indice.Active := true;
+
+       sql_dados.Active := false;
+       sql_dados.SQL.Clear;
+       sql_dados.SQL.Add('select * from emitente where csegmento = ' + inttostr(segmento) );
+       sql_dados.Active := true;
+
+       cnpjemitente := tirapontos(tirabarras(tiratracos(sql_dados.fieldbyname('cnpj').AsString)));
+
+       chave:=  frmdados.sql_indice.fieldbyname('chaveconsultacep').AsString+cnpjemitente;
+
+    end;
+  //endth
+
+
+
+
+        try
+
+            try
+
+               frmprincipal.XMLDocument1.Active := False;
+               frmprincipal.XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsconsultacest.php?chave='+ chave +'&segmento='+  inttostr(segmento) +'&ncm='+  ncm  +'&modo=C');
+               frmprincipal.XMLDocument1.Active := True;
+
+               for x := 0 to frmprincipal.XMLDocument1.ChildNodes['wscest'].ChildNodes['response'].ChildNodes.Count - 1  do
+                  begin
+
+                    with frmprincipal.XMLDocument1.ChildNodes['wscest'].ChildNodes['response'].ChildNodes[x] do
+                      begin
+
+                        id     :=  ChildNodes['id'].Text;
+                        descricao      := ChildNodes['descricao'].Text;
+                        ncm := ChildNodes['ncm'].Text;
+                        cest := ChildNodes['cest'].Text;
+                        cseg := ChildNodes['cseg'].Text;
+
+                        with frmdados do
+                          begin
+
+                            if ( id <> '' ) and ( cest <> '' ) then
+                               begin
+
+                                 sql_dados.Active := false;
+                                 sql_dados.SQL.Clear;
+                                 sql_dados.SQL.Add('select * from cest where id = '+id);
+
+
+                                 sql_dados.Active := true;
+
+
+                                 if (sql_dados.RecordCount = 0) then
+                                     begin
+
+                                       sql_cest.Active := false;
+                                       sql_cest.SQL.Clear;
+                                       sql_cest.SQL.Add('insert into cest(id,descricao,ncm,codesp,csegmento,codigo) values (:id,:descricao,:ncm,:cest,:csegmento,:codigo);');
+
+                                       sql_cest.Params.ParamByName('id').AsInteger := strtoint(id);
+                                       sql_cest.Params.ParamByName('descricao').AsString := descricao;
+                                       sql_cest.Params.ParamByName('ncm').AsString := ncm;
+                                       sql_cest.Params.ParamByName('cest').AsString := cest;
+                                       sql_cest.Params.ParamByName('csegmento').AsString := cseg;
+                                       sql_cest.Params.ParamByName('codigo').AsInteger := strtoint(id);
+                                       sql_cest.ExecSQL;
+
+                                     end
+                                 else
+                                    begin
+
+                                       sql_cest.Active := false;
+                                       sql_cest.SQL.Clear;
+                                       sql_cest.SQL.Add('update cest set descricao = :descricao, ncm = :ncm, codesp = :cest, csegmento = :cseg, codigo = :codigo where id = :id;');
+
+                                       sql_cest.Params.ParamByName('id').AsInteger := strtoint(id);
+                                       sql_cest.Params.ParamByName('descricao').AsString := descricao;
+                                       sql_cest.Params.ParamByName('ncm').AsString := ncm;
+                                       sql_cest.Params.ParamByName('cest').AsString := cest;
+                                       sql_cest.Params.ParamByName('cseg').AsString := cseg;
+                                       sql_cest.Params.ParamByName('codigo').Asinteger := strtoint(id);
+                                       sql_cest.ExecSQL;
+
+
+
+                                    end;
+                                 //endiif
+
+                                 //cdsDadoscest.fieldbyname('id').asinteger := strtoint(id);
+                                 //cdsDadoscest.fieldbyname('descricao').asstring := descricao;
+                                 //cdsDadoscest.fieldbyname('ncm').asstring := ncm;
+                                 //cdsDadoscest.fieldbyname('cest').asstring := cest;
+                                 //cdsDadoscest.fieldbyname('csegmento').asstring := cseg;
+
+                                 //cdsDadoscest.fieldbyname('codigo').asinteger := strtoint(id);
+                                 //cdsDadoscest.Post;
+
+                                 result :=  id;
+
+                               end
+                            else
+                               begin
+
+                                  result := '';
+
+                               end;
+                            //endif
+
+
+                          end;
+
+                      end;
+                    //endth
+
+                  end;
+
+
+               frmprincipal.XMLDocument1.Active := false;
+
+
+            except
+
+               result := '';
+
+            end;
+
+
+        finally
+
+           frmprincipal.reResp.Lines.Add( 'Atualiza cest');
+
+
+        end;
+
+
+
+
+
+  //--------------------------------------------------------------------
+
+end;
+
+
+
+
+
 function convertedata(data:string):string;
 begin
 
- result := copy(data,9,2)+'/'+copy(data, 6,2)+'/'+ copy(data, 1,4); 
+ result := copy(data,9,2)+'/'+copy(data, 6,2)+'/'+ copy(data, 1,4);
 
 end;
 

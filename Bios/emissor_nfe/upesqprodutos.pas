@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Grids, DBGrids, ComCtrls, ExtCtrls, Buttons, Mask,
-  DBCtrls, DB, DbTables, ImgList;
+  DBCtrls, DB, DbTables, ImgList, Provider, DBClient, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset;
 
 type
   Tfrmpesqprodutos = class(TForm)
@@ -110,6 +111,21 @@ type
     edtaliqestadual: TEdit;
     lblaliqmunicipal: TLabel;
     edtaliqmunicipal: TEdit;
+    sqlDadosCest: TZQuery;
+    sqlDadosCestid: TLargeintField;
+    sqlDadosCestcodigo: TIntegerField;
+    sqlDadosCestncm: TWideStringField;
+    sqlDadosCestdescricao: TWideStringField;
+    sqlDadosCestcsegmento: TIntegerField;
+    sqlDadosCestcodesp: TWideStringField;
+    cdsDadoscest: TClientDataSet;
+    cdsDadoscestid: TLargeintField;
+    cdsDadoscestcodigo: TIntegerField;
+    cdsDadoscestncm: TWideStringField;
+    cdsDadoscestdescricao: TWideStringField;
+    cdsDadoscestcsegmento: TIntegerField;
+    cdsDadoscestcodesp: TWideStringField;
+    dspDadoscest: TDataSetProvider;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Limpar;
     procedure btnnovaClick(Sender: TObject);
@@ -631,14 +647,12 @@ edilocalizar.Text := '';
   //endi
 
 
-
-
-frmdados.cds_produtos.IndexName := 'descricao';
-frmdados.cds_produtos.IndexName := sordenado;
-stbrodape.Panels[0].Text := uppercase(stitrel);
-stbrodape.Panels[1].Text := 'ORDENADO POR '+sclassificar;
-lbllocalizar.Caption := sclassificar;
-pctdados.TabIndex := 0;
+  frmdados.cds_produtos.IndexName := 'descricao';
+  frmdados.cds_produtos.IndexName := sordenado;
+  stbrodape.Panels[0].Text := uppercase(stitrel);
+  stbrodape.Panels[1].Text := 'ORDENADO POR '+sclassificar;
+  lbllocalizar.Caption := sclassificar;
+  pctdados.TabIndex := 0;
 
 
 end;

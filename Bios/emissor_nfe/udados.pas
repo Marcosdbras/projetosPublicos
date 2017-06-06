@@ -7,7 +7,7 @@ uses
   FMTBcd, Provider, SqlExpr, DBXpress, ZAbstractRODataset,
   ZAbstractDataset, ZDataset, ZConnection, ZAbstractConnection, IniFiles,
   xmldom, XMLIntf, msxmldom, XMLDoc, IdBaseComponent, IdComponent,
-  IdTCPConnection, IdTCPClient, IdHTTP, ZSequence;
+  IdTCPConnection, IdTCPClient, IdHTTP, ZSequence, SimpleDS;
 
 type
   Tfrmdados = class(TDataModule)
@@ -1528,18 +1528,6 @@ type
     cds_cest: TClientDataSet;
     dts_cest: TDataSource;
     dsp_cest: TDataSetProvider;
-    sql_cestid: TLargeintField;
-    sql_cestcodigo: TIntegerField;
-    sql_cestcest: TWideStringField;
-    sql_cestncm: TWideStringField;
-    sql_cestdescricao: TWideStringField;
-    sql_cestcsegmento: TIntegerField;
-    cds_cestid: TLargeintField;
-    cds_cestcodigo: TIntegerField;
-    cds_cestcest: TWideStringField;
-    cds_cestncm: TWideStringField;
-    cds_cestdescricao: TWideStringField;
-    cds_cestcsegmento: TIntegerField;
     cds_segmento_cest: TClientDataSet;
     dts_segmento_cest: TDataSource;
     dsp_segmento_cest: TDataSetProvider;
@@ -1553,6 +1541,28 @@ type
     cds_segmento_cestdescricao: TStringField;
     sql_emitentecsegmento: TIntegerField;
     cds_emitentecsegmento: TIntegerField;
+    sql_dados: TZQuery;
+    cds_Tempcodtemp1: TIntegerField;
+    ClientDataSet1: TClientDataSet;
+    ClientDataSet1id: TLargeintField;
+    ClientDataSet1codigo: TIntegerField;
+    ClientDataSet1ncm: TWideStringField;
+    ClientDataSet1descricao: TWideStringField;
+    ClientDataSet1csegmento: TIntegerField;
+    ClientDataSet1codesp: TWideStringField;
+    SimpleDataSet1: TSimpleDataSet;
+    sql_cestcodigo: TIntegerField;
+    sql_cestid: TIntegerField;
+    sql_cestcodesp: TStringField;
+    sql_cestncm: TStringField;
+    sql_cestdescricao: TStringField;
+    sql_cestcsegmento: TIntegerField;
+    cds_cestcodigo: TIntegerField;
+    cds_cestid: TIntegerField;
+    cds_cestcodesp: TStringField;
+    cds_cestncm: TStringField;
+    cds_cestdescricao: TStringField;
+    cds_cestcsegmento: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);
@@ -1847,11 +1857,19 @@ begin
 
     application.Terminate;
 
-  end;
-
+  end;  
 
 
   cds_Temp.Active := false;
+
+  if fileexists(vardir+'temp.txt') then
+     begin
+
+       deletefile(pchar( vardir+'temp.cds' ) );
+       deletefile(pchar( vardir+'temp.txt' ) );
+       
+     end;
+  //endi
 
   with cds_Temp do
     begin
@@ -4881,6 +4899,9 @@ begin
        //deletefile(pchar( vardir+'atnfp.txt' ) );
      end;
   //endi
+
+
+
 
 
   try
