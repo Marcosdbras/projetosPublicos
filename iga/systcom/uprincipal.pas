@@ -5492,9 +5492,9 @@ begin
                XMLDocument1.LoadFromFile('http://aplicativos-marcosbras.rhcloud.com/wsemitente.php?chave='+chave+cnpj+'&modo=C');
                XMLDocument1.Active := True;
 
-               nome      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['nome'].Text;
-               cnpj      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['cnpj'].Text;
-               bloqueado := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['bloqueado'].Text;
+               nome      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['dadosEmitente'].ChildNodes['nome'].Text;
+               cnpj      := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['dadosEmitente'].ChildNodes['cnpj'].Text;
+               bloqueado := XMLDocument1.ChildNodes['wsemitente'].ChildNodes['response'].ChildNodes['dadosEmitente'].ChildNodes['bloqueado'].Text;
 
                abloqueio[x] := bloqueado+cnpj;
                x := x + 1;

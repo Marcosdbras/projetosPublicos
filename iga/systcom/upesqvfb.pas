@@ -703,6 +703,15 @@ type
     dsp_natop: TDataSetProvider;
     cds_natop: TClientDataSet;
     dts_natop: TDataSource;
+    Cds_Venctontipopgto: TStringField;
+    Label13: TLabel;
+    Cds_sVendanvendedor: TStringField;
+    DBText1: TDBText;
+    Bevel3: TBevel;
+    Bevel4: TBevel;
+    Bevel5: TBevel;
+    Label14: TLabel;
+    lbltotalliquido: TLabel;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -1115,6 +1124,9 @@ begin
 
           frmdados.dbx_Exec.Active := false;
 
+
+          lbltotalliquido.Caption := formatfloat('###,###,##0.00', strtofloat(tirapontos(  lbltotals.Caption )) -   strtofloat(tirapontos(  lbltotale.Caption ))   );
+
         end;
      //endi
 
@@ -1144,6 +1156,9 @@ begin
 
   lbltotals.Caption := '0,00';
   lbltotale.Caption := '0,00';
+
+  lbltotalliquido.Caption := '0,00';
+
 
 
   //cbxnomecli.KeyField := 'codigo';
@@ -1272,6 +1287,7 @@ lbltotals.Caption := '0,00';
 lbltotale.Caption := '0,00';
 lbldin.Caption := '0,00';
 lbltotal.Caption := '0,00';
+lbltotalliquido.Caption := '0,00';
 
 if cds_svenda.fieldbyname('din').asfloat > cds_svenda.fieldbyname('totgpagar').asfloat then
    begin
@@ -1322,6 +1338,7 @@ if cds_svenda.fieldbyname('nco').asInteger > 0 then
 
 
 
+     lbltotalliquido.Caption := formatfloat('###,###,##0.00', strtofloat(tirapontos(  lbltotals.Caption )) -   strtofloat(tirapontos(  lbltotale.Caption ))   );
 
 
      lbltotal.Caption := formatfloat('###,###,##0.00',strtofloat(tirapontos( lblaprazo.Caption  )) +  strtofloat(tirapontos( lbldin.Caption  ))  );

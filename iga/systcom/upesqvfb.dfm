@@ -2,7 +2,7 @@ object frmPesqVfb: TfrmPesqVfb
   Left = 51
   Top = 110
   Width = 947
-  Height = 568
+  Height = 585
   BorderIcons = []
   Caption = 'Pesquisa de Vendas Efetuadas - Balc'#227'o'
   Color = clBtnFace
@@ -52,7 +52,7 @@ object frmPesqVfb: TfrmPesqVfb
   end
   object pnlinferior: TPanel
     Left = 0
-    Top = 500
+    Top = 517
     Width = 939
     Height = 41
     Align = alBottom
@@ -62,7 +62,7 @@ object frmPesqVfb: TfrmPesqVfb
     Left = 0
     Top = 42
     Width = 201
-    Height = 458
+    Height = 475
     Align = alLeft
     TabOrder = 2
     object Bevel1: TBevel
@@ -303,9 +303,27 @@ object frmPesqVfb: TfrmPesqVfb
     Left = 201
     Top = 42
     Width = 738
-    Height = 458
+    Height = 475
     Align = alClient
     TabOrder = 3
+    object Bevel5: TBevel
+      Left = 468
+      Top = 320
+      Width = 126
+      Height = 97
+    end
+    object Bevel4: TBevel
+      Left = 176
+      Top = 418
+      Width = 418
+      Height = 54
+    end
+    object Bevel3: TBevel
+      Left = 3
+      Top = 419
+      Width = 166
+      Height = 53
+    end
     object Bevel2: TBevel
       Left = 1
       Top = 1
@@ -314,79 +332,139 @@ object frmPesqVfb: TfrmPesqVfb
       Align = alTop
     end
     object Label6: TLabel
-      Left = 8
-      Top = 409
-      Width = 58
+      Left = 4
+      Top = 421
+      Width = 63
       Height = 13
-      Caption = 'Total Venda'
+      Caption = 'Valor Total'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object lbltotals: TLabel
-      Left = 107
-      Top = 409
-      Width = 35
+      Left = 114
+      Top = 421
+      Width = 45
       Height = 13
       Alignment = taRightJustify
       Caption = 'lbltotals'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object Label7: TLabel
-      Left = 192
-      Top = 409
-      Width = 79
+      Left = 4
+      Top = 439
+      Width = 95
       Height = 13
       Caption = 'Total Devolu'#231#227'o'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object lbltotale: TLabel
-      Left = 322
-      Top = 409
-      Width = 36
+      Left = 114
+      Top = 439
+      Width = 46
       Height = 13
       Alignment = taRightJustify
       Caption = 'lbltotale'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object lbldin: TLabel
-      Left = 567
-      Top = 320
-      Width = 24
+      Left = 557
+      Top = 325
+      Width = 31
       Height = 13
       Alignment = taRightJustify
       Caption = 'lbldin'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object Label4: TLabel
-      Left = 454
-      Top = 320
-      Width = 33
+      Left = 472
+      Top = 324
+      Width = 41
       Height = 13
       Caption = 'A Vista'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object Label5: TLabel
-      Left = 456
-      Top = 355
-      Width = 37
+      Left = 472
+      Top = 359
+      Width = 45
       Height = 13
       Caption = #192' Prazo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object lblaprazo: TLabel
-      Left = 551
-      Top = 355
-      Width = 42
+      Left = 539
+      Top = 360
+      Width = 52
       Height = 13
       Alignment = taRightJustify
       Caption = 'lblaprazo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object Label10: TLabel
-      Left = 456
-      Top = 387
-      Width = 24
+      Left = 472
+      Top = 391
+      Width = 30
       Height = 13
       Caption = 'Total'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object lbltotal: TLabel
-      Left = 560
-      Top = 387
-      Width = 30
+      Left = 551
+      Top = 392
+      Width = 39
       Height = 13
       Alignment = taRightJustify
       Caption = 'lbltotal'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object lbldatafec: TDBText
       Left = 608
@@ -417,6 +495,60 @@ object frmPesqVfb: TfrmPesqVfb
       DataField = 'NCO'
       DataSource = Dts_sVenda
       Visible = False
+    end
+    object Label13: TLabel
+      Left = 180
+      Top = 420
+      Width = 55
+      Height = 13
+      Caption = 'Vendedor'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object DBText1: TDBText
+      Left = 180
+      Top = 436
+      Width = 393
+      Height = 17
+      DataField = 'nvendedor'
+      DataSource = Dts_sVenda
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label14: TLabel
+      Left = 5
+      Top = 457
+      Width = 77
+      Height = 13
+      Caption = 'Valor L'#237'quido'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lbltotalliquido: TLabel
+      Left = 85
+      Top = 457
+      Width = 76
+      Height = 13
+      Alignment = taRightJustify
+      Caption = 'lbltotalliquido'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object dbgvenda: TDBGrid
       Left = 2
@@ -537,10 +669,10 @@ object frmPesqVfb: TfrmPesqVfb
         end>
     end
     object dbgvencto: TDBGrid
-      Left = 11
-      Top = 430
-      Width = 438
-      Height = 83
+      Left = 3
+      Top = 321
+      Width = 462
+      Height = 93
       DataSource = Dts_Vencto
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
       TabOrder = 2
@@ -549,42 +681,39 @@ object frmPesqVfb: TfrmPesqVfb
       TitleFont.Height = -11
       TitleFont.Name = 'MS Sans Serif'
       TitleFont.Style = []
-      Visible = False
       OnKeyDown = dbgvenctoKeyDown
       Columns = <
         item
           Expanded = False
-          FieldName = 'n_tipo_pgto'
-          Title.Caption = 'Tipo'
-          Width = 103
+          FieldName = 'ntipopgto'
+          Title.Caption = 'Forma de Pagamento'
+          Width = 172
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'DOC'
-          Title.Caption = 'Documento'
-          Width = 251
+          FieldName = 'DESCRICAO'
+          Title.Caption = 'Descri'#231#227'o'
+          Width = 118
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'PRAZO'
-          Title.Caption = 'Prazo'
-          Width = 58
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DTV'
-          Title.Caption = 'Vencimento'
-          Width = 67
+          FieldName = 'PARC'
+          Title.Caption = ' '
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clBlack
+          Title.Font.Height = -11
+          Title.Font.Name = 'MS Sans Serif'
+          Title.Font.Style = []
+          Width = 16
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'VALORREAL'
           Title.Caption = 'Valor'
-          Width = 70
+          Width = 120
           Visible = True
         end>
     end
@@ -2838,6 +2967,16 @@ object frmPesqVfb: TfrmPesqVfb
     object Cds_sVendacpfcnpj: TStringField
       FieldName = 'cpfcnpj'
     end
+    object Cds_sVendanvendedor: TStringField
+      FieldKind = fkLookup
+      FieldName = 'nvendedor'
+      LookupDataSet = frmDados.Cds_Funcionarios
+      LookupKeyFields = 'CODIGO'
+      LookupResultField = 'NOME'
+      KeyFields = 'CFUN'
+      Size = 80
+      Lookup = True
+    end
   end
   object Dts_sVenda: TDataSource
     DataSet = Cds_sVenda
@@ -3191,6 +3330,16 @@ object frmPesqVfb: TfrmPesqVfb
       Required = True
       FixedChar = True
       Size = 1
+    end
+    object Cds_Venctontipopgto: TStringField
+      FieldKind = fkLookup
+      FieldName = 'ntipopgto'
+      LookupDataSet = frmDados.cds_Tipo_Pgto
+      LookupKeyFields = 'CODIGO'
+      LookupResultField = 'DESCRICAO'
+      KeyFields = 'C_TIPO_PGTO'
+      Size = 50
+      Lookup = True
     end
   end
   object Dts_Vencto: TDataSource

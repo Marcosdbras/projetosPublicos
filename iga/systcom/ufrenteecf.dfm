@@ -1,6 +1,6 @@
 object frmfrenteecf: Tfrmfrenteecf
-  Left = 5
-  Top = 12
+  Left = -14
+  Top = 9
   Width = 1036
   Height = 719
   VertScrollBar.Position = 56

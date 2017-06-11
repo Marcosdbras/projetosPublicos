@@ -124,7 +124,7 @@ DLL=0
 Locale=1046
 CodePage=1252
 [Version Info Keys]
-CompanyName=Micromarc Informática 
+CompanyName=Micromarc Informática
 FileDescription=DataSAC - Sistema de Automação Comercial
 FileVersion=2.5.0.1
 InternalName=DataSAC

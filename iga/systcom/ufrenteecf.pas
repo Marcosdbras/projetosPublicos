@@ -4998,6 +4998,7 @@ B: Byte ;
 a,i: integer;
 int: integer;
 vetor: array[1..22] of integer;
+espaco:string;
 
 begin
 
@@ -5262,60 +5263,42 @@ with frmdados do
      end;
 //endth
 
-iLin := iLin + 1;
 
+//Total
 sValorImp := AlinNumD(14,ftotG);
-sValorImp := formatfloat('###,###,##0.00',ftotG);
+espaco := StringOfChar(' ', 29);
+Writeln(F,espaco+'Total      '+sValorImp);
 
+//Desconto
+sValorImpporc := AlinNumD(6,strtofloat(tirapontos( edipdesc.Text  )));
+sValorImp := AlinNumD(5, strtofloat(tirapontos( edivaldesc.Text   ))  );
+espaco := StringOfChar(' ', 29);
+Writeln(F,espaco+'Desconto '+sValorImpporc+'% R$ '+sValorImp);
 
-Write(F,'Total    '+sValorImp);
-
-
-sValorImpporc := formatfloat('#0.00',strtofloat(tirapontos(  edipdesc.Text    )));
-sValorImpporc := AlinNumD(6,strtofloat(tirapontos( sValorImpporc  )));
-
-sValorImp := formatfloat('###,###,##0.00', strtofloat(tirapontos( edivaldesc.Text  )) );
-sValorImp := AlinNumD(14, strtofloat(tirapontos( sValorImp  ))  );
-
-Write(F,'Desconto '+sValorImpporc+'% R$ '+sValorImp);
-
-
-
-iLin := iLin + 1;
-
-
-sValorImp := formatfloat('###,###,##0.00',strtofloat(tirapontos( lbltotpagar.Caption   )) );
+//Liquido
 sValorImp := AlinNumD(14, strtofloat(tirapontos( lbltotpagar.Caption   )) );
+espaco := StringOfChar(' ', 29);
+Writeln(F,espaco+'Liquido    '+sValorImp);
 
-Write(F,'Liquido '+sValorImp);
 
-iLin := iLin + 1;
 Writeln(F,'Forma de Pagto:');
 
-//if strtofloat(tirapontos(edidin.Text))  > 0 then
+
 if fdinheiro > 0 then
 
    begin
-     iLin := iLin + 1;
-     Writeln(F,'A vista (');
-     //if strtofloat(tirapontos(edidin.Text)) > strtofloat(tirapontos(lbltotpagar.Caption)) then
+     
      if fdinheiro > strtofloat(tirapontos(lbltotpagar.Caption)) then
         begin
-          sValorImp := formatfloat('###,##0.00',strtofloat(tirapontos(lbltotpagar.Caption)));
           sValorImp := AlinNumD(10,strtofloat(tirapontos(lbltotpagar.Caption)));
         end
      else
         begin
-          //sValorImp := formatfloat('###,##0.00',strtofloat(tirapontos(edidin.Text)));
-          //sValorImp := AlinNumD(10,strtofloat(tirapontos(edidin.Text )));
-
-          sValorImp := formatfloat('###,##0.00',fdinheiro);
           sValorImp := AlinNumD(10,fdinheiro );
-
         end;
      //endi
 
-     Write(F,' R$ '+sValorImp+' )');
+     Writeln(F,'A vista ( R$ '+sValorImp+' )');
 
   end;
 //endi
@@ -5330,7 +5313,6 @@ svlrdup3 := '0';
 with frmdados do
     begin
 
-      //if strtofloat(tirapontos(edidin.Text)) < strtofloat(tirapontos(lbltotpagar.Caption)) then
       if fdinheiro < strtofloat(tirapontos(lbltotpagar.Caption)) then
          begin
 
@@ -5348,11 +5330,12 @@ with frmdados do
                    sVctDup1 := cds_vencto.fieldbyname('dtv').asString;
                    iParcDup1 := strtoint( copy(cds_vencto.fieldbyname('Parc').asString,1,2) );
 
-                   iLin := iLin + 1;
-                   Writeln(F,'Parc '+inttostr(iParcDup1)+'( '+sVctDup1);
-                   sValorImp := formatfloat('###,##0.00',strtofloat(tirapontos(sVlrDup1)) );
                    sValorImp := AlinNumD(10,strtofloat(tirapontos(sVlrDup1)));
-                   Write(F,' R$ '+sValorImp+' )');
+
+
+                   Writeln(F,'Parc '+inttostr(iParcDup1)+'  ( '+sVctDup1+'R$ '+sValorImp+' )'  );
+
+
 
                    cds_vencto.Next;
                    if Cds_vencto.Eof then
@@ -5372,49 +5355,48 @@ with frmdados do
 
 if strtofloat(lbltroco.Caption) > 0 then
    begin
-     iLin := iLin + 1;
-     Writeln(F,'Troco   ( R$      '+formatfloat('###,##0.00', strtofloat(  tirapontos( lbltroco.Caption  )  )  )+'  )');
+     sValorImp := AlinNumD(10, strtofloat(  tirapontos( lbltroco.Caption  )  )  ) ;
+     Writeln(F,'Troco   ( R$ '+ sValorImp  +' )'   );
    end;
 //endi
 
 if frmdados.Cds_Indice.FieldByName('impvlrreccli').asString = 'T' then
    begin
-     iLin := iLin + 1;
-     //sayprint.Say(iLin,0,'Vlr.Rec.( R$      '+formatfloat('###,##0.00', strtofloat( tirapontos( edidin.text ) )  )+'  )');
-     Writeln(F,'Vlr.Rec.( R$      '+formatfloat('###,##0.00', fdinheiro  )+'  )');
-
+     sValorImp := AlinNumD(10,  fdinheiro );
+     Writeln(F,'Vlr.Rec.( R$ '+  sValorImp  +' )');
    end;
 //endi
 
 if ftote > 0 then
    begin
-     iLin := iLin + 1;
-     Writeln(F,'Devol.  ( R$      '+formatfloat('###,##0.00',ftotE)+'  )');
+     sValorImp := AlinNumD(10, ftotE );
+     Writeln(F,'Devol.  ( R$ '+  sValorImp  +' )');
    end;
 //endi
 
-iLin := iLin + 1;
-Writeln(F,   'Vendedor '+sVendedor);
 
-iLin := iLin + 1;
+Writeln(F,'');
+Writeln(F,   'Vendedor '+sVendedor);
 Writeln(F,   'Itens    '+formatfloat('00000',ftotI));
 
-iLin := iLin + 1;
+Writeln(F,  '');
 Writeln(F,  'Val Aprox. dos Tributos R$ '+formatfloat('###,###,##0.00',vlribpt )+' Federal, R$ '+  formatfloat('###,###,##0.00',vlrestadual )  +' Estadual e R$ '+ formatfloat('###,###,##0.00',vlrmunicipal ) +' Municipal - Fonte: IBPT '+schave+';' );
 
 if bReimp then
    begin
-     iLin := iLin + 1;
+
      Writeln(F,'Re-Impressão Pedido');
-     iLin := iLin + 1;
+
      Writeln(F,'Data Original '+sDataF);
+     
    end;
 //endi
 
 for x := 1 to frmdados.Cds_Indice.fieldbyname('pulalinha').asInteger  do
   begin
-     iLin := iLin + 1;
+     
      Writeln(F,'');
+     
   end;
 //endi
 
@@ -5462,21 +5444,11 @@ try
        edivaldesc.Text := AlinEdNumD(edivaldesc);
        sValDescA := edivaldesc.Text;
 
-       //editotpagar.Text := FormatFloat('0.00',(ftotGprodD-strToFLoat(tirapontos(edipDesc.text))/100*ftotGprodD));
-       //editotpagar.Text := FormatFloat('0.00',((ftotGprodD-ftoteT-strToFLoat(tirapontos(edivalDesc.text)))/100*(ftotGprodD-ftoteT)));
 
        editotpagar.Text := FormatFloat('0.00',((ftotGprodD-strToFLoat(tirapontos(edipDesc.text))/100*ftotGprodD) - strtofloat(tirapontos(lbltote.Caption))));
        editotpagar.Text := AlinEdNumD(editotpagar);
        stotpagarA := editotpagar.Text;
 
-       //lbltotal.Caption := formatfloat('###,###,##0.00',strToFLoat(tirapontos(editotpagar.Text))+strToFLoat(tirapontos(lblabsdesc.caption)));
-
-       //lbltotpagar.Caption := formatfloat('###,###,##0.00',strtofloat(tirapontos(editotpagar.Text))+strtofloat(tirapontos(lblabsdesc.Caption))-strtofloat(tirapontos(lbltote.Caption)));
-
-
-       //lbltotpagar.Caption := formatfloat('###,###,##0.00',strtofloat(tirapontos(editotpagar.Text))+strtofloat(tirapontos(lblabsdesc.Caption)));
-
-       //lbltotalp.Caption := formatfloat('###,###,##0.00',strtofloat(tirapontos(editotpagar.Text))+strtofloat(tirapontos(lblabsdesc.Caption)));
 
 
        sPdescA := edipdesc.Text;
