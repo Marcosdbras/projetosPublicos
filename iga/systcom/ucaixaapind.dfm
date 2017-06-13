@@ -426,4 +426,11 @@ object frmcaixaapind: Tfrmcaixaapind
     Left = 96
     Top = 96
   end
+  object sql_itensvendidos: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = frmDados.Sql_Dados
+    Left = 240
+    Top = 160
+  end
 end

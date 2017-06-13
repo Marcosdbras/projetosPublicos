@@ -315,4 +315,11 @@ object frmcaixaap: Tfrmcaixaap
     Left = 96
     Top = 96
   end
+  object sql_itensvendidos: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = frmDados.Sql_Dados
+    Left = 224
+    Top = 216
+  end
 end

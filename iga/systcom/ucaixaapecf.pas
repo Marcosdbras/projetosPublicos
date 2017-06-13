@@ -645,7 +645,7 @@ procedure Tfrmcaixaapecf.sPdGravarClick(Sender: TObject);
 
     Var
     sfun,nprod,cprod:string;
-    qtde,preco,precototal:string;
+    qtde,preco,precototal,seous:string;
 
 begin
 
@@ -893,7 +893,7 @@ writeln(F,'(=)TOTAL(T1+2-3)..: '+s_valor);
 
 sql_itensvendidos.Active := false;
 sql_itensvendidos.SQL.Clear;
-sql_itensvendidos.SQL.Add('select f.nome as nomefun, s.cfun, b.npro as nomeproduto, b.qtde as quantidade, b.prve as preco, b.subtotal as precototal, b.cpro as codprod, s.datafec from svenda s  ');
+sql_itensvendidos.SQL.Add('select f.nome as nomefun, s.cfun, b.npro as nomeproduto, b.qtde as quantidade, b.prve as preco, b.subtotal as precototal, b.cpro as codprod, s.datafec, b.eous from svenda s  ');
 sql_itensvendidos.SQL.Add('inner join vendab b on s.codigo=b.codsvenda inner join funcionarios f on s.cfun = f.codigo ');
 sql_itensvendidos.SQL.Add('where (s.datafec >= '+quotedstr(sDataI)+') and (s.datafec <= '+  quotedstr(sDataF)+') '  );
 sql_itensvendidos.SQL.Add('order by s.cfun' );
@@ -905,7 +905,7 @@ sql_itensvendidos.Active := true;
 writeln(F,'');
 writeln(F,'Itens Vendidos');
 writeln(F,'Vendedor       Qtde Descrição        Codigo    Preço    Total');
-//         xxxxxxxxxx xxxxxxxx xxxxxxxxxxxxxxxx xxxxxx xxxxxxxx xxxxxxxx
+//         xxxxxxxxxx xxxxxxxx xxxxxxxxxxxxxxxx xxxxxx xxxxxxxx xxxxxxxx x
 
 while not sql_itensvendidos.Eof do
   begin
@@ -916,7 +916,7 @@ while not sql_itensvendidos.Eof do
     qtde := AlinNumD(8,sql_itensvendidos.fieldbyname('quantidade').asfloat);
     preco := AlinNumD(8,sql_itensvendidos.fieldbyname('preco').asfloat);
     precototal := AlinNumD(8,sql_itensvendidos.fieldbyname('precototal').asfloat);
-
+    seous :=  copy(sql_itensvendidos.fieldbyname('eous').asstring,1,1);
 
     s_espaco1 := '';
     s_espaco2 := '';
@@ -957,7 +957,7 @@ while not sql_itensvendidos.Eof do
         end;
 
 
-    writeln(F,sfun + s_espaco1 + qtde + ' ' + nprod + s_espaco3 + cprod + s_espaco4 + preco +' '+ precototal );
+    writeln(F,sfun + s_espaco1 + qtde + ' ' + nprod + s_espaco3 + cprod + s_espaco4 + preco +' '+ precototal + ' '+seous );
 
 
 

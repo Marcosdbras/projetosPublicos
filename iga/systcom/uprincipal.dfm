@@ -1,6 +1,6 @@
 object frmprincipal: Tfrmprincipal
-  Left = 1
-  Top = 1
+  Left = 37
+  Top = 61
   Width = 688
   Height = 665
   Caption = 'Sistema de Informa'#231#227'o - Systcom'
