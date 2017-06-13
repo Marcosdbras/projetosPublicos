@@ -7538,6 +7538,7 @@ begin
            dbx_exec.SQL.Add('cusub,');
            dbx_exec.SQL.Add('idterminal,');
            dbx_exec.SQL.Add('cpfcnpj,');
+           dbx_exec.SQL.Add('codatend,');
            dbx_exec.SQL.Add('nco');
 
 
@@ -7599,6 +7600,11 @@ begin
            dbx_exec.SQL.Add(inttostr(iid)+',');
 
            dbx_exec.SQL.Add(quotedstr(scpf)+',');
+
+           //12062017
+
+           dbx_exec.SQL.Add( inttostr(  cds_movreg.fieldbyname('cfun').Asinteger ) +',');
+
 
            dbx_exec.SQL.Add(inttostr(iControle));
            

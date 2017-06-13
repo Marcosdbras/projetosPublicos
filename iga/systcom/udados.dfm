@@ -5,8 +5,8 @@ object frmDados: TfrmDados
   OnDestroy = DataModuleDestroy
   Left = 1
   Top = 1
-  Height = 488
-  Width = 688
+  Height = 723
+  Width = 1003
   object Sql_Dados: TSQLConnection
     ConnectionName = 'UIB FireBird15 Connection'
     DriverName = 'UIB FireBird15'
@@ -4087,6 +4087,9 @@ object frmDados: TfrmDados
     object Dbx_sVendaTIPODOC: TIntegerField
       FieldName = 'TIPODOC'
     end
+    object Dbx_sVendaCODATEND: TIntegerField
+      FieldName = 'CODATEND'
+    end
   end
   object Dsp_sVenda: TDataSetProvider
     DataSet = Dbx_sVenda
@@ -5207,6 +5210,9 @@ object frmDados: TfrmDados
     end
     object Cds_sVendaTIPODOC: TIntegerField
       FieldName = 'TIPODOC'
+    end
+    object Cds_sVendaCODATEND: TIntegerField
+      FieldName = 'CODATEND'
     end
   end
   object Dts_sVenda: TDataSource

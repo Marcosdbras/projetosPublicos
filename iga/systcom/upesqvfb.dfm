@@ -763,7 +763,7 @@ object frmPesqVfb: TfrmPesqVfb
       'Select * from vendab')
     SQLConnection = frmDados.Sql_Dados
     Left = 369
-    Top = 281
+    Top = 265
     object IntegerField47: TIntegerField
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -917,14 +917,14 @@ object frmPesqVfb: TfrmPesqVfb
     DataSet = Dbx_Vendab
     UpdateMode = upWhereKeyOnly
     Left = 385
-    Top = 297
+    Top = 281
   end
   object Cds_Vendab: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'Dsp_Vendab'
     Left = 401
-    Top = 313
+    Top = 297
     object IntegerField64: TIntegerField
       AutoGenerateValue = arAutoInc
       FieldName = 'CODIGO'
@@ -1087,7 +1087,7 @@ object frmPesqVfb: TfrmPesqVfb
   object Dts_Vendab: TDataSource
     DataSet = Cds_Vendab
     Left = 417
-    Top = 329
+    Top = 313
   end
   object Dbx_sVenda: TSQLQuery
     MaxBlobSize = -1
@@ -1095,8 +1095,8 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'select * from svendas')
     SQLConnection = frmDados.Sql_Dados
-    Left = 467
-    Top = 142
+    Left = 499
+    Top = 150
     object IntegerField1: TIntegerField
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -1980,16 +1980,16 @@ object frmPesqVfb: TfrmPesqVfb
   object Dsp_sVenda: TDataSetProvider
     DataSet = Dbx_sVenda
     UpdateMode = upWhereKeyOnly
-    Left = 475
-    Top = 158
+    Left = 507
+    Top = 166
   end
   object Cds_sVenda: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'Dsp_sVenda'
     OnCalcFields = Cds_sVendaCalcFields
-    Left = 499
-    Top = 174
+    Left = 531
+    Top = 182
     object IntegerField16: TIntegerField
       AutoGenerateValue = arAutoInc
       DisplayLabel = 'N'#186' Pedido'
@@ -2981,8 +2981,8 @@ object frmPesqVfb: TfrmPesqVfb
   object Dts_sVenda: TDataSource
     DataSet = Cds_sVenda
     OnDataChange = Dts_sVendaDataChange
-    Left = 515
-    Top = 190
+    Left = 547
+    Top = 198
   end
   object Dbx_Vencto: TSQLQuery
     MaxBlobSize = -1
@@ -2991,7 +2991,7 @@ object frmPesqVfb: TfrmPesqVfb
       'Select * from vencimentos')
     SQLConnection = frmDados.Sql_Dados
     Left = 472
-    Top = 270
+    Top = 262
     object Dbx_VenctoCODIGO: TIntegerField
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -3151,14 +3151,14 @@ object frmPesqVfb: TfrmPesqVfb
     DataSet = Dbx_Vencto
     UpdateMode = upWhereKeyOnly
     Left = 488
-    Top = 286
+    Top = 278
   end
   object Cds_Vencto: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'Dsp_Vencto'
     Left = 504
-    Top = 302
+    Top = 294
     object Cds_VenctoCODIGO: TIntegerField
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -3345,7 +3345,7 @@ object frmPesqVfb: TfrmPesqVfb
   object Dts_Vencto: TDataSource
     DataSet = Cds_Vencto
     Left = 520
-    Top = 318
+    Top = 310
   end
   object dbx_vprodutos: TSQLQuery
     MaxBlobSize = -1
@@ -3353,28 +3353,28 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'Select * from svenda')
     SQLConnection = frmDados.Sql_Dados
-    Left = 811
-    Top = 318
+    Left = 595
+    Top = 150
   end
   object dsp_vprodutos: TDataSetProvider
     DataSet = dbx_vprodutos
     UpdateMode = upWhereKeyOnly
-    Left = 819
-    Top = 334
+    Left = 603
+    Top = 166
   end
   object cds_vprodutos: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'dsp_vprodutos'
     OnCalcFields = Cds_sVendaCalcFields
-    Left = 843
-    Top = 350
+    Left = 627
+    Top = 182
   end
   object dts_vprodutos: TDataSource
     DataSet = cds_vprodutos
     OnDataChange = Dts_sVendaDataChange
-    Left = 859
-    Top = 366
+    Left = 643
+    Top = 198
   end
   object dbx_AliqImpFis: TSQLQuery
     MaxBlobSize = -1
@@ -3382,28 +3382,28 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'Select * from svenda')
     SQLConnection = frmDados.Sql_Dados
-    Left = 811
-    Top = 414
+    Left = 699
+    Top = 150
   end
   object dsp_AliqImpFis: TDataSetProvider
     DataSet = dbx_AliqImpFis
     UpdateMode = upWhereKeyOnly
-    Left = 819
-    Top = 430
+    Left = 707
+    Top = 166
   end
   object cds_AliqImpFis: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'dsp_AliqImpFis'
     OnCalcFields = Cds_sVendaCalcFields
-    Left = 843
-    Top = 446
+    Left = 731
+    Top = 182
   end
   object dts_AliqImpFis: TDataSource
     DataSet = cds_AliqImpFis
     OnDataChange = Dts_sVendaDataChange
-    Left = 859
-    Top = 462
+    Left = 747
+    Top = 198
   end
   object dbx_unidade: TSQLQuery
     MaxBlobSize = -1
@@ -3466,13 +3466,13 @@ object frmPesqVfb: TfrmPesqVfb
     Params = <>
     ProviderName = 'dsp_sita'
     Left = 601
-    Top = 313
+    Top = 297
   end
   object dsp_sita: TDataSetProvider
     DataSet = dbx_sita
     UpdateMode = upWhereKeyOnly
     Left = 585
-    Top = 297
+    Top = 281
   end
   object dbx_sita: TSQLQuery
     MaxBlobSize = -1
@@ -3481,12 +3481,12 @@ object frmPesqVfb: TfrmPesqVfb
       'Select * from vendab')
     SQLConnection = frmDados.Sql_Dados
     Left = 569
-    Top = 281
+    Top = 265
   end
   object dts_sita: TDataSource
     DataSet = cds_sita
     Left = 617
-    Top = 329
+    Top = 313
   end
   object SQLQuery1: TSQLQuery
     MaxBlobSize = -1
@@ -3494,8 +3494,8 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'select * from svenda')
     SQLConnection = frmDados.Sql_Dados
-    Left = 345
-    Top = 138
+    Left = 273
+    Top = 114
   end
   object dbx_config: TSQLQuery
     MaxBlobSize = -1
@@ -3504,7 +3504,7 @@ object frmPesqVfb: TfrmPesqVfb
       'select * from svenda')
     SQLConnection = frmDados.Sql_Dados
     Left = 337
-    Top = 210
+    Top = 178
   end
   object dbx_ipi: TSQLQuery
     MaxBlobSize = -1
@@ -3512,8 +3512,8 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'select * from svenda')
     SQLConnection = frmDados.Sql_Dados
-    Left = 233
-    Top = 130
+    Left = 217
+    Top = 106
   end
   object dbx_cofins: TSQLQuery
     MaxBlobSize = -1
@@ -3521,8 +3521,8 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'select * from svenda')
     SQLConnection = frmDados.Sql_Dados
-    Left = 225
-    Top = 202
+    Left = 217
+    Top = 178
   end
   object dbx_pis: TSQLQuery
     MaxBlobSize = -1
@@ -3530,8 +3530,8 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'select * from svenda')
     SQLConnection = frmDados.Sql_Dados
-    Left = 713
-    Top = 114
+    Left = 401
+    Top = 178
   end
   object dbx_indice: TSQLQuery
     MaxBlobSize = -1
@@ -3539,8 +3539,8 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'select * from svenda')
     SQLConnection = frmDados.Sql_Dados
-    Left = 585
-    Top = 106
+    Left = 401
+    Top = 114
   end
   object dbx_sitb: TSQLQuery
     MaxBlobSize = -1
@@ -3548,8 +3548,8 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'select * from svenda')
     SQLConnection = frmDados.Sql_Dados
-    Left = 233
-    Top = 130
+    Left = 457
+    Top = 114
   end
   object dbx_cfop: TSQLQuery
     MaxBlobSize = -1
@@ -3557,8 +3557,8 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'select * from svenda')
     SQLConnection = frmDados.Sql_Dados
-    Left = 233
-    Top = 130
+    Left = 273
+    Top = 178
   end
   object dbx_consulta: TSQLQuery
     MaxBlobSize = -1
@@ -3566,8 +3566,8 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'select * from svenda')
     SQLConnection = frmDados.Sql_Dados
-    Left = 401
-    Top = 90
+    Left = 337
+    Top = 114
   end
   object dbx_natop: TSQLQuery
     MaxBlobSize = -1
@@ -3575,27 +3575,27 @@ object frmPesqVfb: TfrmPesqVfb
     SQL.Strings = (
       'Select * from svenda')
     SQLConnection = frmDados.Sql_Dados
-    Left = 691
-    Top = 422
+    Left = 659
+    Top = 262
   end
   object dsp_natop: TDataSetProvider
     DataSet = dbx_natop
     UpdateMode = upWhereKeyOnly
-    Left = 699
-    Top = 438
+    Left = 667
+    Top = 278
   end
   object cds_natop: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'dsp_natop'
     OnCalcFields = Cds_sVendaCalcFields
-    Left = 723
-    Top = 454
+    Left = 691
+    Top = 294
   end
   object dts_natop: TDataSource
     DataSet = cds_natop
     OnDataChange = Dts_sVendaDataChange
-    Left = 739
-    Top = 470
+    Left = 707
+    Top = 310
   end
 end

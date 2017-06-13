@@ -89,8 +89,8 @@ object frmcaixaapecf: Tfrmcaixaapecf
     ParentFont = False
   end
   object pnlsuperior: TPanel
-    Left = 0
-    Top = 0
+    Left = 16
+    Top = 8
     Width = 585
     Height = 65
     TabOrder = 0
@@ -314,5 +314,12 @@ object frmcaixaapecf: Tfrmcaixaapecf
     OutputFile = '.txt'
     Left = 96
     Top = 96
+  end
+  object sql_itensvendidos: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = frmDados.Sql_Dados
+    Left = 224
+    Top = 216
   end
 end

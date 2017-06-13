@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   Buttons, StdCtrls, Db, DBTables, ExtCtrls, jpeg, Mask, ComCtrls, SayPrint,
-  TeeProcs, TeEngine, Chart, Series;
+  TeeProcs, TeEngine, Chart, Series, FMTBcd, SqlExpr;
 
 type
   Tfrmcaixaapecf = class(TForm)
@@ -31,6 +31,7 @@ type
     lstrotulo: TListBox;
     lstvalor: TListBox;
     GraGrafico: TChart;
+    sql_itensvendidos: TSQLQuery;
     procedure FormShow(Sender: TObject);
     procedure spdcancelaClick(Sender: TObject);
     procedure spdFiltrarClick(Sender: TObject);
@@ -46,6 +47,8 @@ type
     pNumPag,pNumItem,aCodMod,aCodFun:Integer;
     pTotPeca, pTotMao:Real;
     sSerie : tpieseries;
+
+    canal_impressora:string;
 
 
   public
@@ -66,7 +69,7 @@ procedure Tfrmcaixaapecf.FormShow(Sender: TObject);
       VarDir, presttexto:String;
       S:TMemoryStream;
       j:tjpegimage;
-      lblnpro, lblquant, lbluni, lblcodigo, lblprve, lblsubtotal, lblbase:tlabel;
+      lblnpro, lblquant, lbluni, lblcodigo, lblprve, lblsubtotal, lblbase, lblbaseT:tlabel;
       shlinha:tshape;
   Var
     dia,mes,ano:word;
@@ -91,6 +94,8 @@ if bCaixaApsVendabP then
 case itipoimpf of
        0:begin
            // Nenhuma
+
+           canal_impressora := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
 
            if pos('\\',frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString) > 0 then
               begin
@@ -155,7 +160,7 @@ procedure Tfrmcaixaapecf.spdFiltrarClick(Sender: TObject);
       VarDir, presttexto, col1, col2, col3, col4, col5, sDataI, sDataf:String;
       S:TMemoryStream;
       j:tjpegimage;
-      lblnpro, lblquant, lbluni, lblcodigo, lblprve, lblsubtotal, lblbase:tlabel;
+      lblnpro, lblquant, lbluni, lblcodigo, lblprve, lblsubtotal, lblbase, lblbaseT:tlabel;
       shlinha:tshape;
       ano, mes, dia :word;
       aTotTipo, aTotTipoRecdo, atottipopaglq:array of real;
@@ -625,6 +630,9 @@ procedure Tfrmcaixaapecf.sPdGravarClick(Sender: TObject);
       aTotTipo, aTotTipoRecdo, atottipopaglq:array of real;
       aLinha:array of string;
       i, L, x:integer;
+      s_titulo, s_espaco, s_valor:string;
+      s_espaco1, s_espaco2, s_espaco3, s_espaco4, s_espaco5, s_espaco6:string;
+      F:textfile;
 
 
 
@@ -633,11 +641,13 @@ procedure Tfrmcaixaapecf.sPdGravarClick(Sender: TObject);
     totcusto, totvenda, totcuspecas, totcusdevpecas, totmo, totvendapecas, totvdescp,
     totvdescv, saldovpecas, saldocpecas, saldomobra, totGrec, totvendac, ftotarecber,
     ftotsangria, ftotingestao:real;
+
+
+    Var
+    sfun,nprod,cprod:string;
+    qtde,preco,precototal:string;
+
 begin
-
-printcaixa.BeginPrn;
-
-
 
 with frmdados do
   begin
@@ -733,8 +743,6 @@ with frmdados do
     while not cds_svenda.Eof do
       begin
 
-        //showmessage(cds_svenda.fieldbyname('liquido').asString);
-
         if cds_svenda.fieldbyname('din').asfloat > cds_svenda.fieldbyname('totgpagar').asfloat then
            totdinOS := totdinOS + cds_svenda.fieldbyname('totgpagar').asfloat
         else
@@ -799,245 +807,74 @@ with frmdados do
       end;
     //endi
 
-
-    //showmessage(floattostr(ftotingestao));
-
-
-    printcaixa.Condensed(false);
-    printcaixa.Expand(True);
-
     for x := 1 to (( 24  - length( frmdados.Cds_Config.fieldbyname('campo2').asString )) div 2) do
        begin
          s1 := (s1 + ' ');
        end;
     //endfor
     sImp := s1+Cds_Config.fieldbyname('campo2').asString;
-    printcaixa.Say(0,0,sImp);
-    printcaixa.Expand(false);
 
-    A := 70;
-    lblbase := tlabel.Create(self);
-    with lblbase do begin
-       alignment := taleftjustify;
-       left := 8;
-       top := A;
-       lblbase.Caption := 'Caixa de '+datetostr(dtpdatai.Date)+ ' até '+ datetostr(dtpdataf.date);
-       parent := self;
-    end;
-    printcaixa.Say(2,1,lblbase.caption);
+    AssignFile(F, canal_impressora);
+    Rewrite(F);
 
+    Write(F,#27,#77,1);
 
-    A := A + 32;
-    lblbase := tlabel.Create(self);
-    with lblbase do begin
-       alignment := taleftjustify;
-       left := 8;
-       top := A;
-       lblbase.Caption := 'APURACAO';
-       parent := self;
-    end;
-    printcaixa.Say(3,1,'');
-    printcaixa.Say(4,1,lblbase.caption);
+    Writeln(F,sImp);
 
-    A := A + 16;
-    lblbase := tlabel.Create(self);
-    with lblbase do begin
-       alignment := tarightjustify;
-       left := 120;
-       top := A;
-       lblbase.Caption := '(+)VENDAS(1)';
-       parent := self;
-    end;
-    printcaixa.Say(5,1,'');
-    printcaixa.Say(6,34,lblbase.caption);
+    Writeln(F,  'Caixa de '+datetostr(dtpdatai.Date)+ ' até '+ datetostr(dtpdataf.date)  );
 
+    writeln(F,'APURACAO');
 
-    i := 0;
-    L:= 7;
+    writeln(F,'(+)VENDAS(1)');
 
 
     cds_tipo_pgto.First;
     while not cds_tipo_pgto.eof do
       begin
 
-        A := A + 16;
-        lblbase := tlabel.Create(self);
-        with lblbase do begin
-           alignment := tarightjustify;
-           left := 80;
-           top := A;
-           lblbase.Caption := '';
-           parent := self;
-        end;
-        lblbase := tlabel.Create(self);
-        with lblbase do begin
-          alignment := taleftjustify;
-          left := 8;
-          top := A;
-          lblbase.Caption := chr(65+i)+') '+cds_tipo_pgto.fieldbyname('descricao').asString;
-          parent := self;
-        end;
-        col1 := lblbase.Caption;
-        printcaixa.Say(L,1,lblbase.caption);
 
+        s_titulo := chr(65+i)+') '+cds_tipo_pgto.fieldbyname('descricao').asString;
 
+        s_espaco := '';
+
+        for x := 0 to ( 30 - length(s_titulo) ) do
+           begin
+
+             s_espaco := s_espaco + ' ';
+
+           end;
+        //endfor
 
         if cds_indice.fieldbyname('codavista').asInteger = cds_tipo_pgto.fieldbyname('codigo').asInteger  then
            begin
 
-             lblbase := tlabel.Create(self);
-             with lblbase do begin
-                alignment := tarightjustify;
-                left := 120;
-                top := A;
-                lblbase.Caption := '';
-                parent := self;
-             end;
-             lblbase := tlabel.Create(self);
-             with lblbase do begin
-                alignment := tarightjustify;
-                left := 120;
-                top := A;
-                //lblbase.Caption := formatfloat('###,###,##0.00',totdinos);
-                lblbase.Caption := AlinNumD(10,totdinos);
-                parent := self;
-             end;
-             printcaixa.Say(L,36,lblbase.caption);
+             s_valor := AlinNumD(10,totdinos);
 
-             L := L + 1;
-             A := A + 16;
-             lblbase := tlabel.Create(self);
-             with lblbase do begin
-                alignment := taleftjustify;
-                left := 20;
-                top := A;
-                lblbase.Caption := '(+)Troco(2)';
-                parent := self;
-             end;
-             printcaixa.Say(L,5,lblbase.caption);
+             writeln(F,s_titulo + s_espaco + s_valor);
 
-             lblbase := tlabel.Create(self);
-             with lblbase do begin
-                alignment := tarightjustify;
-                left := 120;
-                top := A;
-                lblbase.Caption := '';
-                parent := self;
-             end;
-             lblbase := tlabel.Create(self);
-             with lblbase do begin
-                alignment := tarightjustify;
-                left := 120;
-                top := A;
-                //lblbase.Caption := formatfloat('###,###,##0.00',ftotingestao);
-                lblbase.Caption := AlinNumD(10,ftotingestao);
-                parent := self;
-             end;
-             printcaixa.Say(L,36,lblbase.caption);
+             s_valor := AlinNumD(10,ftotingestao);
 
+             writeln(F,'   (+)Troco(2).....: '+s_valor);
 
-             L := L + 1;
-             A := A + 16;
-             lblbase := tlabel.Create(self);
-             with lblbase do begin
-                alignment := taleftjustify;
-                left := 20;
-                top := A;
-                lblbase.Caption := '(-)Sangria(3)';
-                parent := self;
-             end;
-             printcaixa.Say(L,5,lblbase.caption);
+             s_valor := AlinNumD(10,ftotsangria);
 
+             writeln(F,'   (-)Sangria(3)...: '+s_valor);
 
-             lblbase := tlabel.Create(self);
-             with lblbase do begin
-                alignment := tarightjustify;
-                left := 120;
-                top := A;
-                lblbase.Caption := '';
-                parent := self;
-             end;
-             lblbase := tlabel.Create(self);
-             with lblbase do begin
-                alignment := tarightjustify;
-                left := 120;
-                top := A;
-                //lblbase.Caption := formatfloat('###,###,##0.00',ftotsangria);
-                lblbase.Caption := AlinNumD(10,ftotsangria);
+             s_valor := AlinNumD(10,totdinos+ftotingestao-ftotsangria);
 
-
-                parent := self;
-             end;
-             printcaixa.Say(L,36,lblbase.caption);
-
-
-             L := L + 1;
-             A := A + 16;
-             lblbase := tlabel.Create(self);
-             with lblbase do begin
-                alignment := taleftjustify;
-                left := 20;
-                top := A;
-                lblbase.Caption := '(=)SubTotal(S1)';
-                parent := self;
-             end;
-             printcaixa.Say(L,5,lblbase.caption);
-
-             lblbase := tlabel.Create(self);
-             with lblbase do begin
-                alignment := tarightjustify;
-                left := 120;
-                top := A;
-                lblbase.Caption := '';
-                parent := self;
-             end;
-             lblbase := tlabel.Create(self);
-             with lblbase do begin
-                alignment := tarightjustify;
-                left := 120;
-                top := A;
-                //lblbase.Caption := formatfloat('###,###,##0.00',totdinos+ftotingestao-ftotsangria);
-                lblbase.Caption := AlinNumD(10,totdinos+ftotingestao-ftotsangria);
-
-                parent := self;
-             end;
-             printcaixa.Say(L,36,lblbase.caption);
-
-
+             writeln(F,'   (=)SubTotal(S1).: '+s_valor);
 
            end
         else
            begin
 
-             lblbase := tlabel.Create(self);
-             with lblbase do begin
-                alignment := tarightjustify;
-                left := 120;
-                top := A;
-                lblbase.Caption := '';
-                parent := self;
-             end;
-             lblbase := tlabel.Create(self);
-             with lblbase do begin
-                alignment := tarightjustify;
-                left := 120;
-                top := A;
-                //lblbase.Caption := formatfloat('###,###,##0.00',atotTipo[cds_tipo_pgto.fieldbyname('codigo').asInteger-1]);
-                lblbase.Caption := AlinNumD(10,atotTipo[cds_tipo_pgto.fieldbyname('codigo').asInteger-1]);
+             s_valor := AlinNumD(10,atotTipo[cds_tipo_pgto.fieldbyname('codigo').asInteger-1]);
 
-                parent := self;
-             end;
-
-
-             printcaixa.Say(L,36,lblbase.caption);
-
-
+             writeln(F,s_titulo + s_espaco + s_valor);
 
            end;
         //endi
 
-        L := L + 1;
-        i := i + 1;
 
         cds_tipo_pgto.Next;
       end;
@@ -1046,95 +883,103 @@ with frmdados do
 end;
 //endth
 
-A := A + 16;
-lblbase := tlabel.Create(self);
-with lblbase do begin
-   alignment := taleftjustify;
-   left := 16;
-   top := A;
-   lblbase.Caption := '(=)TOTAL(T1)';
-   parent := self;
-end;
-printcaixa.Say(L,5,lblbase.caption);
+s_valor := AlinNumD(10,totdinos+ftotarecber);
 
-lblbase := tlabel.Create(self);
-with lblbase do begin
-   alignment := tarightjustify;
-   left := 120;
-   top := A;
-   lblbase.Caption := '';
-   parent := self;
-end;
-lblbase := tlabel.Create(self);
-with lblbase do begin
-   alignment := tarightjustify;
-   left := 120;
-   top := A;
-   lblbase.Caption := formatfloat('###,###,##0.00',totdinos+ftotarecber);
-   lblbase.Caption := AlinNumD(10,totdinos+ftotarecber);
+writeln(F,'(=)TOTAL(T1)......: '+s_valor);
 
-   parent := self;
-end;
+s_valor := AlinNumD(10,totdinos+ftotarecber+ftotingestao-ftotsangria);
 
-printcaixa.Say(L,36,lblbase.caption);
+writeln(F,'(=)TOTAL(T1+2-3)..: '+s_valor);
+
+sql_itensvendidos.Active := false;
+sql_itensvendidos.SQL.Clear;
+sql_itensvendidos.SQL.Add('select f.nome as nomefun, s.cfun, b.npro as nomeproduto, b.qtde as quantidade, b.prve as preco, b.subtotal as precototal, b.cpro as codprod, s.datafec from svenda s  ');
+sql_itensvendidos.SQL.Add('inner join vendab b on s.codigo=b.codsvenda inner join funcionarios f on s.cfun = f.codigo ');
+sql_itensvendidos.SQL.Add('where (s.datafec >= '+quotedstr(sDataI)+') and (s.datafec <= '+  quotedstr(sDataF)+') '  );
+sql_itensvendidos.SQL.Add('order by s.cfun' );
 
 
-
-L := L + 1;
-A := A + 16;
-lblbase := tlabel.Create(self);
-with lblbase do begin
-   alignment := taleftjustify;
-   left := 16;
-   top := A;
-   lblbase.Caption := '(=)TOTAL(T1+2-3)';
-   parent := self;
-end;
-printcaixa.Say(L,5,lblbase.caption);
+sql_itensvendidos.Active := true;
 
 
+writeln(F,'');
+writeln(F,'Itens Vendidos');
+writeln(F,'Vendedor       Qtde Descrição        Codigo    Preço    Total');
+//         xxxxxxxxxx xxxxxxxx xxxxxxxxxxxxxxxx xxxxxx xxxxxxxx xxxxxxxx
 
-lblbase := tlabel.Create(self);
-with lblbase do begin
-   alignment := tarightjustify;
-   left := 120;
-   top := A;
-   lblbase.Caption := '';
-   parent := self;
-end;
-lblbase := tlabel.Create(self);
-with lblbase do begin
-   alignment := tarightjustify;
-   left := 120;
-   top := A;
-   //lblbase.Caption := formatfloat('###,###,##0.00',totdinos+ftotarecber+ftotingestao-ftotsangria);
+while not sql_itensvendidos.Eof do
+  begin
 
-   lblbase.Caption := AlinNumD(10,totdinos+ftotarecber+ftotingestao-ftotsangria);
-   parent := self;
-end;
+    sfun :=  copy(sql_itensvendidos.fieldbyname('nomefun').asstring,1,10);
+    nprod :=  copy(sql_itensvendidos.fieldbyname('nomeproduto').asstring,1,16);
+    cprod :=  copy(sql_itensvendidos.fieldbyname('codprod').asstring,1,6);
+    qtde := AlinNumD(8,sql_itensvendidos.fieldbyname('quantidade').asfloat);
+    preco := AlinNumD(8,sql_itensvendidos.fieldbyname('preco').asfloat);
+    precototal := AlinNumD(8,sql_itensvendidos.fieldbyname('precototal').asfloat);
 
-printcaixa.Say(L,36,lblbase.caption);
 
-L := L + 2;
-printcaixa.Say(L,1,'Impresso em '+datetimetostr(now));
+    s_espaco1 := '';
+    s_espaco2 := '';
+    s_espaco3 := '';
+    s_espaco4 := '';
+    s_espaco5 := '';
+    s_espaco6 := '';
+
+
+    for x := 0 to (10 - length(   sfun     ) ) do
+        begin
+          s_espaco1 := s_espaco1 + ' ';
+        end;
+
+    for x := 0 to (8 - length(   qtde     ) ) do
+        begin
+          s_espaco2 :=  ' ' + s_espaco2;
+        end;
+
+    for x := 0 to (16 - length(   nprod     ) ) do
+        begin
+          s_espaco3 := s_espaco3 + ' ';
+        end;
+
+    for x := 0 to (6 - length(   cprod     ) ) do
+        begin
+          s_espaco4 := s_espaco4 + ' ';
+        end;
+
+    for x := 0 to (8 - length(   preco     ) ) do
+        begin
+          s_espaco5 := ' ' + s_espaco5;
+        end;
+
+    for x := 0 to (8 - length(   precototal     ) ) do
+        begin
+          s_espaco6 := ' ' + s_espaco6;
+        end;
+
+
+    writeln(F,sfun + s_espaco1 + qtde + ' ' + nprod + s_espaco3 + cprod + s_espaco4 + preco +' '+ precototal );
+
+
+
+    sql_itensvendidos.Next;
+
+
+  end;
+
+writeln(F,'');
+writeln(F,'Impresso em '+datetimetostr(now));
 
 for x := 1 to frmdados.Cds_Indice.fieldbyname('pulalinha').asInteger  do
   begin
-     L := L + 1;
-     printcaixa.Say(L,0,'');
+
+    writeln(F,'');
+
   end;
 //endi
 
+closefile(F); 
 
-
-
-
-printcaixa.EndPrn;
-
-
-
-
-
+showmessage('Processamento concluido, aguarde fim da impressão!');
 
 end;
 

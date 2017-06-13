@@ -4494,6 +4494,8 @@ type
     Cds_Indiceproxsat: TIntegerField;
     Dbx_sVendaTIPODOC: TIntegerField;
     Cds_sVendaTIPODOC: TIntegerField;
+    Dbx_sVendaCODATEND: TIntegerField;
+    Cds_sVendaCODATEND: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure cds_Tipo_PgtoAfterPost(DataSet: TDataSet);

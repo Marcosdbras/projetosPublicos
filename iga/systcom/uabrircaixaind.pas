@@ -28,6 +28,9 @@ type
     procedure cbxusucaiExit(Sender: TObject);
   private
     { Private declarations }
+    canal_impressora:string;
+    F:textfile;
+
   public
     { Public declarations }
   end;
@@ -60,6 +63,14 @@ end;
 
 procedure Tfrmabrircaixaind.FormShow(Sender: TObject);
 begin
+
+  frmdados.Cds_indice.Active := false;
+  frmdados.Dbx_indice.Active := false;
+  frmdados.Dbx_indice.SQL.Clear;
+  frmdados.Dbx_indice.SQL.Add('Select * from indice');
+  frmdados.Dbx_indice.Active := true;
+  frmdados.Cds_indice.Active := true;
+
   frmdados.Cds_Usuarios.Active := false;
   frmdados.Dbx_Usuarios.Active := false;
   frmdados.Dbx_Usuarios.SQL.Clear;
@@ -76,6 +87,8 @@ begin
 
 
   edincopias.Text := frmdados.Cds_Indice.fieldbyname('ncopiasv').asString;
+
+  canal_impressora := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
 
 
   ediinicio.Text := '0,00';
@@ -148,67 +161,27 @@ with frmdados do
   i := 0;
 
 
-
-if pos('\\',frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString) > 0 then
-      begin
-
-        printcaixa.Porta :=    PrnNet;
-        printcaixa.NetImpress := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
-
-      end
-   else
-      begin
-
-         if pos(':',frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString) > 0 then
-            begin
-
-              printcaixa.Porta :=    PrnFile;
-              printcaixa.OutputFile := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
-
-            end
-         else
-            begin
-
-
-              printcaixa.Porta :=    Lpt1;
-
-
-
-            end;
-         //endi
-
-
-      end;
-
-
-   //endi
-
-
   while  i < strtoint(edincopias.text) do
     begin
 
-      printcaixa.BeginPrn;
+      AssignFile(F, canal_impressora);
+      Rewrite(F);
 
-      printcaixa.Condensed(false);
-      printcaixa.Expand(True);
+      writeln(F,  'ABERTURA DO CAIXA COM VALOR DE R$ '+ formatfloat('###,###,##0.00',strtofloat( tirapontos(ediinicio.text)   )   )   );
 
 
-      L := 0;
-
-      printcaixa.Say(L,0,'ABERTURA DO CAIXA COM VALOR DE R$ '+ formatfloat('###,###,##0.00',strtofloat( tirapontos(ediinicio.text) )   ));
-
-      L := L + 1;
-
-      printcaixa.Say(L,1,'Impresso em '+datetimetostr(now));
+      writeln(F,   'Impresso em '+datetimetostr(now));
 
       for x := 1 to frmdados.Cds_Indice.fieldbyname('pulalinha').asInteger  do
       begin
-         L := L + 1;
-         printcaixa.Say(L,0,'');
+
+        writeln(F,'');
+
+
       end;
       //endi
 
-      printcaixa.EndPrn;
+      closefile(F);
 
       i := i + 1;
 

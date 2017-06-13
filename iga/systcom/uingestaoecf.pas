@@ -27,6 +27,10 @@ type
     procedure cbxusucaiExit(Sender: TObject);
   private
     { Private declarations }
+    canal_impressora:string;
+    F:textfile;
+    
+
   public
     { Public declarations }
   end;
@@ -46,12 +50,22 @@ Var
   sHora:String;
 begin
 
+
+
+
 tabela :=  'Ingestao';
 
 with frmdados do
   begin
     sData := datetostr(  date  );
     sHora := timetostr( time );
+
+    Cds_indice.Active := false;
+    Dbx_indice.Active := false;
+    Dbx_indice.SQL.Clear;
+    Dbx_indice.SQL.Add('Select * from indice');
+    Dbx_indice.Active := true;
+    Cds_indice.Active := true;
 
     Cds_Usuarios.Active := false;
     Dbx_Usuarios.Active := false;
@@ -91,14 +105,16 @@ with frmdados do
   end;
 //endith
 
+canal_impressora := frmdados.Cds_Indice.fieldbyname('caminho_ecf').AsString;
+
 try
 
   if (frmdados.Cds_Indice.FieldByName('tpimpv').asInteger = 3) then
      begin
 
-       frmfrenteecf.sayprint.BeginPrn;
-       frmfrenteecf.sayprint.Say(0,0,chr(27)+chr(118)+chr(76));
-       frmfrenteecf.sayprint.EndPrn;
+       //frmfrenteecf.sayprint.BeginPrn;
+       //frmfrenteecf.sayprint.Say(0,0,chr(27)+chr(118)+chr(76));
+       //frmfrenteecf.sayprint.EndPrn;
 
      end;
 
@@ -195,28 +211,27 @@ with frmdados do
   while  i < strtoint(edincopias.text) do
     begin
 
-      printcaixa.BeginPrn;
 
-      printcaixa.Condensed(false);
-      printcaixa.Expand(True);
+      AssignFile(F, canal_impressora);
+      Rewrite(F);
+
+      Write(F,#27,#77,1);
+
+      writeln(F,    'SUPRIMENTO NO VALOR DE R$ '+ formatfloat('###,###,##0.00',frmdados.cds_ingestaovalor.AsFloat)  );
 
 
-      L := 0;
 
-      printcaixa.Say(L,0,'SUPRIMENTO NO VALOR DE R$ '+ formatfloat('###,###,##0.00',frmdados.cds_ingestaovalor.AsFloat ));
-
-      L := L + 1;
-
-      printcaixa.Say(L,1,'Impresso em '+datetimetostr(now));
+      writeln(F, 'Impresso em '+datetimetostr(now) )  ;
 
       for x := 1 to frmdados.Cds_Indice.fieldbyname('pulalinha').asInteger  do
       begin
-         L := L + 1;
-         printcaixa.Say(L,0,'');
+
+        writeln(F,'');
+
       end;
       //endi
 
-      printcaixa.EndPrn;
+      closefile(F);
 
       i := i + 1;
 

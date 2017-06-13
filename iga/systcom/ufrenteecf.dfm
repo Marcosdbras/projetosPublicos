@@ -3,7 +3,6 @@ object frmfrenteecf: Tfrmfrenteecf
   Top = 9
   Width = 1036
   Height = 719
-  VertScrollBar.Position = 56
   BorderIcons = [biSystemMenu]
   Caption = 'Frente de Caixa - ecf'
   Color = clBlue
@@ -24,7 +23,7 @@ object frmfrenteecf: Tfrmfrenteecf
   TextHeight = 13
   object Image2: TImage
     Left = 0
-    Top = -56
+    Top = 0
     Width = 1016
     Height = 609
     Picture.Data = {
@@ -1499,7 +1498,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object spdConsultaCliente239: TSpeedButton
     Left = 26
-    Top = 1
+    Top = 57
     Width = 120
     Height = 33
     Hint = 'Clientes'
@@ -1531,7 +1530,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lbltipo: TLabel
     Left = 43
-    Top = 48
+    Top = 104
     Width = 86
     Height = 26
     Caption = 'Descri'#231#227'o'
@@ -1547,7 +1546,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lbltotCs: TLabel
     Left = 955
-    Top = 120
+    Top = 176
     Width = 34
     Height = 13
     Alignment = taRightJustify
@@ -1555,7 +1554,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lbltotCe: TLabel
     Left = 954
-    Top = 104
+    Top = 160
     Width = 35
     Height = 13
     Alignment = taRightJustify
@@ -1563,7 +1562,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lblsubtotc: TLabel
     Left = 944
-    Top = 88
+    Top = 144
     Width = 45
     Height = 13
     Alignment = taRightJustify
@@ -1571,7 +1570,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object spdconsultaproduto: TSpeedButton
     Left = 683
-    Top = 45
+    Top = 101
     Width = 23
     Height = 22
     Flat = True
@@ -1591,7 +1590,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lblncli: TLabel
     Left = 193
-    Top = 7
+    Top = 63
     Width = 50
     Height = 26
     Caption = 'lblncli'
@@ -1607,7 +1606,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lblqtde: TLabel
     Left = 885
-    Top = 142
+    Top = 198
     Width = 52
     Height = 23
     Alignment = taRightJustify
@@ -1623,7 +1622,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lblprve: TLabel
     Left = 909
-    Top = 232
+    Top = 288
     Width = 53
     Height = 23
     Alignment = taRightJustify
@@ -1639,7 +1638,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lblsubtotal: TLabel
     Left = 882
-    Top = 321
+    Top = 377
     Width = 80
     Height = 23
     Alignment = taRightJustify
@@ -1655,7 +1654,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lbltitestq: TLabel
     Left = 2
-    Top = 495
+    Top = 551
     Width = 101
     Height = 23
     Alignment = taRightJustify
@@ -1672,7 +1671,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lbltotestq: TLabel
     Left = 111
-    Top = 495
+    Top = 551
     Width = 72
     Height = 23
     Alignment = taRightJustify
@@ -1689,7 +1688,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object Label13: TLabel
     Left = 782
-    Top = 524
+    Top = 580
     Width = 56
     Height = 23
     Alignment = taRightJustify
@@ -1706,7 +1705,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lbltotitens: TLabel
     Left = 922
-    Top = 524
+    Top = 580
     Width = 77
     Height = 23
     Alignment = taRightJustify
@@ -1723,7 +1722,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lbltotbruto: TLabel
     Left = 812
-    Top = 412
+    Top = 468
     Width = 125
     Height = 35
     Alignment = taRightJustify
@@ -1740,7 +1739,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lbltititens: TLabel
     Left = 851
-    Top = 524
+    Top = 580
     Width = 54
     Height = 23
     Alignment = taRightJustify
@@ -1757,14 +1756,14 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object Image1: TImage
     Left = 880
-    Top = -53
+    Top = 3
     Width = 132
     Height = 134
     OnClick = ckbentradaClick
   end
   object Label1: TLabel
     Left = 773
-    Top = 374
+    Top = 430
     Width = 39
     Height = 23
     Caption = 'Total'
@@ -1780,7 +1779,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object Label6: TLabel
     Left = 800
-    Top = 281
+    Top = 337
     Width = 68
     Height = 23
     Caption = 'SubTotal'
@@ -1796,7 +1795,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object Label7: TLabel
     Left = 800
-    Top = 192
+    Top = 248
     Width = 106
     Height = 23
     Caption = 'Pre'#231'o Unit'#225'rio'
@@ -1812,7 +1811,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object Label8: TLabel
     Left = 773
-    Top = 106
+    Top = 162
     Width = 84
     Height = 23
     Caption = 'Quantidade'
@@ -1828,7 +1827,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object Label9: TLabel
     Left = 43
-    Top = -42
+    Top = 14
     Width = 90
     Height = 26
     Caption = 'Atendente'
@@ -1844,7 +1843,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lbloperacao: TLabel
     Left = 2
-    Top = 513
+    Top = 569
     Width = 142
     Height = 38
     Caption = 'lbloperacao'
@@ -1858,7 +1857,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object Label17: TLabel
     Left = 481
-    Top = 467
+    Top = 523
     Width = 94
     Height = 23
     Alignment = taRightJustify
@@ -1875,7 +1874,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lbldatamov: TLabel
     Left = 610
-    Top = 467
+    Top = 523
     Width = 79
     Height = 23
     Alignment = taRightJustify
@@ -1892,7 +1891,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object lblstatuscaixa: TLabel
     Left = 178
-    Top = 466
+    Top = 522
     Width = 102
     Height = 23
     Caption = 'lblstatuscaixa'
@@ -1908,7 +1907,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object Label18: TLabel
     Left = 114
-    Top = 466
+    Top = 522
     Width = 55
     Height = 23
     Alignment = taRightJustify
@@ -1925,7 +1924,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object edidescricao: TEdit
     Left = 191
-    Top = 50
+    Top = 106
     Width = 426
     Height = 26
     BevelOuter = bvNone
@@ -1944,7 +1943,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object pnlinferior: TPanel
     Left = 0
-    Top = 632
+    Top = 688
     Width = 1016
     Height = 44
     Align = alBottom
@@ -2277,7 +2276,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object barra: TStatusBar
     Left = 0
-    Top = 676
+    Top = 732
     Width = 1016
     Height = 19
     Color = clBlue
@@ -2294,7 +2293,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object cbxnomefun: TDBLookupComboBox
     Left = 194
-    Top = -44
+    Top = 12
     Width = 327
     Height = 32
     Color = clWhite
@@ -2314,7 +2313,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object pnlnpro: TPanel
     Left = 199
-    Top = 50
+    Top = 106
     Width = 394
     Height = 26
     Alignment = taLeftJustify
@@ -2331,7 +2330,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object dbgprodutos: TDBCtrlGrid
     Left = 96
-    Top = 178
+    Top = 234
     Width = 609
     Height = 230
     AllowDelete = False
@@ -2437,7 +2436,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object pnlfechamento: TPanel
     Left = 574
-    Top = 91
+    Top = 147
     Width = 434
     Height = 504
     Color = clMoneyGreen
@@ -3466,7 +3465,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object pnlparcela: TPanel
     Left = 576
-    Top = 2
+    Top = 58
     Width = 432
     Height = 89
     BevelOuter = bvNone
@@ -3568,7 +3567,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object btninferior2: TPanel
     Left = 0
-    Top = 595
+    Top = 651
     Width = 1016
     Height = 37
     Align = alBottom
@@ -3788,7 +3787,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object pnlinfop: TPanel
     Left = 574
-    Top = -53
+    Top = 3
     Width = 435
     Height = 145
     BevelInner = bvLowered
