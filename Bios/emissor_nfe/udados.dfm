@@ -7219,7 +7219,7 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from nfe')
     Params = <>
-    Left = 408
+    Left = 432
     Top = 465
     object sql_nfecodigo: TIntegerField
       FieldName = 'codigo'
@@ -10017,5 +10017,29 @@ object frmdados: Tfrmdados
     Params = <>
     Left = 808
     Top = 344
+  end
+  object sql_seg_cest: TZQuery
+    Connection = zconexao
+    SQL.Strings = (
+      'select * from segmento_cest')
+    Params = <>
+    Left = 264
+    Top = 409
+    object IntegerField1: TIntegerField
+      FieldName = 'id'
+      Required = True
+    end
+    object IntegerField3: TIntegerField
+      FieldName = 'codigo'
+    end
+    object StringField1: TStringField
+      FieldName = 'proprio'
+      Size = 1
+    end
+    object StringField2: TStringField
+      FieldName = 'descricao'
+      Required = True
+      Size = 90
+    end
   end
 end

@@ -570,6 +570,7 @@ type
     procedure edtaliqfederalKeyPress(Sender: TObject; var Key: Char);
     procedure edtaliqestadualKeyPress(Sender: TObject; var Key: Char);
     procedure edtaliqmunicipalKeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn4Click(Sender: TObject);
   private
     { Private declarations }
     sOpcao:string;
@@ -606,7 +607,7 @@ var
 
 implementation
    uses ugeral, udados, uconsprodutos, ufiltronf, urelnf, uconsserv,
-  ufecnf, uprincipal, uconexaotcpip, ucalc_olho_no_imp;
+  ufecnf, uprincipal, uconexaotcpip, ucalc_olho_no_imp, upcodcest;
 {$R *.dfm}
 
 procedure Tfrmpesqnf.FormClose(Sender: TObject;
@@ -5557,6 +5558,15 @@ begin
        key:=#0;
      end;
   //endi
+
+end;
+
+procedure Tfrmpesqnf.BitBtn4Click(Sender: TObject);
+begin
+
+  frmpcodcest := tfrmpcodcest.create(self);
+  frmpcodcest.showmodal;
+  frmpcodcest.free;
 
 end;
 

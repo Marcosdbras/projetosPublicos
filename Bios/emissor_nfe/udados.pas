@@ -1563,6 +1563,11 @@ type
     cds_cestncm: TStringField;
     cds_cestdescricao: TStringField;
     cds_cestcsegmento: TIntegerField;
+    sql_seg_cest: TZQuery;
+    IntegerField1: TIntegerField;
+    IntegerField3: TIntegerField;
+    StringField1: TStringField;
+    StringField2: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);

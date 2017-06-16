@@ -1137,10 +1137,7 @@ procedure Tfrmpesqprodutos.BitBtn2Click(Sender: TObject);
 begin
  frmpcodcest := tfrmpcodcest.create(self);
  frmpcodcest.showmodal;
- frmpcodcest.free;
-
-
-
+ frmpcodcest.free;  
 end;
 
 procedure Tfrmpesqprodutos.BitBtn3Click(Sender: TObject);

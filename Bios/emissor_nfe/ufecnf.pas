@@ -1881,6 +1881,10 @@ var
 
   infennf, i:integer;
 
+  cseg:integer;
+
+  id:string;
+
   y:real;
 
 
@@ -3377,21 +3381,70 @@ if rg1.ItemIndex = 1 then
 
           if cds_cf.Locate('codigo',cds_nfp.fieldbyname('cod3prodnf').asInteger,[]) then
              begin
+
                scf := Cds_cf.fieldbyname('sigla').asString;
                scf := tirapontos(scf);
                scf := tiratracos(scf);
                scf := tirabarras(scf);
                addComando('NCM='+scf);
+
              end
           else
              begin
-               addComando('NCM='+cds_nfp.fieldbyname('simplesncm').asString);
+
+               scf := cds_nfp.fieldbyname('simplesncm').asString;
+               addComando('NCM='+scf);
+               
              end;
           //endi
 
-          if  cds_nfp.fieldbyname('CEST').asString <> '' then
+          if cds_nfp.fieldbyname('CEST').asString <> '' then
              begin
                addComando('CEST='+cds_nfp.fieldbyname('CEST').asString);
+             end
+          else
+             begin
+
+               cseg :=  frmdados.Cds_emitente.fieldbyname('csegmento').asInteger;
+
+               sql_cest.Active := false;
+               sql_cest.SQL.Clear;
+               sql_cest.SQL.Add('select * from cest where (ncm = '+ quotedstr( cds_nfp.fieldbyname('CEST').asString  ) +') and ('+  inttostr(cseg)  +')'  );
+               sql_cest.Active := true;
+               if sql_cest.RecordCount > 0 then
+                  begin
+
+                    addComando('CEST='+sql_cest.fieldbyname('codesp').asString);
+
+                  end
+               else
+                  begin 
+
+                    id := consultaCest(cseg,scf);
+
+                    try
+                      strtoint(id);
+                    except
+                      id := '0';
+                    end;
+
+                    sql_cest.Active := false;
+                    sql_cest.SQL.Clear;
+                    sql_cest.SQL.Add('select * from cest where id = '+id);
+                    sql_cest.Active := true;
+                    if sql_cest.RecordCount > 0 then
+                       begin
+
+                         addComando('CEST='+sql_cest.fieldbyname('codesp').asString);
+
+
+                       end;
+                    //endi
+
+
+                  end;
+               //endi
+
              end;
           //endi
 

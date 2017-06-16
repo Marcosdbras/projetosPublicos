@@ -165,6 +165,7 @@ type
     procedure Desbloqueiodeenvio1Click(Sender: TObject);
     procedure Sobre1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
 
 
     
@@ -2218,10 +2219,11 @@ var
 begin
 
   if application.MessageBox('Este procedimento vai tornar o sistema insdisponível por alguns minutos'+#13+
-                            'Deseja realmente sincronizar NCM agora?','Atenção',mb_yesno)=mryes
+                            'Deseja realmente baixar tabelas do WebService agora?','Atenção',mb_yesno)=mryes
   then
     begin
-      lblmensagem.Caption  := 'Sincronizando ncm...';
+      lblmensagem.Caption  := 'Baixando tabelas do WebService, aguarde!';
+      frmprincipal.Update;
 
       with frmdados do
          begin
@@ -2229,7 +2231,24 @@ begin
             sql_exec2.Active := false;
             sql_exec2.SQL.Clear;
             sql_exec2.SQL.Add('delete from ibpt');
+            sql_exec2.ExecSQL; 
+
+            sql_exec2.Active := false;
+            sql_exec2.SQL.Clear;
+            sql_exec2.SQL.Add('delete from cest');
             sql_exec2.ExecSQL;
+
+            cds_segmento_cest.Active := false;
+            sql_segmento_cest.Active := false;
+            sql_segmento_cest.SQL.Clear;
+            sql_segmento_cest.SQL.Add('select * from segmento_cest');
+            sql_segmento_cest.Active := true;
+            cds_segmento_cest.Active := true;
+
+            sql_emitente.Active := false;
+            sql_emitente.SQL.Clear;
+            sql_emitente.SQL.Add('select * from emitente');
+            sql_emitente.Active := true;
 
             sql_indice.Active := false;
             sql_indice.SQL.Clear;
@@ -2245,7 +2264,7 @@ begin
 
             sql_exec2.Active := false;
             sql_exec2.SQL.Clear;
-            sql_exec2.SQL.Add('select * from produtos order by descricao');
+            sql_exec2.SQL.Add('select * from produtos order by codigo');
             sql_exec2.Active := true;
 
             while not sql_exec2.Eof do
@@ -2263,10 +2282,26 @@ begin
 
                       atualizancm(sncm);
 
-
-
                     end;
+                 //endiif
 
+                 cds_segmento_cest.First;
+                 while not cds_segmento_cest.Eof do
+                   begin
+
+                      if sncm <> '' then
+                         consultaCest(cds_segmento_cest.FieldByName('codigo').AsInteger,sncm);
+                      //endi
+
+                      cds_segmento_cest.Next;
+                   end;
+                 //endw
+
+
+
+
+                lblmensagem.Caption  := 'Baixando tabelas do WebService, atualizando Produtos, registro: '+ sql_exec2.fieldbyname('codigo').AsString +' aguarde!';
+                frmprincipal.Update;
 
                  sql_exec2.Next;
                end;
@@ -2334,6 +2369,11 @@ end;
 procedure Tfrmprincipal.Button3Click(Sender: TObject);
 begin
 ShellExecute(handle,'open','http://aplicacao.esy.es','','',SW_SHOWNORMAL);
+end;
+
+procedure Tfrmprincipal.Button2Click(Sender: TObject);
+begin
+BaixarNCM1Click(Sender);
 end;
 
 end.

@@ -49,7 +49,7 @@ var
   frmpcodcest: Tfrmpcodcest;
 
 implementation
-    uses udados, ugeral, upesqprodutos;
+    uses udados, ugeral, upesqprodutos, upesqnf;
 {$R *.dfm}
 
 procedure Tfrmpcodcest.btncancelarClick(Sender: TObject);
@@ -94,6 +94,14 @@ if frmpesqprodutos <> nil then
 //endi
 
 
+if frmpesqnf <> nil then
+   begin
+     edincm.Text := frmpesqnf.edisimplesncm.Text;
+   end;
+//endi
+
+
+
 btninserir.Enabled := false;
 memores.enabled := false;
 
@@ -107,25 +115,19 @@ var
 begin
   icpais := 0;
 
-  if ediresultado.Text = '' then
-     exit;
-  //endi
-
-  if (strtoint(ediresultado.Text) = -1) or
-     (strtoint(ediresultado.Text) = 0)
-  then
-     begin
-       //exit;
-     end;
-  //endi
-
-
-
   if frmpesqprodutos <> nil then
      begin
        frmpesqprodutos.edicest.Text := edicest.Text;
      end;
   //endi
+
+
+  if frmpesqnf <> nil then
+     begin
+       frmpesqnf.edicest.Text := edicest.Text;
+     end;
+  //endi
+
 
 
   close;
@@ -203,13 +205,16 @@ begin
            sql_cest.SQL.Add('select csegmento, descricao, codesp, ncm, id, codigo from cest where id = ' + quotedstr(id));
            sql_cest.Active := true;
 
+           edicest.Text := sql_cest.fieldbyname('codesp').AsString;
+           memo1.Lines.Add( sql_cest.fieldbyname('descricao').AsString );
 
-           //showmessage(sql_cest.fieldbyname('codesp').AsString);
+           btninserir.Enabled := true;
 
-
-           //edicest.Text := sql_cest.fieldbyname('codesp').AsString;
-           //memo1.Lines.Add( sql_cest.fieldbyname('descricao').AsString );
-
+         end
+      else
+         begin
+           Showmessage('NCM x CEST não encontrado');
+           btninserir.Enabled := false;
          end;
 
 
