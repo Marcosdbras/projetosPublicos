@@ -2,8 +2,9 @@ object frmdados: Tfrmdados
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   Left = 1
-  Top = 109
-  Height = 625
+  Top = 8
+  Height = 733
+  VerticalOffset = 166
   Width = 1019
   object cds_Paises: TClientDataSet
     Aggregates = <>
@@ -670,6 +671,10 @@ object frmdados: Tfrmdados
       item
         Name = 'codtemp1'
         DataType = ftInteger
+      end
+      item
+        Name = 'codtemp2'
+        DataType = ftInteger
       end>
     IndexDefs = <
       item
@@ -1047,6 +1052,9 @@ object frmdados: Tfrmdados
     end
     object cds_Tempcodtemp1: TIntegerField
       FieldName = 'codtemp1'
+    end
+    object cds_Tempcodtemp2: TIntegerField
+      FieldName = 'codtemp2'
     end
   end
   object dts_Temp: TDataSource
@@ -6583,7 +6591,6 @@ object frmdados: Tfrmdados
   end
   object zconexao: TZConnection
     TransactIsolationLevel = tiReadCommitted
-    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'nfe'
@@ -9721,8 +9728,8 @@ object frmdados: Tfrmdados
     Request.Ranges.Units = 'bytes'
     Request.Ranges = <>
     HTTPOptions = [hoForceEncodeParams]
-    Left = 904
-    Top = 368
+    Left = 920
+    Top = 344
   end
   object XMLDocument1: TXMLDocument
     XML.Strings = (
@@ -9742,13 +9749,13 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from conversaosatcfinal')
     Params = <>
-    Left = 528
-    Top = 624
+    Left = 784
+    Top = 435
   end
   object Seq_Duplicata: TZSequence
     Connection = zconexao
-    Left = 720
-    Top = 512
+    Left = 872
+    Top = 387
   end
   object cdstempvencido: TClientDataSet
     Aggregates = <>
@@ -9797,10 +9804,17 @@ object frmdados: Tfrmdados
     end
     object sql_cestdescricao: TStringField
       FieldName = 'descricao'
-      Size = 150
+      Size = 200
     end
     object sql_cestcsegmento: TIntegerField
       FieldName = 'csegmento'
+    end
+    object sql_cestremoto: TStringField
+      FieldName = 'remoto'
+      Size = 1
+    end
+    object sql_cestcodremoto: TIntegerField
+      FieldName = 'codremoto'
     end
   end
   object sql_segmento_cest: TZQuery
@@ -9808,8 +9822,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from segmento_cest')
     Params = <>
-    Left = 152
-    Top = 547
+    Left = 208
+    Top = 531
     object sql_segmento_cestid: TIntegerField
       FieldName = 'id'
       Required = True
@@ -9852,10 +9866,19 @@ object frmdados: Tfrmdados
       item
         Name = 'descricao'
         DataType = ftString
-        Size = 150
+        Size = 200
       end
       item
         Name = 'csegmento'
+        DataType = ftInteger
+      end
+      item
+        Name = 'remoto'
+        DataType = ftString
+        Size = 1
+      end
+      item
+        Name = 'codremoto'
         DataType = ftInteger
       end>
     IndexDefs = <>
@@ -9884,10 +9907,17 @@ object frmdados: Tfrmdados
     end
     object cds_cestdescricao: TStringField
       FieldName = 'descricao'
-      Size = 150
+      Size = 200
     end
     object cds_cestcsegmento: TIntegerField
       FieldName = 'csegmento'
+    end
+    object cds_cestremoto: TStringField
+      FieldName = 'remoto'
+      Size = 1
+    end
+    object cds_cestcodremoto: TIntegerField
+      FieldName = 'codremoto'
     end
   end
   object dts_cest: TDataSource
@@ -9897,7 +9927,6 @@ object frmdados: Tfrmdados
   end
   object dsp_cest: TDataSetProvider
     DataSet = sql_cest
-    UpdateMode = upWhereKeyOnly
     Left = 64
     Top = 644
   end
@@ -9940,9 +9969,10 @@ object frmdados: Tfrmdados
     StoreDefs = True
     AfterPost = cds_segmento_cestAfterPost
     AfterDelete = cds_segmento_cestAfterDelete
+    AfterScroll = cds_segmento_cestAfterScroll
     OnNewRecord = cds_segmento_cestNewRecord
-    Left = 153
-    Top = 715
+    Left = 257
+    Top = 532
     object cds_segmento_cestid: TIntegerField
       FieldName = 'id'
       Required = True
@@ -9962,14 +9992,14 @@ object frmdados: Tfrmdados
   end
   object dts_segmento_cest: TDataSource
     DataSet = cds_segmento_cest
-    Left = 151
-    Top = 614
+    Left = 223
+    Top = 532
   end
   object dsp_segmento_cest: TDataSetProvider
     DataSet = sql_segmento_cest
     UpdateMode = upWhereKeyOnly
-    Left = 149
-    Top = 667
+    Left = 237
+    Top = 547
   end
   object sql_dados: TZQuery
     Connection = zconexao
@@ -9983,8 +10013,8 @@ object frmdados: Tfrmdados
     Aggregates = <>
     Params = <>
     ProviderName = 'dsp_cest'
-    Left = 824
-    Top = 516
+    Left = 816
+    Top = 540
     object ClientDataSet1id: TLargeintField
       FieldName = 'id'
       Required = True
@@ -10023,8 +10053,8 @@ object frmdados: Tfrmdados
     SQL.Strings = (
       'select * from segmento_cest')
     Params = <>
-    Left = 264
-    Top = 409
+    Left = 456
+    Top = 529
     object IntegerField1: TIntegerField
       FieldName = 'id'
       Required = True

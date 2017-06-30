@@ -95,6 +95,7 @@ type
     Desbloqueiodeenvio1: TMenuItem;
     Sobre1: TMenuItem;
     Button3: TButton;
+    CdigoEspecificadorSubsTributria1: TMenuItem;
 
     //Response: TStringStream;
     //Arquivo: TIdMultipartFormDataStream;
@@ -166,6 +167,7 @@ type
     procedure Sobre1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure CdigoEspecificadorSubsTributria1Click(Sender: TObject);
 
 
     
@@ -191,7 +193,8 @@ implementation
   upesqcofins, upesqcfop, upesqnatop, upesqunidade, upesqtiposerv,
   upesqrcserv, upesqprodutos, upesqtransportadora, upesqcmobra,
   upesqclientes, upesqregtrib, upesqemitente, upesqfornecedores, upesqnf,
-  upesqcsosn, uindice, upcodibge, upesqnfemi, baixarncm, usobre, uaviso;
+  upesqcsosn, uindice, upcodibge, upesqnfemi, baixarncm, usobre, uaviso,
+  upesqcest;
 {$R *.dfm}
 
 procedure Tfrmprincipal.FormShow(Sender: TObject);
@@ -2023,26 +2026,38 @@ begin
                         with frmdados do
                           begin
 
-                            if ( id <> '' ) and (not cds_segmento_cest.Locate('id',id,[])) then
+                            if ( id <> '' ) then
                                begin
 
-                                 cds_segmento_cest.Append;
-                                 cds_segmento_cest.fieldbyname('id').asinteger := strtoint(id);
-                                 cds_segmento_cest.fieldbyname('descricao').asstring := descricao;
-                                 cds_segmento_cest.fieldbyname('proprio').asstring := proprio;
-                                 cds_segmento_cest.fieldbyname('codigo').asinteger := strtoint(id);
-                                 cds_segmento_cest.Post;
+                                 if (not cds_segmento_cest.Locate('id',id,[])) then
+                                    begin
+
+                                       cds_segmento_cest.Append;
+                                       cds_segmento_cest.fieldbyname('id').asinteger := strtoint(id);
+                                       cds_segmento_cest.fieldbyname('descricao').asstring := descricao;
+                                       cds_segmento_cest.fieldbyname('proprio').asstring := proprio;
+                                       cds_segmento_cest.fieldbyname('codigo').asinteger := strtoint(id);
+                                       cds_segmento_cest.Post;
+
+                                    end
+                                 else
+                                    begin
+
+                                       cds_segmento_cest.edit;
+                                       cds_segmento_cest.fieldbyname('descricao').asstring := descricao;
+                                       cds_segmento_cest.fieldbyname('proprio').asstring := proprio;
+                                       cds_segmento_cest.Post;
+
+                                    end;
+                                 //endif
 
                                end;
+                            //endi
 
                           end;
-
+                        //endth
                       end;
                     //endth
-
-
-
-
 
                   end;
 
@@ -2154,19 +2169,39 @@ begin
                         with frmdados do
                           begin
 
-                            if ( id <> '' ) and (not cds_segmento_cest.Locate('id',id,[])) then
+
+                            if ( id <> '' ) then
                                begin
 
-                                 cds_segmento_cest.Append;
-                                 cds_segmento_cest.fieldbyname('id').asinteger := strtoint(id);
-                                 cds_segmento_cest.fieldbyname('descricao').asstring := descricao;
-                                 cds_segmento_cest.fieldbyname('proprio').asstring := proprio;
-                                 cds_segmento_cest.fieldbyname('codigo').asinteger := strtoint(id);
-                                 cds_segmento_cest.Post;
+
+                                 if (not cds_segmento_cest.Locate('id',id,[])) then
+                                    begin
+
+                                       cds_segmento_cest.Append;
+                                       cds_segmento_cest.fieldbyname('id').asinteger := strtoint(id);
+                                       cds_segmento_cest.fieldbyname('descricao').asstring := descricao;
+                                       cds_segmento_cest.fieldbyname('proprio').asstring := proprio;
+                                       cds_segmento_cest.fieldbyname('codigo').asinteger := strtoint(id);
+                                       cds_segmento_cest.Post;
+
+                                    end
+                                 else
+                                    begin
+
+                                       cds_segmento_cest.Edit;
+                                       cds_segmento_cest.fieldbyname('descricao').asstring := descricao;
+                                       cds_segmento_cest.fieldbyname('proprio').asstring := proprio;
+                                       cds_segmento_cest.Post;
+
+                                    end;
+                                 //endif
+
 
                                end;
+                            //endif
 
                           end;
+                        //endth
 
                       end;
                     //endth
@@ -2235,15 +2270,22 @@ begin
 
             sql_exec2.Active := false;
             sql_exec2.SQL.Clear;
-            sql_exec2.SQL.Add('delete from cest');
+            sql_exec2.SQL.Add('delete from cest where remoto = '+quotedstr('S') );
             sql_exec2.ExecSQL;
 
             cds_segmento_cest.Active := false;
             sql_segmento_cest.Active := false;
             sql_segmento_cest.SQL.Clear;
-            sql_segmento_cest.SQL.Add('select * from segmento_cest');
+            sql_segmento_cest.SQL.Add('select * from segmento_cest where proprio = '+quotedstr('S'));
             sql_segmento_cest.Active := true;
             cds_segmento_cest.Active := true;
+
+            cds_cest.Active := false;
+            sql_cest.Active := false;
+            sql_cest.SQL.Clear;
+            sql_cest.SQL.Add('select * from cest');
+            sql_cest.Active := true;
+            cds_cest.Active := true;
 
             sql_emitente.Active := false;
             sql_emitente.SQL.Clear;
@@ -2296,9 +2338,6 @@ begin
                       cds_segmento_cest.Next;
                    end;
                  //endw
-
-
-
 
                 lblmensagem.Caption  := 'Baixando tabelas do WebService, atualizando Produtos, registro: '+ sql_exec2.fieldbyname('codigo').AsString +' aguarde!';
                 frmprincipal.Update;
@@ -2374,6 +2413,19 @@ end;
 procedure Tfrmprincipal.Button2Click(Sender: TObject);
 begin
 BaixarNCM1Click(Sender);
+end;
+
+procedure Tfrmprincipal.CdigoEspecificadorSubsTributria1Click(
+  Sender: TObject);
+begin
+  fechatodos;
+  if frmpesqcest = nil then
+     begin
+       frmpesqcest := tfrmpesqcest.create(self);
+       frmpesqcest.show;
+     end;
+  //endi
+
 end;
 
 end.

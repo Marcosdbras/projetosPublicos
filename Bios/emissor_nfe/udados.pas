@@ -1551,23 +1551,28 @@ type
     ClientDataSet1csegmento: TIntegerField;
     ClientDataSet1codesp: TWideStringField;
     SimpleDataSet1: TSimpleDataSet;
+    sql_seg_cest: TZQuery;
+    IntegerField1: TIntegerField;
+    IntegerField3: TIntegerField;
+    StringField1: TStringField;
+    StringField2: TStringField;
     sql_cestcodigo: TIntegerField;
     sql_cestid: TIntegerField;
     sql_cestcodesp: TStringField;
     sql_cestncm: TStringField;
     sql_cestdescricao: TStringField;
     sql_cestcsegmento: TIntegerField;
+    sql_cestremoto: TStringField;
+    sql_cestcodremoto: TIntegerField;
     cds_cestcodigo: TIntegerField;
     cds_cestid: TIntegerField;
     cds_cestcodesp: TStringField;
     cds_cestncm: TStringField;
     cds_cestdescricao: TStringField;
     cds_cestcsegmento: TIntegerField;
-    sql_seg_cest: TZQuery;
-    IntegerField1: TIntegerField;
-    IntegerField3: TIntegerField;
-    StringField1: TStringField;
-    StringField2: TStringField;
+    cds_cestremoto: TStringField;
+    cds_cestcodremoto: TIntegerField;
+    cds_Tempcodtemp2: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
     procedure dts_clientesDataChange(Sender: TObject; Field: TField);
     procedure dts_emitenteDataChange(Sender: TObject; Field: TField);
@@ -1737,10 +1742,11 @@ type
     procedure dts_produtosDataChange(Sender: TObject; Field: TField);
     procedure cds_cestAfterDelete(DataSet: TDataSet);
     procedure cds_cestAfterPost(DataSet: TDataSet);
-    procedure cds_cestNewRecord(DataSet: TDataSet);
     procedure cds_segmento_cestAfterDelete(DataSet: TDataSet);
     procedure cds_segmento_cestAfterPost(DataSet: TDataSet);
     procedure cds_segmento_cestNewRecord(DataSet: TDataSet);
+    procedure cds_cestNewRecord(DataSet: TDataSet);
+    procedure cds_segmento_cestAfterScroll(DataSet: TDataSet);
     
   private
     { Private declarations }
@@ -1788,7 +1794,8 @@ var
   frmdados: Tfrmdados;
 
 implementation
-    uses ugeral, upesqnf, upesqclientes, uprincipal, upesqprodutos, upesqnfemi, uSplash;
+    uses ugeral, upesqnf, upesqclientes, uprincipal, upesqprodutos, upesqnfemi, uSplash,
+  upesqcest;
 {$R *.dfm}
 
 procedure Tfrmdados.DataModuleCreate(Sender: TObject);
@@ -8512,19 +8519,6 @@ begin
 cds_cest.ApplyUpdates(0);
 end;
 
-procedure Tfrmdados.cds_cestNewRecord(DataSet: TDataSet);
-begin
-    {
-    sql_consulta.Active := false;
-    sql_consulta.SQL.Clear;
-    sql_consulta.SQL.Add('select max(id)+1 as contador from cest');
-    sql_consulta.Active := true;
-
-    Cds_cest.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
-    Cds_cest.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
-    }
-end;
-
 procedure Tfrmdados.cds_segmento_cestAfterDelete(DataSet: TDataSet);
 begin
 cds_segmento_cest.ApplyUpdates(0);
@@ -8546,6 +8540,37 @@ begin
     Cds_segmento_cest.FieldByName('id').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
     Cds_segmento_cest.FieldByName('codigo').AsInteger :=  sql_consulta.fieldbyname('contador').asInteger;
     }
+end;
+
+procedure Tfrmdados.cds_cestNewRecord(DataSet: TDataSet);
+begin
+    sql_consulta.Active := false;
+    sql_consulta.SQL.Clear;
+    //sql_consulta.SQL.Add('select  max(  COALESCE(id,0)   )+1 as contador from cest');
+    sql_consulta.SQL.Add('select  max(id)+1 as contador from cest');
+    sql_consulta.Active := true;
+
+    Cds_cest.FieldByName('id').AsInteger := sql_consulta.fieldbyname('contador').asInteger;
+    Cds_cest.FieldByName('codigo').AsInteger := sql_consulta.fieldbyname('contador').asInteger;
+
+end;
+
+procedure Tfrmdados.cds_segmento_cestAfterScroll(DataSet: TDataSet);
+begin
+
+  if frmpesqcest <> nil then
+     begin
+
+       cds_cest.Active := false;
+       sql_cest.Active := false;
+       sql_cest.SQL.Clear;
+       sql_cest.SQL.Add('select * from cest where csegmento = '+cds_segmento_cest.fieldbyname('id').AsString  );
+       sql_cest.Active := true;
+       cds_cest.Active := true;
+
+
+     end;
+  //endif
 end;
 
 end.

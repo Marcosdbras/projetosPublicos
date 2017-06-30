@@ -1,6 +1,6 @@
 object frmpesqClientes: TfrmpesqClientes
-  Left = 75
-  Top = 92
+  Left = 34
+  Top = 93
   Width = 968
   Height = 594
   Caption = 'Pesquisa de Clientes'
@@ -280,7 +280,7 @@ object frmpesqClientes: TfrmpesqClientes
       Top = 49
       Width = 797
       Height = 411
-      ActivePage = tbsficha
+      ActivePage = tbslista
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack

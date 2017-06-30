@@ -888,7 +888,8 @@ Type
 
 
 implementation
-uses baixarncm,
+uses upesqcest,
+     baixarncm,
      upesqcf,
      upesqcfop,
      upesqclientes,
@@ -944,10 +945,6 @@ begin
   with frmdados do
     begin
 
-       sql_indice.Active := false;
-       sql_indice.SQL.Clear;
-       sql_indice.SQL.Add('select * from indice');
-       sql_indice.Active := true;
 
        sql_dados.Active := false;
        sql_dados.SQL.Clear;
@@ -992,47 +989,53 @@ begin
 
                                  sql_dados.Active := false;
                                  sql_dados.SQL.Clear;
-                                 sql_dados.SQL.Add('select * from cest where id = '+id);
-
-
+                                 sql_dados.SQL.Add('select * from cest where codremoto = '+id+' and remoto = '+quotedstr('S') );
                                  sql_dados.Active := true;
-
 
                                  if (sql_dados.RecordCount = 0) then
                                      begin
 
+                                       //cds_cest.Append;
+                                       //cds_cest.FieldByName('codremoto').AsInteger := strtoint(id);
+                                       //cds_cest.FieldByName('descricao').AsString := descricao;
+                                       //cds_cest.FieldByName('ncm').AsString := ncm;
+                                       //cds_cest.FieldByName('codesp').AsString := cest;
+                                       //cds_cest.FieldByName('csegmento').AsString := cseg;
+                                       //cds_cest.FieldByName('remoto').AsString := 'S';
+                                       //cds_cest.Post;
+
+
                                        sql_cest.Active := false;
                                        sql_cest.SQL.Clear;
-                                       sql_cest.SQL.Add('insert into cest(id,descricao,ncm,codesp,csegmento,codigo) values (:id,:descricao,:ncm,:cest,:csegmento,:codigo);');
+                                       sql_cest.SQL.Add('insert into cest(id,descricao,ncm,codesp,csegmento,codigo,remoto,codremoto) values (:id,:descricao,:ncm,:cest,:csegmento,:codigo,:remoto,:codremoto);');
 
-                                       sql_cest.Params.ParamByName('id').AsInteger := strtoint(id);
+                                       sql_cest.Params.ParamByName('codremoto').AsInteger := strtoint(id);
                                        sql_cest.Params.ParamByName('descricao').AsString := descricao;
                                        sql_cest.Params.ParamByName('ncm').AsString := ncm;
                                        sql_cest.Params.ParamByName('cest').AsString := cest;
                                        sql_cest.Params.ParamByName('csegmento').AsString := cseg;
-                                       sql_cest.Params.ParamByName('codigo').AsInteger := strtoint(id);
-                                       sql_cest.ExecSQL;
 
-                                     end
-                                 else
-                                    begin
+                                       sql_cest.Params.ParamByName('remoto').AsString := 'S';
+                                       sql_cest.ExecSQL; 
 
-                                       sql_cest.Active := false;
-                                       sql_cest.SQL.Clear;
-                                       sql_cest.SQL.Add('update cest set descricao = :descricao, ncm = :ncm, codesp = :cest, csegmento = :cseg, codigo = :codigo where id = :id;');
-
-                                       sql_cest.Params.ParamByName('id').AsInteger := strtoint(id);
-                                       sql_cest.Params.ParamByName('descricao').AsString := descricao;
-                                       sql_cest.Params.ParamByName('ncm').AsString := ncm;
-                                       sql_cest.Params.ParamByName('cest').AsString := cest;
-                                       sql_cest.Params.ParamByName('cseg').AsString := cseg;
-                                       sql_cest.Params.ParamByName('codigo').Asinteger := strtoint(id);
-                                       sql_cest.ExecSQL;
-
-
-
-                                    end;
+                                     end;
                                  //endiif
+
+                                 
+
+                                 // else
+                                 //   begin
+                                 //      sql_cest.Active := false;
+                                 //      sql_cest.SQL.Clear;
+                                 //      sql_cest.SQL.Add('update cest set descricao = :descricao, ncm = :ncm, codesp = :cest, csegmento = :cseg, codigo = :codigo where codremoto = :id;');
+                                 //      sql_cest.Params.ParamByName('id').AsInteger := strtoint(id);
+                                 //      sql_cest.Params.ParamByName('descricao').AsString := descricao;
+                                 //      sql_cest.Params.ParamByName('ncm').AsString := ncm;
+                                 //      sql_cest.Params.ParamByName('cest').AsString := cest;
+                                 //      sql_cest.Params.ParamByName('cseg').AsString := cseg;
+                                 //      sql_cest.Params.ParamByName('codigo').Asinteger := strtoint(id);
+                                 //      sql_cest.ExecSQL;
+                                 //   end;
 
                                  //cdsDadoscest.fieldbyname('id').asinteger := strtoint(id);
                                  //cdsDadoscest.fieldbyname('descricao').asstring := descricao;
@@ -1625,6 +1628,11 @@ end;
 
 procedure fechatodos;
 begin
+
+ if Frmpesqcest <> nil then
+    Frmpesqcest.close;
+ //endi  
+
  if Frmbaixarncm <> nil then
     Frmbaixarncm.close;
  //endi

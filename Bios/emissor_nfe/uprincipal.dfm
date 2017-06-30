@@ -364,6 +364,10 @@ object frmprincipal: Tfrmprincipal
           Caption = 'Simples Nacional (CSOSN)'
           OnClick = CSOSN1Click
         end
+        object CdigoEspecificadorSubsTributria1: TMenuItem
+          Caption = 'C'#243'digo Especificador Subs. Tribut'#225'ria (CESP)'
+          OnClick = CdigoEspecificadorSubsTributria1Click
+        end
       end
       object Produtos1: TMenuItem
         Caption = '&Produtos'

@@ -120,7 +120,9 @@ uses
   ucalc_olho_no_imp in 'ucalc_olho_no_imp.pas' {frmcalc_olho_no_imp},
   upesqcfop in 'upesqcfop.pas' {frmpesqCFOP},
   ufiltrocfop in 'ufiltrocfop.pas' {FrmFiltroCFOP},
-  urelcfop in 'urelcfop.pas' {frmrelcfop};
+  urelcfop in 'urelcfop.pas' {frmrelcfop},
+  upesqcest in 'upesqcest.pas' {frmpesqcest},
+  ucest in 'ucest.pas' {frmcest};
 
 {$R *.res}
 
@@ -134,6 +136,7 @@ begin
   Application.CreateForm(TfrmDados, frmDados);
   Application.CreateForm(Tfrmconexao_ibpt, frmconexao_ibpt);
   Application.CreateForm(Tfrmprincipal, frmprincipal);
+  Application.CreateForm(Tfrmcest, frmcest);
   Atualizar;
   frmSplash.Hide;
   frmSplash.Free;
