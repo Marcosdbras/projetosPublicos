@@ -253,7 +253,7 @@ begin
   //endi
 
   // inicializando variáveis comuns
-  sCompo := 'COALESCE(cfun,0) > 0';
+  sCompo := '(COALESCE(cfun,0) > 0) and ((eous = '+quotedstr('S')+') or (eous is null)'+')';
   sTitRel := '';
 
   // inicializando variáveis deste filtro

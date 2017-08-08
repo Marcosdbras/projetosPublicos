@@ -1,4 +1,4 @@
-unit uprincipal; 
+unit uprincipal;
 
 interface
 
@@ -86,7 +86,6 @@ type
     odpExec: TOpenDialog;
     lHTTP: TIdHTTP;
     XMLEnvio: TXMLDocument;
-    Button2: TButton;
     reResp: TMemo;
     IdHTTP1: TIdHTTP;
     XMLDocument1: TXMLDocument;
@@ -96,6 +95,8 @@ type
     Sobre1: TMenuItem;
     Button3: TButton;
     CdigoEspecificadorSubsTributria1: TMenuItem;
+    Panel3: TPanel;
+    Button2: TButton;
 
     //Response: TStringStream;
     //Arquivo: TIdMultipartFormDataStream;
@@ -1303,14 +1304,10 @@ begin
         //atualizaCliente;
 
         consultaEmitente;
-        consultavencidos;
 
         atualizaSegmentoCestProprio;
-        atualizaSegmentoCestNormal;
 
-
-
-
+        consultavencidos;
 
       except
         reResp.Lines.Add('erro ao sincronizar dados');
@@ -2254,11 +2251,14 @@ var
 begin
 
   if application.MessageBox('Este procedimento vai tornar o sistema insdisponível por alguns minutos'+#13+
-                            'Deseja realmente baixar tabelas do WebService agora?','Atenção',mb_yesno)=mryes
+                            'Deseja realmente baixar tabela geral do WebService agora?','Atenção',mb_yesno)=mryes
   then
     begin
       lblmensagem.Caption  := 'Baixando tabelas do WebService, aguarde!';
       frmprincipal.Update;
+
+
+      atualizaSegmentoCestNormal;
 
       with frmdados do
          begin
@@ -2266,7 +2266,7 @@ begin
             sql_exec2.Active := false;
             sql_exec2.SQL.Clear;
             sql_exec2.SQL.Add('delete from ibpt');
-            sql_exec2.ExecSQL; 
+            sql_exec2.ExecSQL;
 
             sql_exec2.Active := false;
             sql_exec2.SQL.Clear;
@@ -2277,6 +2277,10 @@ begin
             sql_segmento_cest.Active := false;
             sql_segmento_cest.SQL.Clear;
             sql_segmento_cest.SQL.Add('select * from segmento_cest where proprio = '+quotedstr('S'));
+
+
+            //sql_segmento_cest.SQL.Add('select * from segmento_cest');
+
             sql_segmento_cest.Active := true;
             cds_segmento_cest.Active := true;
 
@@ -2349,10 +2353,18 @@ begin
 
          end;
       //endth
+      
 
       lblmensagem.Caption  := '';
     end;
   //endi
+
+
+
+
+
+
+
 
   {
   fechatodos;
@@ -2423,6 +2435,7 @@ begin
      begin
        frmpesqcest := tfrmpesqcest.create(self);
        frmpesqcest.show;
+       
      end;
   //endi
 

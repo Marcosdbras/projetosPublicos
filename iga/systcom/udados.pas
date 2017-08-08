@@ -4496,6 +4496,10 @@ type
     Cds_sVendaTIPODOC: TIntegerField;
     Dbx_sVendaCODATEND: TIntegerField;
     Cds_sVendaCODATEND: TIntegerField;
+    Dbx_ComissaoEOUS: TStringField;
+    Cds_ComissaoEOUS: TStringField;
+    Dbx_ComissaoREOUS: TStringField;
+    Cds_ComissaoREOUS: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure cds_Tipo_PgtoAfterPost(DataSet: TDataSet);

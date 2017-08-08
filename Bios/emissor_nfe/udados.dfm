@@ -4,7 +4,6 @@ object frmdados: Tfrmdados
   Left = 1
   Top = 8
   Height = 733
-  VerticalOffset = 166
   Width = 1019
   object cds_Paises: TClientDataSet
     Aggregates = <>

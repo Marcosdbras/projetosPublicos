@@ -1,9 +1,9 @@
 object frmprincipal: Tfrmprincipal
-  Left = 1
-  Top = 1
-  Width = 973
-  Height = 702
-  HorzScrollBar.Position = 342
+  Left = -4
+  Top = -4
+  Width = 1032
+  Height = 746
+  HorzScrollBar.Position = 313
   Caption = 'Emissor NFE vers'#227'o 1.11'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -22,14 +22,14 @@ object frmprincipal: Tfrmprincipal
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
-    Left = -342
+    Left = -313
     Top = 42
     Width = 1337
-    Height = 591
+    Height = 599
     Align = alClient
   end
   object Label1: TLabel
-    Left = -326
+    Left = -297
     Top = 56
     Width = 32
     Height = 13
@@ -37,7 +37,7 @@ object frmprincipal: Tfrmprincipal
     Visible = False
   end
   object Label2: TLabel
-    Left = -326
+    Left = -297
     Top = 72
     Width = 32
     Height = 13
@@ -45,7 +45,7 @@ object frmprincipal: Tfrmprincipal
     Visible = False
   end
   object pnlcentral: TPanel
-    Left = -326
+    Left = -297
     Top = 56
     Width = 1321
     Height = 577
@@ -100,7 +100,7 @@ object frmprincipal: Tfrmprincipal
     end
   end
   object Panel1: TPanel
-    Left = -342
+    Left = -313
     Top = 0
     Width = 1337
     Height = 42
@@ -169,23 +169,32 @@ object frmprincipal: Tfrmprincipal
         OnClick = btnimportarClick
         NumGlyphs = 2
       end
+    end
+    object Panel3: TPanel
+      Left = 1080
+      Top = 0
+      Width = 257
+      Height = 42
+      Align = alRight
+      BevelOuter = bvNone
+      TabOrder = 1
       object Button2: TButton
-        Left = 597
+        Left = 132
         Top = 1
         Width = 117
         Height = 37
         Hint = 'Baixar Tabelas do WebService'
         BiDiMode = bdLeftToRight
-        Caption = 'WebService'
+        Caption = 'Baixar Tabela Geral'
         ParentBiDiMode = False
-        TabOrder = 5
+        TabOrder = 0
         OnClick = Button2Click
       end
     end
   end
   object Panel2: TPanel
-    Left = -342
-    Top = 633
+    Left = -313
+    Top = 641
     Width = 1337
     Height = 24
     Align = alBottom
@@ -206,14 +215,14 @@ object frmprincipal: Tfrmprincipal
     end
   end
   object StatusBar1: TStatusBar
-    Left = -342
-    Top = 657
+    Left = -313
+    Top = 665
     Width = 1337
     Height = 19
     Panels = <>
   end
   object reResp: TMemo
-    Left = 114
+    Left = 143
     Top = 352
     Width = 513
     Height = 193
@@ -391,7 +400,7 @@ object frmprincipal: Tfrmprincipal
     object utilitario1: TMenuItem
       Caption = 'Utilit'#225'rios'
       object BaixarNCM1: TMenuItem
-        Caption = 'Baixar Tabelas do WebService'
+        Caption = 'Baixar Tabela Geral'
         OnClick = BaixarNCM1Click
       end
       object N10: TMenuItem

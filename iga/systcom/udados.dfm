@@ -16194,6 +16194,11 @@ object frmDados: TfrmDados
       FixedChar = True
       Size = 1
     end
+    object Dbx_ComissaoEOUS: TStringField
+      FieldName = 'EOUS'
+      FixedChar = True
+      Size = 1
+    end
   end
   object Dsp_Comissao: TDataSetProvider
     DataSet = Dbx_Comissao
@@ -16316,6 +16321,11 @@ object frmDados: TfrmDados
       FixedChar = True
       Size = 1
     end
+    object Cds_ComissaoEOUS: TStringField
+      FieldName = 'EOUS'
+      FixedChar = True
+      Size = 1
+    end
   end
   object Dts_Comissao: TDataSource
     DataSet = Cds_Comissao
@@ -16383,6 +16393,11 @@ object frmDados: TfrmDados
     end
     object Dbx_ComissaoRCEMP: TIntegerField
       FieldName = 'CEMP'
+    end
+    object Dbx_ComissaoREOUS: TStringField
+      FieldName = 'EOUS'
+      FixedChar = True
+      Size = 1
     end
   end
   object Dsp_ComissaoR: TDataSetProvider
@@ -16472,6 +16487,11 @@ object frmDados: TfrmDados
     end
     object Cds_ComissaoRCEMP: TIntegerField
       FieldName = 'CEMP'
+    end
+    object Cds_ComissaoREOUS: TStringField
+      FieldName = 'EOUS'
+      FixedChar = True
+      Size = 1
     end
   end
   object Dts_ComissaoR: TDataSource

@@ -7166,11 +7166,15 @@ begin
                 cds_Comissao.FieldByName('cfun').asInteger := icfun;
                 cds_Comissao.FieldByName('Descricao').asString := 'Venda Balcão';
                 cds_Comissao.FieldByName('Servico').asString := cds_vendab.fieldbyname('npro').asString;
+
+                cds_Comissao.FieldByName('eous').asString := cds_vendab.fieldbyname('eous').asString;
+
                 cds_Comissao.FieldByName('DTE').asDatetime := date;
                 cds_Comissao.FieldByName('DataFec').asDatetime := date;
                 cds_comissao.FieldByName('valor').asfloat := cds_vendab.fieldbyname('Subtotal').asfloat;
                 cds_comissao.FieldByName('pcomf').asfloat := fpcomf;
                 cds_comissao.FieldByName('vcomf').asfloat := (fpcomf/100)*cds_vendab.fieldbyname('Subtotal').asfloat;
+
                 cds_comissao.Post;
 
                 cds_vendab.Next;

@@ -295,6 +295,7 @@ object frmPesqVf: TfrmPesqVf
       Height = 13
       Alignment = taRightJustify
       Caption = 'lbldin'
+      Visible = False
     end
     object Label4: TLabel
       Left = 550
@@ -302,6 +303,7 @@ object frmPesqVf: TfrmPesqVf
       Width = 33
       Height = 13
       Caption = 'A Vista'
+      Visible = False
     end
     object Label5: TLabel
       Left = 552
@@ -309,6 +311,7 @@ object frmPesqVf: TfrmPesqVf
       Width = 37
       Height = 13
       Caption = #192' Prazo'
+      Visible = False
     end
     object lblaprazo: TLabel
       Left = 639
@@ -317,6 +320,7 @@ object frmPesqVf: TfrmPesqVf
       Height = 13
       Alignment = taRightJustify
       Caption = 'lblaprazo'
+      Visible = False
     end
     object Label10: TLabel
       Left = 552
@@ -324,6 +328,7 @@ object frmPesqVf: TfrmPesqVf
       Width = 24
       Height = 13
       Caption = 'Total'
+      Visible = False
     end
     object lbltotal: TLabel
       Left = 648
@@ -332,6 +337,7 @@ object frmPesqVf: TfrmPesqVf
       Height = 13
       Alignment = taRightJustify
       Caption = 'lbltotal'
+      Visible = False
     end
     object SpeedButton1: TSpeedButton
       Left = 8

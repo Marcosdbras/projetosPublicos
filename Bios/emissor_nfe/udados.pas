@@ -1795,7 +1795,7 @@ var
 
 implementation
     uses ugeral, upesqnf, upesqclientes, uprincipal, upesqprodutos, upesqnfemi, uSplash,
-  upesqcest;
+  upesqcest, ucest;
 {$R *.dfm}
 
 procedure Tfrmdados.DataModuleCreate(Sender: TObject);
@@ -8558,7 +8558,7 @@ end;
 procedure Tfrmdados.cds_segmento_cestAfterScroll(DataSet: TDataSet);
 begin
 
-  if frmpesqcest <> nil then
+  if (frmpesqcest <> nil) and  (frmpesqcest.opcao = '') then
      begin
 
        cds_cest.Active := false;
