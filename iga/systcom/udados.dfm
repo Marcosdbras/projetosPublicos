@@ -6955,6 +6955,8 @@ object frmDados: TfrmDados
     AfterEdit = Cds_IndiceAfterEdit
     BeforePost = Cds_IndiceBeforePost
     AfterPost = Cds_invsysfAfterPost
+    BeforeDelete = Cds_invsysfBeforeDelete
+    AfterDelete = Cds_invsysfAfterDelete
     OnNewRecord = Cds_IndiceNewRecord
     AfterApplyUpdates = Cds_IndiceAfterApplyUpdates
     Left = 64
@@ -20898,6 +20900,10 @@ object frmDados: TfrmDados
         Name = 'filename'
         DataType = ftString
         Size = 200
+      end
+      item
+        Name = 'cfun'
+        DataType = ftInteger
       end>
     IndexDefs = <>
     Params = <>
@@ -20910,6 +20916,9 @@ object frmDados: TfrmDados
     object cds_temporariofilename: TStringField
       FieldName = 'filename'
       Size = 200
+    end
+    object cds_temporariocfun: TIntegerField
+      FieldName = 'cfun'
     end
   end
   object cds_caixa: TClientDataSet
@@ -21825,5 +21834,28 @@ object frmDados: TfrmDados
     Left = 904
     Top = 300
     DOMVendorDesc = 'MSXML'
+  end
+  object Dbx_TotalComissaoVenda: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'Select * from matprima')
+    SQLConnection = Sql_Dados
+    Left = 655
+    Top = 380
+  end
+  object Dbx_TotalDevolucaoComissao: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'Select * from matprima')
+    SQLConnection = Sql_Dados
+    Left = 655
+    Top = 536
+  end
+  object dts_temporario: TDataSource
+    DataSet = cds_temporario
+    Left = 451
+    Top = 316
   end
 end

@@ -2400,6 +2400,34 @@ object frmprincipal: Tfrmprincipal
         OnClick = Sair1Click
       end
     end
+    object Naovisivel1: TMenuItem
+      Caption = 'Nao visivel'
+      Visible = False
+      object Alterarqtde1: TMenuItem
+        Tag = 104
+        Caption = 'Alterar qtde'
+      end
+      object Produtosaltprvenda: TMenuItem
+        Tag = 105
+        Caption = 'Produtosaltprvenda'
+      end
+      object Produtosaltcusto: TMenuItem
+        Tag = 106
+        Caption = 'Produtosaltcusto'
+      end
+      object Produtosviscusto: TMenuItem
+        Tag = 107
+        Caption = 'Produtosviscusto'
+      end
+      object Produtosentradaavulsa: TMenuItem
+        Tag = 108
+        Caption = 'Produtosentradaavulsa'
+      end
+      object Produtossaidaavulsa: TMenuItem
+        Tag = 109
+        Caption = 'Produtossaidaavulsa'
+      end
+    end
   end
   object AplEvento: TApplicationEvents
     OnException = AplEventoException

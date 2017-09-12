@@ -46,6 +46,10 @@ type
     lbltotvalvlrc: TLabel;
     Bevel7: TBevel;
     spdrelatorios176: TSpeedButton;
+    Label9: TLabel;
+    lbltotvlrdev: TLabel;
+    Label11: TLabel;
+    lbltotliquido: TLabel;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -89,6 +93,8 @@ type
       Shift: TShiftState);
     procedure cbxnomefunDropDown(Sender: TObject);
     procedure spdrelatorios176Click(Sender: TObject);
+    procedure dbgcfunDrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
 
 
   private
@@ -253,7 +259,8 @@ begin
   //endi
 
   // inicializando variáveis comuns
-  sCompo := '(COALESCE(cfun,0) > 0) and ((eous = '+quotedstr('S')+') or (eous is null)'+')';
+  //sCompo := '(COALESCE(cfun,0) > 0) and ((eous = '+quotedstr('S')+') or (eous is null)'+')';
+  sCompo := '(COALESCE(cfun,0) > 0)';
   sTitRel := '';
 
   // inicializando variáveis deste filtro
@@ -528,48 +535,64 @@ begin
     with frmdados do
        begin
          Dbx_Comissao.active := false;
-         Dbx_Exec.Active := false;
+         Dbx_TotalComissaoVenda.Active := false;
+         Dbx_TotalDevolucaoComissao.Active := false;
 
          Dbx_Comissao.sql.Clear;
-         Dbx_exec.SQL.Clear;
+         Dbx_TotalComissaoVenda.SQL.Clear;
+         Dbx_TotalDevolucaoComissao.SQL.Clear;
 
          if sCompo <> '' then
             begin
               Dbx_Comissao.sql.Add('select * from Comissao where ('+sCompo+') order by '+sClassificar);
-              Dbx_Exec.SQL.Add('Select sum(valor) as totvalor, sum(vcomf) as vlrcom from Comissao where ('+sCompo+')');
+              Dbx_TotalComissaoVenda.SQL.Add('Select sum(valor) as totvalor, sum(vcomf) as vlrcom from Comissao where ('+sCompo+') and (    (eous = '+quotedstr('S')+')  or (eous is null)    )'  );
+              Dbx_TotalDevolucaoComissao.SQL.Add('Select sum(valor) as totvalor, sum(vcomf) as vlrcom from Comissao where ('+sCompo+') and (eous = '+quotedstr('E')+')'  );
+              //Dbx_TotalDevolucaoComissao 
             end
          else
             begin
               Dbx_Comissao.sql.Add('select * from Comissao order by '+sClassificar);
-              Dbx_Exec.sql.Add('Select sum(valor) as totvalor,sum(vcomf) as vlrcom from Comissao ');
+              Dbx_TotalComissaoVenda.sql.Add('Select sum(valor) as totvalor,sum(vcomf) as vlrcom from Comissao where (eous = '+quotedstr('S')+') or (eous is null)    )  ');
+              Dbx_TotalDevolucaoComissao.sql.Add('Select sum(valor) as totvalor,sum(vcomf) as vlrcom from Comissao where eous = '+quotedstr('E'));
             end;
          //endi
 
          Dbx_Comissao.active := true;
-         Dbx_Exec.Active := true;
+         Dbx_TotalComissaoVenda.Active := true;
+         Dbx_TotalDevolucaoComissao.Active := true;
 
          if Dbx_Comissao.recordcount = 0 then
             begin
               if sDesc <> '' then
                  begin
                    Dbx_Comissao.active := false;
-                   Dbx_Exec.Active := false;
+                   Dbx_TotalComissaoVenda.Active := false;
+                   Dbx_TotalDevolucaoComissao.Active := false;
 
                    Dbx_Comissao.sql.Clear;
-                   Dbx_exec.SQL.Clear;
+                   Dbx_TotalComissaoVenda.SQL.Clear;
+                   Dbx_TotalDevolucaoComissao.SQL.Clear;
 
                    Dbx_Comissao.sql.Add('select * from Comissao where '+sClassificar+' like '+quotedstr('%'+sDesc+'%')+' order by '+sClassificar);
-                   Dbx_exec.sql.Add('Select sum(valor) as totvalor, sum(vcomf) as vlrcom from Comissao where '+sClassificar+' like '+quotedstr('%'+sDesc+'%'));
+                   Dbx_TotalComissaoVenda.sql.Add('Select sum(valor) as totvalor, sum(vcomf) as vlrcom from Comissao where '+sClassificar+' like '+quotedstr('%'+sDesc+'%')+' and (eous = '+quotedstr('S')+') or (eous is null)    )' );
+                   Dbx_TotalDevolucaoComissao.sql.Add('Select sum(valor) as totvalor, sum(vcomf) as vlrcom from Comissao where '+sClassificar+' like '+quotedstr('%'+sDesc+'%')+' and eous = '+quotedstr('E') );
+                   //Dbx_TotalDevolucaoComissao
 
                    Dbx_Comissao.active := true;
-                   Dbx_Exec.active := true;
+                   Dbx_TotalComissaoVenda.active := true;
+                   Dbx_TotalDevolucaoComissao.Active := true;
                  end;
               //endi
             end;
          //endi
 
-         lbltotval.Caption := formatfloat('###,###,##0.00',Dbx_Exec.fieldbyname('totvalor').asfloat);
-         lbltotvalvlrc.Caption := formatfloat('###,###,##0.00',Dbx_Exec.fieldbyname('vlrcom').asfloat);
+         lbltotval.Caption := formatfloat('###,###,##0.00',Dbx_TotalComissaoVenda.fieldbyname('totvalor').asfloat);
+         lbltotvlrdev.Caption := formatfloat('###,###,##0.00',Dbx_TotalDevolucaoComissao.fieldbyname('totvalor').asfloat);
+         lbltotliquido.Caption := formatfloat('###,###,##0.00', Dbx_TotalComissaoVenda.fieldbyname('totvalor').asfloat - Dbx_TotalDevolucaoComissao.fieldbyname('totvalor').asfloat);
+         lbltotvalvlrc.Caption := formatfloat('###,###,##0.00', Dbx_TotalComissaoVenda.fieldbyname('vlrcom').asfloat -  Dbx_TotalDevolucaoComissao.fieldbyname('vlrcom').asfloat );
+
+
+         //lbltotvalvlrc.Caption := formatfloat('###,###,##0.00',Dbx_TotalComissaoVenda.fieldbyname('vlrcom').asfloat);
 
        end;
     //endth
@@ -844,6 +867,27 @@ begin
   frmMRcfun := tfrmMRcfun.Create(self);
   frmMRcfun.Showmodal;
   frmMRcfun.free;
+end;
+
+procedure TfrmPesqcfun.dbgcfunDrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn;
+  State: TGridDrawState);
+begin
+  if frmdados.Cds_Comissao.FieldByName('eous').AsString = 'S' then
+     begin
+       dbgcfun.Canvas.Font.Color:= clGreen;
+       dbgcfun.Canvas.FillRect(Rect);
+       dbgcfun.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+     end;
+
+  if frmdados.Cds_Comissao.FieldByName('eous').AsString = 'E' then
+     begin
+       dbgcfun.Canvas.Font.Color:= clRed;
+       dbgcfun.Canvas.FillRect(Rect);
+       dbgcfun.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+     end;
+
+
 end;
 
 end.

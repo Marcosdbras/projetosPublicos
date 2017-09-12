@@ -1759,7 +1759,6 @@ object frmfrenteecf: Tfrmfrenteecf
     Top = 3
     Width = 132
     Height = 134
-    OnClick = ckbentradaClick
   end
   object Label1: TLabel
     Left = 773
@@ -1943,7 +1942,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object pnlinferior: TPanel
     Left = 0
-    Top = 688
+    Top = 687
     Width = 1016
     Height = 44
     Align = alBottom
@@ -2217,6 +2216,19 @@ object frmfrenteecf: Tfrmfrenteecf
       ShowHint = True
       OnClick = spdalteracupomClick
     end
+    object Label25: TLabel
+      Left = 761
+      Top = 0
+      Width = 92
+      Height = 13
+      Caption = 'Total de devolu'#231#227'o'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
     object rchrodape: TRichEdit
       Left = 232
       Top = 0
@@ -2241,22 +2253,6 @@ object frmfrenteecf: Tfrmfrenteecf
       TabOrder = 0
       OnEnter = rchrodapeEnter
     end
-    object ckbentrada: TCheckBox
-      Left = 762
-      Top = 0
-      Width = 75
-      Height = 17
-      TabStop = False
-      Caption = '&Devolu'#231#227'o'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 1
-      OnClick = ckbentradaClick
-    end
     object memostatus: TMemo
       Left = 760
       Top = 26
@@ -2270,13 +2266,13 @@ object frmfrenteecf: Tfrmfrenteecf
       Lines.Strings = (
         'memostatus')
       ReadOnly = True
-      TabOrder = 2
+      TabOrder = 1
       OnEnter = memostatusEnter
     end
   end
   object barra: TStatusBar
     Left = 0
-    Top = 732
+    Top = 731
     Width = 1016
     Height = 19
     Color = clBlue
@@ -2438,7 +2434,7 @@ object frmfrenteecf: Tfrmfrenteecf
     Left = 574
     Top = 147
     Width = 434
-    Height = 504
+    Height = 503
     Color = clMoneyGreen
     TabOrder = 6
     object Label26: TLabel
@@ -3567,7 +3563,7 @@ object frmfrenteecf: Tfrmfrenteecf
   end
   object btninferior2: TPanel
     Left = 0
-    Top = 651
+    Top = 650
     Width = 1016
     Height = 37
     Align = alBottom
@@ -3783,6 +3779,14 @@ object frmfrenteecf: Tfrmfrenteecf
       ParentShowHint = False
       ShowHint = True
       OnClick = spdcancelar2310Click
+    end
+    object spdentrada: TSpeedButton
+      Left = 760
+      Top = 3
+      Width = 217
+      Height = 31
+      Caption = '&Devolu'#231#227'o de Mercadoria'
+      OnClick = spdentradaClick
     end
   end
   object pnlinfop: TPanel

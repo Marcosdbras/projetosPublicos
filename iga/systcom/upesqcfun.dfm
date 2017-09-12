@@ -342,34 +342,60 @@ object frmPesqcfun: TfrmPesqcfun
       ParentFont = False
     end
     object Label5: TLabel
-      Left = 276
-      Top = 439
-      Width = 24
-      Height = 13
-      Caption = 'Total'
+      Left = 194
+      Top = 435
+      Width = 80
+      Height = 16
+      Alignment = taRightJustify
+      Caption = 'Venda total'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object lbltotval: TLabel
-      Left = 491
-      Top = 439
-      Width = 36
-      Height = 13
+      Left = 218
+      Top = 455
+      Width = 56
+      Height = 16
       Alignment = taRightJustify
       Caption = 'lbltotval'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object Label4: TLabel
-      Left = 276
-      Top = 455
-      Width = 87
-      Height = 13
-      Caption = 'Total Vlr Comiss'#227'o'
+      Left = 595
+      Top = 435
+      Width = 70
+      Height = 16
+      Alignment = taRightJustify
+      Caption = 'Comiss'#227'o'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object lbltotvalvlrc: TLabel
-      Left = 474
+      Left = 583
       Top = 455
-      Width = 53
-      Height = 13
+      Width = 81
+      Height = 16
       Alignment = taRightJustify
       Caption = 'lbltotvalvlrc'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object Bevel7: TBevel
       Left = 1
@@ -409,6 +435,62 @@ object frmPesqcfun: TfrmPesqcfun
       ShowHint = True
       OnClick = spdrelatorios176Click
     end
+    object Label9: TLabel
+      Left = 301
+      Top = 435
+      Width = 116
+      Height = 16
+      Alignment = taRightJustify
+      Caption = 'Devolu'#231#227'o Total'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lbltotvlrdev: TLabel
+      Left = 339
+      Top = 455
+      Width = 78
+      Height = 16
+      Alignment = taRightJustify
+      Caption = 'lbltotvlrdev'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label11: TLabel
+      Left = 453
+      Top = 435
+      Width = 92
+      Height = 16
+      Alignment = taRightJustify
+      Caption = 'L'#237'quido Total'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lbltotliquido: TLabel
+      Left = 463
+      Top = 455
+      Width = 82
+      Height = 16
+      Alignment = taRightJustify
+      Caption = 'lbltotliquido'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object dbgcfun: TDBGrid
       Left = 2
       Top = 100
@@ -422,6 +504,7 @@ object frmPesqcfun: TfrmPesqcfun
       TitleFont.Height = -11
       TitleFont.Name = 'MS Sans Serif'
       TitleFont.Style = []
+      OnDrawColumnCell = dbgcfunDrawColumnCell
       OnEnter = dbgcfunEnter
       OnExit = dbgcfunExit
       OnKeyDown = dbgcfunKeyDown
@@ -451,7 +534,7 @@ object frmPesqcfun: TfrmPesqcfun
           Expanded = False
           FieldName = 'SERVICO'
           Title.Caption = 'Detalhe / Servi'#231'o'
-          Width = 272
+          Width = 275
           Visible = True
         end
         item

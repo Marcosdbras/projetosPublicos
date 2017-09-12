@@ -900,6 +900,16 @@ Type
    bVencimentosCf,
    bVencimentos_NFCf,
    bProdutosCf,
+
+
+   bProdutosaltqtde,
+   bProdutosaltprvenda,
+   bProdutosaltcusto,
+   bProdutosviscusto,
+   bProdutosentradaavulsa,
+   bProdutossaidaavulsa,
+
+
    bvProdutosCf,
    bvVendasCf,
    bRelPorGrupoCf,
@@ -3149,6 +3159,20 @@ begin
    bVencimentosCf := false;
    bVencimentos_NFCf := false;
    bProdutosCf := false;
+
+
+
+   bProdutosaltqtde := false;
+   bProdutosaltprvenda := false;
+   bProdutosaltcusto := false;
+   bProdutosviscusto := false;
+   bProdutosentradaavulsa := false;
+   bProdutossaidaavulsa := false;
+
+
+   
+
+
    bvProdutosCf := false;
    bvVendasCf := false;
    bRelPorGrupoCf := false;

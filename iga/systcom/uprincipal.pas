@@ -181,6 +181,13 @@ type
     lblmensagem: TLabel;
     Orc1: TMenuItem;
     spdorcamento: TSpeedButton;
+    Naovisivel1: TMenuItem;
+    Alterarqtde1: TMenuItem;
+    Produtosaltprvenda: TMenuItem;
+    Produtosaltcusto: TMenuItem;
+    Produtosviscusto: TMenuItem;
+    Produtosentradaavulsa: TMenuItem;
+    Produtossaidaavulsa: TMenuItem;
     procedure FormShow(Sender: TObject);
     procedure Indice1Click(Sender: TObject);
     procedure DBGrid1KeyPress(Sender: TObject; var Key: Char);

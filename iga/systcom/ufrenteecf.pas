@@ -1,4 +1,4 @@
-unit ufrenteecf;    
+unit ufrenteecf;
                         
 interface
 
@@ -16,7 +16,6 @@ type
     rchrodape: TRichEdit;
     AplEvento: TApplicationEvents;
     SayPrint: TSayPrint;
-    ckbentrada: TCheckBox;
     lbltote: TLabel;
     cbxnomefun: TDBLookupComboBox;
     spdConsultaCliente239: TSpeedButton;
@@ -136,6 +135,8 @@ type
     lbldatamov: TLabel;
     lblstatuscaixa: TLabel;
     Label18: TLabel;
+    spdentrada: TSpeedButton;
+    Label25: TLabel;
 
     procedure limpar;
     procedure FormShow(Sender: TObject);
@@ -150,7 +151,6 @@ type
     procedure edicproExit(Sender: TObject);
     procedure edidescricaoKeyPress(Sender: TObject; var Key: Char);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
-    procedure ckbentradaClick(Sender: TObject);
     procedure spdsalvar233Click(Sender: TObject);
     procedure totais;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -256,6 +256,7 @@ type
     procedure mensatalho;
     procedure lancacaixaind;
     function verificacaixa(cusu:integer):string;
+    procedure spdentradaClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -309,6 +310,8 @@ type
 
     canal_impressora:string;
 
+    bentrada:boolean;
+
     
   public
     { Public declarations }
@@ -317,7 +320,7 @@ type
     fqtde, fprve, fpdescunit, fvdescunit, fsubtotal, fPdescG, fVdescG, fQtdeEstq, fprcu :real;
     icpro, icuni, iccli, iNorc, iNped :Integer;
     iControle, inparc:integer;
-    bApresEstq, bentrada:boolean;
+    bApresEstq:boolean;
     bReimp, bAtualiza:boolean;
     bcaixaAberto, bcaixaerro:boolean;
 
@@ -334,7 +337,7 @@ var
 implementation
   uses ugeral, uDados, upesqprodecf, uloginecf, upesqClicecf, uMensEstqecf,
   ucaixaapecf, ualterapecf, uMp20i, usangriaecf, uingestaoecf, ufimpf, upedprazo,
-  uajustevb, uexcluirPecf, funcoes_ibpt;
+  uajustevb, uexcluirPecf, funcoes_ibpt, urespdevolucao;
 
 {$R *.dfm}
 
@@ -1295,7 +1298,7 @@ if (frmdados.Cds_Indice.FieldByName('ecflanca').asString = 'T') then
 
      if (not bVSEstq) and
         (rgbtipoop.ItemIndex = 1) and
-        (not ckbentrada.Checked)
+        (not bentrada) //entrada.checked
      then
         begin
           if (icpro > 0) then
@@ -1450,11 +1453,13 @@ if key=#27 then
      //endi
      pnlnpro.Visible := true;
 
-     ckbentrada.Checked := false;
+     
 
      lbloperacao.Caption := '';
 
-     bentrada := false;
+      bentrada := false;
+
+     spdentrada.Font.Color := clblack;
 
      edidescricao.Text  := '';
      if edidescricao.Enabled then
@@ -1473,13 +1478,6 @@ if dbgprodutos.Focused then
 
 end;
 
-
-procedure Tfrmfrenteecf.ckbentradaClick(Sender: TObject);
-begin
-
-  modoentrada;
-
-end;
 
 procedure Tfrmfrenteecf.spdsalvar233Click(Sender: TObject);
     var sPrve,
@@ -1564,25 +1562,24 @@ if sImpf = 'DATAREGIS' then
    itipoimpf := 3;
 //endi
 
-
-
 if sDescricao = '' then
    exit;
 //endi
+
 if not bMostrar then
    exit;
 //endi
 
-//if bentrada then
-//   sEouS := 'E'
-//else
-//   sEouS := 'S';
-//endi
-
-if ckbentrada.Checked then
+if bentrada then
    sEouS := 'E'
 else
    sEouS := 'S';
+//endi
+
+//if bentrada_check then
+//   sEouS := 'E'
+//else
+//   sEouS := 'S';
 //endi
 
 bImprimiuecf := false;
@@ -2398,11 +2395,13 @@ with frmdados do
   end;
 //endth
 
-ckbentrada.Checked := false;
+
 
 lbloperacao.Caption := '';
 
 bentrada := false;
+
+spdentrada.Font.Color := clblack;
 
 if frmdados.cds_Vendab.RecordCount > 0 then
    begin
@@ -5939,9 +5938,9 @@ spdfechar236.Enabled := false;
 spdconsultaproduto.Enabled := false;
 pnlfechamento.Visible := true;
 
-ckbentrada.Enabled := false;
+spdentrada.Enabled := false;
 
-ckbentrada.Checked := false;
+
 
 lbloperacao.Caption := '';
 
@@ -6031,9 +6030,9 @@ try
     spdAlterar232.Enabled := true;
     spdalteracupom.Enabled := true;
     spdexcluir234.Enabled := true;
-    ckbentrada.Enabled := true;
+    spdentrada.Enabled := true;
 
-    ckbentrada.Checked := false;
+    
 
     lbloperacao.Caption := '';
 
@@ -6514,9 +6513,7 @@ spdfimp.Enabled := true;
 
 spdconsultaproduto.Enabled := true;
 
-ckbentrada.Enabled := true;
-
-ckbentrada.Checked := false;
+spdentrada.Enabled := true;
 
 lbloperacao.Caption := '';
 
@@ -6589,9 +6586,11 @@ spdalteracupom.Enabled := false;
 
 spdexcluir234.Enabled := false;
 spdfechar236.Enabled := false;
-ckbentrada.Enabled := false;
+spdentrada.Enabled := false;
 
-ckbentrada.Checked := false;
+
+bentrada := false;
+spdentrada.Font.Color := clblack;
 
 lbloperacao.Caption := '';
 
@@ -8103,11 +8102,13 @@ begin
 
            totais;
 
-           ckbentrada.Checked := false;
+           
 
            lbloperacao.Caption := '';
 
            bentrada := false;
+
+           spdentrada.Font.Color := clblack;
 
            if cds_Vendab.RecordCount > 0 then
               begin
@@ -8882,24 +8883,16 @@ end;
 
 
 procedure tfrmfrenteecf.modoentrada;
-begin
+begin 
 
-  if (not ckbentrada.Checked) and (not bdevolveritem) then
-     begin
-      Showmessage('Você não tem permissão para realizar esta operação');
-      ckbentrada.Checked := false;
-      exit;
-     end;
+  //if bentrada_check then
+  //   lbloperacao.Caption := 'Devolução'
+  //else
+  //   lbloperacao.Caption := '';
   //endi
 
-  if ckbentrada.Checked then
-     lbloperacao.Caption := 'Devolução'
-  else
-     lbloperacao.Caption := '';
-  //endi
-
-  if edidescricao.Enabled then
-     edidescricao.SetFocus;
+  //if edidescricao.Enabled then
+  //   edidescricao.SetFocus;
   //endi
 
 
@@ -9245,5 +9238,77 @@ begin
 
 end;
 
+
+procedure Tfrmfrenteecf.spdentradaClick(Sender: TObject);
+begin
+
+  if (spdentrada.Font.Color <> clred) and (not bdevolveritem) then
+     begin
+       Showmessage('Você não tem permissão para realizar esta operação');
+
+       bentrada := false;
+
+       spdentrada.Font.Color := clblack;
+
+       exit;
+     end;
+  //endi
+
+
+  if (spdentrada.Font.Color = clred) then
+     begin
+
+         bentrada := false;
+
+         spdentrada.Font.Color := clblack;
+
+     end
+  else
+     begin
+
+       bentrada := true;
+
+       spdentrada.Font.Color := clred;
+
+       if edidescricao.Enabled then
+          edidescricao.SetFocus;
+       //endi 
+
+     end;
+  //endi
+
+
+
+
+
+
+
+
+  //frmrespdevolucao := tfrmrespdevolucao.create(self);
+
+  //if frmrespdevolucao.ShowModal = mrOk then
+  //   begin
+
+  //      bentrada := true;
+
+  //      spdentrada.Font.Color := clred;
+
+  //      if edidescricao.Enabled then
+  //         edidescricao.SetFocus;
+        //endi
+
+  //   end
+  //else
+  //   begin
+
+
+  //         bentrada := false;
+
+  //         spdentrada.Font.Color := clblack;
+
+  //   end;
+
+  //frmrespdevolucao.Free;
+end;
 
 end.

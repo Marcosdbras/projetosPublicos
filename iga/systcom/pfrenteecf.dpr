@@ -30,7 +30,8 @@ uses
   udetcaixaind in 'udetcaixaind.pas' {frmdetcaixaind},
   upesqvfb in 'upesqvfb.pas' {frmPesqVfb},
   ucancelacaixaind in 'ucancelacaixaind.pas' {frmcancelacaixaind},
-  funcoes_ibpt in 'funcoes_ibpt.pas';
+  funcoes_ibpt in 'funcoes_ibpt.pas',
+  urespdevolucao in 'urespdevolucao.pas' {frmrespdevolucao};
 
 {$R *.res}
 

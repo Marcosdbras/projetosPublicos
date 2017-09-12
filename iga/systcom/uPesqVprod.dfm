@@ -668,13 +668,14 @@ object frmPesqVProd: TfrmPesqVProd
         Top = 73
         Width = 727
         Height = 385
-        ActivePage = tbstributacao
+        ActivePage = tbscarac
         Align = alClient
         Images = imgfichadetalhe
         TabOrder = 1
         OnChange = pcldetalheChange
         object tbscarac: TTabSheet
           Caption = 'Caracter'#237'sticas'
+          OnShow = tbscaracShow
           object Panel1: TPanel
             Left = 0
             Top = 0
@@ -1015,6 +1016,7 @@ object frmPesqVProd: TfrmPesqVProd
               DataField = 'QUA'
               DataSource = frmDados.Dts_vProdutos
               TabOrder = 0
+              OnEnter = ediqtdeEnter
               OnKeyPress = ediqtdeKeyPress
             end
             object ediultcont: TDBEdit
@@ -1051,6 +1053,7 @@ object frmPesqVProd: TfrmPesqVProd
               Font.Style = []
               ParentFont = False
               TabOrder = 6
+              OnEnter = ediprcuEnter
               OnExit = ediprcuExit
               OnKeyPress = ediqtdeKeyPress
             end
@@ -1068,6 +1071,7 @@ object frmPesqVProd: TfrmPesqVProd
               Font.Style = []
               ParentFont = False
               TabOrder = 8
+              OnEnter = ediprveEnter
               OnExit = ediprveExit
               OnKeyPress = ediqtdeKeyPress
             end
@@ -1158,6 +1162,7 @@ object frmPesqVProd: TfrmPesqVProd
               Font.Style = []
               ParentFont = False
               TabOrder = 3
+              OnEnter = ediprcubsEnter
               OnExit = ediprcubsExit
               OnKeyPress = ediqtdeKeyPress
             end
@@ -1169,6 +1174,7 @@ object frmPesqVProd: TfrmPesqVProd
               DataField = 'ALIQCUS'
               DataSource = frmDados.Dts_vProdutos
               TabOrder = 4
+              OnEnter = edialiqcusEnter
               OnExit = edialiqcusExit
               OnKeyPress = ediqtdeKeyPress
             end
@@ -1180,6 +1186,7 @@ object frmPesqVProd: TfrmPesqVProd
               DataField = 'VLRADD'
               DataSource = frmDados.Dts_vProdutos
               TabOrder = 5
+              OnEnter = edivlraddEnter
               OnExit = edivlraddExit
               OnKeyPress = ediqtdeKeyPress
             end
@@ -1191,6 +1198,7 @@ object frmPesqVProd: TfrmPesqVProd
               DataField = 'PER'
               DataSource = frmDados.Dts_vProdutos
               TabOrder = 7
+              OnEnter = ediperEnter
               OnExit = ediperExit
               OnKeyPress = ediqtdeKeyPress
             end

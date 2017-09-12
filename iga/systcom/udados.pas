@@ -7,7 +7,7 @@ uses
   FMTBcd, DBClient, Provider, Dialogs, ADODB, RpDefine, RpCon, RpConDS,
   RpConBDE, RpRave, DBTables, WinSkinData, DBGrids, Graphics, xmldom,
   XMLIntf, msxmldom, XMLDoc, IdBaseComponent, IdComponent, IdTCPConnection,
-  IdTCPClient, IdHTTP;
+  IdTCPClient, IdHTTP, MidasLib;
 
 
 
@@ -4500,6 +4500,10 @@ type
     Cds_ComissaoEOUS: TStringField;
     Dbx_ComissaoREOUS: TStringField;
     Cds_ComissaoREOUS: TStringField;
+    Dbx_TotalComissaoVenda: TSQLQuery;
+    Dbx_TotalDevolucaoComissao: TSQLQuery;
+    cds_temporariocfun: TIntegerField;
+    dts_temporario: TDataSource;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure cds_Tipo_PgtoAfterPost(DataSet: TDataSet);
@@ -4652,6 +4656,8 @@ type
     procedure cds_logtableBeforePost(DataSet: TDataSet);
     procedure Cds_sVendaAfterDelete(DataSet: TDataSet);
     procedure Cds_sVendaBeforeDelete(DataSet: TDataSet);
+    procedure Cds_invsysfAfterDelete(DataSet: TDataSet);
+    procedure Cds_invsysfBeforeDelete(DataSet: TDataSet);
 
 
 
@@ -4719,6 +4725,16 @@ begin
 
 
   cds_temporario.Active := false;
+
+  if fileexists(vardir+'temporario.dev') then
+     begin
+
+       deletefile(pchar( vardir+'temporario.cds' ) );
+       deletefile(pchar( vardir+'temporario.dev' ) );
+
+     end;
+  //endi
+  
 
   with cds_temporario do
     begin
@@ -6905,7 +6921,6 @@ end;
 
 procedure TfrmDados.AtualizaDados;
 begin
-
 if Cds_cond_Pgto.ChangeCount <> 0 then
    begin
      Cds_cond_Pgto.ApplyUpdates(0);
@@ -12912,6 +12927,16 @@ end;
 procedure TfrmDados.Cds_sVendaBeforeDelete(DataSet: TDataSet);
 begin
   IniciaTransacao;
+end;
+
+procedure TfrmDados.Cds_invsysfAfterDelete(DataSet: TDataSet);
+begin
+Atualizadados;
+end;
+
+procedure TfrmDados.Cds_invsysfBeforeDelete(DataSet: TDataSet);
+begin
+iniciatransacao;
 end;
 
 end.
