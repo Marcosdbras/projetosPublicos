@@ -219,6 +219,9 @@ type
     BitBtn1: TBitBtn;
     SpeedButton4: TSpeedButton;
     SpeedButton5: TSpeedButton;
+    ediprcubs_o: TEdit;
+    ediprcu_o: TEdit;
+    ediper_o: TEdit;
     procedure FormShow(Sender: TObject);
     procedure ediOSExit(Sender: TObject);
     procedure ediosefExit(Sender: TObject);
@@ -350,14 +353,7 @@ type
     procedure SpeedButton4Click(Sender: TObject);
     procedure DBEdit4Exit(Sender: TObject);
     procedure SpeedButton5Click(Sender: TObject);
-    procedure ediqtdeEnter(Sender: TObject);
-    procedure ediprcubsEnter(Sender: TObject);
-    procedure ediprcuEnter(Sender: TObject);
-    procedure ediperEnter(Sender: TObject);
-    procedure ediprveEnter(Sender: TObject);
     procedure tbscaracShow(Sender: TObject);
-    procedure edialiqcusEnter(Sender: TObject);
-    procedure edivlraddEnter(Sender: TObject);
 
 
 
@@ -587,6 +583,13 @@ cbxclassificar.Items.Add('Auxiliar');
 cbxclassificar.Items.Add('Barra');
 cbxclassificar.ItemIndex := 0;
 
+
+
+
+//--------------- Habilita permissões -------------------------
+
+
+
 bProdutosaltqtde := false;
 bProdutosaltprvenda := false;
 bProdutosaltcusto := false;
@@ -598,38 +601,114 @@ tbsentrada.TabVisible := false;
 tbssaida.TabVisible := false;
 tbssaidab.TabVisible := false;
 
+ediprcubs_o.Width := ediprcubs.Width;
+ediprcubs_o.Top := ediprcubs.Top;
+ediprcubs_o.Left := ediprcubs.Left;
+ediprcubs_o.Height := ediprcubs.Height;
+
+ediper_o.Width := ediper.Width;
+ediper_o.Top := ediper.Top;
+ediper_o.Left := ediper.Left;
+ediper_o.Height := ediper.Height;
+
+ediprcu_o.Width := ediprcu.Width;
+ediprcu_o.Top := ediprcu.Top;
+ediprcu_o.Left := ediprcu.Left;
+ediprcu_o.Height := ediprcu.Height;
+
+ediprcu_o.Enabled := false;
+ediprcubs_o.Enabled := false;
+ediper_o.Enabled := false;
+
+ediprcu_o.Text := '******';
+ediprcubs_o.Text := '******';
+ediper_o.Text := '******';
+
+if Localiza_Itens_Usuario(frmprincipal.Produtosaltdatainv, inttostr( icusu ) ) > 0 then
+   begin
+     ediultcont.Enabled := true;
+   end
+else
+   begin
+    ediultcont.Enabled := false;
+   end;
+//endi
 
 if Localiza_Itens_Usuario(frmprincipal.Alterarqtde1, inttostr( icusu ) ) > 0 then
    begin
-     bProdutosaltqtde := true;
+     ediqtde.Enabled := true;
+   end
+else
+   begin
+    ediqtde.Enabled := false;
    end;
 //endi
 
 if Localiza_Itens_Usuario(frmprincipal.Produtosaltprvenda, inttostr( icusu ) ) > 0 then
    begin
-     bProdutosaltprvenda := true;
+     ediprve.Enabled := true;
+     ediper.Enabled := true;
+   end
+else
+   begin
+     ediprve.Enabled := false;
+     ediper.Enabled := false;
+   end;
+//endi
+
+if Localiza_Itens_Usuario(frmprincipal.Produtosvismarkut, inttostr( icusu ) ) > 0 then
+   begin
+     ediper.Visible := true;
+     ediper_o.Visible := false;
+   end
+else
+   begin
+     ediper.Visible := false;
+     ediper_o.Visible := true;
    end;
 //endi
 
 if Localiza_Itens_Usuario(frmprincipal.Produtosaltcusto, inttostr( icusu ) ) > 0 then
    begin
-     bProdutosaltcusto := true;
+     ediprcubs.Enabled := true;
+     edialiqcus.Enabled := true;
+     edivlradd.Enabled := true;
+     ediprcu.Enabled := true;
+   end
+else
+   begin
+     ediprcubs.Enabled := false;
+     edialiqcus.Enabled := false;
+     edivlradd.Enabled := false;
+     ediprcu.Enabled := false;
    end;
 //endi
 
 if Localiza_Itens_Usuario(frmprincipal.Produtosviscusto, inttostr( icusu ) ) > 0 then
    begin
-      ediprcu.Color := clwindow;
-      ediprcu.Font.Color := clred;
 
-      ediprcubs.Color := clwindow;
-      ediprcubs.Font.Color := clred;
+      ediprcubs.Visible := true;
+      ediprcu.Visible := true;
+
+      ediprcubs_o.Visible := false;
+      ediprcu_o.Visible := false;
+
 
    end
 else
    begin
-     ediprcu.Color := ediprcu.Font.Color;
-     ediprcubs.Color := ediprcu.Font.Color;
+
+
+      ediprcubs.Visible := false;
+      ediprcu.Visible := false;
+
+      ediprcubs_o.Visible := true;
+      ediprcu_o.Visible := true;
+
+
+
+
+
    end;
 //endi
 
@@ -645,6 +724,9 @@ if Localiza_Itens_Usuario(frmprincipal.Produtossaidaavulsa, inttostr( icusu ) ) 
      tbssaidab.TabVisible := true;
    end;
 //endi
+
+
+//-------------- Término do Habilita Permissões ---------------------------
 
 
 spdlimpar.Click;
@@ -2868,6 +2950,14 @@ begin
 frmfatorprod := tfrmfatorprod.Create(self);
 frmfatorprod.ShowModal;
 frmfatorprod.Free;
+
+try
+  frmpesqvprod.ediprcubs.SetFocus;
+except
+end;
+
+
+
 end;
 
 procedure TfrmPesqVProd.tbstabprShow(Sender: TObject);
@@ -3081,83 +3171,6 @@ begin
              );
 end;
 
-procedure TfrmPesqVProd.ediqtdeEnter(Sender: TObject);
-begin
- if (not bProdutosaltqtde) then
-     begin
-
-       showmessage('Você não tem permissão para alterar a quantidade, '+#13+' para adquirir permissão vá até usuários');
-
-       edidesc.SetFocus;
-
-     end;
- //endi
-
-end;
-
-procedure TfrmPesqVProd.ediprcubsEnter(Sender: TObject);
-begin
-
- if (not bProdutosaltcusto) then
-     begin
-
-       showmessage('Você não tem permissão para alterar a preço de custo, '+#13+' para adquirir permissão vá até o menu cadastro/usuários');
-
-       edidesc.SetFocus;
-
-     end;
- //endi
-
-
-end;
-
-procedure TfrmPesqVProd.ediprcuEnter(Sender: TObject);
-begin
-
- if (not bProdutosaltcusto) then
-     begin
-
-       showmessage('Você não tem permissão para alterar a preço de custo, '+#13+' para adquirir permissão vá até o menu cadastro/usuários');
-
-       edidesc.SetFocus;
-
-     end;
- //endi
-
-
-end;
-
-procedure TfrmPesqVProd.ediperEnter(Sender: TObject);
-begin
-
-if (not bProdutosaltprvenda) then
-     begin
-
-       showmessage('Você não tem permissão para alterar a preço de venda e markup, '+#13+' para adquirir permissão vá até o menu cadastro/usuários');
-
-       edidesc.SetFocus;
-
-     end;
- //endi
- 
-end;
-
-procedure TfrmPesqVProd.ediprveEnter(Sender: TObject);
-begin
-
-
-if (not bProdutosaltprvenda) then
-     begin
-
-       showmessage('Você não tem permissão para alterar a preço de venda e markup, '+#13+' para adquirir permissão vá até o menu cadastro/usuários');
-
-       edidesc.SetFocus;
-
-     end;
- //endi
-
-end;
-
 procedure TfrmPesqVProd.tbscaracShow(Sender: TObject);
 begin
  if (not bProdutosaltqtde) then
@@ -3167,34 +3180,6 @@ begin
 
      end;
  //endi
-end;
-
-procedure TfrmPesqVProd.edialiqcusEnter(Sender: TObject);
-begin
- if (not bProdutosaltcusto) then
-     begin
-
-       showmessage('Você não tem permissão para alterar a preço de custo através de outras despesas, '+#13+' para adquirir permissão vá até o menu cadastro/usuários');
-
-       edidesc.SetFocus;
-
-     end;
- //endi
-
-end;
-
-procedure TfrmPesqVProd.edivlraddEnter(Sender: TObject);
-begin
- if (not bProdutosaltcusto) then
-     begin
-
-       showmessage('Você não tem permissão para alterar a preço de custo através de outras despesas, '+#13+' para adquirir permissão vá até o menu cadastro/usuários');
-
-       edidesc.SetFocus;
-
-     end;
- //endi
-
 end;
 
 end.

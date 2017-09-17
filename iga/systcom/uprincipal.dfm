@@ -2427,6 +2427,14 @@ object frmprincipal: Tfrmprincipal
         Tag = 109
         Caption = 'Produtossaidaavulsa'
       end
+      object Produtosvismarkut: TMenuItem
+        Tag = 110
+        Caption = 'Produtosvismarkut'
+      end
+      object Produtosaltdatainv: TMenuItem
+        Tag = 111
+        Caption = 'Produtosaltdatainv'
+      end
     end
   end
   object AplEvento: TApplicationEvents

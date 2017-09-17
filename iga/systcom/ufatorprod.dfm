@@ -1,6 +1,6 @@
 object frmfatorprod: Tfrmfatorprod
-  Left = 641
-  Top = 49
+  Left = 279
+  Top = 96
   BorderIcons = []
   BorderStyle = bsDialog
   Caption = 'Fator M'#250'ltiplica'#231#227'o'

@@ -69,7 +69,8 @@ procedure Tfrmfatorprod.FormClose(Sender: TObject;
 begin
   Action:=caFree;
   frmfatorprod:=nil;
-  frmpesqvprod.ediprcubs.SetFocus;
+
+
 
 end;
 
@@ -181,9 +182,12 @@ end;
 procedure Tfrmfatorprod.FormShow(Sender: TObject);
 var
   total:real;
+  stipo_emb:string;
 begin
 
   edimateria.Text := '';
+  lblcomposicaoemb.Caption := '';
+
 
   with frmdados do
     begin
@@ -210,16 +214,50 @@ begin
         end;
       //endth
       Cds_composicao_prod.Active := true;
-      
+
+
+
+
+
       Cds_Tipo_embalagem.Last;
 
-      total := totaliza_formula_geral('');
-      lbltotalfg.Caption := formatfloat('###,###,##0.00',total);
+      try
 
-      total := totaliza_embalagem('where ctipo_emb = '+cds_tipo_embalagem.fieldbyname('codigo').asstring );
-      lbltotalemb.Caption := formatfloat('###,###,##0.00',total);
+        total := totaliza_formula_geral('');
+        lbltotalfg.Caption := formatfloat('###,###,##0.00',total);
+
+      except
+        lbltotalfg.Caption := '0,00';
+      end;
+
+
+
+      try
+
+        stipo_emb :=  inttostr(  cds_tipo_embalagem.fieldbyname('codigo').asInteger);
+
+
+        total := totaliza_embalagem('where ctipo_emb = '+stipo_emb );
+        lbltotalemb.Caption := formatfloat('###,###,##0.00',total);
+
+      except
+
+        lbltotalemb.Caption := '0,00';
+
+      end;
 
       Cds_Tipo_embalagem.First;
+
+
+
+
+
+
+
+
+
+
+
     end;
 
     //calc_customatprima;

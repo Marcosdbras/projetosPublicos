@@ -188,6 +188,8 @@ type
     Produtosviscusto: TMenuItem;
     Produtosentradaavulsa: TMenuItem;
     Produtossaidaavulsa: TMenuItem;
+    Produtosvismarkut: TMenuItem;
+    Produtosaltdatainv: TMenuItem;
     procedure FormShow(Sender: TObject);
     procedure Indice1Click(Sender: TObject);
     procedure DBGrid1KeyPress(Sender: TObject; var Key: Char);

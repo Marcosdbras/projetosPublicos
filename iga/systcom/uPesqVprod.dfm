@@ -1016,7 +1016,6 @@ object frmPesqVProd: TfrmPesqVProd
               DataField = 'QUA'
               DataSource = frmDados.Dts_vProdutos
               TabOrder = 0
-              OnEnter = ediqtdeEnter
               OnKeyPress = ediqtdeKeyPress
             end
             object ediultcont: TDBEdit
@@ -1053,7 +1052,6 @@ object frmPesqVProd: TfrmPesqVProd
               Font.Style = []
               ParentFont = False
               TabOrder = 6
-              OnEnter = ediprcuEnter
               OnExit = ediprcuExit
               OnKeyPress = ediqtdeKeyPress
             end
@@ -1071,7 +1069,6 @@ object frmPesqVProd: TfrmPesqVProd
               Font.Style = []
               ParentFont = False
               TabOrder = 8
-              OnEnter = ediprveEnter
               OnExit = ediprveExit
               OnKeyPress = ediqtdeKeyPress
             end
@@ -1162,7 +1159,6 @@ object frmPesqVProd: TfrmPesqVProd
               Font.Style = []
               ParentFont = False
               TabOrder = 3
-              OnEnter = ediprcubsEnter
               OnExit = ediprcubsExit
               OnKeyPress = ediqtdeKeyPress
             end
@@ -1174,7 +1170,6 @@ object frmPesqVProd: TfrmPesqVProd
               DataField = 'ALIQCUS'
               DataSource = frmDados.Dts_vProdutos
               TabOrder = 4
-              OnEnter = edialiqcusEnter
               OnExit = edialiqcusExit
               OnKeyPress = ediqtdeKeyPress
             end
@@ -1186,7 +1181,6 @@ object frmPesqVProd: TfrmPesqVProd
               DataField = 'VLRADD'
               DataSource = frmDados.Dts_vProdutos
               TabOrder = 5
-              OnEnter = edivlraddEnter
               OnExit = edivlraddExit
               OnKeyPress = ediqtdeKeyPress
             end
@@ -1198,7 +1192,6 @@ object frmPesqVProd: TfrmPesqVProd
               DataField = 'PER'
               DataSource = frmDados.Dts_vProdutos
               TabOrder = 7
-              OnEnter = ediperEnter
               OnExit = ediperExit
               OnKeyPress = ediqtdeKeyPress
             end
@@ -1283,6 +1276,30 @@ object frmPesqVProd: TfrmPesqVProd
               DataSource = frmDados.Dts_vProdutos
               TabOrder = 23
               Visible = False
+            end
+            object ediprcubs_o: TEdit
+              Left = 104
+              Top = 224
+              Width = 49
+              Height = 21
+              TabOrder = 24
+              Text = 'ediprcubs_o'
+            end
+            object ediprcu_o: TEdit
+              Left = 104
+              Top = 248
+              Width = 49
+              Height = 21
+              TabOrder = 25
+              Text = 'ediprcu_o'
+            end
+            object ediper_o: TEdit
+              Left = 160
+              Top = 224
+              Width = 57
+              Height = 21
+              TabOrder = 26
+              Text = 'ediper_o'
             end
           end
         end
