@@ -1396,6 +1396,9 @@ begin
 //endi
 
 
+application.MessageBox('Esta tela está sendo descontinuada e toda e qualquer entrada de mercadoria'+#13+'deverá ser feito diretamente pelo cadastro de produtos','Atenção',mb_ok);
+
+
 
 
 end;
